@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chemical Kinetics &mdash; Cantera 2.1a1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.1a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Cantera 2.1a1 documentation" href="../index.html" />
+    <link rel="up" title="Python Module Documentation" href="index.html" />
+    <link rel="next" title="Transport Properties" href="transport.html" />
+    <link rel="prev" title="Thermodynamic Properties" href="thermo.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../index.html">
+<img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="transport.html" title="Transport Properties"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="thermo.html" title="Thermodynamic Properties"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Cantera</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Python Module Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="thermo.html"
+                        title="previous chapter">Thermodynamic Properties</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="transport.html"
+                        title="next chapter">Transport Properties</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cython/kinetics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chemical-kinetics">
+<h1>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="cantera.Kinetics">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Kinetics</tt><a class="headerlink" href="#cantera.Kinetics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera._SolutionBase</span></tt></p>
+<p>Instances of class <a class="reference internal" href="#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a> are responsible for evaluating reaction rates
+of progress, species production rates, and other quantities pertaining to
+a reaction mechanism.</p>
+<dl class="attribute">
+<dt id="cantera.Kinetics.activationEnergies">
+<tt class="descname">activationEnergies</tt><a class="headerlink" href="#cantera.Kinetics.activationEnergies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activation energies for all reactions [K]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.creationRates">
+<tt class="descname">creationRates</tt><a class="headerlink" href="#cantera.Kinetics.creationRates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation rates for each species. [kmol/m^3/s] for bulk phases or
+[kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.deltaEnthalpy">
+<tt class="descname">deltaEnthalpy</tt><a class="headerlink" href="#cantera.Kinetics.deltaEnthalpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in enthalpy for each reaction [J/kmol]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.deltaEntropy">
+<tt class="descname">deltaEntropy</tt><a class="headerlink" href="#cantera.Kinetics.deltaEntropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in entropy for each reaction [J/kmol/K]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.deltaGibbs">
+<tt class="descname">deltaGibbs</tt><a class="headerlink" href="#cantera.Kinetics.deltaGibbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in Gibbs free energy for each reaction [J/kmol]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.deltaStandardEnthalpy">
+<tt class="descname">deltaStandardEnthalpy</tt><a class="headerlink" href="#cantera.Kinetics.deltaStandardEnthalpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in standard-state enthalpy (independent of composition) for
+each reaction [J/kmol]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.deltaStandardEntropy">
+<tt class="descname">deltaStandardEntropy</tt><a class="headerlink" href="#cantera.Kinetics.deltaStandardEntropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in standard-state entropy (independent of composition) for
+each reaction [J/kmol/K]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.deltaStandardGibbs">
+<tt class="descname">deltaStandardGibbs</tt><a class="headerlink" href="#cantera.Kinetics.deltaStandardGibbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in standard-state Gibbs free energy (independent of composition)
+for each reaction [J/kmol]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.destructionRates">
+<tt class="descname">destructionRates</tt><a class="headerlink" href="#cantera.Kinetics.destructionRates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destruction rates for each species. [kmol/m^3/s] for bulk phases or
+[kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.equilibriumConstants">
+<tt class="descname">equilibriumConstants</tt><a class="headerlink" href="#cantera.Kinetics.equilibriumConstants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equilibrium constants in concentration units for all reactions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.fwdRateConstants">
+<tt class="descname">fwdRateConstants</tt><a class="headerlink" href="#cantera.Kinetics.fwdRateConstants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward rate constants for all reactions. Units are a combination of
+kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.fwdRatesOfProgress">
+<tt class="descname">fwdRatesOfProgress</tt><a class="headerlink" href="#cantera.Kinetics.fwdRatesOfProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward rates of progress for the reactions. [kmol/m^3/s] for bulk
+phases or [kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.isReversible">
+<tt class="descname">isReversible</tt><big>(</big><em>self</em>, <em>int iReaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.isReversible" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if reaction <tt class="xref py py-obj docutils literal"><span class="pre">iReaction</span></tt> is reversible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.kineticsSpeciesIndex">
+<tt class="descname">kineticsSpeciesIndex</tt><big>(</big><em>self</em>, <em>int species</em>, <em>int phase</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.kineticsSpeciesIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of species <em>species</em> of phase <em>phase</em> within arrays returned
+by methods of class <a class="reference internal" href="#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.multiplier">
+<tt class="descname">multiplier</tt><big>(</big><em>self</em>, <em>int iReaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.multiplier" title="Permalink to this definition">¶</a></dt>
+<dd><p>A scaling factor applied to the rate coefficient for reaction
+<em>iReaction</em>. Can be used to carry out sensitivity analysis or to
+selectively disable a particular reaction. See <a class="reference internal" href="#cantera.Kinetics.setMultiplier" title="cantera.Kinetics.setMultiplier"><tt class="xref py py-obj docutils literal"><span class="pre">setMultiplier</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.nPhases">
+<tt class="descname">nPhases</tt><a class="headerlink" href="#cantera.Kinetics.nPhases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of phases in the reaction mechanism</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.nReactions">
+<tt class="descname">nReactions</tt><a class="headerlink" href="#cantera.Kinetics.nReactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of reactions in the reaction mechanism</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.nTotalSpecies">
+<tt class="descname">nTotalSpecies</tt><a class="headerlink" href="#cantera.Kinetics.nTotalSpecies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of species in all phases participating in the kinetics
+mechanism.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.netProductionRates">
+<tt class="descname">netProductionRates</tt><a class="headerlink" href="#cantera.Kinetics.netProductionRates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Net production rates for each species. [kmol/m^3/s] for bulk phases or
+[kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.netRatesOfProgress">
+<tt class="descname">netRatesOfProgress</tt><a class="headerlink" href="#cantera.Kinetics.netRatesOfProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Net rates of progress for the reactions. [kmol/m^3/s] for bulk phases
+or [kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.productStoichCoeff">
+<tt class="descname">productStoichCoeff</tt><big>(</big><em>self</em>, <em>int kSpec</em>, <em>int iReaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.productStoichCoeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stoichiometric coefficient of species <em>kSpec</em> as a product in
+reaction <em>iReaction</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.productStoichCoeffs">
+<tt class="descname">productStoichCoeffs</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.productStoichCoeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The array of product stoichiometric coefficients. Element <em>[k,i]</em> of
+this array is the product stoichiometric coefficient of species <em>k</em> in
+reaction <em>i</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.reactantStoichCoeff">
+<tt class="descname">reactantStoichCoeff</tt><big>(</big><em>self</em>, <em>int kSpec</em>, <em>int iReaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reactantStoichCoeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>The stoichiometric coefficient of species <em>kSpec</em> as a reactant in
+reaction <em>iReaction</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.reactantStoichCoeffs">
+<tt class="descname">reactantStoichCoeffs</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reactantStoichCoeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The array of reactant stoichiometric coefficients. Element <em>[k,i]</em> of
+this array is the reactant stoichiometric coefficient of species <em>k</em> in
+reaction <em>i</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.reactionEquation">
+<tt class="descname">reactionEquation</tt><big>(</big><em>self</em>, <em>int iReaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reactionEquation" title="Permalink to this definition">¶</a></dt>
+<dd><p>The equation for the specified reaction. See also <a class="reference internal" href="#cantera.Kinetics.reactionEquations" title="cantera.Kinetics.reactionEquations"><tt class="xref py py-obj docutils literal"><span class="pre">reactionEquations</span></tt></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.reactionEquations">
+<tt class="descname">reactionEquations</tt><big>(</big><em>self</em>, <em>indices=None</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reactionEquations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list containing the reaction equation for all reactions in the
+mechanism (if <em>indices</em> is unspecified) or the equations for each
+reaction in the sequence <em>indices</em>. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">reactionEquations</span><span class="p">()</span>
+<span class="go">[&#39;2 O + M &lt;=&gt; O2 + M&#39;, &#39;O + H + M &lt;=&gt; OH + M&#39;, &#39;O + H2 &lt;=&gt; H + OH&#39;, ...]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">reactionEquations</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="go">[&#39;O + H + M &lt;=&gt; OH + M&#39;, &#39;O + H2 &lt;=&gt; H + OH&#39;]</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#cantera.Kinetics.reactionEquation" title="cantera.Kinetics.reactionEquation"><tt class="xref py py-obj docutils literal"><span class="pre">reactionEquation</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.reactionPhaseIndex">
+<tt class="descname">reactionPhaseIndex</tt><a class="headerlink" href="#cantera.Kinetics.reactionPhaseIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of the phase where the reactions occur</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.reactionType">
+<tt class="descname">reactionType</tt><big>(</big><em>self</em>, <em>int iReaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reactionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of reaction <em>iReaction</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.revRateConstants">
+<tt class="descname">revRateConstants</tt><a class="headerlink" href="#cantera.Kinetics.revRateConstants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse rate constants for all reactions. Units are a combination of
+kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.revRatesOfProgress">
+<tt class="descname">revRatesOfProgress</tt><a class="headerlink" href="#cantera.Kinetics.revRatesOfProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse rates of progress for the reactions. [kmol/m^3/s] for bulk
+phases or [kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Kinetics.setMultiplier">
+<tt class="descname">setMultiplier</tt><big>(</big><em>self</em>, <em>double value</em>, <em>int iReaction=-1</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.setMultiplier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the multiplier for for reaction <em>iReaction</em> to <em>value</em>.
+If <em>iReaction</em> is not specified, then the multiplier for all reactions
+is set to <em>value</em>. See <a class="reference internal" href="#cantera.Kinetics.multiplier" title="cantera.Kinetics.multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">multiplier</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="transport.html" title="Transport Properties"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="thermo.html" title="Thermodynamic Properties"
+             >previous</a> |</li>
+        <li><a href="../index.html">Cantera</a> &raquo;</li>
+          <li><a href="index.html" >Python Module Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Cantera Developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
