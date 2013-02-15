@@ -654,15 +654,25 @@
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;{</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordflow">if</span> (!m_finalized) {</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        m_finalized = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    }</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;}</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;</div>
-<div class="line"><a name="l00600"></a><span class="lineno"><a class="code" href="classCantera_1_1AqueousKinetics.html#a9fb588fd953e06ac889fc2789a5d3467">  600</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1AqueousKinetics.html#a9fb588fd953e06ac889fc2789a5d3467" title="Returns true if the kinetics manager has been properly initialized and finalized.">AqueousKinetics::ready</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="keywordflow">return</span> (m_finalized);</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;}</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;}</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <span class="comment">// Guarantee that these arrays can be converted to double* even in the</span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        <span class="comment">// special case where there are no reactions defined.</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classCantera_1_1Kinetics.html#ab8d423af8063cb414e148f016bc671f5" title="Number of reactions in the mechanism.">m_ii</a>) {</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <a class="code" href="classCantera_1_1Kinetics.html#a5beb0a30f678e8bb451038e2fb2d3ebe" title="Vector of perturbation factors for each reaction&#39;s rate of progress vector.">m_perturb</a>.resize(1, 1.0);</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            m_ropf.resize(1, 0.0);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            m_ropr.resize(1, 0.0);</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            m_ropnet.resize(1, 0.0);</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            m_rkcn.resize(1, 0.0);</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        }</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    }</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;}</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;</div>
+<div class="line"><a name="l00610"></a><span class="lineno"><a class="code" href="classCantera_1_1AqueousKinetics.html#a9fb588fd953e06ac889fc2789a5d3467">  610</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1AqueousKinetics.html#a9fb588fd953e06ac889fc2789a5d3467" title="Returns true if the kinetics manager has been properly initialized and finalized.">AqueousKinetics::ready</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordflow">return</span> m_finalized;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;}</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

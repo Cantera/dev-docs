@@ -728,21 +728,19 @@
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;{</div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <span class="keywordtype">size_t</span> is = toVec.size();</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; is; is++) {</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        <span class="keywordflow">if</span> (toVec[i]) {</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;            <span class="keyword">delete</span>(toVec[i]);</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        }</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    }</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    is = fromVec.size();</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    toVec.resize(is);</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; is; is++) {</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        toVec[i] = <span class="keyword">new</span> D(*(fromVec[i]));</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    }</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;}</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">//@}</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment"></span>}</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        <span class="keyword">delete</span> toVec[i];</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    }</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    is = fromVec.size();</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    toVec.resize(is);</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; is; is++) {</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        toVec[i] = <span class="keyword">new</span> D(*(fromVec[i]));</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    }</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;}</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">//@}</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment"></span>}</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

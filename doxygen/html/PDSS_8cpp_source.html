@@ -308,13 +308,13 @@
 <div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#aa93e126a1c8f2f7d17291b5618b40e3c">  248</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#aa93e126a1c8f2f7d17291b5618b40e3c" title="Return the molar enthalpy in units of J kmol-1.">PDSS::enthalpy_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;enthalpy_mole()&quot;</span>);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;}</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
 <div class="line"><a name="l00254"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#abaa2249046d637d37ebd12fcde4daabc">  254</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#abaa2249046d637d37ebd12fcde4daabc" title="Return the standard state molar enthalpy divided by RT.">PDSS::enthalpy_RT</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">double</span> RT = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a>;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classCantera_1_1PDSS.html#aa93e126a1c8f2f7d17291b5618b40e3c" title="Return the molar enthalpy in units of J kmol-1.">enthalpy_mole</a>()/RT);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#aa93e126a1c8f2f7d17291b5618b40e3c" title="Return the molar enthalpy in units of J kmol-1.">enthalpy_mole</a>()/RT;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">// Return the molar internal Energy in units of J kmol-1</span></div>
@@ -327,7 +327,7 @@
 <div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a129b5bab1efffda61d59356f48fc3480">  267</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a129b5bab1efffda61d59356f48fc3480" title="Return the molar internal Energy in units of J kmol-1.">PDSS::intEnergy_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;intEnergy_mole()&quot;</span>);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment">// Return the molar entropy in units of J kmol-1 K-1</span></div>
@@ -340,12 +340,12 @@
 <div class="line"><a name="l00280"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a4d968b4485911ebd3fb1ea4538ea4894">  280</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a4d968b4485911ebd3fb1ea4538ea4894" title="Return the molar entropy in units of J kmol-1 K-1.">PDSS::entropy_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;entropy_mole()&quot;</span>);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
 <div class="line"><a name="l00286"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a05943db8a356dc45c0ad112109f3fb8c">  286</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a05943db8a356dc45c0ad112109f3fb8c" title="Return the standard state entropy divided by RT.">PDSS::entropy_R</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">return</span>(<a class="code" href="classCantera_1_1PDSS.html#a4d968b4485911ebd3fb1ea4538ea4894" title="Return the molar entropy in units of J kmol-1 K-1.">entropy_mole</a>()/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#a4d968b4485911ebd3fb1ea4538ea4894" title="Return the molar entropy in units of J kmol-1 K-1.">entropy_mole</a>()/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;}</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">// Return the molar gibbs free energy in units of J kmol-1</span></div>
@@ -358,13 +358,13 @@
 <div class="line"><a name="l00298"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a0287f3139c8bcda71c1158e16796e168">  298</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a0287f3139c8bcda71c1158e16796e168" title="Return the molar gibbs free energy in units of J kmol-1.">PDSS::gibbs_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;gibbs_mole()&quot;</span>);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;}</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
 <div class="line"><a name="l00304"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#ad07803806d518aaf805be04667b39e74">  304</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#ad07803806d518aaf805be04667b39e74" title="Return the molar gibbs free energy divided by RT.">PDSS::gibbs_RT</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">double</span> RT = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classCantera_1_1PDSS.html#a0287f3139c8bcda71c1158e16796e168" title="Return the molar gibbs free energy in units of J kmol-1.">gibbs_mole</a>()/RT);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#a0287f3139c8bcda71c1158e16796e168" title="Return the molar gibbs free energy in units of J kmol-1.">gibbs_mole</a>()/RT;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment">// Return the molar const pressure heat capacity in units of J kmol-1 K-1</span></div>
@@ -377,12 +377,12 @@
 <div class="line"><a name="l00317"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#ab97e9695b61ef8531663286baf653e31">  317</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#ab97e9695b61ef8531663286baf653e31" title="Return the molar const pressure heat capacity in units of J kmol-1 K-1.">PDSS::cp_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;cp_mole()&quot;</span>);</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;}</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
 <div class="line"><a name="l00323"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a2006f835b7069b34cfbff6ebfeed9768">  323</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a2006f835b7069b34cfbff6ebfeed9768" title="Return the molar const pressure heat capacity divided by RT.">PDSS::cp_R</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classCantera_1_1PDSS.html#ab97e9695b61ef8531663286baf653e31" title="Return the molar const pressure heat capacity in units of J kmol-1 K-1.">cp_mole</a>()/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#ab97e9695b61ef8531663286baf653e31" title="Return the molar const pressure heat capacity in units of J kmol-1 K-1.">cp_mole</a>()/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;}</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
 <div class="line"><a name="l00328"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#ae9d9787b440293bab49e22035c5adbc9">  328</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#ae9d9787b440293bab49e22035c5adbc9" title="Return the molar volume at standard state.">PDSS::molarVolume</a>()<span class="keyword"> const</span></div>
@@ -407,7 +407,7 @@
 <div class="line"><a name="l00347"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#ad38ceec94c8ad35971841f60e47071ee">  347</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#ad38ceec94c8ad35971841f60e47071ee" title="Return the molar const volume heat capacity in units of J kmol-1 K-1.">PDSS::cv_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;cv_mole()&quot;</span>);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
 <div class="line"><a name="l00353"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a91290239b71ca6bdafec50fa9dce3227">  353</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a91290239b71ca6bdafec50fa9dce3227" title="Return the molar gibbs free energy divided by RT at reference pressure.">PDSS::gibbs_RT_ref</a>()<span class="keyword"> const</span></div>
@@ -450,7 +450,7 @@
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    doublereal RT = <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a> * <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>;</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    doublereal tmp = <a class="code" href="classCantera_1_1PDSS.html#a0de3db5f1756b0ee9948bfb8430474fa" title="Return the molar enthalpy divided by RT at reference pressure.">enthalpy_RT_ref</a>();</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">return</span>(<a class="code" href="classCantera_1_1PDSS.html#aa93e126a1c8f2f7d17291b5618b40e3c" title="Return the molar enthalpy in units of J kmol-1.">enthalpy_mole</a>() - RT * tmp);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#aa93e126a1c8f2f7d17291b5618b40e3c" title="Return the molar enthalpy in units of J kmol-1.">enthalpy_mole</a>() - RT * tmp;</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;}</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment"></span></div>
@@ -462,7 +462,7 @@
 <div class="line"><a name="l00402"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#add149af2edde8ed6b9e99dbd96bb1360">  402</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#add149af2edde8ed6b9e99dbd96bb1360" title="Get the difference in the standard state entropy between the current pressure and the reference press...">PDSS::entropyDelp_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    doublereal tmp = <a class="code" href="classCantera_1_1PDSS.html#ae70139ad82c47ec9c423abfbf5ed94f2" title="Return the molar entropy divided by R at reference pressure.">entropy_R_ref</a>();</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">return</span>(<a class="code" href="classCantera_1_1PDSS.html#a4d968b4485911ebd3fb1ea4538ea4894" title="Return the molar entropy in units of J kmol-1 K-1.">entropy_mole</a>() - <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * tmp);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#a4d968b4485911ebd3fb1ea4538ea4894" title="Return the molar entropy in units of J kmol-1 K-1.">entropy_mole</a>() - <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * tmp;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;}</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment"></span></div>
@@ -475,7 +475,7 @@
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    doublereal RT = <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a> * <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>;</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    doublereal tmp = <a class="code" href="classCantera_1_1PDSS.html#a91290239b71ca6bdafec50fa9dce3227" title="Return the molar gibbs free energy divided by RT at reference pressure.">gibbs_RT_ref</a>();</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span>(<a class="code" href="classCantera_1_1PDSS.html#a0287f3139c8bcda71c1158e16796e168" title="Return the molar gibbs free energy in units of J kmol-1.">gibbs_mole</a>() - RT * tmp);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#a0287f3139c8bcda71c1158e16796e168" title="Return the molar gibbs free energy in units of J kmol-1.">gibbs_mole</a>() - RT * tmp;</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;}</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">// Return the molar const volume heat capacity in units of J kmol-1 K-1</span></div>
@@ -488,7 +488,7 @@
 <div class="line"><a name="l00428"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#ad2b012ce968146d5caee6ba38cde22f6">  428</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#ad2b012ce968146d5caee6ba38cde22f6" title="Get the difference in standard state heat capacity between the current pressure and the reference pre...">PDSS::cpDelp_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    doublereal tmp = <a class="code" href="classCantera_1_1PDSS.html#aa9b54dc3b91a1db66e3f39fe8d395d85" title="Return the molar heat capacity divided by R at reference pressure.">cp_R_ref</a>();</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keywordflow">return</span>(<a class="code" href="classCantera_1_1PDSS.html#ab97e9695b61ef8531663286baf653e31" title="Return the molar const pressure heat capacity in units of J kmol-1 K-1.">cp_mole</a>() - <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * tmp);</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#ab97e9695b61ef8531663286baf653e31" title="Return the molar const pressure heat capacity in units of J kmol-1 K-1.">cp_mole</a>() - <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * tmp;</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;}</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">/**</span></div>
@@ -498,7 +498,7 @@
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00439"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#aff3d64e82bac7f64af3338c9af715a35">  439</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#aff3d64e82bac7f64af3338c9af715a35" title="Returns the pressure (Pa)">PDSS::pressure</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="classCantera_1_1PDSS.html#a36c945dff57b7e72f745474aba7c6d33" title="State of the system - pressure.">m_pres</a>);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PDSS.html#a36c945dff57b7e72f745474aba7c6d33" title="State of the system - pressure.">m_pres</a>;</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;}</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment">// Return the volumetric thermal expansion coefficient. Units: 1/K.</span></div>
@@ -511,28 +511,28 @@
 <div class="line"><a name="l00451"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a38ae8c7e76a45e8953f9f42ccdd7bb26">  451</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS.html#a38ae8c7e76a45e8953f9f42ccdd7bb26" title="Return the volumetric thermal expansion coefficient. Units: 1/K.">PDSS::thermalExpansionCoeff</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes.">CanteraError</a>(<span class="stringliteral">&quot;PDSS::thermalExpansionCoeff()&quot;</span>, <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;}</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment">/// critical temperature</span></div>
 <div class="line"><a name="l00458"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a995ee50f10e33ee3186809ab6444b364">  458</a></span>&#160;<span class="comment"></span>doublereal <a class="code" href="classCantera_1_1PDSS.html#a995ee50f10e33ee3186809ab6444b364" title="critical temperature">PDSS::critTemperature</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;critTemperature()&quot;</span>);</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;}</div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">/// critical pressure</span></div>
 <div class="line"><a name="l00465"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a4f11e731387cd844c0f04582215b4b37">  465</a></span>&#160;<span class="comment"></span>doublereal <a class="code" href="classCantera_1_1PDSS.html#a4f11e731387cd844c0f04582215b4b37" title="critical pressure">PDSS::critPressure</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;critPressure()&quot;</span>);</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;}</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">/// critical density</span></div>
 <div class="line"><a name="l00472"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#afc8f2138314ab95b692ba6de1d5d23b4">  472</a></span>&#160;<span class="comment"></span>doublereal <a class="code" href="classCantera_1_1PDSS.html#afc8f2138314ab95b692ba6de1d5d23b4" title="critical density">PDSS::critDensity</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;critDensity()&quot;</span>);</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;}</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;</div>
 <div class="line"><a name="l00478"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a47308c7661d4a0af39bd19c14cd5b4f8">  478</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PDSS.html#a47308c7661d4a0af39bd19c14cd5b4f8" title="Sets the pressure in the object.">PDSS::setPressure</a>(doublereal pres)</div>
@@ -580,7 +580,7 @@
 <div class="line"><a name="l00520"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#ae3fc47f48b0df5655050c8b662a94646">  520</a></span>&#160;<span class="comment"></span>doublereal <a class="code" href="classCantera_1_1PDSS.html#ae3fc47f48b0df5655050c8b662a94646" title="saturation pressure">PDSS::satPressure</a>(doublereal t)</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;{</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a07ee5029ef9bf48c9888208d4e64e338" title="Set an error within this object for an unhandled capability.">err</a>(<span class="stringliteral">&quot;satPressure()&quot;</span>);</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;}</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;</div>
@@ -592,15 +592,15 @@
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
 <div class="line"><a name="l00533"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS.html#a720e67a02833b0f1a6ed7fda9b75cf5a">  533</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PDSS.html#a720e67a02833b0f1a6ed7fda9b75cf5a" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">PDSS::reportParams</a>(<span class="keywordtype">size_t</span>&amp; kindex, <span class="keywordtype">int</span>&amp; type,</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;                        doublereal* <span class="keyword">const</span> c,</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                        doublereal&amp; minTemp,</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                        doublereal&amp; maxTemp,</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                        doublereal&amp; refPressure)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                        doublereal&amp; minTemp_,</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                        doublereal&amp; maxTemp_,</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                        doublereal&amp; refPressure_)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    kindex = <a class="code" href="classCantera_1_1PDSS.html#a252b668936134d20b7f655dc8f9f778e" title="Species index in the thermophase corresponding to this species.">m_spindex</a>;</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    type = <a class="code" href="classCantera_1_1PDSS.html#a56ebab88a9fad1112c103e05576f8b83" title="Enumerated type describing the type of the PDSS object.">m_pdssType</a>;</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    minTemp = <a class="code" href="classCantera_1_1PDSS.html#afbfb8af311e8ab246a22fffdf2a7ae4a" title="Minimum temperature.">m_minTemp</a>;</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    maxTemp = <a class="code" href="classCantera_1_1PDSS.html#a604c4c82313c8adb1de9e5a53b110d2b" title="Maximum temperature.">m_maxTemp</a>;</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    refPressure = <a class="code" href="classCantera_1_1PDSS.html#abdd15cd78af8bfd2a1ae1424e1010af9" title="Reference state pressure of the species.">m_p0</a>;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    minTemp_ = <a class="code" href="classCantera_1_1PDSS.html#afbfb8af311e8ab246a22fffdf2a7ae4a" title="Minimum temperature.">m_minTemp</a>;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    maxTemp_ = <a class="code" href="classCantera_1_1PDSS.html#a604c4c82313c8adb1de9e5a53b110d2b" title="Maximum temperature.">m_maxTemp</a>;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    refPressure_ = <a class="code" href="classCantera_1_1PDSS.html#abdd15cd78af8bfd2a1ae1424e1010af9" title="Reference state pressure of the species.">m_p0</a>;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;}</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->

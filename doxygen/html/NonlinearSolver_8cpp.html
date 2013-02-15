@@ -72,6 +72,7 @@
 <code>#include &quot;<a class="el" href="clockWC_8h_source.html">cantera/base/clockWC.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="vec__functions_8h_source.html">cantera/base/vec_functions.h</a>&quot;</code><br/>
 <code>#include &quot;cantera/base/mdp_allo.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="stringUtils_8h_source.html">cantera/base/stringUtils.h</a>&quot;</code><br/>
 <code>#include &lt;cfloat&gt;</code><br/>
 <code>#include &lt;ctime&gt;</code><br/>
 <code>#include &lt;vector&gt;</code><br/>
@@ -80,7 +81,7 @@
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for NonlinearSolver.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="NonlinearSolver_8cpp__incl.svg" width="1435" height="592"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="NonlinearSolver_8cpp__incl.svg" width="1528" height="592"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -92,6 +93,13 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespaceCantera"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides class <a class="el" href="classCantera_1_1Nucleus.html" title="Represents atomic nuclei.">Nucleus</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:aafb51d7dc67963486063d73dca1a1ace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafb51d7dc67963486063d73dca1a1ace"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONSTD_DATA_PTR</b>(x)&#160;&#160;&#160;(( const doublereal *) (&amp;x[0]))</td></tr>
+<tr class="separator:aafb51d7dc67963486063d73dca1a1ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab6b35d8bbcce25a6a3457bc8d062b450"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#ab6b35d8bbcce25a6a3457bc8d062b450">print_line</a> (const char *str, int n)</td></tr>
@@ -100,18 +108,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a969db5f826e145c2fccf7a00271a32b5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5">subtractRD</a> (doublereal a, doublereal b)</td></tr>
 <tr class="memdesc:a969db5f826e145c2fccf7a00271a32b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This routine subtracts two numbers for one another.  <a href="#a969db5f826e145c2fccf7a00271a32b5"></a><br/></td></tr>
 <tr class="separator:a969db5f826e145c2fccf7a00271a32b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacc3ee1a7f283f8ef65cea31f4436a95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacc3ee1a7f283f8ef65cea31f4436a95"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX</b>(x, y)&#160;&#160;&#160;(( (x) &gt; (y) ) ? (x) : (y))</td></tr>
-<tr class="separator:aacc3ee1a7f283f8ef65cea31f4436a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e75242132eaabbc1c512488a135926"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74e75242132eaabbc1c512488a135926"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN</b>(x, y)&#160;&#160;&#160;(( (x) &lt; (y) ) ? (x) : (y))</td></tr>
-<tr class="separator:a74e75242132eaabbc1c512488a135926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafb51d7dc67963486063d73dca1a1ace"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafb51d7dc67963486063d73dca1a1ace"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CONSTD_DATA_PTR</b>(x)&#160;&#160;&#160;(( const doublereal *) (&amp;x[0]))</td></tr>
-<tr class="separator:aafb51d7dc67963486063d73dca1a1ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53ed71c7806a353b493322c3564a50e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53ed71c7806a353b493322c3564a50e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_line</b> (const char *, int)</td></tr>
-<tr class="separator:a53ed71c7806a353b493322c3564a50e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Damped Newton solver for 0D and 1D problems. </p>

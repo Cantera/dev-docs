@@ -245,7 +245,7 @@
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">if</span> (ifp == NULL || keyLineTok == NULL || keyArgTok == NULL) {</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;get_next_keyLine ERROR, arguments are bad\n&quot;</span>);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">/*</span></div>
@@ -255,7 +255,7 @@
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;do_it_again:</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">do</span> {</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">if</span> ((retn_value = read_string(ifp, save_input, <span class="charliteral">&#39;\n&#39;</span>)) &lt; 0) {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">return</span>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        }</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">if</span> (PrintInputFile)  {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">if</span> (retn_value &lt;=0) {</div>
@@ -341,13 +341,13 @@
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;{</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (tokPtr-&gt;ntokes == 0) {</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span>(str_to_int(DEFAULT_STR, maxVal, minVal, defaultVal, error));</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span> str_to_int(DEFAULT_STR, maxVal, minVal, defaultVal, error);</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tokPtr-&gt;ntokes &gt; 1) {</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        (void) fprintf(stderr, <span class="stringliteral">&quot;ERROR: tok_to_int, ntokes &gt; 1: %s\n&quot;</span>,</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                       tokPtr-&gt;orig_str);</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">return</span>(str_to_int(tokPtr-&gt;tok_ptr[0], maxVal, minVal, defaultVal, error));</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keywordflow">return</span> str_to_int(tokPtr-&gt;tok_ptr[0], maxVal, minVal, defaultVal, error);</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;}</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -410,7 +410,7 @@
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    }</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">return</span> (retn_value);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">return</span> retn_value;</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;}</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -460,13 +460,13 @@
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;{</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordflow">if</span> (tokPtr-&gt;ntokes == 0) {</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keywordflow">return</span>(str_to_double(DEFAULT_STR, maxVal, minVal, defaultVal, error));</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="keywordflow">return</span> str_to_double(DEFAULT_STR, maxVal, minVal, defaultVal, error);</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tokPtr-&gt;ntokes &gt; 1) {</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        (void) fprintf(stderr, <span class="stringliteral">&quot;ERROR: tok_to_double, ntokes &gt; 1: %s\n&quot;</span>,</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                       tokPtr-&gt;orig_str);</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    }</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordflow">return</span>(str_to_double(tokPtr-&gt;tok_ptr[0], maxVal, minVal, defaultVal, error));</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordflow">return</span> str_to_double(tokPtr-&gt;tok_ptr[0], maxVal, minVal, defaultVal, error);</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;}</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -534,7 +534,7 @@
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    }</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keywordflow">return</span> (retn_value);</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keywordflow">return</span> retn_value;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;}</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
@@ -565,13 +565,13 @@
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;{</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="keywordflow">if</span> (tokPtr-&gt;ntokes == 0) {</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="keywordflow">return</span>(str_to_boolean(DEFAULT_STR, default_value, error));</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="keywordflow">return</span> str_to_boolean(DEFAULT_STR, default_value, error);</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tokPtr-&gt;ntokes &gt; 1) {</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        (void) fprintf(stderr, <span class="stringliteral">&quot;ERROR: tok_to_boolean, ntokes &gt; 1: %s\n&quot;</span>,</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                       tokPtr-&gt;orig_str);</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    }</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordflow">return</span>(str_to_boolean(tokPtr-&gt;tok_ptr[0], default_value, error));</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordflow">return</span> str_to_boolean(tokPtr-&gt;tok_ptr[0], default_value, error);</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;}</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">/******************************************************************************/</span></div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">/******************************************************************************/</span></div>
@@ -649,7 +649,7 @@
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        (void) fprintf(stderr,<span class="stringliteral">&quot;\tmaxTok = %d, minTok = %d\n&quot;</span>, maxTok, minTok);</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    }</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="keywordflow">return</span> (str);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="keywordflow">return</span> str;</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;}</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
@@ -678,18 +678,18 @@
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keywordflow">if</span> (str == NULL) {</div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        (void) fprintf(stderr,<span class="stringliteral">&quot;ERROR str_to_string: str is uninialized\n&quot;</span>);</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="keywordflow">return</span>(NULL);</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    }</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="keywordflow">if</span> (strmatch(str, DEFAULT_STR)) {</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;        <span class="keywordflow">if</span> (strmatch(defaultVal, NO_DEFAULT_STR)) {</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;            *error = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            (void) fprintf(stderr,<span class="stringliteral">&quot;ERROR str_to_string: no default allowed\n&quot;</span>);</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;            <span class="keywordflow">return</span>(copy_string(NO_DEFAULT_STR));</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;            <span class="keywordflow">return</span> copy_string(NO_DEFAULT_STR);</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;            <span class="keywordflow">return</span>(copy_string(defaultVal));</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;            <span class="keywordflow">return</span> copy_string(defaultVal);</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;        }</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    }</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keywordflow">return</span>(copy_string(str));</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    <span class="keywordflow">return</span> copy_string(str);</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;}</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -731,7 +731,7 @@
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                fprintf(stderr,<span class="stringliteral">&quot;\tmax = %d, min = %d\n&quot;</span>, maxVal, minVal);</div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                exit(-1);</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;                <span class="keywordflow">return</span>(retn_value);</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;                <span class="keywordflow">return</span> retn_value;</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;            }</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        }</div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    }</div>
@@ -828,7 +828,7 @@
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                (void) fprintf(stderr,<span class="stringliteral">&quot;\tmax = %e, min = %e\n&quot;</span>, maxVal, minVal);</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                exit(-1);</div>
 <div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                <span class="keywordflow">return</span>(retn_value);</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                <span class="keywordflow">return</span> retn_value;</div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            }</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        }</div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    }</div>
@@ -867,7 +867,7 @@
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;        (void) fprintf(stderr, <span class="stringliteral">&quot;\tlength max = %d, min = %d\n&quot;</span>, maxVal, minVal);</div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;        exit(-1);</div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    }</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    <span class="keywordflow">return</span> (copy_string(input));</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    <span class="keywordflow">return</span> copy_string(input);</div>
 <div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;}</div>
 <div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -910,7 +910,7 @@
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <span class="keywordflow">if</span> (strlen(str) &gt; MAX_INPUT_STR_LN) {</div>
 <div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        fprintf(stderr,<span class="stringliteral">&quot;%sMatch string is too long:\n\t%s\n&quot;</span>,</div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;                ename, str);</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;        <span class="keywordflow">return</span>(-1);</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    }</div>
 <div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;</div>
 <div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    <span class="comment">/*</span></div>
@@ -922,7 +922,7 @@
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;        <span class="keywordflow">if</span> (str[i] == COM_CHAR || str[i] == COM_CHAR2) {</div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;            fprintf(stderr, <span class="stringliteral">&quot;%s Comment in match string\n\t%s\n&quot;</span>,</div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;                    ename, str);</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;            <span class="keywordflow">return</span>(-1);</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        }</div>
 <div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;    }</div>
 <div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;</div>
@@ -933,7 +933,7 @@
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    <span class="keywordflow">if</span> ((retn_value = strip(strcpy(match_string, str))) &lt;= 0) {</div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;%sMatch string is white space: \&quot;%s\&quot;\n&quot;</span>,</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                ename, str);</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        <span class="keywordflow">return</span>(-1);</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    }</div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;</div>
 <div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    <span class="comment">/*</span></div>
@@ -950,7 +950,7 @@
 <div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;            fprintf(stderr,</div>
 <div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                    <span class="stringliteral">&quot;%sEOF found in input file while searching for:\n&quot;</span>, ename);</div>
 <div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;            fprintf(stderr, <span class="stringliteral">&quot;\t\&quot;%s\&quot;\n&quot;</span>, match_string);</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;            <span class="keywordflow">return</span>(retn_value);</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;            <span class="keywordflow">return</span> retn_value;</div>
 <div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        }</div>
 <div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;</div>
 <div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;        <span class="comment">/*</span></div>
@@ -1041,7 +1041,7 @@
 <div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;</div>
 <div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;    <span class="keywordflow">if</span> (retn_value == 0) {</div>
-<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;        <span class="keywordflow">return</span> (strip(input));</div>
+<div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;        <span class="keywordflow">return</span> strip(input);</div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;    }</div>
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;</div>
 <div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;    <span class="comment">/*</span></div>
@@ -1050,7 +1050,7 @@
 <div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;    (void) strip(input);</div>
-<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;    <span class="keywordflow">return</span> (retn_value);</div>
+<div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;    <span class="keywordflow">return</span> retn_value;</div>
 <div class="line"><a name="l00994"></a><span class="lineno">  994</span>&#160;}</div>
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -1116,7 +1116,7 @@
 <div class="line"><a name="l01056"></a><span class="lineno"> 1056</span>&#160;<span class="comment">     *   Make sure the string is null terminated and return</span></div>
 <div class="line"><a name="l01057"></a><span class="lineno"> 1057</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l01058"></a><span class="lineno"> 1058</span>&#160;    <span class="keywordtype">string</span>[i] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;    <span class="keywordflow">return</span> (rtn_value);</div>
+<div class="line"><a name="l01059"></a><span class="lineno"> 1059</span>&#160;    <span class="keywordflow">return</span> rtn_value;</div>
 <div class="line"><a name="l01060"></a><span class="lineno"> 1060</span>&#160;}</div>
 <div class="line"><a name="l01061"></a><span class="lineno"> 1061</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l01062"></a><span class="lineno"> 1062</span>&#160;</div>
@@ -1143,7 +1143,7 @@
 <div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;            *ret_value = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;        <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;        }</div>
 <div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;        <span class="keywordflow">if</span> (strmatch(token,<span class="stringliteral">&quot;true&quot;</span>) || strmatch(token,<span class="stringliteral">&quot;yes&quot;</span>)) {</div>
@@ -1153,7 +1153,7 @@
 <div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strmatch(token,DEFAULT_STR) == 0) {</div>
 <div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;            *ret_value = default_value;</div>
 <div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;        }</div>
 <div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;    }</div>
 <div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">true</span>);</div>
@@ -1207,10 +1207,10 @@
 <div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;    } <span class="keywordflow">else</span>  {</div>
 <div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;        <span class="keywordflow">if</span> ((retn = sscanf(token, <span class="stringliteral">&quot;%d&quot;</span>, retn_value)) != 1) {</div>
 <div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;            *retn_value = retn;</div>
-<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01151"></a><span class="lineno"> 1151</span>&#160;        }</div>
 <div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;    }</div>
-<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">true</span>);</div>
+<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;}</div>
 <div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;<span class="comment">/******************************************************************************/</span></div>
 <div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;<span class="comment">/******************************************************************************/</span></div>
@@ -1279,12 +1279,12 @@
 <div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;        <span class="keywordflow">if</span> ((retn = sscanf(token, <span class="stringliteral">&quot;%e&quot;</span>, &amp;retn_float)) != 1) {</div>
 <div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;            *retn_value = (double) retn;</div>
-<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;            *retn_value = (double) retn_float;</div>
 <div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;        }</div>
 <div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;    }</div>
-<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;}</div>
 <div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;<span class="comment">/******************************************************************************/</span></div>
 <div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;<span class="comment">/******************************************************************************/</span></div>
@@ -1315,7 +1315,7 @@
 <div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;</div>
 <div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;    <span class="keywordflow">if</span> ((str == NULL) || (str[0] == <span class="charliteral">&#39;\0&#39;</span>)) {</div>
-<div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;    }</div>
 <div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;</div>
 <div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;    <span class="comment">/* Find first non-space character character */</span></div>
@@ -1347,7 +1347,7 @@
 <div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;    }</div>
 <div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;    j++;</div>
 <div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;    str[j] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    <span class="keywordflow">return</span> (j);</div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    <span class="keywordflow">return</span> j;</div>
 <div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;}</div>
 <div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;<span class="comment">/**************************************************************************/</span></div>
 <div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;<span class="comment">/**************************************************************************/</span></div>
@@ -1398,7 +1398,7 @@
 <div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;    <span class="keywordflow">for</span> (i = 0, fstr[0]= <span class="charliteral">&#39;\0&#39;</span>; i &lt; (keyptr-&gt;ntokes - 1); i++, str++) {</div>
 <div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;        (void) strcat(strcat(fstr, *str), <span class="stringliteral">&quot; &quot;</span>);</div>
 <div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;    }</div>
-<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;    <span class="keywordflow">return</span>(strcat(fstr, *str));</div>
+<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;    <span class="keywordflow">return</span> strcat(fstr, *str);</div>
 <div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;}</div>
 <div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;<span class="comment">/******************************************************************************/</span></div>
 <div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;<span class="comment">/******************************************************************************/</span></div>
@@ -1444,7 +1444,7 @@
 <div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;            }</div>
 <div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;        } <span class="keywordflow">while</span> ((tok_ptr[i] = strtok(NULL, delimiters)) != NULL);</div>
 <div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;    }</div>
-<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;    <span class="keywordflow">return</span> (i);</div>
+<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;    <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;}</div>
 <div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
 <div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
@@ -1459,9 +1459,9 @@
 <div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;{</div>
 <div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;    <span class="keywordflow">if</span> ((value &lt;= maxVal) &amp;&amp; (value &gt;= minVal)) {</div>
-<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;        <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;    }</div>
-<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;    <span class="keywordflow">return</span>(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;}</div>
 <div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;<span class="comment"> *</span></div>
@@ -1479,20 +1479,20 @@
 <div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;    <span class="keywordflow">while</span> (*s1 != <span class="charliteral">&#39;\0&#39;</span>) {</div>
 <div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;<span class="preprocessor">#   if defined (_INCLUDE_XOPEN_SOURCE) &amp;&amp; ! defined(__lint)</span></div>
 <div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (_tolower((*s1++)) != _tolower((*s2++))) {</div>
-<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;        }</div>
 <div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;<span class="preprocessor">#   else</span></div>
 <div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (tolower(*s1) != tolower(*s2)) {</div>
-<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;            <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;        }</div>
 <div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;        s1++;</div>
 <div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;        s2++;</div>
 <div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;<span class="preprocessor">#   endif</span></div>
 <div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;<span class="preprocessor"></span>    }</div>
 <div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;    <span class="keywordflow">if</span> (*s2 != <span class="charliteral">&#39;\0&#39;</span>) {</div>
-<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;        <span class="keywordflow">return</span> (<span class="keyword">false</span>);</div>
+<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;    }</div>
-<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">true</span>);</div>
+<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;}</div>
 <div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;</div>
 <div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;<span class="comment">/*****************************************************************************</span></div>
@@ -1507,7 +1507,7 @@
 <div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;    <span class="keyword">struct </span>TOKEN tmpKeyStruct1, tmpKeyStruct2;</div>
 <div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;    fillTokStruct(&amp;tmpKeyStruct1, s1);</div>
 <div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;    fillTokStruct(&amp;tmpKeyStruct2, s2);</div>
-<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    <span class="keywordflow">return</span> (toktokmatch(&amp;tmpKeyStruct2, &amp;tmpKeyStruct1));</div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;    <span class="keywordflow">return</span> toktokmatch(&amp;tmpKeyStruct2, &amp;tmpKeyStruct1);</div>
 <div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;}</div>
 <div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;</div>
 <div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;<span class="comment">/*******************************************************************************</span></div>
@@ -1524,7 +1524,7 @@
 <div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;{</div>
 <div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;    <span class="keyword">struct </span>TOKEN tmpKeyStruct;</div>
 <div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;    fillTokStruct(&amp;tmpKeyStruct, s2);</div>
-<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;    <span class="keywordflow">return</span> (toktokmatch(keyptr, &amp;tmpKeyStruct));</div>
+<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;    <span class="keywordflow">return</span> toktokmatch(keyptr, &amp;tmpKeyStruct);</div>
 <div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;}</div>
 <div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;</div>
 <div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;<span class="comment">/**************************************************************************</span></div>
@@ -1629,9 +1629,9 @@
 <div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;{</div>
 <div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;    <span class="keywordtype">int</span> i;</div>
 <div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; num_list; i++) <span class="keywordflow">if</span> (strstrmatch(str1, list[i])) {</div>
-<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;            <span class="keywordflow">return</span>(i);</div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;            <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;        }</div>
-<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;    <span class="keywordflow">return</span> (-1);</div>
+<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;    <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;}</div>
 <div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
 <div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="comment">/*****************************************************************************/</span></div>
@@ -1653,7 +1653,7 @@
 <div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;        (void) strcpy(new_string, <span class="keywordtype">string</span>);</div>
 <div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;    }</div>
-<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;    <span class="keywordflow">return</span> (new_string);</div>
+<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;    <span class="keywordflow">return</span> new_string;</div>
 <div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;}</div>
 <div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;</div>
 <div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;<span class="comment">/******************************************************************************</span></div>

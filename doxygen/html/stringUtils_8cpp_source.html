@@ -480,7 +480,7 @@
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">     *    Quick Returns</span></div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keywordflow">if</span> ((str == 0) || (str[0] == <span class="charliteral">&#39;\0&#39;</span>)) {</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keywordflow">return</span> (0);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    }</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="comment">/* Find first non-space character character */</span></div>
@@ -508,7 +508,7 @@
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    }</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    j++;</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    str[j] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">return</span> (j);</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">return</span> j;</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;}</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment">//================================================================================================</span></div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment">// Translate a char string into a single double</span></div>
@@ -616,7 +616,7 @@
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        fp = <a class="code" href="namespaceCantera.html#ac347fe3805bf56396b7080870c39d530" title="Return the conversion factor to convert unit std::string &#39;unit&#39; to SI units.">toSI</a>(v[1]);</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    }</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    doublereal val = <a class="code" href="namespaceCantera.html#a8dc7a270c6902092e1b4d1a9c80e2993" title="Translate a char string into a single double.">atofCheck</a>(v[0].c_str());</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keywordflow">return</span> (val * fp);</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keywordflow">return</span> val * fp;</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;}</div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">//================================================================================================</span><span class="comment"></span></div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">//!  Find the first white space in a string</span></div>

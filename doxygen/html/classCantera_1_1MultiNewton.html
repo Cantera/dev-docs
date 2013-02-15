@@ -190,11 +190,11 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 <p>Compute the undamped Newton step.</p>
 <p>The residual function is evaluated at x, but the Jacobian is not recomputed. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00107">107</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00224">224</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>References <a class="el" href="Domain1D_8h_source.html#l00221">Domain1D::componentName()</a>, <a class="el" href="OneDim_8h_source.html#l00057">OneDim::domain()</a>, <a class="el" href="OneDim_8cpp_source.html#l00283">OneDim::eval()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00066">Cantera::int2str()</a>, <a class="el" href="Domain1D_8h_source.html#l00438">Domain1D::loc()</a>, <a class="el" href="Domain1D_8h_source.html#l00177">Domain1D::nComponents()</a>, <a class="el" href="OneDim_8h_source.html#l00052">OneDim::nDomains()</a>, <a class="el" href="ct__defs_8h_source.html#l00184">Cantera::npos</a>, <a class="el" href="OneDim_8cpp_source.html#l00266">OneDim::pointDomain()</a>, <a class="el" href="OneDim_8h_source.html#l00086">OneDim::size()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00282">BandMatrix::solve()</a>, and <a class="el" href="OneDim_8h_source.html#l00081">OneDim::start()</a>.</p>
+<p>References <a class="el" href="Domain1D_8h_source.html#l00221">Domain1D::componentName()</a>, <a class="el" href="OneDim_8h_source.html#l00057">OneDim::domain()</a>, <a class="el" href="OneDim_8cpp_source.html#l00282">OneDim::eval()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00066">Cantera::int2str()</a>, <a class="el" href="Domain1D_8h_source.html#l00438">Domain1D::loc()</a>, <a class="el" href="Domain1D_8h_source.html#l00177">Domain1D::nComponents()</a>, <a class="el" href="OneDim_8h_source.html#l00052">OneDim::nDomains()</a>, <a class="el" href="ct__defs_8h_source.html#l00184">Cantera::npos</a>, <a class="el" href="OneDim_8cpp_source.html#l00265">OneDim::pointDomain()</a>, <a class="el" href="OneDim_8h_source.html#l00086">OneDim::size()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00282">BandMatrix::solve()</a>, and <a class="el" href="OneDim_8h_source.html#l00081">OneDim::start()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00194">MultiNewton::dampStep()</a>, and <a class="el" href="MultiNewton_8cpp_source.html#l00298">MultiNewton::solve()</a>.</p>
+<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00311">MultiNewton::dampStep()</a>, and <a class="el" href="MultiNewton_8cpp_source.html#l00413">MultiNewton::solve()</a>.</p>
 
 </div>
 </div>
@@ -237,11 +237,11 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 <p>Compute factor to keep all components in bounds. </p>
 <p>Return the factor by which the undamped Newton step 'step0' must be multiplied in order to keep all solution components in all domains between their specified lower and upper bounds. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00173">173</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00290">290</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>References <a class="el" href="newton__utils_8cpp_source.html#l00031">Cantera::bound_step()</a>, <a class="el" href="OneDim_8h_source.html#l00057">OneDim::domain()</a>, <a class="el" href="OneDim_8h_source.html#l00052">OneDim::nDomains()</a>, and <a class="el" href="OneDim_8h_source.html#l00081">OneDim::start()</a>.</p>
+<p>References <a class="el" href="OneDim_8h_source.html#l00057">OneDim::domain()</a>, <a class="el" href="OneDim_8h_source.html#l00052">OneDim::nDomains()</a>, and <a class="el" href="OneDim_8h_source.html#l00081">OneDim::start()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00194">MultiNewton::dampStep()</a>.</p>
+<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00311">MultiNewton::dampStep()</a>.</p>
 
 </div>
 </div>
@@ -314,11 +314,11 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 <p>On entry, step0 must contain an undamped Newton step for the solution x0. </p>
 <p>This method attempts to find a damping coefficient such that the next undamped step would have a norm smaller than that of step0. If successful, the new solution after taking the damped step is returned in x1, and the undamped step at x1 is returned in step1. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00194">194</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00311">311</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiJac_8h_source.html#l00062">MultiJac::age()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00173">MultiNewton::boundStep()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01634">Cantera::DampFactor</a>, <a class="el" href="stringUtils_8cpp_source.html#l00066">Cantera::int2str()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01635">Cantera::NDAMP</a>, <a class="el" href="MultiJac_8h_source.html#l00054">MultiJac::nEvals()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00088">MultiNewton::norm2()</a>, <a class="el" href="ct__defs_8h_source.html#l00150">Cantera::SmallNumber</a>, <a class="el" href="OneDim_8cpp_source.html#l00317">OneDim::ssnorm()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00107">MultiNewton::step()</a>, and <a class="el" href="global_8cpp_source.html#l00034">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="MultiJac_8h_source.html#l00062">MultiJac::age()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00290">MultiNewton::boundStep()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01633">Cantera::DampFactor</a>, <a class="el" href="stringUtils_8cpp_source.html#l00066">Cantera::int2str()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01634">Cantera::NDAMP</a>, <a class="el" href="MultiJac_8h_source.html#l00054">MultiJac::nEvals()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00205">MultiNewton::norm2()</a>, <a class="el" href="ct__defs_8h_source.html#l00150">Cantera::SmallNumber</a>, <a class="el" href="OneDim_8cpp_source.html#l00316">OneDim::ssnorm()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00224">MultiNewton::step()</a>, and <a class="el" href="global_8cpp_source.html#l00034">Cantera::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00298">MultiNewton::solve()</a>.</p>
+<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00413">MultiNewton::solve()</a>.</p>
 
 </div>
 </div>
@@ -354,11 +354,11 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 
 <p>Compute the weighted 2-norm of 'step'. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00088">88</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00205">205</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>References <a class="el" href="OneDim_8h_source.html#l00057">OneDim::domain()</a>, <a class="el" href="OneDim_8h_source.html#l00052">OneDim::nDomains()</a>, <a class="el" href="newton__utils_8cpp_source.html#l00113">Cantera::norm_square()</a>, <a class="el" href="OneDim_8h_source.html#l00086">OneDim::size()</a>, and <a class="el" href="OneDim_8h_source.html#l00081">OneDim::start()</a>.</p>
+<p>References <a class="el" href="OneDim_8h_source.html#l00057">OneDim::domain()</a>, <a class="el" href="OneDim_8h_source.html#l00052">OneDim::nDomains()</a>, <a class="el" href="OneDim_8h_source.html#l00086">OneDim::size()</a>, and <a class="el" href="OneDim_8h_source.html#l00081">OneDim::start()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00194">MultiNewton::dampStep()</a>.</p>
+<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00311">MultiNewton::dampStep()</a>.</p>
 
 </div>
 </div>
@@ -407,9 +407,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 <p>Find the solution to F(X) = 0 by damped Newton iteration. </p>
 <p>On entry, x0 contains an initial estimate of the solution. On successful return, x1 contains the converged solution. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00298">298</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00413">413</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiJac_8h_source.html#l00062">MultiJac::age()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00194">MultiNewton::dampStep()</a>, <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="MultiJac_8cpp_source.html#l00054">MultiJac::eval()</a>, <a class="el" href="OneDim_8cpp_source.html#l00283">OneDim::eval()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00406">MultiNewton::getWorkArray()</a>, <a class="el" href="MultiJac_8h_source.html#l00069">MultiJac::incrementAge()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00066">Cantera::int2str()</a>, <a class="el" href="MultiJac_8h_source.html#l00054">MultiJac::nEvals()</a>, <a class="el" href="ct__defs_8h_source.html#l00184">Cantera::npos</a>, <a class="el" href="OneDim_8h_source.html#l00133">OneDim::rdt()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00423">MultiNewton::releaseWorkArray()</a>, <a class="el" href="OneDim_8cpp_source.html#l00317">OneDim::ssnorm()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00107">MultiNewton::step()</a>, and <a class="el" href="global_8cpp_source.html#l00034">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="MultiJac_8h_source.html#l00062">MultiJac::age()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00311">MultiNewton::dampStep()</a>, <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="MultiJac_8cpp_source.html#l00054">MultiJac::eval()</a>, <a class="el" href="OneDim_8cpp_source.html#l00282">OneDim::eval()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00518">MultiNewton::getWorkArray()</a>, <a class="el" href="MultiJac_8h_source.html#l00069">MultiJac::incrementAge()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00066">Cantera::int2str()</a>, <a class="el" href="MultiJac_8h_source.html#l00054">MultiJac::nEvals()</a>, <a class="el" href="ct__defs_8h_source.html#l00184">Cantera::npos</a>, <a class="el" href="OneDim_8h_source.html#l00133">OneDim::rdt()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00535">MultiNewton::releaseWorkArray()</a>, <a class="el" href="OneDim_8cpp_source.html#l00316">OneDim::ssnorm()</a>, <a class="el" href="MultiNewton_8cpp_source.html#l00224">MultiNewton::step()</a>, and <a class="el" href="global_8cpp_source.html#l00034">Cantera::writelog()</a>.</p>
 
 <p>Referenced by <a class="el" href="OneDim_8cpp_source.html#l00235">OneDim::solve()</a>.</p>
 
@@ -441,7 +441,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 
 <p>Definition at line <a class="el" href="MultiNewton_8h_source.html#l00052">52</a> of file <a class="el" href="MultiNewton_8h_source.html">MultiNewton.h</a>.</p>
 
-<p>Referenced by <a class="el" href="OneDim_8cpp_source.html#l00407">OneDim::timeStep()</a>.</p>
+<p>Referenced by <a class="el" href="OneDim_8cpp_source.html#l00406">OneDim::timeStep()</a>.</p>
 
 </div>
 </div>
@@ -462,7 +462,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 <p>Change the problem size. </p>
 <p>Prepare for a new solution vector length. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00075">75</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00192">192</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="OneDim_8cpp_source.html#l00170">OneDim::resize()</a>.</p>
 
@@ -491,9 +491,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 
 <p>Get a pointer to an array of length m_n for temporary work space. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00406">406</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00518">518</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00298">MultiNewton::solve()</a>.</p>
+<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00413">MultiNewton::solve()</a>.</p>
 
 </div>
 </div>
@@ -521,9 +521,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>m_buf</b> [100]</td><
 
 <p>Release a work array by pushing its pointer onto the stack of available arrays. </p>
 
-<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00423">423</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiNewton_8cpp_source.html#l00535">535</a> of file <a class="el" href="MultiNewton_8cpp_source.html">MultiNewton.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00298">MultiNewton::solve()</a>.</p>
+<p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00413">MultiNewton::solve()</a>.</p>
 
 </div>
 </div>

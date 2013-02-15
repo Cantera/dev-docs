@@ -102,55 +102,55 @@
 <p>This class is used to compute transport properties for a phase of matter.</p>
 <p>Not all transport properties are implemented in all transport models.</p>
 <dl class="attribute">
-<dt id="cantera.Transport.binaryDiffCoeffs">
-<tt class="descname">binaryDiffCoeffs</tt><a class="headerlink" href="#cantera.Transport.binaryDiffCoeffs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Binary diffusion coefficients [m^2/s]</p>
+<dt id="cantera.Transport.binary_diff_coeffs">
+<tt class="descname">binary_diff_coeffs</tt><a class="headerlink" href="#cantera.Transport.binary_diff_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Binary diffusion coefficients [m^2/s].</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.mixDiffCoeffs">
-<tt class="descname">mixDiffCoeffs</tt><a class="headerlink" href="#cantera.Transport.mixDiffCoeffs" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Transport.mix_diff_coeffs">
+<tt class="descname">mix_diff_coeffs</tt><a class="headerlink" href="#cantera.Transport.mix_diff_coeffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mixture-averaged diffusion coefficients [m^2/s] relating the
 mass-averaged diffusive fluxes (with respect to the mass averaged
 velocity) to gradients in the species mole fractions.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.mixDiffCoeffsMass">
-<tt class="descname">mixDiffCoeffsMass</tt><a class="headerlink" href="#cantera.Transport.mixDiffCoeffsMass" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Transport.mix_diff_coeffs_mass">
+<tt class="descname">mix_diff_coeffs_mass</tt><a class="headerlink" href="#cantera.Transport.mix_diff_coeffs_mass" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mixture-averaged diffusion coefficients [m^2/s] relating the
 diffusive mass fluxes to gradients in the species mass fractions.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.mixDiffCoeffsMole">
-<tt class="descname">mixDiffCoeffsMole</tt><a class="headerlink" href="#cantera.Transport.mixDiffCoeffsMole" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Transport.mix_diff_coeffs_mole">
+<tt class="descname">mix_diff_coeffs_mole</tt><a class="headerlink" href="#cantera.Transport.mix_diff_coeffs_mole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mixture-averaged diffusion coefficients [m^2/s] relating the
 molar diffusive fluxes to gradients in the species mole fractions.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.multiDiffCoeffs">
-<tt class="descname">multiDiffCoeffs</tt><a class="headerlink" href="#cantera.Transport.multiDiffCoeffs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Multicomponent diffusion coefficients [m^2/s]</p>
+<dt id="cantera.Transport.multi_diff_coeffs">
+<tt class="descname">multi_diff_coeffs</tt><a class="headerlink" href="#cantera.Transport.multi_diff_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multicomponent diffusion coefficients [m^2/s].</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.thermalConductivity">
-<tt class="descname">thermalConductivity</tt><a class="headerlink" href="#cantera.Transport.thermalConductivity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Thermal conductivity. [W/m/K]</p>
+<dt id="cantera.Transport.thermal_conductivity">
+<tt class="descname">thermal_conductivity</tt><a class="headerlink" href="#cantera.Transport.thermal_conductivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Thermal conductivity. [W/m/K].</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.thermalDiffCoeffs">
-<tt class="descname">thermalDiffCoeffs</tt><a class="headerlink" href="#cantera.Transport.thermalDiffCoeffs" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Transport.thermal_diff_coeffs">
+<tt class="descname">thermal_diff_coeffs</tt><a class="headerlink" href="#cantera.Transport.thermal_diff_coeffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a one-dimensional array of the species thermal diffusion
 coefficients [kg/m/s].</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Transport.transportModel">
-<tt class="descname">transportModel</tt><a class="headerlink" href="#cantera.Transport.transportModel" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Transport.transport_model">
+<tt class="descname">transport_model</tt><a class="headerlink" href="#cantera.Transport.transport_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get/Set the transport model associated with this transport model.</p>
 <p>Setting a new transport model deletes the underlying C++ Transport
 object and replaces it with a new one implementing the specified model.</p>
@@ -159,7 +159,7 @@ object and replaces it with a new one implementing the specified model.</p>
 <dl class="attribute">
 <dt id="cantera.Transport.viscosity">
 <tt class="descname">viscosity</tt><a class="headerlink" href="#cantera.Transport.viscosity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Viscosity [Pa-s]</p>
+<dd><p>Viscosity [Pa-s].</p>
 </dd></dl>
 
 </dd></dl>
@@ -170,37 +170,61 @@ object and replaces it with a new one implementing the specified model.</p>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Transport</span></tt></p>
 <p>DustyGasTransport(<a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs)</p>
 <p>Implements the &#8220;dusty gas&#8221; model for transport in porous media.</p>
-<p>As implemented here, only species transport (<a class="reference internal" href="#cantera.Transport.multiDiffCoeffs" title="cantera.Transport.multiDiffCoeffs"><tt class="xref py py-obj docutils literal"><span class="pre">multiDiffCoeffs</span></tt></a>)
+<p>As implemented here, only species transport (<a class="reference internal" href="#cantera.Transport.multi_diff_coeffs" title="cantera.Transport.multi_diff_coeffs"><tt class="xref py py-obj docutils literal"><span class="pre">multi_diff_coeffs</span></tt></a>)
 is handled. The viscosity, thermal conductivity, and thermal diffusion
 coefficients are not implemented.</p>
 <dl class="attribute">
-<dt id="cantera.DustyGasTransport.meanParticleDiameter">
-<tt class="descname">meanParticleDiameter</tt><a class="headerlink" href="#cantera.DustyGasTransport.meanParticleDiameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mean particle diameter of the porous medium [m]</p>
+<dt id="cantera.DustyGasTransport.mean_particle_diameter">
+<tt class="descname">mean_particle_diameter</tt><a class="headerlink" href="#cantera.DustyGasTransport.mean_particle_diameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean particle diameter of the porous medium [m].</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.DustyGasTransport.meanPoreRadius">
-<tt class="descname">meanPoreRadius</tt><a class="headerlink" href="#cantera.DustyGasTransport.meanPoreRadius" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mean pore radius of the porous medium [m]</p>
+<dt id="cantera.DustyGasTransport.mean_pore_radius">
+<tt class="descname">mean_pore_radius</tt><a class="headerlink" href="#cantera.DustyGasTransport.mean_pore_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean pore radius of the porous medium [m].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.DustyGasTransport.molar_fluxes">
+<tt class="descname">molar_fluxes</tt><big>(</big><em>self</em>, <em>T1</em>, <em>T2</em>, <em>rho1</em>, <em>rho2</em>, <em>Y1</em>, <em>Y2</em>, <em>delta</em><big>)</big><a class="headerlink" href="#cantera.DustyGasTransport.molar_fluxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the molar fluxes [kmol/m^2/s], given the thermodynamic state at
+two nearby points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>T1</strong> &#8211; Temperature [K] at the first point</li>
+<li><strong>T2</strong> &#8211; Temperature [K] at the second point</li>
+<li><strong>rho1</strong> &#8211; Density [kg/m^3] at the first point</li>
+<li><strong>rho2</strong> &#8211; Density [kg/m^3] at the second point</li>
+<li><strong>Y1</strong> &#8211; Array of mass fractions at the first point. Length <tt class="xref py py-obj docutils literal"><span class="pre">n_species</span></tt>.</li>
+<li><strong>Y2</strong> &#8211; Array of mass fractions at the second point. Length <tt class="xref py py-obj docutils literal"><span class="pre">n_species</span></tt>.</li>
+<li><strong>delta</strong> &#8211; Distance [m] between the two points.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.DustyGasTransport.permeability">
 <tt class="descname">permeability</tt><a class="headerlink" href="#cantera.DustyGasTransport.permeability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Permeability of the porous medium [m^2]</p>
+<dd><p>Permeability of the porous medium [m^2].</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.DustyGasTransport.porosity">
 <tt class="descname">porosity</tt><a class="headerlink" href="#cantera.DustyGasTransport.porosity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Porosity of the porous medium [dimensionless]</p>
+<dd><p>Porosity of the porous medium [dimensionless].</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.DustyGasTransport.tortuosity">
 <tt class="descname">tortuosity</tt><a class="headerlink" href="#cantera.DustyGasTransport.tortuosity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tortuosity of the porous medium [dimensionless]</p>
+<dd><p>Tortuosity of the porous medium [dimensionless].</p>
 </dd></dl>
 
 </dd></dl>

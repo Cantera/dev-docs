@@ -128,18 +128,18 @@ prints its temperature is shown below:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Class <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html">ThermoPhase</a> is the base class for Cantera classes that represent
+<p>Class <span>ThermoPhase</span> is the base class for Cantera classes that represent
 phases of matter. It defines the public interface for all classes that represent
-phases. For example, it specifies that they all have a method <a class="reference external" href="../../../doxygen/html/classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature()</a> that returns the current temperature, a method
-<a class="reference external" href="../../../doxygen/html/classCantera_1_1Phase.html#adeb5aad57e0139e159018affd970600d">setTemperature(double T)</a> that sets the
-temperature, a method <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html#a04733b99f18bae806e25ff9d2d2b0046">getChemPotentials(double* mu)</a> that writes the species chemical potentials
+phases. For example, it specifies that they all have a method <span>temperature</span> that returns the current temperature, a method
+<span>setTemperature(double T)</span> that sets the
+temperature, a method <span>getChemPotentials(double* mu)</span> that writes the species chemical potentials
 into array <tt class="docutils literal"><span class="pre">mu</span></tt>, and so on.</p>
 <p>Class ThermoPhase can be used to represent the intensive state of any
 single-phase solution of multiple species. The phase may be a bulk,
 three-dimensional phase (a gas, a liquid, or a solid), or it may be a
 two-dimensional surface phase, or even a one-dimensional &#8220;edge&#8221; phase. The
 specific attributes of each type of phase are specified by deriving a class from
-<a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html">ThermoPhase</a> and providing implementations for its virtual methods.</p>
+<span>ThermoPhase</span> and providing implementations for its virtual methods.</p>
 <p>Cantera has a wide variety of models for bulk phase currently. Special attention
 (in terms of the speed of execution) has been paid to an ideal gas phase
 implementation, where the species thermodynamic polynomial representations
@@ -152,11 +152,11 @@ implementation for brines solutions and a Margules excess Gibbs free energy
 implementation for molten salts.</p>
 <div class="section" id="the-intensive-thermodynamic-state">
 <h3>The Intensive Thermodynamic State<a class="headerlink" href="#the-intensive-thermodynamic-state" title="Permalink to this headline">¶</a></h3>
-<p>Class <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html">ThermoPhase</a> and classes derived from it work only with the intensive
+<p>Class <span>ThermoPhase</span> and classes derived from it work only with the intensive
 thermodynamic state. That is, all extensive properties (enthalpy, entropy,
 internal energy, volume, etc.) are computed for a unit quantity (on a mass or
-mole basis). For example, there is a method <a class="reference external" href="../../../doxygen/html/classCantera_1_1PureFluidPhase.html#aa93e126a1c8f2f7d17291b5618b40e3c">enthalpy_mole()</a> that returns
-the molar enthalpy (J/kmol), and a method <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html#a31e2070849204cfe686ddc877225c8ae">enthalpy_mass()</a> that returns the
+mole basis). For example, there is a method <span>enthalpy_mole()</span> that returns
+the molar enthalpy (J/kmol), and a method <span>enthalpy_mass()</span> that returns the
 specific enthalpy (J/kg), but no method <em>enthalpy()</em> that would return the total
 enthalpy (J). This is because class ThermoPhase does not store the total amount
 (mass or mole) of the phase.</p>
@@ -175,7 +175,7 @@ which are computed.</p>
 <h3>Derived Classes<a class="headerlink" href="#derived-classes" title="Permalink to this headline">¶</a></h3>
 <p>Many of the methods of ThermoPhase are declared virtual, and are meant to be
 overloaded in classes derived from ThermoPhase. For example, class
-<a class="reference external" href="../../../doxygen/html/classCantera_1_1IdealGasPhase.html">IdealGasPhase</a> derives from <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html">ThermoPhase</a>, and represents ideal gas
+<span>IdealGasPhase</span> derives from <span>ThermoPhase</span>, and represents ideal gas
 mixtures.</p>
 <p>Although class ThermoPhase defines the interface for all classes representing
 phases, it only provides implementations for a few of the methods. This is
@@ -223,7 +223,7 @@ properties are computed and printed out:</p>
     <span class="n">gas</span><span class="o">-&gt;</span><span class="n">getChemPotentials</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mu</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
     <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">numSpecies</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">gas</span><span class="o">-&gt;</span><span class="n">speciesName</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mu</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">gas</span><span class="o">-&gt;</span><span class="n">speciesName</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">mu</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -250,13 +250,13 @@ internally within the object.</p>
 <tt class="docutils literal"><span class="pre">_mass</span></tt>.</li>
 <li>methods that write an array of values into a supplied output array have names
 that begin with <tt class="docutils literal"><span class="pre">get</span></tt>. For example, the method
-<a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html#a04733b99f18bae806e25ff9d2d2b0046">ThermoPhase::getChemPotentials(double* mu)</a> writes the species chemical
+<span>ThermoPhase::getChemPotentials(double* mu)</span> writes the species chemical
 potentials into the output array <tt class="docutils literal"><span class="pre">mu</span></tt>.</li>
 </ul>
-<p>The thermodynamic property methods are declared in class <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html">ThermoPhase</a>,
+<p>The thermodynamic property methods are declared in class <span>ThermoPhase</span>,
 which is the base class from which all classes that represent any type of phase
 of matter derive.</p>
-<p>See <a class="reference external" href="../../../doxygen/html/classCantera_1_1ThermoPhase.html">ThermoPhase</a> for the full list of available thermodynamic properties.</p>
+<p>See <span>ThermoPhase</span> for the full list of available thermodynamic properties.</p>
 </div>
 </div>
 </div>

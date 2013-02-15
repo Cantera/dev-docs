@@ -57,7 +57,6 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
@@ -78,23 +77,17 @@ Collaboration diagram for MultiPhaseEquil:</div>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a05384666b24e4f096243ebf311436ee5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05384666b24e4f096243ebf311436ee5"></a>
-typedef size_t&#160;</td><td class="memItemRight" valign="bottom"><b>index_t</b></td></tr>
-<tr class="separator:a05384666b24e4f096243ebf311436ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa6da46127210e1ba9c477d77386976c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MultiPhaseEquil.html#aa6da46127210e1ba9c477d77386976c7">MultiPhaseEquil</a> (<a class="el" href="classCantera_1_1MultiPhase.html">MultiPhase</a> *mix, bool start=true, int loglevel=0)</td></tr>
 <tr class="memdesc:aa6da46127210e1ba9c477d77386976c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa6da46127210e1ba9c477d77386976c7"></a><br/></td></tr>
 <tr class="separator:aa6da46127210e1ba9c477d77386976c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16d2eb95aa1cd72baa207e8a17d34cc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16d2eb95aa1cd72baa207e8a17d34cc8"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>constituent</b> (index_t m)</td></tr>
-<tr class="separator:a16d2eb95aa1cd72baa207e8a17d34cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a719e4af942f21939179ebd7ebc6c6a10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a719e4af942f21939179ebd7ebc6c6a10"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getStoichVector</b> (index_t rxn, <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;nu)</td></tr>
-<tr class="separator:a719e4af942f21939179ebd7ebc6c6a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fed0a200580af6755bfb8bcb8ee019d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fed0a200580af6755bfb8bcb8ee019d"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>constituent</b> (size_t m)</td></tr>
+<tr class="separator:a0fed0a200580af6755bfb8bcb8ee019d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07063c493a0dc3d54765acd4c73ea63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa07063c493a0dc3d54765acd4c73ea63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getStoichVector</b> (size_t rxn, <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;nu)</td></tr>
+<tr class="separator:aa07063c493a0dc3d54765acd4c73ea63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1506fc7782216a29dc435f73f365b584"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1506fc7782216a29dc435f73f365b584"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>iterations</b> ()</td></tr>
 <tr class="separator:a1506fc7782216a29dc435f73f365b584"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,24 +97,24 @@ doublereal&#160;</td><td class="memItemRight" valign="bottom"><b>equilibrate</b>
 <tr class="memitem:ad52f9b0d57d06e5f162636d34d43b3e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad52f9b0d57d06e5f162636d34d43b3e4"></a>
 doublereal&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> ()</td></tr>
 <tr class="separator:ad52f9b0d57d06e5f162636d34d43b3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3f28ec9dcb72c59ecac3095caad2048"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MultiPhaseEquil.html#ad3f28ec9dcb72c59ecac3095caad2048">reactionString</a> (index_t j)</td></tr>
-<tr class="memdesc:ad3f28ec9dcb72c59ecac3095caad2048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string specifying the jth reaction.  <a href="#ad3f28ec9dcb72c59ecac3095caad2048"></a><br/></td></tr>
-<tr class="separator:ad3f28ec9dcb72c59ecac3095caad2048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac23b147d7965907b2e96ded6d76b59b8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MultiPhaseEquil.html#ac23b147d7965907b2e96ded6d76b59b8">reactionString</a> (size_t j)</td></tr>
+<tr class="memdesc:ac23b147d7965907b2e96ded6d76b59b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string specifying the jth reaction.  <a href="#ac23b147d7965907b2e96ded6d76b59b8"></a><br/></td></tr>
+<tr class="separator:ac23b147d7965907b2e96ded6d76b59b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a736899c59d9b6f464975fbed66165985"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a736899c59d9b6f464975fbed66165985"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>printInfo</b> (int loglevel)</td></tr>
 <tr class="separator:a736899c59d9b6f464975fbed66165985"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46d00aeedf23c0939a5655f35b4aa2db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46d00aeedf23c0939a5655f35b4aa2db"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setInitialMixMoles</b> (int loglevel=0)</td></tr>
 <tr class="separator:a46d00aeedf23c0939a5655f35b4aa2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb1426416318d49eccd13849e2527a7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb1426416318d49eccd13849e2527a7f"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>componentIndex</b> (index_t n)</td></tr>
-<tr class="separator:acb1426416318d49eccd13849e2527a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1f81c356a0ff19ae4555ba20aff5f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a1f81c356a0ff19ae4555ba20aff5f4"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>componentIndex</b> (size_t n)</td></tr>
+<tr class="separator:a4a1f81c356a0ff19ae4555ba20aff5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e06d1909e6d649f0a54e9b473138c6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e06d1909e6d649f0a54e9b473138c6a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reportCSV</b> (const std::string &amp;reportFile)</td></tr>
 <tr class="separator:a7e06d1909e6d649f0a54e9b473138c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae855c2c489500f51c8a36dfa1f0fda6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae855c2c489500f51c8a36dfa1f0fda6c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>phaseMoles</b> (index_t iph) const </td></tr>
-<tr class="separator:ae855c2c489500f51c8a36dfa1f0fda6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a552b902c565cda3558ece75005d73028"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a552b902c565cda3558ece75005d73028"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>phaseMoles</b> (size_t iph) const </td></tr>
+<tr class="separator:a552b902c565cda3558ece75005d73028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -170,30 +163,30 @@ doublereal&#160;</td><td class="memItemRight" valign="bottom"><b>mu</b> (size_t 
 <tr class="memitem:a503262ead74006db653d19cbc84f8868"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a503262ead74006db653d19cbc84f8868"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>speciesName</b> (size_t n) const </td></tr>
 <tr class="separator:a503262ead74006db653d19cbc84f8868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1065c9b4810f1a296a65ae5aca73718f"><td class="memItemLeft" align="right" valign="top">index_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MultiPhaseEquil.html#a1065c9b4810f1a296a65ae5aca73718f">nFree</a> () const </td></tr>
-<tr class="memdesc:a1065c9b4810f1a296a65ae5aca73718f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of degrees of freedom.  <a href="#a1065c9b4810f1a296a65ae5aca73718f"></a><br/></td></tr>
-<tr class="separator:a1065c9b4810f1a296a65ae5aca73718f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e24f087d10995c488ea36ddd13f708"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MultiPhaseEquil.html#a12e24f087d10995c488ea36ddd13f708">nFree</a> () const </td></tr>
+<tr class="memdesc:a12e24f087d10995c488ea36ddd13f708"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of degrees of freedom.  <a href="#a12e24f087d10995c488ea36ddd13f708"></a><br/></td></tr>
+<tr class="separator:a12e24f087d10995c488ea36ddd13f708"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a00bec5ec005b950f1508178abfc2ea25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00bec5ec005b950f1508178abfc2ea25"></a>
-index_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nel_mix</b></td></tr>
-<tr class="separator:a00bec5ec005b950f1508178abfc2ea25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eda5aff9fb2a93ab396aac842553722"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6eda5aff9fb2a93ab396aac842553722"></a>
-index_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nsp_mix</b></td></tr>
-<tr class="separator:a6eda5aff9fb2a93ab396aac842553722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35aee54ec6ee4e3d52983e14fa51046f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35aee54ec6ee4e3d52983e14fa51046f"></a>
-index_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_np</b></td></tr>
-<tr class="separator:a35aee54ec6ee4e3d52983e14fa51046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a6ecc2e53a2f81721206ed1d574e2fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a6ecc2e53a2f81721206ed1d574e2fd"></a>
-index_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nel</b></td></tr>
-<tr class="separator:a3a6ecc2e53a2f81721206ed1d574e2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac759f6030ffc787a054c18ff96d97a07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac759f6030ffc787a054c18ff96d97a07"></a>
-index_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nsp</b></td></tr>
-<tr class="separator:ac759f6030ffc787a054c18ff96d97a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c1886ef7d0a6ea660f4f960e7a5f837"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c1886ef7d0a6ea660f4f960e7a5f837"></a>
-index_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_eloc</b></td></tr>
-<tr class="separator:a9c1886ef7d0a6ea660f4f960e7a5f837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d1fa06d7f100e044391a21843bbf68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87d1fa06d7f100e044391a21843bbf68"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nel_mix</b></td></tr>
+<tr class="separator:a87d1fa06d7f100e044391a21843bbf68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44ce13c7a57bf8b55780d89fe184c06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44ce13c7a57bf8b55780d89fe184c06"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nsp_mix</b></td></tr>
+<tr class="separator:ad44ce13c7a57bf8b55780d89fe184c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ffb3a001699338ca0ac8b4976e509b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6ffb3a001699338ca0ac8b4976e509b"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_np</b></td></tr>
+<tr class="separator:ae6ffb3a001699338ca0ac8b4976e509b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d27931aaaa41decdb82fc10fdccf2c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d27931aaaa41decdb82fc10fdccf2c2"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nel</b></td></tr>
+<tr class="separator:a1d27931aaaa41decdb82fc10fdccf2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e6c2c66c42af05f67bbe604928bd21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3e6c2c66c42af05f67bbe604928bd21"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nsp</b></td></tr>
+<tr class="separator:ab3e6c2c66c42af05f67bbe604928bd21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a680344ee860b0091474f3758f03d44a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a680344ee860b0091474f3758f03d44a6"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_eloc</b></td></tr>
+<tr class="separator:a680344ee860b0091474f3758f03d44a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a7c49de571c61beffaa163c328474f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70a7c49de571c61beffaa163c328474f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>m_iter</b></td></tr>
 <tr class="separator:a70a7c49de571c61beffaa163c328474f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -319,21 +312,21 @@ Reaction Equilibrium."</p>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00054">54</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00052">52</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00297">MultiPhase::elementMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01032">MultiPhase::elementName()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00234">Cantera::multiply()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01069">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhase_8h_source.html#l00121">MultiPhase::nElements()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00127">MultiPhaseEquil::nFree()</a>, <a class="el" href="MultiPhase_8h_source.html#l00452">MultiPhase::nPhases()</a>, <a class="el" href="MultiPhase_8h_source.html#l00147">MultiPhase::nSpecies()</a>, <a class="el" href="MultiPhase_8h_source.html#l00416">MultiPhase::pressure()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00086">DenseMatrix::resize()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00293">MultiPhaseEquil::setInitialMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00416">MultiPhase::solutionSpecies()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00287">MultiPhase::speciesMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01064">MultiPhase::speciesName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01108">MultiPhase::speciesPhaseIndex()</a>, <a class="el" href="MultiPhase_8h_source.html#l00371">MultiPhase::temperature()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01119">MultiPhase::tempOK()</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00555">MultiPhaseEquil::unsort()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00297">MultiPhase::elementMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01030">MultiPhase::elementName()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00248">Cantera::multiply()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01067">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhase_8h_source.html#l00118">MultiPhase::nElements()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00125">MultiPhaseEquil::nFree()</a>, <a class="el" href="MultiPhase_8h_source.html#l00449">MultiPhase::nPhases()</a>, <a class="el" href="MultiPhase_8h_source.html#l00144">MultiPhase::nSpecies()</a>, <a class="el" href="MultiPhase_8h_source.html#l00413">MultiPhase::pressure()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00086">DenseMatrix::resize()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00291">MultiPhaseEquil::setInitialMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00416">MultiPhase::solutionSpecies()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00287">MultiPhase::speciesMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01062">MultiPhase::speciesName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01106">MultiPhase::speciesPhaseIndex()</a>, <a class="el" href="MultiPhase_8h_source.html#l00368">MultiPhase::temperature()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01117">MultiPhase::tempOK()</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00553">MultiPhaseEquil::unsort()</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ad3f28ec9dcb72c59ecac3095caad2048"></a>
+<a class="anchor" id="ac23b147d7965907b2e96ded6d76b59b8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">string reactionString </td>
           <td>(</td>
-          <td class="paramtype">index_t&#160;</td>
+          <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>j</em></td><td>)</td>
           <td></td>
         </tr>
@@ -342,9 +335,9 @@ Reaction Equilibrium."</p>
 
 <p>Return a string specifying the jth reaction. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00607">607</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00605">605</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00031">Cantera::coeffString()</a>, and <a class="el" href="MultiPhase_8cpp_source.html#l01064">MultiPhase::speciesName()</a>.</p>
+<p>References <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00029">Cantera::coeffString()</a>, and <a class="el" href="MultiPhase_8cpp_source.html#l01062">MultiPhase::speciesName()</a>.</p>
 
 </div>
 </div>
@@ -380,9 +373,9 @@ Reaction Equilibrium."</p>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00399">399</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00397">397</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhase_8cpp_source.html#l01069">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00127">MultiPhaseEquil::nFree()</a>, <a class="el" href="ct__defs_8h_source.html#l00184">Cantera::npos</a>, and <a class="el" href="MultiPhase_8cpp_source.html#l00416">MultiPhase::solutionSpecies()</a>.</p>
+<p>References <a class="el" href="MultiPhase_8cpp_source.html#l01067">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00125">MultiPhaseEquil::nFree()</a>, <a class="el" href="ct__defs_8h_source.html#l00184">Cantera::npos</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00416">MultiPhase::solutionSpecies()</a>, and <a class="el" href="ct__defs_8h_source.html#l00166">Cantera::Tiny</a>.</p>
 
 </div>
 </div>
@@ -411,11 +404,11 @@ Reaction Equilibrium."</p>
 <p>Estimate the initial mole numbers. </p>
 <p>This is done by running each reaction as far forward or backward as possible, subject to the constraint that all mole numbers remain non-negative. Reactions for which \( \Delta \mu^0 \) are positive are run in reverse, and ones for which it is negative are run in the forward direction. The end result is equivalent to solving the linear programming problem of minimizing the linear Gibbs function subject to the element and non-negativity constraints. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00293">293</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00291">291</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00081">Cantera::addLogEntry()</a>, <a class="el" href="global_8cpp_source.html#l00076">Cantera::beginLogGroup()</a>, <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="global_8cpp_source.html#l00101">Cantera::endLogGroup()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00394">MultiPhase::getValidChemPotentials()</a>, and <a class="el" href="MultiPhaseEquil_8h_source.html#l00127">MultiPhaseEquil::nFree()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00081">Cantera::addLogEntry()</a>, <a class="el" href="global_8cpp_source.html#l00076">Cantera::beginLogGroup()</a>, <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="global_8cpp_source.html#l00101">Cantera::endLogGroup()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00394">MultiPhase::getValidChemPotentials()</a>, and <a class="el" href="MultiPhaseEquil_8h_source.html#l00125">MultiPhaseEquil::nFree()</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00054">MultiPhaseEquil::MultiPhaseEquil()</a>.</p>
+<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00052">MultiPhaseEquil::MultiPhaseEquil()</a>.</p>
 
 </div>
 </div>
@@ -443,9 +436,9 @@ Reaction Equilibrium."</p>
 
 <p>Take one step in composition, given the gradient of G at the starting point, and a vector of reaction steps dxi. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00673">673</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00671">671</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00081">Cantera::addLogEntry()</a>, <a class="el" href="global_8cpp_source.html#l00076">Cantera::beginLogGroup()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00782">MultiPhaseEquil::computeReactionSteps()</a>, <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="global_8cpp_source.html#l00101">Cantera::endLogGroup()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00042">Cantera::fp2str()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00394">MultiPhase::getValidChemPotentials()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00234">Cantera::multiply()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00127">MultiPhaseEquil::nFree()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01064">MultiPhase::speciesName()</a>, <a class="el" href="ct__defs_8h_source.html#l00166">Cantera::Tiny</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00555">MultiPhaseEquil::unsort()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00081">Cantera::addLogEntry()</a>, <a class="el" href="global_8cpp_source.html#l00076">Cantera::beginLogGroup()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00780">MultiPhaseEquil::computeReactionSteps()</a>, <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="global_8cpp_source.html#l00101">Cantera::endLogGroup()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00042">Cantera::fp2str()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00394">MultiPhase::getValidChemPotentials()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00248">Cantera::multiply()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00125">MultiPhaseEquil::nFree()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01062">MultiPhase::speciesName()</a>, <a class="el" href="ct__defs_8h_source.html#l00166">Cantera::Tiny</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00553">MultiPhaseEquil::unsort()</a>.</p>
 
 </div>
 </div>
@@ -473,9 +466,9 @@ Reaction Equilibrium."</p>
 
 <p>Re-arrange a vector of species properties in sorted form (components first) into unsorted, sequential form. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00555">555</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00553">553</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00054">MultiPhaseEquil::MultiPhaseEquil()</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00673">MultiPhaseEquil::stepComposition()</a>.</p>
+<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00052">MultiPhaseEquil::MultiPhaseEquil()</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00671">MultiPhaseEquil::stepComposition()</a>.</p>
 
 </div>
 </div>
@@ -503,11 +496,11 @@ Reaction Equilibrium."</p>
 
 <p>Compute the change in extent of reaction for each reaction. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00782">782</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00780">780</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="ct__defs_8h_source.html#l00077">Cantera::GasConstant</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00394">MultiPhase::getValidChemPotentials()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00127">MultiPhaseEquil::nFree()</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00260">MultiPhase::phase()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01098">MultiPhase::phaseMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00287">MultiPhase::speciesMoles()</a>, and <a class="el" href="MultiPhase_8cpp_source.html#l01108">MultiPhase::speciesPhaseIndex()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, <a class="el" href="ct__defs_8h_source.html#l00077">Cantera::GasConstant</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00394">MultiPhase::getValidChemPotentials()</a>, <a class="el" href="MultiPhaseEquil_8h_source.html#l00125">MultiPhaseEquil::nFree()</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00260">MultiPhase::phase()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01096">MultiPhase::phaseMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00287">MultiPhase::speciesMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l01106">MultiPhase::speciesPhaseIndex()</a>, and <a class="el" href="ct__defs_8h_source.html#l00166">Cantera::Tiny</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00673">MultiPhaseEquil::stepComposition()</a>.</p>
+<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00671">MultiPhaseEquil::stepComposition()</a>.</p>
 
 </div>
 </div>
@@ -535,13 +528,13 @@ Reaction Equilibrium."</p>
 <p>Clean up the composition. </p>
 <p>The solution algorithm can leave some species in stoichiometric condensed phases with very small negative mole numbers. This method simply sets these to zero. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00273">273</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00271">271</a> of file <a class="el" href="MultiPhaseEquil_8cpp_source.html">MultiPhaseEquil.cpp</a>.</p>
 
 <p>References <a class="el" href="ct__defs_8h_source.html#l00047">DATA_PTR</a>, and <a class="el" href="MultiPhase_8cpp_source.html#l00563">MultiPhase::setMoles()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1065c9b4810f1a296a65ae5aca73718f"></a>
+<a class="anchor" id="a12e24f087d10995c488ea36ddd13f708"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -549,7 +542,7 @@ Reaction Equilibrium."</p>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">index_t nFree </td>
+          <td class="memname">size_t nFree </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -564,9 +557,9 @@ Reaction Equilibrium."</p>
 
 <p>Number of degrees of freedom. </p>
 
-<p>Definition at line <a class="el" href="MultiPhaseEquil_8h_source.html#l00127">127</a> of file <a class="el" href="MultiPhaseEquil_8h_source.html">MultiPhaseEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="MultiPhaseEquil_8h_source.html#l00125">125</a> of file <a class="el" href="MultiPhaseEquil_8h_source.html">MultiPhaseEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00782">MultiPhaseEquil::computeReactionSteps()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00399">MultiPhaseEquil::getComponents()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00054">MultiPhaseEquil::MultiPhaseEquil()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00293">MultiPhaseEquil::setInitialMoles()</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00673">MultiPhaseEquil::stepComposition()</a>.</p>
+<p>Referenced by <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00780">MultiPhaseEquil::computeReactionSteps()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00397">MultiPhaseEquil::getComponents()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00052">MultiPhaseEquil::MultiPhaseEquil()</a>, <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00291">MultiPhaseEquil::setInitialMoles()</a>, and <a class="el" href="MultiPhaseEquil_8cpp_source.html#l00671">MultiPhaseEquil::stepComposition()</a>.</p>
 
 </div>
 </div>

@@ -97,7 +97,7 @@
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//====================================================================================================================</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a430de11917d14a37711d77a628164cbb">   39</a></span>&#160;<a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#aae025f181f6233b0da07ec97d4508a41" title="Constructor.">PDSS_IonsFromNeutral::PDSS_IonsFromNeutral</a>(<a class="code" href="classCantera_1_1VPStandardStateTP.html" title="This is a filter class for ThermoPhase that implements some prepatory steps for efficiently handling ...">VPStandardStateTP</a>* tp, <span class="keywordtype">size_t</span> spindex,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                           <span class="keyword">const</span> std::string&amp; inputFile, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) :</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">const</span> std::string&amp; inputFile, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) :</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state.">PDSS</a>(tp, spindex),</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    neutralMoleculePhase_(0),</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    numMult_(0),</div>
@@ -283,7 +283,7 @@
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment"> *                    phase element will be used.</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#abed7eb1451b09aa7d4b8793a9a43dbf3">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#abed7eb1451b09aa7d4b8793a9a43dbf3" title="Initialization of a PDSS object using an input XML file.">PDSS_IonsFromNeutral::constructPDSSFile</a>(<a class="code" href="classCantera_1_1VPStandardStateTP.html" title="This is a filter class for ThermoPhase that implements some prepatory steps for efficiently handling ...">VPStandardStateTP</a>* tp, <span class="keywordtype">size_t</span> spindex,</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                                             <span class="keyword">const</span> std::string&amp; inputFile, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keyword">const</span> std::string&amp; inputFile, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;{</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">if</span> (inputFile.size() == 0) {</div>
@@ -321,7 +321,7 @@
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">delete</span> fxml;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a868f482a53be3e3a35ee523b1399d624">  264</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a868f482a53be3e3a35ee523b1399d624" title="Initialization routine for the PDSS object based on the phaseNode.">PDSS_IonsFromNeutral::initThermoXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file.">XML_Node</a>&amp; phaseNode, std::string&amp; <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a83a414cf1b11cec111bf9ad1e95b210a">  264</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a83a414cf1b11cec111bf9ad1e95b210a" title="Initialization routine for the PDSS object based on the phaseNode.">PDSS_IonsFromNeutral::initThermoXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file.">XML_Node</a>&amp; phaseNode, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;{</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a83a414cf1b11cec111bf9ad1e95b210a" title="Initialization routine for the PDSS object based on the phaseNode.">PDSS::initThermoXML</a>(phaseNode, <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;}</div>
@@ -343,7 +343,7 @@
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    doublereal val = <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#abaa2249046d637d37ebd12fcde4daabc" title="Return the standard state molar enthalpy divided by RT.">enthalpy_RT</a>();</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    doublereal RT = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">return</span> (val * RT);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">return</span> val * RT;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;}</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">//=======================================================================================================</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;doublereal</div>
@@ -367,7 +367,7 @@
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    doublereal val = <a class="code" href="classCantera_1_1PDSS.html#a1b5f239bc7e3d259e2740451954f8c65" title="Reference state enthalpy divided by RT.">m_h0_RT_ptr</a>[<a class="code" href="classCantera_1_1PDSS.html#a252b668936134d20b7f655dc8f9f778e" title="Species index in the thermophase corresponding to this species.">m_spindex</a>] - 1.0;</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    doublereal RT = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a>;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> (val * RT);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> val * RT;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;}</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">//=======================================================================================================</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">/*</span></div>
@@ -378,7 +378,7 @@
 <div class="line"><a name="l00318"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a4d968b4485911ebd3fb1ea4538ea4894">  318</a></span>&#160;<a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a4d968b4485911ebd3fb1ea4538ea4894" title="Return the molar entropy in units of J kmol-1 K-1.">PDSS_IonsFromNeutral::entropy_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    doublereal val = <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a05943db8a356dc45c0ad112109f3fb8c" title="Return the standard state entropy divided by RT.">entropy_R</a>();</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">return</span> (val * <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">return</span> val * <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;}</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">//=======================================================================================================</span></div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;doublereal</div>
@@ -405,7 +405,7 @@
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    doublereal val = <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#ad07803806d518aaf805be04667b39e74" title="Return the molar gibbs free energy divided by RT">gibbs_RT</a>();</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    doublereal RT = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a> * <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object.">m_temp</a>;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">return</span> (val * RT);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">return</span> val * RT;</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;}</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">//=======================================================================================================</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;doublereal</div>
@@ -431,7 +431,7 @@
 <div class="line"><a name="l00371"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#ab97e9695b61ef8531663286baf653e31">  371</a></span>&#160;<a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#ab97e9695b61ef8531663286baf653e31" title="Return the molar const pressure heat capacity in units of J kmol-1 K-1.">PDSS_IonsFromNeutral::cp_mole</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    doublereal val = <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a2006f835b7069b34cfbff6ebfeed9768" title="Return the molar const pressure heat capacity divided by RT.">cp_R</a>();</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">return</span> (val * <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">return</span> val * <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K].">GasConstant</a>;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;}</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">//=======================================================================================================</span></div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;doublereal</div>
@@ -558,21 +558,21 @@
 <div class="line"><a name="l00498"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a995ee50f10e33ee3186809ab6444b364">  498</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a995ee50f10e33ee3186809ab6444b364" title="critical temperature">PDSS_IonsFromNeutral::critTemperature</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes.">CanteraError</a>(<span class="stringliteral">&quot;PDSS_IonsFromNeutral::critTemperature()&quot;</span>, <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;}</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">//====================================================================================================================</span></div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">// critical pressure</span></div>
 <div class="line"><a name="l00505"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a4f11e731387cd844c0f04582215b4b37">  505</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#a4f11e731387cd844c0f04582215b4b37" title="critical pressure">PDSS_IonsFromNeutral::critPressure</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes.">CanteraError</a>(<span class="stringliteral">&quot;PDSS_IonsFromNeutral::critPressure()&quot;</span>, <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;}</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">//====================================================================================================================</span></div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment">// critical density</span></div>
 <div class="line"><a name="l00512"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#afc8f2138314ab95b692ba6de1d5d23b4">  512</a></span>&#160;doublereal <a class="code" href="classCantera_1_1PDSS__IonsFromNeutral.html#afc8f2138314ab95b692ba6de1d5d23b4" title="critical density">PDSS_IonsFromNeutral::critDensity</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes.">CanteraError</a>(<span class="stringliteral">&quot;PDSS_IonsFromNeutral::critDensity()&quot;</span>, <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;}</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">//====================================================================================================================</span></div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;</div>
@@ -609,7 +609,7 @@
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;{</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes.">CanteraError</a>(<span class="stringliteral">&quot;PDSS_IonsFromNeutral::satPressure()&quot;</span>, <span class="stringliteral">&quot;unimplemented&quot;</span>);</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="comment">/*NOTREACHED*/</span></div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">return</span> (0.0);</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">return</span> 0.0;</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;}</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">//====================================================================================================================</span></div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;</div>

@@ -187,6 +187,12 @@ properties and kinetic rates for this reactor.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cantera.ReactorBase.mass">
+<tt class="descname">mass</tt><a class="headerlink" href="#cantera.ReactorBase.mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mass of the reactor&#8217;s contents.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cantera.ReactorBase.name">
 <tt class="descname">name</tt><a class="headerlink" href="#cantera.ReactorBase.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of the reactor.</p>
@@ -199,8 +205,8 @@ properties and kinetic rates for this reactor.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.ReactorBase.reactorType">
-<tt class="descname">reactorType</tt><em class="property"> = 'None'</em><a class="headerlink" href="#cantera.ReactorBase.reactorType" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorBase.reactor_type">
+<tt class="descname">reactor_type</tt><em class="property"> = 'None'</em><a class="headerlink" href="#cantera.ReactorBase.reactor_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -264,8 +270,8 @@ advance the state of one or more coupled reactors.</p>
 </pre></div>
 </div>
 <dl class="method">
-<dt id="cantera.ReactorNet.addReactor">
-<tt class="descname">addReactor</tt><big>(</big><em>self</em>, <em>ReactorBase r</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.addReactor" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.add_reactor">
+<tt class="descname">add_reactor</tt><big>(</big><em>self</em>, <em>ReactorBase r</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.add_reactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a reactor to the network.</p>
 </dd></dl>
 
@@ -284,19 +290,19 @@ equations.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.ReactorNet.atolSensitivity">
-<tt class="descname">atolSensitivity</tt><a class="headerlink" href="#cantera.ReactorNet.atolSensitivity" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.atol_sensitivity">
+<tt class="descname">atol_sensitivity</tt><a class="headerlink" href="#cantera.ReactorNet.atol_sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The absolute error tolerance for sensitivity analysis.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.ReactorNet.nSensitivityParams">
-<tt class="descname">nSensitivityParams</tt><a class="headerlink" href="#cantera.ReactorNet.nSensitivityParams" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.n_sensitivity_params">
+<tt class="descname">n_sensitivity_params</tt><a class="headerlink" href="#cantera.ReactorNet.n_sensitivity_params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.ReactorNet.nVars">
-<tt class="descname">nVars</tt><a class="headerlink" href="#cantera.ReactorNet.nVars" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.n_vars">
+<tt class="descname">n_vars</tt><a class="headerlink" href="#cantera.ReactorNet.n_vars" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -307,8 +313,8 @@ equations.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.ReactorNet.rtolSensitivity">
-<tt class="descname">rtolSensitivity</tt><a class="headerlink" href="#cantera.ReactorNet.rtolSensitivity" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.rtol_sensitivity">
+<tt class="descname">rtol_sensitivity</tt><a class="headerlink" href="#cantera.ReactorNet.rtol_sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The relative error tolerance for sensitivity analysis.</p>
 </dd></dl>
 
@@ -323,20 +329,20 @@ equations.</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cantera.ReactorNet.sensitivityParameterName">
-<tt class="descname">sensitivityParameterName</tt><big>(</big><em>self</em>, <em>int p</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.sensitivityParameterName" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.sensitivity_parameter_name">
+<tt class="descname">sensitivity_parameter_name</tt><big>(</big><em>self</em>, <em>int p</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.sensitivity_parameter_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="cantera.ReactorNet.setInitialTime">
-<tt class="descname">setInitialTime</tt><big>(</big><em>self</em>, <em>double t</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.setInitialTime" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.set_initial_time">
+<tt class="descname">set_initial_time</tt><big>(</big><em>self</em>, <em>double t</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.set_initial_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the initial time. Restarts integration from this time using the
 current state as the initial condition. Default: 0.0 s.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cantera.ReactorNet.setMaxTimeStep">
-<tt class="descname">setMaxTimeStep</tt><big>(</big><em>self</em>, <em>double t</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.setMaxTimeStep" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ReactorNet.set_max_time_step">
+<tt class="descname">set_max_time_step</tt><big>(</big><em>self</em>, <em>double t</em><big>)</big><a class="headerlink" href="#cantera.ReactorNet.set_max_time_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the maximum time step <em>t</em> [s] that the integrator is allowed
 to use.</p>
 </dd></dl>
@@ -374,8 +380,8 @@ integration. The default is <em>False</em>.</p>
 pressure, and chemical composition in a reservoir never change from
 their initial values.</p>
 <dl class="attribute">
-<dt id="cantera.Reservoir.reactorType">
-<tt class="descname">reactorType</tt><em class="property"> = 'Reservoir'</em><a class="headerlink" href="#cantera.Reservoir.reactorType" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Reservoir.reactor_type">
+<tt class="descname">reactor_type</tt><em class="property"> = 'Reservoir'</em><a class="headerlink" href="#cantera.Reservoir.reactor_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -425,13 +431,13 @@ shown below.</p>
 </pre></div>
 </div>
 <dl class="method">
-<dt id="cantera.Reactor.addSensitivityReaction">
-<tt class="descname">addSensitivityReaction</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.Reactor.addSensitivityReaction" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Reactor.add_sensitivity_reaction">
+<tt class="descname">add_sensitivity_reaction</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.Reactor.add_sensitivity_reaction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Reactor.energyEnabled">
-<tt class="descname">energyEnabled</tt><a class="headerlink" href="#cantera.Reactor.energyEnabled" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Reactor.energy_enabled">
+<tt class="descname">energy_enabled</tt><a class="headerlink" href="#cantera.Reactor.energy_enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>True</em> when the energy equation is being solved for this reactor.
 When this is <em>False</em>, the reactor temperature is held constant.</p>
 </dd></dl>
@@ -449,8 +455,8 @@ this reactor.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Reactor.reactorType">
-<tt class="descname">reactorType</tt><em class="property"> = 'Reactor'</em><a class="headerlink" href="#cantera.Reactor.reactorType" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Reactor.reactor_type">
+<tt class="descname">reactor_type</tt><em class="property"> = 'Reactor'</em><a class="headerlink" href="#cantera.Reactor.reactor_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -498,8 +504,8 @@ shown below.</p>
 </pre></div>
 </div>
 <dl class="attribute">
-<dt id="cantera.ConstPressureReactor.reactorType">
-<tt class="descname">reactorType</tt><em class="property"> = 'ConstPressureReactor'</em><a class="headerlink" href="#cantera.ConstPressureReactor.reactorType" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.ConstPressureReactor.reactor_type">
+<tt class="descname">reactor_type</tt><em class="property"> = 'ConstPressureReactor'</em><a class="headerlink" href="#cantera.ConstPressureReactor.reactor_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -553,14 +559,14 @@ shown below.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.FlowReactor.massFlowRate">
-<tt class="descname">massFlowRate</tt><a class="headerlink" href="#cantera.FlowReactor.massFlowRate" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.FlowReactor.mass_flow_rate">
+<tt class="descname">mass_flow_rate</tt><a class="headerlink" href="#cantera.FlowReactor.mass_flow_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mass flow rate per unit area [kg/m^2*s]</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.FlowReactor.reactorType">
-<tt class="descname">reactorType</tt><em class="property"> = 'FlowReactor'</em><a class="headerlink" href="#cantera.FlowReactor.reactorType" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.FlowReactor.reactor_type">
+<tt class="descname">reactor_type</tt><em class="property"> = 'FlowReactor'</em><a class="headerlink" href="#cantera.FlowReactor.reactor_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -645,15 +651,15 @@ non-reactive side.</li>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Wall.expansionRateCoeff">
-<tt class="descname">expansionRateCoeff</tt><a class="headerlink" href="#cantera.Wall.expansionRateCoeff" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Wall.expansion_rate_coeff">
+<tt class="descname">expansion_rate_coeff</tt><a class="headerlink" href="#cantera.Wall.expansion_rate_coeff" title="Permalink to this definition">¶</a></dt>
 <dd><p>The coefficient <em>K</em> [m/s/Pa] that determines the velocity of the wall
 as a function of the pressure difference between the adjacent reactors.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Wall.heatTransferCoeff">
-<tt class="descname">heatTransferCoeff</tt><a class="headerlink" href="#cantera.Wall.heatTransferCoeff" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Wall.heat_transfer_coeff">
+<tt class="descname">heat_transfer_coeff</tt><a class="headerlink" href="#cantera.Wall.heat_transfer_coeff" title="Permalink to this definition">¶</a></dt>
 <dd><p>the overall heat transfer coefficient [W/m^2/K]</p>
 </dd></dl>
 
@@ -678,15 +684,15 @@ right-hand one.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cantera.Wall.setHeatFlux">
-<tt class="descname">setHeatFlux</tt><big>(</big><em>self</em>, <em>q</em><big>)</big><a class="headerlink" href="#cantera.Wall.setHeatFlux" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Wall.set_heat_flux">
+<tt class="descname">set_heat_flux</tt><big>(</big><em>self</em>, <em>q</em><big>)</big><a class="headerlink" href="#cantera.Wall.set_heat_flux" title="Permalink to this definition">¶</a></dt>
 <dd><p>Heat flux [W/m^2] across the wall. May be either a constant or
 an arbitrary function of time. See <a class="reference internal" href="#cantera.Func1" title="cantera.Func1"><tt class="xref py py-obj docutils literal"><span class="pre">Func1</span></tt></a>.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cantera.Wall.setVelocity">
-<tt class="descname">setVelocity</tt><big>(</big><em>self</em>, <em>v</em><big>)</big><a class="headerlink" href="#cantera.Wall.setVelocity" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Wall.set_velocity">
+<tt class="descname">set_velocity</tt><big>(</big><em>self</em>, <em>v</em><big>)</big><a class="headerlink" href="#cantera.Wall.set_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The wall velocity [m/s]. May be either a constant or an arbirary
 function of time. See <a class="reference internal" href="#cantera.Func1" title="cantera.Func1"><tt class="xref py py-obj docutils literal"><span class="pre">Func1</span></tt></a>.</p>
 </dd></dl>
@@ -721,12 +727,12 @@ exhaust gas from a reactor is fed back into it through an inlet. But note
 that this capability should be used with caution, since no account is
 taken of the work required to do this.</p>
 <dl class="method">
-<dt id="cantera.MassFlowController.setMassFlowRate">
-<tt class="descname">setMassFlowRate</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.MassFlowController.setMassFlowRate" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.MassFlowController.set_mass_flow_rate">
+<tt class="descname">set_mass_flow_rate</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.MassFlowController.set_mass_flow_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the mass flow rate [kg/s] through this controller to be either
 a constant or an arbitrary function of time. See <a class="reference internal" href="#cantera.Func1" title="cantera.Func1"><tt class="xref py py-obj docutils literal"><span class="pre">Func1</span></tt></a>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mfc</span><span class="o">.</span><span class="n">setMassFlowRate</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mfc</span><span class="o">.</span><span class="n">setMassFlowRate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mfc</span><span class="o">.</span><span class="n">set_mass_flow_rate</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mfc</span><span class="o">.</span><span class="n">set_mass_flow_rate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -755,15 +761,15 @@ pressure. By setting the constant <span class="math">\(K_v\)</span> to a suffici
 value, very small pressure differences will result in flow between the
 reactors that counteracts the pressure difference.</p>
 <dl class="method">
-<dt id="cantera.Valve.setValveCoeff">
-<tt class="descname">setValveCoeff</tt><big>(</big><em>self</em>, <em>k</em><big>)</big><a class="headerlink" href="#cantera.Valve.setValveCoeff" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.Valve.set_valve_coeff">
+<tt class="descname">set_valve_coeff</tt><big>(</big><em>self</em>, <em>k</em><big>)</big><a class="headerlink" href="#cantera.Valve.set_valve_coeff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the relationship betwen mass flow rate and the pressure drop across
 the valve. If a number is given, it is the proportionality constant
 [kg/s/Pa]. If a function is given, it should compute the mass flow
 rate [kg/s] given the pressure drop [Pa].</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span> <span class="o">=</span> <span class="n">Valve</span><span class="p">(</span><span class="n">res1</span><span class="p">,</span> <span class="n">reactor1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">setValveCoeff</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">setValveCoeff</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dP</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span> <span class="o">*</span> <span class="n">dP</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">set_valve_coeff</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">set_valve_coeff</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dP</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span> <span class="o">*</span> <span class="n">dP</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -785,15 +791,15 @@ difference:</p>
 <div class="math">
 \[\dot m = \dot m_{\rm master} + K_v(P_1 - P_2).\]</div>
 <dl class="method">
-<dt id="cantera.PressureController.setMaster">
-<tt class="descname">setMaster</tt><big>(</big><em>self</em>, <em>FlowDevice d</em><big>)</big><a class="headerlink" href="#cantera.PressureController.setMaster" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.PressureController.set_master">
+<tt class="descname">set_master</tt><big>(</big><em>self</em>, <em>FlowDevice d</em><big>)</big><a class="headerlink" href="#cantera.PressureController.set_master" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the &#8220;master&#8221; <a class="reference internal" href="#cantera.FlowDevice" title="cantera.FlowDevice"><tt class="xref py py-obj docutils literal"><span class="pre">FlowDevice</span></tt></a> used to compute this device&#8217;s mass flow
 rate.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cantera.PressureController.setPressureCoeff">
-<tt class="descname">setPressureCoeff</tt><big>(</big><em>self</em>, <em>double k</em><big>)</big><a class="headerlink" href="#cantera.PressureController.setPressureCoeff" title="Permalink to this definition">¶</a></dt>
+<dt id="cantera.PressureController.set_pressure_coeff">
+<tt class="descname">set_pressure_coeff</tt><big>(</big><em>self</em>, <em>double k</em><big>)</big><a class="headerlink" href="#cantera.PressureController.set_pressure_coeff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the proportionality constant <em>k</em> [kg/s/Pa] between the pressure
 drop and the mass flow rate.</p>
 </dd></dl>

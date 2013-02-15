@@ -162,7 +162,7 @@
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        jmin = 0;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        jmax = m_points - 1;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    } <span class="keywordflow">else</span> {          <span class="comment">// evaluate points for Jacobian</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        jmin = std::max&lt;size_t&gt;(jpt-1, 0);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        jmin = std::max&lt;size_t&gt;(jpt, 1) - 1;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        jmax = std::min(jpt+1,m_points-1);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>

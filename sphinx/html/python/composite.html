@@ -109,7 +109,7 @@ and <a class="reference internal" href="../cython/transport.html#cantera.Transpo
 provided largely for convenience, so that a single object can be
 used to compute thermodynamic, kinetic, and transport properties
 of a solution. Functions like <a class="reference internal" href="importing.html#Cantera.IdealGasMix" title="Cantera.IdealGasMix"><tt class="xref py py-func docutils literal"><span class="pre">IdealGasMix()</span></tt></a> and others defined in
-module gases return objects of class <a class="reference internal" href="#Cantera.Solution" title="Cantera.Solution"><tt class="xref py py-class docutils literal"><span class="pre">Solution</span></tt></a>.</p>
+module gases return objects of class <a class="reference internal" href="../cython/importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-class docutils literal"><span class="pre">Solution</span></tt></a>.</p>
 <dl class="method">
 <dt id="Cantera.Solution.name">
 <tt class="descname">name</tt><big>(</big><big>)</big><a class="headerlink" href="#Cantera.Solution.name" title="Permalink to this definition">¶</a></dt>
@@ -144,16 +144,70 @@ module gases return objects of class <a class="reference internal" href="#Canter
 
 </dd></dl>
 
-<dl class="attribute">
-<dt id="Cantera.Interface">
-<tt class="descclassname">Cantera.</tt><tt class="descname">Interface</tt><a class="headerlink" href="#Cantera.Interface" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#Cantera.Interface" title="Cantera.Interface"><tt class="xref py py-class docutils literal"><span class="pre">Cantera.Interface</span></tt></a></p>
+<dl class="class">
+<dt id="Cantera.Interface.Interface">
+<em class="property">class </em><tt class="descclassname">Cantera.Interface.</tt><tt class="descname">Interface</tt><big>(</big><em>src=''</em>, <em>root=None</em>, <em>phases=</em><span class="optional">[</span><span class="optional">]</span>, <em>debug=0</em><big>)</big><a class="headerlink" href="#Cantera.Interface.Interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="thermo.html#Cantera.SurfacePhase.SurfacePhase" title="Cantera.SurfacePhase.SurfacePhase"><tt class="xref py py-class docutils literal"><span class="pre">Cantera.SurfacePhase.SurfacePhase</span></tt></a>, <a class="reference internal" href="kinetics.html#Cantera.Kinetics.Kinetics" title="Cantera.Kinetics.Kinetics"><tt class="xref py py-class docutils literal"><span class="pre">Cantera.Kinetics.Kinetics</span></tt></a></p>
+<p>Two-dimensional interfaces.</p>
+<p>Instances of class Interface represent reacting 2D interfaces
+between bulk 3D phases. Class Interface defines no methods of its
+own. All of its methods derive from either <a class="reference internal" href="thermo.html#Cantera.SurfacePhase.SurfacePhase" title="Cantera.SurfacePhase.SurfacePhase"><tt class="xref py py-class docutils literal"><span class="pre">SurfacePhase</span></tt></a> or
+<a class="reference internal" href="kinetics.html#Cantera.Kinetics.Kinetics" title="Cantera.Kinetics.Kinetics"><tt class="xref py py-class docutils literal"><span class="pre">Kinetics</span></tt></a>.</p>
+<p>Function <a class="reference internal" href="importing.html#Cantera.importInterface" title="Cantera.importInterface"><tt class="xref py py-func docutils literal"><span class="pre">importInterface()</span></tt></a> should usually be used to build an
+Interface object from a CTI file definition, rather than calling
+the Interface constructor directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>src</strong> &#8211; CTML or CTI input file name. If more than one phase is
+defined in the file, src should be specified as <tt class="docutils literal"><span class="pre">filename#id</span></tt>
+If the file is not CTML, it will be run through the CTI -&gt; CTML
+preprocessor first.</li>
+<li><strong>root</strong> &#8211; If a CTML tree has already been read in that contains the
+definition of this interface, the root of this tree can be
+specified instead of specifying <em>src</em>.</li>
+<li><strong>phases</strong> &#8211; A list of all objects representing the neighboring phases which
+participate in the reaction mechanism.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="Cantera.Edge">
-<tt class="descclassname">Cantera.</tt><tt class="descname">Edge</tt><a class="headerlink" href="#Cantera.Edge" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#Cantera.Edge" title="Cantera.Edge"><tt class="xref py py-class docutils literal"><span class="pre">Cantera.Edge</span></tt></a></p>
+<dl class="class">
+<dt id="Cantera.Edge.Edge">
+<em class="property">class </em><tt class="descclassname">Cantera.Edge.</tt><tt class="descname">Edge</tt><big>(</big><em>src=''</em>, <em>root=None</em>, <em>surfaces=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#Cantera.Edge.Edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="thermo.html#Cantera.SurfacePhase.EdgePhase" title="Cantera.SurfacePhase.EdgePhase"><tt class="xref py py-class docutils literal"><span class="pre">Cantera.SurfacePhase.EdgePhase</span></tt></a>, <a class="reference internal" href="kinetics.html#Cantera.Kinetics.Kinetics" title="Cantera.Kinetics.Kinetics"><tt class="xref py py-class docutils literal"><span class="pre">Cantera.Kinetics.Kinetics</span></tt></a></p>
+<p>One-dimensional edge between two surfaces.</p>
+<p>Instances of class Edge represent reacting 1D edges between
+between 2D surfaces. Class Edge defines no methods of its
+own. All of its methods derive from either <a class="reference internal" href="thermo.html#Cantera.SurfacePhase.EdgePhase" title="Cantera.SurfacePhase.EdgePhase"><tt class="xref py py-class docutils literal"><span class="pre">EdgePhase</span></tt></a> or
+<a class="reference internal" href="kinetics.html#Cantera.Kinetics.Kinetics" title="Cantera.Kinetics.Kinetics"><tt class="xref py py-class docutils literal"><span class="pre">Kinetics</span></tt></a>.</p>
+<p>Function <a class="reference internal" href="importing.html#Cantera.importInterface" title="Cantera.importInterface"><tt class="xref py py-func docutils literal"><span class="pre">importInterface()</span></tt></a> should usually be used to build an
+Edge object from a CTI file definition, rather than calling
+the <a class="reference internal" href="#Cantera.Edge.Edge" title="Cantera.Edge.Edge"><tt class="xref py py-class docutils literal"><span class="pre">Edge</span></tt></a> constructor directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>src</strong> &#8211; CTML or CTI input file name. If more than one phase is
+defined in the file, src should be specified as <tt class="docutils literal"><span class="pre">filename#id</span></tt>
+If the file is not CTML, it will be run through the CTI -&gt; CTML
+preprocessor first.</li>
+<li><strong>root</strong> &#8211; If a CTML tree has already been read in that contains
+the definition of this interface, the root of this tree can be
+specified instead of specifying <em>src</em>.</li>
+<li><strong>phases</strong> &#8211; A list of all objects representing the neighboring
+surface phases which participate in the reaction mechanism.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="class">

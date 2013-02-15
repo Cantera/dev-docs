@@ -232,131 +232,130 @@
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        N10 += 1;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">int</span> nsig = N10 - Ndec;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">double</span> retn = <a class="code" href="classCantera_1_1PrintCtrl.html#ab7fa90254f5e17ca01bacd93e10ca596" title="Crop a double at a certain number of significant digits.">cropSigDigits</a>(d, nsig);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">return</span> retn;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">// Crop a double at a certain number of significant digits</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"> *  This routine will crop a floating point number at a certain</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"> *  number of significant digits. Note, it currently does</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"> *  rounding up of the last digit.</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"> *  example:</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"> *    d = 1.0305E-15;</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"> *    nsig = 3;</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"> *   This routine will return 1.03E-15</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#ab7fa90254f5e17ca01bacd93e10ca596">  190</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1PrintCtrl.html#ab7fa90254f5e17ca01bacd93e10ca596" title="Crop a double at a certain number of significant digits.">PrintCtrl::cropSigDigits</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> d, <span class="keywordtype">int</span> nSig)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classCantera_1_1PrintCtrl.html#a765f7847ebb4ed47f9ec330d355f8aff" title="private function to figure out cropping logic">doCrop</a>()) {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">return</span> d;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (nSig &lt;=0) {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        nSig = 1;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">if</span> (nSig &gt;=9) {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        nSig = 9;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    }</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">double</span> sgn = 1.0;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">if</span> (d &lt; 0.0) {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        sgn = -1.0;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">double</span> dfabs = fabs(d);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">double</span> dl10 = log10(dfabs);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">int</span> N10 = (int) dl10;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> (dl10 &gt; -0.0) {</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        N10 += 1;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">int</span> E10 = -N10 + nSig ;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">double</span> pfabs = dfabs * pow(10.0, (<span class="keywordtype">double</span>) E10);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    pfabs *= (1.0 + 1.0E-14);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> nfabs = (<span class="keywordtype">long</span> int) pfabs;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordtype">double</span> remainder = pfabs - nfabs;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span> (remainder &gt; 0.5) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        nfabs++;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">double</span> paltabs = (double) nfabs;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">double</span> daltabs = paltabs * pow(10.0, (<span class="keywordtype">double</span>) -E10);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">return</span> (sgn * daltabs);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">// Set the default value of N decade</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"> * @param Ndec new value of Ndec</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> * @return returns the old value of Ndec</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#ac508b2520434bec4a175034179694656">  230</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#ac508b2520434bec4a175034179694656" title="Set the default value of N decade.">PrintCtrl::setNdec</a>(<span class="keywordtype">int</span> Ndec)</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;{</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#a1f75d473e8378bf3fdadc9bda6d55c90" title="Default decade level to use for decade cropping.">m_Ndec</a>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a1f75d473e8378bf3fdadc9bda6d55c90" title="Default decade level to use for decade cropping.">m_Ndec</a> = Ndec;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">return</span> nold;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">// Set the default significant digits to output</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> * @param nSigDigits new value of the sig digits</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> * @return returns the old value of Ndec</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a490c97eb64dab74c2736b7ebd4124e6a">  243</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a490c97eb64dab74c2736b7ebd4124e6a" title="Set the default significant digits to output.">PrintCtrl::setSigDigits</a>(<span class="keywordtype">int</span> nSigDigits)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;{</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> + 1;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> = nSigDigits - 1;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> &lt; 0) {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> = 0;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    }</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">return</span> nold;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">// Set the default minimum width</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> * @param wmin Default minimum width</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> * @return returns the old default</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a0f0b4d49e110021fc7ecf592d11b2b5b">  259</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a0f0b4d49e110021fc7ecf592d11b2b5b" title="Set the default minimum width.">PrintCtrl::setWmin</a>(<span class="keywordtype">int</span> wmin)</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;{</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#a18a815650480dc6ad0f48eee4933864f" title="default minimimum field width">m_wMin</a>;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a18a815650480dc6ad0f48eee4933864f" title="default minimimum field width">m_wMin</a> = wmin;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">return</span> nold;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1PrintCtrl.html#ab7fa90254f5e17ca01bacd93e10ca596" title="Crop a double at a certain number of significant digits.">cropSigDigits</a>(d, nsig);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">// Crop a double at a certain number of significant digits</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"> *  This routine will crop a floating point number at a certain</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"> *  number of significant digits. Note, it currently does</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"> *  rounding up of the last digit.</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"> *  example:</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"> *    d = 1.0305E-15;</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"> *    nsig = 3;</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"> *   This routine will return 1.03E-15</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#ab7fa90254f5e17ca01bacd93e10ca596">  189</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1PrintCtrl.html#ab7fa90254f5e17ca01bacd93e10ca596" title="Crop a double at a certain number of significant digits.">PrintCtrl::cropSigDigits</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> d, <span class="keywordtype">int</span> nSig)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classCantera_1_1PrintCtrl.html#a765f7847ebb4ed47f9ec330d355f8aff" title="private function to figure out cropping logic">doCrop</a>()) {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">return</span> d;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span> (nSig &lt;=0) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        nSig = 1;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">if</span> (nSig &gt;=9) {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        nSig = 9;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">double</span> sgn = 1.0;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">if</span> (d &lt; 0.0) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        sgn = -1.0;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">double</span> dfabs = fabs(d);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">double</span> dl10 = log10(dfabs);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">int</span> N10 = (int) dl10;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">if</span> (dl10 &gt; -0.0) {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        N10 += 1;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordtype">int</span> E10 = -N10 + nSig ;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">double</span> pfabs = dfabs * pow(10.0, (<span class="keywordtype">double</span>) E10);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    pfabs *= (1.0 + 1.0E-14);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">long</span> <span class="keywordtype">int</span> nfabs = (<span class="keywordtype">long</span> int) pfabs;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">double</span> remainder = pfabs - nfabs;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keywordflow">if</span> (remainder &gt; 0.5) {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        nfabs++;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">double</span> paltabs = (double) nfabs;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">double</span> daltabs = paltabs * pow(10.0, (<span class="keywordtype">double</span>) -E10);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">return</span> sgn * daltabs;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">// Set the default value of N decade</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"> * @param Ndec new value of Ndec</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"> * @return returns the old value of Ndec</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#ac508b2520434bec4a175034179694656">  229</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#ac508b2520434bec4a175034179694656" title="Set the default value of N decade.">PrintCtrl::setNdec</a>(<span class="keywordtype">int</span> Ndec)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;{</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#a1f75d473e8378bf3fdadc9bda6d55c90" title="Default decade level to use for decade cropping.">m_Ndec</a>;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a1f75d473e8378bf3fdadc9bda6d55c90" title="Default decade level to use for decade cropping.">m_Ndec</a> = Ndec;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">return</span> nold;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;}</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">// Set the default significant digits to output</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"> * @param nSigDigits new value of the sig digits</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> * @return returns the old value of Ndec</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a490c97eb64dab74c2736b7ebd4124e6a">  242</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a490c97eb64dab74c2736b7ebd4124e6a" title="Set the default significant digits to output.">PrintCtrl::setSigDigits</a>(<span class="keywordtype">int</span> nSigDigits)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;{</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> + 1;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> = nSigDigits - 1;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> &lt; 0) {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <a class="code" href="classCantera_1_1PrintCtrl.html#a7e00c72c2c4ff7b71a213cc7e848b502" title="default precision level to use in printing">m_precision</a> = 0;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">return</span> nold;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">// Set the default minimum width</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> * @param wmin Default minimum width</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> * @return returns the old default</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a0f0b4d49e110021fc7ecf592d11b2b5b">  258</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a0f0b4d49e110021fc7ecf592d11b2b5b" title="Set the default minimum width.">PrintCtrl::setWmin</a>(<span class="keywordtype">int</span> wmin)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;{</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#a18a815650480dc6ad0f48eee4933864f" title="default minimimum field width">m_wMin</a>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a18a815650480dc6ad0f48eee4933864f" title="default minimimum field width">m_wMin</a> = wmin;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">return</span> nold;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">// Set the default maximum width</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment"> * @param wmin Default maximum width</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment"> * @return returns the old default</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#aefc8b2e558adb5d0014b6b1073958cd2">  273</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#aefc8b2e558adb5d0014b6b1073958cd2" title="Set the default maximum width.">PrintCtrl::setWmax</a>(<span class="keywordtype">int</span> wmax)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#aae7450fbf6952e515ea1850d37d5b7be" title="Default maximum field width.">m_wMax</a>;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#aae7450fbf6952e515ea1850d37d5b7be" title="Default maximum field width.">m_wMax</a> = wmax;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> nold;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
-<div class="line"><a name="l00280"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a765f7847ebb4ed47f9ec330d355f8aff">  280</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a765f7847ebb4ed47f9ec330d355f8aff" title="private function to figure out cropping logic">PrintCtrl::doCrop</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">bool</span> retn = ((<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea3f6aa312a1c14bcdfd77fbdd43870efb" title="Turn on cropping always.">CT_ON</a>) || (<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea6b479d9d553bfd7ffa614c7e4bb46d90" title="Turn on cropping unless the global toggle is turned off.">CT_ON_GLOBALOBEY</a>));</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> ==  <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea6b479d9d553bfd7ffa614c7e4bb46d90" title="Turn on cropping unless the global toggle is turned off.">CT_ON_GLOBALOBEY</a>) {</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a4014063d38348d25415b2a6992bf077e" title="static enum for turning on and off cropping">GlobalCrop</a> ==  <a class="code" href="classCantera_1_1PrintCtrl.html#a9800889efc6b89a7b219c3c7dacdb54bacb47cec805258081a5783526d8b9b66a" title="global toggle for turning off cropping">GCT_NOCROP</a>) {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            retn = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        }</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    } <span class="keywordflow">else</span>  <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea7b4dd32dd4119722740d003f0598e246" title="Turn off cropping, unless the global toggle is turned on.">CT_OFF_GLOBALOBEY</a>) {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a4014063d38348d25415b2a6992bf077e" title="static enum for turning on and off cropping">GlobalCrop</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#a9800889efc6b89a7b219c3c7dacdb54ba6eff953da00b6cfa47dfe322693aaa32" title="global toggle for turning on cropping">GCT_CROP</a>) {</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            retn = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">return</span> retn;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a20bf7d74dc24acc9a192d6f6889ddc13">  295</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a20bf7d74dc24acc9a192d6f6889ddc13" title="Set the cropping control flag.">PrintCtrl:: setCropCntrl</a>(<a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997e" title="enum for cropping control">CROP_TYPE</a> ctlocal)</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;{</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> = ctlocal;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">// Set the default maximum width</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment"> * @param wmin Default maximum width</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"> * @return returns the old default</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#aefc8b2e558adb5d0014b6b1073958cd2">  272</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1PrintCtrl.html#aefc8b2e558adb5d0014b6b1073958cd2" title="Set the default maximum width.">PrintCtrl::setWmax</a>(<span class="keywordtype">int</span> wmax)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;{</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">int</span> nold = <a class="code" href="classCantera_1_1PrintCtrl.html#aae7450fbf6952e515ea1850d37d5b7be" title="Default maximum field width.">m_wMax</a>;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#aae7450fbf6952e515ea1850d37d5b7be" title="Default maximum field width.">m_wMax</a> = wmax;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> nold;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a765f7847ebb4ed47f9ec330d355f8aff">  279</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a765f7847ebb4ed47f9ec330d355f8aff" title="private function to figure out cropping logic">PrintCtrl::doCrop</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">bool</span> retn = ((<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea3f6aa312a1c14bcdfd77fbdd43870efb" title="Turn on cropping always.">CT_ON</a>) || (<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea6b479d9d553bfd7ffa614c7e4bb46d90" title="Turn on cropping unless the global toggle is turned off.">CT_ON_GLOBALOBEY</a>));</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> ==  <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea6b479d9d553bfd7ffa614c7e4bb46d90" title="Turn on cropping unless the global toggle is turned off.">CT_ON_GLOBALOBEY</a>) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a4014063d38348d25415b2a6992bf077e" title="static enum for turning on and off cropping">GlobalCrop</a> ==  <a class="code" href="classCantera_1_1PrintCtrl.html#a9800889efc6b89a7b219c3c7dacdb54bacb47cec805258081a5783526d8b9b66a" title="global toggle for turning off cropping">GCT_NOCROP</a>) {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            retn = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    } <span class="keywordflow">else</span>  <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997ea7b4dd32dd4119722740d003f0598e246" title="Turn off cropping, unless the global toggle is turned on.">CT_OFF_GLOBALOBEY</a>) {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1PrintCtrl.html#a4014063d38348d25415b2a6992bf077e" title="static enum for turning on and off cropping">GlobalCrop</a> == <a class="code" href="classCantera_1_1PrintCtrl.html#a9800889efc6b89a7b219c3c7dacdb54ba6eff953da00b6cfa47dfe322693aaa32" title="global toggle for turning on cropping">GCT_CROP</a>) {</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            retn = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">return</span> retn;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;}</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="code" href="classCantera_1_1PrintCtrl.html#a20bf7d74dc24acc9a192d6f6889ddc13">  294</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1PrintCtrl.html#a20bf7d74dc24acc9a192d6f6889ddc13" title="Set the cropping control flag.">PrintCtrl:: setCropCntrl</a>(<a class="code" href="classCantera_1_1PrintCtrl.html#aba037f85d3e3431b6e05ec0e39c3997e" title="enum for cropping control">CROP_TYPE</a> ctlocal)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;{</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <a class="code" href="classCantera_1_1PrintCtrl.html#a6a1cde82f0648661a3dd0cd61fdf4a41" title="Local Cropping Control.">m_cropCntrl</a> = ctlocal;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;}</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

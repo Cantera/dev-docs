@@ -1506,46 +1506,46 @@
 <div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVCSnonideal_1_1VCS__SOLVE.html#a336b22539097d4bfa4c271f5bf590148" title="Update all underlying vcs_VolPhase objects.">vcs_updateMolNumVolPhases</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> stateCalc);</div>
 <div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;</div>
 <div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;<span class="comment">   //!  Calculate the rank of a matrix and return the rows and columns that will generate an independent basis</span></div>
-<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;<span class="comment">   //!  for that rank</span></div>
-<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;<span class="comment"></span>  <span class="comment">/*</span></div>
-<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;<span class="comment">   * Choose the optimum component species basis for the calculations, finding the rank and </span></div>
-<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;<span class="comment">   * set of linearly independent rows for that calculation.</span></div>
-<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;<span class="comment">   * Then find the set of linearly indepedent element columns that can support that rank.</span></div>
-<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;<span class="comment">   * This is done by taking the transpose of the matrix and redoing the same calculation.</span></div>
-<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;<span class="comment">   * (there may be a better way to do this. I don&#39;t know.)</span></div>
-<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;<span class="comment">   * Input </span></div>
-<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160;<span class="comment">   * --------- </span></div>
-<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;<span class="comment">   * @param awtmp      Vector of mole numbers which will be used to construct a </span></div>
-<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;<span class="comment">   *                   ranking for how to pick the basis species. This is largely ignored</span></div>
-<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;<span class="comment">   *                   here.</span></div>
-<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;<span class="comment">   * @param numSpecies Number of species. This is the number of rows in the matrix.</span></div>
-<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;<span class="comment">   * @param matrix     Matrix. This is the formula matrix. Nominally, the rows are species, while</span></div>
-<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;<span class="comment">   *                   the columns are element compositions. However, this routine</span></div>
-<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;<span class="comment">   *                   is totally general, so that the rows and columns can be anything.</span></div>
-<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;<span class="comment">   * @param numElemConstraints Number of element constraints</span></div>
-<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;<span class="comment">   * Output </span></div>
-<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;<span class="comment">   * --------- </span></div>
-<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;<span class="comment">   * @param usedZeroedSpecies = If true, then a species with a zero concentration</span></div>
-<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;<span class="comment">   *                            was used as a component.</span></div>
-<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;<span class="comment">   * @param compRes    Vector of rows which are linearly independent. (these are the components)</span></div>
-<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;<span class="comment">   * @param elemComp   Vector of columns which are linearly independent (These are the actionable element</span></div>
-<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;<span class="comment">   *                   constraints).</span></div>
-<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;<span class="comment">   *</span></div>
-<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;<span class="comment">   * @return        Returns number of components. This is the rank of the matrix</span></div>
-<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;<span class="comment">   */</span> </div>
-<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVCSnonideal_1_1VCS__SOLVE.html#af4a0eb36bc7905e98518fdc89d42cbff" title="Calculate the rank of a matrix and return the rows and columns that will generate an independent basi...">vcs_rank</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> * awtmp, <span class="keywordtype">size_t</span> numSpecies, <span class="keyword">const</span> <span class="keywordtype">double</span> * matrix,  <span class="keywordtype">size_t</span> numElemConstraints,</div>
-<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;                 std::vector&lt;size_t&gt; &amp;compRes, std::vector&lt;size_t&gt; &amp;elemComp, <span class="keywordtype">int</span> * <span class="keyword">const</span> usedZeroedSpecies) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;<span class="comment">    //!  Calculate the rank of a matrix and return the rows and columns that will generate an independent basis</span></div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;<span class="comment">    //!  for that rank</span></div>
+<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;<span class="comment"></span>    <span class="comment">/*</span></div>
+<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;<span class="comment">     * Choose the optimum component species basis for the calculations, finding the rank and</span></div>
+<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;<span class="comment">     * set of linearly independent rows for that calculation.</span></div>
+<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;<span class="comment">     * Then find the set of linearly indepedent element columns that can support that rank.</span></div>
+<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;<span class="comment">     * This is done by taking the transpose of the matrix and redoing the same calculation.</span></div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;<span class="comment">     * (there may be a better way to do this. I don&#39;t know.)</span></div>
+<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;<span class="comment">     * Input</span></div>
+<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160;<span class="comment">     * ---------</span></div>
+<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;<span class="comment">     * @param awtmp      Vector of mole numbers which will be used to construct a</span></div>
+<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;<span class="comment">     *                   ranking for how to pick the basis species. This is largely ignored</span></div>
+<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;<span class="comment">     *                   here.</span></div>
+<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;<span class="comment">     * @param numSpecies Number of species. This is the number of rows in the matrix.</span></div>
+<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;<span class="comment">     * @param matrix     Matrix. This is the formula matrix. Nominally, the rows are species, while</span></div>
+<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;<span class="comment">     *                   the columns are element compositions. However, this routine</span></div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;<span class="comment">     *                   is totally general, so that the rows and columns can be anything.</span></div>
+<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;<span class="comment">     * @param numElemConstraints Number of element constraints</span></div>
+<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;<span class="comment">     * Output</span></div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;<span class="comment">     * ---------</span></div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;<span class="comment">     * @param usedZeroedSpecies = If true, then a species with a zero concentration</span></div>
+<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;<span class="comment">     *                            was used as a component.</span></div>
+<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;<span class="comment">     * @param compRes    Vector of rows which are linearly independent. (these are the components)</span></div>
+<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;<span class="comment">     * @param elemComp   Vector of columns which are linearly independent (These are the actionable element</span></div>
+<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;<span class="comment">     *                   constraints).</span></div>
+<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;<span class="comment">     * @return        Returns number of components. This is the rank of the matrix</span></div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVCSnonideal_1_1VCS__SOLVE.html#af4a0eb36bc7905e98518fdc89d42cbff" title="Calculate the rank of a matrix and return the rows and columns that will generate an independent basi...">vcs_rank</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>* awtmp, <span class="keywordtype">size_t</span> numSpecies, <span class="keyword">const</span> <span class="keywordtype">double</span>* matrix,  <span class="keywordtype">size_t</span> numElemConstraints,</div>
+<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;                 std::vector&lt;size_t&gt; &amp;compRes, std::vector&lt;size_t&gt; &amp;elemComp, <span class="keywordtype">int</span>* <span class="keyword">const</span> usedZeroedSpecies) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;</div>
 <div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;</div>
 <div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
