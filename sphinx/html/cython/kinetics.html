@@ -186,6 +186,16 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <dd><p>True if reaction <tt class="xref py py-obj docutils literal"><span class="pre">i_reaction</span></tt> is reversible.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cantera.Kinetics.kin_different_T">
+<tt class="descname">kin_different_T</tt><a class="headerlink" href="#cantera.Kinetics.kin_different_T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Kinetics.kin_same_T">
+<tt class="descname">kin_same_T</tt><a class="headerlink" href="#cantera.Kinetics.kin_same_T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cantera.Kinetics.kinetics_species_index">
 <tt class="descname">kinetics_species_index</tt><big>(</big><em>self</em>, <em>int species</em>, <em>int phase</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.kinetics_species_index" title="Permalink to this definition">¶</a></dt>
@@ -317,6 +327,145 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <dd><p>Set the multiplier for for reaction <em>i_reaction</em> to <em>value</em>.
 If <em>i_reaction</em> is not specified, then the multiplier for all reactions
 is set to <em>value</em>. See <a class="reference internal" href="#cantera.Kinetics.multiplier" title="cantera.Kinetics.multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">multiplier</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ReactionPathDiagram">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ReactionPathDiagram</tt><a class="headerlink" href="#cantera.ReactionPathDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>ReactionPathDiagram(Kinetics kin, str element)</p>
+<p>Create a reaction path diagram for the fluxes of the element <em>element</em>
+according the the net reaction rates determined by the Kinetics object
+<em>kin</em>.</p>
+<dl class="method">
+<dt id="cantera.ReactionPathDiagram.add">
+<tt class="descname">add</tt><big>(</big><em>self</em>, <em>ReactionPathDiagram other</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add fluxes from <tt class="xref py py-obj docutils literal"><span class="pre">other</span></tt> to this diagram</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.arrow_width">
+<tt class="descname">arrow_width</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.arrow_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>arrow width. If &lt; 0, then scale with flux value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.bold_color">
+<tt class="descname">bold_color</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.bold_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>color for bold lines</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.bold_threshold">
+<tt class="descname">bold_threshold</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.bold_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum relative flux for bold lines</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ReactionPathDiagram.build">
+<tt class="descname">build</tt><big>(</big><em>self</em>, <em>verbose=False</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the reaction path diagram. Called automatically by methods which
+return representations of the diagram, e.g. write_dot().</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.dashed_color">
+<tt class="descname">dashed_color</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.dashed_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>color for dashed lines</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ReactionPathDiagram.display_only">
+<tt class="descname">display_only</tt><big>(</big><em>self</em>, <em>int k</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram.display_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.dot_options">
+<tt class="descname">dot_options</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.dot_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>options for the &#8216;dot&#8217; program</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.flow_type">
+<tt class="descname">flow_type</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.flow_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to either &#8216;NetFlow&#8217; or &#8216;OneWayFlow&#8217;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.font">
+<tt class="descname">font</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.font" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.ReactionPathDiagram.get_data">
+<tt class="descname">get_data</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram.get_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a (roughly) human-readable representation of the reaction path
+diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ReactionPathDiagram.get_dot">
+<tt class="descname">get_dot</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram.get_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string containing the reaction path diagram formatted for use
+by Graphviz&#8217;s &#8216;dot&#8217; program.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.label_threshold">
+<tt class="descname">label_threshold</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.label_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimum relative flux for labels</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.log">
+<tt class="descname">log</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logging messages generated while building the reaction path diagram</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.normal_color">
+<tt class="descname">normal_color</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.normal_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>color for normal-weight lines</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.normal_threshold">
+<tt class="descname">normal_threshold</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.normal_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum relative flux for dashed lines</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.scale">
+<tt class="descname">scale</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scaling factor for the fluxes. Set to -1 to normalize by the maximum
+net flux.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.show_details">
+<tt class="descname">show_details</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.show_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the details of which reactions contribute to the flux</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.threshold">
+<tt class="descname">threshold</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the threshold for the minimum flux relative value that will be
+plotted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ReactionPathDiagram.title">
+<tt class="descname">title</tt><a class="headerlink" href="#cantera.ReactionPathDiagram.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.ReactionPathDiagram.write_dot">
+<tt class="descname">write_dot</tt><big>(</big><em>self</em>, <em>filename</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram.write_dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the reaction path diagram formatted for use by Graphviz&#8217;s &#8216;dot&#8217;
+program to the file named <em>filename</em>.</p>
 </dd></dl>
 
 </dd></dl>

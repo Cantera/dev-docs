@@ -63,7 +63,7 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">A Very Simple C++ Program</a><ul>
-<li><a class="reference internal" href="#catching-canteraerror-exceptions">Catching <span>CanteraError</span> exceptions</a></li>
+<li><a class="reference internal" href="#catching-canteraerror-exceptions">Catching CanteraError exceptions</a></li>
 <li><a class="reference internal" href="#the-report-function">The <tt class="docutils literal"><span class="pre">report</span></tt> function</a></li>
 </ul>
 </li>
@@ -177,18 +177,18 @@ heat capacity c_v         2797.09        2.072e+04     J/K
 the &#8220;Hello, World&#8221; program most programming textbooks begin with. But it
 illustrates some important points in writing Cantera C++ programs.</p>
 <div class="section" id="catching-canteraerror-exceptions">
-<h2>Catching <span>CanteraError</span> exceptions<a class="headerlink" href="#catching-canteraerror-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>Catching <a class="reference external" href="../../../doxygen/html/classCantera_1_1CanteraError.html">CanteraError</a> exceptions<a class="headerlink" href="#catching-canteraerror-exceptions" title="Permalink to this headline">¶</a></h2>
 <p>The entire body of the program is put inside a function that is invoked within
 a <tt class="docutils literal"><span class="pre">try</span></tt> block in the main program. In this way, exceptions thrown in the
 function or in any procedure it calls may be caught. In this program, a
-<tt class="docutils literal"><span class="pre">catch</span></tt> block is defined for exceptions of type <span>CanteraError</span>. Cantera
+<tt class="docutils literal"><span class="pre">catch</span></tt> block is defined for exceptions of type <a class="reference external" href="../../../doxygen/html/classCantera_1_1CanteraError.html">CanteraError</a>. Cantera
 throws exceptions of this type, so it is always a good idea to catch them. In
-the <tt class="docutils literal"><span class="pre">catch</span></tt> block, function <span>showErrors</span> may be called to print the error
+the <tt class="docutils literal"><span class="pre">catch</span></tt> block, function <a class="reference external" href="../../../doxygen/html/namespaceCantera.html#a0a45aae524295a5236caf3d9bff37420">showErrors()</a> may be called to print the error
 message associated with the exception.</p>
 </div>
 <div class="section" id="the-report-function">
 <h2>The <tt class="docutils literal"><span class="pre">report</span></tt> function<a class="headerlink" href="#the-report-function" title="Permalink to this headline">¶</a></h2>
-<p>The <span>report</span> function generates a nicely-formatted report of the properties of
+<p>The <a class="reference external" href="../../../doxygen/html/classCantera_1_1MolalityVPSSTP.html#adf368cd8c67a3f672bb2915e388fcf6d">report()</a> function generates a nicely-formatted report of the properties of
 a phase, including its composition in both mole (X) and mass (Y) units. For
 each species present, the non-dimensional chemical potential is also printed.
 This is handy particularly when doing equilibrium calculations. This function

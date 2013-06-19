@@ -112,7 +112,7 @@
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">FreeFlame</tt><a class="headerlink" href="#cantera.FreeFlame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.FlameBase</span></tt></p>
 <p>A freely-propagating flat flame.</p>
-<p>FreeFlame.__init__(self, gas, grid)</p>
+<p>FreeFlame.__init__(self, gas, grid=None)</p>
 <p>A domain of type FreeFlow named &#8216;flame&#8217; will be created to represent
 the flame. The three domains comprising the stack are stored as
 <tt class="docutils literal"><span class="pre">self.inlet</span></tt>, <tt class="docutils literal"><span class="pre">self.flame</span></tt>, and <tt class="docutils literal"><span class="pre">self.outlet</span></tt>.</p>
@@ -133,7 +133,7 @@ similarly.</p>
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">BurnerFlame</tt><a class="headerlink" href="#cantera.BurnerFlame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.FlameBase</span></tt></p>
 <p>A burner-stabilized flat flame.</p>
-<p>BurnerFlame.__init__(self, gas, grid)</p>
+<p>BurnerFlame.__init__(self, gas, grid=None)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -168,7 +168,7 @@ set similarly.</p>
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">CounterflowDiffusionFlame</tt><a class="headerlink" href="#cantera.CounterflowDiffusionFlame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.FlameBase</span></tt></p>
 <p>A counterflow diffusion flame</p>
-<p>CounterflowDiffusionFlame.__init__(self, gas, grid)</p>
+<p>CounterflowDiffusionFlame.__init__(self, gas, grid=None)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -749,8 +749,16 @@ component.</p>
 <dt id="cantera.Boundary1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Boundary1D</tt><a class="headerlink" href="#cantera.Boundary1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Domain1D</span></tt></p>
-<p>Boundary1D(<a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs)
-Base class for boundary domains.</p>
+<p>Boundary1D(_SolutionBase phase, <a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs)</p>
+<p>Base class for boundary domains.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phase</strong> &#8211; The (gas) phase corresponding to the adjacent flow domain</td>
+</tr>
+</tbody>
+</table>
 <dl class="attribute">
 <dt id="cantera.Boundary1D.T">
 <tt class="descname">T</tt><a class="headerlink" href="#cantera.Boundary1D.T" title="Permalink to this definition">¶</a></dt>
@@ -760,13 +768,15 @@ Base class for boundary domains.</p>
 <dl class="attribute">
 <dt id="cantera.Boundary1D.X">
 <tt class="descname">X</tt><a class="headerlink" href="#cantera.Boundary1D.X" title="Permalink to this definition">¶</a></dt>
-<dd><p>Species mole fractions at this boundary.</p>
+<dd><p>Species mole fractions at this boundary. May be set as either a string
+or as an array.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.Boundary1D.Y">
 <tt class="descname">Y</tt><a class="headerlink" href="#cantera.Boundary1D.Y" title="Permalink to this definition">¶</a></dt>
-<dd><p>Species mass fractions at this boundary.</p>
+<dd><p>Species mass fractions at this boundary. May be set as either a string
+or as an array.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -853,8 +863,23 @@ from 0 (disabled) to 2 (most verbose).</li>
 <dl class="method">
 <dt id="cantera.Sim1D.save">
 <tt class="descname">save</tt><big>(</big><em>self</em>, <em>filename='soln.xml'</em>, <em>name='solution'</em>, <em>description='none'</em>, <em>loglevel=1</em><big>)</big><a class="headerlink" href="#cantera.Sim1D.save" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save the solution in XML format.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">file</span><span class="o">=</span><span class="s">&#39;save.xml&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;energy_off&#39;</span><span class="p">,</span>
+<dd><p>Save the solution in XML format.
+:param filename:</p>
+<blockquote>
+<div>solution file</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; solution name within the file</li>
+<li><strong>description</strong> &#8211; custom description text</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;save.xml&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;energy_off&#39;</span><span class="p">,</span>
 <span class="gp">... </span>       <span class="n">description</span><span class="o">=</span><span class="s">&#39;solution with energy eqn. disabled&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -902,6 +927,15 @@ set the grid spacing for all domains.</p>
 <dd><p>Set the initial guess for the solution. Derived classes extend this
 function to set approximations for the temperature and composition
 profiles.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Sim1D.set_interrupt">
+<tt class="descname">set_interrupt</tt><big>(</big><em>self</em>, <em>f</em><big>)</big><a class="headerlink" href="#cantera.Sim1D.set_interrupt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set an interrupt function to be called each time that OneDim::eval is
+called. The signature of <em>f</em> is <tt class="xref py py-obj docutils literal"><span class="pre">float</span> <span class="pre">f(float)</span></tt>. The default
+interrupt function is used to trap KeyboardInterrupt exceptions so
+that <tt class="xref py py-obj docutils literal"><span class="pre">ctrl-c</span></tt> can be used to break out of the C++ solver loop.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1128,7 +1162,7 @@ contains the values of the residual function.</p>
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">FlameBase</tt><a class="headerlink" href="#cantera.FlameBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Sim1D</span></tt></p>
 <p>Base class for flames with a single flow domain</p>
-<p>FlameBase.__init__(self, domains, gas, grid)</p>
+<p>FlameBase.__init__(self, domains, gas, grid=None)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1141,6 +1175,14 @@ contains the values of the residual function.</p>
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="cantera.FlameBase.L">
+<tt class="descname">L</tt><a class="headerlink" href="#cantera.FlameBase.L" title="Permalink to this definition">¶</a></dt>
+<dd><p>FlameBase.L(self)</p>
+<p>Array containing the radial pressure gradient (1/r)(dP/dr) [N/m^4] at
+each point. Note: This value is named &#8216;lambda&#8217; in the C++ code.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.FlameBase.P">
 <tt class="descname">P</tt><a class="headerlink" href="#cantera.FlameBase.P" title="Permalink to this definition">¶</a></dt>

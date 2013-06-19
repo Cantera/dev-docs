@@ -138,7 +138,8 @@
 <dl class="class">
 <dt id="ctml_writer.state">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">state</tt><big>(</big><em>temperature=None</em>, <em>pressure=None</em>, <em>mole_fractions=None</em>, <em>mass_fractions=None</em>, <em>density=None</em>, <em>coverages=None</em>, <em>solute_molalities=None</em><big>)</big><a class="headerlink" href="#ctml_writer.state" title="Permalink to this definition">¶</a></dt>
-<dd><p>An embedded entry that specifies the thermodynamic state of a phase
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An embedded entry that specifies the thermodynamic state of a phase
 or interface.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -167,7 +168,8 @@ set to zero. Can only be specified for interfaces.</li>
 <dl class="class">
 <dt id="ctml_writer.phase">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">phase</tt><big>(</big><em>name=''</em>, <em>dim=3</em>, <em>elements=''</em>, <em>species=''</em>, <em>reactions='none'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#ctml_writer.phase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for phases of matter.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for phases of matter.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -221,7 +223,7 @@ mixtures, is used.</li>
 
 <dl class="class">
 <dt id="ctml_writer.stoichiometric_solid">
-<em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">stoichiometric_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>density=-1.0</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#ctml_writer.stoichiometric_solid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">stoichiometric_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>density=None</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#ctml_writer.stoichiometric_solid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#ctml_writer.phase" title="ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">ctml_writer.phase</span></tt></a></p>
 <p>A solid compound or pure element. Stoichiometric solid phases contain
 exactly one species, which always has unit activity. The solid is assumed
@@ -334,7 +336,8 @@ at this interface.</li>
 <dl class="class">
 <dt id="ctml_writer.element">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">element</tt><big>(</big><em>symbol=''</em>, <em>atomic_mass=0.01</em>, <em>atomic_number=0</em><big>)</big><a class="headerlink" href="#ctml_writer.element" title="Permalink to this definition">¶</a></dt>
-<dd><p>An atomic element or isotope.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>An atomic element or isotope.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -352,7 +355,8 @@ at this interface.</li>
 <dl class="class">
 <dt id="ctml_writer.species">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">species</tt><big>(</big><em>name='missing name!'</em>, <em>atoms=''</em>, <em>note=''</em>, <em>thermo=None</em>, <em>transport=None</em>, <em>charge=-999</em>, <em>size=1.0</em><big>)</big><a class="headerlink" href="#ctml_writer.species" title="Permalink to this definition">¶</a></dt>
-<dd><p>A constituent of a phase or interface.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A constituent of a phase or interface.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -487,7 +491,8 @@ vibrational frequencies.</p>
 <dl class="class">
 <dt id="ctml_writer.gas_transport">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">gas_transport</tt><big>(</big><em>geom='nonlin'</em>, <em>diam=0.0</em>, <em>well_depth=0.0</em>, <em>dipole=0.0</em>, <em>polar=0.0</em>, <em>rot_relax=0.0</em><big>)</big><a class="headerlink" href="#ctml_writer.gas_transport" title="Permalink to this definition">¶</a></dt>
-<dd><p>Species-specific Transport coefficients for ideal gas transport models.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ctml_writer.transport</span></tt></p>
+<p>Species-specific Transport coefficients for ideal gas transport models.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -514,7 +519,8 @@ Default: 0.0</li>
 <dl class="class">
 <dt id="ctml_writer.reaction">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#ctml_writer.reaction" title="Permalink to this definition">¶</a></dt>
-<dd><p>A homogeneous chemical reaction with pressure-independent rate coefficient
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A homogeneous chemical reaction with pressure-independent rate coefficient
 and mass-action kinetics.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -546,7 +552,8 @@ used internally by Cantera, taking into account the reaction order.</p>
 <dl class="class">
 <dt id="ctml_writer.Arrhenius">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">Arrhenius</tt><big>(</big><em>A=0.0</em>, <em>n=0.0</em>, <em>E=0.0</em>, <em>coverage=</em><span class="optional">[</span><span class="optional">]</span>, <em>rate_type=''</em><big>)</big><a class="headerlink" href="#ctml_writer.Arrhenius" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ctml_writer.rate_expression</span></tt></p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -714,7 +721,8 @@ reaction in the file.</li>
 <dl class="class">
 <dt id="ctml_writer.Troe">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">Troe</tt><big>(</big><em>A=0.0</em>, <em>T3=0.0</em>, <em>T1=0.0</em>, <em>T2=-999.9</em><big>)</big><a class="headerlink" href="#ctml_writer.Troe" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Troe falloff function.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The Troe falloff function.</p>
 <p>Parameters: <em>A</em>, <em>T3</em>, <em>T1</em>, <em>T2</em>. These must be entered as pure
 numbers with no attached dimensions.</p>
 </dd></dl>
@@ -722,7 +730,8 @@ numbers with no attached dimensions.</p>
 <dl class="class">
 <dt id="ctml_writer.SRI">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">SRI</tt><big>(</big><em>A=0.0</em>, <em>B=0.0</em>, <em>C=0.0</em>, <em>D=-999.9</em>, <em>E=-999.9</em><big>)</big><a class="headerlink" href="#ctml_writer.SRI" title="Permalink to this definition">¶</a></dt>
-<dd><p>The SRI falloff function.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The SRI falloff function.</p>
 <p>Parameters: <em>A</em>, <em>B</em>, <em>C</em>, <em>D</em>, <em>E</em>. These must be entered as
 pure numbers without attached dimensions.</p>
 </dd></dl>
@@ -730,7 +739,8 @@ pure numbers without attached dimensions.</p>
 <dl class="class">
 <dt id="ctml_writer.Lindemann">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">Lindemann</tt><a class="headerlink" href="#ctml_writer.Lindemann" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Lindemann falloff function.</p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>The Lindemann falloff function.</p>
 <p>This falloff function takes no parameters.</p>
 </dd></dl>
 

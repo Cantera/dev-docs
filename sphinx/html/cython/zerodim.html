@@ -296,6 +296,13 @@ equations.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cantera.ReactorNet.max_err_test_fails">
+<tt class="descname">max_err_test_fails</tt><a class="headerlink" href="#cantera.ReactorNet.max_err_test_fails" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of error test failures permitted by the CVODES
+integrator in a single time step.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cantera.ReactorNet.n_sensitivity_params">
 <tt class="descname">n_sensitivity_params</tt><a class="headerlink" href="#cantera.ReactorNet.n_sensitivity_params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -434,6 +441,16 @@ shown below.</p>
 <dt id="cantera.Reactor.add_sensitivity_reaction">
 <tt class="descname">add_sensitivity_reaction</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.Reactor.add_sensitivity_reaction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.Reactor.component_index">
+<tt class="descname">component_index</tt><big>(</big><em>self</em>, <em>name</em><big>)</big><a class="headerlink" href="#cantera.Reactor.component_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the index of the component named <em>name</em> in the system. This
+determines the (relative) index of the component in the vector of
+sensitivity coefficients. <em>name</em> is either a species name or the name
+of a reactor state variable, e.g. &#8216;U&#8217;, &#8216;T&#8217;, depending on the reactor&#8217;s
+equations.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.Reactor.energy_enabled">
