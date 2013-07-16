@@ -270,7 +270,7 @@
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    doublereal h = GG + <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object. ">m_temp</a> * SS;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE_NOT</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor"></span>    doublereal h2 = enthalpy_mole2();</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor"></span>    doublereal h2 = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a6368652a2ef5f009e354be047d74bf7f" title="Return the molar enthalpy in units of J kmol-1. ">enthalpy_mole2</a>();</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> (fabs(h - h2) &gt; 1.0E-1) {</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        printf(<span class="stringliteral">&quot;we are here, h = %g, h2 = %g, k = %d, T = %g, P = %g p0 = %g\n&quot;</span>,</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;               h, h2, <a class="code" href="classCantera_1_1PDSS.html#a252b668936134d20b7f655dc8f9f778e" title="Species index in the ThermoPhase corresponding to this species. ">m_spindex</a>, <a class="code" href="classCantera_1_1PDSS.html#a4d64276995e8b70bb4a09b47c20547f8" title="Current temperature used by the PDSS object. ">m_temp</a>, <a class="code" href="classCantera_1_1PDSS.html#a36c945dff57b7e72f745474aba7c6d33" title="State of the system - pressure. ">m_pres</a>,</div>
@@ -288,9 +288,9 @@
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;}</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor"></span>doublereal PDSS_HKFT::enthalpy_mole2()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__HKFT.html#a6368652a2ef5f009e354be047d74bf7f">  230</a></span>&#160;<span class="preprocessor"></span>doublereal <a class="code" href="classCantera_1_1PDSS__HKFT.html#a6368652a2ef5f009e354be047d74bf7f" title="Return the molar enthalpy in units of J kmol-1. ">PDSS_HKFT::enthalpy_mole2</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    doublereal delH = deltaH();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    doublereal delH = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a5748e8556724d7296eea6d54addd61f7" title="Routine that actually calculates the enthalpy difference between the reference state at Tr...">deltaH</a>();</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">double</span> enthTRPR = <a class="code" href="classCantera_1_1PDSS__HKFT.html#ab9b63f3f1fea78783ec39664d1c1deba" title="Value of the Absolute Gibbs Free Energy NIST scale at T_r and P_r. ">m_Mu0_tr_pr</a> + 298.15 * <a class="code" href="classCantera_1_1PDSS__HKFT.html#a556cd537c62f6f7b3b0d1eb7bab049b5" title="Input value of S_j at Tr and Pr (cal gmol-1 K-1) ">m_Entrop_tr_pr</a> * 1.0E3 * 4.184;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">return</span> delH + enthTRPR;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;}</div>
@@ -853,7 +853,7 @@
 <div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;}</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="preprocessor"></span>doublereal PDSS_HKFT::deltaH()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00795"></a><span class="lineno"><a class="code" href="classCantera_1_1PDSS__HKFT.html#a5748e8556724d7296eea6d54addd61f7">  795</a></span>&#160;<span class="preprocessor"></span>doublereal <a class="code" href="classCantera_1_1PDSS__HKFT.html#a5748e8556724d7296eea6d54addd61f7" title="Routine that actually calculates the enthalpy difference between the reference state at Tr...">PDSS_HKFT::deltaH</a>()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    doublereal pbar = <a class="code" href="classCantera_1_1PDSS.html#a36c945dff57b7e72f745474aba7c6d33" title="State of the system - pressure. ">m_pres</a> * 1.0E-5;</div>
 <div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;</div>
@@ -1228,24 +1228,25 @@
 <div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;                             doublereal&amp; maxTemp_,</div>
 <div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;                             doublereal&amp; refPressure_)<span class="keyword"> const</span></div>
 <div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;    <span class="comment">// Fill in the first part</span></div>
-<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a720e67a02833b0f1a6ed7fda9b75cf5a" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">PDSS::reportParams</a>(kindex, type, c, minTemp_, maxTemp_,</div>
-<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;                       refPressure_);</div>
-<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;</div>
-<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;    c[0] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a2054578a31d1f84cbad2a700ff4bc153" title="Input value of deltaG of Formation at Tr and Pr (cal gmol-1) ">m_deltaG_formation_tr_pr</a>;</div>
-<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;    c[1] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a981eed58385c4cae178f873b56f1ac2e" title="Input value of deltaH of Formation at Tr and Pr (cal gmol-1) ">m_deltaH_formation_tr_pr</a>;</div>
-<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;    c[2] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#ab9b63f3f1fea78783ec39664d1c1deba" title="Value of the Absolute Gibbs Free Energy NIST scale at T_r and P_r. ">m_Mu0_tr_pr</a>;</div>
-<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;    c[3] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a556cd537c62f6f7b3b0d1eb7bab049b5" title="Input value of S_j at Tr and Pr (cal gmol-1 K-1) ">m_Entrop_tr_pr</a>;</div>
-<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;    c[4] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a7f24e3a9ef5903e0a18142b68593adaa" title="Input a1 coefficient (cal gmol-1 bar-1) ">m_a1</a>;</div>
-<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;    c[5] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a5477682fdcc0a2a6bd3860e72b588efc" title="Input a2 coefficient (cal gmol-1) ">m_a2</a>;</div>
-<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;    c[6] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a27a2e6bd0973479ac3102f30af8cc87e" title="Input a3 coefficient (cal K gmol-1 bar-1) ">m_a3</a>;</div>
-<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;    c[7] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a2997eacae144c80b21c331209393a65b" title="Input a4 coefficient (cal K gmol-1) ">m_a4</a>;</div>
-<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;    c[8] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a35e01365aa960cf24b5dde43af9c7e37" title="Input c1 coefficient (cal gmol-1 K-1) ">m_c1</a>;</div>
-<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;    c[9] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a2ec50e0f7f55d13172c0b8141f77ab64" title="Input c2 coefficient (cal K gmol-1) ">m_c2</a>;</div>
-<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;    c[10] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a508d38a627a562d2d2937acc433a9c12" title="Input omega_pr_tr coefficient(cal gmol-1) ">m_omega_pr_tr</a>;</div>
-<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;}</div>
-<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;</div>
-<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;}</div>
+<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;PDSS_HKFT::reportParams&quot;</span>);</div>
+<div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;    <span class="comment">// Fill in the first part</span></div>
+<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;    <a class="code" href="classCantera_1_1PDSS.html#a720e67a02833b0f1a6ed7fda9b75cf5a" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">PDSS::reportParams</a>(kindex, type, c, minTemp_, maxTemp_,</div>
+<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;                       refPressure_);</div>
+<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;</div>
+<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;    c[0] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a2054578a31d1f84cbad2a700ff4bc153" title="Input value of deltaG of Formation at Tr and Pr (cal gmol-1) ">m_deltaG_formation_tr_pr</a>;</div>
+<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;    c[1] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a981eed58385c4cae178f873b56f1ac2e" title="Input value of deltaH of Formation at Tr and Pr (cal gmol-1) ">m_deltaH_formation_tr_pr</a>;</div>
+<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;    c[2] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#ab9b63f3f1fea78783ec39664d1c1deba" title="Value of the Absolute Gibbs Free Energy NIST scale at T_r and P_r. ">m_Mu0_tr_pr</a>;</div>
+<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;    c[3] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a556cd537c62f6f7b3b0d1eb7bab049b5" title="Input value of S_j at Tr and Pr (cal gmol-1 K-1) ">m_Entrop_tr_pr</a>;</div>
+<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;    c[4] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a7f24e3a9ef5903e0a18142b68593adaa" title="Input a1 coefficient (cal gmol-1 bar-1) ">m_a1</a>;</div>
+<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;    c[5] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a5477682fdcc0a2a6bd3860e72b588efc" title="Input a2 coefficient (cal gmol-1) ">m_a2</a>;</div>
+<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;    c[6] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a27a2e6bd0973479ac3102f30af8cc87e" title="Input a3 coefficient (cal K gmol-1 bar-1) ">m_a3</a>;</div>
+<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;    c[7] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a2997eacae144c80b21c331209393a65b" title="Input a4 coefficient (cal K gmol-1) ">m_a4</a>;</div>
+<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;    c[8] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a35e01365aa960cf24b5dde43af9c7e37" title="Input c1 coefficient (cal gmol-1 K-1) ">m_c1</a>;</div>
+<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;    c[9] =  <a class="code" href="classCantera_1_1PDSS__HKFT.html#a2ec50e0f7f55d13172c0b8141f77ab64" title="Input c2 coefficient (cal K gmol-1) ">m_c2</a>;</div>
+<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;    c[10] = <a class="code" href="classCantera_1_1PDSS__HKFT.html#a508d38a627a562d2d2937acc433a9c12" title="Input omega_pr_tr coefficient(cal gmol-1) ">m_omega_pr_tr</a>;</div>
+<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;}</div>
+<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;</div>
+<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -363,41 +363,42 @@
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">     * @param minTemp   output - Minimum temperature</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">     * @param maxTemp   output - Maximum temperature</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">     * @param refPressure output - reference pressure (Pa).</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermo.html#a24b85009a9ddb62f6ea4b1756cf6c4fe" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParams</a>(<span class="keywordtype">size_t</span> index, <span class="keywordtype">int</span>&amp; type,</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                              doublereal* <span class="keyword">const</span> c,</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                              doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermo.html#ab7ec7a5e58657c336ba78839f43942c6" title="Minimum temperature. ">minTemp</a>,</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                              doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermo.html#a4bf2a2567c1c5380e2e86dd7513bb6fa" title="Maximum temperature. ">maxTemp</a>,</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                              doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c" title="The reference-state pressure for species k. ">refPressure</a>) <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="preprocessor"></span><span class="comment">    //! Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">     *   The 298K Heat of Formation is defined as the enthalpy change to create the standard state</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">     *   @param k    species index</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">     *   @return     Returns the current value of the Heat of Formation at 298K and 1 bar</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keyword">virtual</span> doublereal reportOneHf298(<span class="keywordtype">int</span> k) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">    //!  Modify the value of the 298 K Heat of Formation of the standard state of</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">    //!  one species in the phase (J kmol-1)</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">     *   @param  k           Index of the species</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar.</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">     *                       units = J/kmol.</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> modifyOneHf298(<span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal Hf298New) = 0;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor"></span>};<span class="comment"></span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">//@}</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment"></span>}</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">     * @deprecated</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermo.html#a24b85009a9ddb62f6ea4b1756cf6c4fe" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParams</a>(<span class="keywordtype">size_t</span> index, <span class="keywordtype">int</span>&amp; type,</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                              doublereal* <span class="keyword">const</span> c,</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                              doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermo.html#ab7ec7a5e58657c336ba78839f43942c6" title="Minimum temperature. ">minTemp</a>,</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                              doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermo.html#a4bf2a2567c1c5380e2e86dd7513bb6fa" title="Maximum temperature. ">maxTemp</a>,</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                              doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c" title="The reference-state pressure for species k. ">refPressure</a>) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor"></span><span class="comment">    //! Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">     *   The 298K Heat of Formation is defined as the enthalpy change to create the standard state</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">     *   @param k    species index</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">     *   @return     Returns the current value of the Heat of Formation at 298K and 1 bar</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">virtual</span> doublereal reportOneHf298(<span class="keywordtype">int</span> k) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">    //!  Modify the value of the 298 K Heat of Formation of the standard state of</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">    //!  one species in the phase (J kmol-1)</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">     *   @param  k           Index of the species</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar.</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">     *                       units = J/kmol.</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> modifyOneHf298(<span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal Hf298New) = 0;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="preprocessor"></span>};<span class="comment"></span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">//@}</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment"></span>}</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

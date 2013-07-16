@@ -79,7 +79,7 @@
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define TOL_CONV 1.0E-5</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceCantera.html#a8bf27af56a077467a22f8010b89b12a4" title="Print out a form for the current function evaluation. ">print_funcEval</a>(FILE* fp, <span class="keywordtype">double</span> xval, <span class="keywordtype">double</span> fval, <span class="keywordtype">int</span> its)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="keyword">static</span> <span class="keywordtype">void</span> print_funcEval(FILE* fp, <span class="keywordtype">double</span> xval, <span class="keywordtype">double</span> fval, <span class="keywordtype">int</span> its)</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    fprintf(fp,<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    fprintf(fp,<span class="stringliteral">&quot;...............................................................\n&quot;</span>);</div>
@@ -144,7 +144,7 @@
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    f1 = func(x1, FuncTargVal, varID, fptrPassthrough, &amp;err);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> (printLvl &gt;= 3) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="namespaceCantera.html#a8bf27af56a077467a22f8010b89b12a4" title="Print out a form for the current function evaluation. ">print_funcEval</a>(fp, x1, f1, its);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        print_funcEval(fp, x1, f1, its);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        fprintf(fp, <span class="stringliteral">&quot;%-5d  %-5d  %-15.5E %-15.5E\n&quot;</span>, -2, 0, x1, f1);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -165,7 +165,7 @@
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    f2 = func(x2, FuncTargVal, varID, fptrPassthrough, &amp;err);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> (printLvl &gt;= 3) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="namespaceCantera.html#a8bf27af56a077467a22f8010b89b12a4" title="Print out a form for the current function evaluation. ">print_funcEval</a>(fp, x2, f2, its);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        print_funcEval(fp, x2, f2, its);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        fprintf(fp, <span class="stringliteral">&quot;%-5d  %-5d  %-15.5E %-15.5E&quot;</span>, -1, 0, x2, f2);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -389,7 +389,7 @@
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (printLvl &gt;= 3) {</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            fprintf(fp,<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <a class="code" href="namespaceCantera.html#a8bf27af56a077467a22f8010b89b12a4" title="Print out a form for the current function evaluation. ">print_funcEval</a>(fp, xnew, fnew, its);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            print_funcEval(fp, xnew, fnew, its);</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            fprintf(fp, <span class="stringliteral">&quot;%-5d  %-5d  %-15.5E %-15.5E&quot;</span>, its, 0, xnew, fnew);</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        }</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif</span></div>

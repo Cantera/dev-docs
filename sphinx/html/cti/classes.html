@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>CTI Class Reference &mdash; Cantera 2.1a1 documentation</title>
+    <title>CTI Class Reference &mdash; Cantera 2.1b1 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1a1',
+        VERSION:     '2.1b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1a1 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.1b1 documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Example: Hydrogen Combustion" href="example-combustion.html" />
     <link rel="prev" title="Reactions" href="reactions.html" /> 
@@ -603,7 +603,7 @@ reaction in the file.</li>
 <dl class="class">
 <dt id="ctml_writer.falloff_reaction">
 <em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">falloff_reaction</tt><big>(</big><em>equation</em>, <em>kf0</em>, <em>kf</em>, <em>efficiencies=''</em>, <em>falloff=None</em>, <em>id=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#ctml_writer.falloff_reaction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ctml_writer.reaction" title="ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">ctml_writer.reaction</span></tt></a></p>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ctml_writer.pdep_reaction</span></tt></p>
 <p>A gas-phase falloff reaction.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -615,6 +615,38 @@ reaction in the file.</li>
 limit. If a sequence of three numbers is given, these will be
 interpreted as [A, n,E] in the modified Arrhenius function.</li>
 <li><strong>rate_coeff_0</strong> &#8211; The rate coefficient for the forward direction in the low-pressure
+limit. If a sequence of three numbers is given, these will be
+interpreted as [A, n,E] in the modified Arrhenius function.</li>
+<li><strong>efficiencies</strong> &#8211; A string specifying the third-body collision efficiencies. The
+efficiency for unspecified species is set to 1.0.</li>
+<li><strong>falloff</strong> &#8211; An embedded entry specifying a falloff function. If omitted, a
+unity falloff function (Lindemann form) will be used.</li>
+<li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
+four-digit numeric string beginning with 0001 for the first
+reaction in the file.</li>
+<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ctml_writer.chemically_activated_reaction">
+<em class="property">class </em><tt class="descclassname">ctml_writer.</tt><tt class="descname">chemically_activated_reaction</tt><big>(</big><em>equation</em>, <em>kLow</em>, <em>kHigh</em>, <em>efficiencies=''</em>, <em>falloff=None</em>, <em>id=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#ctml_writer.chemically_activated_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">ctml_writer.pdep_reaction</span></tt></p>
+<p>A gas-phase, chemically activated reaction.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
+<li><strong>kLow</strong> &#8211; The rate coefficient for the forward direction in the low-pressure
+limit. If a sequence of three numbers is given, these will be
+interpreted as [A, n,E] in the modified Arrhenius function.</li>
+<li><strong>kHigh</strong> &#8211; The rate coefficient for the forward direction in the high-pressure
 limit. If a sequence of three numbers is given, these will be
 interpreted as [A, n,E] in the modified Arrhenius function.</li>
 <li><strong>efficiencies</strong> &#8211; A string specifying the third-body collision efficiencies. The

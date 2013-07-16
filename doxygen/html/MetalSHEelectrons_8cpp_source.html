@@ -364,32 +364,34 @@
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;</div>
 <div class="line"><a name="l00304"></a><span class="lineno"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#ada0ba2f6093d3df4d86c0f1018005544">  304</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters. ">MetalSHEelectrons::setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c)</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;{</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    doublereal rho = c[0];</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="code" href="classCantera_1_1Phase.html#a023358c72024a154f31562ac512e9b54" title="Set the internally stored density (kg/m^3) of the phase Note the density of a phase is an independent...">setDensity</a>(rho);</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#a899e8e6a1702efe7a26fba7b33504c3f">  310</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">MetalSHEelectrons::getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    doublereal rho = <a class="code" href="classCantera_1_1Phase.html#ae78ed66f8c8f7241779418552ad06847" title="Density (kg/m^3). ">density</a>();</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    n = 1;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    c[0] = rho;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;}</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
-<div class="line"><a name="l00317"></a><span class="lineno"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#abe11f2065246742c73c778c5de62f5b7">  317</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">MetalSHEelectrons::setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;{</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    std::string model = eosdata[<span class="stringliteral">&quot;model&quot;</span>];</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keywordflow">if</span> (model != <span class="stringliteral">&quot;MetalSHEelectrons&quot;</span>) {</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;MetalSHEelectrons::setParametersFromXML&quot;</span>,</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                           <span class="stringliteral">&quot;thermo model attribute must be MetalSHEelectrons&quot;</span>);</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    doublereal rho = 2.65E3;</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> (eosdata.<a class="code" href="classCantera_1_1XML__Node.html#a03ff3c03e552014211325a2d57852727" title="Tests whether the current node has a child node with a particular name. ">hasChild</a>(<span class="stringliteral">&quot;density&quot;</span>)) {</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        rho = <a class="code" href="namespacectml.html#a6877a213d219ec8760af38110ccd0bd4" title="Get a floating-point value from a child element. ">ctml::getFloat</a>(eosdata, <span class="stringliteral">&quot;density&quot;</span>, <span class="stringliteral">&quot;toSI&quot;</span>);</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <a class="code" href="classCantera_1_1Phase.html#a023358c72024a154f31562ac512e9b54" title="Set the internally stored density (kg/m^3) of the phase Note the density of a phase is an independent...">setDensity</a>(rho);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;}</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;MetalSHEelectrons::setParameters&quot;</span>);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    doublereal rho = c[0];</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <a class="code" href="classCantera_1_1Phase.html#a023358c72024a154f31562ac512e9b54" title="Set the internally stored density (kg/m^3) of the phase Note the density of a phase is an independent...">setDensity</a>(rho);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;}</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#a899e8e6a1702efe7a26fba7b33504c3f">  311</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">MetalSHEelectrons::getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;MetalSHEelectrons::getParameters&quot;</span>);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    doublereal rho = <a class="code" href="classCantera_1_1Phase.html#ae78ed66f8c8f7241779418552ad06847" title="Density (kg/m^3). ">density</a>();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    n = 1;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    c[0] = rho;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#abe11f2065246742c73c778c5de62f5b7">  319</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">MetalSHEelectrons::setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;{</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    std::string model = eosdata[<span class="stringliteral">&quot;model&quot;</span>];</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">if</span> (model != <span class="stringliteral">&quot;MetalSHEelectrons&quot;</span>) {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;MetalSHEelectrons::setParametersFromXML&quot;</span>,</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                           <span class="stringliteral">&quot;thermo model attribute must be MetalSHEelectrons&quot;</span>);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    doublereal rho = 2.65E3;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keywordflow">if</span> (eosdata.<a class="code" href="classCantera_1_1XML__Node.html#a03ff3c03e552014211325a2d57852727" title="Tests whether the current node has a child node with a particular name. ">hasChild</a>(<span class="stringliteral">&quot;density&quot;</span>)) {</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        rho = <a class="code" href="namespacectml.html#a6877a213d219ec8760af38110ccd0bd4" title="Get a floating-point value from a child element. ">ctml::getFloat</a>(eosdata, <span class="stringliteral">&quot;density&quot;</span>, <span class="stringliteral">&quot;toSI&quot;</span>);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    }</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <a class="code" href="classCantera_1_1Phase.html#a023358c72024a154f31562ac512e9b54" title="Set the internally stored density (kg/m^3) of the phase Note the density of a phase is an independent...">setDensity</a>(rho);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

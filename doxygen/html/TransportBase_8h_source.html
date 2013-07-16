@@ -751,150 +751,151 @@
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment">     *  @param k       Species index to set the parameters on</span></div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment">     *  @param p       Vector of parameters. The length of the vector</span></div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment">     *                 varies with the parameterization</span></div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#ab4803f8e733e93a8532effff50d8a274" title="Set model parameters for derived classes. ">setParameters</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> type, <span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal* <span class="keyword">const</span> p);</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment">    //! Sets the velocity basis</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment">     *   What the transport object does with this parameter is up to the</span></div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment">     *   individual operator. Currently, this is not functional for most</span></div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment">     *   transport operators including all of the gas-phase operators.</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment">     *   @param ivb   Species the velocity basis</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#abf9452753eea38fc8994ba129c53e7eb">  704</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#abf9452753eea38fc8994ba129c53e7eb" title="Sets the velocity basis. ">setVelocityBasis</a>(<a class="code" href="group__tranprops.html#ga6db7188408b57b95bb0da59376bfc9ba" title="The diffusion fluxes must be referenced to a particular reference fluid velocity. ...">VelocityBasis</a> ivb) {</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883" title="Velocity basis from which diffusion velocities are computed. ">m_velocityBasis</a> = ivb;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    }</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="comment">    //!  Gets the velocity basis</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment">     *   What the transport object does with this parameter is up to the</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">     *   individual operator. Currently, this is not functional for most</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">     *   transport operators including all of the gas-phase operators.</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">     *   @return   Returns the velocity basis</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00716"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#aabde4a73ef09de8e235d2a7387dbd7b9">  716</a></span>&#160;    <a class="code" href="group__tranprops.html#ga6db7188408b57b95bb0da59376bfc9ba" title="The diffusion fluxes must be referenced to a particular reference fluid velocity. ...">VelocityBasis</a> <a class="code" href="classCantera_1_1Transport.html#aabde4a73ef09de8e235d2a7387dbd7b9" title="Gets the velocity basis. ">getVelocityBasis</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883" title="Velocity basis from which diffusion velocities are computed. ">m_velocityBasis</a>;</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    }</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classCantera_1_1TransportFactory.html" title="Factory class for creating new instances of classes derived from Transport. ">TransportFactory</a>;</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment">     * @name Transport manager construction</span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment">     * These methods are used internally during construction.</span></div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">     * @{</span></div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment">    //! Called by TransportFactory to set parameters.</span></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">     *  This is called by classes that use the gas phase parameter</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">     *  list to initialize themselves.</span></div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment">     *   @param tr Reference to the parameter list that will be used</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="comment">     *             to initialize the class</span></div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a75a28efd2dd531dce7cdb47817d3630d">  738</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1Transport.html#a75a28efd2dd531dce7cdb47817d3630d" title="Called by TransportFactory to set parameters. ">initGas</a>(<a class="code" href="classCantera_1_1GasTransportParams.html" title="This structure holds transport model parameters relevant to transport in ideal gases with a kinetic t...">GasTransportParams</a>&amp; tr) {</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="stringliteral">&quot;initGas&quot;</span>);</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    }</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">    //! Called by TransportFactory to set parameters.</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="comment">     *  This is called by classes that use the liquid phase parameter</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">     *  list to initialize themselves.</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment">     *   @param tr Reference to the parameter list that will be used</span></div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="comment">     *             to initialize the class</span></div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#ae07abbe6b7f1aee73ef7e96de34ae62c">  751</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1Transport.html#ae07abbe6b7f1aee73ef7e96de34ae62c" title="Called by TransportFactory to set parameters. ">initLiquid</a>(<a class="code" href="classCantera_1_1LiquidTransportParams.html" title="Class LiquidTransportParams holds transport model parameters relevant to transport in mixtures...">LiquidTransportParams</a>&amp; tr) {</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="stringliteral">&quot;initLiquid&quot;</span>);</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    }</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">    //! Called by TransportFactory to set parameters.</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment">     *  This is called by classes that use the solid phase parameter</span></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment">     *  list to initialize themselves.</span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">     *   @param tr Reference to the parameter list that will be used</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment">     *             to initialize the class</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a64922accb780dc9109d97fc8406289bb">  765</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1Transport.html#a64922accb780dc9109d97fc8406289bb" title="Called by TransportFactory to set parameters. ">initSolid</a>(<a class="code" href="classCantera_1_1SolidTransportData.html" title="Class SolidTransportData holds transport parameters for a specific solid-phase species. ">SolidTransportData</a>&amp; tr) {</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="stringliteral">&quot;initSolid&quot;</span>);</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    }</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">    //! Specifies the ThermoPhase object.</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">     *  We have relaxed this operation so that it will succeed when</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">     *  the underlying old and new ThermoPhase objects have the same</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">     *  number of species and the same names of the species in the</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment">     *  same order. The idea here is to allow copy constructors and duplicators</span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment">     *  to work. In order for them to work, we need a method to switch the</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">     *  internal pointer within the Transport object after the duplication</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment">     *  takes place.  Also, different thermodynamic instanteations of the same</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment">     *  species should also work.</span></div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">     *   @param   thermo  Reference to the ThermoPhase object that</span></div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment">     *                    the transport object will use</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#aeb4a46210d4688a2b0e1b9290c867c40" title="Specifies the ThermoPhase object. ">setThermo</a>(<a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">thermo_t</a>&amp; <a class="code" href="classCantera_1_1Transport.html#a4a361c78a4b13dea05c58077fc74c9b2">thermo</a>);</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">    //! Enable the transport object for use.</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">     * Once finalize() has been called, the transport manager should be ready to</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">     * compute any supported transport property, and no further modifications to</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">     * the model parameters should be made.</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#a32d626626eee0bc4ade146973f6abb1c" title="Enable the transport object for use. ">finalize</a>();</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment">    //@}</span></div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="comment"></span><span class="comment"></span></div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment">    //!  pointer to the object representing the phase</span></div>
-<div class="line"><a name="l00798"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a97f743952571f2de68e94e2803f1f84a">  798</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">thermo_t</a>*  <a class="code" href="classCantera_1_1Transport.html#a97f743952571f2de68e94e2803f1f84a" title="pointer to the object representing the phase ">m_thermo</a>;</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment">    //!  true if finalize has been called</span></div>
-<div class="line"><a name="l00801"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a23377619c64713a3583174e10a91c8be">  801</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span>      <a class="code" href="classCantera_1_1Transport.html#a23377619c64713a3583174e10a91c8be" title="true if finalize has been called ">m_ready</a>;</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment">    //! Number of species</span></div>
-<div class="line"><a name="l00804"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#ab3e6c2c66c42af05f67bbe604928bd21">  804</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1Transport.html#ab3e6c2c66c42af05f67bbe604928bd21" title="Number of species. ">m_nsp</a>;</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment">    //! Number of dimensions used in flux expressions</span></div>
-<div class="line"><a name="l00807"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a1b133a38f0f12c50a56555bc170d3157">  807</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1Transport.html#a1b133a38f0f12c50a56555bc170d3157" title="Number of dimensions used in flux expressions. ">m_nDim</a>;</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment">    //!    Velocity basis from which diffusion velocities are computed.</span></div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment">    //!    Defaults to the mass averaged basis = -2</span></div>
-<div class="line"><a name="l00811"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883">  811</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883" title="Velocity basis from which diffusion velocities are computed. ">m_velocityBasis</a>;</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment">    //! Error routine</span></div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment">     * Throw an exception if a method of this class is invoked. This probably</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">     * indicates that a transport manager is being used that does not implement</span></div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment">     * all virtual methods, and one of those methods was called by the</span></div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment">     * application program. For example, a transport manager that computes the</span></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">     * thermal conductivity of a solid may not define the viscosity() method,</span></div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">     * since the viscosity is in this case meaningless. If the application</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment">     * invokes the viscosity() method, the base class method will be called,</span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">     * resulting in an exception being thrown.</span></div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment">     *  @param msg  Descriptive message string to add to the error report</span></div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment">     *  @return  returns a double, though we will never get there</span></div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    doublereal <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;};</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;}</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">     *  @deprecated</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#ab4803f8e733e93a8532effff50d8a274" title="Set model parameters for derived classes. ">setParameters</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> type, <span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal* <span class="keyword">const</span> p);</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment">    //! Sets the velocity basis</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment">     *   What the transport object does with this parameter is up to the</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment">     *   individual operator. Currently, this is not functional for most</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">     *   transport operators including all of the gas-phase operators.</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">     *   @param ivb   Species the velocity basis</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00705"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#abf9452753eea38fc8994ba129c53e7eb">  705</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#abf9452753eea38fc8994ba129c53e7eb" title="Sets the velocity basis. ">setVelocityBasis</a>(<a class="code" href="group__tranprops.html#ga6db7188408b57b95bb0da59376bfc9ba" title="The diffusion fluxes must be referenced to a particular reference fluid velocity. ...">VelocityBasis</a> ivb) {</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883" title="Velocity basis from which diffusion velocities are computed. ">m_velocityBasis</a> = ivb;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    }</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment">    //!  Gets the velocity basis</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">     *   What the transport object does with this parameter is up to the</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">     *   individual operator. Currently, this is not functional for most</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">     *   transport operators including all of the gas-phase operators.</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">     *   @return   Returns the velocity basis</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#aabde4a73ef09de8e235d2a7387dbd7b9">  717</a></span>&#160;    <a class="code" href="group__tranprops.html#ga6db7188408b57b95bb0da59376bfc9ba" title="The diffusion fluxes must be referenced to a particular reference fluid velocity. ...">VelocityBasis</a> <a class="code" href="classCantera_1_1Transport.html#aabde4a73ef09de8e235d2a7387dbd7b9" title="Gets the velocity basis. ">getVelocityBasis</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883" title="Velocity basis from which diffusion velocities are computed. ">m_velocityBasis</a>;</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    }</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classCantera_1_1TransportFactory.html" title="Factory class for creating new instances of classes derived from Transport. ">TransportFactory</a>;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment">     * @name Transport manager construction</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">     * These methods are used internally during construction.</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">     * @{</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment">    //! Called by TransportFactory to set parameters.</span></div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">     *  This is called by classes that use the gas phase parameter</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">     *  list to initialize themselves.</span></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="comment">     *   @param tr Reference to the parameter list that will be used</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">     *             to initialize the class</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a75a28efd2dd531dce7cdb47817d3630d">  739</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1Transport.html#a75a28efd2dd531dce7cdb47817d3630d" title="Called by TransportFactory to set parameters. ">initGas</a>(<a class="code" href="classCantera_1_1GasTransportParams.html" title="This structure holds transport model parameters relevant to transport in ideal gases with a kinetic t...">GasTransportParams</a>&amp; tr) {</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="stringliteral">&quot;initGas&quot;</span>);</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    }</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment">    //! Called by TransportFactory to set parameters.</span></div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">     *  This is called by classes that use the liquid phase parameter</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment">     *  list to initialize themselves.</span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="comment">     *   @param tr Reference to the parameter list that will be used</span></div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment">     *             to initialize the class</span></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#ae07abbe6b7f1aee73ef7e96de34ae62c">  752</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1Transport.html#ae07abbe6b7f1aee73ef7e96de34ae62c" title="Called by TransportFactory to set parameters. ">initLiquid</a>(<a class="code" href="classCantera_1_1LiquidTransportParams.html" title="Class LiquidTransportParams holds transport model parameters relevant to transport in mixtures...">LiquidTransportParams</a>&amp; tr) {</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="stringliteral">&quot;initLiquid&quot;</span>);</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    }</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">    //! Called by TransportFactory to set parameters.</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment">     *  This is called by classes that use the solid phase parameter</span></div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">     *  list to initialize themselves.</span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment">     *   @param tr Reference to the parameter list that will be used</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment">     *             to initialize the class</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a64922accb780dc9109d97fc8406289bb">  766</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1Transport.html#a64922accb780dc9109d97fc8406289bb" title="Called by TransportFactory to set parameters. ">initSolid</a>(<a class="code" href="classCantera_1_1SolidTransportData.html" title="Class SolidTransportData holds transport parameters for a specific solid-phase species. ">SolidTransportData</a>&amp; tr) {</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;        <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="stringliteral">&quot;initSolid&quot;</span>);</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    }</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">    //! Specifies the ThermoPhase object.</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">     *  We have relaxed this operation so that it will succeed when</span></div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">     *  the underlying old and new ThermoPhase objects have the same</span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment">     *  number of species and the same names of the species in the</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment">     *  same order. The idea here is to allow copy constructors and duplicators</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">     *  to work. In order for them to work, we need a method to switch the</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment">     *  internal pointer within the Transport object after the duplication</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment">     *  takes place.  Also, different thermodynamic instanteations of the same</span></div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment">     *  species should also work.</span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment">     *   @param   thermo  Reference to the ThermoPhase object that</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">     *                    the transport object will use</span></div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#aeb4a46210d4688a2b0e1b9290c867c40" title="Specifies the ThermoPhase object. ">setThermo</a>(<a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">thermo_t</a>&amp; <a class="code" href="classCantera_1_1Transport.html#a4a361c78a4b13dea05c58077fc74c9b2">thermo</a>);</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">    //! Enable the transport object for use.</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">     * Once finalize() has been called, the transport manager should be ready to</span></div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">     * compute any supported transport property, and no further modifications to</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">     * the model parameters should be made.</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Transport.html#a32d626626eee0bc4ade146973f6abb1c" title="Enable the transport object for use. ">finalize</a>();</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment">    //!  pointer to the object representing the phase</span></div>
+<div class="line"><a name="l00799"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a97f743952571f2de68e94e2803f1f84a">  799</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">thermo_t</a>*  <a class="code" href="classCantera_1_1Transport.html#a97f743952571f2de68e94e2803f1f84a" title="pointer to the object representing the phase ">m_thermo</a>;</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="comment">    //!  true if finalize has been called</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a23377619c64713a3583174e10a91c8be">  802</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span>      <a class="code" href="classCantera_1_1Transport.html#a23377619c64713a3583174e10a91c8be" title="true if finalize has been called ">m_ready</a>;</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="comment">    //! Number of species</span></div>
+<div class="line"><a name="l00805"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#ab3e6c2c66c42af05f67bbe604928bd21">  805</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1Transport.html#ab3e6c2c66c42af05f67bbe604928bd21" title="Number of species. ">m_nsp</a>;</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment">    //! Number of dimensions used in flux expressions</span></div>
+<div class="line"><a name="l00808"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#a1b133a38f0f12c50a56555bc170d3157">  808</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1Transport.html#a1b133a38f0f12c50a56555bc170d3157" title="Number of dimensions used in flux expressions. ">m_nDim</a>;</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment">    //!    Velocity basis from which diffusion velocities are computed.</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment">    //!    Defaults to the mass averaged basis = -2</span></div>
+<div class="line"><a name="l00812"></a><span class="lineno"><a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883">  812</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1Transport.html#aced6892d3eb257c5e5c9bbef5f745883" title="Velocity basis from which diffusion velocities are computed. ">m_velocityBasis</a>;</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment">    //! Error routine</span></div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">     * Throw an exception if a method of this class is invoked. This probably</span></div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment">     * indicates that a transport manager is being used that does not implement</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment">     * all virtual methods, and one of those methods was called by the</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">     * application program. For example, a transport manager that computes the</span></div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">     * thermal conductivity of a solid may not define the viscosity() method,</span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment">     * since the viscosity is in this case meaningless. If the application</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">     * invokes the viscosity() method, the base class method will be called,</span></div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">     * resulting in an exception being thrown.</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     *  @param msg  Descriptive message string to add to the error report</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment">     *  @return  returns a double, though we will never get there</span></div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    doublereal <a class="code" href="classCantera_1_1Transport.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Error routine. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;};</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;}</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

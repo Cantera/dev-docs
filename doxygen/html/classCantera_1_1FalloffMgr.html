@@ -73,7 +73,8 @@
 <div class="dynheader">
 Collaboration diagram for FalloffMgr:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1FalloffMgr__coll__graph.svg" width="195" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1FalloffMgr__coll__graph.svg" width="195" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -84,9 +85,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7397ad98bfc6f89aa3f281d2ffd54791"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1FalloffMgr.html#a7397ad98bfc6f89aa3f281d2ffd54791">~FalloffMgr</a> ()</td></tr>
 <tr class="memdesc:a7397ad98bfc6f89aa3f281d2ffd54791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Deletes all installed falloff function calculators.  <a href="#a7397ad98bfc6f89aa3f281d2ffd54791">More...</a><br/></td></tr>
 <tr class="separator:a7397ad98bfc6f89aa3f281d2ffd54791"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5985f69b132773afd3aadc4d464b9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1FalloffMgr.html#aed5985f69b132773afd3aadc4d464b9b">install</a> (size_t rxn, int type, const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;c)</td></tr>
-<tr class="memdesc:aed5985f69b132773afd3aadc4d464b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a new falloff function calculator.  <a href="#aed5985f69b132773afd3aadc4d464b9b">More...</a><br/></td></tr>
-<tr class="separator:aed5985f69b132773afd3aadc4d464b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab83a04ae31054743d18465f1689b7742"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1FalloffMgr.html#ab83a04ae31054743d18465f1689b7742">install</a> (size_t rxn, int falloffType, int reactionType, const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;c)</td></tr>
+<tr class="memdesc:ab83a04ae31054743d18465f1689b7742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a new falloff function calculator.  <a href="#ab83a04ae31054743d18465f1689b7742">More...</a><br/></td></tr>
+<tr class="separator:ab83a04ae31054743d18465f1689b7742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2019b834bc70b25e77d5f29fafe74495"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1FalloffMgr.html#a2019b834bc70b25e77d5f29fafe74495">workSize</a> ()</td></tr>
 <tr class="memdesc:a2019b834bc70b25e77d5f29fafe74495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the work array required to store intermediate results.  <a href="#a2019b834bc70b25e77d5f29fafe74495">More...</a><br/></td></tr>
 <tr class="separator:a2019b834bc70b25e77d5f29fafe74495"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,9 +103,6 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a183afeaa85ebc049c297c523cfd07dac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a183afeaa85ebc049c297c523cfd07dac"></a>
 std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_rxn</b></td></tr>
 <tr class="separator:a183afeaa85ebc049c297c523cfd07dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab143a93fb6d28363fd67a10a01330ead"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab143a93fb6d28363fd67a10a01330ead"></a>
-std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_rxn0</b></td></tr>
-<tr class="separator:ab143a93fb6d28363fd67a10a01330ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47a9cbd17582904ca3763e5743f4dea2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47a9cbd17582904ca3763e5743f4dea2"></a>
 std::vector&lt; <a class="el" href="classCantera_1_1Falloff.html">Falloff</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_falloff</b></td></tr>
 <tr class="separator:a47a9cbd17582904ca3763e5743f4dea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,12 +112,6 @@ std::vector&lt; <a class="el" href="classCantera_1_1Falloff.html">Falloff</a> * 
 <tr class="memitem:a5ebb73ee1da2d1f6c99087e04dc1d960"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ebb73ee1da2d1f6c99087e04dc1d960"></a>
 <a class="el" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76">vector_int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_loc</b></td></tr>
 <tr class="separator:a5ebb73ee1da2d1f6c99087e04dc1d960"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80708ebe1769bae8e90565c22ecdf184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80708ebe1769bae8e90565c22ecdf184"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_n</b></td></tr>
-<tr class="separator:a80708ebe1769bae8e90565c22ecdf184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7f0160ea27e78264bca7e8fbdca7e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c7f0160ea27e78264bca7e8fbdca7e0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_n0</b></td></tr>
-<tr class="separator:a4c7f0160ea27e78264bca7e8fbdca7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a703c4a5ab277a59dd14a1bcad5ff6869"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a703c4a5ab277a59dd14a1bcad5ff6869"></a>
 std::vector<br class="typebreak"/>
 &lt; vector_fp::difference_type &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_offset</b></td></tr>
@@ -127,6 +119,9 @@ std::vector<br class="typebreak"/>
 <tr class="memitem:ab36769f6cebcc039fef0bdf4d840672a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab36769f6cebcc039fef0bdf4d840672a"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td></tr>
 <tr class="separator:ab36769f6cebcc039fef0bdf4d840672a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af70ebd0ee978d6f00b703730397e0b1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76">vector_int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1FalloffMgr.html#af70ebd0ee978d6f00b703730397e0b1d">m_reactionType</a></td></tr>
+<tr class="memdesc:af70ebd0ee978d6f00b703730397e0b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distinguish between falloff and chemically activated reactions.  <a href="#af70ebd0ee978d6f00b703730397e0b1d">More...</a><br/></td></tr>
+<tr class="separator:af70ebd0ee978d6f00b703730397e0b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A falloff manager that implements any set of falloff functions. </p>
@@ -158,7 +153,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
 
 <p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00024">24</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
 
-<p>References <a class="el" href="FalloffFactory_8h_source.html#l00105">FalloffFactory::factory()</a>.</p>
+<p>References <a class="el" href="FalloffFactory_8h_source.html#l00110">FalloffFactory::factory()</a>.</p>
 
 </div>
 </div>
@@ -190,7 +185,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aed5985f69b132773afd3aadc4d464b9b"></a>
+<a class="anchor" id="ab83a04ae31054743d18465f1689b7742"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -207,7 +202,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
+          <td class="paramname"><em>falloffType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>reactionType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -232,7 +233,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
 
 <p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00051">51</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
 
-<p>References <a class="el" href="FalloffFactory_8cpp_source.html#l00534">FalloffFactory::newFalloff()</a>, and <a class="el" href="classCantera_1_1Falloff.html#a5f8cf48719090b3455a648fbcdf55705">Falloff::workSize()</a>.</p>
+<p>References <a class="el" href="FalloffMgr_8h_source.html#l00106">FalloffMgr::m_reactionType</a>, <a class="el" href="FalloffFactory_8cpp_source.html#l00534">FalloffFactory::newFalloff()</a>, and <a class="el" href="FalloffFactory_8h_source.html#l00087">Falloff::workSize()</a>.</p>
 
 </div>
 </div>
@@ -259,9 +260,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
 
 <p>Size of the work array required to store intermediate results. </p>
 
-<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00067">67</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00062">62</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
 
-<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00685">GasKinetics::finalize()</a>.</p>
+<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00692">GasKinetics::finalize()</a>.</p>
 
 </div>
 </div>
@@ -306,7 +307,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00077">77</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00072">72</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
 
 <p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00125">GasKinetics::update_rates_T()</a>.</p>
 
@@ -346,7 +347,36 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_worksize</b></td>
 
 <p>Given a vector of reduced pressures for each falloff reaction, replace each entry by the value of the falloff function. </p>
 
-<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00089">89</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00082">82</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
+
+<p>References <a class="el" href="reaction__defs_8h_source.html#l00038">Cantera::FALLOFF_RXN</a>, and <a class="el" href="FalloffMgr_8h_source.html#l00106">FalloffMgr::m_reactionType</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="af70ebd0ee978d6f00b703730397e0b1d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76">vector_int</a> m_reactionType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distinguish between falloff and chemically activated reactions. </p>
+
+<p>Definition at line <a class="el" href="FalloffMgr_8h_source.html#l00106">106</a> of file <a class="el" href="FalloffMgr_8h_source.html">FalloffMgr.h</a>.</p>
+
+<p>Referenced by <a class="el" href="FalloffMgr_8h_source.html#l00051">FalloffMgr::install()</a>, and <a class="el" href="FalloffMgr_8h_source.html#l00082">FalloffMgr::pr_to_falloff()</a>.</p>
 
 </div>
 </div>

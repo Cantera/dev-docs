@@ -670,7 +670,7 @@
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment">     * these depends on the subclass.</span></div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment">     * @param c array of &lt;I&gt;n&lt;/I&gt; coefficients</span></div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">     * @deprecated Unimplemented</span></div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#ada0ba2f6093d3df4d86c0f1018005544">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="comment"></span></div>
@@ -680,228 +680,229 @@
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="comment">     * @param n  number of parameters (output)</span></div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="comment">     * @param c array of &lt;I&gt;n&lt;/I&gt; coefficients</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a899e8e6a1702efe7a26fba7b33504c3f">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="comment">    /*!</span></div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment">     * Set equation of state parameter values from XML</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">     * entries. This method is called by function importPhase in</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">     * model.</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">     * HKM -&gt; Right now, the parameters are set elsewhere (initThermo)</span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">     *        It just didn&#39;t seem to fit.</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="comment">     * * @deprecated Unimplemented</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a899e8e6a1702efe7a26fba7b33504c3f">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment">    /*!</span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">     * Set equation of state parameter values from XML</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment">     * entries. This method is called by function importPhase in</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">     * model.</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">     * HKM -&gt; Right now, the parameters are set elsewhere (initThermo)</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">     *        It just didn&#39;t seem to fit.</span></div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">     * the &quot;thermo&quot; entry for this phase in the input file.</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#abe11f2065246742c73c778c5de62f5b7">setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata);</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">    /// @name Critical state properties.</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">    /// These methods are only implemented by some subclasses.</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment"></span><span class="comment"></span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">    //@{</span></div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment"></span><span class="comment"></span></div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">     *   Critical temperature (K).</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">     *   Not implemented for this phase type.</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00651"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#aedd77ca69e8622379ae9d6bd8694a419">  651</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#aedd77ca69e8622379ae9d6bd8694a419" title="Critical temperature (K). ">critTemperature</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="stringliteral">&quot;critTemperature&quot;</span>);</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    }</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment">     *  Critical pressure (Pa).</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">     * Not implemented for this phase type.</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a6a14266df7a455510eba4123f45908f1">  661</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a6a14266df7a455510eba4123f45908f1" title="Critical pressure (Pa). ">critPressure</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="stringliteral">&quot;critPressure&quot;</span>);</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    }</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">     *  Critical density (kg/m3).</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">     *  Not implemented for this phase type.</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a2822b1ecbfa225344fc28df8a7c1ef6b">  670</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a2822b1ecbfa225344fc28df8a7c1ef6b" title="Critical density (kg/m3). ">critDensity</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="stringliteral">&quot;critDensity&quot;</span>);</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    }</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment">    //@}</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">     *  -------------- Utilities -------------------------------</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">    //! Initialization routine for an IdealMolalSoln phase.</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">     *  This internal routine is responsible for setting up</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">     *  the internal storage. This is reimplemented from the ThermoPhase</span></div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment">     *  class.</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a8a12209d08a5c4876d9894d619368a79" title="Initialization routine for an IdealMolalSoln phase. ">initThermo</a>();</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="comment">    //!  Import and initialize an IdealMolalSoln phase</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment">    //!  specification in an XML tree into the current object.</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment">     *   This routine is called from importPhase() to finish</span></div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">     *   up the initialization of the thermo object. It reads in the</span></div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">     *   species molar volumes.</span></div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment">     * @param phaseNode This object must be the phase node of a</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment">     *             complete XML tree</span></div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment">     *             description of the phase, including all of the</span></div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment">     *             species data. In other words while &quot;phase&quot; must</span></div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment">     *             point to an XML phase object, it must have</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">     *             sibling nodes &quot;speciesData&quot; that describe</span></div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment">     *             the species in the phase.</span></div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">     * @param id   ID of the phase. If nonnull, a check is done</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="comment">     *             to see if phaseNode is pointing to the phase</span></div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="comment">     *             with the correct id.</span></div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#ae83c4d4384c39c81c39b4f3d6dd5f841" title="Import and initialize an IdealMolalSoln phase specification in an XML tree into the current object...">initThermoXML</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phaseNode, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>=<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment">    //! Report the molar volume of species k</span></div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">     * units - \f$ m^3 kmol^{-1} \f$</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">     * @param k Species index.</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a2501699fcae25bcfcbd7aa9f0f84095c" title="Report the molar volume of species k. ">speciesMolarVolume</a>(<span class="keywordtype">int</span> k) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="comment">    /*!</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="comment">     * Fill in a return vector containing the species molar volumes</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="comment">     * units - \f$ m^3 kmol^{-1} \f$</span></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="comment">     * @param smv Output vector of species molar volumes.</span></div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classCantera_1_1IdealMolalSoln.html#a9e1b5014a4afdd7a0a93092e2ada77a0">getSpeciesMolarVolumes</a>(<span class="keywordtype">double</span>* smv) <span class="keyword">const</span>;<span class="comment"></span></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment">    //@}</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">     * Species molar volume \f$ m^3 kmol^{-1} \f$</span></div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00730"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a7eec4e736ec2b5030428f669f8c62724">  730</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>   <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7eec4e736ec2b5030428f669f8c62724" title="Species molar volume . ">m_speciesMolarVolume</a>;</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">     * The standard concentrations can have three different forms</span></div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">     * depending on the value of the member attribute m_formGC, which</span></div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment">     * is supplied in the XML file.</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">     *  &lt;TABLE&gt;</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; m_formGC &lt;/TD&gt;&lt;TD&gt; ActivityConc &lt;/TD&gt;&lt;TD&gt; StandardConc &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 0        &lt;/TD&gt;&lt;TD&gt; \f$ {m_k}/ { m^{\Delta}}\f$     &lt;/TD&gt;&lt;TD&gt; \f$ 1.0        \f$ &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 1        &lt;/TD&gt;&lt;TD&gt; \f$  m_k / (m^{\Delta} V_k)\f$  &lt;/TD&gt;&lt;TD&gt; \f$ 1.0 / V_k  \f$ &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 2        &lt;/TD&gt;&lt;TD&gt; \f$  m_k / (m^{\Delta} V^0_0)\f$&lt;/TD&gt;&lt;TD&gt; \f$ 1.0 / V^0_0\f$ &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">     *  &lt;/TABLE&gt;</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be">  744</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be" title="The standard concentrations can have three different forms depending on the value of the member attri...">m_formGC</a>;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment">    //! Cutoff type</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a37aaf8e7135a606de8e443b2e11d61c7">  748</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a37aaf8e7135a606de8e443b2e11d61c7" title="Cutoff type. ">IMS_typeCutoff_</a>;</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment">     * Temporary array used in equilibrium calculations</span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a4c2fe18cac13b980b541398c872e4849">  754</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1IdealMolalSoln.html#a4c2fe18cac13b980b541398c872e4849" title="Temporary array used in equilibrium calculations. ">m_pp</a>;</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">     * vector of size m_kk, used as a temporary holding area.</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#aeeda95f871688922796bc3c0e6ecb444">  759</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1IdealMolalSoln.html#aeeda95f871688922796bc3c0e6ecb444" title="vector of size m_kk, used as a temporary holding area. ">m_tmpV</a>;</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">    //! Logarithm of the molal activity coefficients</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment">     *   Normally these are all one. However, stability schemes will change that</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#ab5572e769ee5bc5fbf80a42a1de79968">  765</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1IdealMolalSoln.html#ab5572e769ee5bc5fbf80a42a1de79968" title="Logarithm of the molal activity coefficients. ">IMS_lnActCoeffMolal_</a>;</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment">    //! value of the solute mole fraction that centers the cutoff polynomials</span></div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment">    //! for the cutoff =1 process;</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a498a312fe0d1aa127fd7110e2d6d072f">  769</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a498a312fe0d1aa127fd7110e2d6d072f" title="value of the solute mole fraction that centers the cutoff polynomials for the cutoff =1 process; ...">IMS_X_o_cutoff_</a>;</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">    //! gamma_o value for the cutoff process at the zero solvent point</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a987da666c1e5ba802cfc3cd8b9b5a380">  772</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a987da666c1e5ba802cfc3cd8b9b5a380" title="gamma_o value for the cutoff process at the zero solvent point ">IMS_gamma_o_min_</a>;</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">    //! gamma_k minimum for the cutoff process at the zero solvent point</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#ac4af0e5adc5129c5a0ab55f2abb74694">  775</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#ac4af0e5adc5129c5a0ab55f2abb74694" title="gamma_k minimum for the cutoff process at the zero solvent point ">IMS_gamma_k_min_</a>;</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">    //! Parameter in the polyExp cutoff treatment</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment">     *  This is the slope of the f function at the zero solvent point</span></div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment">     *  Default value is 0.6</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00782"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a444d29ee20198440bb6be6a7aaa7fb2d">  782</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a444d29ee20198440bb6be6a7aaa7fb2d" title="Parameter in the polyExp cutoff treatment. ">IMS_slopefCut_</a>;</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment">    //! Parameter in the polyExp cutoff treatment</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment">     *  This is the slope of the g function at the zero solvent point</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">     *  Default value is 0.0</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a31de059e520f6097146963f8248c1cb6">  789</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a31de059e520f6097146963f8248c1cb6" title="Parameter in the polyExp cutoff treatment. ">IMS_slopegCut_</a>;</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">    //! @name Parameters in the polyExp cutoff treatment having to do with rate of exp decay</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">    //! @{</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment"></span>    doublereal IMS_cCut_;</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    doublereal IMS_dfCut_;</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    doublereal IMS_efCut_;</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    doublereal IMS_afCut_;</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    doublereal IMS_bfCut_;</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    doublereal IMS_dgCut_;</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    doublereal IMS_egCut_;</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    doublereal IMS_agCut_;</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    doublereal IMS_bgCut_;<span class="comment"></span></div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment">    //! @}</span></div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment">    //! Internal error message</span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment">     *  @param          msg message to be printed</span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment">    //! This function will be called to update the internally stored</span></div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment">    //! natural logarithm of the molality activity coefficients</span></div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment">     * Normally the solutes are all zero. However, sometimes they are not,</span></div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment">     * due to stability schemes.</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">     *    gamma_k_molar =  gamma_k_molal / Xmol_solvent</span></div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment">     *    gamma_o_molar = gamma_o_molal</span></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#ae8abc866b5f571327329d4d6e7c4c780" title="This function will be called to update the internally stored natural logarithm of the molality activi...">s_updateIMS_lnMolalityActCoeff</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">    //! This internal function adjusts the lengths of arrays.</span></div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment">     * This function is not virtual nor is it inherited</span></div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#acbd8d9f6e3bcaf6f2115a657e7ce12cf" title="This internal function adjusts the lengths of arrays. ">initLengths</a>();</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment">    //! Calculate parameters for cutoff treatments of activity coefficients</span></div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment">     * Some cutoff treatments for the activity coefficients</span></div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment">     * actually require some calculations to create a consistent treatment.</span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="comment">     * This routine is called during the setup to calculate these parameters</span></div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a02f5c10aba895e7d28929177a7e57b1b" title="Calculate parameters for cutoff treatments of activity coefficients. ">calcIMSCutoffParams_</a>();</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;};</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="comment">/* @} */</span></div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;}</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">     * the &quot;thermo&quot; entry for this phase in the input file.</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#abe11f2065246742c73c778c5de62f5b7">setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata);</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">    /// @name Critical state properties.</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">    /// These methods are only implemented by some subclasses.</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">    //@{</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">     *   Critical temperature (K).</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">     *   Not implemented for this phase type.</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00652"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#aedd77ca69e8622379ae9d6bd8694a419">  652</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#aedd77ca69e8622379ae9d6bd8694a419" title="Critical temperature (K). ">critTemperature</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="stringliteral">&quot;critTemperature&quot;</span>);</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    }</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">     *  Critical pressure (Pa).</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment">     * Not implemented for this phase type.</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a6a14266df7a455510eba4123f45908f1">  662</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a6a14266df7a455510eba4123f45908f1" title="Critical pressure (Pa). ">critPressure</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="stringliteral">&quot;critPressure&quot;</span>);</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    }</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">     *  Critical density (kg/m3).</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">     *  Not implemented for this phase type.</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a2822b1ecbfa225344fc28df8a7c1ef6b">  671</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a2822b1ecbfa225344fc28df8a7c1ef6b" title="Critical density (kg/m3). ">critDensity</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="stringliteral">&quot;critDensity&quot;</span>);</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    }</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">     *  -------------- Utilities -------------------------------</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">    //! Initialization routine for an IdealMolalSoln phase.</span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">     *  This internal routine is responsible for setting up</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment">     *  the internal storage. This is reimplemented from the ThermoPhase</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment">     *  class.</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a8a12209d08a5c4876d9894d619368a79" title="Initialization routine for an IdealMolalSoln phase. ">initThermo</a>();</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment">    //!  Import and initialize an IdealMolalSoln phase</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="comment">    //!  specification in an XML tree into the current object.</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">     *   This routine is called from importPhase() to finish</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">     *   up the initialization of the thermo object. It reads in the</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment">     *   species molar volumes.</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="comment">     * @param phaseNode This object must be the phase node of a</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="comment">     *             complete XML tree</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="comment">     *             description of the phase, including all of the</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="comment">     *             species data. In other words while &quot;phase&quot; must</span></div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="comment">     *             point to an XML phase object, it must have</span></div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment">     *             sibling nodes &quot;speciesData&quot; that describe</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">     *             the species in the phase.</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="comment">     * @param id   ID of the phase. If nonnull, a check is done</span></div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="comment">     *             to see if phaseNode is pointing to the phase</span></div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<span class="comment">     *             with the correct id.</span></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#ae83c4d4384c39c81c39b4f3d6dd5f841" title="Import and initialize an IdealMolalSoln phase specification in an XML tree into the current object...">initThermoXML</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phaseNode, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>=<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="comment">    //! Report the molar volume of species k</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">     * units - \f$ m^3 kmol^{-1} \f$</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">     * @param k Species index.</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a2501699fcae25bcfcbd7aa9f0f84095c" title="Report the molar volume of species k. ">speciesMolarVolume</a>(<span class="keywordtype">int</span> k) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="comment">    /*!</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="comment">     * Fill in a return vector containing the species molar volumes</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="comment">     * units - \f$ m^3 kmol^{-1} \f$</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="comment">     * @param smv Output vector of species molar volumes.</span></div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classCantera_1_1IdealMolalSoln.html#a9e1b5014a4afdd7a0a93092e2ada77a0">getSpeciesMolarVolumes</a>(<span class="keywordtype">double</span>* smv) <span class="keyword">const</span>;<span class="comment"></span></div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment">     * Species molar volume \f$ m^3 kmol^{-1} \f$</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00731"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a7eec4e736ec2b5030428f669f8c62724">  731</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>   <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7eec4e736ec2b5030428f669f8c62724" title="Species molar volume . ">m_speciesMolarVolume</a>;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">     * The standard concentrations can have three different forms</span></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment">     * depending on the value of the member attribute m_formGC, which</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="comment">     * is supplied in the XML file.</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment">     *  &lt;TABLE&gt;</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; m_formGC &lt;/TD&gt;&lt;TD&gt; ActivityConc &lt;/TD&gt;&lt;TD&gt; StandardConc &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 0        &lt;/TD&gt;&lt;TD&gt; \f$ {m_k}/ { m^{\Delta}}\f$     &lt;/TD&gt;&lt;TD&gt; \f$ 1.0        \f$ &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 1        &lt;/TD&gt;&lt;TD&gt; \f$  m_k / (m^{\Delta} V_k)\f$  &lt;/TD&gt;&lt;TD&gt; \f$ 1.0 / V_k  \f$ &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 2        &lt;/TD&gt;&lt;TD&gt; \f$  m_k / (m^{\Delta} V^0_0)\f$&lt;/TD&gt;&lt;TD&gt; \f$ 1.0 / V^0_0\f$ &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">     *  &lt;/TABLE&gt;</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00745"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be">  745</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be" title="The standard concentrations can have three different forms depending on the value of the member attri...">m_formGC</a>;</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment">    //! Cutoff type</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a37aaf8e7135a606de8e443b2e11d61c7">  749</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a37aaf8e7135a606de8e443b2e11d61c7" title="Cutoff type. ">IMS_typeCutoff_</a>;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment">     * Temporary array used in equilibrium calculations</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00755"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a4c2fe18cac13b980b541398c872e4849">  755</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1IdealMolalSoln.html#a4c2fe18cac13b980b541398c872e4849" title="Temporary array used in equilibrium calculations. ">m_pp</a>;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">     * vector of size m_kk, used as a temporary holding area.</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00760"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#aeeda95f871688922796bc3c0e6ecb444">  760</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1IdealMolalSoln.html#aeeda95f871688922796bc3c0e6ecb444" title="vector of size m_kk, used as a temporary holding area. ">m_tmpV</a>;</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">    //! Logarithm of the molal activity coefficients</span></div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment">     *   Normally these are all one. However, stability schemes will change that</span></div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#ab5572e769ee5bc5fbf80a42a1de79968">  766</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1IdealMolalSoln.html#ab5572e769ee5bc5fbf80a42a1de79968" title="Logarithm of the molal activity coefficients. ">IMS_lnActCoeffMolal_</a>;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment">    //! value of the solute mole fraction that centers the cutoff polynomials</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment">    //! for the cutoff =1 process;</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a498a312fe0d1aa127fd7110e2d6d072f">  770</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a498a312fe0d1aa127fd7110e2d6d072f" title="value of the solute mole fraction that centers the cutoff polynomials for the cutoff =1 process; ...">IMS_X_o_cutoff_</a>;</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">    //! gamma_o value for the cutoff process at the zero solvent point</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a987da666c1e5ba802cfc3cd8b9b5a380">  773</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a987da666c1e5ba802cfc3cd8b9b5a380" title="gamma_o value for the cutoff process at the zero solvent point ">IMS_gamma_o_min_</a>;</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment">    //! gamma_k minimum for the cutoff process at the zero solvent point</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#ac4af0e5adc5129c5a0ab55f2abb74694">  776</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#ac4af0e5adc5129c5a0ab55f2abb74694" title="gamma_k minimum for the cutoff process at the zero solvent point ">IMS_gamma_k_min_</a>;</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment">    //! Parameter in the polyExp cutoff treatment</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment">     *  This is the slope of the f function at the zero solvent point</span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">     *  Default value is 0.6</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a444d29ee20198440bb6be6a7aaa7fb2d">  783</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a444d29ee20198440bb6be6a7aaa7fb2d" title="Parameter in the polyExp cutoff treatment. ">IMS_slopefCut_</a>;</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment">    //! Parameter in the polyExp cutoff treatment</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">     *  This is the slope of the g function at the zero solvent point</span></div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">     *  Default value is 0.0</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno"><a class="code" href="classCantera_1_1IdealMolalSoln.html#a31de059e520f6097146963f8248c1cb6">  790</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a31de059e520f6097146963f8248c1cb6" title="Parameter in the polyExp cutoff treatment. ">IMS_slopegCut_</a>;</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">    //! @name Parameters in the polyExp cutoff treatment having to do with rate of exp decay</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment">    //! @{</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="comment"></span>    doublereal IMS_cCut_;</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    doublereal IMS_dfCut_;</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    doublereal IMS_efCut_;</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    doublereal IMS_afCut_;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    doublereal IMS_bfCut_;</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    doublereal IMS_dgCut_;</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    doublereal IMS_egCut_;</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    doublereal IMS_agCut_;</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    doublereal IMS_bgCut_;<span class="comment"></span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment">    //! @}</span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment">    //! Internal error message</span></div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment">     *  @param          msg message to be printed</span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    doublereal <a class="code" href="classCantera_1_1IdealMolalSoln.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Internal error message. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment">    //! This function will be called to update the internally stored</span></div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="comment">    //! natural logarithm of the molality activity coefficients</span></div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment">     * Normally the solutes are all zero. However, sometimes they are not,</span></div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment">     * due to stability schemes.</span></div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment">     *    gamma_k_molar =  gamma_k_molal / Xmol_solvent</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">     *    gamma_o_molar = gamma_o_molal</span></div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#ae8abc866b5f571327329d4d6e7c4c780" title="This function will be called to update the internally stored natural logarithm of the molality activi...">s_updateIMS_lnMolalityActCoeff</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">    //! This internal function adjusts the lengths of arrays.</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     * This function is not virtual nor is it inherited</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#acbd8d9f6e3bcaf6f2115a657e7ce12cf" title="This internal function adjusts the lengths of arrays. ">initLengths</a>();</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="comment">    //! Calculate parameters for cutoff treatments of activity coefficients</span></div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment">     * Some cutoff treatments for the activity coefficients</span></div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment">     * actually require some calculations to create a consistent treatment.</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment">     * This routine is called during the setup to calculate these parameters</span></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1IdealMolalSoln.html#a02f5c10aba895e7d28929177a7e57b1b" title="Calculate parameters for cutoff treatments of activity coefficients. ">calcIMSCutoffParams_</a>();</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;};</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;}</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

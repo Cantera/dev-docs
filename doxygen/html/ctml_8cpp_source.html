@@ -566,237 +566,144 @@
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="keywordflow">return</span> v.size();</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;}</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="keywordtype">int</span>  getNamedFloatArray(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; parentNode, <span class="keyword">const</span> std::string&amp; nodeName, std::vector&lt;doublereal&gt; &amp; v,</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                        <span class="keyword">const</span> <span class="keywordtype">bool</span> convert, <span class="keyword">const</span> std::string unitsString)</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;{</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    std::string::size_type icom;</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    std::string numstr;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    doublereal dtmp;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    std::string nn = parentNode.<a class="code" href="classCantera_1_1XML__Node.html#a37627d5d5bba7f4a8690c71c2ab3cb07" title="Returns the name of the XML node. ">name</a>();</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    v.clear();</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>* readNode = parentNode.<a class="code" href="classCantera_1_1XML__Node.html#af7e9c29ecd16d37133eb0d49d4b1ee52" title="This routine carries out a recursive search for an XML node based on the name of the node...">findByName</a>(nodeName);</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">if</span> (!readNode) {</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    }</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    doublereal vmin = <a class="code" href="namespaceCantera.html#a87554f2f78829cfab3e24fd5b9d639f4" title="Fairly random number to be used to initialize variables against to see if they are subsequently defin...">Undef</a>;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    doublereal vmax = <a class="code" href="namespaceCantera.html#a87554f2f78829cfab3e24fd5b9d639f4" title="Fairly random number to be used to initialize variables against to see if they are subsequently defin...">Undef</a>;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    doublereal funit = 1.0;</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">     * Get the attributes field, units, from the XML node</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    std::string units = (*readNode)[<span class="stringliteral">&quot;units&quot;</span>];</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    <span class="keywordflow">if</span> (units != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; convert) {</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        <span class="keywordflow">if</span> (unitsString == <span class="stringliteral">&quot;actEnergy&quot;</span> &amp;&amp; units != <span class="stringliteral">&quot;&quot;</span>) {</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            funit = <a class="code" href="namespaceCantera.html#a83a2955049d3f9c4a08df5992fd28dca" title="Return the conversion factor to convert activation energy unit std::string &#39;unit&#39; to Kelvin...">actEnergyToSI</a>(units);</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (unitsString != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; units != <span class="stringliteral">&quot;&quot;</span>) {</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            funit = <a class="code" href="namespaceCantera.html#ac347fe3805bf56396b7080870c39d530" title="Return the conversion factor to convert unit std::string &#39;unit&#39; to SI units. ">toSI</a>(units);</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        }</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    }</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span> ((*readNode)[<span class="stringliteral">&quot;min&quot;</span>] != <span class="stringliteral">&quot;&quot;</span>) {</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        vmin = <a class="code" href="namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec" title="Translate a string into one doublereal value, with error checking. ">fpValueCheck</a>((*readNode)[<span class="stringliteral">&quot;min&quot;</span>]);</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    }</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="keywordflow">if</span> ((*readNode)[<span class="stringliteral">&quot;max&quot;</span>] != <span class="stringliteral">&quot;&quot;</span>) {</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        vmax = <a class="code" href="namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec" title="Translate a string into one doublereal value, with error checking. ">fpValueCheck</a>((*readNode)[<span class="stringliteral">&quot;max&quot;</span>]);</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    }</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="keywordtype">int</span> expectedSize = 0;</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    nn = (*readNode)[<span class="stringliteral">&quot;size&quot;</span>];</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    expectedSize = atoi(nn.c_str());</div>
+<div class="line"><a name="l00508"></a><span class="lineno"><a class="code" href="namespacectml.html#ae57d1cecac160f8c1a65be70f63ae771">  508</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#ae57d1cecac160f8c1a65be70f63ae771" title="This routine is used to interpret the value portions of XML elements that contain colon separated pai...">getMap</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node, std::map&lt;std::string, std::string&gt;&amp; m)</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;{</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    std::vector&lt;std::string&gt; v;</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(node, v);</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    std::string key, val;</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="keywordtype">int</span> n = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(v.size());</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    string::size_type icolon;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        icolon = v[i].find(<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMap&quot;</span>,<span class="stringliteral">&quot;missing colon in map entry (&quot;</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        }</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        key = v[i].substr(0,icolon);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        val = v[i].substr(icolon+1, v[i].size());</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        m[key] = val;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    }</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;}</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;</div>
+<div class="line"><a name="l00527"></a><span class="lineno"><a class="code" href="namespacectml.html#aac5693e923feffee80495bc831981eeb">  527</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespacectml.html#aac5693e923feffee80495bc831981eeb" title="This function interprets the value portion of an XML element as a series of &quot;Pairs&quot; separated by whit...">getPairs</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node, std::vector&lt;std::string&gt;&amp; key,</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;             std::vector&lt;std::string&gt;&amp; val)</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;{</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    vector&lt;string&gt; v;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(node, v);</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keywordtype">int</span> n = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(v.size());</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    string::size_type icolon;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        icolon = v[i].find(<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getPairs&quot;</span>,<span class="stringliteral">&quot;Missing a colon in the Pair entry (&quot;</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        }</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        key.push_back(v[i].substr(0,icolon));</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        val.push_back(v[i].substr(icolon+1, v[i].size()));</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="comment">//cout &lt;&lt; &quot;getPairs: &quot; &lt;&lt; key.back() &lt;&lt; &quot; &quot; &lt;&lt; val.back() &lt;&lt; endl;</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    }</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;}</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    nn = (*readNode)[<span class="stringliteral">&quot;vtype&quot;</span>];</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keywordflow">if</span> (nn != <span class="stringliteral">&quot;floatArray&quot;</span>) {</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getNamedFloatArray&quot;</span>,</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                           <span class="stringliteral">&quot;node named &quot;</span> + nodeName + <span class="stringliteral">&quot;didn&#39;t have correct vtype&quot;</span>);</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    }</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    doublereal vv;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    std::string val = readNode-&gt;<a class="code" href="classCantera_1_1XML__Node.html#af100729e2eeb8952d7b0f95812cf2954" title="Return the value of an XML node as a string. ">value</a>();</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keywordflow">while</span> (1 &gt; 0) {</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        icom = val.find(<span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        <span class="keywordflow">if</span> (icom != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;            numstr = val.substr(0,icom);</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            val = val.substr(icom+1,val.size());</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;            dtmp = <a class="code" href="namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec" title="Translate a string into one doublereal value, with error checking. ">fpValueCheck</a>(numstr);</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            v.push_back(dtmp);</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="comment">             * This little bit of code is to allow for the</span></div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment">             * possibility of a comma being the last</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment">             * item in the value text. This was allowed in</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">             * previous versions of Cantera, even though it</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">             * would appear to be odd. So, we keep the</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">             * possibilty in for backwards compatibility.</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            <span class="keywordtype">int</span> nlen = strlen(val.c_str());</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;            <span class="keywordflow">if</span> (nlen &gt; 0) {</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                dtmp = <a class="code" href="namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec" title="Translate a string into one doublereal value, with error checking. ">fpValueCheck</a>(val);</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                v.push_back(dtmp);</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;            }</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        }</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        vv = v.back();</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordflow">if</span> (vmin != <a class="code" href="namespaceCantera.html#a87554f2f78829cfab3e24fd5b9d639f4" title="Fairly random number to be used to initialize variables against to see if they are subsequently defin...">Undef</a> &amp;&amp; vv &lt; vmin - <a class="code" href="namespaceCantera.html#a536fca86a6efdb9584841051dfc2aad7" title="Small number to compare differences of mole fractions against. ">Tiny</a>) {</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;\nWarning: value &quot;</span>+<a class="code" href="namespaceCantera.html#a38898a74fddd7d565b91be0b73ac887f" title="Convert a double into a c++ string. ">fp2str</a>(vv)+</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                     <span class="stringliteral">&quot; is below lower limit of &quot;</span> +<a class="code" href="namespaceCantera.html#a38898a74fddd7d565b91be0b73ac887f" title="Convert a double into a c++ string. ">fp2str</a>(vmin)+<span class="stringliteral">&quot;.\n&quot;</span>);</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;        }</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keywordflow">if</span> (vmax != <a class="code" href="namespaceCantera.html#a87554f2f78829cfab3e24fd5b9d639f4" title="Fairly random number to be used to initialize variables against to see if they are subsequently defin...">Undef</a> &amp;&amp; vv &gt; vmax + <a class="code" href="namespaceCantera.html#a536fca86a6efdb9584841051dfc2aad7" title="Small number to compare differences of mole fractions against. ">Tiny</a>) {</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;\nWarning: value &quot;</span>+<a class="code" href="namespaceCantera.html#a38898a74fddd7d565b91be0b73ac887f" title="Convert a double into a c++ string. ">fp2str</a>(vv)+</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                     <span class="stringliteral">&quot; is above upper limit of &quot;</span> +<a class="code" href="namespaceCantera.html#a38898a74fddd7d565b91be0b73ac887f" title="Convert a double into a c++ string. ">fp2str</a>(vmin)+<span class="stringliteral">&quot;.\n&quot;</span>);</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        }</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    }</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordtype">int</span> nv = v.size();</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; nv; n++) {</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        v[n] *= funit;</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    }</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keywordflow">if</span> (nv != expectedSize) {</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getNamedFloatArray&quot;</span>,</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                           <span class="stringliteral">&quot;node named &quot;</span> + nodeName + <span class="stringliteral">&quot;didn&#39;t have correct number of floats&quot;</span></div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                           + <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(expectedSize) + <span class="stringliteral">&quot; vs &quot;</span> + <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(nv));</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    }</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="keywordflow">return</span> nv;</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;}</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;</div>
-<div class="line"><a name="l00601"></a><span class="lineno"><a class="code" href="namespacectml.html#ae57d1cecac160f8c1a65be70f63ae771">  601</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#ae57d1cecac160f8c1a65be70f63ae771" title="This routine is used to interpret the value portions of XML elements that contain colon separated pai...">getMap</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node, std::map&lt;std::string, std::string&gt;&amp; m)</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;{</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    std::vector&lt;std::string&gt; v;</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(node, v);</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    std::string key, val;</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordtype">int</span> n = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(v.size());</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    string::size_type icolon;</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        icolon = v[i].find(<span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMap&quot;</span>,<span class="stringliteral">&quot;missing colon in map entry (&quot;</span></div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        }</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        key = v[i].substr(0,icolon);</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        val = v[i].substr(icolon+1, v[i].size());</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        m[key] = val;</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    }</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;}</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;</div>
-<div class="line"><a name="l00620"></a><span class="lineno"><a class="code" href="namespacectml.html#aac5693e923feffee80495bc831981eeb">  620</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespacectml.html#aac5693e923feffee80495bc831981eeb" title="This function interprets the value portion of an XML element as a series of &quot;Pairs&quot; separated by whit...">getPairs</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node, std::vector&lt;std::string&gt;&amp; key,</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;             std::vector&lt;std::string&gt;&amp; val)</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;{</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    vector&lt;string&gt; v;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(node, v);</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordtype">int</span> n = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(v.size());</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    string::size_type icolon;</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++) {</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;        icolon = v[i].find(<span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getPairs&quot;</span>,<span class="stringliteral">&quot;Missing a colon in the Pair entry (&quot;</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        }</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        key.push_back(v[i].substr(0,icolon));</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        val.push_back(v[i].substr(icolon+1, v[i].size()));</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        <span class="comment">//cout &lt;&lt; &quot;getPairs: &quot; &lt;&lt; key.back() &lt;&lt; &quot; &quot; &lt;&lt; val.back() &lt;&lt; endl;</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno"><a class="code" href="namespacectml.html#a470e7fc6410349b1889738293ec0a776">  547</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#a470e7fc6410349b1889738293ec0a776" title="This function interprets the value portion of an XML element as a series of &quot;Matrix ids and entries&quot; ...">getMatrixValues</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node,</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                     <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; keyStringRow,</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                     <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; keyStringCol,</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                     <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Cantera::Array2D</a>&amp; retnValues, <span class="keyword">const</span> <span class="keywordtype">bool</span> convert,</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                     <span class="keyword">const</span> <span class="keywordtype">bool</span> matrixSymmetric)</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;{</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordtype">size_t</span> szKey1 = keyStringRow.size();</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordtype">size_t</span> szKey2 = keyStringCol.size();</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="keywordtype">size_t</span> nrow   = retnValues.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>();</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keywordtype">size_t</span> ncol   = retnValues.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>();</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordflow">if</span> (szKey1 &gt; nrow) {</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                           <span class="stringliteral">&quot;size of key1 greater than numrows&quot;</span>);</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    }</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordflow">if</span> (szKey2 &gt; ncol) {</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                           <span class="stringliteral">&quot;size of key2 greater than num cols&quot;</span>);</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    }</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keywordflow">if</span> (matrixSymmetric) {</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="keywordflow">if</span> (nrow != ncol) {</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                               <span class="stringliteral">&quot;nrow != ncol for a symmetric matrix&quot;</span>);</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        }</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    }</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment">     * Get the attributes field, units, from the XML node</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="comment">     * and determine the conversion factor, funit.</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    doublereal funit = 1.0;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordtype">string</span> units = node[<span class="stringliteral">&quot;units&quot;</span>];</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordflow">if</span> (units != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; convert) {</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        funit = <a class="code" href="namespaceCantera.html#ac347fe3805bf56396b7080870c39d530" title="Return the conversion factor to convert unit std::string &#39;unit&#39; to SI units. ">toSI</a>(units);</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    }</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <span class="keywordtype">string</span> key1;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="keywordtype">string</span> key2;</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    <span class="keywordtype">string</span> rmm;</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordtype">string</span> val;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    vector&lt;string&gt; v;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(node, v);</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    string::size_type icolon;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; v.size(); i++) {</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        icolon = v[i].find(<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Missing two colons (&quot;</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        }</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        key1 = v[i].substr(0,icolon);</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        rmm = v[i].substr(icolon+1, v[i].size());</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        icolon = rmm.find(<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Missing one colon (&quot;</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        }</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        key2 = rmm.substr(0,icolon);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        val = rmm.substr(icolon+1, rmm.size());</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        <span class="keywordtype">size_t</span> icol = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordtype">size_t</span> irow = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; szKey1; j++) {</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            <span class="keywordflow">if</span> (key1 == keyStringRow[j]) {</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                irow = j;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            }</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        <span class="keywordflow">if</span> (irow == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Row not matched by string: &quot;</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                               + key1);</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        }</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; szKey2; j++) {</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;            <span class="keywordflow">if</span> (key2 == keyStringCol[j]) {</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                icol = j;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;            }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        }</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <span class="keywordflow">if</span> (icol == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Col not matched by string: &quot;</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                               + key2);</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        }</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;        <span class="keywordtype">double</span> dval = <a class="code" href="namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec" title="Translate a string into one doublereal value, with error checking. ">fpValueCheck</a>(val);</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;        dval *= funit;</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">         * Finally, insert the value;</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        retnValues(irow, icol) = dval;</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        <span class="keywordflow">if</span> (matrixSymmetric) {</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;            retnValues(icol, irow) = dval;</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        }</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    }</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;}</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;</div>
-<div class="line"><a name="l00640"></a><span class="lineno"><a class="code" href="namespacectml.html#a470e7fc6410349b1889738293ec0a776">  640</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#a470e7fc6410349b1889738293ec0a776" title="This function interprets the value portion of an XML element as a series of &quot;Matrix ids and entries&quot; ...">getMatrixValues</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node,</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                     <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; keyStringRow,</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                     <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; keyStringCol,</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                     <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Cantera::Array2D</a>&amp; retnValues, <span class="keyword">const</span> <span class="keywordtype">bool</span> convert,</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                     <span class="keyword">const</span> <span class="keywordtype">bool</span> matrixSymmetric)</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;{</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="keywordtype">size_t</span> szKey1 = keyStringRow.size();</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordtype">size_t</span> szKey2 = keyStringCol.size();</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordtype">size_t</span> nrow   = retnValues.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>();</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <span class="keywordtype">size_t</span> ncol   = retnValues.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>();</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="keywordflow">if</span> (szKey1 &gt; nrow) {</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                           <span class="stringliteral">&quot;size of key1 greater than numrows&quot;</span>);</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    }</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="keywordflow">if</span> (szKey2 &gt; ncol) {</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;                           <span class="stringliteral">&quot;size of key2 greater than num cols&quot;</span>);</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    }</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordflow">if</span> (matrixSymmetric) {</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        <span class="keywordflow">if</span> (nrow != ncol) {</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;                               <span class="stringliteral">&quot;nrow != ncol for a symmetric matrix&quot;</span>);</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        }</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    }</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">     * Get the attributes field, units, from the XML node</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">     * and determine the conversion factor, funit.</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    doublereal funit = 1.0;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordtype">string</span> units = node[<span class="stringliteral">&quot;units&quot;</span>];</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordflow">if</span> (units != <span class="stringliteral">&quot;&quot;</span> &amp;&amp; convert) {</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        funit = <a class="code" href="namespaceCantera.html#ac347fe3805bf56396b7080870c39d530" title="Return the conversion factor to convert unit std::string &#39;unit&#39; to SI units. ">toSI</a>(units);</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    }</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    <span class="keywordtype">string</span> key1;</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordtype">string</span> key2;</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="keywordtype">string</span> rmm;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordtype">string</span> val;</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    vector&lt;string&gt; v;</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(node, v);</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    string::size_type icolon;</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; v.size(); i++) {</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        icolon = v[i].find(<span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Missing two colons (&quot;</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        }</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        key1 = v[i].substr(0,icolon);</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        rmm = v[i].substr(icolon+1, v[i].size());</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        icolon = rmm.find(<span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keywordflow">if</span> (icolon == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">string::npos</a>) {</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Missing one colon (&quot;</span></div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                               +v[i]+<span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        }</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        key2 = rmm.substr(0,icolon);</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        val = rmm.substr(icolon+1, rmm.size());</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        <span class="keywordtype">size_t</span> icol = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        <span class="keywordtype">size_t</span> irow = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; szKey1; j++) {</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;            <span class="keywordflow">if</span> (key1 == keyStringRow[j]) {</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;                irow = j;</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;            }</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        }</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        <span class="keywordflow">if</span> (irow == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Row not matched by string: &quot;</span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                               + key1);</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        }</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; szKey2; j++) {</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            <span class="keywordflow">if</span> (key2 == keyStringCol[j]) {</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                icol = j;</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;            }</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        }</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;        <span class="keywordflow">if</span> (icol == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;getMatrixValues&quot;</span>,<span class="stringliteral">&quot;Col not matched by string: &quot;</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                               + key2);</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        }</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;        <span class="keywordtype">double</span> dval = <a class="code" href="namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec" title="Translate a string into one doublereal value, with error checking. ">fpValueCheck</a>(val);</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        dval *= funit;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment">         * Finally, insert the value;</span></div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        retnValues(irow, icol) = dval;</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="keywordflow">if</span> (matrixSymmetric) {</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;            retnValues(icol, irow) = dval;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        }</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    }</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;}</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;</div>
-<div class="line"><a name="l00732"></a><span class="lineno"><a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164">  732</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node, std::vector&lt;std::string&gt;&amp; v)</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;{</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    std::string val = node.<a class="code" href="classCantera_1_1XML__Node.html#af100729e2eeb8952d7b0f95812cf2954" title="Return the value of an XML node as a string. ">value</a>();</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <a class="code" href="namespaceCantera.html#ad51b0173f30c42c9a48112c6e671218a" title="This function separates a string up into tokens according to the location of white space...">tokenizeString</a>(val, v);</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;}</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;}</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;}</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;</div>
+<div class="line"><a name="l00639"></a><span class="lineno"><a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164">  639</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#a3895954f7c3fcce68146f9ddfff79164" title="This function interprets the value portion of an XML element as a string. ">getStringArray</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a>&amp; node, std::vector&lt;std::string&gt;&amp; v)</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;{</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    std::string val = node.<a class="code" href="classCantera_1_1XML__Node.html#af100729e2eeb8952d7b0f95812cf2954" title="Return the value of an XML node as a string. ">value</a>();</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <a class="code" href="namespaceCantera.html#ad51b0173f30c42c9a48112c6e671218a" title="This function separates a string up into tokens according to the location of white space...">tokenizeString</a>(val, v);</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

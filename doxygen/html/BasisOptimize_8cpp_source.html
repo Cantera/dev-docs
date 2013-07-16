@@ -72,7 +72,7 @@
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="keyword">namespace </span>Cantera</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> BasisOptimize_print_lvl = 0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a">   14</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> = 0;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//! Print a string within a given space limit.</span></div>
@@ -85,7 +85,7 @@
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *                            1 right aligned</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *                            2 left aligned</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> print_stringTrunc(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> space, <span class="keywordtype">int</span> alignment);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429" title="Print a string within a given space limit. ">print_stringTrunc</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> space, <span class="keywordtype">int</span> alignment);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//! Finds the location of the maximum component in a vector *x*</span></div>
@@ -165,7 +165,7 @@
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">double</span> molSave = 0.0;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (BasisOptimize_print_lvl &gt;= 1) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> &gt;= 1) {</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   &quot;</span>);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">for</span> (i=0; i&lt;77; i++) {</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;-&quot;</span>);</div>
@@ -174,7 +174,7 @@
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   --- Subroutine BASOPT called to &quot;</span>);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;calculate the number of components and &quot;</span>);</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;evaluate the formation matrix\n&quot;</span>);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> (BasisOptimize_print_lvl &gt; 0) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> &gt; 0) {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   ---\n&quot;</span>);</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   ---      Formula Matrix used in BASOPT calculation\n&quot;</span>);</div>
@@ -183,7 +183,7 @@
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                jj = orderVectorElements[j];</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                ename = mphase-&gt;<a class="code" href="classCantera_1_1MultiPhase.html#a5892525be1109d31dc72eeb8efe2a747" title="Returns the name of the global element m. ">elementName</a>(jj);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                print_stringTrunc(ename.c_str(), 4, 1);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <a class="code" href="BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429" title="Print a string within a given space limit. ">print_stringTrunc</a>(ename.c_str(), 4, 1);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <a class="code" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302" title="Write a formatted message to the screen. ">writelogf</a>(<span class="stringliteral">&quot;(%1d)&quot;</span>, j);</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
@@ -191,7 +191,7 @@
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                kk = orderVectorSpecies[k];</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   --- &quot;</span>);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                sname = mphase-&gt;<a class="code" href="classCantera_1_1MultiPhase.html#aace806869af254c92a5f4d95effceac3" title="Name of species with global index kGlob. ">speciesName</a>(kk);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                print_stringTrunc(sname.c_str(), 11, 1);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <a class="code" href="BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429" title="Print a string within a given space limit. ">print_stringTrunc</a>(sname.c_str(), 11, 1);</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <a class="code" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302" title="Write a formatted message to the screen. ">writelogf</a>(<span class="stringliteral">&quot; |   %4d |&quot;</span>, k);</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keywordflow">for</span> (j = 0; j &lt; ne; j++) {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                    jj = orderVectorElements[j];</div>
@@ -346,7 +346,7 @@
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="comment">/* ****************************************** */</span></div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">if</span> (jr != k) {</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">if</span> (BasisOptimize_print_lvl &gt;= 1) {</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> &gt;= 1) {</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                kk = orderVectorSpecies[k];</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                sname = mphase-&gt;<a class="code" href="classCantera_1_1MultiPhase.html#aace806869af254c92a5f4d95effceac3" title="Name of species with global index kGlob. ">speciesName</a>(kk);</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <a class="code" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302" title="Write a formatted message to the screen. ">writelogf</a>(<span class="stringliteral">&quot;   ---   %-12.12s&quot;</span>, sname.c_str());</div>
@@ -432,7 +432,7 @@
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    }</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> (Cantera::BasisOptimize_print_lvl &gt;= 1) {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">Cantera::BasisOptimize_print_lvl</a> &gt;= 1) {</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   ---\n&quot;</span>);</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <a class="code" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302" title="Write a formatted message to the screen. ">writelogf</a>(<span class="stringliteral">&quot;   ---  Number of Components = %d\n&quot;</span>, nComponents);</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   ---  Formula Matrix:\n&quot;</span>);</div>
@@ -483,7 +483,7 @@
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="preprocessor"></span><span class="keyword">static</span> <span class="keywordtype">void</span> print_stringTrunc(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> space, <span class="keywordtype">int</span> alignment)</div>
+<div class="line"><a name="l00425"></a><span class="lineno"><a class="code" href="BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429">  425</a></span>&#160;<span class="preprocessor"></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429" title="Print a string within a given space limit. ">print_stringTrunc</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <span class="keywordtype">int</span> space, <span class="keywordtype">int</span> alignment)</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">/***********************************************************************</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment"> *  vcs_print_stringTrunc():</span></div>
@@ -632,7 +632,7 @@
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordtype">double</span> test = -1.0E10;</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> (BasisOptimize_print_lvl &gt; 0) {</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> &gt; 0) {</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   &quot;</span>);</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keywordflow">for</span> (i=0; i&lt;77; i++) {</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;-&quot;</span>);</div>
@@ -728,7 +728,7 @@
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                <span class="comment">// We haven&#39;t found the number of elements necessary.</span></div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                <span class="comment">// This is signalled by returning jr != nComponents.</span></div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (BasisOptimize_print_lvl &gt; 0) {</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> &gt; 0) {</div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                    <a class="code" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302" title="Write a formatted message to the screen. ">writelogf</a>(<span class="stringliteral">&quot;Error exit: returning with nComponents = %d\n&quot;</span>, jr);</div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                }</div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="preprocessor">#endif</span></div>
@@ -809,7 +809,7 @@
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        <span class="comment">/* ****************************************** */</span></div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        <span class="keywordflow">if</span> (jr != k) {</div>
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">if</span> (BasisOptimize_print_lvl &gt; 0) {</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">if</span> (<a class="code" href="namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a" title="External int that is used to turn on debug printing for the BasisOptimze program. ...">BasisOptimize_print_lvl</a> &gt; 0) {</div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                kk = orderVectorElements[k];</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                ename = mphase-&gt;<a class="code" href="classCantera_1_1MultiPhase.html#a5892525be1109d31dc72eeb8efe2a747" title="Returns the name of the global element m. ">elementName</a>(kk);</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;   ---   &quot;</span>);</div>

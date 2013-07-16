@@ -526,54 +526,56 @@
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment">     *        c[0] = density of phase [ kg/m3 ]</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters. ">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">    //! Get the equation of state parameters in a vector</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">     * @internal</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">     *  For this phase:</span></div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">     *       -  n = 1</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">     *       -  c[0] = density of phase [ kg/m3 ]</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">    //! Set equation of state parameter values from XML entries.</span></div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">     * This method is called by function importPhase() in</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment">     * model. Note, this method is called before the phase is</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">     * initialized with elements and/or species.</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">     *  For this phase, the density of the phase is specified in this block.</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">     * @deprecated Use setDensity()</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters. ">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment">    //! Get the equation of state parameters in a vector</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">     * @internal</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">     *  For this phase:</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">     *       -  n = 1</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="comment">     *       -  c[0] = density of phase [ kg/m3 ]</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">     * @deprecated Use density()</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">    //! Set equation of state parameter values from XML entries.</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment">     * This method is called by function importPhase() in</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment">     * model. Note, this method is called before the phase is</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">     * initialized with elements and/or species.</span></div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment">     *                the &quot;thermo&quot; entry for this phase in the input file.</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">     * eosdata points to the thermo block, and looks like this:</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment">     *  For this phase, the density of the phase is specified in this block.</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">     *                the &quot;thermo&quot; entry for this phase in the input file.</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">     * @code</span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">     * &lt;phase id=&quot;stoichsolid&quot; &gt;</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">     *   &lt;thermo model=&quot;StoichSubstance&quot;&gt;</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">     *     &lt;density units=&quot;g/cm3&quot;&gt;3.52&lt;/density&gt;</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">     *   &lt;/thermo&gt;</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">     * &lt;/phase&gt;</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">     * @endcode</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>* xdef_;</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;};</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;}</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">     * eosdata points to the thermo block, and looks like this:</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">     * @code</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">     * &lt;phase id=&quot;stoichsolid&quot; &gt;</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">     *   &lt;thermo model=&quot;StoichSubstance&quot;&gt;</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">     *     &lt;density units=&quot;g/cm3&quot;&gt;3.52&lt;/density&gt;</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">     *   &lt;/thermo&gt;</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">     * &lt;/phase&gt;</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">     * @endcode</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>* xdef_;</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;};</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;}</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

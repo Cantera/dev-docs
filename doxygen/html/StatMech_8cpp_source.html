@@ -702,50 +702,51 @@
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                                doublereal&amp; pref,</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                                doublereal* <span class="keyword">const</span> coeffs)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    species* s;</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    n = m_index;</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    type = <a class="code" href="speciesThermoTypes_8h.html#a47c1b9c9a7b4183ac4fd96dc5ca8e820" title="Properties derived from theoretical considerations This is implemented in the class statmech in StatM...">STAT</a>;</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    tlow = m_lowT;</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    thigh = m_highT;</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    pref = m_Pref;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 9; i++) {</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        coeffs[i] = 0.0;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    }</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    doublereal temp = coeffs[0];</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    coeffs[1] = m_lowT;</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    coeffs[2] = m_highT;</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="comment">// get species name, to gather species properties</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">// pointer to map location of particular species</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordflow">if</span> (name_map.find(sp_name)  != name_map.end()) {</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        s = name_map.find(sp_name)-&gt;second;</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="comment">//std::cout &lt;&lt; sp_name &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;StatMech.cpp&quot;</span>,</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                           <span class="stringliteral">&quot;species properties not found!. \n\n&quot;</span>);</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    }</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    <span class="keywordtype">double</span> theta = 0.0;</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    doublereal cvib = 0;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="comment">// vibrational energy</span></div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt; s-&gt;nvib; i++) {</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        theta = s-&gt;theta[i];</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        cvib += <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K]. ">GasConstant</a> * theta * (theta* exp(theta/temp)/(temp*temp))/((exp(theta/temp)-1) * (exp(theta/temp)-1));</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    }</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="comment">// load vibrational energy</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    coeffs[3] = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K]. ">GasConstant</a> * s-&gt;cfs;</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    coeffs[4] = cvib;</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;}</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="keywordtype">void</span> StatMech::modifyParameters(doublereal* coeffs)</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;{</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;}</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;}</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;StatMech::reportParameters&quot;</span>);</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    species* s;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    n = m_index;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    type = <a class="code" href="speciesThermoTypes_8h.html#a47c1b9c9a7b4183ac4fd96dc5ca8e820" title="Properties derived from theoretical considerations This is implemented in the class statmech in StatM...">STAT</a>;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    tlow = m_lowT;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    thigh = m_highT;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    pref = m_Pref;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 9; i++) {</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        coeffs[i] = 0.0;</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    }</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    doublereal temp = coeffs[0];</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    coeffs[1] = m_lowT;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    coeffs[2] = m_highT;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">// get species name, to gather species properties</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="comment">// pointer to map location of particular species</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keywordflow">if</span> (name_map.find(sp_name)  != name_map.end()) {</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        s = name_map.find(sp_name)-&gt;second;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="comment">//std::cout &lt;&lt; sp_name &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;        <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;StatMech.cpp&quot;</span>,</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                           <span class="stringliteral">&quot;species properties not found!. \n\n&quot;</span>);</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    }</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <span class="keywordtype">double</span> theta = 0.0;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    doublereal cvib = 0;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="comment">// vibrational energy</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt; s-&gt;nvib; i++) {</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        theta = s-&gt;theta[i];</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        cvib += <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K]. ">GasConstant</a> * theta * (theta* exp(theta/temp)/(temp*temp))/((exp(theta/temp)-1) * (exp(theta/temp)-1));</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    }</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="comment">// load vibrational energy</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    coeffs[3] = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0" title="Universal Gas Constant. [J/kmol/K]. ">GasConstant</a> * s-&gt;cfs;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    coeffs[4] = cvib;</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;}</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="keywordtype">void</span> StatMech::modifyParameters(doublereal* coeffs)</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;{</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;}</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

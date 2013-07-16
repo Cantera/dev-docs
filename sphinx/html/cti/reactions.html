@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reactions &mdash; Cantera 2.1a1 documentation</title>
+    <title>Reactions &mdash; Cantera 2.1b1 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1a1',
+        VERSION:     '2.1b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1a1 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.1b1 documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="CTI Class Reference" href="classes.html" />
     <link rel="prev" title="Elements and Species" href="species.html" /> 
@@ -76,6 +76,7 @@
 <li><a class="reference internal" href="#the-sri-falloff-function">The SRI Falloff Function</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#chemically-activated-reactions">Chemically-Activated Reactions</a></li>
 <li><a class="reference internal" href="#pressure-dependent-arrhenius-rate-expressions-p-log">Pressure-Dependent Arrhenius Rate Expressions (P-Log)</a></li>
 <li><a class="reference internal" href="#chebyshev-reaction-rate-expressions">Chebyshev Reaction Rate Expressions</a></li>
 </ul>
@@ -333,6 +334,35 @@ supports the extended 5-parameter form, given by:</p>
 <p>In keeping with the nomenclature of [Kee et al., 1989], we will refer to this as
 the &#8220;SRI&#8221; falloff function. It is implemented by the <a class="reference internal" href="classes.html#ctml_writer.SRI" title="ctml_writer.SRI"><tt class="xref py py-class docutils literal"><span class="pre">SRI</span></tt></a> directive.</p>
 </div>
+</div>
+<div class="section" id="chemically-activated-reactions">
+<h2>Chemically-Activated Reactions<a class="headerlink" href="#chemically-activated-reactions" title="Permalink to this headline">¶</a></h2>
+<p>For these reactions, the rate falls off as the pressure increases, due to
+collisional stabilization of a reaction intermediate. Example:</p>
+<div class="math">
+\[\mathrm{Si + SiH_4 (+M) \leftrightarrow Si_2H_2 + H_2 (+M)}\]</div>
+<p>which competes with:</p>
+<div class="math">
+\[\mathrm{Si + SiH_4 (+M) \leftrightarrow Si_2H_4 (+M)}\]</div>
+<p>Like falloff reactions, chemically-activated reactions are described by
+blending between a &#8220;low pressure&#8221; and a &#8220;high pressure&#8221; rate expression. The
+difference is that the forward rate constant is written as being proportional
+to the <em>low pressure</em> rate constant:</p>
+<div class="math">
+\[k_f(T, P_r) = k_0 \left(\frac{1}{1 + P_r}\right) F(T, P_r)\]</div>
+<p>and the optional blending function <em>F</em> may described by any of the
+parameterizations allowed for falloff reactions. Chemically-activated
+reactions can be defined using the <a class="reference internal" href="classes.html#ctml_writer.chemically_activated_reaction" title="ctml_writer.chemically_activated_reaction"><tt class="xref py py-class docutils literal"><span class="pre">chemically_activated_reaction</span></tt></a>
+directive.</p>
+<p>An example of a reaction specified with this parameterization:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">chemically_activated_reaction</span><span class="p">(</span><span class="s">&#39;CH3 + OH (+ M) &lt;=&gt; CH2O + H2 (+ M)&#39;</span><span class="p">,</span>
+                              <span class="n">kLow</span><span class="o">=</span><span class="p">[</span><span class="mf">2.823201e+02</span><span class="p">,</span> <span class="mf">1.46878</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">3270.56495</span><span class="p">,</span> <span class="s">&#39;cal/mol&#39;</span><span class="p">)],</span>
+                              <span class="n">kHigh</span><span class="o">=</span><span class="p">[</span><span class="mf">5.880000e-14</span><span class="p">,</span> <span class="mf">6.721</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">3022.227</span><span class="p">,</span> <span class="s">&#39;cal/mol&#39;</span><span class="p">)],</span>
+                              <span class="n">falloff</span><span class="o">=</span><span class="n">Troe</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mf">1.671</span><span class="p">,</span> <span class="n">T3</span><span class="o">=</span><span class="mf">434.782</span><span class="p">,</span> <span class="n">T1</span><span class="o">=</span><span class="mf">2934.21</span><span class="p">,</span> <span class="n">T2</span><span class="o">=</span><span class="mf">3919.0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In this example, the units of <span class="math">\(k_0\)</span> (<tt class="xref py py-obj docutils literal"><span class="pre">kLow</span></tt>) are m^3/kmol/s and the
+units of <span class="math">\(k_\infty\)</span> (<tt class="xref py py-obj docutils literal"><span class="pre">kHigh</span></tt>) are 1/s.</p>
 </div>
 <div class="section" id="pressure-dependent-arrhenius-rate-expressions-p-log">
 <h2>Pressure-Dependent Arrhenius Rate Expressions (P-Log)<a class="headerlink" href="#pressure-dependent-arrhenius-rate-expressions-p-log" title="Permalink to this headline">¶</a></h2>

@@ -596,29 +596,32 @@
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;{</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>* f;</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="keywordflow">switch</span> (type) {</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keywordflow">case</span> TROE3_FALLOFF:</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe3.html" title="The 3-parameter Troe falloff parameterization. ">Troe3</a>();</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keywordflow">case</span> SIMPLE_FALLOFF:</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>();</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="keywordflow">case</span> TROE4_FALLOFF:</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe4.html" title="The 4-parameter Troe falloff parameterization. ">Troe4</a>();</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="keywordflow">case</span> TROE3_FALLOFF:</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe3.html" title="The 3-parameter Troe falloff parameterization. ">Troe3</a>();</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordflow">case</span> SRI3_FALLOFF:</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI3.html" title="The 3-parameter SRI falloff function for F ">SRI3</a>();</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordflow">case</span> TROE4_FALLOFF:</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe4.html" title="The 4-parameter Troe falloff parameterization. ">Troe4</a>();</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">case</span> SRI5_FALLOFF:</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI5.html" title="The 5-parameter SRI falloff function. ">SRI5</a>();</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">case</span> SRI3_FALLOFF:</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI3.html" title="The 3-parameter SRI falloff function for F ">SRI3</a>();</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordflow">case</span> WF_FALLOFF:</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1WF93.html" title="Wang-Frenklach falloff function. ">WF93</a>();</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordflow">case</span> SRI5_FALLOFF:</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI5.html" title="The 5-parameter SRI falloff function. ">SRI5</a>();</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    }</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    f-&gt;<a class="code" href="classCantera_1_1Falloff.html#a41f30110802435762e8cbe8af69a732e" title="Initialize. ">init</a>(c);</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;}</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;}</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordflow">case</span> WF_FALLOFF:</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1WF93.html" title="Wang-Frenklach falloff function. ">WF93</a>();</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    }</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    f-&gt;<a class="code" href="classCantera_1_1Falloff.html#ad2cbdcdb257b650b48e294e995bd0ce6" title="Initialize. ">init</a>(c);</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;}</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

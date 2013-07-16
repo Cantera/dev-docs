@@ -1135,556 +1135,558 @@
 <div class="line"><a name="l01074"></a><span class="lineno"> 1074</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l01075"></a><span class="lineno"> 1075</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
 <div class="line"><a name="l01076"></a><span class="lineno"> 1076</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
-<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters. ">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
-<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;<span class="comment">    //! Get the equation of state parameters in a vector</span></div>
-<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;<span class="comment">     * @internal</span></div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;<span class="comment">     * The number and meaning of these depends on the subclass.</span></div>
-<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
-<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
-<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;<span class="comment">    //! Set equation of state parameter values from XML entries.</span></div>
-<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;<span class="comment">     * This method is called by function importPhase() in</span></div>
-<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
-<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
-<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
-<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;<span class="comment">     * model. Note, this method is called before the phase is</span></div>
-<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;<span class="comment">     * initialized with elements and/or species.</span></div>
-<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;<span class="comment">     * HKM -&gt; Right now, the parameters are set elsewhere (initThermoXML)</span></div>
-<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;<span class="comment">     *        It just didn&#39;t seem to fit.</span></div>
-<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
-<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;<span class="comment">     *                the &quot;thermo&quot; entry for this phase in the input file.</span></div>
-<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata);</div>
-<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;<span class="comment">    /// @name Saturation properties.</span></div>
-<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;<span class="comment">    /// These methods are only implemented by subclasses that</span></div>
-<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;<span class="comment">    /// implement full liquid-vapor equations of state.</span></div>
-<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;<span class="comment">    ///</span></div>
-<div class="line"><a name="l01112"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a2cf34e66ff36ee1b0bd4bd0f4be2aef1"> 1112</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#a2cf34e66ff36ee1b0bd4bd0f4be2aef1" title="Return the saturation temperature given the pressure. ">satTemperature</a>(doublereal p)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;satTemperature&quot;</span>);</div>
-<div class="line"><a name="l01114"></a><span class="lineno"> 1114</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
-<div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160;    }</div>
-<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;<span class="comment">    //! Get the saturation pressure for a given temperature.</span></div>
-<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;<span class="comment">     * Note the limitations of this function. Stability considerations</span></div>
-<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;<span class="comment">     * concerning multiphase equilibrium are ignored in this</span></div>
-<div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;<span class="comment">     * calculation. Therefore, the call is made directly to the SS of</span></div>
-<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;<span class="comment">     * water underneath. The object is put back into its original</span></div>
-<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;<span class="comment">     * state at the end of the call.</span></div>
-<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;<span class="comment">     * @todo This is probably not implemented correctly. The stability</span></div>
-<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;<span class="comment">     *       of the salt should be added into this calculation. The</span></div>
-<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;<span class="comment">     *       underlying water model may be called to get the stability</span></div>
-<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;<span class="comment">     *       of the pure water solution, if needed.</span></div>
-<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;<span class="comment">     * @param T  Temperature (kelvin)</span></div>
-<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01132"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a51ae6aa392e00c52d492d28f349caccc"> 1132</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#a51ae6aa392e00c52d492d28f349caccc" title="Get the saturation pressure for a given temperature. ">satPressure</a>(doublereal T)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;satPressure&quot;</span>);</div>
-<div class="line"><a name="l01134"></a><span class="lineno"> 1134</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
-<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;    }</div>
-<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;</div>
-<div class="line"><a name="l01137"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aaa4bdd0457db381d4b1c994c45675e4f"> 1137</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#aaa4bdd0457db381d4b1c994c45675e4f" title="Return the fraction of vapor at the current conditions. ">vaporFraction</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;vaprFraction&quot;</span>);</div>
-<div class="line"><a name="l01139"></a><span class="lineno"> 1139</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
-<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;    }</div>
-<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;</div>
-<div class="line"><a name="l01142"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a302ae2f94923bc9372359e3e35e5dd65"> 1142</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a302ae2f94923bc9372359e3e35e5dd65" title="Set the state to a saturated system at a particular temperature. ">setState_Tsat</a>(doublereal t, doublereal x) {</div>
-<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;setState_sat&quot;</span>);</div>
-<div class="line"><a name="l01144"></a><span class="lineno"> 1144</span>&#160;    }</div>
-<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;</div>
-<div class="line"><a name="l01146"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ac64e4d2b3f76fce1990a147ede393761"> 1146</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ac64e4d2b3f76fce1990a147ede393761" title="Set the state to a saturated system at a particular pressure. ">setState_Psat</a>(doublereal p, doublereal x) {</div>
-<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;setState_sat&quot;</span>);</div>
-<div class="line"><a name="l01148"></a><span class="lineno"> 1148</span>&#160;    }</div>
-<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l01077"></a><span class="lineno"> 1077</span>&#160;<span class="comment">     * @deprecated Unimplemented</span></div>
+<div class="line"><a name="l01078"></a><span class="lineno"> 1078</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters. ">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
+<div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;<span class="comment">    //! Get the equation of state parameters in a vector</span></div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;<span class="comment">     * @internal</span></div>
+<div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;<span class="comment">     * The number and meaning of these depends on the subclass.</span></div>
+<div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
+<div class="line"><a name="l01087"></a><span class="lineno"> 1087</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
+<div class="line"><a name="l01088"></a><span class="lineno"> 1088</span>&#160;<span class="comment">     * @deprecated Unimplemented</span></div>
+<div class="line"><a name="l01089"></a><span class="lineno"> 1089</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01090"></a><span class="lineno"> 1090</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01091"></a><span class="lineno"> 1091</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01092"></a><span class="lineno"> 1092</span>&#160;<span class="comment">    //! Set equation of state parameter values from XML entries.</span></div>
+<div class="line"><a name="l01093"></a><span class="lineno"> 1093</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01094"></a><span class="lineno"> 1094</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01095"></a><span class="lineno"> 1095</span>&#160;<span class="comment">     * This method is called by function importPhase() in</span></div>
+<div class="line"><a name="l01096"></a><span class="lineno"> 1096</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
+<div class="line"><a name="l01097"></a><span class="lineno"> 1097</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
+<div class="line"><a name="l01098"></a><span class="lineno"> 1098</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
+<div class="line"><a name="l01099"></a><span class="lineno"> 1099</span>&#160;<span class="comment">     * model. Note, this method is called before the phase is</span></div>
+<div class="line"><a name="l01100"></a><span class="lineno"> 1100</span>&#160;<span class="comment">     * initialized with elements and/or species.</span></div>
+<div class="line"><a name="l01101"></a><span class="lineno"> 1101</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01102"></a><span class="lineno"> 1102</span>&#160;<span class="comment">     * HKM -&gt; Right now, the parameters are set elsewhere (initThermoXML)</span></div>
+<div class="line"><a name="l01103"></a><span class="lineno"> 1103</span>&#160;<span class="comment">     *        It just didn&#39;t seem to fit.</span></div>
+<div class="line"><a name="l01104"></a><span class="lineno"> 1104</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01105"></a><span class="lineno"> 1105</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
+<div class="line"><a name="l01106"></a><span class="lineno"> 1106</span>&#160;<span class="comment">     *                the &quot;thermo&quot; entry for this phase in the input file.</span></div>
+<div class="line"><a name="l01107"></a><span class="lineno"> 1107</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01108"></a><span class="lineno"> 1108</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">setParametersFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; eosdata);</div>
+<div class="line"><a name="l01109"></a><span class="lineno"> 1109</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01110"></a><span class="lineno"> 1110</span>&#160;<span class="comment">    /// @name Saturation properties.</span></div>
+<div class="line"><a name="l01111"></a><span class="lineno"> 1111</span>&#160;<span class="comment">    /// These methods are only implemented by subclasses that</span></div>
+<div class="line"><a name="l01112"></a><span class="lineno"> 1112</span>&#160;<span class="comment">    /// implement full liquid-vapor equations of state.</span></div>
+<div class="line"><a name="l01113"></a><span class="lineno"> 1113</span>&#160;<span class="comment">    ///</span></div>
+<div class="line"><a name="l01114"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a2cf34e66ff36ee1b0bd4bd0f4be2aef1"> 1114</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#a2cf34e66ff36ee1b0bd4bd0f4be2aef1" title="Return the saturation temperature given the pressure. ">satTemperature</a>(doublereal p)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l01115"></a><span class="lineno"> 1115</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;satTemperature&quot;</span>);</div>
+<div class="line"><a name="l01116"></a><span class="lineno"> 1116</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
+<div class="line"><a name="l01117"></a><span class="lineno"> 1117</span>&#160;    }</div>
+<div class="line"><a name="l01118"></a><span class="lineno"> 1118</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01119"></a><span class="lineno"> 1119</span>&#160;<span class="comment">    //! Get the saturation pressure for a given temperature.</span></div>
+<div class="line"><a name="l01120"></a><span class="lineno"> 1120</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01121"></a><span class="lineno"> 1121</span>&#160;<span class="comment">     * Note the limitations of this function. Stability considerations</span></div>
+<div class="line"><a name="l01122"></a><span class="lineno"> 1122</span>&#160;<span class="comment">     * concerning multiphase equilibrium are ignored in this</span></div>
+<div class="line"><a name="l01123"></a><span class="lineno"> 1123</span>&#160;<span class="comment">     * calculation. Therefore, the call is made directly to the SS of</span></div>
+<div class="line"><a name="l01124"></a><span class="lineno"> 1124</span>&#160;<span class="comment">     * water underneath. The object is put back into its original</span></div>
+<div class="line"><a name="l01125"></a><span class="lineno"> 1125</span>&#160;<span class="comment">     * state at the end of the call.</span></div>
+<div class="line"><a name="l01126"></a><span class="lineno"> 1126</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01127"></a><span class="lineno"> 1127</span>&#160;<span class="comment">     * @todo This is probably not implemented correctly. The stability</span></div>
+<div class="line"><a name="l01128"></a><span class="lineno"> 1128</span>&#160;<span class="comment">     *       of the salt should be added into this calculation. The</span></div>
+<div class="line"><a name="l01129"></a><span class="lineno"> 1129</span>&#160;<span class="comment">     *       underlying water model may be called to get the stability</span></div>
+<div class="line"><a name="l01130"></a><span class="lineno"> 1130</span>&#160;<span class="comment">     *       of the pure water solution, if needed.</span></div>
+<div class="line"><a name="l01131"></a><span class="lineno"> 1131</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01132"></a><span class="lineno"> 1132</span>&#160;<span class="comment">     * @param T  Temperature (kelvin)</span></div>
+<div class="line"><a name="l01133"></a><span class="lineno"> 1133</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01134"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a51ae6aa392e00c52d492d28f349caccc"> 1134</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#a51ae6aa392e00c52d492d28f349caccc" title="Get the saturation pressure for a given temperature. ">satPressure</a>(doublereal T)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l01135"></a><span class="lineno"> 1135</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;satPressure&quot;</span>);</div>
+<div class="line"><a name="l01136"></a><span class="lineno"> 1136</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
+<div class="line"><a name="l01137"></a><span class="lineno"> 1137</span>&#160;    }</div>
+<div class="line"><a name="l01138"></a><span class="lineno"> 1138</span>&#160;</div>
+<div class="line"><a name="l01139"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aaa4bdd0457db381d4b1c994c45675e4f"> 1139</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#aaa4bdd0457db381d4b1c994c45675e4f" title="Return the fraction of vapor at the current conditions. ">vaporFraction</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l01140"></a><span class="lineno"> 1140</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;vaprFraction&quot;</span>);</div>
+<div class="line"><a name="l01141"></a><span class="lineno"> 1141</span>&#160;        <span class="keywordflow">return</span> -1.0;</div>
+<div class="line"><a name="l01142"></a><span class="lineno"> 1142</span>&#160;    }</div>
+<div class="line"><a name="l01143"></a><span class="lineno"> 1143</span>&#160;</div>
+<div class="line"><a name="l01144"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a302ae2f94923bc9372359e3e35e5dd65"> 1144</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a302ae2f94923bc9372359e3e35e5dd65" title="Set the state to a saturated system at a particular temperature. ">setState_Tsat</a>(doublereal t, doublereal x) {</div>
+<div class="line"><a name="l01145"></a><span class="lineno"> 1145</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;setState_sat&quot;</span>);</div>
+<div class="line"><a name="l01146"></a><span class="lineno"> 1146</span>&#160;    }</div>
+<div class="line"><a name="l01147"></a><span class="lineno"> 1147</span>&#160;</div>
+<div class="line"><a name="l01148"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ac64e4d2b3f76fce1990a147ede393761"> 1148</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ac64e4d2b3f76fce1990a147ede393761" title="Set the state to a saturated system at a particular pressure. ">setState_Psat</a>(doublereal p, doublereal x) {</div>
+<div class="line"><a name="l01149"></a><span class="lineno"> 1149</span>&#160;        <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="stringliteral">&quot;setState_sat&quot;</span>);</div>
+<div class="line"><a name="l01150"></a><span class="lineno"> 1150</span>&#160;    }</div>
 <div class="line"><a name="l01151"></a><span class="lineno"> 1151</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;<span class="comment">     *  -------------- Utilities -------------------------------</span></div>
-<div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;<span class="comment">    //! Initialize the object&#39;s internal lengths after species are set</span></div>
-<div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
-<div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;<span class="comment">     * @internal Initialize. This method is provided to allow</span></div>
-<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;<span class="comment">     * subclasses to perform any initialization required after all</span></div>
-<div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;<span class="comment">     * species have been added. For example, it might be used to</span></div>
-<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;<span class="comment">     * resize internal work arrays that must have an entry for</span></div>
-<div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;<span class="comment">     * each species.  The base class implementation does nothing,</span></div>
-<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;<span class="comment">     * and subclasses that do not require initialization do not</span></div>
-<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;<span class="comment">     * need to overload this method.  When importing a CTML phase</span></div>
-<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;<span class="comment">     * description, this method is called just prior to returning</span></div>
-<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;<span class="comment">     * from function importPhase().</span></div>
-<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;<span class="comment">     * Cascading call sequence downwards starting with Parent.</span></div>
+<div class="line"><a name="l01152"></a><span class="lineno"> 1152</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l01153"></a><span class="lineno"> 1153</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01154"></a><span class="lineno"> 1154</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l01155"></a><span class="lineno"> 1155</span>&#160;<span class="comment">     *  -------------- Utilities -------------------------------</span></div>
+<div class="line"><a name="l01156"></a><span class="lineno"> 1156</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01157"></a><span class="lineno"> 1157</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01158"></a><span class="lineno"> 1158</span>&#160;<span class="comment">    //! Initialize the object&#39;s internal lengths after species are set</span></div>
+<div class="line"><a name="l01159"></a><span class="lineno"> 1159</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
+<div class="line"><a name="l01160"></a><span class="lineno"> 1160</span>&#160;<span class="comment">     * @internal Initialize. This method is provided to allow</span></div>
+<div class="line"><a name="l01161"></a><span class="lineno"> 1161</span>&#160;<span class="comment">     * subclasses to perform any initialization required after all</span></div>
+<div class="line"><a name="l01162"></a><span class="lineno"> 1162</span>&#160;<span class="comment">     * species have been added. For example, it might be used to</span></div>
+<div class="line"><a name="l01163"></a><span class="lineno"> 1163</span>&#160;<span class="comment">     * resize internal work arrays that must have an entry for</span></div>
+<div class="line"><a name="l01164"></a><span class="lineno"> 1164</span>&#160;<span class="comment">     * each species.  The base class implementation does nothing,</span></div>
+<div class="line"><a name="l01165"></a><span class="lineno"> 1165</span>&#160;<span class="comment">     * and subclasses that do not require initialization do not</span></div>
+<div class="line"><a name="l01166"></a><span class="lineno"> 1166</span>&#160;<span class="comment">     * need to overload this method.  When importing a CTML phase</span></div>
+<div class="line"><a name="l01167"></a><span class="lineno"> 1167</span>&#160;<span class="comment">     * description, this method is called just prior to returning</span></div>
+<div class="line"><a name="l01168"></a><span class="lineno"> 1168</span>&#160;<span class="comment">     * from function importPhase().</span></div>
 <div class="line"><a name="l01169"></a><span class="lineno"> 1169</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;<span class="comment">     * @internal</span></div>
+<div class="line"><a name="l01170"></a><span class="lineno"> 1170</span>&#160;<span class="comment">     * Cascading call sequence downwards starting with Parent.</span></div>
 <div class="line"><a name="l01171"></a><span class="lineno"> 1171</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;<span class="comment">     * @see importCTML.cpp</span></div>
-<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a8a12209d08a5c4876d9894d619368a79" title="Initialize the object&#39;s internal lengths after species are set. ">initThermo</a>();</div>
-<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;<span class="comment">    //! Process the XML file after species are set up.</span></div>
-<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;<span class="comment">     *  This gets called from importPhase(). It processes the XML file</span></div>
-<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;<span class="comment">     *  after the species are set up. This is the main routine for</span></div>
-<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;<span class="comment">     *  reading in activity coefficient parameters.</span></div>
-<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;<span class="comment">     * @param phaseNode This object must be the phase node of a</span></div>
-<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;<span class="comment">     *             complete XML tree</span></div>
-<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;<span class="comment">     *             description of the phase, including all of the</span></div>
-<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;<span class="comment">     *             species data. In other words while &quot;phase&quot; must</span></div>
-<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;<span class="comment">     *             point to an XML phase object, it must have</span></div>
-<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;<span class="comment">     *             sibling nodes &quot;speciesData&quot; that describe</span></div>
-<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;<span class="comment">     *             the species in the phase.</span></div>
-<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;<span class="comment">     * @param id   ID of the phase. If nonnull, a check is done</span></div>
-<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;<span class="comment">     *             to see if phaseNode is pointing to the phase</span></div>
-<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;<span class="comment">     *             with the correct id.</span></div>
-<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span>  <a class="code" href="classCantera_1_1DebyeHuckel.html#a42dab55c3f7b95e3fc87507816541e87" title="Process the XML file after species are set up. ">initThermoXML</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phaseNode, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;<span class="comment">    //! Return  the Debye Huckel constant as a function of temperature</span></div>
-<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;<span class="comment">    //! and pressure (Units = sqrt(kg/gmol))</span></div>
-<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;<span class="comment">     *  The default is to assume that it is constant, given</span></div>
-<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;<span class="comment">     *  in the initialization process, and stored in the</span></div>
-<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;<span class="comment">     *  member double, m_A_Debye. Optionally, a full water treatment may be employed that makes</span></div>
-<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;<span class="comment">     *  \f$ A_{Debye} \f$ a full function of T and P.</span></div>
-<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;<span class="comment">     *   \f[</span></div>
-<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;<span class="comment">     *      A_{Debye} = \frac{F e B_{Debye}}{8 \pi \epsilon R T} {\left( C_o \tilde{M}_o \right)}^{1/2}</span></div>
-<div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;<span class="comment">     *   \f]</span></div>
-<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;<span class="comment">     *  where</span></div>
-<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;<span class="comment">     *  \f[</span></div>
-<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;<span class="comment">     *         B_{Debye} = \frac{F} {{(\frac{\epsilon R T}{2})}^{1/2}}</span></div>
-<div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;<span class="comment">     *  \f]</span></div>
-<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;<span class="comment">     *  Therefore:</span></div>
-<div class="line"><a name="l01211"></a><span class="lineno"> 1211</span>&#160;<span class="comment">     *  \f[</span></div>
-<div class="line"><a name="l01212"></a><span class="lineno"> 1212</span>&#160;<span class="comment">     *   A_{Debye} = \frac{1}{8 \pi}</span></div>
-<div class="line"><a name="l01213"></a><span class="lineno"> 1213</span>&#160;<span class="comment">     *                 {\left(\frac{2 N_a \rho_o}{1000}\right)}^{1/2}</span></div>
-<div class="line"><a name="l01214"></a><span class="lineno"> 1214</span>&#160;<span class="comment">     *                 {\left(\frac{N_a e^2}{\epsilon R T }\right)}^{3/2}</span></div>
-<div class="line"><a name="l01215"></a><span class="lineno"> 1215</span>&#160;<span class="comment">     *  \f]</span></div>
-<div class="line"><a name="l01216"></a><span class="lineno"> 1216</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01217"></a><span class="lineno"> 1217</span>&#160;<span class="comment">     *  where</span></div>
-<div class="line"><a name="l01218"></a><span class="lineno"> 1218</span>&#160;<span class="comment">     *  - Units = sqrt(kg/gmol)</span></div>
-<div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;<span class="comment">     *  - \f$ N_a \f$ is Avogadro&#39;s number</span></div>
-<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;<span class="comment">     *  - \f$ \rho_w \f$ is the density of water</span></div>
-<div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;<span class="comment">     *  - \f$ e \f$ is the electronic charge</span></div>
-<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;<span class="comment">     *  - \f$ \epsilon = K \epsilon_o \f$ is the permittivity of water</span></div>
-<div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;<span class="comment">     *  - \f$ K \f$ is the dielectric constant of water,</span></div>
-<div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;<span class="comment">     *  - \f$ \epsilon_o \f$ is the permittivity of free space.</span></div>
-<div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;<span class="comment">     *  - \f$ \rho_o \f$ is the density of the solvent in its standard state.</span></div>
-<div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;<span class="comment">     *  Nominal value at 298 K and 1 atm = 1.172576 (kg/gmol)&lt;SUP&gt;1/2&lt;/SUP&gt;</span></div>
-<div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;<span class="comment">     *  based on:</span></div>
-<div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;<span class="comment">     *    - \f$ \epsilon / \epsilon_0 \f$ = 78.54 (water at 25C)</span></div>
-<div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;<span class="comment">     *    - T = 298.15 K</span></div>
-<div class="line"><a name="l01231"></a><span class="lineno"> 1231</span>&#160;<span class="comment">     *    - B_Debye = 3.28640E9 (kg/gmol)&lt;SUP&gt;1/2&lt;/SUP&gt; m&lt;SUP&gt;-1&lt;/SUP&gt;</span></div>
-<div class="line"><a name="l01232"></a><span class="lineno"> 1232</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
-<div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
-<div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
-<div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
-<div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a0b8962bd2921770c9fb22e35d7ce32e4" title="Return the Debye Huckel constant as a function of temperature and pressure (Units = sqrt(kg/gmol)) ...">A_Debye_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
-<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;                              <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;<span class="comment">    //! Value of the derivative of the Debye Huckel constant with</span></div>
-<div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;<span class="comment">    //! respect to temperature.</span></div>
-<div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;<span class="comment">     * This is a function of temperature and pressure. See A_Debye_TP() for</span></div>
-<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;<span class="comment">     * a definition of \f$ A_{Debye} \f$.</span></div>
-<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;<span class="comment">     * Units = sqrt(kg/gmol) K-1</span></div>
+<div class="line"><a name="l01172"></a><span class="lineno"> 1172</span>&#160;<span class="comment">     * @internal</span></div>
+<div class="line"><a name="l01173"></a><span class="lineno"> 1173</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01174"></a><span class="lineno"> 1174</span>&#160;<span class="comment">     * @see importCTML.cpp</span></div>
+<div class="line"><a name="l01175"></a><span class="lineno"> 1175</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01176"></a><span class="lineno"> 1176</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a8a12209d08a5c4876d9894d619368a79" title="Initialize the object&#39;s internal lengths after species are set. ">initThermo</a>();</div>
+<div class="line"><a name="l01177"></a><span class="lineno"> 1177</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01178"></a><span class="lineno"> 1178</span>&#160;<span class="comment">    //! Process the XML file after species are set up.</span></div>
+<div class="line"><a name="l01179"></a><span class="lineno"> 1179</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01180"></a><span class="lineno"> 1180</span>&#160;<span class="comment">     *  This gets called from importPhase(). It processes the XML file</span></div>
+<div class="line"><a name="l01181"></a><span class="lineno"> 1181</span>&#160;<span class="comment">     *  after the species are set up. This is the main routine for</span></div>
+<div class="line"><a name="l01182"></a><span class="lineno"> 1182</span>&#160;<span class="comment">     *  reading in activity coefficient parameters.</span></div>
+<div class="line"><a name="l01183"></a><span class="lineno"> 1183</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01184"></a><span class="lineno"> 1184</span>&#160;<span class="comment">     * @param phaseNode This object must be the phase node of a</span></div>
+<div class="line"><a name="l01185"></a><span class="lineno"> 1185</span>&#160;<span class="comment">     *             complete XML tree</span></div>
+<div class="line"><a name="l01186"></a><span class="lineno"> 1186</span>&#160;<span class="comment">     *             description of the phase, including all of the</span></div>
+<div class="line"><a name="l01187"></a><span class="lineno"> 1187</span>&#160;<span class="comment">     *             species data. In other words while &quot;phase&quot; must</span></div>
+<div class="line"><a name="l01188"></a><span class="lineno"> 1188</span>&#160;<span class="comment">     *             point to an XML phase object, it must have</span></div>
+<div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;<span class="comment">     *             sibling nodes &quot;speciesData&quot; that describe</span></div>
+<div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;<span class="comment">     *             the species in the phase.</span></div>
+<div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;<span class="comment">     * @param id   ID of the phase. If nonnull, a check is done</span></div>
+<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;<span class="comment">     *             to see if phaseNode is pointing to the phase</span></div>
+<div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;<span class="comment">     *             with the correct id.</span></div>
+<div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span>  <a class="code" href="classCantera_1_1DebyeHuckel.html#a42dab55c3f7b95e3fc87507816541e87" title="Process the XML file after species are set up. ">initThermoXML</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phaseNode, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l01196"></a><span class="lineno"> 1196</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01197"></a><span class="lineno"> 1197</span>&#160;<span class="comment">    //! Return  the Debye Huckel constant as a function of temperature</span></div>
+<div class="line"><a name="l01198"></a><span class="lineno"> 1198</span>&#160;<span class="comment">    //! and pressure (Units = sqrt(kg/gmol))</span></div>
+<div class="line"><a name="l01199"></a><span class="lineno"> 1199</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01200"></a><span class="lineno"> 1200</span>&#160;<span class="comment">     *  The default is to assume that it is constant, given</span></div>
+<div class="line"><a name="l01201"></a><span class="lineno"> 1201</span>&#160;<span class="comment">     *  in the initialization process, and stored in the</span></div>
+<div class="line"><a name="l01202"></a><span class="lineno"> 1202</span>&#160;<span class="comment">     *  member double, m_A_Debye. Optionally, a full water treatment may be employed that makes</span></div>
+<div class="line"><a name="l01203"></a><span class="lineno"> 1203</span>&#160;<span class="comment">     *  \f$ A_{Debye} \f$ a full function of T and P.</span></div>
+<div class="line"><a name="l01204"></a><span class="lineno"> 1204</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01205"></a><span class="lineno"> 1205</span>&#160;<span class="comment">     *   \f[</span></div>
+<div class="line"><a name="l01206"></a><span class="lineno"> 1206</span>&#160;<span class="comment">     *      A_{Debye} = \frac{F e B_{Debye}}{8 \pi \epsilon R T} {\left( C_o \tilde{M}_o \right)}^{1/2}</span></div>
+<div class="line"><a name="l01207"></a><span class="lineno"> 1207</span>&#160;<span class="comment">     *   \f]</span></div>
+<div class="line"><a name="l01208"></a><span class="lineno"> 1208</span>&#160;<span class="comment">     *  where</span></div>
+<div class="line"><a name="l01209"></a><span class="lineno"> 1209</span>&#160;<span class="comment">     *  \f[</span></div>
+<div class="line"><a name="l01210"></a><span class="lineno"> 1210</span>&#160;<span class="comment">     *         B_{Debye} = \frac{F} {{(\frac{\epsilon R T}{2})}^{1/2}}</span></div>
+<div class="line"><a name="l01211"></a><span class="lineno"> 1211</span>&#160;<span class="comment">     *  \f]</span></div>
+<div class="line"><a name="l01212"></a><span class="lineno"> 1212</span>&#160;<span class="comment">     *  Therefore:</span></div>
+<div class="line"><a name="l01213"></a><span class="lineno"> 1213</span>&#160;<span class="comment">     *  \f[</span></div>
+<div class="line"><a name="l01214"></a><span class="lineno"> 1214</span>&#160;<span class="comment">     *   A_{Debye} = \frac{1}{8 \pi}</span></div>
+<div class="line"><a name="l01215"></a><span class="lineno"> 1215</span>&#160;<span class="comment">     *                 {\left(\frac{2 N_a \rho_o}{1000}\right)}^{1/2}</span></div>
+<div class="line"><a name="l01216"></a><span class="lineno"> 1216</span>&#160;<span class="comment">     *                 {\left(\frac{N_a e^2}{\epsilon R T }\right)}^{3/2}</span></div>
+<div class="line"><a name="l01217"></a><span class="lineno"> 1217</span>&#160;<span class="comment">     *  \f]</span></div>
+<div class="line"><a name="l01218"></a><span class="lineno"> 1218</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;<span class="comment">     *  where</span></div>
+<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;<span class="comment">     *  - Units = sqrt(kg/gmol)</span></div>
+<div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;<span class="comment">     *  - \f$ N_a \f$ is Avogadro&#39;s number</span></div>
+<div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;<span class="comment">     *  - \f$ \rho_w \f$ is the density of water</span></div>
+<div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;<span class="comment">     *  - \f$ e \f$ is the electronic charge</span></div>
+<div class="line"><a name="l01224"></a><span class="lineno"> 1224</span>&#160;<span class="comment">     *  - \f$ \epsilon = K \epsilon_o \f$ is the permittivity of water</span></div>
+<div class="line"><a name="l01225"></a><span class="lineno"> 1225</span>&#160;<span class="comment">     *  - \f$ K \f$ is the dielectric constant of water,</span></div>
+<div class="line"><a name="l01226"></a><span class="lineno"> 1226</span>&#160;<span class="comment">     *  - \f$ \epsilon_o \f$ is the permittivity of free space.</span></div>
+<div class="line"><a name="l01227"></a><span class="lineno"> 1227</span>&#160;<span class="comment">     *  - \f$ \rho_o \f$ is the density of the solvent in its standard state.</span></div>
+<div class="line"><a name="l01228"></a><span class="lineno"> 1228</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01229"></a><span class="lineno"> 1229</span>&#160;<span class="comment">     *  Nominal value at 298 K and 1 atm = 1.172576 (kg/gmol)&lt;SUP&gt;1/2&lt;/SUP&gt;</span></div>
+<div class="line"><a name="l01230"></a><span class="lineno"> 1230</span>&#160;<span class="comment">     *  based on:</span></div>
+<div class="line"><a name="l01231"></a><span class="lineno"> 1231</span>&#160;<span class="comment">     *    - \f$ \epsilon / \epsilon_0 \f$ = 78.54 (water at 25C)</span></div>
+<div class="line"><a name="l01232"></a><span class="lineno"> 1232</span>&#160;<span class="comment">     *    - T = 298.15 K</span></div>
+<div class="line"><a name="l01233"></a><span class="lineno"> 1233</span>&#160;<span class="comment">     *    - B_Debye = 3.28640E9 (kg/gmol)&lt;SUP&gt;1/2&lt;/SUP&gt; m&lt;SUP&gt;-1&lt;/SUP&gt;</span></div>
+<div class="line"><a name="l01234"></a><span class="lineno"> 1234</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01235"></a><span class="lineno"> 1235</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
+<div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
+<div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
+<div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
+<div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a0b8962bd2921770c9fb22e35d7ce32e4" title="Return the Debye Huckel constant as a function of temperature and pressure (Units = sqrt(kg/gmol)) ...">A_Debye_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
+<div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;                              <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;<span class="comment">    //! Value of the derivative of the Debye Huckel constant with</span></div>
+<div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;<span class="comment">    //! respect to temperature.</span></div>
+<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;<span class="comment">     * This is a function of temperature and pressure. See A_Debye_TP() for</span></div>
+<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;<span class="comment">     * a definition of \f$ A_{Debye} \f$.</span></div>
 <div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
-<div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
-<div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
-<div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
-<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a55c951136844d44902e792d8f40544ab" title="Value of the derivative of the Debye Huckel constant with respect to temperature. ...">dA_DebyedT_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
-<div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;                                 <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;<span class="comment">    //! Value of the 2nd derivative of the Debye Huckel constant with</span></div>
-<div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;<span class="comment">    //! respect to temperature as a function of temperature and pressure.</span></div>
-<div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01262"></a><span class="lineno"> 1262</span>&#160;<span class="comment">     * This is a function of temperature and pressure. See A_Debye_TP() for</span></div>
-<div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;<span class="comment">     * a definition of \f$ A_{Debye} \f$.</span></div>
-<div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;<span class="comment">     * Units = sqrt(kg/gmol) K-2</span></div>
+<div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;<span class="comment">     * Units = sqrt(kg/gmol) K-1</span></div>
+<div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01252"></a><span class="lineno"> 1252</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
+<div class="line"><a name="l01253"></a><span class="lineno"> 1253</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
+<div class="line"><a name="l01254"></a><span class="lineno"> 1254</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01255"></a><span class="lineno"> 1255</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
+<div class="line"><a name="l01256"></a><span class="lineno"> 1256</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
+<div class="line"><a name="l01257"></a><span class="lineno"> 1257</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01258"></a><span class="lineno"> 1258</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a55c951136844d44902e792d8f40544ab" title="Value of the derivative of the Debye Huckel constant with respect to temperature. ...">dA_DebyedT_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
+<div class="line"><a name="l01259"></a><span class="lineno"> 1259</span>&#160;                                 <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01260"></a><span class="lineno"> 1260</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01261"></a><span class="lineno"> 1261</span>&#160;<span class="comment">    //! Value of the 2nd derivative of the Debye Huckel constant with</span></div>
+<div class="line"><a name="l01262"></a><span class="lineno"> 1262</span>&#160;<span class="comment">    //! respect to temperature as a function of temperature and pressure.</span></div>
+<div class="line"><a name="l01263"></a><span class="lineno"> 1263</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01264"></a><span class="lineno"> 1264</span>&#160;<span class="comment">     * This is a function of temperature and pressure. See A_Debye_TP() for</span></div>
+<div class="line"><a name="l01265"></a><span class="lineno"> 1265</span>&#160;<span class="comment">     * a definition of \f$ A_{Debye} \f$.</span></div>
 <div class="line"><a name="l01266"></a><span class="lineno"> 1266</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
-<div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
-<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
-<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
-<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a4e270a1518e1d3a878f0809593cc2827" title="Value of the 2nd derivative of the Debye Huckel constant with respect to temperature as a function of...">d2A_DebyedT2_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
-<div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;                                   <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;<span class="comment">    //! Value of the derivative of the Debye Huckel constant with</span></div>
-<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;<span class="comment">    //! respect to pressure, as a function of temperature and pressure.</span></div>
-<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;<span class="comment">     * This is a function of temperature and pressure. See A_Debye_TP() for</span></div>
-<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;<span class="comment">     * a definition of \f$ A_{Debye} \f$.</span></div>
-<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;<span class="comment">     * Units = sqrt(kg/gmol) Pa-1</span></div>
+<div class="line"><a name="l01267"></a><span class="lineno"> 1267</span>&#160;<span class="comment">     * Units = sqrt(kg/gmol) K-2</span></div>
+<div class="line"><a name="l01268"></a><span class="lineno"> 1268</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01269"></a><span class="lineno"> 1269</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
+<div class="line"><a name="l01270"></a><span class="lineno"> 1270</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
+<div class="line"><a name="l01271"></a><span class="lineno"> 1271</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01272"></a><span class="lineno"> 1272</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
+<div class="line"><a name="l01273"></a><span class="lineno"> 1273</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
+<div class="line"><a name="l01274"></a><span class="lineno"> 1274</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01275"></a><span class="lineno"> 1275</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a4e270a1518e1d3a878f0809593cc2827" title="Value of the 2nd derivative of the Debye Huckel constant with respect to temperature as a function of...">d2A_DebyedT2_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
+<div class="line"><a name="l01276"></a><span class="lineno"> 1276</span>&#160;                                   <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01277"></a><span class="lineno"> 1277</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01278"></a><span class="lineno"> 1278</span>&#160;<span class="comment">    //! Value of the derivative of the Debye Huckel constant with</span></div>
+<div class="line"><a name="l01279"></a><span class="lineno"> 1279</span>&#160;<span class="comment">    //! respect to pressure, as a function of temperature and pressure.</span></div>
+<div class="line"><a name="l01280"></a><span class="lineno"> 1280</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01281"></a><span class="lineno"> 1281</span>&#160;<span class="comment">     * This is a function of temperature and pressure. See A_Debye_TP() for</span></div>
+<div class="line"><a name="l01282"></a><span class="lineno"> 1282</span>&#160;<span class="comment">     * a definition of \f$ A_{Debye} \f$.</span></div>
 <div class="line"><a name="l01283"></a><span class="lineno"> 1283</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
-<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
-<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
-<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
-<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a095fcb91af1f2ea5f72f507fab9744e7" title="Value of the derivative of the Debye Huckel constant with respect to pressure, as a function of tempe...">dA_DebyedP_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
-<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;                                 <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;<span class="comment">    //!Reports the ionic radius of the kth species</span></div>
-<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;<span class="comment">     * @param k  species index.</span></div>
-<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a3054cc7ed572d2543f45c3d852ae94ee" title="Reports the ionic radius of the kth species. ">AionicRadius</a>(<span class="keywordtype">int</span> k = 0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;<span class="comment">    //! Returns the form of the Debye-Huckel parameterization used</span></div>
-<div class="line"><a name="l01300"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a710eb6e57c06b1b6c97964e8eb2da31d"> 1300</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a710eb6e57c06b1b6c97964e8eb2da31d" title="Returns the form of the Debye-Huckel parameterization used. ">formDH</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a0f530fe831a4fea5c937c929ac83bf81" title="form of the Debye-Huckel parameterization used in the model. ">m_formDH</a>;</div>
-<div class="line"><a name="l01302"></a><span class="lineno"> 1302</span>&#160;    }</div>
-<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;<span class="comment">    //! Returns a reference to M_Beta_ij</span></div>
-<div class="line"><a name="l01305"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a3dd176a1c318709b3b2df4c6b9042126"> 1305</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a>&amp; <a class="code" href="classCantera_1_1DebyeHuckel.html#a3dd176a1c318709b3b2df4c6b9042126" title="Returns a reference to M_Beta_ij. ">get_Beta_ij</a>() {</div>
-<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a09167922e019a1683e49cdee3ef65169" title="Array of 2D data used in the DHFORM_BETAIJ formulation Beta_ij.value(i,j) is the coefficient of the j...">m_Beta_ij</a>;</div>
-<div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;    }</div>
-<div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;</div>
-<div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;<span class="comment">    //!  Static function that implements the non-polar species</span></div>
-<div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;<span class="comment">    //!   salt-out modifications.</span></div>
-<div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;<span class="comment">     *   Returns the calculated activity coefficients.</span></div>
-<div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;<span class="comment">     * @param IionicMolality Value of the ionic molality (sqrt(gmol/kg))</span></div>
-<div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a09abc786a3650bf4b04eb59a0de8deff" title="Static function that implements the non-polar species salt-out modifications. ">_nonpolarActCoeff</a>(<span class="keywordtype">double</span> IionicMolality) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01319"></a><span class="lineno"> 1319</span>&#160;<span class="comment">    //!      Formula for the osmotic coefficient that occurs in the GWB.</span></div>
-<div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;<span class="comment">     * It is originally from Helgeson for a variable</span></div>
-<div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;<span class="comment">     *      NaCl brine. It&#39;s to be used with extreme caution.</span></div>
-<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ae0fbc3fe9bc4b335f790417b60aefdc3" title="Formula for the osmotic coefficient that occurs in the GWB. ">_osmoticCoeffHelgesonFixedForm</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;<span class="comment">    //!      Formula for the log of the water activity that occurs in the GWB.</span></div>
-<div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;<span class="comment">     * It is originally from Helgeson for a variable</span></div>
-<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;<span class="comment">     *      NaCl brine. It&#39;s to be used with extreme caution.</span></div>
-<div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a1ffb014792a8807eedca60ba480b432a" title="Formula for the log of the water activity that occurs in the GWB. ">_lnactivityWaterHelgesonFixedForm</a>() <span class="keyword">const</span>;<span class="comment"></span></div>
-<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;<span class="comment">    //@}</span></div>
-<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;</div>
-<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;<span class="comment">    //! form of the Debye-Huckel parameterization  used in the model.</span></div>
-<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;<span class="comment">     * The options are described at the top of this document,</span></div>
-<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;<span class="comment">     * and in the general documentation.</span></div>
-<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;<span class="comment">     * The list is repeated here:</span></div>
-<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;<span class="comment">     * DHFORM_DILUTE_LIMIT  = 0       (default)</span></div>
-<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;<span class="comment">     * DHFORM_BDOT_AK       = 1</span></div>
-<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;<span class="comment">     * DHFORM_BDOT_AUNIFORM = 2</span></div>
-<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;<span class="comment">     * DHFORM_BETAIJ        = 3</span></div>
-<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;<span class="comment">     * DHFORM_PITZER_BETAIJ = 4</span></div>
-<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01349"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a0f530fe831a4fea5c937c929ac83bf81"> 1349</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a0f530fe831a4fea5c937c929ac83bf81" title="form of the Debye-Huckel parameterization used in the model. ">m_formDH</a>;</div>
-<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01351"></a><span class="lineno"> 1351</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;<span class="comment">     * Format for the generalized concentration:</span></div>
-<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;<span class="comment">     *  0 = unity</span></div>
-<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;<span class="comment">     *  1 = molar_volume</span></div>
-<div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;<span class="comment">     *  2 = solvent_volume    (default)</span></div>
-<div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;<span class="comment">     * The generalized concentrations can have three different forms</span></div>
-<div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;<span class="comment">     * depending on the value of the member attribute m_formGC, which</span></div>
-<div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;<span class="comment">     * is supplied in the constructor.</span></div>
-<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;<span class="comment">     *                          &lt;TABLE&gt;</span></div>
-<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; m_formGC &lt;/TD&gt;&lt;TD&gt; GeneralizedConc &lt;/TD&gt;&lt;TD&gt; StandardConc &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 0        &lt;/TD&gt;&lt;TD&gt; X_k             &lt;/TD&gt;&lt;TD&gt; 1.0          &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 1        &lt;/TD&gt;&lt;TD&gt; X_k / V_k       &lt;/TD&gt;&lt;TD&gt; 1.0 / V_k    &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 2        &lt;/TD&gt;&lt;TD&gt; X_k / V_N       &lt;/TD&gt;&lt;TD&gt; 1.0 / V_N    &lt;/TD&gt;&lt;/TR&gt;</span></div>
-<div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;<span class="comment">     *                         &lt;/TABLE&gt;</span></div>
-<div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;<span class="comment">     * The value and form of the generalized concentration will affect</span></div>
-<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;<span class="comment">     * reaction rate constants involving species in this phase.</span></div>
-<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;<span class="comment">     * (HKM Note: Using option #1 may lead to spurious results and</span></div>
-<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;<span class="comment">     *  has been included only with warnings. The reason is that it</span></div>
-<div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;<span class="comment">     *  molar volumes of electrolytes may often be negative. The</span></div>
-<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;<span class="comment">     *  molar volume of H+ is defined to be zero too. Either options</span></div>
-<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;<span class="comment">     *  0 or 2 are the appropriate choice. Option 0 leads to</span></div>
-<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;<span class="comment">     *  bulk reaction rate constants which have units of s-1.</span></div>
-<div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;<span class="comment">     *  Option 2 leads to bulk reaction rate constants for</span></div>
-<div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;<span class="comment">     *  bimolecular rxns which have units of m-3 kmol-1 s-1.)</span></div>
-<div class="line"><a name="l01379"></a><span class="lineno"> 1379</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01380"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be"> 1380</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be" title="Format for the generalized concentration: ">m_formGC</a>;</div>
-<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;<span class="comment">    //! Vector containing the electrolyte species type</span></div>
-<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;<span class="comment">     * The possible types are:</span></div>
-<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;<span class="comment">     *  - solvent</span></div>
-<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;<span class="comment">     *  - Charged Species</span></div>
-<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;<span class="comment">     *  - weakAcidAssociated</span></div>
-<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;<span class="comment">     *  - strongAcidAssociated</span></div>
-<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;<span class="comment">     *  - polarNeutral</span></div>
-<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;<span class="comment">     *  - nonpolarNeutral</span></div>
-<div class="line"><a name="l01391"></a><span class="lineno"> 1391</span>&#160;<span class="comment">     *  .</span></div>
-<div class="line"><a name="l01392"></a><span class="lineno"> 1392</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01393"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a83de6e964ef5fe08a9ce19f7a974a694"> 1393</a></span>&#160;    <a class="code" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76" title="Vector of ints. ">vector_int</a>  <a class="code" href="classCantera_1_1DebyeHuckel.html#a83de6e964ef5fe08a9ce19f7a974a694" title="Vector containing the electrolyte species type. ">m_electrolyteSpeciesType</a>;</div>
-<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;<span class="comment">     *  a_k = Size of the ionic species in the DH formulation</span></div>
-<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;<span class="comment">     *        units = meters</span></div>
-<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01399"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ab730ff7c2a88c7b89df4e24f77aa9d9a"> 1399</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#ab730ff7c2a88c7b89df4e24f77aa9d9a" title="a_k = Size of the ionic species in the DH formulation units = meters ">m_Aionic</a>;</div>
-<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;<span class="comment">    //! Current value of the ionic strength on the molality scale</span></div>
-<div class="line"><a name="l01402"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a20a30b0b2b8ace17725760555a455c0a"> 1402</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a20a30b0b2b8ace17725760555a455c0a" title="Current value of the ionic strength on the molality scale. ">m_IionicMolality</a>;</div>
-<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;<span class="comment">     * Maximum value of the ionic strength allowed in the</span></div>
-<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="comment">     * calculation of the activity coefficients.</span></div>
-<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01408"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aac66ccbb8197621d53beb2e739f58479"> 1408</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#aac66ccbb8197621d53beb2e739f58479" title="Maximum value of the ionic strength allowed in the calculation of the activity coefficients. ">m_maxIionicStrength</a>;</div>
-<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;</div>
-<div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;<span class="comment">     * If true, then the fixed for of Helgeson&#39;s activity</span></div>
-<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;<span class="comment">     * for water is used instead of the rigorous form</span></div>
-<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;<span class="comment">     * obtained from Gibbs-Duhem relation. This should be</span></div>
-<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;<span class="comment">     * used with caution, and is really only included as a</span></div>
-<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;<span class="comment">     * validation exercise.</span></div>
-<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01419"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a34b8f9c24cad9eed5247ad05c40505ee"> 1419</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a34b8f9c24cad9eed5247ad05c40505ee" title="If true, then the fixed for of Helgeson&#39;s activity for water is used instead of the rigorous form obt...">m_useHelgesonFixedForm</a>;</div>
-<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;<span class="comment">    //! Stoichiometric ionic strength on the molality scale</span></div>
-<div class="line"><a name="l01423"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ae0fc80b185f5c4a0a36ec8ec91d30323"> 1423</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ae0fc80b185f5c4a0a36ec8ec91d30323" title="Stoichiometric ionic strength on the molality scale. ">m_IionicMolalityStoich</a>;</div>
-<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;</div>
-<div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;<span class="comment">     * Form of the constant outside the Debye-Huckel term</span></div>
-<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;<span class="comment">     * called A. It&#39;s normally a function of temperature</span></div>
-<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;<span class="comment">     * and pressure. However, it can be set from the</span></div>
-<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;<span class="comment">     * input file in order to aid in numerical comparisons.</span></div>
-<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;<span class="comment">     * Acceptable forms:</span></div>
-<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;<span class="comment">     *       A_DEBYE_CONST  0</span></div>
-<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;<span class="comment">     *       A_DEBYE_WATER  1</span></div>
-<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;<span class="comment">     * The A_DEBYE_WATER form may be used for water solvents</span></div>
-<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;<span class="comment">     * with needs to cover varying temperatures and pressures.</span></div>
-<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;<span class="comment">     * Note, the dielectric constant of water is a relatively</span></div>
-<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;<span class="comment">     * strong function of T, and its variability must be</span></div>
-<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;<span class="comment">     * accounted for,</span></div>
-<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01443"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a3224c65548a2445ad0972f09ec459ebe"> 1443</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a3224c65548a2445ad0972f09ec459ebe" title="Form of the constant outside the Debye-Huckel term called A. ">m_form_A_Debye</a>;</div>
-<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;</div>
-<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;<span class="comment">    //! Current value of the Debye Constant, A_Debye</span></div>
-<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
-<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;<span class="comment">     * A_Debye -&gt; this expression appears on the top of the</span></div>
-<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;<span class="comment">     *            ln actCoeff term in the general Debye-Huckel</span></div>
-<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;<span class="comment">     *            expression</span></div>
-<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;<span class="comment">     *            It depends on temperature and pressure.</span></div>
-<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;<span class="comment">     *            A_Debye = (F e B_Debye) / (8 Pi epsilon R T)</span></div>
+<div class="line"><a name="l01284"></a><span class="lineno"> 1284</span>&#160;<span class="comment">     * Units = sqrt(kg/gmol) Pa-1</span></div>
+<div class="line"><a name="l01285"></a><span class="lineno"> 1285</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01286"></a><span class="lineno"> 1286</span>&#160;<span class="comment">     * @param temperature Temperature in kelvin. Defaults to -1, in which</span></div>
+<div class="line"><a name="l01287"></a><span class="lineno"> 1287</span>&#160;<span class="comment">     *                    case the   temperature of the phase is assumed.</span></div>
+<div class="line"><a name="l01288"></a><span class="lineno"> 1288</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01289"></a><span class="lineno"> 1289</span>&#160;<span class="comment">     * @param pressure Pressure (Pa). Defaults to -1, in which</span></div>
+<div class="line"><a name="l01290"></a><span class="lineno"> 1290</span>&#160;<span class="comment">     *                    case the pressure of the phase is assumed.</span></div>
+<div class="line"><a name="l01291"></a><span class="lineno"> 1291</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01292"></a><span class="lineno"> 1292</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a095fcb91af1f2ea5f72f507fab9744e7" title="Value of the derivative of the Debye Huckel constant with respect to pressure, as a function of tempe...">dA_DebyedP_TP</a>(<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291" title="Temperature (K). ">temperature</a> = -1.0,</div>
+<div class="line"><a name="l01293"></a><span class="lineno"> 1293</span>&#160;                                 <span class="keywordtype">double</span> pressure = -1.0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01294"></a><span class="lineno"> 1294</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01295"></a><span class="lineno"> 1295</span>&#160;<span class="comment">    //!Reports the ionic radius of the kth species</span></div>
+<div class="line"><a name="l01296"></a><span class="lineno"> 1296</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01297"></a><span class="lineno"> 1297</span>&#160;<span class="comment">     * @param k  species index.</span></div>
+<div class="line"><a name="l01298"></a><span class="lineno"> 1298</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01299"></a><span class="lineno"> 1299</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a3054cc7ed572d2543f45c3d852ae94ee" title="Reports the ionic radius of the kth species. ">AionicRadius</a>(<span class="keywordtype">int</span> k = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01300"></a><span class="lineno"> 1300</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01301"></a><span class="lineno"> 1301</span>&#160;<span class="comment">    //! Returns the form of the Debye-Huckel parameterization used</span></div>
+<div class="line"><a name="l01302"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a710eb6e57c06b1b6c97964e8eb2da31d"> 1302</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a710eb6e57c06b1b6c97964e8eb2da31d" title="Returns the form of the Debye-Huckel parameterization used. ">formDH</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l01303"></a><span class="lineno"> 1303</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a0f530fe831a4fea5c937c929ac83bf81" title="form of the Debye-Huckel parameterization used in the model. ">m_formDH</a>;</div>
+<div class="line"><a name="l01304"></a><span class="lineno"> 1304</span>&#160;    }</div>
+<div class="line"><a name="l01305"></a><span class="lineno"> 1305</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01306"></a><span class="lineno"> 1306</span>&#160;<span class="comment">    //! Returns a reference to M_Beta_ij</span></div>
+<div class="line"><a name="l01307"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a3dd176a1c318709b3b2df4c6b9042126"> 1307</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a>&amp; <a class="code" href="classCantera_1_1DebyeHuckel.html#a3dd176a1c318709b3b2df4c6b9042126" title="Returns a reference to M_Beta_ij. ">get_Beta_ij</a>() {</div>
+<div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a09167922e019a1683e49cdee3ef65169" title="Array of 2D data used in the DHFORM_BETAIJ formulation Beta_ij.value(i,j) is the coefficient of the j...">m_Beta_ij</a>;</div>
+<div class="line"><a name="l01309"></a><span class="lineno"> 1309</span>&#160;    }</div>
+<div class="line"><a name="l01310"></a><span class="lineno"> 1310</span>&#160;</div>
+<div class="line"><a name="l01311"></a><span class="lineno"> 1311</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l01312"></a><span class="lineno"> 1312</span>&#160;<span class="comment">    //!  Static function that implements the non-polar species</span></div>
+<div class="line"><a name="l01313"></a><span class="lineno"> 1313</span>&#160;<span class="comment">    //!   salt-out modifications.</span></div>
+<div class="line"><a name="l01314"></a><span class="lineno"> 1314</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01315"></a><span class="lineno"> 1315</span>&#160;<span class="comment">     *   Returns the calculated activity coefficients.</span></div>
+<div class="line"><a name="l01316"></a><span class="lineno"> 1316</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01317"></a><span class="lineno"> 1317</span>&#160;<span class="comment">     * @param IionicMolality Value of the ionic molality (sqrt(gmol/kg))</span></div>
+<div class="line"><a name="l01318"></a><span class="lineno"> 1318</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01319"></a><span class="lineno"> 1319</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a09abc786a3650bf4b04eb59a0de8deff" title="Static function that implements the non-polar species salt-out modifications. ">_nonpolarActCoeff</a>(<span class="keywordtype">double</span> IionicMolality) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01320"></a><span class="lineno"> 1320</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01321"></a><span class="lineno"> 1321</span>&#160;<span class="comment">    //!      Formula for the osmotic coefficient that occurs in the GWB.</span></div>
+<div class="line"><a name="l01322"></a><span class="lineno"> 1322</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01323"></a><span class="lineno"> 1323</span>&#160;<span class="comment">     * It is originally from Helgeson for a variable</span></div>
+<div class="line"><a name="l01324"></a><span class="lineno"> 1324</span>&#160;<span class="comment">     *      NaCl brine. It&#39;s to be used with extreme caution.</span></div>
+<div class="line"><a name="l01325"></a><span class="lineno"> 1325</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01326"></a><span class="lineno"> 1326</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ae0fbc3fe9bc4b335f790417b60aefdc3" title="Formula for the osmotic coefficient that occurs in the GWB. ">_osmoticCoeffHelgesonFixedForm</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01327"></a><span class="lineno"> 1327</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01328"></a><span class="lineno"> 1328</span>&#160;<span class="comment">    //!      Formula for the log of the water activity that occurs in the GWB.</span></div>
+<div class="line"><a name="l01329"></a><span class="lineno"> 1329</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01330"></a><span class="lineno"> 1330</span>&#160;<span class="comment">     * It is originally from Helgeson for a variable</span></div>
+<div class="line"><a name="l01331"></a><span class="lineno"> 1331</span>&#160;<span class="comment">     *      NaCl brine. It&#39;s to be used with extreme caution.</span></div>
+<div class="line"><a name="l01332"></a><span class="lineno"> 1332</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01333"></a><span class="lineno"> 1333</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a1ffb014792a8807eedca60ba480b432a" title="Formula for the log of the water activity that occurs in the GWB. ">_lnactivityWaterHelgesonFixedForm</a>() <span class="keyword">const</span>;<span class="comment"></span></div>
+<div class="line"><a name="l01334"></a><span class="lineno"> 1334</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l01335"></a><span class="lineno"> 1335</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01336"></a><span class="lineno"> 1336</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l01337"></a><span class="lineno"> 1337</span>&#160;</div>
+<div class="line"><a name="l01338"></a><span class="lineno"> 1338</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01339"></a><span class="lineno"> 1339</span>&#160;<span class="comment">    //! form of the Debye-Huckel parameterization  used in the model.</span></div>
+<div class="line"><a name="l01340"></a><span class="lineno"> 1340</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01341"></a><span class="lineno"> 1341</span>&#160;<span class="comment">     * The options are described at the top of this document,</span></div>
+<div class="line"><a name="l01342"></a><span class="lineno"> 1342</span>&#160;<span class="comment">     * and in the general documentation.</span></div>
+<div class="line"><a name="l01343"></a><span class="lineno"> 1343</span>&#160;<span class="comment">     * The list is repeated here:</span></div>
+<div class="line"><a name="l01344"></a><span class="lineno"> 1344</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01345"></a><span class="lineno"> 1345</span>&#160;<span class="comment">     * DHFORM_DILUTE_LIMIT  = 0       (default)</span></div>
+<div class="line"><a name="l01346"></a><span class="lineno"> 1346</span>&#160;<span class="comment">     * DHFORM_BDOT_AK       = 1</span></div>
+<div class="line"><a name="l01347"></a><span class="lineno"> 1347</span>&#160;<span class="comment">     * DHFORM_BDOT_AUNIFORM = 2</span></div>
+<div class="line"><a name="l01348"></a><span class="lineno"> 1348</span>&#160;<span class="comment">     * DHFORM_BETAIJ        = 3</span></div>
+<div class="line"><a name="l01349"></a><span class="lineno"> 1349</span>&#160;<span class="comment">     * DHFORM_PITZER_BETAIJ = 4</span></div>
+<div class="line"><a name="l01350"></a><span class="lineno"> 1350</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01351"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a0f530fe831a4fea5c937c929ac83bf81"> 1351</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a0f530fe831a4fea5c937c929ac83bf81" title="form of the Debye-Huckel parameterization used in the model. ">m_formDH</a>;</div>
+<div class="line"><a name="l01352"></a><span class="lineno"> 1352</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01353"></a><span class="lineno"> 1353</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01354"></a><span class="lineno"> 1354</span>&#160;<span class="comment">     * Format for the generalized concentration:</span></div>
+<div class="line"><a name="l01355"></a><span class="lineno"> 1355</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01356"></a><span class="lineno"> 1356</span>&#160;<span class="comment">     *  0 = unity</span></div>
+<div class="line"><a name="l01357"></a><span class="lineno"> 1357</span>&#160;<span class="comment">     *  1 = molar_volume</span></div>
+<div class="line"><a name="l01358"></a><span class="lineno"> 1358</span>&#160;<span class="comment">     *  2 = solvent_volume    (default)</span></div>
+<div class="line"><a name="l01359"></a><span class="lineno"> 1359</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01360"></a><span class="lineno"> 1360</span>&#160;<span class="comment">     * The generalized concentrations can have three different forms</span></div>
+<div class="line"><a name="l01361"></a><span class="lineno"> 1361</span>&#160;<span class="comment">     * depending on the value of the member attribute m_formGC, which</span></div>
+<div class="line"><a name="l01362"></a><span class="lineno"> 1362</span>&#160;<span class="comment">     * is supplied in the constructor.</span></div>
+<div class="line"><a name="l01363"></a><span class="lineno"> 1363</span>&#160;<span class="comment">     *                          &lt;TABLE&gt;</span></div>
+<div class="line"><a name="l01364"></a><span class="lineno"> 1364</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; m_formGC &lt;/TD&gt;&lt;TD&gt; GeneralizedConc &lt;/TD&gt;&lt;TD&gt; StandardConc &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l01365"></a><span class="lineno"> 1365</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 0        &lt;/TD&gt;&lt;TD&gt; X_k             &lt;/TD&gt;&lt;TD&gt; 1.0          &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l01366"></a><span class="lineno"> 1366</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 1        &lt;/TD&gt;&lt;TD&gt; X_k / V_k       &lt;/TD&gt;&lt;TD&gt; 1.0 / V_k    &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l01367"></a><span class="lineno"> 1367</span>&#160;<span class="comment">     *  &lt;TR&gt;&lt;TD&gt; 2        &lt;/TD&gt;&lt;TD&gt; X_k / V_N       &lt;/TD&gt;&lt;TD&gt; 1.0 / V_N    &lt;/TD&gt;&lt;/TR&gt;</span></div>
+<div class="line"><a name="l01368"></a><span class="lineno"> 1368</span>&#160;<span class="comment">     *                         &lt;/TABLE&gt;</span></div>
+<div class="line"><a name="l01369"></a><span class="lineno"> 1369</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01370"></a><span class="lineno"> 1370</span>&#160;<span class="comment">     * The value and form of the generalized concentration will affect</span></div>
+<div class="line"><a name="l01371"></a><span class="lineno"> 1371</span>&#160;<span class="comment">     * reaction rate constants involving species in this phase.</span></div>
+<div class="line"><a name="l01372"></a><span class="lineno"> 1372</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01373"></a><span class="lineno"> 1373</span>&#160;<span class="comment">     * (HKM Note: Using option #1 may lead to spurious results and</span></div>
+<div class="line"><a name="l01374"></a><span class="lineno"> 1374</span>&#160;<span class="comment">     *  has been included only with warnings. The reason is that it</span></div>
+<div class="line"><a name="l01375"></a><span class="lineno"> 1375</span>&#160;<span class="comment">     *  molar volumes of electrolytes may often be negative. The</span></div>
+<div class="line"><a name="l01376"></a><span class="lineno"> 1376</span>&#160;<span class="comment">     *  molar volume of H+ is defined to be zero too. Either options</span></div>
+<div class="line"><a name="l01377"></a><span class="lineno"> 1377</span>&#160;<span class="comment">     *  0 or 2 are the appropriate choice. Option 0 leads to</span></div>
+<div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160;<span class="comment">     *  bulk reaction rate constants which have units of s-1.</span></div>
+<div class="line"><a name="l01379"></a><span class="lineno"> 1379</span>&#160;<span class="comment">     *  Option 2 leads to bulk reaction rate constants for</span></div>
+<div class="line"><a name="l01380"></a><span class="lineno"> 1380</span>&#160;<span class="comment">     *  bimolecular rxns which have units of m-3 kmol-1 s-1.)</span></div>
+<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01382"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be"> 1382</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#aa5ee526b8a0ae3ca0d87cb36baf7a8be" title="Format for the generalized concentration: ">m_formGC</a>;</div>
+<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;<span class="comment">    //! Vector containing the electrolyte species type</span></div>
+<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;<span class="comment">     * The possible types are:</span></div>
+<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;<span class="comment">     *  - solvent</span></div>
+<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;<span class="comment">     *  - Charged Species</span></div>
+<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;<span class="comment">     *  - weakAcidAssociated</span></div>
+<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;<span class="comment">     *  - strongAcidAssociated</span></div>
+<div class="line"><a name="l01391"></a><span class="lineno"> 1391</span>&#160;<span class="comment">     *  - polarNeutral</span></div>
+<div class="line"><a name="l01392"></a><span class="lineno"> 1392</span>&#160;<span class="comment">     *  - nonpolarNeutral</span></div>
+<div class="line"><a name="l01393"></a><span class="lineno"> 1393</span>&#160;<span class="comment">     *  .</span></div>
+<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01395"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a83de6e964ef5fe08a9ce19f7a974a694"> 1395</a></span>&#160;    <a class="code" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76" title="Vector of ints. ">vector_int</a>  <a class="code" href="classCantera_1_1DebyeHuckel.html#a83de6e964ef5fe08a9ce19f7a974a694" title="Vector containing the electrolyte species type. ">m_electrolyteSpeciesType</a>;</div>
+<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01398"></a><span class="lineno"> 1398</span>&#160;<span class="comment">     *  a_k = Size of the ionic species in the DH formulation</span></div>
+<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;<span class="comment">     *        units = meters</span></div>
+<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01401"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ab730ff7c2a88c7b89df4e24f77aa9d9a"> 1401</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#ab730ff7c2a88c7b89df4e24f77aa9d9a" title="a_k = Size of the ionic species in the DH formulation units = meters ">m_Aionic</a>;</div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160;<span class="comment">    //! Current value of the ionic strength on the molality scale</span></div>
+<div class="line"><a name="l01404"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a20a30b0b2b8ace17725760555a455c0a"> 1404</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a20a30b0b2b8ace17725760555a455c0a" title="Current value of the ionic strength on the molality scale. ">m_IionicMolality</a>;</div>
+<div class="line"><a name="l01405"></a><span class="lineno"> 1405</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;<span class="comment">     * Maximum value of the ionic strength allowed in the</span></div>
+<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160;<span class="comment">     * calculation of the activity coefficients.</span></div>
+<div class="line"><a name="l01409"></a><span class="lineno"> 1409</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01410"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aac66ccbb8197621d53beb2e739f58479"> 1410</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#aac66ccbb8197621d53beb2e739f58479" title="Maximum value of the ionic strength allowed in the calculation of the activity coefficients. ">m_maxIionicStrength</a>;</div>
+<div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;</div>
+<div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;<span class="comment">     * If true, then the fixed for of Helgeson&#39;s activity</span></div>
+<div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;<span class="comment">     * for water is used instead of the rigorous form</span></div>
+<div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;<span class="comment">     * obtained from Gibbs-Duhem relation. This should be</span></div>
+<div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;<span class="comment">     * used with caution, and is really only included as a</span></div>
+<div class="line"><a name="l01419"></a><span class="lineno"> 1419</span>&#160;<span class="comment">     * validation exercise.</span></div>
+<div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01421"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a34b8f9c24cad9eed5247ad05c40505ee"> 1421</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a34b8f9c24cad9eed5247ad05c40505ee" title="If true, then the fixed for of Helgeson&#39;s activity for water is used instead of the rigorous form obt...">m_useHelgesonFixedForm</a>;</div>
+<div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;<span class="comment">    //! Stoichiometric ionic strength on the molality scale</span></div>
+<div class="line"><a name="l01425"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ae0fc80b185f5c4a0a36ec8ec91d30323"> 1425</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ae0fc80b185f5c4a0a36ec8ec91d30323" title="Stoichiometric ionic strength on the molality scale. ">m_IionicMolalityStoich</a>;</div>
+<div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;</div>
+<div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01429"></a><span class="lineno"> 1429</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01430"></a><span class="lineno"> 1430</span>&#160;<span class="comment">     * Form of the constant outside the Debye-Huckel term</span></div>
+<div class="line"><a name="l01431"></a><span class="lineno"> 1431</span>&#160;<span class="comment">     * called A. It&#39;s normally a function of temperature</span></div>
+<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;<span class="comment">     * and pressure. However, it can be set from the</span></div>
+<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;<span class="comment">     * input file in order to aid in numerical comparisons.</span></div>
+<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;<span class="comment">     * Acceptable forms:</span></div>
+<div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;<span class="comment">     *       A_DEBYE_CONST  0</span></div>
+<div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;<span class="comment">     *       A_DEBYE_WATER  1</span></div>
+<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;<span class="comment">     * The A_DEBYE_WATER form may be used for water solvents</span></div>
+<div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;<span class="comment">     * with needs to cover varying temperatures and pressures.</span></div>
+<div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;<span class="comment">     * Note, the dielectric constant of water is a relatively</span></div>
+<div class="line"><a name="l01442"></a><span class="lineno"> 1442</span>&#160;<span class="comment">     * strong function of T, and its variability must be</span></div>
+<div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;<span class="comment">     * accounted for,</span></div>
+<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01445"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a3224c65548a2445ad0972f09ec459ebe"> 1445</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a3224c65548a2445ad0972f09ec459ebe" title="Form of the constant outside the Debye-Huckel term called A. ">m_form_A_Debye</a>;</div>
+<div class="line"><a name="l01446"></a><span class="lineno"> 1446</span>&#160;</div>
+<div class="line"><a name="l01447"></a><span class="lineno"> 1447</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l01448"></a><span class="lineno"> 1448</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01449"></a><span class="lineno"> 1449</span>&#160;<span class="comment">    //! Current value of the Debye Constant, A_Debye</span></div>
+<div class="line"><a name="l01450"></a><span class="lineno"> 1450</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
+<div class="line"><a name="l01451"></a><span class="lineno"> 1451</span>&#160;<span class="comment">     * A_Debye -&gt; this expression appears on the top of the</span></div>
+<div class="line"><a name="l01452"></a><span class="lineno"> 1452</span>&#160;<span class="comment">     *            ln actCoeff term in the general Debye-Huckel</span></div>
+<div class="line"><a name="l01453"></a><span class="lineno"> 1453</span>&#160;<span class="comment">     *            expression</span></div>
+<div class="line"><a name="l01454"></a><span class="lineno"> 1454</span>&#160;<span class="comment">     *            It depends on temperature and pressure.</span></div>
 <div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;<span class="comment">     *            Units = sqrt(kg/gmol)</span></div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;<span class="comment">     *            A_Debye = (F e B_Debye) / (8 Pi epsilon R T)</span></div>
 <div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;<span class="comment">     *            Nominal value(298K, atm) = 1.172576 sqrt(kg/gmol)</span></div>
-<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;<span class="comment">     *                  based on:</span></div>
-<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160;<span class="comment">     *                    epsilon/epsilon_0 = 78.54</span></div>
-<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;<span class="comment">     *                           (water at 25C)</span></div>
-<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;<span class="comment">     *                    T = 298.15 K</span></div>
-<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;<span class="comment">     *                    B_Debye = 3.28640E9 sqrt(kg/gmol)/m</span></div>
-<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;<span class="comment">     *            note in Pitzer&#39;s nomenclature, A_phi = A_Debye/3.0</span></div>
-<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01467"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a141c33b8b9d1e38b01ce2f7f6bfeb3e3"> 1467</a></span>&#160;    <span class="keyword">mutable</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a141c33b8b9d1e38b01ce2f7f6bfeb3e3" title="Current value of the Debye Constant, A_Debye. ">m_A_Debye</a>;</div>
-<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01469"></a><span class="lineno"> 1469</span>&#160;<span class="comment">    //! Current value of the constant that appears in the denominator</span></div>
-<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
-<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;<span class="comment">     * B_Debye -&gt; this expression appears on the bottom of the</span></div>
-<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;<span class="comment">     *            ln actCoeff term in the general Debye-Huckel</span></div>
-<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;<span class="comment">     *            expression</span></div>
-<div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;<span class="comment">     *            It depends on temperature</span></div>
-<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;<span class="comment">     *            B_Bebye = F / sqrt( epsilon R T / 2 )</span></div>
+<div class="line"><a name="l01458"></a><span class="lineno"> 1458</span>&#160;<span class="comment">     *            Units = sqrt(kg/gmol)</span></div>
+<div class="line"><a name="l01459"></a><span class="lineno"> 1459</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01460"></a><span class="lineno"> 1460</span>&#160;<span class="comment">     *            Nominal value(298K, atm) = 1.172576 sqrt(kg/gmol)</span></div>
+<div class="line"><a name="l01461"></a><span class="lineno"> 1461</span>&#160;<span class="comment">     *                  based on:</span></div>
+<div class="line"><a name="l01462"></a><span class="lineno"> 1462</span>&#160;<span class="comment">     *                    epsilon/epsilon_0 = 78.54</span></div>
+<div class="line"><a name="l01463"></a><span class="lineno"> 1463</span>&#160;<span class="comment">     *                           (water at 25C)</span></div>
+<div class="line"><a name="l01464"></a><span class="lineno"> 1464</span>&#160;<span class="comment">     *                    T = 298.15 K</span></div>
+<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;<span class="comment">     *                    B_Debye = 3.28640E9 sqrt(kg/gmol)/m</span></div>
+<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160;<span class="comment">     *            note in Pitzer&#39;s nomenclature, A_phi = A_Debye/3.0</span></div>
+<div class="line"><a name="l01468"></a><span class="lineno"> 1468</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01469"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a141c33b8b9d1e38b01ce2f7f6bfeb3e3"> 1469</a></span>&#160;    <span class="keyword">mutable</span> <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a141c33b8b9d1e38b01ce2f7f6bfeb3e3" title="Current value of the Debye Constant, A_Debye. ">m_A_Debye</a>;</div>
+<div class="line"><a name="l01470"></a><span class="lineno"> 1470</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01471"></a><span class="lineno"> 1471</span>&#160;<span class="comment">    //! Current value of the constant that appears in the denominator</span></div>
+<div class="line"><a name="l01472"></a><span class="lineno"> 1472</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
+<div class="line"><a name="l01473"></a><span class="lineno"> 1473</span>&#160;<span class="comment">     * B_Debye -&gt; this expression appears on the bottom of the</span></div>
+<div class="line"><a name="l01474"></a><span class="lineno"> 1474</span>&#160;<span class="comment">     *            ln actCoeff term in the general Debye-Huckel</span></div>
+<div class="line"><a name="l01475"></a><span class="lineno"> 1475</span>&#160;<span class="comment">     *            expression</span></div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;<span class="comment">     *            It depends on temperature</span></div>
 <div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;<span class="comment">     *            Units = sqrt(kg/gmol) / m</span></div>
+<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160;<span class="comment">     *            B_Bebye = F / sqrt( epsilon R T / 2 )</span></div>
 <div class="line"><a name="l01479"></a><span class="lineno"> 1479</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;<span class="comment">     *            Nominal value = 3.28640E9 sqrt(kg/gmol) / m</span></div>
-<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;<span class="comment">     *                  based on:</span></div>
-<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;<span class="comment">     *                    epsilon/epsilon_0 = 78.54</span></div>
-<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;<span class="comment">     *                           (water at 25C)</span></div>
-<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;<span class="comment">     *                    T = 298.15 K</span></div>
-<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01486"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a44dfb2a59608a51cce530e59dccbe34c"> 1486</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a44dfb2a59608a51cce530e59dccbe34c" title="Current value of the constant that appears in the denominator. ">m_B_Debye</a>;</div>
-<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;<span class="comment">    //! Array of B_Dot values</span></div>
-<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
-<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;<span class="comment">     *  This expression is an extension of the Debye-Huckel expression used</span></div>
-<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;<span class="comment">     *  in some formulations to extend DH to higher molalities. B_dot is</span></div>
-<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;<span class="comment">     *  specific to the major ionic pair.</span></div>
-<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01494"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aa6975944111215f7651dcbe92e8b6090"> 1494</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>  <a class="code" href="classCantera_1_1DebyeHuckel.html#aa6975944111215f7651dcbe92e8b6090" title="Array of B_Dot values. ">m_B_Dot</a>;</div>
-<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;<span class="comment">     *  These are coefficients to describe the increase in activity coeff for</span></div>
-<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;<span class="comment">     *  non-polar molecules due to the electrolyte becoming stronger (the</span></div>
-<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;<span class="comment">     *  so-called salt-out effect)</span></div>
-<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01501"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ac9d1003b7c50fe7e326e38df07c81b7a"> 1501</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#ac9d1003b7c50fe7e326e38df07c81b7a" title="These are coefficients to describe the increase in activity coeff for non-polar molecules due to the ...">m_npActCoeff</a>;</div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;</div>
-<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;<span class="comment">    //! Pointer to the  Water standard state object</span></div>
-<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;<span class="comment">     *  derived from the equation of state for water.</span></div>
-<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01508"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#adaed9742eb9c4cf8d52085ea25ae8f86"> 1508</a></span>&#160;    <a class="code" href="classCantera_1_1PDSS__Water.html" title="Class for the liquid water pressure dependent standard state. ">PDSS_Water</a>* <a class="code" href="classCantera_1_1DebyeHuckel.html#adaed9742eb9c4cf8d52085ea25ae8f86" title="Pointer to the Water standard state object. ">m_waterSS</a>;</div>
-<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;<span class="comment">    //! Storage for the density of water&#39;s standard state</span></div>
-<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;<span class="comment">     * Density depends on temperature and pressure.</span></div>
-<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01514"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a283d2b1d262605cd798b69f876b55b4e"> 1514</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a283d2b1d262605cd798b69f876b55b4e" title="Storage for the density of water&#39;s standard state. ">m_densWaterSS</a>;</div>
-<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;<span class="comment">    //! Pointer to the water property calculator</span></div>
-<div class="line"><a name="l01517"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a3449aee09d45e1e098190ab3abfe6b05"> 1517</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1WaterProps.html" title="The WaterProps class is used to house several approximation routines for properties of water...">WaterProps</a>* <a class="code" href="classCantera_1_1DebyeHuckel.html#a3449aee09d45e1e098190ab3abfe6b05" title="Pointer to the water property calculator. ">m_waterProps</a>;</div>
-<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;<span class="comment">    //! Temporary array used in equilibrium calculations</span></div>
-<div class="line"><a name="l01520"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a4c2fe18cac13b980b541398c872e4849"> 1520</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1DebyeHuckel.html#a4c2fe18cac13b980b541398c872e4849" title="Temporary array used in equilibrium calculations. ">m_pp</a>;</div>
-<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;<span class="comment">    //! vector of size m_kk, used as a temporary holding area.</span></div>
-<div class="line"><a name="l01523"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aeeda95f871688922796bc3c0e6ecb444"> 1523</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1DebyeHuckel.html#aeeda95f871688922796bc3c0e6ecb444" title="vector of size m_kk, used as a temporary holding area. ">m_tmpV</a>;</div>
-<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;<span class="comment">     * Stoichiometric species charge -&gt; This is for calculations</span></div>
-<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;<span class="comment">     * of the ionic strength which ignore ion-ion pairing into</span></div>
-<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;<span class="comment">     * neutral molecules. The Stoichiometric species charge is the</span></div>
-<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;<span class="comment">     * charge of one of the ion that would occur if the species broke</span></div>
-<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;<span class="comment">     * into two charged ion pairs.</span></div>
-<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;<span class="comment">     *  NaCl -&gt;   m_speciesCharge_Stoich = -1;</span></div>
-<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;<span class="comment">     *  HSO4- -&gt; H+ + SO42-              = -2</span></div>
-<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;<span class="comment">     *      -&gt; The other charge is calculated.</span></div>
-<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;<span class="comment">     * For species that aren&#39;t ion pairs, it&#39;s equal to the</span></div>
-<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;<span class="comment">     * m_speciesCharge[] value.</span></div>
-<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01537"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a2e37afb7489ff29e70ecdc67146704ef"> 1537</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>  <a class="code" href="classCantera_1_1DebyeHuckel.html#a2e37afb7489ff29e70ecdc67146704ef" title="Stoichiometric species charge -&gt; This is for calculations of the ionic strength which ignore ion-ion ...">m_speciesCharge_Stoich</a>;</div>
-<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;<span class="comment">     *  Array of 2D data used in the DHFORM_BETAIJ formulation</span></div>
-<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;<span class="comment">     *  Beta_ij.value(i,j) is the coefficient of the jth species</span></div>
-<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;<span class="comment">     *  for the specification of the chemical potential of the ith</span></div>
-<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;<span class="comment">     *  species.</span></div>
-<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01545"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a09167922e019a1683e49cdee3ef65169"> 1545</a></span>&#160;    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a09167922e019a1683e49cdee3ef65169" title="Array of 2D data used in the DHFORM_BETAIJ formulation Beta_ij.value(i,j) is the coefficient of the j...">m_Beta_ij</a>;</div>
-<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;<span class="comment">    //!  Logarithm of the activity coefficients on the molality scale.</span></div>
-<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;<span class="comment">     *       mutable because we change this if the composition</span></div>
-<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;<span class="comment">     *       or temperature or pressure changes.</span></div>
-<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01552"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#af2ff15779016abc2167e7c0f0a38bf94"> 1552</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#af2ff15779016abc2167e7c0f0a38bf94" title="Logarithm of the activity coefficients on the molality scale. ">m_lnActCoeffMolal</a>;</div>
-<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;<span class="comment">    //! Derivative of log act coeff wrt T</span></div>
-<div class="line"><a name="l01555"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a7cf03f2684f7b8880b3c5dc5144336c7"> 1555</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a7cf03f2684f7b8880b3c5dc5144336c7" title="Derivative of log act coeff wrt T. ">m_dlnActCoeffMolaldT</a>;</div>
-<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;<span class="comment">    //! 2nd Derivative of log act coeff wrt T</span></div>
-<div class="line"><a name="l01558"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a1f45a8b0c847a5b54ce88eb181c7fa2b"> 1558</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a1f45a8b0c847a5b54ce88eb181c7fa2b" title="2nd Derivative of log act coeff wrt T ">m_d2lnActCoeffMolaldT2</a>;</div>
-<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;<span class="comment">    //! Derivative of log act coeff wrt P</span></div>
-<div class="line"><a name="l01561"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a7560ff4791bfc8d5a6214c5288ceb9bd"> 1561</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a7560ff4791bfc8d5a6214c5288ceb9bd" title="Derivative of log act coeff wrt P. ">m_dlnActCoeffMolaldP</a>;</div>
-<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;</div>
-<div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;<span class="comment">    //! Bail out of functions with an error exit if they are not implemented.</span></div>
-<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;<span class="comment">    //! Initialize the internal lengths.</span></div>
-<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;<span class="comment">     * This internal function adjusts the lengths of arrays based on</span></div>
-<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;<span class="comment">     * the number of species.</span></div>
-<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#acbd8d9f6e3bcaf6f2115a657e7ce12cf" title="Initialize the internal lengths. ">initLengths</a>();</div>
-<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;</div>
-<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;<span class="comment">    //! Calculate the log activity coefficients</span></div>
-<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;<span class="comment">     * This function updates the internally stored natural logarithm of the</span></div>
-<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;<span class="comment">     * molality activity coefficients. This is the main routine for</span></div>
-<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;<span class="comment">     * implementing the activity coefficient formulation.</span></div>
-<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a254ea1801b6e37bacd22e11b80433b9d" title="Calculate the log activity coefficients. ">s_update_lnMolalityActCoeff</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;<span class="comment">    //! Calculation of temperature derivative of activity coefficient</span></div>
-<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;<span class="comment">     *   Using internally stored values, this function calculates</span></div>
-<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;<span class="comment">     *   the temperature derivative of the logarithm of the</span></div>
-<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;<span class="comment">     *   activity coefficient for all species in the mechanism.</span></div>
-<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;<span class="comment">     *   We assume that the activity coefficients are current in this routine</span></div>
+<div class="line"><a name="l01480"></a><span class="lineno"> 1480</span>&#160;<span class="comment">     *            Units = sqrt(kg/gmol) / m</span></div>
+<div class="line"><a name="l01481"></a><span class="lineno"> 1481</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01482"></a><span class="lineno"> 1482</span>&#160;<span class="comment">     *            Nominal value = 3.28640E9 sqrt(kg/gmol) / m</span></div>
+<div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;<span class="comment">     *                  based on:</span></div>
+<div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;<span class="comment">     *                    epsilon/epsilon_0 = 78.54</span></div>
+<div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160;<span class="comment">     *                           (water at 25C)</span></div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;<span class="comment">     *                    T = 298.15 K</span></div>
+<div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01488"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a44dfb2a59608a51cce530e59dccbe34c"> 1488</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a44dfb2a59608a51cce530e59dccbe34c" title="Current value of the constant that appears in the denominator. ">m_B_Debye</a>;</div>
+<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;<span class="comment">    //! Array of B_Dot values</span></div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
+<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;<span class="comment">     *  This expression is an extension of the Debye-Huckel expression used</span></div>
+<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;<span class="comment">     *  in some formulations to extend DH to higher molalities. B_dot is</span></div>
+<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;<span class="comment">     *  specific to the major ionic pair.</span></div>
+<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01496"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aa6975944111215f7651dcbe92e8b6090"> 1496</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>  <a class="code" href="classCantera_1_1DebyeHuckel.html#aa6975944111215f7651dcbe92e8b6090" title="Array of B_Dot values. ">m_B_Dot</a>;</div>
+<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;<span class="comment">     *  These are coefficients to describe the increase in activity coeff for</span></div>
+<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;<span class="comment">     *  non-polar molecules due to the electrolyte becoming stronger (the</span></div>
+<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;<span class="comment">     *  so-called salt-out effect)</span></div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01503"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#ac9d1003b7c50fe7e326e38df07c81b7a"> 1503</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#ac9d1003b7c50fe7e326e38df07c81b7a" title="These are coefficients to describe the increase in activity coeff for non-polar molecules due to the ...">m_npActCoeff</a>;</div>
+<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;</div>
+<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;<span class="comment">    //! Pointer to the  Water standard state object</span></div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;<span class="comment">     *  derived from the equation of state for water.</span></div>
+<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01510"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#adaed9742eb9c4cf8d52085ea25ae8f86"> 1510</a></span>&#160;    <a class="code" href="classCantera_1_1PDSS__Water.html" title="Class for the liquid water pressure dependent standard state. ">PDSS_Water</a>* <a class="code" href="classCantera_1_1DebyeHuckel.html#adaed9742eb9c4cf8d52085ea25ae8f86" title="Pointer to the Water standard state object. ">m_waterSS</a>;</div>
+<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;<span class="comment">    //! Storage for the density of water&#39;s standard state</span></div>
+<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;<span class="comment">     * Density depends on temperature and pressure.</span></div>
+<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01516"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a283d2b1d262605cd798b69f876b55b4e"> 1516</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a283d2b1d262605cd798b69f876b55b4e" title="Storage for the density of water&#39;s standard state. ">m_densWaterSS</a>;</div>
+<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;<span class="comment">    //! Pointer to the water property calculator</span></div>
+<div class="line"><a name="l01519"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a3449aee09d45e1e098190ab3abfe6b05"> 1519</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1WaterProps.html" title="The WaterProps class is used to house several approximation routines for properties of water...">WaterProps</a>* <a class="code" href="classCantera_1_1DebyeHuckel.html#a3449aee09d45e1e098190ab3abfe6b05" title="Pointer to the water property calculator. ">m_waterProps</a>;</div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;<span class="comment">    //! Temporary array used in equilibrium calculations</span></div>
+<div class="line"><a name="l01522"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a4c2fe18cac13b980b541398c872e4849"> 1522</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1DebyeHuckel.html#a4c2fe18cac13b980b541398c872e4849" title="Temporary array used in equilibrium calculations. ">m_pp</a>;</div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;<span class="comment">    //! vector of size m_kk, used as a temporary holding area.</span></div>
+<div class="line"><a name="l01525"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#aeeda95f871688922796bc3c0e6ecb444"> 1525</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1DebyeHuckel.html#aeeda95f871688922796bc3c0e6ecb444" title="vector of size m_kk, used as a temporary holding area. ">m_tmpV</a>;</div>
+<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;<span class="comment">     * Stoichiometric species charge -&gt; This is for calculations</span></div>
+<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;<span class="comment">     * of the ionic strength which ignore ion-ion pairing into</span></div>
+<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;<span class="comment">     * neutral molecules. The Stoichiometric species charge is the</span></div>
+<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;<span class="comment">     * charge of one of the ion that would occur if the species broke</span></div>
+<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;<span class="comment">     * into two charged ion pairs.</span></div>
+<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;<span class="comment">     *  NaCl -&gt;   m_speciesCharge_Stoich = -1;</span></div>
+<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;<span class="comment">     *  HSO4- -&gt; H+ + SO42-              = -2</span></div>
+<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;<span class="comment">     *      -&gt; The other charge is calculated.</span></div>
+<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;<span class="comment">     * For species that aren&#39;t ion pairs, it&#39;s equal to the</span></div>
+<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;<span class="comment">     * m_speciesCharge[] value.</span></div>
+<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01539"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a2e37afb7489ff29e70ecdc67146704ef"> 1539</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>  <a class="code" href="classCantera_1_1DebyeHuckel.html#a2e37afb7489ff29e70ecdc67146704ef" title="Stoichiometric species charge -&gt; This is for calculations of the ionic strength which ignore ion-ion ...">m_speciesCharge_Stoich</a>;</div>
+<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;<span class="comment">     *  Array of 2D data used in the DHFORM_BETAIJ formulation</span></div>
+<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;<span class="comment">     *  Beta_ij.value(i,j) is the coefficient of the jth species</span></div>
+<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;<span class="comment">     *  for the specification of the chemical potential of the ith</span></div>
+<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;<span class="comment">     *  species.</span></div>
+<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01547"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a09167922e019a1683e49cdee3ef65169"> 1547</a></span>&#160;    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a09167922e019a1683e49cdee3ef65169" title="Array of 2D data used in the DHFORM_BETAIJ formulation Beta_ij.value(i,j) is the coefficient of the j...">m_Beta_ij</a>;</div>
+<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;<span class="comment">    //!  Logarithm of the activity coefficients on the molality scale.</span></div>
+<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;<span class="comment">     *       mutable because we change this if the composition</span></div>
+<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;<span class="comment">     *       or temperature or pressure changes.</span></div>
+<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01554"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#af2ff15779016abc2167e7c0f0a38bf94"> 1554</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#af2ff15779016abc2167e7c0f0a38bf94" title="Logarithm of the activity coefficients on the molality scale. ">m_lnActCoeffMolal</a>;</div>
+<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;<span class="comment">    //! Derivative of log act coeff wrt T</span></div>
+<div class="line"><a name="l01557"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a7cf03f2684f7b8880b3c5dc5144336c7"> 1557</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a7cf03f2684f7b8880b3c5dc5144336c7" title="Derivative of log act coeff wrt T. ">m_dlnActCoeffMolaldT</a>;</div>
+<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;<span class="comment">    //! 2nd Derivative of log act coeff wrt T</span></div>
+<div class="line"><a name="l01560"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a1f45a8b0c847a5b54ce88eb181c7fa2b"> 1560</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a1f45a8b0c847a5b54ce88eb181c7fa2b" title="2nd Derivative of log act coeff wrt T ">m_d2lnActCoeffMolaldT2</a>;</div>
+<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;<span class="comment">    //! Derivative of log act coeff wrt P</span></div>
+<div class="line"><a name="l01563"></a><span class="lineno"><a class="code" href="classCantera_1_1DebyeHuckel.html#a7560ff4791bfc8d5a6214c5288ceb9bd"> 1563</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1DebyeHuckel.html#a7560ff4791bfc8d5a6214c5288ceb9bd" title="Derivative of log act coeff wrt P. ">m_dlnActCoeffMolaldP</a>;</div>
+<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;</div>
+<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;<span class="comment">    //! Bail out of functions with an error exit if they are not implemented.</span></div>
+<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1DebyeHuckel.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="Bail out of functions with an error exit if they are not implemented. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;<span class="comment">    //! Initialize the internal lengths.</span></div>
+<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;<span class="comment">     * This internal function adjusts the lengths of arrays based on</span></div>
+<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;<span class="comment">     * the number of species.</span></div>
+<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#acbd8d9f6e3bcaf6f2115a657e7ce12cf" title="Initialize the internal lengths. ">initLengths</a>();</div>
+<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;</div>
+<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;<span class="comment">    //! Calculate the log activity coefficients</span></div>
+<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;<span class="comment">     * This function updates the internally stored natural logarithm of the</span></div>
+<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;<span class="comment">     * molality activity coefficients. This is the main routine for</span></div>
+<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;<span class="comment">     * implementing the activity coefficient formulation.</span></div>
+<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a254ea1801b6e37bacd22e11b80433b9d" title="Calculate the log activity coefficients. ">s_update_lnMolalityActCoeff</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;<span class="comment">    //! Calculation of temperature derivative of activity coefficient</span></div>
+<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;<span class="comment">     *   Using internally stored values, this function calculates</span></div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;<span class="comment">     *   the temperature derivative of the logarithm of the</span></div>
+<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;<span class="comment">     *   activity coefficient for all species in the mechanism.</span></div>
 <div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;<span class="comment">     *   The solvent activity coefficient is on the molality scale. Its derivative is too.</span></div>
-<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ad0aeaeea53f922e2b19b33ebda152246" title="Calculation of temperature derivative of activity coefficient. ">s_update_dlnMolalityActCoeff_dT</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;<span class="comment">    //! Calculate the temperature 2nd derivative of the activity coefficient</span></div>
-<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;<span class="comment">     *   Using internally stored values, this function calculates</span></div>
-<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;<span class="comment">     *   the temperature 2nd derivative of the logarithm of the</span></div>
-<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;<span class="comment">     *   activity coefficient for all species in the mechanism.</span></div>
-<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;<span class="comment">     *   We assume that the activity coefficients are current in this routine</span></div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;<span class="comment">     *   We assume that the activity coefficients are current in this routine</span></div>
+<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;<span class="comment">     *   The solvent activity coefficient is on the molality scale. Its derivative is too.</span></div>
+<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#ad0aeaeea53f922e2b19b33ebda152246" title="Calculation of temperature derivative of activity coefficient. ">s_update_dlnMolalityActCoeff_dT</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;<span class="comment">    //! Calculate the temperature 2nd derivative of the activity coefficient</span></div>
+<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;<span class="comment">     *   Using internally stored values, this function calculates</span></div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;<span class="comment">     *   the temperature 2nd derivative of the logarithm of the</span></div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;<span class="comment">     *   activity coefficient for all species in the mechanism.</span></div>
 <div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;<span class="comment">     *   solvent activity coefficient is on the molality</span></div>
-<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;<span class="comment">     *   scale. Its derivatives are too.</span></div>
-<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a432f310b04ddf5e7d4bab0235e908599" title="Calculate the temperature 2nd derivative of the activity coefficient. ">s_update_d2lnMolalityActCoeff_dT2</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;<span class="comment">    //! Calculate the pressure derivative of the activity coefficient</span></div>
-<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;<span class="comment">     *   Using internally stored values, this function calculates</span></div>
-<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;<span class="comment">     *   the pressure derivative of the logarithm of the</span></div>
-<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;<span class="comment">     *   activity coefficient for all species in the mechanism.</span></div>
-<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;<span class="comment">     *   We assume that the activity coefficients, molalities,</span></div>
-<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;<span class="comment">     *   and A_Debye are current.</span></div>
-<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;<span class="comment">     *   solvent activity coefficient is on the molality</span></div>
-<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;<span class="comment">     *   scale. Its derivatives are too.</span></div>
-<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a7d94efc1b2a0071fc5dcaebfc1a667b4" title="Calculate the pressure derivative of the activity coefficient. ">s_update_dlnMolalityActCoeff_dP</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;};</div>
-<div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;</div>
-<div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;}</div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;<span class="comment">     *   We assume that the activity coefficients are current in this routine</span></div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;<span class="comment">     *   solvent activity coefficient is on the molality</span></div>
+<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;<span class="comment">     *   scale. Its derivatives are too.</span></div>
+<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a432f310b04ddf5e7d4bab0235e908599" title="Calculate the temperature 2nd derivative of the activity coefficient. ">s_update_d2lnMolalityActCoeff_dT2</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;<span class="comment">    //! Calculate the pressure derivative of the activity coefficient</span></div>
+<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;<span class="comment">     *   Using internally stored values, this function calculates</span></div>
+<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;<span class="comment">     *   the pressure derivative of the logarithm of the</span></div>
+<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;<span class="comment">     *   activity coefficient for all species in the mechanism.</span></div>
+<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;<span class="comment">     *   We assume that the activity coefficients, molalities,</span></div>
+<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160;<span class="comment">     *   and A_Debye are current.</span></div>
+<div class="line"><a name="l01619"></a><span class="lineno"> 1619</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l01620"></a><span class="lineno"> 1620</span>&#160;<span class="comment">     *   solvent activity coefficient is on the molality</span></div>
+<div class="line"><a name="l01621"></a><span class="lineno"> 1621</span>&#160;<span class="comment">     *   scale. Its derivatives are too.</span></div>
+<div class="line"><a name="l01622"></a><span class="lineno"> 1622</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l01623"></a><span class="lineno"> 1623</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a7d94efc1b2a0071fc5dcaebfc1a667b4" title="Calculate the pressure derivative of the activity coefficient. ">s_update_dlnMolalityActCoeff_dP</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l01624"></a><span class="lineno"> 1624</span>&#160;};</div>
 <div class="line"><a name="l01625"></a><span class="lineno"> 1625</span>&#160;</div>
-<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01626"></a><span class="lineno"> 1626</span>&#160;}</div>
+<div class="line"><a name="l01627"></a><span class="lineno"> 1627</span>&#160;</div>
+<div class="line"><a name="l01628"></a><span class="lineno"> 1628</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -303,91 +303,92 @@
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;}</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">GeneralSpeciesThermo::</a></div>
-<div class="line"><a name="l00246"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e">  246</a></span>&#160;<a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParams</a>(<span class="keywordtype">size_t</span> index, <span class="keywordtype">int</span>&amp; type, doublereal* <span class="keyword">const</span> c,</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e">GeneralSpeciesThermo::</a></div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e">  246</a></span>&#160;<a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e">reportParams</a>(<span class="keywordtype">size_t</span> index, <span class="keywordtype">int</span>&amp; type, doublereal* <span class="keyword">const</span> c,</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;             doublereal&amp; minTemp_, doublereal&amp; maxTemp_, doublereal&amp; refPressure_)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[index];</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">size_t</span> n;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">if</span> (sp) {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(n, type, minTemp_, maxTemp_,</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                             refPressure_, c);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">if</span> (n != index) {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;GeneralSpeciesThermo::reportParams&quot;</span>,</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                               <span class="stringliteral">&quot;Internal error encountered&quot;</span>);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        }</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        type = -1;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a412c64c9f6d37c1d4cbb8a1eec84103a">  263</a></span>&#160;doublereal <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a412c64c9f6d37c1d4cbb8a1eec84103a" title="Minimum temperature. ">GeneralSpeciesThermo::minTemp</a>(<span class="keywordtype">size_t</span> k)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">if</span> (k == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#aea83c2ffed3a01e875462c23ac11b89a" title="Maximum value of the lowest temperature. ">m_tlow_max</a>;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keywordflow">if</span> (sp) {</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">return</span> sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#af64c23d2a651884ef53b93a25b9eb961" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>();</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        }</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#aea83c2ffed3a01e875462c23ac11b89a" title="Maximum value of the lowest temperature. ">m_tlow_max</a>;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a9b737407965ecb32db623a6cdebeee12">  276</a></span>&#160;doublereal <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a9b737407965ecb32db623a6cdebeee12" title="Maximum temperature. ">GeneralSpeciesThermo::maxTemp</a>(<span class="keywordtype">size_t</span> k)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> (k == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a8082c3046d24a18d22d818cbdd59191a" title="Minimum value of the highest temperature. ">m_thigh_min</a>;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">if</span> (sp) {</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="keywordflow">return</span> sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8634acaec1cce0ab4f2250c8e6783951" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>();</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        }</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    }</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a8082c3046d24a18d22d818cbdd59191a" title="Minimum value of the highest temperature. ">m_thigh_min</a>;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;}</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
-<div class="line"><a name="l00289"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a04133ca12b89d9311a4338d085a77eae">  289</a></span>&#160;doublereal <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a04133ca12b89d9311a4338d085a77eae" title="The reference-state pressure for species k. ">GeneralSpeciesThermo::refPressure</a>(<span class="keywordtype">size_t</span> k)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">if</span> (k == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#abdd15cd78af8bfd2a1ae1424e1010af9" title="reference pressure (Pa) ">m_p0</a>;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordflow">if</span> (sp) {</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <span class="keywordflow">return</span> sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#add3666b62b70fe458c5608aa10e551c7" title="Returns the reference pressure (Pa) ">refPressure</a>();</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        }</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#abdd15cd78af8bfd2a1ae1424e1010af9" title="reference pressure (Pa) ">m_p0</a>;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;}</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
-<div class="line"><a name="l00302"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a">  302</a></span>&#160;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a" title="Provide the SpeciesthermoInterpType object. ">GeneralSpeciesThermo::provideSTIT</a>(<span class="keywordtype">size_t</span> k)</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;}</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;doublereal GeneralSpeciesThermo::reportOneHf298(<span class="keywordtype">int</span> k)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp_ptr = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    doublereal h = -1.0;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    <span class="keywordflow">if</span> (sp_ptr) {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        h = sp_ptr-&gt;reportHf298(0);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordflow">return</span> h;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;}</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="keywordtype">void</span> GeneralSpeciesThermo::modifyOneHf298(<span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal Hf298New)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;{</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    SpeciesThermoInterpType* sp_ptr = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">if</span> (sp_ptr) {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        sp_ptr-&gt;modifyOneHf298(k, Hf298New);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;}</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;}</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;GeneralSpeciesThermo::reportParams&quot;</span>);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[index];</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">size_t</span> n;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">if</span> (sp) {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(n, type, minTemp_, maxTemp_,</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                             refPressure_, c);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">if</span> (n != index) {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;GeneralSpeciesThermo::reportParams&quot;</span>,</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                               <span class="stringliteral">&quot;Internal error encountered&quot;</span>);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        }</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        type = -1;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a412c64c9f6d37c1d4cbb8a1eec84103a">  264</a></span>&#160;doublereal <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a412c64c9f6d37c1d4cbb8a1eec84103a" title="Minimum temperature. ">GeneralSpeciesThermo::minTemp</a>(<span class="keywordtype">size_t</span> k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordflow">if</span> (k == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#aea83c2ffed3a01e875462c23ac11b89a" title="Maximum value of the lowest temperature. ">m_tlow_max</a>;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">if</span> (sp) {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="keywordflow">return</span> sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#af64c23d2a651884ef53b93a25b9eb961" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>();</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#aea83c2ffed3a01e875462c23ac11b89a" title="Maximum value of the lowest temperature. ">m_tlow_max</a>;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a9b737407965ecb32db623a6cdebeee12">  277</a></span>&#160;doublereal <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a9b737407965ecb32db623a6cdebeee12" title="Maximum temperature. ">GeneralSpeciesThermo::maxTemp</a>(<span class="keywordtype">size_t</span> k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (k == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a8082c3046d24a18d22d818cbdd59191a" title="Minimum value of the highest temperature. ">m_thigh_min</a>;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> (sp) {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            <span class="keywordflow">return</span> sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8634acaec1cce0ab4f2250c8e6783951" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>();</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a8082c3046d24a18d22d818cbdd59191a" title="Minimum value of the highest temperature. ">m_thigh_min</a>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;}</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a04133ca12b89d9311a4338d085a77eae">  290</a></span>&#160;doublereal <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a04133ca12b89d9311a4338d085a77eae" title="The reference-state pressure for species k. ">GeneralSpeciesThermo::refPressure</a>(<span class="keywordtype">size_t</span> k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordflow">if</span> (k == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#abdd15cd78af8bfd2a1ae1424e1010af9" title="reference pressure (Pa) ">m_p0</a>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">if</span> (sp) {</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="keywordflow">return</span> sp-&gt;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#add3666b62b70fe458c5608aa10e551c7" title="Returns the reference pressure (Pa) ">refPressure</a>();</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        }</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#abdd15cd78af8bfd2a1ae1424e1010af9" title="reference pressure (Pa) ">m_p0</a>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a">  303</a></span>&#160;<a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a" title="Provide the SpeciesthermoInterpType object. ">GeneralSpeciesThermo::provideSTIT</a>(<span class="keywordtype">size_t</span> k)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;{</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;}</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;doublereal GeneralSpeciesThermo::reportOneHf298(<span class="keywordtype">int</span> k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* sp_ptr = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    doublereal h = -1.0;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">if</span> (sp_ptr) {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        h = sp_ptr-&gt;reportHf298(0);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    }</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> h;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keywordtype">void</span> GeneralSpeciesThermo::modifyOneHf298(<span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal Hf298New)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;{</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    SpeciesThermoInterpType* sp_ptr = <a class="code" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b" title="This is the main unknown in the object. ">m_sp</a>[k];</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">if</span> (sp_ptr) {</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        sp_ptr-&gt;modifyOneHf298(k, Hf298New);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;}</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
