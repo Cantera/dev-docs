@@ -131,9 +131,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fc6bd316aee7fa4f32af842924d8a42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1PecosTransport.html#a4fc6bd316aee7fa4f32af842924d8a42">read_blottner_transport_table</a> ()</td></tr>
 <tr class="memdesc:a4fc6bd316aee7fa4f32af842924d8a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the transport table specified (currently defaults to internal file)  <a href="#a4fc6bd316aee7fa4f32af842924d8a42">More...</a><br/></td></tr>
 <tr class="separator:a4fc6bd316aee7fa4f32af842924d8a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0bdd4e410445563df3786c42acaa9b3"><td class="memItemLeft" align="right" valign="top">struct GasTransportData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1PecosTransport.html#ab0bdd4e410445563df3786c42acaa9b3">getGasTransportData</a> (int k)</td></tr>
-<tr class="memdesc:ab0bdd4e410445563df3786c42acaa9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a structure containing all of the pertinent parameters about a species that was used to construct the <a class="el" href="classCantera_1_1Transport.html" title="Base class for transport property managers. ">Transport</a> properties in this object.  <a href="#ab0bdd4e410445563df3786c42acaa9b3">More...</a><br/></td></tr>
-<tr class="separator:ab0bdd4e410445563df3786c42acaa9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCantera_1_1Transport"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCantera_1_1Transport')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCantera_1_1Transport.html">Transport</a></td></tr>
 <tr class="memitem:a71b4755bd841b06d396657348b16cbed inherit pub_methods_classCantera_1_1Transport"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Transport.html#a71b4755bd841b06d396657348b16cbed">Transport</a> (<a class="el" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a> *<a class="el" href="classCantera_1_1Transport.html#a4a361c78a4b13dea05c58077fc74c9b2">thermo</a>=0, size_t ndim=1)</td></tr>
 <tr class="memdesc:a71b4755bd841b06d396657348b16cbed inherit pub_methods_classCantera_1_1Transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a71b4755bd841b06d396657348b16cbed">More...</a><br/></td></tr>
@@ -662,7 +659,7 @@ Additional Inherited Members</h2></td></tr>
 \[ \Phi_{s,j} = \frac{\left[1 + \sqrt{\left(\frac{\mu_k}{\mu_j}\sqrt{\frac{M_j}{M_s}}\right)}\right]^2} {\sqrt{8}\sqrt{1 + M_s/M_j}} \]
 </p>
  <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classCantera_1_1PecosTransport.html#a90d943c4451c8de9675e8a7afe50aa2e" title="Update the temperature-dependent parts of the mixture-averaged thermal conductivity. ">updateCond_T()</a>; </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Reconcile these these formulas with the implementation </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Reconcile these these formulas with the implementation </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Transport.html#ace0fc9ed2cc308a4f53b349d37273ac9">Transport</a>.</p>
 
@@ -711,7 +708,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PecosTransport_8cpp_source.html#l00128">128</a> of file <a class="el" href="PecosTransport_8cpp_source.html">PecosTransport.cpp</a>.</p>
 
-<p>References <a class="el" href="PecosTransport_8h_source.html#l00201">PecosTransport::pressure_ig()</a>, <a class="el" href="PecosTransport_8cpp_source.html#l00333">PecosTransport::update_T()</a>, and <a class="el" href="PecosTransport_8cpp_source.html#l00400">PecosTransport::updateDiff_T()</a>.</p>
+<p>References <a class="el" href="PecosTransport_8h_source.html#l00192">PecosTransport::pressure_ig()</a>, <a class="el" href="PecosTransport_8cpp_source.html#l00333">PecosTransport::update_T()</a>, and <a class="el" href="PecosTransport_8cpp_source.html#l00400">PecosTransport::updateDiff_T()</a>.</p>
 
 </div>
 </div>
@@ -744,7 +741,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PecosTransport_8cpp_source.html#l00229">229</a> of file <a class="el" href="PecosTransport_8cpp_source.html">PecosTransport.cpp</a>.</p>
 
-<p>References <a class="el" href="TransportBase_8h_source.html#l00799">Transport::m_thermo</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="PecosTransport_8h_source.html#l00201">PecosTransport::pressure_ig()</a>, <a class="el" href="PecosTransport_8cpp_source.html#l00369">PecosTransport::update_C()</a>, <a class="el" href="PecosTransport_8cpp_source.html#l00333">PecosTransport::update_T()</a>, and <a class="el" href="PecosTransport_8cpp_source.html#l00400">PecosTransport::updateDiff_T()</a>.</p>
+<p>References <a class="el" href="TransportBase_8h_source.html#l00799">Transport::m_thermo</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="PecosTransport_8h_source.html#l00192">PecosTransport::pressure_ig()</a>, <a class="el" href="PecosTransport_8cpp_source.html#l00369">PecosTransport::update_C()</a>, <a class="el" href="PecosTransport_8cpp_source.html#l00333">PecosTransport::update_T()</a>, and <a class="el" href="PecosTransport_8cpp_source.html#l00400">PecosTransport::updateDiff_T()</a>.</p>
 
 <p>Referenced by <a class="el" href="PecosTransport_8cpp_source.html#l00146">PecosTransport::getMobilities()</a>, and <a class="el" href="PecosTransport_8cpp_source.html#l00190">PecosTransport::getSpeciesFluxes()</a>.</p>
 
@@ -1086,30 +1083,6 @@ Eq. 12.178 in "Chemically Reacting Flow":
 
 </div>
 </div>
-<a class="anchor" id="ab0bdd4e410445563df3786c42acaa9b3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct GasTransportData getGasTransportData </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>k</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return a structure containing all of the pertinent parameters about a species that was used to construct the <a class="el" href="classCantera_1_1Transport.html" title="Base class for transport property managers. ">Transport</a> properties in this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">k</td><td>Species number to obtain the properties from. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="a53c5f44b7882357ad6972d49f164d8a2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1133,7 +1106,7 @@ Eq. 12.178 in "Chemically Reacting Flow":
 
 <p>Calculate the pressure from the ideal gas law. </p>
 
-<p>Definition at line <a class="el" href="PecosTransport_8h_source.html#l00201">201</a> of file <a class="el" href="PecosTransport_8h_source.html">PecosTransport.h</a>.</p>
+<p>Definition at line <a class="el" href="PecosTransport_8h_source.html#l00192">192</a> of file <a class="el" href="PecosTransport_8h_source.html">PecosTransport.h</a>.</p>
 
 <p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="TransportBase_8h_source.html#l00799">Transport::m_thermo</a>, <a class="el" href="Phase_8cpp_source.html#l00597">Phase::molarDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
 

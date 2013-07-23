@@ -117,63 +117,62 @@
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"> * off as the pressure increases, due to collisional stabilization of</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"> * a reaction intermediate. Example: Si + SiH4 (+M) &lt;-&gt; Si2H2 + H2</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"> * (+M), which competes with Si + SiH4 (+M) &lt;-&gt; Si2H4 (+M).</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> * @todo Implement chemical activation reactions.</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="namespaceCantera.html#abaa0bb140343633ff77781128c8392ed">   61</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#abaa0bb140343633ff77781128c8392ed" title="A chemical activation reaction. ">CHEMACT_RXN</a>    = 8;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> * A reaction occurring on a surface.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82">   66</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82" title="A reaction occurring on a surface. ">SURFACE_RXN</a>    = 20;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> * A reaction occurring at a one-dimensional interface between two</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> * surface phases.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a69ea2e7380ff5d0bf95eb20490154c87">   72</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a69ea2e7380ff5d0bf95eb20490154c87" title="A reaction occurring at a one-dimensional interface between two surface phases. ">EDGE_RXN</a>  = 22;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * A global reaction. These may have non-integral reaction orders,</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> * and are not allowed to be reversible.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a5ed7e66f048a46de7539f50e7fe82601">   78</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a5ed7e66f048a46de7539f50e7fe82601" title="A global reaction. ">GLOBAL_RXN</a>     = 30;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//@}</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment"></span><span class="comment"></span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/** @name Rate Coefficient Types</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> * These types define the supported rate coefficient types for</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> * elementary reactions. Any of these may also be used as the high and</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> * low-pressure limits of falloff and chemical activation reactions.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * Note that not all of these are currently implemented!</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> * @todo Finish implementing reaction rate types.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//@{</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> ARRHENIUS_REACTION_RATECOEFF_TYPE = 1;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> LANDAUTELLER_REACTION_RATECOEFF_TYPE = 2;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> TSTRATE_REACTION_RATECOEFF_TYPE = 3;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> SURF_ARRHENIUS_REACTION_RATECOEFF_TYPE = 4;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> ARRHENIUS_SUM_REACTION_RATECOEFF_TYPE = 5;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> EXCHANGE_CURRENT_REACTION_RATECOEFF_TYPE = 6;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> PLOG_REACTION_RATECOEFF_TYPE = 7;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> CHEBYSHEV_REACTION_RATECOEFF_TYPE = 8;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//@}</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span><span class="comment"></span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/** @name Falloff Function Types</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">//@{</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">int</span> SIMPLE_FALLOFF = 100;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> TROE3_FALLOFF = 110;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> TROE4_FALLOFF = 111;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> SRI3_FALLOFF  = 112;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> SRI5_FALLOFF  = 113;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> WF_FALLOFF = 114;<span class="comment"></span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">//@}</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"></span>}</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="namespaceCantera.html#abaa0bb140343633ff77781128c8392ed">   60</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#abaa0bb140343633ff77781128c8392ed" title="A chemical activation reaction. ">CHEMACT_RXN</a>    = 8;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * A reaction occurring on a surface.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82">   65</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82" title="A reaction occurring on a surface. ">SURFACE_RXN</a>    = 20;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> * A reaction occurring at a one-dimensional interface between two</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"> * surface phases.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a69ea2e7380ff5d0bf95eb20490154c87">   71</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a69ea2e7380ff5d0bf95eb20490154c87" title="A reaction occurring at a one-dimensional interface between two surface phases. ">EDGE_RXN</a>  = 22;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment"> * A global reaction. These may have non-integral reaction orders,</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"> * and are not allowed to be reversible.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a5ed7e66f048a46de7539f50e7fe82601">   77</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespaceCantera.html#a5ed7e66f048a46de7539f50e7fe82601" title="A global reaction. ">GLOBAL_RXN</a>     = 30;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//@}</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/** @name Rate Coefficient Types</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"> * These types define the supported rate coefficient types for</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> * elementary reactions. Any of these may also be used as the high and</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> * low-pressure limits of falloff and chemical activation reactions.</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> * Note that not all of these are currently implemented!</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * @todo Finish implementing reaction rate types.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//@{</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> ARRHENIUS_REACTION_RATECOEFF_TYPE = 1;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> LANDAUTELLER_REACTION_RATECOEFF_TYPE = 2;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> TSTRATE_REACTION_RATECOEFF_TYPE = 3;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> SURF_ARRHENIUS_REACTION_RATECOEFF_TYPE = 4;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> ARRHENIUS_SUM_REACTION_RATECOEFF_TYPE = 5;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> EXCHANGE_CURRENT_REACTION_RATECOEFF_TYPE = 6;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> PLOG_REACTION_RATECOEFF_TYPE = 7;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> CHEBYSHEV_REACTION_RATECOEFF_TYPE = 8;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">//@}</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"></span><span class="comment"></span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/** @name Falloff Function Types</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"> */</span><span class="comment"></span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">//@{</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"></span><span class="keyword">const</span> <span class="keywordtype">int</span> SIMPLE_FALLOFF = 100;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> TROE3_FALLOFF = 110;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> TROE4_FALLOFF = 111;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> SRI3_FALLOFF  = 112;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> SRI5_FALLOFF  = 113;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">const</span> <span class="keywordtype">int</span> WF_FALLOFF = 114;<span class="comment"></span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">//@}</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"></span>}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

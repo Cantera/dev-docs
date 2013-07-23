@@ -377,9 +377,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2cf34e66ff36ee1b0bd4bd0f4be2aef1 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a2cf34e66ff36ee1b0bd4bd0f4be2aef1">satTemperature</a> (doublereal p) const </td></tr>
 <tr class="memdesc:a2cf34e66ff36ee1b0bd4bd0f4be2aef1 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the saturation temperature given the pressure.  <a href="#a2cf34e66ff36ee1b0bd4bd0f4be2aef1">More...</a><br/></td></tr>
 <tr class="separator:a2cf34e66ff36ee1b0bd4bd0f4be2aef1 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0a553fb66353c82d8d218426355091 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a7c0a553fb66353c82d8d218426355091">satPressure</a> (doublereal t) const </td></tr>
-<tr class="memdesc:a7c0a553fb66353c82d8d218426355091 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the saturation pressure given the temperature.  <a href="#a7c0a553fb66353c82d8d218426355091">More...</a><br/></td></tr>
-<tr class="separator:a7c0a553fb66353c82d8d218426355091 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30cc9db0935dde804b06cd9d6a0f6a36 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a30cc9db0935dde804b06cd9d6a0f6a36">satPressure</a> (doublereal t)</td></tr>
+<tr class="memdesc:a30cc9db0935dde804b06cd9d6a0f6a36 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the saturation pressure given the temperature.  <a href="#a30cc9db0935dde804b06cd9d6a0f6a36">More...</a><br/></td></tr>
+<tr class="separator:a30cc9db0935dde804b06cd9d6a0f6a36 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa4bdd0457db381d4b1c994c45675e4f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#aaa4bdd0457db381d4b1c994c45675e4f">vaporFraction</a> () const </td></tr>
 <tr class="memdesc:aaa4bdd0457db381d4b1c994c45675e4f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the fraction of vapor at the current conditions.  <a href="#aaa4bdd0457db381d4b1c994c45675e4f">More...</a><br/></td></tr>
 <tr class="separator:aaa4bdd0457db381d4b1c994c45675e4f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1369,15 +1369,14 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">infile</td><td><a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> input file in CTI or CTML format. </td></tr>
     <tr><td class="paramname">id</td><td>Identification string to distinguish between multiple definitions within one input file. </td></tr>
-    <tr><td class="paramname">otherPhases</td><td>Neighboring phases that may participate in the reactions on this interface. Don't include the surface phase</td></tr>
+    <tr><td class="paramname">otherPhases</td><td>Neighboring phases that may participate in the reactions on this interface. Don't include the surface phase </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000027">Deprecated:</a></b></dt><dd>While it's convenient to have the surface phase and the interfacial reaction together, this class doesn't satisfy the primary issue, which is one of instantiation of all the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> classes that accompany a surface reaction. This is accomplished by the PhaseList class along with the ReactingSurface class. These classes will be migrated into <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> soon. </dd></dl>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00045">45</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00037">37</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00144">Cantera::get_XML_File()</a>, <a class="el" href="global_8cpp_source.html#l00249">Cantera::get_XML_Node()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00944">Cantera::importKinetics()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>, <a class="el" href="Interface_8h_source.html#l00105">Interface::m_ok</a>, and <a class="el" href="Interface_8h_source.html#l00109">Interface::m_r</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00144">Cantera::get_XML_File()</a>, <a class="el" href="global_8cpp_source.html#l00249">Cantera::get_XML_Node()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00944">Cantera::importKinetics()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>, <a class="el" href="Interface_8h_source.html#l00097">Interface::m_ok</a>, and <a class="el" href="Interface_8h_source.html#l00101">Interface::m_r</a>.</p>
 
 </div>
 </div>
@@ -1411,7 +1410,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00068">68</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00060">60</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
 </div>
 </div>
@@ -1446,9 +1445,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00079">79</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00071">71</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
-<p>References <a class="el" href="Interface_8h_source.html#l00105">Interface::m_ok</a>, <a class="el" href="Interface_8h_source.html#l00109">Interface::m_r</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00095">InterfaceKinetics::operator=()</a>, and <a class="el" href="SurfPhase_8cpp_source.html#l00085">SurfPhase::operator=()</a>.</p>
+<p>References <a class="el" href="Interface_8h_source.html#l00097">Interface::m_ok</a>, <a class="el" href="Interface_8h_source.html#l00101">Interface::m_r</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00095">InterfaceKinetics::operator=()</a>, and <a class="el" href="SurfPhase_8cpp_source.html#l00085">SurfPhase::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1475,9 +1474,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Not operator. </p>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00091">91</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00083">83</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
-<p>References <a class="el" href="Interface_8h_source.html#l00105">Interface::m_ok</a>.</p>
+<p>References <a class="el" href="Interface_8h_source.html#l00097">Interface::m_ok</a>.</p>
 
 </div>
 </div>
@@ -1507,9 +1506,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1InterfaceKinetics.html#a9fb588fd953e06ac889fc2789a5d3467">InterfaceKinetics</a>.</p>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00099">99</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00091">91</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
-<p>References <a class="el" href="Interface_8h_source.html#l00105">Interface::m_ok</a>.</p>
+<p>References <a class="el" href="Interface_8h_source.html#l00097">Interface::m_ok</a>.</p>
 
 </div>
 </div>
@@ -1534,9 +1533,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Flag indicating that the object has been instantiated. </p>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00105">105</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00097">97</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Interface_8h_source.html#l00045">Interface::Interface()</a>, <a class="el" href="Interface_8h_source.html#l00091">Interface::operator!()</a>, <a class="el" href="Interface_8h_source.html#l00079">Interface::operator=()</a>, and <a class="el" href="Interface_8h_source.html#l00099">Interface::ready()</a>.</p>
+<p>Referenced by <a class="el" href="Interface_8h_source.html#l00037">Interface::Interface()</a>, <a class="el" href="Interface_8h_source.html#l00083">Interface::operator!()</a>, <a class="el" href="Interface_8h_source.html#l00071">Interface::operator=()</a>, and <a class="el" href="Interface_8h_source.html#l00091">Interface::ready()</a>.</p>
 
 </div>
 </div>
@@ -1560,9 +1559,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p><a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a> pointer to the XML File object that contains the Surface and the Interfacial Reaction object description. </p>
 
-<p>Definition at line <a class="el" href="Interface_8h_source.html#l00109">109</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
+<p>Definition at line <a class="el" href="Interface_8h_source.html#l00101">101</a> of file <a class="el" href="Interface_8h_source.html">Interface.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Interface_8h_source.html#l00045">Interface::Interface()</a>, and <a class="el" href="Interface_8h_source.html#l00079">Interface::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="Interface_8h_source.html#l00037">Interface::Interface()</a>, and <a class="el" href="Interface_8h_source.html#l00071">Interface::operator=()</a>.</p>
 
 </div>
 </div>

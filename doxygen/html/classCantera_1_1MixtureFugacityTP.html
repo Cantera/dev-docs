@@ -291,9 +291,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2cf34e66ff36ee1b0bd4bd0f4be2aef1 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a2cf34e66ff36ee1b0bd4bd0f4be2aef1">satTemperature</a> (doublereal p) const </td></tr>
 <tr class="memdesc:a2cf34e66ff36ee1b0bd4bd0f4be2aef1 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the saturation temperature given the pressure.  <a href="#a2cf34e66ff36ee1b0bd4bd0f4be2aef1">More...</a><br/></td></tr>
 <tr class="separator:a2cf34e66ff36ee1b0bd4bd0f4be2aef1 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0a553fb66353c82d8d218426355091 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a7c0a553fb66353c82d8d218426355091">satPressure</a> (doublereal t) const </td></tr>
-<tr class="memdesc:a7c0a553fb66353c82d8d218426355091 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the saturation pressure given the temperature.  <a href="#a7c0a553fb66353c82d8d218426355091">More...</a><br/></td></tr>
-<tr class="separator:a7c0a553fb66353c82d8d218426355091 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa4bdd0457db381d4b1c994c45675e4f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#aaa4bdd0457db381d4b1c994c45675e4f">vaporFraction</a> () const </td></tr>
 <tr class="memdesc:aaa4bdd0457db381d4b1c994c45675e4f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the fraction of vapor at the current conditions.  <a href="#aaa4bdd0457db381d4b1c994c45675e4f">More...</a><br/></td></tr>
 <tr class="separator:aaa4bdd0457db381d4b1c994c45675e4f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -892,6 +889,9 @@ Special Functions for fugacity classes</h2></td></tr>
 <tr class="memitem:abe90381fc2fd32b7866094a3af87506c"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MixtureFugacityTP.html#abe90381fc2fd32b7866094a3af87506c">calculatePsat</a> (doublereal TKelvin, doublereal &amp;molarVolGas, doublereal &amp;molarVolLiquid)</td></tr>
 <tr class="memdesc:abe90381fc2fd32b7866094a3af87506c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the saturation pressure at the current mixture content for the given temperature.  <a href="#abe90381fc2fd32b7866094a3af87506c">More...</a><br/></td></tr>
 <tr class="separator:abe90381fc2fd32b7866094a3af87506c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45559b32c61e4f8fd75abb83cc886d93"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MixtureFugacityTP.html#a45559b32c61e4f8fd75abb83cc886d93">satPressure</a> (doublereal TKelvin)</td></tr>
+<tr class="memdesc:a45559b32c61e4f8fd75abb83cc886d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the saturation pressure at the current mixture content for the given temperature.  <a href="#a45559b32c61e4f8fd75abb83cc886d93">More...</a><br/></td></tr>
+<tr class="separator:a45559b32c61e4f8fd75abb83cc886d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a774eb90e1ce6d062d45dd50994488621"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MixtureFugacityTP.html#a774eb90e1ce6d062d45dd50994488621">z</a> () const </td></tr>
 <tr class="memdesc:a774eb90e1ce6d062d45dd50994488621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the value of z.  <a href="#a774eb90e1ce6d062d45dd50994488621">More...</a><br/></td></tr>
 <tr class="separator:a774eb90e1ce6d062d45dd50994488621"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -943,9 +943,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00023">23</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00024">24</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00080">MixtureFugacityTP::duplMyselfAsThermoPhase()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00081">MixtureFugacityTP::duplMyselfAsThermoPhase()</a>.</p>
 
 </div>
 </div>
@@ -971,9 +971,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00038">38</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00039">39</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1000,11 +1000,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">55</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">56</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00832">MixtureFugacityTP::forcedState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00829">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00844">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00841">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00838">MixtureFugacityTP::m_logc0</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00814">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00850">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00835">MixtureFugacityTP::m_Tlast_ref</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00061">ThermoPhase::operator=()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00843">MixtureFugacityTP::forcedState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00840">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00855">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00852">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00849">MixtureFugacityTP::m_logc0</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00825">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00861">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00846">MixtureFugacityTP::m_Tlast_ref</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00061">ThermoPhase::operator=()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00038">MixtureFugacityTP::MixtureFugacityTP()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00184">RedlichKwongMFTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00039">MixtureFugacityTP::MixtureFugacityTP()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00184">RedlichKwongMFTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1036,9 +1036,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#ada5dc6bcebfe0f6e38b664e204013159">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00080">80</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00081">81</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00023">MixtureFugacityTP::MixtureFugacityTP()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00024">MixtureFugacityTP::MixtureFugacityTP()</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1072,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00112">112</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00109">MixtureFugacityTP::err()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00110">MixtureFugacityTP::err()</a>.</p>
 
 </div>
 </div>
@@ -1106,7 +1106,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#adcdeaba7e792aa342a1afd419a669196">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00085">85</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00086">86</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l00034">Cantera::cSS_CONVENTION_TEMPERATURE</a>.</p>
 
@@ -1142,9 +1142,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00090">90</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00091">91</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00832">MixtureFugacityTP::forcedState_</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00843">MixtureFugacityTP::forcedState_</a>.</p>
 
 </div>
 </div>
@@ -1172,9 +1172,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <p>Report the solution branch which the solution is restricted to. </p>
 <dl class="section return"><dt>Returns</dt><dd>Branch that the solution is restricted to. the value -1 means gas. The value -2 means unrestricted. Values of zero or greater refer to species dominated condensed phases. </dd></dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00095">95</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00096">96</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00832">MixtureFugacityTP::forcedState_</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00843">MixtureFugacityTP::forcedState_</a>.</p>
 
 </div>
 </div>
@@ -1202,9 +1202,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <p>Report the solution branch which the solution is actually on. </p>
 <dl class="section return"><dt>Returns</dt><dd>Branch that the solution is restricted to. the value -1 means gas. The value -2 means superfluid.. Values of zero or greater refer to species dominated condensed phases. </dd></dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00100">100</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00101">101</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00829">MixtureFugacityTP::iState_</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00840">MixtureFugacityTP::iState_</a>.</p>
 
 </div>
 </div>
@@ -1245,7 +1245,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00170">170</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00109">MixtureFugacityTP::err()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00110">MixtureFugacityTP::err()</a>.</p>
 
 </div>
 </div>
@@ -1285,7 +1285,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#afd1362c30dc157ab59cf9728fc936064">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00120">120</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00121">121</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00595">ThermoPhase::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>.</p>
 
@@ -1325,9 +1325,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a5c5d74eaae1b6d8d5566d89702ce01fe">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00133">133</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00134">134</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -1364,9 +1364,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a88086b865e0c7bda8078150392a54e6d">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00144">144</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00145">145</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00220">MixtureFugacityTP::getEnthalpy_RT_ref()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00221">MixtureFugacityTP::getEnthalpy_RT_ref()</a>.</p>
 
 </div>
 </div>
@@ -1403,9 +1403,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ac0299d51f7b3c1f6788b159619507765">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00157">157</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00158">158</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00850">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00861">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -1442,9 +1442,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a568f0aceae909a14d919506080f2e3e5">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00167">167</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00168">168</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -1481,9 +1481,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a1954a1187389496ecd229ed5e29e51ad">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00177">177</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00178">178</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, and <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, and <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>.</p>
 
 </div>
 </div>
@@ -1523,9 +1523,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a0c41dd29b4e5942c96422d5b080496d4">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00188">188</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00189">189</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00841">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00852">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00612">RedlichKwongMFTP::getPartialMolarIntEnergies()</a>.</p>
 
@@ -1564,9 +1564,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aa1413b57516066ba16e71a23c37d6b46">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00200">200</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00201">201</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00844">MixtureFugacityTP::m_cp0_R</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00855">MixtureFugacityTP::m_cp0_R</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00619">RedlichKwongMFTP::getPartialMolarCp()</a>.</p>
 
@@ -1606,9 +1606,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a3825288e9e8f4b47b38426b66b6155f7">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00206">206</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00207">207</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00375">RedlichKwongMFTP::standardConcentration()</a>.</p>
 
@@ -1649,11 +1649,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#aaefc9c80c1f44914510e3e9918162af8">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00317">317</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00318">318</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>.</p>
 
 </div>
 </div>
@@ -1690,9 +1690,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#af51924111b2d115777e94fc71bcc86dd">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00323">323</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00324">324</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -1727,9 +1727,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#afac1b45437d49cc161e7ca2d5c00906a">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00371">371</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00372">372</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00109">MixtureFugacityTP::err()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00110">MixtureFugacityTP::err()</a>.</p>
 
 </div>
 </div>
@@ -1777,11 +1777,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a1a5bebf3c4bd81782b54a3761f82215e">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">376</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">377</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00538">MixtureFugacityTP::densityCalc()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00832">MixtureFugacityTP::forcedState_</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00829">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00814">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">MixtureFugacityTP::phaseState()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00539">MixtureFugacityTP::densityCalc()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00843">MixtureFugacityTP::forcedState_</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00840">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00825">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">MixtureFugacityTP::phaseState()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00323">MixtureFugacityTP::setPressure()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00482">MixtureFugacityTP::setState_TPX()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00267">MixtureFugacityTP::setStateFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00324">MixtureFugacityTP::setPressure()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00483">MixtureFugacityTP::setState_TPX()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00268">MixtureFugacityTP::setStateFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1826,11 +1826,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">466</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">467</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00829">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00814">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="Phase_8cpp_source.html#l00607">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">MixtureFugacityTP::phaseState()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01041">MixtureFugacityTP::pressureCalc()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00840">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00825">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="Phase_8cpp_source.html#l00607">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">MixtureFugacityTP::phaseState()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01051">MixtureFugacityTP::pressureCalc()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00741">MixtureFugacityTP::corr0()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00267">MixtureFugacityTP::setStateFromXML()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00317">MixtureFugacityTP::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00742">MixtureFugacityTP::corr0()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00268">MixtureFugacityTP::setStateFromXML()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00318">MixtureFugacityTP::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -1885,9 +1885,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a5a95360d8ebf90e0c5cda5edd578cdf6">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00482">482</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00483">483</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -1925,9 +1925,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a7aed419246e2ec528d92aadb299369ee">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00334">334</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00335">335</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00374">Phase::setMassFractions()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00374">Phase::setMassFractions()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00330">RedlichKwongMFTP::setMassFractions()</a>.</p>
 
@@ -1968,9 +1968,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#abf3f7be7d56c2e1832869479c99cf97c">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00340">340</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00341">341</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00388">Phase::setMassFractions_NoNorm()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00388">Phase::setMassFractions_NoNorm()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00336">RedlichKwongMFTP::setMassFractions_NoNorm()</a>.</p>
 
@@ -2010,9 +2010,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a9021a59aefd96f389045818f8513abb3">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00346">346</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00347">347</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00306">Phase::setMoleFractions()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00306">Phase::setMoleFractions()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00342">RedlichKwongMFTP::setMoleFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00348">RedlichKwongMFTP::setMoleFractions_NoNorm()</a>.</p>
 
@@ -2053,9 +2053,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#aa64f4b501431fbeedcc035b6a94d705c">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00352">352</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00353">353</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00344">Phase::setMoleFractions_NoNorm()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00344">Phase::setMoleFractions_NoNorm()</a>.</p>
 
 </div>
 </div>
@@ -2093,9 +2093,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a51ba2bc35caa0ec446e308d7ea6349ca">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00358">358</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00359">359</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00577">Phase::setConcentrations()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00519">Phase::getMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00577">Phase::setConcentrations()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00354">RedlichKwongMFTP::setConcentrations()</a>.</p>
 
@@ -2132,9 +2132,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">437</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00814">MixtureFugacityTP::m_Pcurrent</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00825">MixtureFugacityTP::m_Pcurrent</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00157">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00167">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00188">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00177">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00133">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00206">MixtureFugacityTP::getStandardVolumes()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00498">MixtureFugacityTP::z()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00158">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00168">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00189">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00178">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00134">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00207">MixtureFugacityTP::getStandardVolumes()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00499">MixtureFugacityTP::z()</a>.</p>
 
 </div>
 </div>
@@ -2169,11 +2169,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <li>m_s0_R; </li>
 </ul>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">1053</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">1063</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00844">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00841">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00838">MixtureFugacityTP::m_logc0</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00850">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00835">MixtureFugacityTP::m_Tlast_ref</a>, <a class="el" href="ThermoPhase_8h_source.html#l00159">ThermoPhase::refPressure()</a>, <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a4f4ab4ce24522c0c5a9252508d1e4acc">SpeciesThermo::update()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00855">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00852">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00849">MixtureFugacityTP::m_logc0</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00861">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="ThermoPhase_8h_source.html#l01625">ThermoPhase::m_spthermo</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00846">MixtureFugacityTP::m_Tlast_ref</a>, <a class="el" href="ThermoPhase_8h_source.html#l00159">ThermoPhase::refPressure()</a>, <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a4f4ab4ce24522c0c5a9252508d1e4acc">SpeciesThermo::update()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00264">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00234">RedlichKwongMFTP::enthalpy_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00250">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00200">MixtureFugacityTP::getCp_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00251">MixtureFugacityTP::getCp_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00220">MixtureFugacityTP::getEnthalpy_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00157">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00244">MixtureFugacityTP::getEntropy_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00167">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00226">MixtureFugacityTP::getGibbs_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00188">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00177">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00133">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00206">MixtureFugacityTP::getStandardVolumes()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00257">MixtureFugacityTP::getStandardVolumes_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00238">MixtureFugacityTP::gibbs_RT_ref()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00286">RedlichKwongMFTP::pressure()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00323">RedlichKwongMFTP::setTemperature()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00317">MixtureFugacityTP::setTemperature()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00729">RedlichKwongMFTP::setToEquilState()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00264">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00234">RedlichKwongMFTP::enthalpy_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00250">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00201">MixtureFugacityTP::getCp_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00252">MixtureFugacityTP::getCp_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00221">MixtureFugacityTP::getEnthalpy_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00158">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00245">MixtureFugacityTP::getEntropy_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00168">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00227">MixtureFugacityTP::getGibbs_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00189">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00178">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00134">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00207">MixtureFugacityTP::getStandardVolumes()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00258">MixtureFugacityTP::getStandardVolumes_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00239">MixtureFugacityTP::gibbs_RT_ref()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00286">RedlichKwongMFTP::pressure()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00323">RedlichKwongMFTP::setTemperature()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00318">MixtureFugacityTP::setTemperature()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00729">RedlichKwongMFTP::setToEquilState()</a>.</p>
 
 </div>
 </div>
@@ -2210,11 +2210,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aa5fed4862ea463c556a284364e3381c0">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00220">220</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00221">221</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00841">MixtureFugacityTP::m_h0_RT</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00852">MixtureFugacityTP::m_h0_RT</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00144">MixtureFugacityTP::getEnthalpy_RT()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00496">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00145">MixtureFugacityTP::getEnthalpy_RT()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00496">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>.</p>
 
 </div>
 </div>
@@ -2250,9 +2250,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ad746e85d2e4eee75b1a965e321f97f01">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00226">226</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00227">227</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00729">RedlichKwongMFTP::setToEquilState()</a>.</p>
 
@@ -2282,11 +2282,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <p>Returns the vector of nondimensional Gibbs free energies of the reference state at the current temperature of the solution and the reference pressure for the species. </p>
 <dl class="section return"><dt>Returns</dt><dd>Output vector contains the nondimensional Gibbs free energies of the reference state of the species length = m_kk, units = dimensionless. </dd></dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00238">238</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00239">239</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00232">MixtureFugacityTP::getGibbs_ref()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00233">MixtureFugacityTP::getGibbs_ref()</a>.</p>
 
 </div>
 </div>
@@ -2321,9 +2321,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a42ab44735c97d8f993d1b8af88cea04a">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00232">232</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00233">233</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00238">MixtureFugacityTP::gibbs_RT_ref()</a>, and <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00239">MixtureFugacityTP::gibbs_RT_ref()</a>, and <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00459">RedlichKwongMFTP::getChemPotentials()</a>.</p>
 
@@ -2360,9 +2360,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aa3b45e9eed24c08624109dd9c8a32c88">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00244">244</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00245">245</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00850">MixtureFugacityTP::m_s0_R</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00861">MixtureFugacityTP::m_s0_R</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarEntropies()</a>.</p>
 
@@ -2399,9 +2399,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ad1ab47a3e216c54aee6bddc3e9bf33ee">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00251">251</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00252">252</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00844">MixtureFugacityTP::m_cp0_R</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00855">MixtureFugacityTP::m_cp0_R</a>.</p>
 
 </div>
 </div>
@@ -2438,9 +2438,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a24096702b6608d467ffaa78ed160b531">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00257">257</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00258">258</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00159">ThermoPhase::refPressure()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00159">ThermoPhase::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -2478,9 +2478,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a01e155d014f6e4b4fd3121fda565fc7d">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00267">267</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00268">268</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="ctml_8cpp_source.html#l00164">ctml::getChildValue()</a>, <a class="el" href="ctml_8cpp_source.html#l00267">ctml::getFloat()</a>, <a class="el" href="xml_8cpp_source.html#l00574">XML_Node::hasChild()</a>, <a class="el" href="Phase_8cpp_source.html#l00399">Phase::setMassFractionsByName()</a>, <a class="el" href="Phase_8cpp_source.html#l00354">Phase::setMoleFractionsByName()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="ctml_8cpp_source.html#l00164">ctml::getChildValue()</a>, <a class="el" href="ctml_8cpp_source.html#l00267">ctml::getFloat()</a>, <a class="el" href="xml_8cpp_source.html#l00574">XML_Node::hasChild()</a>, <a class="el" href="Phase_8cpp_source.html#l00399">Phase::setMassFractionsByName()</a>, <a class="el" href="Phase_8cpp_source.html#l00354">Phase::setMoleFractionsByName()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -2512,9 +2512,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a8a12209d08a5c4876d9894d619368a79">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00300">300</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00301">301</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00728">ThermoPhase::initThermo()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00728">ThermoPhase::initThermo()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00723">RedlichKwongMFTP::initThermo()</a>.</p>
 
@@ -2566,9 +2566,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a42dab55c3f7b95e3fc87507816541e87">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00488">488</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00489">489</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00687">ThermoPhase::initThermoXML()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00687">ThermoPhase::initThermoXML()</a>.</p>
 
 <p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00785">RedlichKwongMFTP::initThermoXML()</a>.</p>
 
@@ -2596,11 +2596,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 </div><div class="memdoc">
 <p>Initialize the internal lengths in this object. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">306</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">307</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00844">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00841">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00850">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00855">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">MixtureFugacityTP::m_g0_RT</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00852">MixtureFugacityTP::m_h0_RT</a>, <a class="el" href="Phase_8h_source.html#l00716">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00861">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00300">MixtureFugacityTP::initThermo()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00488">MixtureFugacityTP::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00301">MixtureFugacityTP::initThermo()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00489">MixtureFugacityTP::initThermoXML()</a>.</p>
 
 </div>
 </div>
@@ -2631,7 +2631,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 </p>
 <p>returns the value of z </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00498">498</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00499">499</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>.</p>
 
@@ -2664,7 +2664,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#ad344792674072436da9e2cca1d3ecd97">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00508">508</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00509">509</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -2693,7 +2693,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00514">514</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00515">515</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -2729,11 +2729,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns the estimated saturation pressure at the given temperature </dd></dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00520">520</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00521">521</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l01247">ThermoPhase::critPressure()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01055">RedlichKwongMFTP::liquidVolEst()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">MixtureFugacityTP::phaseState()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01055">RedlichKwongMFTP::liquidVolEst()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">MixtureFugacityTP::phaseState()</a>.</p>
 
 </div>
 </div>
@@ -2782,9 +2782,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#ad9907bac64d82302c4f1086f898f91d0">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00532">532</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00533">533</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00538">MixtureFugacityTP::densityCalc()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">MixtureFugacityTP::phaseState()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00539">MixtureFugacityTP::densityCalc()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">MixtureFugacityTP::phaseState()</a>.</p>
 
 </div>
 </div>
@@ -2849,11 +2849,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a456eae4d883352cded7ed0d3c6dcde27">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00538">538</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00539">539</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l01253">ThermoPhase::critDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01047">MixtureFugacityTP::dpdVCalc()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00532">MixtureFugacityTP::liquidVolEst()</a>, and <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l01253">ThermoPhase::critDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01057">MixtureFugacityTP::dpdVCalc()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00533">MixtureFugacityTP::liquidVolEst()</a>, and <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00741">MixtureFugacityTP::corr0()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00742">MixtureFugacityTP::corr0()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -2926,11 +2926,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00741">741</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00742">742</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00538">MixtureFugacityTP::densityCalc()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00279">ThermoPhase::gibbs_mole()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00977">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00539">MixtureFugacityTP::densityCalc()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00279">ThermoPhase::gibbs_mole()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">MixtureFugacityTP::calculatePsat()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>.</p>
 
 </div>
 </div>
@@ -2962,11 +2962,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <li>WATER_SUPERCRIT above the critical temperature </li>
 </ul>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">778</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">779</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l01253">ThermoPhase::critDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01047">MixtureFugacityTP::dpdVCalc()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00029">FLUID_UNSTABLE</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00829">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00532">MixtureFugacityTP::liquidVolEst()</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00520">MixtureFugacityTP::psatEst()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l01253">ThermoPhase::critDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01057">MixtureFugacityTP::dpdVCalc()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00029">FLUID_UNSTABLE</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00840">MixtureFugacityTP::iState_</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00533">MixtureFugacityTP::liquidVolEst()</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00521">MixtureFugacityTP::psatEst()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>.</p>
 
 </div>
 </div>
@@ -2996,7 +2996,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#ad82d29104ace5e3bfc2e963589c42a8a">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00820">820</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00821">821</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -3026,7 +3026,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a5521baf540c85f53494464a8a909aa7c">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00826">826</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00827">827</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -3071,9 +3071,52 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the saturation pressure at the given temperature </dd></dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00831">831</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">841</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00741">MixtureFugacityTP::corr0()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01247">ThermoPhase::critPressure()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00538">MixtureFugacityTP::densityCalc()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00532">MixtureFugacityTP::liquidVolEst()</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00520">MixtureFugacityTP::psatEst()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00317">MixtureFugacityTP::setTemperature()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00742">MixtureFugacityTP::corr0()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01247">ThermoPhase::critPressure()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01241">ThermoPhase::critTemperature()</a>, <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00539">MixtureFugacityTP::densityCalc()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00533">MixtureFugacityTP::liquidVolEst()</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00521">MixtureFugacityTP::psatEst()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00318">MixtureFugacityTP::setTemperature()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00833">MixtureFugacityTP::satPressure()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45559b32c61e4f8fd75abb83cc886d93"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">doublereal satPressure </td>
+          <td>(</td>
+          <td class="paramtype">doublereal&#160;</td>
+          <td class="paramname"><em>TKelvin</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate the saturation pressure at the current mixture content for the given temperature. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TKelvin</td><td>(input) Temperature (Kelvin) </td></tr>
+    <tr><td class="paramname">molarVolGas</td><td>(return) Molar volume of the gas </td></tr>
+    <tr><td class="paramname">molarVolLiquid</td><td>(return) Molar volume of the liquid</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the saturation pressure at the given temperature </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a30cc9db0935dde804b06cd9d6a0f6a36">ThermoPhase</a>.</p>
+
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00833">833</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00841">MixtureFugacityTP::calculatePsat()</a>.</p>
 
 </div>
 </div>
@@ -3122,9 +3165,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a72654d742045fb8a4adb188a0855b4a7">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01041">1041</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01051">1051</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>.</p>
 
 </div>
 </div>
@@ -3180,9 +3223,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a6de773b29e858c29bb1d282199cfb60c">RedlichKwongMFTP</a>.</p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01047">1047</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01057">1057</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00538">MixtureFugacityTP::densityCalc()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">MixtureFugacityTP::phaseState()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00539">MixtureFugacityTP::densityCalc()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">MixtureFugacityTP::phaseState()</a>.</p>
 
 </div>
 </div>
@@ -3216,11 +3259,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00109">109</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00110">110</a> of file <a class="el" href="MixtureFugacityTP_8cpp_source.html">MixtureFugacityTP.cpp</a>.</p>
 
 <p>References <a class="el" href="MixtureFugacityTP_8h_source.html#l00112">MixtureFugacityTP::eosType()</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00371">MixtureFugacityTP::calcDensity()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00170">MixtureFugacityTP::getdlnActCoeffdlnN_diag()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00372">MixtureFugacityTP::calcDensity()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00170">MixtureFugacityTP::getdlnActCoeffdlnN_diag()</a>.</p>
 
 </div>
 </div>
@@ -3247,9 +3290,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <p>Because the pressure is now a calculation, we store the result of the calculation whenever it is recalculated.</p>
 <p>units = Pascals </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00814">814</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00825">825</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00626">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00286">RedlichKwongMFTP::pressure()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00626">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00286">RedlichKwongMFTP::pressure()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00437">MixtureFugacityTP::pressure()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>.</p>
 
 </div>
 </div>
@@ -3274,9 +3317,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <p>Storage for the current values of the mole fractions of the species. </p>
 <p>This vector is kept up-to-date when some the setState functions are called. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00820">820</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">831</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01285">RedlichKwongMFTP::calculateAB()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00705">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00688">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00672">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00414">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00459">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00496">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00626">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00358">MixtureFugacityTP::setConcentrations()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00334">MixtureFugacityTP::setMassFractions()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00340">MixtureFugacityTP::setMassFractions_NoNorm()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00346">MixtureFugacityTP::setMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00352">MixtureFugacityTP::setMoleFractions_NoNorm()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01263">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01285">RedlichKwongMFTP::calculateAB()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00705">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00688">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00672">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00414">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00459">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00496">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00626">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00359">MixtureFugacityTP::setConcentrations()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00335">MixtureFugacityTP::setMassFractions()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00341">MixtureFugacityTP::setMassFractions_NoNorm()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00347">MixtureFugacityTP::setMoleFractions()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00353">MixtureFugacityTP::setMoleFractions_NoNorm()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01263">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -3306,9 +3349,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 <li>FLUID_SUPERCRIT </li>
 </ul>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00829">829</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00840">840</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00778">MixtureFugacityTP::phaseState()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00100">MixtureFugacityTP::reportSolnBranchActual()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00466">MixtureFugacityTP::setState_TR()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00779">MixtureFugacityTP::phaseState()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00101">MixtureFugacityTP::reportSolnBranchActual()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00467">MixtureFugacityTP::setState_TR()</a>.</p>
 
 </div>
 </div>
@@ -3332,9 +3375,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Force the system to be on a particular side of the spinodal curve. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00832">832</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00843">843</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00095">MixtureFugacityTP::forcedSolutionBranch()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00090">MixtureFugacityTP::setForcedSolutionBranch()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00376">MixtureFugacityTP::setState_TP()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00096">MixtureFugacityTP::forcedSolutionBranch()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00091">MixtureFugacityTP::setForcedSolutionBranch()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00377">MixtureFugacityTP::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -3358,9 +3401,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>The last temperature at which the reference state thermodynamic properties were calculated at. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00835">835</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00846">846</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3384,9 +3427,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Temporary storage for log of p/rt. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00838">838</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00849">849</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3410,9 +3453,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Temporary storage for dimensionless reference state enthalpies. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00841">841</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00852">852</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00234">RedlichKwongMFTP::enthalpy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00220">MixtureFugacityTP::getEnthalpy_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00188">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00234">RedlichKwongMFTP::enthalpy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00221">MixtureFugacityTP::getEnthalpy_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00189">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3436,9 +3479,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Temporary storage for dimensionless reference state heat capacities. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00844">844</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00855">855</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00264">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00200">MixtureFugacityTP::getCp_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00251">MixtureFugacityTP::getCp_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00264">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00201">MixtureFugacityTP::getCp_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00252">MixtureFugacityTP::getCp_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3462,9 +3505,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Temporary storage for dimensionless reference state gibbs energies. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00847">847</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00858">858</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00167">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00226">MixtureFugacityTP::getGibbs_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00177">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00133">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00238">MixtureFugacityTP::gibbs_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00168">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00227">MixtureFugacityTP::getGibbs_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00178">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00134">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00239">MixtureFugacityTP::gibbs_RT_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3488,9 +3531,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>updateMixingE
 
 <p>Temporary storage for dimensionless reference state entropies. </p>
 
-<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00850">850</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
+<p>Definition at line <a class="el" href="MixtureFugacityTP_8h_source.html#l00861">861</a> of file <a class="el" href="MixtureFugacityTP_8h_source.html">MixtureFugacityTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01053">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00250">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00157">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00244">MixtureFugacityTP::getEntropy_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00306">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00055">MixtureFugacityTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01063">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00250">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00158">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00245">MixtureFugacityTP::getEntropy_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00307">MixtureFugacityTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00056">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>

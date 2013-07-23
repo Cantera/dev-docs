@@ -826,102 +826,113 @@
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#abe90381fc2fd32b7866094a3af87506c" title="Calculate the saturation pressure at the current mixture content for the given temperature. ">calculatePsat</a>(doublereal TKelvin, doublereal&amp; molarVolGas,</div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                             doublereal&amp; molarVolLiquid);</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">    //! Calculate the pressure given the temperature and the molar volume</span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    </div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">    //! Calculate the saturation pressure at the current mixture content for the given temperature</span></div>
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">     *  Calculate the pressure given the temperature and the molar volume</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">     * @param   TKelvin   temperature in kelvin</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment">     * @param   molarVol  molar volume ( m3/kmol)</span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">     * @return  Returns the pressure.</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a72654d742045fb8a4adb188a0855b4a7" title="Calculate the pressure given the temperature and the molar volume. ">pressureCalc</a>(doublereal TKelvin, doublereal molarVol) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">    //! Calculate the pressure and the pressure derivative given the temperature and the molar volume</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">     *   @param TKelvin         (input) Temperature (Kelvin)</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">     *   @param molarVolGas     (return) Molar volume of the gas</span></div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">     *   @param molarVolLiquid  (return) Molar volume of the liquid</span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment">     *   @return          Returns the saturation pressure at the given temperature</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a45559b32c61e4f8fd75abb83cc886d93" title="Calculate the saturation pressure at the current mixture content for the given temperature. ">satPressure</a>(doublereal TKelvin);</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">    //! Calculate the pressure given the temperature and the molar volume</span></div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">     *  Temperature and mole number are held constant</span></div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">     *  Calculate the pressure given the temperature and the molar volume</span></div>
 <div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment">     * @param   TKelvin   temperature in kelvin</span></div>
 <div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment">     * @param   molarVol  molar volume ( m3/kmol)</span></div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">     * @param   presCalc  Returns the pressure.</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">     *  @return  Returns the derivative of the pressure wrt the molar volume</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a6de773b29e858c29bb1d282199cfb60c" title="Calculate the pressure and the pressure derivative given the temperature and the molar volume...">dpdVCalc</a>(doublereal TKelvin, doublereal molarVol, doublereal&amp; presCalc) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> updateMixingExpressions();</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="comment">    //@}</span></div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    <span class="keyword">class </span>spinodalFunc : <span class="keyword">public</span> <a class="code" href="classCantera_1_1ResidEval.html" title="Virtual base class for DAE residual function evaluators. ">Cantera::ResidEval</a></div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    {</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        spinodalFunc(<a class="code" href="classCantera_1_1MixtureFugacityTP.html" title="This is a filter class for ThermoPhase that implements some preparatory steps for efficiently handlin...">MixtureFugacityTP</a>* tp);</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> evalSS(<span class="keyword">const</span> doublereal t, <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y, doublereal* <span class="keyword">const</span> r);</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        <a class="code" href="classCantera_1_1MixtureFugacityTP.html" title="This is a filter class for ThermoPhase that implements some preparatory steps for efficiently handlin...">MixtureFugacityTP</a>* m_tp;</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    };</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment">    //! Current value of the pressures</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="comment">     *  Because the pressure is now a calculation, we store the result of the calculation whenever</span></div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="comment">     *  it is recalculated.</span></div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="comment">     *  units = Pascals</span></div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00814"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab231cf2f611695594303229d552c6c27">  814</a></span>&#160;    doublereal  <a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab231cf2f611695594303229d552c6c27" title="Current value of the pressures. ">m_Pcurrent</a>;</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="comment">    //! Storage for the current values of the mole fractions of the species</span></div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">     * This vector is kept up-to-date when some the setState functions are called.</span></div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00820"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a818fad8683eec0180a676c21d7af1dc7">  820</a></span>&#160;    std::vector&lt;doublereal&gt; <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a818fad8683eec0180a676c21d7af1dc7" title="Storage for the current values of the mole fractions of the species. ">moleFractions_</a>;</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">    //! Current state of the fluid</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">     *  There are three possible states of the fluid:</span></div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment">     *  - FLUID_GAS</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment">     *  - FLUID_LIQUID</span></div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">     *  - FLUID_SUPERCRIT</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00829"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a04b90413b51a1b773b3843a9ba9ae263">  829</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a04b90413b51a1b773b3843a9ba9ae263" title="Current state of the fluid. ">iState_</a>;</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="comment">    //! Force the system to be on a particular side of the spinodal curve</span></div>
-<div class="line"><a name="l00832"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#ac65b87dd74775c3d9c70749887aa51be">  832</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1MixtureFugacityTP.html#ac65b87dd74775c3d9c70749887aa51be" title="Force the system to be on a particular side of the spinodal curve. ">forcedState_</a>;</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment">    //! The last temperature at which the reference state thermodynamic properties were calculated at.</span></div>
-<div class="line"><a name="l00835"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab9892104ce0dcf533b0c4cc1deea1b50">  835</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab9892104ce0dcf533b0c4cc1deea1b50" title="The last temperature at which the reference state thermodynamic properties were calculated at...">m_Tlast_ref</a>;</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="comment">    //! Temporary storage for log of p/rt</span></div>
-<div class="line"><a name="l00838"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a8fcf945cb41939a551ca48393a06befd">  838</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal    <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a8fcf945cb41939a551ca48393a06befd" title="Temporary storage for log of p/rt. ">m_logc0</a>;</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state enthalpies</span></div>
-<div class="line"><a name="l00841"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf">  841</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf" title="Temporary storage for dimensionless reference state enthalpies. ">m_h0_RT</a>;</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state heat capacities</span></div>
-<div class="line"><a name="l00844"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0f99f8895cc2109fd4dcebb729d615fb">  844</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0f99f8895cc2109fd4dcebb729d615fb" title="Temporary storage for dimensionless reference state heat capacities. ">m_cp0_R</a>;</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state gibbs energies</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0b34289ccbc27c3af431627fd7a3a4fe">  847</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0b34289ccbc27c3af431627fd7a3a4fe" title="Temporary storage for dimensionless reference state gibbs energies. ">m_g0_RT</a>;</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state entropies</span></div>
-<div class="line"><a name="l00850"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a56e8ca74ece671716ff2cb73967e1576">  850</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a56e8ca74ece671716ff2cb73967e1576" title="Temporary storage for dimensionless reference state entropies. ">m_s0_R</a>;</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    spinodalFunc* fdpdv_;</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;<span class="comment">    //! MixtureFugacityTP has its own err routine</span></div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="comment">     * @param msg  Error message string</span></div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="MixtureFugacityTP has its own err routine. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;};</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;}</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">     * @return  Returns the pressure.</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a72654d742045fb8a4adb188a0855b4a7" title="Calculate the pressure given the temperature and the molar volume. ">pressureCalc</a>(doublereal TKelvin, doublereal molarVol) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="comment">    //! Calculate the pressure and the pressure derivative given the temperature and the molar volume</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="comment">     *  Temperature and mole number are held constant</span></div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="comment">     * @param   TKelvin   temperature in kelvin</span></div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment">     * @param   molarVol  molar volume ( m3/kmol)</span></div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="comment">     * @param   presCalc  Returns the pressure.</span></div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="comment">     *  @return  Returns the derivative of the pressure wrt the molar volume</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a6de773b29e858c29bb1d282199cfb60c" title="Calculate the pressure and the pressure derivative given the temperature and the molar volume...">dpdVCalc</a>(doublereal TKelvin, doublereal molarVol, doublereal&amp; presCalc) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> updateMixingExpressions();</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    <span class="keyword">class </span>spinodalFunc : <span class="keyword">public</span> <a class="code" href="classCantera_1_1ResidEval.html" title="Virtual base class for DAE residual function evaluators. ">Cantera::ResidEval</a></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;    {</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;        spinodalFunc(<a class="code" href="classCantera_1_1MixtureFugacityTP.html" title="This is a filter class for ThermoPhase that implements some preparatory steps for efficiently handlin...">MixtureFugacityTP</a>* tp);</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> evalSS(<span class="keyword">const</span> doublereal t, <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y, doublereal* <span class="keyword">const</span> r);</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;        <a class="code" href="classCantera_1_1MixtureFugacityTP.html" title="This is a filter class for ThermoPhase that implements some preparatory steps for efficiently handlin...">MixtureFugacityTP</a>* m_tp;</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;    };</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment">    //! Current value of the pressures</span></div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment">     *  Because the pressure is now a calculation, we store the result of the calculation whenever</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">     *  it is recalculated.</span></div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment">     *  units = Pascals</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00825"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab231cf2f611695594303229d552c6c27">  825</a></span>&#160;    doublereal  <a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab231cf2f611695594303229d552c6c27" title="Current value of the pressures. ">m_Pcurrent</a>;</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">    //! Storage for the current values of the mole fractions of the species</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment">     * This vector is kept up-to-date when some the setState functions are called.</span></div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00831"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a818fad8683eec0180a676c21d7af1dc7">  831</a></span>&#160;    std::vector&lt;doublereal&gt; <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a818fad8683eec0180a676c21d7af1dc7" title="Storage for the current values of the mole fractions of the species. ">moleFractions_</a>;</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment">    //! Current state of the fluid</span></div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="comment">     *  There are three possible states of the fluid:</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment">     *  - FLUID_GAS</span></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="comment">     *  - FLUID_LIQUID</span></div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;<span class="comment">     *  - FLUID_SUPERCRIT</span></div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00840"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a04b90413b51a1b773b3843a9ba9ae263">  840</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a04b90413b51a1b773b3843a9ba9ae263" title="Current state of the fluid. ">iState_</a>;</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="comment">    //! Force the system to be on a particular side of the spinodal curve</span></div>
+<div class="line"><a name="l00843"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#ac65b87dd74775c3d9c70749887aa51be">  843</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1MixtureFugacityTP.html#ac65b87dd74775c3d9c70749887aa51be" title="Force the system to be on a particular side of the spinodal curve. ">forcedState_</a>;</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment">    //! The last temperature at which the reference state thermodynamic properties were calculated at.</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab9892104ce0dcf533b0c4cc1deea1b50">  846</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#ab9892104ce0dcf533b0c4cc1deea1b50" title="The last temperature at which the reference state thermodynamic properties were calculated at...">m_Tlast_ref</a>;</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;<span class="comment">    //! Temporary storage for log of p/rt</span></div>
+<div class="line"><a name="l00849"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a8fcf945cb41939a551ca48393a06befd">  849</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal    <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a8fcf945cb41939a551ca48393a06befd" title="Temporary storage for log of p/rt. ">m_logc0</a>;</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state enthalpies</span></div>
+<div class="line"><a name="l00852"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf">  852</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf" title="Temporary storage for dimensionless reference state enthalpies. ">m_h0_RT</a>;</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state heat capacities</span></div>
+<div class="line"><a name="l00855"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0f99f8895cc2109fd4dcebb729d615fb">  855</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0f99f8895cc2109fd4dcebb729d615fb" title="Temporary storage for dimensionless reference state heat capacities. ">m_cp0_R</a>;</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state gibbs energies</span></div>
+<div class="line"><a name="l00858"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0b34289ccbc27c3af431627fd7a3a4fe">  858</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a0b34289ccbc27c3af431627fd7a3a4fe" title="Temporary storage for dimensionless reference state gibbs energies. ">m_g0_RT</a>;</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;<span class="comment">    //! Temporary storage for dimensionless reference state entropies</span></div>
+<div class="line"><a name="l00861"></a><span class="lineno"><a class="code" href="classCantera_1_1MixtureFugacityTP.html#a56e8ca74ece671716ff2cb73967e1576">  861</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a56e8ca74ece671716ff2cb73967e1576" title="Temporary storage for dimensionless reference state entropies. ">m_s0_R</a>;</div>
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;    spinodalFunc* fdpdv_;</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;<span class="comment">    //! MixtureFugacityTP has its own err routine</span></div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;<span class="comment">     * @param msg  Error message string</span></div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    doublereal <a class="code" href="classCantera_1_1MixtureFugacityTP.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="MixtureFugacityTP has its own err routine. ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;};</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;}</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

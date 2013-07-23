@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>A Very Simple C++ Program &mdash; Cantera 2.1b1 documentation</title>
+    <title>A Very Simple C++ Program &mdash; Cantera 2.1a1 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1b1',
+        VERSION:     '2.1a1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1b1 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.1a1 documentation" href="../index.html" />
     <link rel="up" title="C++ Interface User’s Guide" href="index.html" />
     <link rel="next" title="Chemical Equilibrium Example Program" href="equil-example.html" />
     <link rel="prev" title="Computing Thermodynamic Properties" href="thermo.html" /> 
@@ -63,7 +63,7 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">A Very Simple C++ Program</a><ul>
-<li><a class="reference internal" href="#catching-canteraerror-exceptions">Catching CanteraError exceptions</a></li>
+<li><a class="reference internal" href="#catching-canteraerror-exceptions">Catching <span>CanteraError</span> exceptions</a></li>
 <li><a class="reference internal" href="#the-report-function">The <tt class="docutils literal"><span class="pre">report</span></tt> function</a></li>
 </ul>
 </li>
@@ -177,18 +177,18 @@ heat capacity c_v         2797.09        2.072e+04     J/K
 the &#8220;Hello, World&#8221; program most programming textbooks begin with. But it
 illustrates some important points in writing Cantera C++ programs.</p>
 <div class="section" id="catching-canteraerror-exceptions">
-<h2>Catching <a class="reference external" href="../../../doxygen/html/classCantera_1_1CanteraError.html">CanteraError</a> exceptions<a class="headerlink" href="#catching-canteraerror-exceptions" title="Permalink to this headline">¶</a></h2>
+<h2>Catching <span>CanteraError</span> exceptions<a class="headerlink" href="#catching-canteraerror-exceptions" title="Permalink to this headline">¶</a></h2>
 <p>The entire body of the program is put inside a function that is invoked within
 a <tt class="docutils literal"><span class="pre">try</span></tt> block in the main program. In this way, exceptions thrown in the
 function or in any procedure it calls may be caught. In this program, a
-<tt class="docutils literal"><span class="pre">catch</span></tt> block is defined for exceptions of type <a class="reference external" href="../../../doxygen/html/classCantera_1_1CanteraError.html">CanteraError</a>. Cantera
+<tt class="docutils literal"><span class="pre">catch</span></tt> block is defined for exceptions of type <span>CanteraError</span>. Cantera
 throws exceptions of this type, so it is always a good idea to catch them. In
-the <tt class="docutils literal"><span class="pre">catch</span></tt> block, function <a class="reference external" href="../../../doxygen/html/namespaceCantera.html#a0a45aae524295a5236caf3d9bff37420">showErrors()</a> may be called to print the error
+the <tt class="docutils literal"><span class="pre">catch</span></tt> block, function <span>showErrors</span> may be called to print the error
 message associated with the exception.</p>
 </div>
 <div class="section" id="the-report-function">
 <h2>The <tt class="docutils literal"><span class="pre">report</span></tt> function<a class="headerlink" href="#the-report-function" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="../../../doxygen/html/classCantera_1_1MolalityVPSSTP.html#adf368cd8c67a3f672bb2915e388fcf6d">report()</a> function generates a nicely-formatted report of the properties of
+<p>The <span>report</span> function generates a nicely-formatted report of the properties of
 a phase, including its composition in both mole (X) and mass (Y) units. For
 each species present, the non-dimensional chemical potential is also printed.
 This is handy particularly when doing equilibrium calculations. This function
