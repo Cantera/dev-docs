@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Thermodynamic Properties &mdash; Cantera 2.1a1 documentation</title>
+    <title>Thermodynamic Properties &mdash; Cantera 2.1.0b2 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1a1',
+        VERSION:     '2.1.0b2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1a1 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Chemical Kinetics" href="kinetics.html" />
     <link rel="prev" title="Importing Phase Objects" href="importing.html" /> 
@@ -136,6 +136,12 @@ as a base class for classes <a class="reference internal" href="importing.html#c
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cantera.ThermoPhase.P_sat">
+<tt class="descname">P_sat</tt><a class="headerlink" href="#cantera.ThermoPhase.P_sat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation pressure [Pa] at the current temperature.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cantera.ThermoPhase.SP">
 <tt class="descname">SP</tt><a class="headerlink" href="#cantera.ThermoPhase.SP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get/Set entropy [J/kg/K or J/kmol/K] and pressure [Pa].</p>
@@ -216,6 +222,12 @@ fractions.</p>
 <dt id="cantera.ThermoPhase.TPY">
 <tt class="descname">TPY</tt><a class="headerlink" href="#cantera.ThermoPhase.TPY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get/Set temperature [K], pressure [Pa], and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.T_sat">
+<tt class="descname">T_sat</tt><a class="headerlink" href="#cantera.ThermoPhase.T_sat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation temperature [K] at the current pressure.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -304,6 +316,24 @@ on <a class="reference internal" href="#cantera.ThermoPhase.basis" title="canter
 <dt id="cantera.ThermoPhase.cp_mole">
 <tt class="descname">cp_mole</tt><a class="headerlink" href="#cantera.ThermoPhase.cp_mole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Molar heat capacity at constant pressure [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.critical_density">
+<tt class="descname">critical_density</tt><a class="headerlink" href="#cantera.ThermoPhase.critical_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Critical density [kg/m^3 or kmol/m^3] depending on <a class="reference internal" href="#cantera.ThermoPhase.basis" title="cantera.ThermoPhase.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.critical_pressure">
+<tt class="descname">critical_pressure</tt><a class="headerlink" href="#cantera.ThermoPhase.critical_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Critical pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.critical_temperature">
+<tt class="descname">critical_temperature</tt><a class="headerlink" href="#cantera.ThermoPhase.critical_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Critical temperature [K].</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -724,45 +754,15 @@ or a fluid beyond its critical point.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.PureFluid.P_sat">
-<tt class="descname">P_sat</tt><a class="headerlink" href="#cantera.PureFluid.P_sat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saturation pressure [Pa] at the current temperature.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="cantera.PureFluid.TX">
 <tt class="descname">TX</tt><a class="headerlink" href="#cantera.PureFluid.TX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get/Set the temperature and vapor fraction of a two-phase state.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.PureFluid.T_sat">
-<tt class="descname">T_sat</tt><a class="headerlink" href="#cantera.PureFluid.T_sat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saturation temperature [K] at the current pressure.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="cantera.PureFluid.X">
 <tt class="descname">X</tt><a class="headerlink" href="#cantera.PureFluid.X" title="Permalink to this definition">¶</a></dt>
 <dd><p>Vapor fraction (quality).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cantera.PureFluid.critical_density">
-<tt class="descname">critical_density</tt><a class="headerlink" href="#cantera.PureFluid.critical_density" title="Permalink to this definition">¶</a></dt>
-<dd><p>Critical density [kg/m^3 or kmol/m^3] depending on <tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt>.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cantera.PureFluid.critical_pressure">
-<tt class="descname">critical_pressure</tt><a class="headerlink" href="#cantera.PureFluid.critical_pressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Critical pressure [Pa].</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cantera.PureFluid.critical_temperature">
-<tt class="descname">critical_temperature</tt><a class="headerlink" href="#cantera.PureFluid.critical_temperature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Critical temperature [K].</p>
 </dd></dl>
 
 </dd></dl>

@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cantera.Phase &mdash; Cantera 2.1.0b2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.1.0b2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="up" title="Cantera" href="../Cantera.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../../index.html">
+<img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../Cantera.html" accesskey="U">Cantera</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for Cantera.Phase</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;Cantera.Phase</span>
+
+<span class="sd">This module provides class Phase.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">_cantera</span>
+
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">from</span> <span class="nn">Cantera.num</span> <span class="kn">import</span> <span class="n">asarray</span>
+<span class="kn">from</span> <span class="nn">exceptions</span> <span class="kn">import</span> <span class="n">CanteraError</span>
+
+<span class="c"># return true is x is a sequence</span>
+<span class="k">def</span> <span class="nf">_isseq</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Phase"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase">[docs]</a><span class="k">class</span> <span class="nc">Phase</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;Phases of matter.</span>
+
+<span class="sd">    Class Phase manages basic state and constituent property</span>
+<span class="sd">    information for a homogeneous phase of matter. It handles only</span>
+<span class="sd">    those properties that do not require the equation of state, namely</span>
+<span class="sd">    the temperature, density, chemical composition, and attributes of</span>
+<span class="sd">    the elements and species.</span>
+
+<span class="sd">    It does not know about the pressure, or any other thermodynamic property</span>
+<span class="sd">    requiring the equation of state -- class ThermoPhase derives from Phase</span>
+<span class="sd">    and adds those properties.</span>
+
+<span class="sd">    Class Phase is not usually instantiated directly. It is used as a</span>
+<span class="sd">    base class for class ThermoPhase.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c">#def __init__(self, index = -1):</span>
+    <span class="c">#    pass</span>
+
+<div class="viewcode-block" id="Phase.phase_id"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.phase_id">[docs]</a>    <span class="k">def</span> <span class="nf">phase_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The integer index used to access the kernel-level object.</span>
+<span class="sd">        Internal.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span>
+</div>
+<div class="viewcode-block" id="Phase.nElements"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.nElements">[docs]</a>    <span class="k">def</span> <span class="nf">nElements</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of elements.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_nelements</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.atomicWeights"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.atomicWeights">[docs]</a>    <span class="k">def</span> <span class="nf">atomicWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="sd">&quot;&quot;&quot;Array of element molar masses [kg/kmol].</span>
+
+<span class="sd">        If a sequence of element symbols is supplied, only the values</span>
+<span class="sd">        for those elements are returned, ordered as in the</span>
+<span class="sd">        list. Otherwise, the values are for all elements in the phase,</span>
+<span class="sd">        ordered as in the input file.  &quot;&quot;&quot;</span>
+        <span class="n">atw</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_getarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">elements</span><span class="p">:</span>
+            <span class="n">ae</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementIndex</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="n">ae</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atw</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">asarray</span><span class="p">(</span><span class="n">ae</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">atw</span>
+</div>
+<div class="viewcode-block" id="Phase.nSpecies"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.nSpecies">[docs]</a>    <span class="k">def</span> <span class="nf">nSpecies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of species.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_nspecies</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.nAtoms"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.nAtoms">[docs]</a>    <span class="k">def</span> <span class="nf">nAtoms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">element</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of atoms of element *element* in species *species*.</span>
+<span class="sd">        The  element and species may be specified by name or by number.</span>
+
+<span class="sd">        &gt;&gt;&gt; ph.nAtoms(&#39;CH4&#39;,&#39;H&#39;)</span>
+<span class="sd">        4</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementIndex</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
+            <span class="n">na</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_natoms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+            <span class="c">#if na &lt; 0: return 0</span>
+            <span class="k">return</span> <span class="n">na</span>
+        <span class="k">except</span> <span class="n">CanteraError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+</div>
+<div class="viewcode-block" id="Phase.temperature"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.temperature">[docs]</a>    <span class="k">def</span> <span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Temperature [K].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.density"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.density">[docs]</a>    <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mass density [kg/m^3].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_density</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.volume_mass"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.volume_mass">[docs]</a>    <span class="k">def</span> <span class="nf">volume_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Specific volume [m^3/kg].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">_cantera</span><span class="o">.</span><span class="n">phase_density</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.molarDensity"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.molarDensity">[docs]</a>    <span class="k">def</span> <span class="nf">molarDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Molar density [kmol/m^3].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_molardensity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.meanMolecularWeight"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.meanMolecularWeight">[docs]</a>    <span class="k">def</span> <span class="nf">meanMolecularWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mean molar mass [kg/kmol].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_meanmolwt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.meanMolarMass"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.meanMolarMass">[docs]</a>    <span class="k">def</span> <span class="nf">meanMolarMass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mean molar mass [kg/kmol].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_meanmolwt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.molarMasses"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.molarMasses">[docs]</a>    <span class="k">def</span> <span class="nf">molarMasses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Array of species molar masses [kg/kmol].&quot;&quot;&quot;</span>
+        <span class="n">mm</span>  <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_getarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selectSpecies</span><span class="p">(</span><span class="n">mm</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.molecularWeights"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.molecularWeights">[docs]</a>    <span class="k">def</span> <span class="nf">molecularWeights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Array of species molar masses [kg/kmol].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">molarMasses</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.moleFractions"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.moleFractions">[docs]</a>    <span class="k">def</span> <span class="nf">moleFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Species mole fraction array.</span>
+<span class="sd">        If optional argument *species* is supplied, then only the values</span>
+<span class="sd">        for the selected species are returned.</span>
+
+<span class="sd">        &gt;&gt;&gt; x1 = ph.moleFractions()   # all species</span>
+<span class="sd">        &gt;&gt;&gt; x2 = ph.moleFractions([&#39;OH&#39;, &#39;CH3&#39;. &#39;O2&#39;])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_getarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selectSpecies</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.moleFraction"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.moleFraction">[docs]</a>    <span class="k">def</span> <span class="nf">moleFraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mole fraction of a species, referenced by name or index number.</span>
+
+<span class="sd">        &gt;&gt;&gt; ph.moleFraction(4)</span>
+<span class="sd">        &gt;&gt;&gt; ph.moleFraction(&#39;CH4&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_molefraction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Phase.massFractions"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.massFractions">[docs]</a>    <span class="k">def</span> <span class="nf">massFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Species mass fraction array.</span>
+<span class="sd">        If optional argument *species* is supplied, then only the values for</span>
+<span class="sd">        the selected species are returned.</span>
+
+<span class="sd">        &gt;&gt;&gt; y1 = ph.massFractions()   # all species</span>
+<span class="sd">        &gt;&gt;&gt; y2 = ph.massFractions([&#39;OH&#39;, &#39;CH3&#39;. &#39;O2&#39;])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_getarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selectSpecies</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">species</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Phase.massFraction"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.massFraction">[docs]</a>    <span class="k">def</span> <span class="nf">massFraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mass fraction of one species, referenced by name or</span>
+<span class="sd">        index number.</span>
+
+<span class="sd">        &gt;&gt;&gt; ph.massFraction(4)</span>
+<span class="sd">        &gt;&gt;&gt; ph.massFraction(&#39;CH4&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_massfraction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Phase.elementName"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.elementName">[docs]</a>    <span class="k">def</span> <span class="nf">elementName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Name of the element with index number *m*.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_getstring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.elementNames"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.elementNames">[docs]</a>    <span class="k">def</span> <span class="nf">elementNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a tuple of all element names.&quot;&quot;&quot;</span>
+        <span class="n">nel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nElements</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elementName</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="n">nel</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Phase.elementIndex"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.elementIndex">[docs]</a>    <span class="k">def</span> <span class="nf">elementIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The index of element *element*, which may be specified as</span>
+<span class="sd">        a string or an integer index. In the latter case, the index is</span>
+<span class="sd">        checked for validity and returned. If no such element is</span>
+<span class="sd">        present, an exception is thrown.&quot;&quot;&quot;</span>
+
+        <span class="n">nel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nElements</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">IntType</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">element</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_elementindex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span> <span class="n">element</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">m</span> <span class="o">&gt;=</span> <span class="n">nel</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&quot;&quot;&quot;Element &quot;&quot;&quot;</span><span class="o">+</span><span class="n">element</span><span class="o">+</span><span class="s">&quot;&quot;&quot; not in set &quot;&quot;&quot;</span>
+                               <span class="o">+</span><span class="sb">`self.elementNames()`</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">m</span>
+
+</div>
+<div class="viewcode-block" id="Phase.speciesName"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.speciesName">[docs]</a>    <span class="k">def</span> <span class="nf">speciesName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Name of the species with index *k*.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_getstring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Phase.speciesNames"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.speciesNames">[docs]</a>    <span class="k">def</span> <span class="nf">speciesNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a tuple of all species names.&quot;&quot;&quot;</span>
+        <span class="n">nsp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nSpecies</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speciesName</span><span class="p">,</span><span class="nb">range</span><span class="p">(</span><span class="n">nsp</span><span class="p">))</span>
+
+</div>
+<div class="viewcode-block" id="Phase.speciesIndex"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.speciesIndex">[docs]</a>    <span class="k">def</span> <span class="nf">speciesIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The index of species *species*, which may be specified as</span>
+<span class="sd">        a string or an integer index. In the latter case, the index is</span>
+<span class="sd">        checked for validity and returned. If no such species is</span>
+<span class="sd">        present, an exception is thrown.&quot;&quot;&quot;</span>
+        <span class="n">nsp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nSpecies</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">ListType</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">sp</span> <span class="ow">in</span> <span class="n">species</span><span class="p">:</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">sp</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">s</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">IntType</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">species</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">FloatType</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">species</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_speciesindex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="n">species</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="n">nsp</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&quot;&quot;&quot;Species &quot;&quot;&quot;</span><span class="o">+</span><span class="sb">`species`</span><span class="o">+</span><span class="s">&quot;&quot;&quot; not in set &quot;&quot;&quot;</span>
+                               <span class="o">+</span><span class="sb">`self.speciesNames()`</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">k</span>
+
+</div>
+<div class="viewcode-block" id="Phase.setTemperature"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setTemperature">[docs]</a>    <span class="k">def</span> <span class="nf">setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature [K].&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setfp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.setDensity"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setDensity">[docs]</a>    <span class="k">def</span> <span class="nf">setDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the density [kg/m3].&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setfp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">rho</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.setMolarDensity"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setMolarDensity">[docs]</a>    <span class="k">def</span> <span class="nf">setMolarDensity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the density [kmol/m3].&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setfp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.setMoleFractions"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setMoleFractions">[docs]</a>    <span class="k">def</span> <span class="nf">setMoleFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the mole fractions.</span>
+
+<span class="sd">        :param x:</span>
+<span class="sd">            string or array of mole fraction values</span>
+<span class="sd">        :param norm:</span>
+<span class="sd">            If non-zero (default), array values will be scaled to sum to 1.0.</span>
+
+<span class="sd">        &gt;&gt;&gt; ph.setMoleFractions(&#39;CO:1, H2:7, H2O:7.8&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; x = [1.0]*ph.nSpecies()</span>
+<span class="sd">        &gt;&gt;&gt; ph.setMoleFractions(x)</span>
+<span class="sd">        &gt;&gt;&gt; ph.setMoleFractions(x, norm = 0)  # don&#39;t normalize values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">StringType</span><span class="p">:</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setstring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_isseq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nSpecies</span><span class="p">(),</span> <span class="n">x</span><span class="p">):</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">norm</span><span class="p">,</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&#39;mole fractions must be a string or array&#39;</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Phase.setMassFractions"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setMassFractions">[docs]</a>    <span class="k">def</span> <span class="nf">setMassFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the mass fractions.</span>
+<span class="sd">        See :meth:`~.Phase.setMoleFractions`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">StringType</span><span class="p">:</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setstring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_isseq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nSpecies</span><span class="p">(),</span> <span class="n">x</span><span class="p">):</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">phase_setarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">norm</span><span class="p">,</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&#39;mass fractions must be a string or array&#39;</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Phase.setState_TRX"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setState_TRX">[docs]</a>    <span class="k">def</span> <span class="nf">setState_TRX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature, density, and mole fractions. The mole</span>
+<span class="sd">        fractions may be entered as a string or array,</span>
+<span class="sd">        &gt;&gt;&gt; ph.setState_TRX(600.0, 2.0e-3, &#39;CH4:0.4, O2:0.6&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMoleFractions</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setDensity</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.setState_TNX"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setState_TNX">[docs]</a>    <span class="k">def</span> <span class="nf">setState_TNX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature, molardensity, and mole fractions. The mole</span>
+<span class="sd">        fractions may be entered as a string or array,</span>
+
+<span class="sd">        &gt;&gt;&gt; ph.setState_TNX(600.0, 2.0e-3, &#39;CH4:0.4, O2:0.6&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMoleFractions</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMolarDensity</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.setState_TRY"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setState_TRY">[docs]</a>    <span class="k">def</span> <span class="nf">setState_TRY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature, density, and mass fractions.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMassFractions</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setDensity</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.setState_TR"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.setState_TR">[docs]</a>    <span class="k">def</span> <span class="nf">setState_TR</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature and density, leaving the composition</span>
+<span class="sd">        unchanged.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setDensity</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.selectSpecies"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.selectSpecies">[docs]</a>    <span class="k">def</span> <span class="nf">selectSpecies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Given an array *f* of floating-point species properties, return</span>
+<span class="sd">        those values corresponding to species listed in *species*. Returns an</span>
+<span class="sd">        array if *species* is a sequence, or a scalar if *species* is a</span>
+<span class="sd">        scalar. This method is used internally to implement species selection</span>
+<span class="sd">        in methods like moleFractions, massFractions, etc.</span>
+
+<span class="sd">        &gt;&gt;&gt; f = ph.chemPotentials()</span>
+<span class="sd">        &gt;&gt;&gt; muo2, muh2 = ph.selectSpecies(f, [&#39;O2&#39;, &#39;H2&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; muh2 = ph.selectSpecies(f, &#39;H2&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">StringTypes</span><span class="p">):</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">species</span><span class="p">:</span>
+            <span class="n">fs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">species</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="n">fs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">asarray</span><span class="p">(</span><span class="n">fs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Phase.selectElements"><a class="viewcode-back" href="../../python/thermo.html#Cantera.Phase.Phase.selectElements">[docs]</a>    <span class="k">def</span> <span class="nf">selectElements</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">elements</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Given an array *f* of floating-point element properties, return a</span>
+<span class="sd">        those values corresponding to elements listed in *elements*. Returns an</span>
+<span class="sd">        array if *elements* is a sequence, or a scalar if *elements* is a</span>
+<span class="sd">        scalar.</span>
+
+<span class="sd">        &gt;&gt;&gt; f = ph.elementPotentials()</span>
+<span class="sd">        &gt;&gt;&gt; lam_o, lam_h = ph.selectElements(f, [&#39;O&#39;, &#39;H&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; lam_h = ph.selectElements(f, &#39;H&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">StringTypes</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementIndex</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">elements</span><span class="p">:</span>
+            <span class="n">fs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementIndex</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="n">fs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">asarray</span><span class="p">(</span><span class="n">fs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">asarray</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../Cantera.html" >Cantera</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Cantera Developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

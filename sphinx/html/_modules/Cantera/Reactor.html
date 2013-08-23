@@ -1,0 +1,1305 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cantera.Reactor &mdash; Cantera 2.1.0b2 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.1.0b2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="up" title="Cantera" href="../Cantera.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../../index.html">
+<img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../Cantera.html" accesskey="U">Cantera</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for Cantera.Reactor</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Zero-dimensional reactors.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">_cantera</span>
+<span class="kn">from</span> <span class="nn">Cantera.num</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">zeros</span>
+<span class="kn">from</span> <span class="nn">Cantera.exceptions</span> <span class="kn">import</span> <span class="n">CanteraError</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="n">_ilr</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;left&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;right&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;unknown&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+
+<div class="viewcode-block" id="ReactorBase"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase">[docs]</a><span class="k">class</span> <span class="nc">ReactorBase</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Base class for reactors and reservoirs.</span>
+
+<span class="sd">    Classes Reactor and Reservoir derive from a common base class</span>
+<span class="sd">    ReactorBase. They have the same set of methods, which are all</span>
+<span class="sd">    inherited from ReactorBase.</span>
+
+<span class="sd">    (This is not quite true in the corresponding classes in the</span>
+<span class="sd">    Cantera C++ kernel. There class Reactor defines some methods that</span>
+<span class="sd">    class Reservoir doesn&#39;t. These are used internally by the</span>
+<span class="sd">    ReactorNet instance that integrates the system of ODEs describing</span>
+<span class="sd">    the network to evaluate the portion of the ODE system associated</span>
+<span class="sd">    with that reactor.)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+                 <span class="n">volume</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="s">&#39;on&#39;</span><span class="p">,</span>
+                 <span class="nb">type</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        See :class:`.Reactor` for a description of the constructor parameters.</span>
+<span class="sd">        The *type* parameter specifies whether a :class:`.Reactor` (type = 2) or</span>
+<span class="sd">        :class:`.Reservoir` (type = 1) will be created.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_new</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">=</span> <span class="nb">type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inlets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outlets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_walls</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reservoirs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setInitialVolume</span><span class="p">(</span><span class="n">volume</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setEnergy</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Created &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+            <span class="k">print</span> <span class="s">&#39;    Volume = &#39;</span><span class="p">,</span><span class="n">volume</span><span class="p">,</span><span class="s">&#39; m^3&#39;</span>
+            <span class="k">if</span> <span class="n">energy</span> <span class="o">&lt;&gt;</span> <span class="s">&#39;on&#39;</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;    Temperature will be held constant&#39;</span>
+            <span class="k">print</span> <span class="s">&#39;    Initial State:&#39;</span>
+            <span class="k">print</span> <span class="n">contents</span>
+
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete the reactor instance.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;Deleting &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_del</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s">&#39;:</span><span class="se">\n</span><span class="s">     Volume = &#39;</span><span class="o">+</span><span class="sb">`self.volume()`</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">+</span><span class="sb">`self._contents`</span>
+        <span class="k">return</span> <span class="n">s</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s">&#39;:</span><span class="se">\n</span><span class="s">     Volume = &#39;</span><span class="o">+</span><span class="sb">`self.volume()`</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="s">&quot;: </span><span class="se">\n</span><span class="s">&quot;</span><span class="o">+</span><span class="sb">`self._contents`</span>
+        <span class="k">return</span> <span class="n">s</span>
+
+<div class="viewcode-block" id="ReactorBase.name"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The name of the reactor.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.reactor_id"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.reactor_id">[docs]</a>    <span class="k">def</span> <span class="nf">reactor_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The integer index used to access the kernel reactor</span>
+<span class="sd">        object. For internal use.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.insert"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Insert *contents* into the reactor. Sets the objects used to compute</span>
+<span class="sd">        thermodynamic properties and kinetic rates.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># store a reference to contents so that it will live as long</span>
+        <span class="c"># as this object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span> <span class="o">=</span> <span class="n">contents</span>
+        <span class="k">if</span> <span class="n">contents</span><span class="p">:</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_setThermoMgr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span> <span class="n">contents</span><span class="o">.</span><span class="n">_phase_id</span><span class="p">)</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_setKineticsMgr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span> <span class="n">contents</span><span class="o">.</span><span class="n">ckin</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_setInitialVolume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">V0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the initial reactor volume. &quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_setInitialVolume</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span> <span class="n">V0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_setEnergy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eflag</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Turn the energy equation on or off. If the argument is the</span>
+<span class="sd">        string ``&#39;off&#39;`` or the number 0, the energy equation is disabled,</span>
+<span class="sd">        and the reactor temperature is held constant at its initial</span>
+<span class="sd">        value.&quot;&quot;&quot;</span>
+        <span class="n">ie</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">eflag</span> <span class="o">==</span> <span class="s">&#39;off&#39;</span> <span class="ow">or</span> <span class="n">eflag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ie</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ie</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;enabling energy equation for reactor&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&#39;disabling energy equation for reactor&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_setEnergy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span> <span class="n">ie</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ReactorBase.temperature"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.temperature">[docs]</a>    <span class="k">def</span> <span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The temperature in the reactor [K].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.density"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.density">[docs]</a>    <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The density of the fluid in the reactor [kg/m^3].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_density</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.volume"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.volume">[docs]</a>    <span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The total reactor volume [m^3]. The volume may change with time</span>
+<span class="sd">        if non-rigid walls are installed on the reactor.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_volume</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.mass"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.mass">[docs]</a>    <span class="k">def</span> <span class="nf">mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The total mass of fluid in the reactor [kg].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_mass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.enthalpy_mass"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.enthalpy_mass">[docs]</a>    <span class="k">def</span> <span class="nf">enthalpy_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The specific enthalpy of the fluid in the reactor [J/kg].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_enthalpy_mass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.intEnergy_mass"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.intEnergy_mass">[docs]</a>    <span class="k">def</span> <span class="nf">intEnergy_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The specific internal energy of the fluid in the reactor [J/kg].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_intEnergy_mass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.pressure"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.pressure">[docs]</a>    <span class="k">def</span> <span class="nf">pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The pressure in the reactor [Pa].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_pressure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.massFraction"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.massFraction">[docs]</a>    <span class="k">def</span> <span class="nf">massFraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The mass fraction of species *s*, specified either by name or</span>
+<span class="sd">        index number.</span>
+
+<span class="sd">        &gt;&gt;&gt; y1 = r.massFraction(7)</span>
+<span class="sd">        0.02</span>
+<span class="sd">        &gt;&gt;&gt; y2 = r.massFraction(&#39;CH3O&#39;)</span>
+<span class="sd">        0.02</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">StringType</span><span class="p">:</span>
+            <span class="n">kk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kk</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_massFraction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span> <span class="n">kk</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.massFractions"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.massFractions">[docs]</a>    <span class="k">def</span> <span class="nf">massFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return an array of the species mass fractions.&quot;&quot;&quot;</span>
+        <span class="n">nsp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">nSpecies</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsp</span><span class="p">):</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massFraction</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.moleFractions"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.moleFractions">[docs]</a>    <span class="k">def</span> <span class="nf">moleFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return an array of the species mole fractions.&quot;&quot;&quot;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">massFractions</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">setMassFractions</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">moleFractions</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.moleFraction"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.moleFraction">[docs]</a>    <span class="k">def</span> <span class="nf">moleFraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The mole fraction of species s, specified either by name or</span>
+<span class="sd">        index number.</span>
+
+<span class="sd">        &gt;&gt;&gt; x1 = r.moleFraction(9)</span>
+<span class="sd">        0.00012</span>
+<span class="sd">        &gt;&gt;&gt; x2 = r.moleFraction(&#39;CH3&#39;)</span>
+<span class="sd">        0.00012</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">StringType</span><span class="p">:</span>
+            <span class="n">kk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">speciesIndex</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kk</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">moleFractions</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">kk</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.inlets"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.inlets">[docs]</a>    <span class="k">def</span> <span class="nf">inlets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of flow devices installed on inlets to this reactor.</span>
+<span class="sd">        This method can be used to access information about the flows entering</span>
+<span class="sd">        the reactor:</span>
+
+<span class="sd">        &gt;&gt;&gt; for n in r.inlets():</span>
+<span class="sd">        ...    print n.name(), n.massFlowRate()</span>
+
+<span class="sd">        See: :class:`.MassFlowController`, :class:`.Valve`,</span>
+<span class="sd">        :class:`.PressureController`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inlets</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.outlets"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.outlets">[docs]</a>    <span class="k">def</span> <span class="nf">outlets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of flow devices installed on outlets</span>
+<span class="sd">        on this reactor.</span>
+
+<span class="sd">        &gt;&gt;&gt; for o in r.outlets():</span>
+<span class="sd">        ...    print o.name(), o.massFlowRate()</span>
+
+<span class="sd">        See: :class:`.MassFlowController`, :class:`.Valve`,</span>
+<span class="sd">        :class:`.PressureController`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outlets</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.walls"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.walls">[docs]</a>    <span class="k">def</span> <span class="nf">walls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of walls installed on this reactor.</span>
+
+<span class="sd">        &gt;&gt;&gt; for w in r.walls():</span>
+<span class="sd">        ...    print w.name()</span>
+
+<span class="sd">        See: :class:`.Wall`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_walls</span>
+</div>
+    <span class="k">def</span> <span class="nf">_addInlet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inlet</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For internal use. Store a reference to *inlet*</span>
+<span class="sd">        so that it will not be deleted before this object.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inlets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inlet</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reservoirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_addOutlet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outlet</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For internal use. Store a reference to *outlet*</span>
+<span class="sd">        so that it will not be deleted before this object.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_outlets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">outlet</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reservoirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_addWall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wall</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;For internal use. Store a reference to *wall*</span>
+<span class="sd">        so that it will not be deleted before this object.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_walls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wall</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">other</span><span class="o">.</span><span class="n">_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reservoirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ReactorBase.syncContents"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.syncContents">[docs]</a>    <span class="k">def</span> <span class="nf">syncContents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the state of the object representing the reactor contents</span>
+<span class="sd">        to the current reactor state.</span>
+
+<span class="sd">        &gt;&gt;&gt; r = Reactor(gas)</span>
+<span class="sd">        &gt;&gt;&gt; (statements that change the state of object &#39;gas&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; r.syncContents()</span>
+
+<span class="sd">        After this statement, the state of object &#39;gas&#39; is synchronized</span>
+<span class="sd">        with the reactor state.</span>
+<span class="sd">        See :meth:`.contents`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">setState_TRY</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="p">(),</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">density</span><span class="p">(),</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">massFractions</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.contents"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.contents">[docs]</a>    <span class="k">def</span> <span class="nf">contents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return an object representing the reactor contents, after first</span>
+<span class="sd">        synchronizing its state with the current reactor state. This method</span>
+<span class="sd">        is useful when some property of the fluid in the reactor is</span>
+<span class="sd">        needed that is not provided by a method of :class:`.Reactor`.</span>
+
+<span class="sd">        &gt;&gt;&gt; r = Reactor(gas)</span>
+<span class="sd">        &gt;&gt;&gt; (statements that change the state of object &#39;gas&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; c = r.contents()</span>
+<span class="sd">        &gt;&gt;&gt; print c.gibbs_mole(), c.chemPotentials()</span>
+
+<span class="sd">        Note that after calling :meth:`.contents`, object *c*</span>
+<span class="sd">        references the same underlying kernel object as object *gas*</span>
+<span class="sd">        does. Therefore, all properties of *c* and *gas* are</span>
+<span class="sd">        identical. (Remember that Python objects are really C</span>
+<span class="sd">        pointers; at the C level, both point to the same data</span>
+<span class="sd">        structure.)</span>
+<span class="sd">        It is also allowed to write</span>
+
+<span class="sd">        &gt;&gt;&gt; gas = r.contents()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">syncContents</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span>
+
+</div>
+<div class="viewcode-block" id="ReactorBase.nSensParams"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.nSensParams">[docs]</a>    <span class="k">def</span> <span class="nf">nSensParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of sensitivity parameters for this reactor.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_nSensParams</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.addSensitivityReaction"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.addSensitivityReaction">[docs]</a>    <span class="k">def</span> <span class="nf">addSensitivityReaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reactions</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reactions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">nr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">nReactions</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nr</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">reactionEqn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+                <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_addSensitivityReaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span>
+                                                   <span class="n">n</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">reactionEqn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+                <span class="n">_cantera</span><span class="o">.</span><span class="n">reactor_addSensitivityReaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactor_id</span><span class="p">,</span>
+                                                   <span class="n">n</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorBase.sensParamName"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorBase.sensParamName">[docs]</a>    <span class="k">def</span> <span class="nf">sensParamName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</div></div>
+<span class="n">_reactorcount</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">_reservoircount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Reactor"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Reactor">[docs]</a><span class="k">class</span> <span class="nc">Reactor</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Zero-dimensional reactors. Instances of class Reactor represent</span>
+<span class="sd">    zero-dimensional reactors. By default, they are closed (no inlets or</span>
+<span class="sd">    outlets), have fixed volume, and have adiabatic, chemically-inert walls.</span>
+<span class="sd">    These properties may all be changed by adding appropriate components.</span>
+<span class="sd">    See :class:`.Wall`, :class:`.MassFlowController`, and :class:`.Valve`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">volume</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="s">&#39;on&#39;</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param contents:</span>
+<span class="sd">            Reactor contents. If not specified, the reactor is initially empty.</span>
+<span class="sd">            In this case, call :meth:`.insert` to specify the contents.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            Used only to identify this reactor in output. If not specified,</span>
+<span class="sd">            defaults to ``&#39;Reactor_n&#39;``, where *n* is an integer assigned in</span>
+<span class="sd">            the order :class:`.Reactor` objects are created.</span>
+<span class="sd">        :param volume:</span>
+<span class="sd">            Initial reactor volume. Defaults to 1 m^3.</span>
+<span class="sd">        :param energy:</span>
+<span class="sd">            Set to ``&#39;on&#39;`` or ``&#39;off&#39;``. If set to ``&#39;off&#39;``, the energy</span>
+<span class="sd">            equation is not solved, and the temperature is held at its</span>
+<span class="sd">            initial value. The default in ``&#39;on&#39;``.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            If set to a non-zero value, additional diagnostic information</span>
+<span class="sd">            will be printed.</span>
+
+<span class="sd">        Some examples showing how to create :class:`Reactor` objects are</span>
+<span class="sd">        shown below.</span>
+
+<span class="sd">        &gt;&gt;&gt; gas = GRI30()</span>
+<span class="sd">        &gt;&gt;&gt; r1 = Reactor(gas)</span>
+
+<span class="sd">        This is equivalent to:</span>
+
+<span class="sd">        &gt;&gt;&gt; r1 = Reactor()</span>
+<span class="sd">        &gt;&gt;&gt; r1.insert(gas)</span>
+
+<span class="sd">        Arguments may be specified using keywords in any order:</span>
+
+<span class="sd">        &gt;&gt;&gt; r2 = Reactor(contents = gas, energy = &#39;off&#39;,</span>
+<span class="sd">        ...              name = &#39;isothermal_reactor&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; r3 = Reactor(contents = gas, name = &#39;adiabatic_reactor&#39;)</span>
+
+<span class="sd">        Here&#39;s an array of reactors:</span>
+
+<span class="sd">        &gt;&gt;&gt; reactor_array = [Reactor(), Reactor(gas), Reactor(Air())]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_reactorcount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Reactor_&#39;</span><span class="o">+</span><span class="sb">`_reactorcount`</span>
+        <span class="n">_reactorcount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ReactorBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+                             <span class="n">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">,</span>
+                             <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+</div>
+<span class="k">class</span> <span class="nc">IdealGasReactor</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Similar to :class:`.Reactor`, but with a set of governing equations</span>
+<span class="sd">    optimized specifically for ideal gas mixtures.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">volume</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="s">&#39;on&#39;</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">_reactorcount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;IdealGasReactor_&#39;</span><span class="o">+</span><span class="sb">`_reactorcount`</span>
+        <span class="n">_reactorcount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ReactorBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+                             <span class="n">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">,</span>
+                             <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="FlowReactor"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowReactor">[docs]</a><span class="k">class</span> <span class="nc">FlowReactor</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">volume</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="s">&#39;on&#39;</span><span class="p">,</span>
+                 <span class="n">mdot</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param contents:</span>
+<span class="sd">            Reactor contents. If not specified, the reactor is initially empty.</span>
+<span class="sd">            In this case, call :meth:`.insert` to specify the contents.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            Used only to identify this reactor in output. If not specified,</span>
+<span class="sd">            defaults to ``Reactor_n``, where n is an integer assigned in the</span>
+<span class="sd">            order Reactor objects are created.</span>
+<span class="sd">        :param volume:</span>
+<span class="sd">            Initial reactor volume. Defaults to 1 m^3.</span>
+<span class="sd">        :param energy:</span>
+<span class="sd">            Set to ``&#39;on&#39;`` or ``&#39;off&#39;``. If set to ``&#39;off&#39;``, the energy</span>
+<span class="sd">            equation is not solved, and the temperature is held at its</span>
+<span class="sd">            initial value. The default in ``&#39;on&#39;``.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            if set to a non-zero value, additional diagnostic information</span>
+<span class="sd">            will be printed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_reactorcount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;FlowReactor_&#39;</span><span class="o">+</span><span class="sb">`_reactorcount`</span>
+        <span class="n">_reactorcount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ReactorBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+                             <span class="n">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">,</span>
+                             <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mdot</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setMassFlowRate</span><span class="p">(</span><span class="n">mdot</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FlowReactor.setMassFlowRate"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowReactor.setMassFlowRate">[docs]</a>    <span class="k">def</span> <span class="nf">setMassFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdot</span><span class="p">):</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">flowReactor_setMassFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reactor_id</span><span class="p">(),</span> <span class="n">mdot</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="ConstPressureReactor"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ConstPressureReactor">[docs]</a><span class="k">class</span> <span class="nc">ConstPressureReactor</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">volume</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="s">&#39;on&#39;</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param contents:</span>
+<span class="sd">            Reactor contents. If not specified, the reactor is</span>
+<span class="sd">            initially empty. In this case, call :meth:`.insert` to specify</span>
+<span class="sd">            the contents.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            Used only to identify this reactor in output. If not specified,</span>
+<span class="sd">            defaults to ``&#39;Reactor_n&#39;``, where n is an integer assigned in the</span>
+<span class="sd">            order :class:`.Reactor` objects are created.</span>
+<span class="sd">        :param volume:</span>
+<span class="sd">            Initial reactor volume. Defaults to 1 m^3.</span>
+<span class="sd">        :param energy:</span>
+<span class="sd">            Set to ``&#39;on&#39;`` or ``&#39;off&#39;``. If set to ``&#39;off&#39;``, the energy</span>
+<span class="sd">            equation is not solved, and the temperature is held at its</span>
+<span class="sd">            initial value. The default in ``&#39;on&#39;``.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            If set to a non-zero value, additional diagnostic</span>
+<span class="sd">            information will be printed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_reactorcount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;ConstPressureReactor_&#39;</span><span class="o">+</span><span class="sb">`_reactorcount`</span>
+        <span class="n">_reactorcount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ReactorBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+                             <span class="n">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">,</span>
+                             <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+
+</div>
+<span class="k">class</span> <span class="nc">IdealGasConstPressureReactor</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Similar to :class:`.ConstPressureReactor`, but with a set of governing</span>
+<span class="sd">    equations optimized specifically for ideal gas mixtures.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">volume</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="s">&#39;on&#39;</span><span class="p">,</span>
+                 <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">_reactorcount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;IdealGasConstPRessureReactor_&#39;</span><span class="o">+</span><span class="sb">`_reactorcount`</span>
+        <span class="n">_reactorcount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ReactorBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span>
+                             <span class="n">volume</span> <span class="o">=</span> <span class="n">volume</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">energy</span><span class="p">,</span>
+                             <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Reservoir"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Reservoir">[docs]</a><span class="k">class</span> <span class="nc">Reservoir</span><span class="p">(</span><span class="n">ReactorBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A reservoir is a reactor with a constant state. The temperature,</span>
+<span class="sd">    pressure, and chemical composition in a reservoir never change from</span>
+<span class="sd">    their initial values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param contents:</span>
+<span class="sd">            Reservoir contents. If not specified, the reservoir is initially</span>
+<span class="sd">            empty. In this case, call :meth:`.insert` to specify the contents.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            Used only to identify this reservoir in output. If not specified,</span>
+<span class="sd">            defaults to ``&#39;Reservoir_n&#39;``, where n is an integer assigned in</span>
+<span class="sd">            the order Reservoir objects are created.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            if set to a non-zero value, additional diagnostic information will</span>
+<span class="sd">            be printed.</span>
+
+<span class="sd">        Some examples showing how to create Reservoir objects are shown below.</span>
+
+<span class="sd">        &gt;&gt;&gt; gas = GRI30()</span>
+<span class="sd">        &gt;&gt;&gt; res1 = Reservoir(gas)</span>
+
+<span class="sd">        This is equivalent to:</span>
+
+<span class="sd">        &gt;&gt;&gt; res1 = Reactor()</span>
+<span class="sd">        &gt;&gt;&gt; res1.insert(gas)</span>
+
+<span class="sd">        Arguments may be specified using keywords in any order:</span>
+
+<span class="sd">        &gt;&gt;&gt; res2 = Reservoir(contents=Air(), name=&#39;environment&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; res3 = Reservoir(contents=gas, name=&#39;upstream_state&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_reservoircount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Reservoir_&#39;</span><span class="o">+</span><span class="sb">`_reservoircount`</span>
+        <span class="n">_reservoircount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ReactorBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contents</span> <span class="o">=</span> <span class="n">contents</span><span class="p">,</span>
+                             <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Reservoir.advance"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Reservoir.advance">[docs]</a>    <span class="k">def</span> <span class="nf">advance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deprecated. Do nothing.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+
+<span class="c">#------------------ FlowDevice ---------------------------------</span>
+</div></div>
+<div class="viewcode-block" id="FlowDevice"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice">[docs]</a><span class="k">class</span> <span class="nc">FlowDevice</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for devices that regulate the flow rate in a fluid line.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new instance of type *type*</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_new</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete the instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&#39;deleting &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_del</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FlowDevice.name"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The name specified when initially constructed.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+</div>
+<div class="viewcode-block" id="FlowDevice.ready"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice.ready">[docs]</a>    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deprecated. Returns true if the device is ready to use.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_ready</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="FlowDevice.massFlowRate"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice.massFlowRate">[docs]</a>    <span class="k">def</span> <span class="nf">massFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mass flow rate (kg/s). &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_massFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="FlowDevice.install"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice.install">[docs]</a>    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upstream</span><span class="p">,</span> <span class="n">downstream</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Install the device between the upstream and downstream</span>
+<span class="sd">        reactors or reservoirs.</span>
+
+<span class="sd">        &gt;&gt;&gt; f.install(upstream=reactor1, downstream=reservoir2)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span>
+            <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">+</span><span class="s">&#39;: installing between &#39;</span><span class="o">+</span><span class="n">upstream</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">+</span><span class="s">&#39; and &#39;</span><span class="o">+</span><span class="n">downstream</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+        <span class="n">upstream</span><span class="o">.</span><span class="n">_addOutlet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">downstream</span><span class="p">)</span>
+        <span class="n">downstream</span><span class="o">.</span><span class="n">_addInlet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upstream</span><span class="p">)</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_install</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span><span class="p">,</span> <span class="n">upstream</span><span class="o">.</span><span class="n">reactor_id</span><span class="p">(),</span>
+                                  <span class="n">downstream</span><span class="o">.</span><span class="n">reactor_id</span><span class="p">())</span></div>
+    <span class="k">def</span> <span class="nf">_setParameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_setParameters</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FlowDevice.setFunction"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice.setFunction">[docs]</a>    <span class="k">def</span> <span class="nf">setFunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">=</span> <span class="n">f</span> <span class="c"># Hold on to a reference so it doesn&#39;t get deleted</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_setFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">func_id</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="FlowDevice.flowdev_id"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.FlowDevice.flowdev_id">[docs]</a>    <span class="k">def</span> <span class="nf">flowdev_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__fdev_id</span>
+</div></div>
+<span class="n">_mfccount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="MassFlowController"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.MassFlowController">[docs]</a><span class="k">class</span> <span class="nc">MassFlowController</span><span class="p">(</span><span class="n">FlowDevice</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    Mass flow controllers. A mass flow controller maintains a specified mass</span>
+<span class="sd">    flow rate independent of upstream and downstream conditions. The equation</span>
+<span class="sd">    used to compute the mass flow rate is</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \dot m = \max(\dot m_0, 0.0),</span>
+
+<span class="sd">    where :math:`\dot m_0` is either a constant value or a function of time.</span>
+<span class="sd">    Note that if :math:`\dot m_0 &lt; 0`, the mass flow rate will be set to zero,</span>
+<span class="sd">    since reversal of the flow direction is not allowed.</span>
+
+<span class="sd">    Unlike a real mass flow controller, a MassFlowController object will</span>
+<span class="sd">    maintain the flow even if the downstream pressure is greater than the</span>
+<span class="sd">    upstream pressure.  This allows simple implementation of loops, in which</span>
+<span class="sd">    exhaust gas from a reactor is fed back into it through an inlet. But note</span>
+<span class="sd">    that this capability should be used with caution, since no account is</span>
+<span class="sd">    taken of the work required to do this.</span>
+
+<span class="sd">    A mass flow controller is assumed to be adiabatic, non-reactive, and have</span>
+<span class="sd">    negligible volume, so that it is internally always in steady-state even if</span>
+<span class="sd">    the upstream and downstream reactors are not. The fluid enthalpy, chemical</span>
+<span class="sd">    composition, and mass flow rate are constant across a mass flow controller,</span>
+<span class="sd">    and the pressure difference equals the difference in pressure between the</span>
+<span class="sd">    upstream and downstream reactors.</span>
+
+<span class="sd">    Examples:</span>
+
+<span class="sd">    &gt;&gt;&gt; mfc1 = MassFlowController(upstream=res1, downstream=reactr,</span>
+<span class="sd">    ...                           name=&#39;fuel_mfc&#39;, mdot = 0.1)</span>
+<span class="sd">    &gt;&gt;&gt; air_mdot = Gaussian(A=0.1, t0=2.0, FWHM=0.1)</span>
+<span class="sd">    &gt;&gt;&gt; mfc2 = MassFlowController(upstream=res2, downstream=reactr,</span>
+<span class="sd">    ...                           name=&#39;air_mfc&#39;, mdot=air_mdot)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upstream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">downstream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mdot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param upstream:</span>
+<span class="sd">            upstream reactor or reservoir.</span>
+<span class="sd">        :param downstream:</span>
+<span class="sd">            downstream reactor or reservoir.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            name used to identify the mass flow controller in output. If no</span>
+<span class="sd">            name is specified, it defaults to ``MFC_n``, where n is an integer</span>
+<span class="sd">            assigned in the order the MassFlowController object was created.</span>
+<span class="sd">        :param mdot:</span>
+<span class="sd">            Mass flow rate [kg/s]. This mass flow rate, which may be a constant</span>
+<span class="sd">            or a function of time, will be maintained, independent of upstream</span>
+<span class="sd">            and downstream conditions, unless reset by calling method</span>
+<span class="sd">            :meth:`.set`.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            if set to a positive integer, additional diagnostic information</span>
+<span class="sd">            will be printed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_mfccount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;MFC_&#39;</span><span class="o">+</span><span class="sb">`_mfccount`</span>
+        <span class="n">_mfccount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">FlowDevice</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">upstream</span> <span class="ow">and</span> <span class="n">downstream</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">downstream</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">mdot</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">mdot</span> <span class="o">=</span> <span class="n">mdot</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_setMassFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdot</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set or reset the mass flow rate to &#39;mdot&#39; [kg/s].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">+</span><span class="s">&#39;: setting mdot to &#39;</span><span class="o">+</span><span class="sb">`mdot`</span><span class="o">+</span><span class="s">&#39; kg/s&#39;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mdot</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">InstanceType</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setFunction</span><span class="p">(</span><span class="n">mdot</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_setMassFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flowdev_id</span><span class="p">(),</span> <span class="n">mdot</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MassFlowController.set"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.MassFlowController.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdot</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the mass flow rate [kg/s]. May be called at any time to</span>
+<span class="sd">        change the mass flow rate to a new value, or to a new function</span>
+<span class="sd">        of time.</span>
+
+<span class="sd">        &gt;&gt;&gt; mfc.set(mdot = 0.2)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setMassFlowRate</span><span class="p">(</span><span class="n">mdot</span><span class="p">)</span>
+
+</div></div>
+<span class="n">_valvecount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Valve"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Valve">[docs]</a><span class="k">class</span> <span class="nc">Valve</span><span class="p">(</span><span class="n">FlowDevice</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;Valves. In Cantera, a Valve object is a flow devices with mass</span>
+<span class="sd">    flow rate that is a function of the pressure drop across it. The default behavior</span>
+<span class="sd">    is linear:</span>
+
+<span class="sd">    .. math:: \dot m = K_v (P_1 - P_2)</span>
+
+<span class="sd">    if :math:`P_1 &gt; P_2.` Otherwise, :math:`\dot m = 0`.</span>
+<span class="sd">    However, an arbitrary function can also be specified, such that</span>
+
+<span class="sd">    .. math:: \dot m = F(P_1 - P_2)</span>
+
+<span class="sd">    if :math:`P_1 &gt; P_2`, or :math:`\dot m = 0` otherwise.</span>
+<span class="sd">    It is never possible for the flow to reverse and go from the downstream</span>
+<span class="sd">    to the upstream reactor/reservoir through a line containing a Valve object.</span>
+
+<span class="sd">    :class:`Valve` objects are often used between an upstream reactor and a</span>
+<span class="sd">    downstream reactor or reservoir to maintain them both at nearly the same</span>
+<span class="sd">    pressure. By setting the constant :math:`K_v` to a sufficiently large</span>
+<span class="sd">    value, very small pressure differences will result in flow between the</span>
+<span class="sd">    reactors that counteracts the pressure difference.</span>
+
+<span class="sd">    A Valve is assumed to be adiabatic, non-reactive, and have negligible</span>
+<span class="sd">    internal volume, so that it is internally always in steady-state even if</span>
+<span class="sd">    the upstream and downstream reactors are not. The fluid enthalpy, chemical</span>
+<span class="sd">    composition, and mass flow rate are constant across a Valve, and the</span>
+<span class="sd">    pressure difference equals the difference in pressure between the upstream</span>
+<span class="sd">    and downstream reactors.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upstream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">downstream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">Kv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">mdot0</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param upstream:</span>
+<span class="sd">            upstream reactor or reservoir.</span>
+<span class="sd">        :param downstream:</span>
+<span class="sd">            downstream reactor or reservoir.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            name used to identify the valve in output. If no name is specified,</span>
+<span class="sd">            it defaults to ``Valve_n``, where n is an integer assigned in the</span>
+<span class="sd">            order the Valve object was created.</span>
+<span class="sd">        :param Kv:</span>
+<span class="sd">            the constant in the mass flow rate equation.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            if set to a positive integer, additional diagnostic information</span>
+<span class="sd">            will be printed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_valvecount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Valve_&#39;</span><span class="o">+</span><span class="sb">`_valvecount`</span>
+        <span class="n">_valvecount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">FlowDevice</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">upstream</span> <span class="ow">and</span> <span class="n">downstream</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">downstream</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setValveCoeff</span><span class="p">(</span><span class="n">Kv</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Valve.setValveCoeff"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Valve.setValveCoeff">[docs]</a>    <span class="k">def</span> <span class="nf">setValveCoeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Kv</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set or reset the valve coefficient :math:`K_v`.&quot;&quot;&quot;</span>
+        <span class="n">vv</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+        <span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Kv</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span>
+            <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">+</span><span class="s">&#39;: setting valve coefficient to &#39;</span><span class="o">+</span><span class="sb">`Kv`</span><span class="o">+</span><span class="s">&#39; kg/Pa-s&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setParameters</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+</div>
+    <span class="k">def</span> <span class="nf">_setValveCharacteristic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set or reset the valve characteristics.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="n">types</span><span class="o">.</span><span class="n">InstanceType</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setFunction</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&quot;Wrong type for valve characteristic function.&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Valve.set"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Valve.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Kv</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">r&quot;&quot;&quot;Set or reset valve properties. All keywords are optional.</span>
+
+<span class="sd">        :param Kv:</span>
+<span class="sd">            constant in linear mass flow rate equation.</span>
+<span class="sd">        :param F:</span>
+<span class="sd">            function of :math:`\Delta P`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">F</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setFunction</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Kv</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setValveCoeff</span><span class="p">(</span><span class="n">Kv</span><span class="p">)</span>
+
+
+</div></div>
+<span class="n">_pccount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="PressureController"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.PressureController">[docs]</a><span class="k">class</span> <span class="nc">PressureController</span><span class="p">(</span><span class="n">FlowDevice</span><span class="p">):</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    A PressureController is designed to be used in conjunction with another</span>
+<span class="sd">    &#39;master&#39; flow controller, typically a :class:`.MassFlowController`. The</span>
+<span class="sd">    master flow controller is installed on the inlet of the reactor, and the</span>
+<span class="sd">    corresponding :class:`.PressureController` is installed on on outlet of the</span>
+<span class="sd">    reactor. The :class:`.PressureController` mass flow rate is equal to the</span>
+<span class="sd">    master mass flow rate, plus a small correction dependent on the pressure</span>
+<span class="sd">    difference:</span>
+
+<span class="sd">    .. math:: \dot m = \dot m_{\rm master} + K_v(P_1 - P_2).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upstream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">downstream</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">master</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">Kv</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param upstream:</span>
+<span class="sd">            upstream reactor or reservoir.</span>
+<span class="sd">        :param downstream:</span>
+<span class="sd">            downstream reactor or reservoir.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            name used to identify the pressure controller in output.  If no</span>
+<span class="sd">            name is specified, it defaults to ``PressureController_n``, where</span>
+<span class="sd">            n is an integer assigned in the order the PressureController</span>
+<span class="sd">            object was created.</span>
+<span class="sd">        :param Kv:</span>
+<span class="sd">            the constant in the mass flow rate equation.</span>
+<span class="sd">        :param verbose:</span>
+<span class="sd">            if set to a positive integer, additional diagnostic information</span>
+<span class="sd">            will be printed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">_pccount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;PressureController_&#39;</span><span class="o">+</span><span class="sb">`_pccount`</span>
+        <span class="n">_pccount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">FlowDevice</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">upstream</span> <span class="ow">and</span> <span class="n">downstream</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">downstream</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPressureCoeff</span><span class="p">(</span><span class="n">Kv</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="PressureController.setPressureCoeff"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.PressureController.setPressureCoeff">[docs]</a>    <span class="k">def</span> <span class="nf">setPressureCoeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Kv</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set or reset the pressure coefficient :math:`K_v`.&quot;&quot;&quot;</span>
+        <span class="n">vv</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+        <span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Kv</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+            <span class="k">print</span>
+            <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">+</span><span class="s">&#39;: setting pressure coefficient to &#39;</span><span class="o">+</span><span class="sb">`Kv`</span><span class="o">+</span><span class="s">&#39; kg/Pa-s&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setParameters</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="PressureController.setMaster"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.PressureController.setMaster">[docs]</a>    <span class="k">def</span> <span class="nf">setMaster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the master flow controller.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">flowdev_setMaster</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flowdev_id</span><span class="p">(),</span>
+                                   <span class="n">master</span><span class="o">.</span><span class="n">flowdev_id</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="PressureController.set"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.PressureController.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Kv</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">master</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">master</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">Kv</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setPressureCoeff</span><span class="p">(</span><span class="n">Kv</span><span class="p">)</span>
+
+
+
+<span class="c">#------------- Wall ---------------------------</span>
+</div></div>
+<span class="n">_wallcount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Wall"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall">[docs]</a><span class="k">class</span> <span class="nc">Wall</span><span class="p">:</span>
+    <span class="sd">r&quot;&quot;&quot;</span>
+<span class="sd">    Reactor walls.</span>
+
+<span class="sd">    A Wall separates two reactors, or a reactor and a reservoir. A wall has a</span>
+<span class="sd">    finite area, may conduct or radiate heat between the two reactors on either</span>
+<span class="sd">    side, and may move like a piston.</span>
+
+<span class="sd">    Walls are stateless objects in Cantera, meaning that no differential</span>
+<span class="sd">    equation is integrated to determine any wall property. Since it is the wall</span>
+<span class="sd">    (piston) velocity that enters the energy equation, this means that it is</span>
+<span class="sd">    the velocity, not the acceleration or displacement, that is specified.</span>
+<span class="sd">    The wall velocity is computed from</span>
+
+<span class="sd">    .. math:: v = K(P_{\rm left} - P_{\rm right}) + v_0(t),</span>
+
+<span class="sd">    where :math:`K` is a non-negative constant, and :math:`v_0(t)` is a</span>
+<span class="sd">    specified function of time. The velocity is positive if the wall is</span>
+<span class="sd">    moving to the right.</span>
+
+<span class="sd">    The heat flux through the wall is computed from</span>
+
+<span class="sd">    .. math::  q = U(T_{\rm left} - T_{\rm right}) + \epsilon\sigma (T_{\rm left}^4 - T_{\rm right}^4) + q_0(t),</span>
+
+<span class="sd">    where :math:`U` is the overall heat transfer coefficient for</span>
+<span class="sd">    conduction/convection, and :math:`\epsilon` is the emissivity. The function</span>
+<span class="sd">    :math:`q_0(t)` is a specified function of time. The heat flux is positive</span>
+<span class="sd">    when heat flows from the reactor on the left to the reactor on the right.</span>
+
+<span class="sd">    A heterogeneous reaction mechanism may be specified for one or both of the</span>
+<span class="sd">    wall surfaces. The mechanism object (typically an instance of class</span>
+<span class="sd">    :class:`.Interface`) must be constructed so that it is properly linked to</span>
+<span class="sd">    the object representing the fluid in the reactor the surface in question</span>
+<span class="sd">    faces. The surface temperature on each side is taken to be equal to the</span>
+<span class="sd">    temperature of the reactor it faces.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+                 <span class="n">A</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+                 <span class="n">Q</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">velocity</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+                 <span class="n">kinetics</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param left:</span>
+<span class="sd">            Reactor or reservoir on the left. Required.</span>
+<span class="sd">        :param right:</span>
+<span class="sd">            Reactor or reservoir on the right. Required.</span>
+<span class="sd">        :param name:</span>
+<span class="sd">            Name string. If omitted, the name is ``&#39;Wall_n&#39;``, where ``&#39;n&#39;``</span>
+<span class="sd">            is an integer assigned in the order walls are created.</span>
+<span class="sd">        :param A:</span>
+<span class="sd">            Wall area [m^2]. Defaults to 1.0 m^2.</span>
+<span class="sd">        :param K:</span>
+<span class="sd">            Wall expansion rate parameter [m/s/Pa]. Defaults to 0.0.</span>
+<span class="sd">        :param U:</span>
+<span class="sd">            Overall heat transfer coefficient [W/m^2]. Defaults to 0.0</span>
+<span class="sd">            (adiabatic wall).</span>
+<span class="sd">        :param Q:</span>
+<span class="sd">            Heat flux function :math:`q_0(t)` [W/m^2]. Optional. Default:</span>
+<span class="sd">            :math:`q_0(t) = 0.0`.</span>
+<span class="sd">        :param velocity:</span>
+<span class="sd">            Wall velocity function :math:`v_0(t)` [m/s].</span>
+<span class="sd">            Default: :math:`v_0(t) = 0.0`.</span>
+<span class="sd">        :param kinetics:</span>
+<span class="sd">            Surface reaction mechanisms for the left-facing and right-facing</span>
+<span class="sd">            surface, respectively. These must be instances of class Kinetics,</span>
+<span class="sd">            or of a class derived from Kinetics, such as Interface. If</span>
+<span class="sd">            chemistry occurs on only one side, enter ``None`` for the</span>
+<span class="sd">            non-reactive side.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_new</span><span class="p">(</span><span class="n">typ</span><span class="p">)</span>
+
+        <span class="k">global</span> <span class="n">_wallcount</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">_nm</span> <span class="o">=</span> <span class="s">&#39;Wall_&#39;</span><span class="o">+</span><span class="sb">`_wallcount`</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_nm</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">_wallcount</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">left</span> <span class="ow">and</span> <span class="n">right</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&#39;both left and right reactors must be specified.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setArea</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setExpansionRateCoeff</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setVelocity</span><span class="p">(</span><span class="n">velocity</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setHeatTransferCoeff</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setHeatFlux</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setKinetics</span><span class="p">(</span><span class="n">kinetics</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kinetics</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Delete the Wall instance. This method is called</span>
+<span class="sd">        automatically when no Python object stores a reference to this</span>
+<span class="sd">        Wall. Since reactors and reservoirs store references to all</span>
+<span class="sd">        Walls installed on them, this method will only be called after</span>
+<span class="sd">        the reactors/reservoirs have been deleted.  &quot;&quot;&quot;</span>
+
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_del</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Wall.ready"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.ready">[docs]</a>    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return 1 if the wall instance is ready for use, 0 otherwise. Deprecated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_ready</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.area"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.area">[docs]</a>    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The wall area (m^2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_area</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.setArea"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setArea">[docs]</a>    <span class="k">def</span> <span class="nf">setArea</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the area (m^2). The wall area may be changed manually at any time</span>
+<span class="sd">        during a simulation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setArea</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.setThermalResistance"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setThermalResistance">[docs]</a>    <span class="k">def</span> <span class="nf">setThermalResistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rth</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deprecated.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setThermalResistance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">rth</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.setHeatTransferCoeff"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setHeatTransferCoeff">[docs]</a>    <span class="k">def</span> <span class="nf">setHeatTransferCoeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the overall heat transfer coefficient [W/m^2/K]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setHeatTransferCoeff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.setEmissivity"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setEmissivity">[docs]</a>    <span class="k">def</span> <span class="nf">setEmissivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the emissivity.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setEmissivity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Wall.setHeatFlux"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setHeatFlux">[docs]</a>    <span class="k">def</span> <span class="nf">setHeatFlux</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qfunc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specify the time-dependent heat flux function [W/m2].</span>
+<span class="sd">        *qfunc* must be a functor (an instance of :class:`.Func1`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">qfunc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_qfunc</span> <span class="o">=</span> <span class="n">qfunc</span> <span class="c"># hold on to a reference so it doesn&#39;t get deleted</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">qfunc</span><span class="o">.</span><span class="n">func_id</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setHeatFlux</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.setExpansionRateCoeff"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setExpansionRateCoeff">[docs]</a>    <span class="k">def</span> <span class="nf">setExpansionRateCoeff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the coefficient K that determines the expansion rate</span>
+<span class="sd">        resulting from a unit pressure drop.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setExpansionRateCoeff</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.setVelocity"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setVelocity">[docs]</a>    <span class="k">def</span> <span class="nf">setVelocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vfunc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Specify the velocity function [m/s]. *vfunc* must</span>
+<span class="sd">        be a functor (an instance of :class:`.Func1`)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">vfunc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vfunc</span> <span class="o">=</span> <span class="n">vfunc</span> <span class="c"># hold on to a reference so it doesn&#39;t get deleted</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">vfunc</span><span class="o">.</span><span class="n">func_id</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setVelocity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.vdot"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.vdot">[docs]</a>    <span class="k">def</span> <span class="nf">vdot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Rate of volume change [m^3]. A positive value corresponds</span>
+<span class="sd">        to the left-hand reactor volume increasing, and the right-hand</span>
+<span class="sd">        reactor volume decreasing.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_vdot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.velocity"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.velocity">[docs]</a>    <span class="k">def</span> <span class="nf">velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vdot</span><span class="p">()</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Wall.heatFlowRate"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.heatFlowRate">[docs]</a>    <span class="k">def</span> <span class="nf">heatFlowRate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Rate of heat flow through the wall. A positive value</span>
+<span class="sd">        corresponds to heat flowing from the left-hand reactor to the</span>
+<span class="sd">        right-hand one.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_Q</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.heatFlux"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.heatFlux">[docs]</a>    <span class="k">def</span> <span class="nf">heatFlux</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">heatFlowRate</span><span class="p">()</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Wall.install"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.install">[docs]</a>    <span class="k">def</span> <span class="nf">install</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="n">left</span><span class="o">.</span><span class="n">_addWall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">right</span><span class="o">.</span><span class="n">_addWall</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">)</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_install</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">left</span><span class="o">.</span><span class="n">reactor_id</span><span class="p">(),</span>
+                               <span class="n">right</span><span class="o">.</span><span class="n">reactor_id</span><span class="p">())</span>
+</div>
+<div class="viewcode-block" id="Wall.setKinetics"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.setKinetics">[docs]</a>    <span class="k">def</span> <span class="nf">setKinetics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Specify surface reaction mechanisms for the left and right sides of the wall.&quot;&quot;&quot;</span>
+        <span class="n">ileft</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">iright</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+            <span class="n">ileft</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">kinetics_hndl</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">right</span><span class="p">:</span>
+            <span class="n">iright</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="n">kinetics_hndl</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_leftkin</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rightkin</span> <span class="o">=</span> <span class="n">right</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_setkinetics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span> <span class="n">ileft</span><span class="p">,</span> <span class="n">iright</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.kinetics"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.kinetics">[docs]</a>    <span class="k">def</span> <span class="nf">kinetics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="s">&#39;left&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s">&#39;left&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_leftkin</span>
+        <span class="k">elif</span> <span class="n">side</span> <span class="o">==</span> <span class="s">&#39;right&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rightkin</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&quot;side must be &#39;left&#39; or &#39;right&#39;&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wall.set"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">p</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set various wall parameters: *A*, *U*, *K*, *Q*, *velocity*.</span>
+<span class="sd">        These have the same meanings as in the constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;A&#39;</span> <span class="ow">or</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;area&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setArea</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;R&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setThermalResistance</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;U&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setHeatTransferCoeff</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;K&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setExpansionRateCoeff</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;Q&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setHeatFlux</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&#39;velocity&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setVelocity</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="s">&#39;unknown parameter: &#39;</span><span class="p">,</span><span class="n">item</span>
+
+</div>
+<div class="viewcode-block" id="Wall.addSensitivityReaction"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.Wall.addSensitivityReaction">[docs]</a>    <span class="k">def</span> <span class="nf">addSensitivityReaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">side</span> <span class="o">=</span> <span class="s">&#39;unknown&#39;</span><span class="p">,</span> <span class="n">reactions</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kinetics</span><span class="p">(</span><span class="n">side</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">reactions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">nr</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">nReactions</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nr</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">reactionEqn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+                <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_addSensitivityReaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span>
+                                                     <span class="n">_ilr</span><span class="p">[</span><span class="n">side</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">reactions</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_paramid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">reactionEqn</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+                <span class="n">_cantera</span><span class="o">.</span><span class="n">wall_addSensitivityReaction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__wall_id</span><span class="p">,</span>
+                                                     <span class="n">_ilr</span><span class="p">[</span><span class="n">side</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="ReactorNet"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet">[docs]</a><span class="k">class</span> <span class="nc">ReactorNet</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Networks of reactors. ReactorNet objects are used to</span>
+<span class="sd">    simultaneously advance the state of a set of coupled reactors.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; r1 = Reactor(gas1)</span>
+<span class="sd">    &gt;&gt;&gt; r2 = Reactor(gas2)</span>
+<span class="sd">    &gt;&gt;&gt; &lt;... install walls, inlets, outlets, etc...&gt;</span>
+
+<span class="sd">    &gt;&gt;&gt; reactor_network = ReactorNet([r1, r2])</span>
+<span class="sd">    &gt;&gt;&gt; reactor_network.advance(time)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reactorlist</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new ReactorNet instance. If a list of reactors is supplied,</span>
+<span class="sd">        these will be added to the network.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reactors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_new</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reactorlist</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">reactorlist</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete the reactor network instance. The reactors in the</span>
+<span class="sd">        network are not deleted.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_del</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ReactorNet.reactornet_id"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.reactornet_id">[docs]</a>    <span class="k">def</span> <span class="nf">reactornet_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; The integer index used to access the</span>
+<span class="sd">        kernel reactornet object. For internal use.  &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span>
+
+</div>
+<div class="viewcode-block" id="ReactorNet.add"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reactor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a reactor to the network.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reactors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reactor</span><span class="p">)</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_addreactor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span>
+                                       <span class="n">reactor</span><span class="o">.</span><span class="n">reactor_id</span><span class="p">())</span>
+
+</div>
+<div class="viewcode-block" id="ReactorNet.setInitialTime"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.setInitialTime">[docs]</a>    <span class="k">def</span> <span class="nf">setInitialTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the initial time. Restarts integration from this time</span>
+<span class="sd">        using the current state as the initial condition. Default: 0.0 s&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_setInitialTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span> <span class="n">t0</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.time"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.time">[docs]</a>    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The current time [s].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.setTolerances"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.setTolerances">[docs]</a>    <span class="k">def</span> <span class="nf">setTolerances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1.0e-9</span><span class="p">,</span>
+                      <span class="n">atol</span> <span class="o">=</span> <span class="mf">1.0e-20</span><span class="p">,</span> <span class="n">rtolsens</span><span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">atolsens</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the relative and absolute error tolerances used in</span>
+<span class="sd">        integrating the reactor equations.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_setTolerances</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">atol</span><span class="p">)</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_setSensitivityTolerances</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span> <span class="n">rtolsens</span><span class="p">,</span> <span class="n">atolsens</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.advance"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.advance">[docs]</a>    <span class="k">def</span> <span class="nf">advance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Advance the state of the reactor network in time from the current</span>
+<span class="sd">        time to time &#39;time&#39;.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_advance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.step"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.step">[docs]</a>    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Take a single internal time step toward time *time*.</span>
+<span class="sd">        The time after taking the step is returned.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_step</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.reactors"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.reactors">[docs]</a>    <span class="k">def</span> <span class="nf">reactors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the list of reactors in the network.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reactors</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.nSensParams"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.nSensParams">[docs]</a>    <span class="k">def</span> <span class="nf">nSensParams</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of sensitivity parameters.&quot;&quot;&quot;</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reactors</span><span class="p">:</span>
+            <span class="nb">sum</span> <span class="o">+=</span> <span class="n">r</span><span class="o">.</span><span class="n">nSensParams</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">sum</span>
+</div>
+<div class="viewcode-block" id="ReactorNet.sensitivity"><a class="viewcode-back" href="../../python/zerodim.html#Cantera.Reactor.ReactorNet.sensitivity">[docs]</a>    <span class="k">def</span> <span class="nf">sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="n">parameter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">reactor</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Sensitivity of solution component *component* with respect</span>
+<span class="sd">        to one or more parameters.</span>
+
+<span class="sd">        :param component:</span>
+<span class="sd">            name of the species or other variable for which sensitivity</span>
+<span class="sd">            information is desired.</span>
+<span class="sd">        :param parameter:</span>
+<span class="sd">            single integer or sequence of integers specifying the parameters.</span>
+<span class="sd">            The parameters are numbered from zero, beginning with the parameters</span>
+<span class="sd">            for the first reactor and continuing through those for the last</span>
+<span class="sd">            reactor in the network. If omitted, the sensitivity with respect</span>
+<span class="sd">            to all parameters will be returned.</span>
+<span class="sd">        :param reactor:</span>
+<span class="sd">            reactor containing the desired component.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">reactor</span> <span class="o">&lt;&gt;</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">reac</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reactors</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">reac</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="n">reactor</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">np</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nSensParams</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">parameter</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">parameter</span> <span class="o">&lt;</span> <span class="n">np</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span>
+                                                   <span class="n">component</span><span class="p">,</span> <span class="n">parameter</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">parameter</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="p">):</span>
+                <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_cantera</span><span class="o">.</span><span class="n">reactornet_sensitivity</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__reactornet_id</span><span class="p">,</span>
+                                                         <span class="n">component</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">s</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&quot;sensitivity requested for illegal parameter number:&quot;</span><span class="o">+</span><span class="sb">`parameter`</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../Cantera.html" >Cantera</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Cantera Developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,850 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cantera.OneD.onedim &mdash; Cantera 2.1.0b2 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '2.1.0b2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../../index.html" />
+    <link rel="up" title="Cantera" href="../../Cantera.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../../../index.html">
+<img src="../../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../Cantera.html" accesskey="U">Cantera</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for Cantera.OneD.onedim</h1><div class="highlight"><pre>
+<span class="kn">from</span> <span class="nn">Cantera</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Cantera</span> <span class="kn">import</span> <span class="n">_cantera</span>
+<span class="kn">from</span> <span class="nn">Cantera.num</span> <span class="kn">import</span> <span class="n">asarray</span><span class="p">,</span> <span class="n">zeros</span>
+
+<span class="n">_onoff</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;on&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;yes&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;off&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;no&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+
+<div class="viewcode-block" id="Domain1D"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D">[docs]</a><span class="k">class</span> <span class="nc">Domain1D</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Base class for one-dimensional domains.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_del</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Domain1D.domain_hndl"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.domain_hndl">[docs]</a>    <span class="k">def</span> <span class="nf">domain_hndl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Integer used to reference the kernel object.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span>
+</div>
+<div class="viewcode-block" id="Domain1D.type"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.type">[docs]</a>    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Domain type. Integer.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.index"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.index">[docs]</a>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Index of this domain in a stack. Returns -1 if this domain</span>
+<span class="sd">        is not part of a stack.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.nComponents"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.nComponents">[docs]</a>    <span class="k">def</span> <span class="nf">nComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of solution components at each grid point.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_nComponents</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.nPoints"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.nPoints">[docs]</a>    <span class="k">def</span> <span class="nf">nPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of grid points belonging to this domain.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_nPoints</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.componentName"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.componentName">[docs]</a>    <span class="k">def</span> <span class="nf">componentName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Name of the nth component.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_componentName</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.componentNames"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.componentNames">[docs]</a>    <span class="k">def</span> <span class="nf">componentNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;List of the names of all components of this domain.&quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nComponents</span><span class="p">()):</span>
+            <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">componentName</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">names</span>
+</div>
+<div class="viewcode-block" id="Domain1D.componentIndex"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.componentIndex">[docs]</a>    <span class="k">def</span> <span class="nf">componentIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Index of the component with name &#39;name&#39;&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_componentIndex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.setBounds"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.setBounds">[docs]</a>    <span class="k">def</span> <span class="nf">setBounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">bounds</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the lower and upper bounds on the solution.</span>
+
+<span class="sd">        The argument list should consist of keyword/value pairs, with</span>
+<span class="sd">        component names as keywords and (lower_bound, upper_bound)</span>
+<span class="sd">        tuples as the values.  The keyword *default* may be used to</span>
+<span class="sd">        specify default bounds for all unspecified components. The</span>
+<span class="sd">        keyword *Y* can be used to stand for all species mass</span>
+<span class="sd">        fractions in flow domains.</span>
+
+<span class="sd">        &gt;&gt;&gt; d.setBounds(default=(0, 1),</span>
+<span class="sd">        ...             Y=(-1.0e-5, 2.0))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">bounds</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;default&#39;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nComponents</span><span class="p">()):</span>
+                <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">componentName</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">bounds</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bounds</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="s">&#39;Y&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>
+                    <span class="n">nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nComponents</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">nc</span><span class="p">):</span>
+                        <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">componentName</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&#39;Y can only be specified in flow domains.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_setBounds</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="Domain1D.bounds"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.bounds">[docs]</a>    <span class="k">def</span> <span class="nf">bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the (lower, upper) bounds for a solution component.</span>
+
+<span class="sd">        &gt;&gt;&gt; d.bounds(&#39;T&#39;)</span>
+<span class="sd">        (200.0, 5000.0)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">ic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="n">lower</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_lowerBound</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span>
+        <span class="n">upper</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_upperBound</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.tolerances"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.tolerances">[docs]</a>    <span class="k">def</span> <span class="nf">tolerances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the (relative, absolute) error tolerances for</span>
+<span class="sd">        a solution component.</span>
+
+<span class="sd">        &gt;&gt;&gt; (r, a) = d.tolerances(&#39;u&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_rtol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_atol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.setTolerances"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.setTolerances">[docs]</a>    <span class="k">def</span> <span class="nf">setTolerances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">tol</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the error tolerances. If *time* is present and</span>
+<span class="sd">        non-zero, then the values entered will apply to the transient</span>
+<span class="sd">        problem. Otherwise, they will apply to the steady-state</span>
+<span class="sd">        problem.</span>
+
+<span class="sd">        The argument list should consist of keyword/value pairs, with</span>
+<span class="sd">        component names as keywords and (rtol, atol) tuples as the</span>
+<span class="sd">        values.  The keyword *default* may be used to specify default</span>
+<span class="sd">        bounds for all unspecified components. The keyword *Y* can be</span>
+<span class="sd">        used to stand for all species mass fractions in flow domains.</span>
+
+<span class="sd">        &gt;&gt;&gt; d.setTolerances(Y=(1.0e-5, 1.0e-9),</span>
+<span class="sd">        ...                 default=(1.0e-7, 1.0e-12),</span>
+<span class="sd">        ...                 time=1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">tol</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;default&#39;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nComponents</span><span class="p">()):</span>
+                <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">componentName</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">tol</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">tol</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+
+        <span class="n">itime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">tol</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="s">&#39;time&#39;</span><span class="p">:</span> <span class="n">itime</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="s">&#39;steady&#39;</span><span class="p">:</span> <span class="n">itime</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="s">&#39;Y&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>
+                    <span class="n">nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nComponents</span><span class="p">()</span>
+                    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">nc</span><span class="p">):</span>
+                        <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">componentName</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="n">tol</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&#39;Y can only be specified in flow domains.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">tol</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+            <span class="c"># print &#39;setting tol for &#39;,b,&#39; itime = &#39;,itime</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_setTolerances</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">itime</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="Domain1D.setupGrid"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.setupGrid">[docs]</a>    <span class="k">def</span> <span class="nf">setupGrid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Specify the grid.</span>
+
+<span class="sd">        &gt;&gt;&gt; d.setupGrid([0.0, 0.1, 0.2])</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_setupGrid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">asarray</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Domain1D.setID"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.setID">[docs]</a>    <span class="k">def</span> <span class="nf">setID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_setID</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.setDesc"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.setDesc">[docs]</a>    <span class="k">def</span> <span class="nf">setDesc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the description of this domain.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_setDesc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Domain1D.grid"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.grid">[docs]</a>    <span class="k">def</span> <span class="nf">grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; If *n* &gt;= 0, return the value of the nth grid point</span>
+<span class="sd">        from the left in this domain. If n is not supplied, return</span>
+<span class="sd">        the entire grid.</span>
+
+<span class="sd">        &gt;&gt;&gt; z4 = d.grid(4)</span>
+<span class="sd">        &gt;&gt;&gt; z_array = d.grid()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nPoints</span><span class="p">(),</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)):</span>
+                <span class="n">g</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_grid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">g</span>
+</div>
+<div class="viewcode-block" id="Domain1D.set"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Domain1D.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        convenient function to invoke other methods.</span>
+<span class="sd">        Parameters that can be set:</span>
+
+<span class="sd">        grid, name, desc</span>
+
+<span class="sd">        &gt;&gt;&gt; d.set(name=&#39;flame&#39;, grid=z)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+</div>
+    <span class="k">def</span> <span class="nf">_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">options</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="n">opt</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;grid&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setupGrid</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;name&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;desc&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setDesc</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="c">#elif opt == &#39;bounds&#39;:</span>
+            <span class="c">#    lower, upper = self._dict2arrays(v)</span>
+            <span class="c">#    self.setBounds(lower,upper)</span>
+            <span class="c">#elif opt == &#39;tol&#39;:</span>
+            <span class="c">#    self.setTolerances(v[0],v[1])</span>
+            <span class="c">#else:</span>
+            <span class="c">#    raise CanteraError(&#39;unknown attribute: &#39;+opt)</span>
+
+    <span class="k">def</span> <span class="nf">_dict2arrays</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">array1</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">array2</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nComponents</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;default&#39;</span><span class="p">):</span>
+            <span class="n">a1</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">a2</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">array1</span><span class="p">:</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">array1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array2</span><span class="p">:</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">array2</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">a1</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">a2</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">CanteraError</span><span class="p">(</span><span class="s">&#39;unknown component &#39;</span><span class="o">+</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+
+
+</div>
+<div class="viewcode-block" id="Bdry1D"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D">[docs]</a><span class="k">class</span> <span class="nc">Bdry1D</span><span class="p">(</span><span class="n">Domain1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base class for boundary domains.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Domain1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Bdry1D.setMdot"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.setMdot">[docs]</a>    <span class="k">def</span> <span class="nf">setMdot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mdot</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the mass flow rate per unit area [kg/m2].&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">bdry_setMdot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">mdot</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Bdry1D.setTemperature"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.setTemperature">[docs]</a>    <span class="k">def</span> <span class="nf">setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature [K]&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">bdry_setTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Bdry1D.setMoleFractions"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.setMoleFractions">[docs]</a>    <span class="k">def</span> <span class="nf">setMoleFractions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;set the mole fraction values. &quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">bdry_setMoleFractions</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Bdry1D.temperature"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.temperature">[docs]</a>    <span class="k">def</span> <span class="nf">temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the temperature [K].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">bdry_temperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Bdry1D.massFraction"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.massFraction">[docs]</a>    <span class="k">def</span> <span class="nf">massFraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The mass fraction of species k.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">bdry_massFraction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Bdry1D.mdot"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.mdot">[docs]</a>    <span class="k">def</span> <span class="nf">mdot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The mass flow rate per unit area [kg/m2/s&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">bdry_mdot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Bdry1D.set"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Bdry1D.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set parameters:</span>
+<span class="sd">        mdot or massflux</span>
+<span class="sd">        temperature or T</span>
+<span class="sd">        mole_fractions or X</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">options</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="n">opt</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;mdot&#39;</span> <span class="ow">or</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;massflux&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setMdot</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">del</span> <span class="n">options</span><span class="p">[</span><span class="n">opt</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;temperature&#39;</span> <span class="ow">or</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;T&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setTemperature</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">del</span> <span class="n">options</span><span class="p">[</span><span class="n">opt</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;mole_fractions&#39;</span> <span class="ow">or</span> <span class="n">opt</span> <span class="o">==</span> <span class="s">&#39;X&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setMoleFractions</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">del</span> <span class="n">options</span><span class="p">[</span><span class="n">opt</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Inlet"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Inlet">[docs]</a><span class="k">class</span> <span class="nc">Inlet</span><span class="p">(</span><span class="n">Bdry1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A one-dimensional inlet.</span>
+<span class="sd">    Note that an inlet can only be a terminal domain - it must be</span>
+<span class="sd">    either the leftmost or rightmost domain in a stack.</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;inlet&#39;</span><span class="p">):</span>
+        <span class="n">Bdry1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">inlet_new</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Inlet.setSpreadRate"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Inlet.setSpreadRate">[docs]</a>    <span class="k">def</span> <span class="nf">setSpreadRate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">V0</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the spead rate, defined as the value of V = v/r at the inlet.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">inlet_setSpreadRate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">V0</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Outlet"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Outlet">[docs]</a><span class="k">class</span> <span class="nc">Outlet</span><span class="p">(</span><span class="n">Bdry1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A one-dimensional outlet. An outlet imposes a</span>
+<span class="sd">    zero-gradient boundary condition on the flow.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;outlet&#39;</span><span class="p">):</span>
+        <span class="n">Bdry1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">outlet_new</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="OutletRes"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.OutletRes">[docs]</a><span class="k">class</span> <span class="nc">OutletRes</span><span class="p">(</span><span class="n">Bdry1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A one-dimensional outlet into a reservoir.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;outletres&#39;</span><span class="p">):</span>
+        <span class="n">Bdry1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">outletres_new</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="SymmPlane"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.SymmPlane">[docs]</a><span class="k">class</span> <span class="nc">SymmPlane</span><span class="p">(</span><span class="n">Bdry1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A symmetry plane.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;symmetry_plane&#39;</span><span class="p">):</span>
+        <span class="n">Bdry1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">symm_new</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+</div>
+<span class="k">class</span> <span class="nc">Surface</span><span class="p">(</span><span class="n">Bdry1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A surface (possibly reacting).&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;surface&#39;</span><span class="p">,</span> <span class="n">surface_mech</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">Bdry1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">surface_mech</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">reactingsurf_new</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setKineticsMgr</span><span class="p">(</span><span class="n">surface_mech</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">surf_new</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">setKineticsMgr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the kinetics manager (surface reaction mechanism object).&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">reactingsurf_setkineticsmgr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span>
+                                             <span class="n">kin</span><span class="o">.</span><span class="n">kinetics_hndl</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">setCoverageEqs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onoff</span><span class="o">=</span><span class="s">&#39;on&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Turn solving the surface coverage equations on or off.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">onoff</span> <span class="o">==</span> <span class="s">&#39;on&#39;</span><span class="p">:</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">reactingsurf_enableCoverageEqs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_cantera</span><span class="o">.</span><span class="n">reactingsurf_enableCoverageEqs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AxisymmetricFlow"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow">[docs]</a><span class="k">class</span> <span class="nc">AxisymmetricFlow</span><span class="p">(</span><span class="n">Domain1D</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;An axisymmetric flow domain.</span>
+
+<span class="sd">    In an axisymmetric flow domain, the equations solved are the</span>
+<span class="sd">    similarity equations for the flow in a finite-height gap of</span>
+<span class="sd">    infinite radial extent. The solution variables are</span>
+
+<span class="sd">    *u*</span>
+<span class="sd">        axial velocity</span>
+<span class="sd">    *V*</span>
+<span class="sd">        radial velocity divided by radius</span>
+<span class="sd">    *T*</span>
+<span class="sd">        temperature</span>
+<span class="sd">    *lambda*</span>
+<span class="sd">        (1/r)(dP/dr)</span>
+<span class="sd">    *Y_k*</span>
+<span class="sd">        species mass fractions</span>
+
+<span class="sd">    It may be shown that if the boundary conditions on these variables</span>
+<span class="sd">    are independent of radius, then a similarity solution to the exact</span>
+<span class="sd">    governing equations exists in which these variables are all</span>
+<span class="sd">    independent of radius. This solution holds only in in</span>
+<span class="sd">    low-Mach-number limit, in which case (dP/dz) = 0, and lambda is a</span>
+<span class="sd">    constant. (Lambda is treated as a spatially-varying solution</span>
+<span class="sd">    variable for numerical reasons, but in the final solution it is</span>
+<span class="sd">    always independent of z.) As implemented here, the governing</span>
+<span class="sd">    equations assume an ideal gas mixture.  Arbitrary chemistry is</span>
+<span class="sd">    allowed, as well as arbitrary variation of the transport</span>
+<span class="sd">    properties.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;axisymmetric_flow&#39;</span><span class="p">,</span> <span class="n">gas</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">Domain1D</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">iph</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">thermo_hndl</span><span class="p">()</span>
+        <span class="n">ikin</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">kinetics_hndl</span><span class="p">()</span>
+        <span class="n">itr</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">transport_hndl</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_new</span><span class="p">(</span><span class="n">iph</span><span class="p">,</span> <span class="n">ikin</span><span class="p">,</span> <span class="n">itr</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPressure</span><span class="p">(</span><span class="n">gas</span><span class="o">.</span><span class="n">pressure</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">solveEnergyEqn</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AxisymmetricFlow.setPressure"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.setPressure">[docs]</a>    <span class="k">def</span> <span class="nf">setPressure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the pressure [Pa]. The pressure is a constant, since</span>
+<span class="sd">        the governing equations are those for the low-Mach-number limit.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_setPressure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.setTransportModel"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.setTransportModel">[docs]</a>    <span class="k">def</span> <span class="nf">setTransportModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transp</span><span class="p">,</span> <span class="n">withSoret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the transport model. The argument must be a transport</span>
+<span class="sd">        manager for the &#39;gas&#39; object.&quot;&quot;&quot;</span>
+        <span class="n">itr</span> <span class="o">=</span> <span class="n">transp</span><span class="o">.</span><span class="n">transport_hndl</span><span class="p">()</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_setTransport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">itr</span><span class="p">,</span> <span class="n">withSoret</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.enableSoret"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.enableSoret">[docs]</a>    <span class="k">def</span> <span class="nf">enableSoret</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">withSoret</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Include or exclude thermal diffusion (Soret effect) when computing</span>
+<span class="sd">        diffusion velocities. If withSoret is not supplied or is positive,</span>
+<span class="sd">        thermal diffusion is enabled; otherwise it is disabled.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_enableSoret</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">withSoret</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.pressure"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.pressure">[docs]</a>    <span class="k">def</span> <span class="nf">pressure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pressure [Pa].&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_pressure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.setFixedTempProfile"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.setFixedTempProfile">[docs]</a>    <span class="k">def</span> <span class="nf">setFixedTempProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the fixed temperature profile.  This profile is used</span>
+<span class="sd">        whenever the energy equation is disabled.</span>
+
+<span class="sd">        :param pos:</span>
+<span class="sd">            arrray of relative positions from 0 to 1</span>
+<span class="sd">        :param temp:</span>
+<span class="sd">            array of temperature values</span>
+
+<span class="sd">        &gt;&gt;&gt; d.setFixedTempProfile(array([0.0, 0.5, 1.0]),</span>
+<span class="sd">        ...                       array([500.0, 1500.0, 2000.0])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_setFixedTempProfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.solveSpeciesEqs"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.solveSpeciesEqs">[docs]</a>    <span class="k">def</span> <span class="nf">solveSpeciesEqs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable solving the species equations. If invoked</span>
+<span class="sd">        with no arguments or with a non-zero argument, the species</span>
+<span class="sd">        equations will be solved. If invoked with a zero argument,</span>
+<span class="sd">        they will not be, and instead the species profiles will be</span>
+<span class="sd">        held at their initial values. Default: species equations</span>
+<span class="sd">        enabled.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_solveSpeciesEqs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">_onoff</span><span class="p">[</span><span class="n">flag</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.solveEnergyEqn"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.solveEnergyEqn">[docs]</a>    <span class="k">def</span> <span class="nf">solveEnergyEqn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Enable or disable solving the energy equation. If invoked</span>
+<span class="sd">        with no arguments or with a non-zero argument, the energy</span>
+<span class="sd">        equations will be solved. If invoked with a zero argument,</span>
+<span class="sd">        it will not be, and instead the temperature profiles will be</span>
+<span class="sd">        held to the one specified by the call to :meth:`.setFixedTempProfile`.</span>
+<span class="sd">        Default: energy equation enabled.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">stflow_solveEnergyEqn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">_onoff</span><span class="p">[</span><span class="n">flag</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="AxisymmetricFlow.set"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.AxisymmetricFlow.set">[docs]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">opt</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set parameters.</span>
+<span class="sd">        In addition to the parameters that may be set by Domain1D.set,</span>
+<span class="sd">        this method can be used to set the pressure and energy flag</span>
+
+<span class="sd">        &gt;&gt;&gt; d.set(pressure=OneAtm, energy=&#39;on&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">opt</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">opt</span><span class="p">[</span><span class="n">o</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">o</span> <span class="o">==</span> <span class="s">&#39;P&#39;</span> <span class="ow">or</span> <span class="n">o</span> <span class="o">==</span> <span class="s">&#39;pressure&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">setPressure</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">del</span> <span class="n">opt</span><span class="p">[</span><span class="n">o</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">o</span> <span class="o">==</span> <span class="s">&#39;energy&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">solveEnergyEqn</span><span class="p">(</span><span class="n">flag</span> <span class="o">=</span> <span class="n">_onoff</span><span class="p">[</span><span class="n">v</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_set</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Stack"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack">[docs]</a><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; Class Stack is a container for one-dimensional domains. It</span>
+<span class="sd">    also holds the multi-domain solution vector, and controls the</span>
+<span class="sd">    process of finding the solution.</span>
+
+<span class="sd">    Domains are ordered left-to-right, with domain number 0 at the left.</span>
+
+<span class="sd">    This class is largely a shadow class for C++ kernel class Sim1D.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domains</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nd</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">domains</span><span class="p">)</span>
+        <span class="n">hndls</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nd</span><span class="p">,</span><span class="s">&#39;i&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nd</span><span class="p">):</span>
+            <span class="n">hndls</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">domains</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">domain_hndl</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span> <span class="o">=</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_new</span><span class="p">(</span><span class="n">hndls</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_domains</span> <span class="o">=</span> <span class="n">domains</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_del</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Stack.setValue"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setValue">[docs]</a>    <span class="k">def</span> <span class="nf">setValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">localPoint</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the value of one component in one domain at one point</span>
+<span class="sd">        to &#39;value&#39;.</span>
+
+<span class="sd">        :param dom:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param comp:</span>
+<span class="sd">            component number</span>
+<span class="sd">        :param localPoint:</span>
+<span class="sd">            grid point number within domain *dom* starting with zero on the left</span>
+<span class="sd">        :param value:</span>
+<span class="sd">            numerical value</span>
+
+<span class="sd">        &gt;&gt;&gt; s.set(d, 3, 5, 6.7)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">domain_hndl</span><span class="p">()</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">idom</span><span class="p">,</span>
+                                <span class="n">comp</span><span class="p">,</span> <span class="n">localPoint</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setProfile"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setProfile">[docs]</a>    <span class="k">def</span> <span class="nf">setProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set an initial estimate for a profile of one component in</span>
+<span class="sd">        one domain.</span>
+
+<span class="sd">        :param dom:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param comp:</span>
+<span class="sd">            component name</span>
+<span class="sd">        :param pos:</span>
+<span class="sd">            sequence of relative positions, from 0 on the left to 1 on the right</span>
+<span class="sd">        :param v:</span>
+<span class="sd">            sequence of values at the relative positions specified in &#39;pos&#39;</span>
+
+<span class="sd">        &gt;&gt;&gt; s.setProfile(d, &#39;T&#39;, [0.0, 0.2, 1.0], [400.0, 800.0, 1500.0])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+        <span class="n">icomp</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setProfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">idom</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span>
+                                  <span class="n">asarray</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span> <span class="n">asarray</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Stack.setFlatProfile"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setFlatProfile">[docs]</a>    <span class="k">def</span> <span class="nf">setFlatProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set a flat profile for one component in one domain.</span>
+
+<span class="sd">        :param dom:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param comp:</span>
+<span class="sd">            component name</span>
+<span class="sd">        :param v:</span>
+<span class="sd">            value</span>
+
+<span class="sd">        &gt;&gt;&gt; s.setFlatProfile(d, &#39;u&#39;, -3.0)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+        <span class="n">icomp</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setFlatProfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">idom</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.showSolution"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.showSolution">[docs]</a>    <span class="k">def</span> <span class="nf">showSolution</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show the current solution. If called with no argument,</span>
+<span class="sd">        the solution is printed to the screen. If a filename is</span>
+<span class="sd">        supplied, it is written to the file.</span>
+
+<span class="sd">        &gt;&gt;&gt; s.showSolution()</span>
+<span class="sd">        &gt;&gt;&gt; s.showSolution(&#39;soln.txt&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_showSolution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setTimeStep"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setTimeStep">[docs]</a>    <span class="k">def</span> <span class="nf">setTimeStep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stepsize</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the sequence of time steps to try when Newton fails.</span>
+
+<span class="sd">        :param stepsize:</span>
+<span class="sd">            initial time step size [s]</span>
+<span class="sd">        :param nsteps:</span>
+<span class="sd">            sequence of integer step numbers</span>
+
+<span class="sd">        &gt;&gt;&gt; s.setTimeStep(1.0e-5, [1, 2, 5, 10])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># 3/20/09</span>
+        <span class="c"># The use of asarray seems to set the nsteps array to be of</span>
+        <span class="c"># type double. This needs to be checked out further.</span>
+        <span class="c"># Probably a function of python version and Numerics version</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setTimeStep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">stepsize</span><span class="p">,</span> <span class="n">asarray</span><span class="p">(</span><span class="n">nsteps</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="Stack.getInitialSoln"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.getInitialSoln">[docs]</a>    <span class="k">def</span> <span class="nf">getInitialSoln</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Load the initial solution from each domain into the global</span>
+<span class="sd">        solution vector.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_getInitialSoln</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.solve"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.solve">[docs]</a>    <span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loglevel</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">refine_grid</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Solve the problem.</span>
+
+<span class="sd">        :param loglevel:</span>
+<span class="sd">            integer flag controlling the amount of diagnostic output. Zero</span>
+<span class="sd">            suppresses all output, and 5 produces very verbose output. Default: 1</span>
+<span class="sd">        :param refine_grid:</span>
+<span class="sd">            if non-zero, enable grid refinement.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_solve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.refine"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.refine">[docs]</a>    <span class="k">def</span> <span class="nf">refine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loglevel</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Refine the grid, adding points where solution is not</span>
+<span class="sd">        adequately resolved.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_refine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setRefineCriteria"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setRefineCriteria">[docs]</a>    <span class="k">def</span> <span class="nf">setRefineCriteria</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">ratio</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">slope</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+                          <span class="n">curve</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">prune</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the criteria used to refine one domain.</span>
+
+<span class="sd">        :param domain:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param ratio:</span>
+<span class="sd">            additional points will be added if the ratio of the spacing</span>
+<span class="sd">            on either side of a grid point exceeds this value</span>
+<span class="sd">        :param slope:</span>
+<span class="sd">            maximum difference in value between two adjacent points, scaled by</span>
+<span class="sd">            the maximum difference in the profile (0.0 &lt; slope &lt; 1.0). Adds</span>
+<span class="sd">            points in regions of high slope.</span>
+<span class="sd">        :param curve:</span>
+<span class="sd">            maximum difference in slope between two adjacent intervals, scaled</span>
+<span class="sd">            by the maximum difference in the profile (0.0 &lt; curve &lt; 1.0). Adds</span>
+<span class="sd">            points in regions of high curvature.</span>
+<span class="sd">        :param prune:</span>
+<span class="sd">            if the slope or curve criteria are satisfied to the level of</span>
+<span class="sd">            &#39;prune&#39;, the grid point is assumed not to be needed and is removed.</span>
+<span class="sd">            Set prune significantly smaller than &#39;slope&#39; and &#39;curve&#39;. Set to</span>
+<span class="sd">            zero to disable pruning the grid.</span>
+
+<span class="sd">        &gt;&gt;&gt; s.setRefineCriteria(d, ratio=5.0, slope=0.2, curve=0.3,</span>
+<span class="sd">        ...                     prune=0.03)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setRefineCriteria</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span>
+                                                <span class="n">idom</span><span class="p">,</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">curve</span><span class="p">,</span> <span class="n">prune</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setGridMin"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setGridMin">[docs]</a>    <span class="k">def</span> <span class="nf">setGridMin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">gridmin</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the minimum allowable grid spacing in a domain.</span>
+
+<span class="sd">        :param domain:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param gridmin:</span>
+<span class="sd">            The minimum allowable grid spacing [m] for this domain</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setGridMin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">idom</span><span class="p">,</span> <span class="n">gridmin</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.save"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">file</span> <span class="o">=</span> <span class="s">&#39;soln.xml&#39;</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;solution&#39;</span><span class="p">,</span> <span class="n">desc</span> <span class="o">=</span> <span class="s">&#39;none&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save the solution in XML format.</span>
+
+<span class="sd">        &gt;&gt;&gt; s.save(file=&#39;save.xml&#39;, id=&#39;energy_off&#39;,</span>
+<span class="sd">        ...        desc=&#39;solution with energy eqn. disabled&#39;)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.restore"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.restore">[docs]</a>    <span class="k">def</span> <span class="nf">restore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">file</span> <span class="o">=</span> <span class="s">&#39;soln.xml&#39;</span><span class="p">,</span> <span class="nb">id</span> <span class="o">=</span> <span class="s">&#39;solution&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the solution vector to a previously-saved solution.</span>
+
+<span class="sd">        :param file:</span>
+<span class="sd">            solution file</span>
+<span class="sd">        :param id:</span>
+<span class="sd">            solution name within the file</span>
+
+<span class="sd">        &gt;&gt;&gt; s.restore(file = &#39;save.xml&#39;, id = &#39;energy_off&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_restore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.showStats"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.showStats">[docs]</a>    <span class="k">def</span> <span class="nf">showStats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">printTime</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Show the statistics for the last solution.</span>
+<span class="sd">           If invoked with no arguments or with a non-zero argument, the</span>
+<span class="sd">           timing statistics will be printed. If invoked with a zero argument,</span>
+<span class="sd">           the timing will not be printed.</span>
+<span class="sd">           Default: print timing enabled.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_writeStats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">_onoff</span><span class="p">[</span><span class="n">printTime</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="Stack.domainIndex"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.domainIndex">[docs]</a>    <span class="k">def</span> <span class="nf">domainIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Integer index of the domain with name &#39;name&#39;&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_domainIndex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.value"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">localPoint</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Solution value at one point.</span>
+
+<span class="sd">        :param domain:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param component:</span>
+<span class="sd">            component name</span>
+<span class="sd">        :param localPoint:</span>
+<span class="sd">            grid point number in the domain, starting with zero at the left</span>
+
+<span class="sd">        &gt;&gt;&gt; t = s.value(flow, &#39;T&#39;, 6)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">icomp</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">componentIndex</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_value</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">idom</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">localPoint</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.profile"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.profile">[docs]</a>    <span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">component</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Spatial profile of one component in one domain.</span>
+
+<span class="sd">        &gt;&gt;&gt; print s.profile(flow, &#39;T&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">np</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">nPoints</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">np</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</div>
+<div class="viewcode-block" id="Stack.workValue"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.workValue">[docs]</a>    <span class="k">def</span> <span class="nf">workValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dom</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">localPoint</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Internal work array value at one point. After calling eval,</span>
+<span class="sd">        this array contains the values of the residual function.</span>
+
+<span class="sd">        :param domain:</span>
+<span class="sd">            domain object</span>
+<span class="sd">        :param component:</span>
+<span class="sd">            component name</span>
+<span class="sd">        :param localPoint:</span>
+<span class="sd">            grid point number in the domain, starting with zero at the left</span>
+
+<span class="sd">        &gt;&gt;&gt; t = s.value(flow, &#39;T&#39;, 6)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idom</span> <span class="o">=</span> <span class="n">dom</span><span class="o">.</span><span class="n">index</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_workValue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">idom</span><span class="p">,</span> <span class="n">icomp</span><span class="p">,</span> <span class="n">localPoint</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.eval"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.eval">[docs]</a>    <span class="k">def</span> <span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdt</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evaluate the residual function. If count = 0, do is &#39;silently&#39;,</span>
+<span class="sd">        without adding to the function evaluation counter&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">rdt</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setMaxJacAge"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setMaxJacAge">[docs]</a>    <span class="k">def</span> <span class="nf">setMaxJacAge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ss_age</span><span class="p">,</span> <span class="n">ts_age</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the maximum number of times the Jacobian will be used</span>
+<span class="sd">        before it must be re-evaluated.</span>
+
+<span class="sd">        :param ss_age:</span>
+<span class="sd">            age criterion during steady-state mode</span>
+<span class="sd">        :param ts_age:</span>
+<span class="sd">            age criterion during time-stepping mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setMaxJacAge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">ss_age</span><span class="p">,</span> <span class="n">ts_age</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.timeStepFactor"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.timeStepFactor">[docs]</a>    <span class="k">def</span> <span class="nf">timeStepFactor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tfactor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the factor by which the time step will be increased</span>
+<span class="sd">        after a successful step, or decreased after an unsuccessful one.</span>
+
+<span class="sd">        &gt;&gt;&gt; s.timeStepFactor(3.0)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_timeStepFactor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">tfactor</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setTimeStepLimits"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setTimeStepLimits">[docs]</a>    <span class="k">def</span> <span class="nf">setTimeStepLimits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tsmin</span><span class="p">,</span> <span class="n">tsmax</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the maximum and minimum time steps.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setTimeStepLimits</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">tsmin</span><span class="p">,</span> <span class="n">tsmax</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Stack.setFixedTemperature"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.Stack.setFixedTemperature">[docs]</a>    <span class="k">def</span> <span class="nf">setFixedTemperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This is a temporary fix.&quot;&quot;&quot;</span>
+        <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_setFixedTemperature</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hndl</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="clearDomains"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.clearDomains">[docs]</a><span class="k">def</span> <span class="nf">clearDomains</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Clear all domains.&quot;&quot;&quot;</span>
+    <span class="n">_cantera</span><span class="o">.</span><span class="n">domain_clear</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="clearSim1D"><a class="viewcode-back" href="../../../python/onedim.html#Cantera.OneD.onedim.clearSim1D">[docs]</a><span class="k">def</span> <span class="nf">clearSim1D</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Clear all stacks.&quot;&quot;&quot;</span>
+    <span class="n">_cantera</span><span class="o">.</span><span class="n">sim1D_clear</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../Cantera.html" >Cantera</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Cantera Developers.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

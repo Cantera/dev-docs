@@ -563,18 +563,18 @@
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    name_map[<span class="stringliteral">&quot;e&quot;</span>]-&gt;nvib=0;</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    <span class="keywordflow">for</span> (ii=0; ii &lt; SS.size(); ii++) {</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        <span class="comment">// check nvib was initalized for all species</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        <span class="comment">// check nvib was initialized for all species</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        <span class="keywordflow">if</span> (name_map[SS[ii]]-&gt;nvib == -1) {</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            std::cout &lt;&lt; name_map[SS[ii]]-&gt;nvib &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;Error in StatMech.cpp&quot;</span>,</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                               <span class="stringliteral">&quot;nvib not initialized!. \n\n&quot;</span>);</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            <span class="comment">// check that theta is initalized</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            <span class="comment">// check that theta is initialized</span></div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;name_map[SS[ii]]-&gt;nvib; i++) {</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                <span class="keywordflow">if</span> (name_map[SS[ii]]-&gt;theta[i] &lt;= 0.0) {</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;Error in StatMech.cpp&quot;</span>,</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                                       <span class="stringliteral">&quot;theta not initalized!. \n\n&quot;</span>);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                                       <span class="stringliteral">&quot;theta not initialized!. \n\n&quot;</span>);</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                }</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            }</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;</div>
