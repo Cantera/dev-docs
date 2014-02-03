@@ -171,29 +171,27 @@
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                  doublereal&amp; pref,</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;Nasa9Poly1::reportParameters&quot;</span>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    n = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    type = <a class="code" href="speciesThermoTypes_8h.html#a8f36b350a1f9991dcb5fe9961284e7e7" title="9 coefficient NASA Polynomials This is implemented in the class Nasa9Poly1 in Nasa9Poly1.h ">NASA9</a>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    tlow = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    thigh = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    pref = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    coeffs[0] = 1;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    coeffs[1] = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    coeffs[2] = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 9; i++) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        coeffs[i+3] = <a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7" title="array of polynomial coefficients ">m_coeff</a>[i];</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">Nasa9Poly1::modifyParameters</a>(doublereal* coeffs)</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;Nasa9Poly1::modifyParameters&quot;</span>);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 9; i++) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7" title="array of polynomial coefficients ">m_coeff</a>[i] = coeffs[i];</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    n = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    type = <a class="code" href="speciesThermoTypes_8h.html#a8f36b350a1f9991dcb5fe9961284e7e7" title="9 coefficient NASA Polynomials This is implemented in the class Nasa9Poly1 in Nasa9Poly1.h ">NASA9</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    tlow = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    thigh = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    pref = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    coeffs[0] = 1;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    coeffs[1] = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    coeffs[2] = <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 9; i++) {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        coeffs[i+3] = <a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7" title="array of polynomial coefficients ">m_coeff</a>[i];</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b">  126</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">Nasa9Poly1::modifyParameters</a>(doublereal* coeffs)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 9; i++) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7" title="array of polynomial coefficients ">m_coeff</a>[i] = coeffs[i];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

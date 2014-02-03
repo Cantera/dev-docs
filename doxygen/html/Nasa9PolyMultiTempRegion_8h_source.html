@@ -75,7 +75,7 @@
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CT_NASA9POLYMULTITEMPREGION_H</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="comment">// Copyright 2007  Sandia National Laboratories</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, HTML_logs (see Input File Handling, Diagnostic Output, Writing messages to the screen and Writing HTML Logfiles). ">cantera/base/global.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, (see Input File Handling, Diagnostic Output, and Writing messages to the screen). ">cantera/base/global.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Nasa9Poly1_8h.html" title="Header for a single-species standard state object derived from SpeciesThermoInterpType based on the N...">cantera/thermo/Nasa9Poly1.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>Cantera</div>
@@ -236,41 +236,39 @@
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">     *        coeffs[index] = minTempZone</span></div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">     *        coeffs[index+1] = maxTempZone</span></div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">     *        coeffs[index+2+i] from i =0,9 are the coefficients themselves</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">     * @deprecated</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6009bb2689c657d035feb3e7c3a95410" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; n, <span class="keywordtype">int</span>&amp; type,</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                                  doublereal&amp; tlow, doublereal&amp; thigh,</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                                  doublereal&amp; pref,</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">    //! Modify parameters for the standard state</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     * @param coeffs   Vector of coefficients used to set the</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">     * @deprecated</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">    //! Number of temperature regions</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ae2fc115377829ae761e98e31feae9a9c">  195</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ae2fc115377829ae761e98e31feae9a9c" title="Number of temperature regions. ">m_numTempRegions</a>;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">    //! Lower boundaries of each temperature regions</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a3c0385c42806a944b6b3c64cc750215b">  198</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a3c0385c42806a944b6b3c64cc750215b" title="Lower boundaries of each temperature regions. ">m_lowerTempBounds</a>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">    //! pointers to the objects</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">     * This object will now own these pointers and delete</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">     * them when the current object is deleted.</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a8b6d6e39f4c87a916693d8070a32738d">  205</a></span>&#160;    std::vector&lt;Nasa9Poly1*&gt;<a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a8b6d6e39f4c87a916693d8070a32738d" title="pointers to the objects ">m_regionPts</a>;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">    //! current region</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac4ff5d4986ff558391a3a470514e4237">  208</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac4ff5d4986ff558391a3a470514e4237" title="current region ">m_currRegion</a>;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;};</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6009bb2689c657d035feb3e7c3a95410" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; n, <span class="keywordtype">int</span>&amp; type,</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                                  doublereal&amp; tlow, doublereal&amp; thigh,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                                  doublereal&amp; pref,</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">    //! Modify parameters for the standard state</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">     * @param coeffs   Vector of coefficients used to set the</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">    //! Number of temperature regions</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ae2fc115377829ae761e98e31feae9a9c">  193</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ae2fc115377829ae761e98e31feae9a9c" title="Number of temperature regions. ">m_numTempRegions</a>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">    //! Lower boundaries of each temperature regions</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a3c0385c42806a944b6b3c64cc750215b">  196</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a3c0385c42806a944b6b3c64cc750215b" title="Lower boundaries of each temperature regions. ">m_lowerTempBounds</a>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">    //! pointers to the objects</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">     * This object will now own these pointers and delete</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">     * them when the current object is deleted.</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a8b6d6e39f4c87a916693d8070a32738d">  203</a></span>&#160;    std::vector&lt;Nasa9Poly1*&gt;<a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a8b6d6e39f4c87a916693d8070a32738d" title="pointers to the objects ">m_regionPts</a>;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">    //! current region</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac4ff5d4986ff558391a3a470514e4237">  206</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac4ff5d4986ff558391a3a470514e4237" title="current region ">m_currRegion</a>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;};</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;}</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

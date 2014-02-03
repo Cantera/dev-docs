@@ -75,7 +75,7 @@
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b6175525bbb4d7731dcd267a085ca1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b6175525bbb4d7731dcd267a085ca1b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SurfaceArrhenius</b> (const ReactionData &amp;rdata)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SurfaceArrhenius</b> (const <a class="el" href="classCantera_1_1ReactionData.html">ReactionData</a> &amp;rdata)</td></tr>
 <tr class="separator:a0b6175525bbb4d7731dcd267a085ca1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4065ec2b9341fecd3af471152228856"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4065ec2b9341fecd3af471152228856"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addCoverageDependence</b> (size_t k, doublereal a, doublereal m, doublereal e)</td></tr>
@@ -149,8 +149,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An <a class="el" href="classCantera_1_1Arrhenius.html" title="Arrhenius reaction rate type depends only on temperature. ">Arrhenius</a> rate with coverage-dependent terms. </p>
+<p>The rate expression is given by: </p>
+<p class="formulaDsp">
+\[ k_f = A T^b \exp \left( \sum a_k \theta_k - \frac{1}{RT} \left( E_a + \sum E_k\theta_k \right) + \sum m_k \log \theta_k \right) \]
+</p>
+<p> where the parameters \( (a_k, E_k, m_k) \) describe the dependency on the surface coverage of species \(k, \theta_k \). </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00134">134</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00145">145</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ae24cd084de63f6b9eb3b6d68e61608ba"></a>
 <div class="memitem">
@@ -187,7 +192,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 <p>Update the value of the logarithm of the rate constant. </p>
 <p>This calculation is not safe for negative values of the preexponential. </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00217">217</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00228">228</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +231,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 <p>Update the value the rate constant. </p>
 <p>This function returns the actual value of the rate constant. It can be safely called for negative values of the pre-exponential factor. </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00229">229</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00240">240</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>

@@ -1250,7 +1250,7 @@
 <div class="line"><a name="l01189"></a><span class="lineno"> 1189</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l01190"></a><span class="lineno"> 1190</span>&#160;{</div>
 <div class="line"><a name="l01191"></a><span class="lineno"> 1191</span>&#160;    <span class="keywordtype">int</span>    retn;</div>
-<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;    <span class="keywordtype">float</span>  retn_float;</div>
+<div class="line"><a name="l01192"></a><span class="lineno"> 1192</span>&#160;    <span class="keywordtype">double</span>  retn_float;</div>
 <div class="line"><a name="l01193"></a><span class="lineno"> 1193</span>&#160;</div>
 <div class="line"><a name="l01194"></a><span class="lineno"> 1194</span>&#160;    <span class="comment">/*</span></div>
 <div class="line"><a name="l01195"></a><span class="lineno"> 1195</span>&#160;<span class="comment">     *     Allow a few key ascii phrases in place of an actual float</span></div>
@@ -1278,7 +1278,7 @@
 <div class="line"><a name="l01217"></a><span class="lineno"> 1217</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strmatch(token,<span class="stringliteral">&quot;dbl_epsilon&quot;</span>)) {</div>
 <div class="line"><a name="l01218"></a><span class="lineno"> 1218</span>&#160;        *retn_value = DBL_EPSILON;</div>
 <div class="line"><a name="l01219"></a><span class="lineno"> 1219</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;        <span class="keywordflow">if</span> ((retn = sscanf(token, <span class="stringliteral">&quot;%e&quot;</span>, &amp;retn_float)) != 1) {</div>
+<div class="line"><a name="l01220"></a><span class="lineno"> 1220</span>&#160;        <span class="keywordflow">if</span> ((retn = sscanf(token, <span class="stringliteral">&quot;%le&quot;</span>, &amp;retn_float)) != 1) {</div>
 <div class="line"><a name="l01221"></a><span class="lineno"> 1221</span>&#160;            *retn_value = (double) retn;</div>
 <div class="line"><a name="l01222"></a><span class="lineno"> 1222</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l01223"></a><span class="lineno"> 1223</span>&#160;        } <span class="keywordflow">else</span> {</div>

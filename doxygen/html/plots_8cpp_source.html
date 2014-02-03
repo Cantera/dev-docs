@@ -97,56 +97,50 @@
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;               <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; names,</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               <span class="keyword">const</span> <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a>&amp; data)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> i,j;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> npts = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> nv = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>());</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;TITLE     = \&quot;&quot;</span> + title + <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;VARIABLES = &quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; nv; i++) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; names[i] &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;ZONE T=\&quot;zone1\&quot;&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot; I=&quot;</span> &lt;&lt; npts &lt;&lt; <span class="stringliteral">&quot;,J=1,K=1,F=POINT&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;DT=( &quot;</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; nv; i++) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot; SINGLE&quot;</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot; )&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; npts; i++) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">for</span> (j = 0; j &lt; nv; j++) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            s &lt;&lt; data(j,i) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        s &lt;&lt; endl;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="namespaceCantera.html#aee6059b70728e56f33b9a6a4b2e731e2">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceCantera.html#aee6059b70728e56f33b9a6a4b2e731e2" title="Write an Excel spreadsheet in &#39;csv&#39; form. ">outputExcel</a>(std::ostream&amp; s, <span class="keyword">const</span> std::string&amp; title,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                 <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; names,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                 <span class="keyword">const</span> <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a>&amp; data)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> i,j;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> npts = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>());</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> nv = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>());</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    s &lt;&lt; title + <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; nv; i++) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        s &lt;&lt; names[i];</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (i != nv-1) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            s &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    s &lt;&lt; endl;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; npts; i++) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">for</span> (j = 0; j &lt; nv; j++) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            s &lt;&lt; data(j,i);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span> (j != nv-1) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                s &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        s &lt;&lt; endl;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;TITLE     = \&quot;&quot;</span> + title + <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;VARIABLES = &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>(); i++) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; names[i] &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;ZONE T=\&quot;zone1\&quot;&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot; I=&quot;</span> &lt;&lt; data.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>() &lt;&lt; <span class="stringliteral">&quot;,J=1,K=1,F=POINT&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot;DT=( &quot;</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>(); i++) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot; SINGLE&quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    s &lt;&lt; <span class="stringliteral">&quot; )&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; data.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>(); i++) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>(); j++) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            s &lt;&lt; data(j,i) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        s &lt;&lt; endl;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="namespaceCantera.html#aee6059b70728e56f33b9a6a4b2e731e2">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceCantera.html#aee6059b70728e56f33b9a6a4b2e731e2" title="Write an Excel spreadsheet in &#39;csv&#39; form. ">outputExcel</a>(std::ostream&amp; s, <span class="keyword">const</span> std::string&amp; title,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                 <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; names,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                 <span class="keyword">const</span> <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a>&amp; data)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    s &lt;&lt; title + <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>(); i++) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        s &lt;&lt; names[i];</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span> (i != data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>()-1) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            s &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    s &lt;&lt; endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; data.<a class="code" href="classCantera_1_1Array2D.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns</a>(); i++) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; data.<a class="code" href="classCantera_1_1Array2D.html#abdde07b2d9bddf82b8e3ade955145a3d" title="Number of rows. ">nRows</a>(); j++) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            s &lt;&lt; data(j,i);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span> (j != data.nRows()-1) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                s &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        s &lt;&lt; endl;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>flame.m &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>flame.m &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="flame1.m" href="flame1.html" />
     <link rel="prev" title="equil.m" href="equil.html" /> 
@@ -114,7 +114,7 @@
 <span class="c">%</span>
 
 <span class="c">% Check input parameters</span>
-<span class="k">if</span> <span class="n">nargin</span> <span class="o">~=</span> 4
+<span class="k">if</span> <span class="n">nargin</span> <span class="o">~=</span> <span class="mi">4</span>
   <span class="n">error</span><span class="p">(</span><span class="s">&#39;wrong number of input arguments.&#39;</span><span class="p">);</span>
 <span class="k">end</span>
 
@@ -128,11 +128,11 @@
   <span class="n">error</span><span class="p">(</span><span class="s">&#39;flow object of wrong type.&#39;</span><span class="p">);</span>
 <span class="k">end</span>
 
-<span class="n">flametype</span> <span class="p">=</span> 0<span class="p">;</span>
+<span class="n">flametype</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">if</span> <span class="n">isSurface</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
-  <span class="n">flametype</span> <span class="p">=</span> 1<span class="p">;</span>
+  <span class="n">flametype</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="k">elseif</span> <span class="n">isInlet</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
-  <span class="n">flametype</span> <span class="p">=</span> 3<span class="p">;</span>
+  <span class="n">flametype</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="k">end</span>
 
 
@@ -149,42 +149,42 @@
 <span class="n">yeq</span> <span class="p">=</span> <span class="n">massFractions</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
 <span class="n">rhoeq</span> <span class="p">=</span> <span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
 
-<span class="n">z1</span> <span class="p">=</span> 0<span class="p">.</span>2<span class="p">;</span>
+<span class="n">z1</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
 <span class="n">mdot0</span> <span class="p">=</span> <span class="n">massFlux</span><span class="p">(</span><span class="n">left</span><span class="p">);</span>
 <span class="n">mdot1</span> <span class="p">=</span> <span class="n">massFlux</span><span class="p">(</span><span class="n">right</span><span class="p">);</span>
 <span class="n">t0</span> <span class="p">=</span> <span class="n">temperature</span><span class="p">(</span><span class="n">left</span><span class="p">);</span>
-<span class="k">if</span> <span class="n">flametype</span> <span class="o">==</span> 0
+<span class="k">if</span> <span class="n">flametype</span> <span class="o">==</span> <span class="mi">0</span>
   <span class="n">t1</span> <span class="p">=</span> <span class="n">teq</span><span class="p">;</span>
   <span class="n">mdot1</span> <span class="p">=</span> <span class="o">-</span><span class="n">mdot0</span><span class="p">;</span>
 <span class="k">else</span>
   <span class="n">t1</span> <span class="p">=</span> <span class="n">temperature</span><span class="p">(</span><span class="n">right</span><span class="p">);</span>
 <span class="k">end</span>
 <span class="n">zz</span> <span class="p">=</span> <span class="n">z</span><span class="p">(</span><span class="n">flow</span><span class="p">);</span>
-<span class="n">dz</span> <span class="p">=</span> <span class="n">zz</span><span class="p">(</span><span class="k">end</span><span class="p">)</span> <span class="o">-</span> <span class="n">zz</span><span class="p">(</span>1<span class="p">);</span>
-<span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> 2<span class="p">,</span> <span class="p">{</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">},</span> <span class="p">[</span>0<span class="p">.</span>0            1<span class="p">.</span>0
+<span class="n">dz</span> <span class="p">=</span> <span class="n">zz</span><span class="p">(</span><span class="k">end</span><span class="p">)</span> <span class="o">-</span> <span class="n">zz</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">},</span> <span class="p">[</span><span class="mf">0.0</span>            <span class="mf">1.0</span>
 	 	              <span class="n">mdot0</span><span class="o">/</span><span class="n">rho0</span>     <span class="o">-</span><span class="n">mdot1</span><span class="o">/</span><span class="n">rho0</span>
-  		              0<span class="p">.</span>0            0<span class="p">.</span>0<span class="p">]);</span>
-<span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> 2<span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="p">[</span>0<span class="p">.</span>0 <span class="n">z1</span> 1<span class="p">.</span>0<span class="p">;</span> <span class="n">t0</span> 2000<span class="p">.</span>0 <span class="n">t1</span><span class="p">]);</span>
+  		              <span class="mf">0.0</span>            <span class="mf">0.0</span><span class="p">]);</span>
+<span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span> <span class="n">z1</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">t0</span> <span class="mf">2000.0</span> <span class="n">t1</span><span class="p">]);</span>
 
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> 1<span class="p">:</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
   <span class="n">nm</span> <span class="p">=</span> <span class="n">speciesName</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-  <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;OH&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;O&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">...</span>
+  <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;OH&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;O&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="c">...</span>
   	<span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;HO2&#39;</span><span class="p">)</span>
-    <span class="n">yint</span> <span class="p">=</span> 1<span class="p">.</span>0<span class="o">*</span><span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="n">yint</span> <span class="p">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
   <span class="k">else</span>
     <span class="n">yint</span> <span class="p">=</span> <span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
   <span class="k">end</span>
-  <span class="k">if</span> <span class="n">flametype</span> <span class="o">==</span> 3
+  <span class="k">if</span> <span class="n">flametype</span> <span class="o">==</span> <span class="mi">3</span>
     <span class="n">y1</span> <span class="p">=</span> <span class="n">massFraction</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
   <span class="k">else</span>
     <span class="n">y1</span> <span class="p">=</span> <span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
   <span class="k">end</span>
-  <span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> 2<span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="p">[</span>0  <span class="n">z1</span>   1
+  <span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span>  <span class="n">z1</span>   <span class="mi">1</span>
 		    <span class="n">massFraction</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>   <span class="n">yint</span>  <span class="n">y1</span><span class="p">]);</span>
 <span class="k">end</span>
 
 <span class="c">% set minimal grid refinement criteria </span>
-<span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> 2<span class="p">,</span> 10<span class="p">.</span>0<span class="p">,</span> 0<span class="p">.</span>8<span class="p">,</span> 0<span class="p">.</span>8<span class="p">);</span>
+<span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

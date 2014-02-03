@@ -69,6 +69,8 @@
  <a href="classCantera_1_1Logger.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
+
+<p>Inherited by PythonLogger.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -91,7 +93,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for 'loggers' that write text messages to log files. </p>
 <p>This class is used to direct log messages to application- or environment-specific output. The default is to simply print the messages to the standard output stream or standard error stream, but classes may be derived from <a class="el" href="classCantera_1_1Logger.html" title="Base class for &#39;loggers&#39; that write text messages to log files. ">Logger</a> that implement other output options. This is important when <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> is used in applications that do not display the standard output, such as MATLAB. The <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> MATLAB interface derives a class from <a class="el" href="classCantera_1_1Logger.html" title="Base class for &#39;loggers&#39; that write text messages to log files. ">Logger</a> that implements these methods with MATLAB-specific procedures, insuring that the messages will be passed through to the user. It would also be possible to derive a class that displayed the messages in a pop-up window, or redirected them to a file, etc.</p>
-<p>To install a logger, call function setLogger (<a class="el" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, HTML_logs (see Input File Handling, Diagnostic Output, Writing messages to the screen and Writing HTML Logfiles). ">global.h</a> / misc.cpp).</p>
+<p>To install a logger, call function setLogger (<a class="el" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, (see Input File Handling, Diagnostic Output, and Writing messages to the screen). ">global.h</a> / misc.cpp).</p>
 <p>See the files Cantera/python/src/pylogger.h and Cantera/matlab/cantera/private/mllogger.h for examples of deriving logger classes. </p>
 
 <p>Definition at line <a class="el" href="logger_8h_source.html#l00039">39</a> of file <a class="el" href="logger_8h_source.html">logger.h</a>.</p>

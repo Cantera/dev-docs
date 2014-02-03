@@ -542,9 +542,9 @@
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;}</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1GasKinetics.html#ab4091d6d0a8b78b87b77bf3a3ebe06b7" title="Add a single reaction to the mechanism. ">GasKinetics::</a></div>
-<div class="line"><a name="l00484"></a><span class="lineno"><a class="code" href="classCantera_1_1GasKinetics.html#ab4091d6d0a8b78b87b77bf3a3ebe06b7">  484</a></span>&#160;<a class="code" href="classCantera_1_1GasKinetics.html#ab4091d6d0a8b78b87b77bf3a3ebe06b7" title="Add a single reaction to the mechanism. ">addReaction</a>(ReactionData&amp; r)</div>
+<div class="line"><a name="l00484"></a><span class="lineno"><a class="code" href="classCantera_1_1GasKinetics.html#ab4091d6d0a8b78b87b77bf3a3ebe06b7">  484</a></span>&#160;<a class="code" href="classCantera_1_1GasKinetics.html#ab4091d6d0a8b78b87b77bf3a3ebe06b7" title="Add a single reaction to the mechanism. ">addReaction</a>(<a class="code" href="classCantera_1_1ReactionData.html" title="Intermediate class which stores data about a reaction and its rate parameterization before adding the...">ReactionData</a>&amp; r)</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;{</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordflow">switch</span> (r.reactionType) {</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="keywordflow">switch</span> (r.<a class="code" href="classCantera_1_1ReactionData.html#acb508dae5aaa32b8d306b8eb28c30b28" title="Type of the reaction. ">reactionType</a>) {</div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="namespaceCantera.html#a8df81c7ff3d9f97bc34701d3960e10e6" title="A reaction with a rate coefficient that depends only on temperature. ">ELEMENTARY_RXN</a>:</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        addElementaryReaction(r);</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        <span class="keywordflow">break</span>;</div>
@@ -567,22 +567,22 @@
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="comment">// operations common to all reaction types</span></div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    installReagents(r);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    installGroups(reactionNumber(), r.rgroups, r.pgroups);</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    installGroups(reactionNumber(), r.<a class="code" href="classCantera_1_1ReactionData.html#a5ba2fb4275b1d7e73b7c88c9b8e876ad" title="Optional data used in reaction path diagrams. ">rgroups</a>, r.<a class="code" href="classCantera_1_1ReactionData.html#af2cb1e637aa7e561017ad17d9f9080d7" title="Optional data used in reaction path diagrams. ">pgroups</a>);</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <a class="code" href="classCantera_1_1Kinetics.html#a20e399f4822eceeef8fe5861d41abf46" title="Increment the number of reactions in the mechanism by one. ">incrementRxnCount</a>();</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    m_rxneqn.push_back(r.equation);</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    m_rxntype.push_back(r.reactionType);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    m_rxneqn.push_back(r.<a class="code" href="classCantera_1_1ReactionData.html#a9effb785c6d4a00b0cc23b50e4f96eb1" title="The reaction equation. Used only for display purposes. ">equation</a>);</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    m_rxntype.push_back(r.<a class="code" href="classCantera_1_1ReactionData.html#acb508dae5aaa32b8d306b8eb28c30b28" title="Type of the reaction. ">reactionType</a>);</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;}</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="keywordtype">void</span> GasKinetics::</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;addFalloffReaction(ReactionData&amp; r)</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;addFalloffReaction(<a class="code" href="classCantera_1_1ReactionData.html" title="Intermediate class which stores data about a reaction and its rate parameterization before adding the...">ReactionData</a>&amp; r)</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;{</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="comment">// install high and low rate coeff calculators</span></div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="comment">// and add constant terms to high and low rate coeff value vectors</span></div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordtype">size_t</span> iloc = m_falloff_high_rates.install(m_nfall, r);</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    m_rfn_high.push_back(r.rateCoeffParameters[0]);</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    std::swap(r.rateCoeffParameters, r.auxRateCoeffParameters);</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    m_rfn_high.push_back(r.<a class="code" href="classCantera_1_1ReactionData.html#ae1bab5d118d76954d637214d95ae604e" title="Vector of rate coefficient parameters. ">rateCoeffParameters</a>[0]);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    std::swap(r.<a class="code" href="classCantera_1_1ReactionData.html#ae1bab5d118d76954d637214d95ae604e" title="Vector of rate coefficient parameters. ">rateCoeffParameters</a>, r.<a class="code" href="classCantera_1_1ReactionData.html#a83d1c7dbbd1db513654cc72abce2ca65" title="Vector of auxiliary rate coefficient parameters. ">auxRateCoeffParameters</a>);</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    m_falloff_low_rates.install(m_nfall, r);</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    m_rfn_low.push_back(r.rateCoeffParameters[0]);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    m_rfn_low.push_back(r.<a class="code" href="classCantera_1_1ReactionData.html#ae1bab5d118d76954d637214d95ae604e" title="Vector of rate coefficient parameters. ">rateCoeffParameters</a>[0]);</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="comment">// add a dummy entry in m_rf, where computed falloff</span></div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="comment">// rate coeff will be put</span></div>
@@ -594,21 +594,21 @@
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">// install the enhanced third-body concentration</span></div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <span class="comment">// calculator for this reaction</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    m_falloff_concm.install(m_nfall, r.thirdBodyEfficiencies,</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                            r.default_3b_eff);</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    m_falloff_concm.install(m_nfall, r.<a class="code" href="classCantera_1_1ReactionData.html#ae2f042b583b56f8d957d385e074847ed" title="Map of species index to third body efficiency. ">thirdBodyEfficiencies</a>,</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                            r.<a class="code" href="classCantera_1_1ReactionData.html#aaeab920b7e9ef81f8b9df2e9dc4c08e1" title="The default third body efficiency for species not listed in thirdBodyEfficiencies. ">default_3b_eff</a>);</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="comment">// install the falloff function calculator for</span></div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="comment">// this reaction</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    m_falloffn.<a class="code" href="classCantera_1_1FalloffMgr.html#ab83a04ae31054743d18465f1689b7742" title="Install a new falloff function calculator. ">install</a>(m_nfall, r.falloffType, r.reactionType,</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                       r.falloffParameters);</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    m_falloffn.<a class="code" href="classCantera_1_1FalloffMgr.html#ab83a04ae31054743d18465f1689b7742" title="Install a new falloff function calculator. ">install</a>(m_nfall, r.<a class="code" href="classCantera_1_1ReactionData.html#a3282734e7853fe2d1ffcb23d7470468a" title="Type of falloff parameterization to use. ">falloffType</a>, r.<a class="code" href="classCantera_1_1ReactionData.html#acb508dae5aaa32b8d306b8eb28c30b28" title="Type of the reaction. ">reactionType</a>,</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                       r.<a class="code" href="classCantera_1_1ReactionData.html#a4836a5ed9beaee9fcfad35d322771706" title="Values used in the falloff parameterization. ">falloffParameters</a>);</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="comment">// forward rxn order equals number of reactants, since rate</span></div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="comment">// coeff is defined in terms of the high-pressure limit</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    m_fwdOrder.push_back(r.reactants.size());</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    m_fwdOrder.push_back(r.<a class="code" href="classCantera_1_1ReactionData.html#a9b8550b12bd3e7c4024ab7e37809d8ea" title="Indices of reactant species. ">reactants</a>.size());</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="comment">// increment the falloff reaction counter</span></div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    ++m_nfall;</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    registerReaction(reactionNumber(), r.reactionType, iloc);</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    registerReaction(reactionNumber(), r.<a class="code" href="classCantera_1_1ReactionData.html#acb508dae5aaa32b8d306b8eb28c30b28" title="Type of the reaction. ">reactionType</a>, iloc);</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;}</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="keywordtype">void</span> GasKinetics::</div>

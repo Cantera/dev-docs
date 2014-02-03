@@ -89,7 +89,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a0987460dd327b999ad7d9d0321e7c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a3a0987460dd327b999ad7d9d0321e7c2">add</a> (size_t rxn, const std::vector&lt; size_t &gt; &amp;reactants, const std::vector&lt; size_t &gt; &amp;products, bool reversible)</td></tr>
 <tr class="memdesc:a3a0987460dd327b999ad7d9d0321e7c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a reaction with mass-action kinetics.  <a href="#a3a0987460dd327b999ad7d9d0321e7c2">More...</a><br/></td></tr>
 <tr class="separator:a3a0987460dd327b999ad7d9d0321e7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9f59e328bae9e5fcc30cbd151f5f9db"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#ae9f59e328bae9e5fcc30cbd151f5f9db">add</a> (size_t rxn, const ReactionData &amp;r)</td></tr>
+<tr class="memitem:ae9f59e328bae9e5fcc30cbd151f5f9db"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#ae9f59e328bae9e5fcc30cbd151f5f9db">add</a> (size_t rxn, const <a class="el" href="classCantera_1_1ReactionData.html">ReactionData</a> &amp;r)</td></tr>
 <tr class="memdesc:ae9f59e328bae9e5fcc30cbd151f5f9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a reaction with specified, possibly non-integral, reaction orders.  <a href="#ae9f59e328bae9e5fcc30cbd151f5f9db">More...</a><br/></td></tr>
 <tr class="separator:ae9f59e328bae9e5fcc30cbd151f5f9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbca8efc0feeba503eea829c6363a86"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a3bbca8efc0feeba503eea829c6363a86">getCreationRates</a> (size_t nSpecies, const doublereal *fwdRatesOfProgress, const doublereal *revRatesOfProgress, doublereal *creationRates)</td></tr>
@@ -311,7 +311,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const ReactionData &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classCantera_1_1ReactionData.html">ReactionData</a> &amp;&#160;</td>
           <td class="paramname"><em>r</em>&#160;</td>
         </tr>
         <tr>
@@ -337,6 +337,8 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 </dl>
 
 <p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00065">65</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>References <a class="el" href="ReactionData_8h_source.html#l00124">ReactionData::global</a>, <a class="el" href="ReactionData_8h_source.html#l00131">ReactionData::isReversibleWithFrac</a>, <a class="el" href="ReactionData_8h_source.html#l00055">ReactionData::porder</a>, <a class="el" href="ReactionData_8h_source.html#l00045">ReactionData::products</a>, <a class="el" href="ReactionData_8h_source.html#l00062">ReactionData::pstoich</a>, <a class="el" href="ReactionData_8h_source.html#l00044">ReactionData::reactants</a>, <a class="el" href="ReactionData_8h_source.html#l00076">ReactionData::reversible</a>, <a class="el" href="ReactionData_8h_source.html#l00050">ReactionData::rorder</a>, and <a class="el" href="ReactionData_8h_source.html#l00059">ReactionData::rstoich</a>.</p>
 
 </div>
 </div>
@@ -557,7 +559,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00159">159</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00399">InterfaceKinetics::applyButlerVolmerCorrection()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00629">InterfaceKinetics::getDeltaElectrochemPotentials()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00246">GasKinetics::getDeltaEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00195">AqueousKinetics::getDeltaEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00646">InterfaceKinetics::getDeltaEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00260">GasKinetics::getDeltaEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00209">AqueousKinetics::getDeltaEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00662">InterfaceKinetics::getDeltaEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00232">GasKinetics::getDeltaGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00181">AqueousKinetics::getDeltaGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00609">InterfaceKinetics::getDeltaGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00290">GasKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00239">AqueousKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00696">InterfaceKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00310">GasKinetics::getDeltaSSEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00259">AqueousKinetics::getDeltaSSEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00718">InterfaceKinetics::getDeltaSSEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00274">GasKinetics::getDeltaSSGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00223">AqueousKinetics::getDeltaSSGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00678">InterfaceKinetics::getDeltaSSGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00213">GasKinetics::getEquilibriumConstants()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00156">AqueousKinetics::getEquilibriumConstants()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00328">InterfaceKinetics::getEquilibriumConstants()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00399">InterfaceKinetics::applyButlerVolmerCorrection()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00622">InterfaceKinetics::getDeltaElectrochemPotentials()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00246">GasKinetics::getDeltaEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00193">AqueousKinetics::getDeltaEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00639">InterfaceKinetics::getDeltaEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00260">GasKinetics::getDeltaEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00207">AqueousKinetics::getDeltaEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00655">InterfaceKinetics::getDeltaEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00232">GasKinetics::getDeltaGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00179">AqueousKinetics::getDeltaGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00602">InterfaceKinetics::getDeltaGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00290">GasKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00237">AqueousKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00689">InterfaceKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00310">GasKinetics::getDeltaSSEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00257">AqueousKinetics::getDeltaSSEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00711">InterfaceKinetics::getDeltaSSEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00274">GasKinetics::getDeltaSSGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00221">AqueousKinetics::getDeltaSSGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00671">InterfaceKinetics::getDeltaSSGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00213">GasKinetics::getEquilibriumConstants()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00154">AqueousKinetics::getEquilibriumConstants()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00328">InterfaceKinetics::getEquilibriumConstants()</a>.</p>
 
 </div>
 </div>
@@ -604,7 +606,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00170">170</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00193">GasKinetics::updateKc()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00130">AqueousKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00232">InterfaceKinetics::updateKc()</a>.</p>
+<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00193">GasKinetics::updateKc()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00128">AqueousKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00232">InterfaceKinetics::updateKc()</a>.</p>
 
 </div>
 </div>
@@ -648,7 +650,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00178">178</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00505">InterfaceKinetics::updateROP()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00498">InterfaceKinetics::updateROP()</a>.</p>
 
 </div>
 </div>
@@ -692,7 +694,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00184">184</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00505">InterfaceKinetics::updateROP()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00498">InterfaceKinetics::updateROP()</a>.</p>
 
 </div>
 </div>

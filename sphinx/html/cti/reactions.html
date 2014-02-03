@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reactions &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Reactions &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="CTI Class Reference" href="classes.html" />
     <link rel="prev" title="Elements and Species" href="species.html" /> 
@@ -120,7 +120,7 @@
 <p>Cantera supports a number of different types of reactions, including several
 types of homogeneous reactions, surface reactions, and electrochemical
 reactions. For each, there is a corresponding entry type. The simplest entry
-type is <a class="reference internal" href="classes.html#ctml_writer.reaction" title="ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt></a>, which can be used for any homogeneous reaction that
+type is <tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt>, which can be used for any homogeneous reaction that
 has a rate expression that obeys the law of mass action, with a rate coefficient
 that depends only on temperature.</p>
 <div class="section" id="common-attributes">
@@ -153,34 +153,36 @@ reaction will be treated as irreversible.</p>
 rate coefficient type. At present, the only implemented type is the modified
 Arrhenius function</p>
 <div class="math">
-\[k_f(T) = A T^n \exp(-E/\hat{R}T)\]</div>
-<p>which is defined with an <a class="reference internal" href="classes.html#ctml_writer.Arrhenius" title="ctml_writer.Arrhenius"><tt class="xref py py-class docutils literal"><span class="pre">Arrhenius</span></tt></a> entry:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">rate_coeff</span> <span class="o">=</span> <span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mf">1.0e13</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="p">(</span><span class="mf">7.3</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">))</span>
+\[k_f(T) = A T^b \exp(-E/\hat{R}T)\]</div>
+<p>which is defined with an <tt class="xref py py-class docutils literal"><span class="pre">Arrhenius</span></tt> entry:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">rate_coeff</span> <span class="o">=</span> <span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mf">1.0e13</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="p">(</span><span class="mf">7.3</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">))</span>
 <span class="n">rate_coeff</span> <span class="o">=</span> <span class="n">Arrhenius</span><span class="p">(</span><span class="mf">1.0e13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mf">7.3</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>As a shorthand, if the <tt class="docutils literal"><span class="pre">rate_coeff</span></tt> field is assigned a sequence of three numbers, these are assumed to be <span class="math">\((A, n, E)\)</span> in the modified Arrhenius function:</p>
+<p>Note: the usage of <tt class="docutils literal"><span class="pre">n</span></tt> as the temperature exponent has been deprecated. It is
+still available in version 2.2 but will be removed.</p>
+<p>As a shorthand, if the <tt class="docutils literal"><span class="pre">rate_coeff</span></tt> field is assigned a sequence of three numbers, these are assumed to be <span class="math">\((A, b, E)\)</span> in the modified Arrhenius function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">rate_coeff</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0e13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mf">7.3</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">)]</span> <span class="c"># equivalent to above</span>
 </pre></div>
 </div>
 <p>The units of the pre-exponential factor <em>A</em> can be specified explicitly if
-desired. If not specified, they will be constructed using the <em>quantity</em>, length,
-and time units specified in the units directive. Since the units of <em>A</em> depend on
+desired. If not specified, they will be constructed using the <em>quantity</em>, <em>length</em>,
+and <em>time</em> units specified in the units directive. Since the units of <em>A</em> depend on
 the reaction order, the units of each reactant concentration (different for bulk
 species in solution, surface species, and pure condensed-phase species), and the
 units of the rate of progress (different for homogeneous and heterogeneous
 reactions), it is usually best not to specify units for <em>A</em>, in which case they
 will be computed taking all of these factors into account.</p>
-<p>Note: if <span class="math">\(n \ne 0\)</span>, then the term <span class="math">\(T^n\)</span> should have units of
-<span class="math">\(K^n\)</span>, which would change the units of <em>A</em>. This is not done, however, so
+<p>Note: if <span class="math">\(b \ne 0\)</span>, then the term <span class="math">\(T^b\)</span> should have units of
+<span class="math">\(K^b\)</span>, which would change the units of <em>A</em>. This is not done, however, so
 the units associated with A are really the units for <span class="math">\(k_f\)</span> . One way to
-formally express this is to replace <span class="math">\(T^n\)</span> by the non-dimensional quantity
-<span class="math">\([T/(1 K)]^n\)</span>.</p>
+formally express this is to replace <span class="math">\(T^b\)</span> by the non-dimensional quantity
+<span class="math">\([T/(1 K)]^b\)</span>.</p>
 </div>
 <div class="section" id="the-id-string">
 <h3>The ID String<a class="headerlink" href="#the-id-string" title="Permalink to this headline">¶</a></h3>
 <p>An optional identifying string can be entered in the <tt class="docutils literal"><span class="pre">ID</span></tt> field, which can
-then be used in the <tt class="docutils literal"><span class="pre">reactions</span></tt> field of a <a class="reference internal" href="classes.html#ctml_writer.phase" title="ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt></a> or interface entry
+then be used in the <tt class="docutils literal"><span class="pre">reactions</span></tt> field of a <tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt> or interface entry
 to identify this reaction. If omitted, the reactions are assigned ID strings as
 they are read in, beginning with <tt class="docutils literal"><span class="pre">'0001'</span></tt>, <tt class="docutils literal"><span class="pre">'0002'</span></tt>, etc.</p>
 <p>Note that the ID string is only used when selectively importing reactions. If
@@ -230,7 +232,7 @@ positive, then negative <em>A</em> parameters are acceptable, as long as the
 </div>
 <div class="section" id="reactions-with-pressure-independent-rate">
 <h2>Reactions with Pressure-Independent Rate<a class="headerlink" href="#reactions-with-pressure-independent-rate" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="classes.html#ctml_writer.reaction" title="ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt></a> entry is used to represent homogeneous reactions with
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt> entry is used to represent homogeneous reactions with
 pressure-independent rate coefficients and mass action kinetics.  Examples of
 reaction entries that implement some reactions in the GRI-Mech 3.0 natural gas
 combustion mechanism <a class="footnote-reference" href="#smith1997" id="id1">[3]</a> are shown below:</p>
@@ -240,9 +242,9 @@ combustion mechanism <a class="footnote-reference" href="#smith1997" id="id1">[3
 <span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;O + HO2 &lt;=&gt; OH + O2&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.00000E+13</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;O + H2O2 &lt;=&gt; OH + HO2&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">9.63000E+06</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">4000</span><span class="p">])</span>
 <span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;O + HCCO &lt;=&gt; H + 2 CO&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.00000E+14</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;H + O2 + AR &lt;=&gt; HO2 + AR&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">7.00000E+17</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;HO2 + C3H7 &lt;=&gt; O2 + C3H8&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.55000E+10</span><span class="p">,</span> <span class="mf">0.255</span><span class="p">,</span> <span class="o">-</span><span class="mi">943</span><span class="p">])</span>
-<span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;HO2 + C3H7 =&gt; OH + C2H5 + CH2O&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.41000E+13</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">reaction</span><span class="p">(</span> <span class="s">&quot;H + O2 + AR &lt;=&gt; HO2 + AR&quot;</span><span class="p">,</span> <span class="n">kf</span><span class="o">=</span><span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mf">7.00000E+17</span><span class="p">,</span> <span class="n">b</span><span class="o">=-</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">reaction</span><span class="p">(</span> <span class="n">equation</span> <span class="o">=</span> <span class="s">&quot;HO2 + C3H7 &lt;=&gt; O2 + C3H8&quot;</span><span class="p">,</span> <span class="n">kf</span><span class="o">=</span><span class="n">Arrhenius</span><span class="p">(</span><span class="mf">2.55000E+10</span><span class="p">,</span> <span class="mf">0.255</span><span class="p">,</span> <span class="o">-</span><span class="mi">943</span><span class="p">))</span>
+<span class="n">reaction</span><span class="p">(</span> <span class="n">equation</span> <span class="o">=</span> <span class="s">&quot;HO2 + C3H7 =&gt; OH + C2H5 + CH2O&quot;</span><span class="p">,</span> <span class="n">kf</span><span class="o">=</span><span class="p">[</span><span class="mf">2.41000E+13</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -250,13 +252,13 @@ combustion mechanism <a class="footnote-reference" href="#smith1997" id="id1">[3
 <h2>Three-Body Reactions<a class="headerlink" href="#three-body-reactions" title="Permalink to this headline">¶</a></h2>
 <p>A three-body reaction is a gas-phase reaction of the form:</p>
 <div class="math">
-\[{\rm A + B} \rightleftharpoons {\rm AB + M}\]</div>
-<p>Here M is an unspecified collision partner that carries away excess energy to
-stabilize the AB molecule (forward direction) or supplies energy to break the AB
+\[{\rm A + B + M} \rightleftharpoons {\rm AB + M}\]</div>
+<p>Here <em>M</em> is an unspecified collision partner that carries away excess energy to
+stabilize the <em>AB</em> molecule (forward direction) or supplies energy to break the <em>AB</em>
 bond (reverse direction).</p>
 <p>Different species may be more or less effective in acting as the collision partner. A species that is much lighter than
-A and B may not be able to transfer much of its kinetic energy, and so would be inefficient as a collision partner. On
-the other hand, a species with a transition from its ground state that is nearly resonant with one in the AB* activated
+<em>A</em> and <em>B</em> may not be able to transfer much of its kinetic energy, and so would be inefficient as a collision partner. On
+the other hand, a species with a transition from its ground state that is nearly resonant with one in the <em>AB*</em> activated
 complex may be much more effective at exchanging energy than would otherwise be expected.</p>
 <p>These effects can be accounted for by defining a collision efficiency
 <span class="math">\(\epsilon\)</span> for each species, defined such that the forward reaction rate is</p>
@@ -268,8 +270,9 @@ complex may be much more effective at exchanging energy than would otherwise be 
 <p>where <span class="math">\(C_k\)</span> is the concentration of species <em>k</em>. Since any constant
 collision efficiency can be absorbed into the rate coefficient <span class="math">\(k_f(T)\)</span>, the
 default collision efficiency is 1.0.</p>
-<p>A three-body reaction may be defined using the <a class="reference internal" href="classes.html#ctml_writer.three_body_reaction" title="ctml_writer.three_body_reaction"><tt class="xref py py-class docutils literal"><span class="pre">three_body_reaction</span></tt></a> entry. The equation string for a three-body
-reaction must contain an <tt class="docutils literal"><span class="pre">'M'</span></tt> or <tt class="docutils literal"><span class="pre">'m'</span></tt> on both the reactant and product sides of the equation.</p>
+<p>A three-body reaction may be defined using the <tt class="xref py py-class docutils literal"><span class="pre">three_body_reaction</span></tt> entry. The equation string for a three-body
+reaction must contain an <tt class="docutils literal"><span class="pre">'M'</span></tt> or <tt class="docutils literal"><span class="pre">'m'</span></tt> on both the reactant and product sides of the equation. The collision
+efficiencies are specified as a string, with the species name followed by a colon and the efficiency.</p>
 <p>Some examples from GRI-Mech 3.0 are shown below:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">three_body_reaction</span><span class="p">(</span> <span class="s">&quot;2 O + M &lt;=&gt; O2 + M&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.20000E+17</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                      <span class="s">&quot; AR:0.83 C2H6:3 CH4:2 CO:1.75 CO2:3.6 H2:2.4 H2O:15.4 &quot;</span><span class="p">)</span>
@@ -319,7 +322,7 @@ specified by assigning an embedded entry to the <tt class="docutils literal"><sp
 al. <a class="footnote-reference" href="#gilbert1983" id="id3">[1]</a>:</p>
 <div class="math">
 \[\log_{10} F(T, P_r) = \frac{\log_{10} F_{cent}(T)}{1 + f_1^2}\]\[F_{cent}(T) = (1-A) \exp(-T/T_3) + A \exp (-T/T_1) + \exp(-T_2/T)\]\[f_1 = (\log_{10} P_r + C) / (N - 0.14 (\log_{10} P_r + C))\]\[C = -0.4 - 0.67\; \log_{10} F_{cent}\]\[N = 0.75 - 1.27\; \log_{10} F_{cent}\]</div>
-<p>The <a class="reference internal" href="classes.html#ctml_writer.Troe" title="ctml_writer.Troe"><tt class="xref py py-class docutils literal"><span class="pre">Troe</span></tt></a> directive requires specifying the first three parameters
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">Troe</span></tt> directive requires specifying the first three parameters
 <span class="math">\((A, T_3, T_1)\)</span>. The fourth parameter, <span class="math">\(T_2\)</span>, is optional, defaulting to 0.0.</p>
 </div>
 <div class="section" id="the-sri-falloff-function">
@@ -331,8 +334,8 @@ al. <a class="footnote-reference" href="#kee1989" id="id5">[5]</a> generalized t
 supports the extended 5-parameter form, given by:</p>
 <div class="math">
 \[F(T, P_r) = d \bigl[a \exp(-b/T) + \exp(-T/c)\bigr]^{1/(1+\log_{10}^2 P_r )} T^e\]</div>
-<p>In keeping with the nomenclature of [Kee et al., 1989], we will refer to this as
-the &#8220;SRI&#8221; falloff function. It is implemented by the <a class="reference internal" href="classes.html#ctml_writer.SRI" title="ctml_writer.SRI"><tt class="xref py py-class docutils literal"><span class="pre">SRI</span></tt></a> directive.</p>
+<p>In keeping with the nomenclature of Kee et al.[#Kee1989]_, we will refer to this as
+the &#8220;SRI&#8221; falloff function. It is implemented by the <tt class="xref py py-class docutils literal"><span class="pre">SRI</span></tt> directive.</p>
 </div>
 </div>
 <div class="section" id="chemically-activated-reactions">
@@ -352,7 +355,7 @@ to the <em>low pressure</em> rate constant:</p>
 \[k_f(T, P_r) = k_0 \left(\frac{1}{1 + P_r}\right) F(T, P_r)\]</div>
 <p>and the optional blending function <em>F</em> may described by any of the
 parameterizations allowed for falloff reactions. Chemically-activated
-reactions can be defined using the <a class="reference internal" href="classes.html#ctml_writer.chemically_activated_reaction" title="ctml_writer.chemically_activated_reaction"><tt class="xref py py-class docutils literal"><span class="pre">chemically_activated_reaction</span></tt></a>
+reactions can be defined using the <tt class="xref py py-class docutils literal"><span class="pre">chemically_activated_reaction</span></tt>
 directive.</p>
 <p>An example of a reaction specified with this parameterization:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">chemically_activated_reaction</span><span class="p">(</span><span class="s">&#39;CH3 + OH (+ M) &lt;=&gt; CH2O + H2 (+ M)&#39;</span><span class="p">,</span>
@@ -366,7 +369,7 @@ units of <span class="math">\(k_\infty\)</span> (<tt class="xref py py-obj docut
 </div>
 <div class="section" id="pressure-dependent-arrhenius-rate-expressions-p-log">
 <h2>Pressure-Dependent Arrhenius Rate Expressions (P-Log)<a class="headerlink" href="#pressure-dependent-arrhenius-rate-expressions-p-log" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="classes.html#ctml_writer.pdep_arrhenius" title="ctml_writer.pdep_arrhenius"><tt class="xref py py-class docutils literal"><span class="pre">pdep_arrhenius</span></tt></a> class represents pressure-dependent reaction rates
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">pdep_arrhenius</span></tt> class represents pressure-dependent reaction rates
 by logarithmically interpolating between Arrhenius rate expressions at various
 pressures. Given two rate expressions at two specific pressures:</p>
 <div class="math">
@@ -395,7 +398,7 @@ that pressure.</p>
 </div>
 <div class="section" id="chebyshev-reaction-rate-expressions">
 <h2>Chebyshev Reaction Rate Expressions<a class="headerlink" href="#chebyshev-reaction-rate-expressions" title="Permalink to this headline">¶</a></h2>
-<p>Class <tt class="xref py py-class docutils literal"><span class="pre">chebyshev</span></tt> represents a phenomenological rate coefficient
+<p>Class <tt class="xref py py-class docutils literal"><span class="pre">chebyshev_reaction</span></tt> represents a phenomenological rate coefficient
 <span class="math">\(k(T,P)\)</span> in terms of a bivariate Chebyshev polynomial. The rate constant
 can be written as:</p>
 <div class="math">

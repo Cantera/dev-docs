@@ -11,7 +11,7 @@ Elements and Species
 Elements
 ========
 
-The element entry defines an element or an isotope of an element. Note that
+The :class:`element` entry defines an element or an isotope of an element. Note that
 these entries are not often needed, since the the database file ``elements.xml``
 is searched for element definitions when importing phase and interface
 definitions.  An explicit element entry is needed only if an isotope not in
@@ -103,7 +103,7 @@ species-specific coefficients.
 Currently, the only entry type is :class:`gas_transport`, which supplies
 parameters needed by the ideal-gas transport property models. The field values
 and their units of the :class:`gas_transport` entry are compatible with the
-transport database parameters described by Kee et al. [1986]. Entries in
+transport database parameters described by Kee et al. [#Kee1986]_. Entries in
 transport databases in the format described in their report can be used directly
 in the fields of the :class:`gas_transport` entry, without requiring any unit
 conversion. The numeric field values should all be entered as pure numbers, with
@@ -176,7 +176,7 @@ The Shomate parameterization is:
 
 .. math::
 
-    \hat{c}_p^0(T) = A + Bt + Ct^2 + Dt^3 | \frac{E}{t^2}
+    \hat{c}_p^0(T) = A + Bt + Ct^2 + Dt^3 + \frac{E}{t^2}
 
     \hat{h}^0(T) = At + \frac{Bt^2}{2} + \frac{Ct^3}{3} + \frac{Dt^4}{4} -
                    \frac{E}{t} + F
@@ -190,7 +190,7 @@ G. This parameterization is used to represent reference-state properties in the
 coefficients A through G should be entered precisely as shown there, with no
 units attached. Unit conversions to SI will be handled internally.
 
-Example usage of the :class:`shomate` directive::
+Example usage of the :class:`Shomate` directive::
 
     # use a single Shomate parameterization.
     species(name = "O2",
@@ -204,7 +204,7 @@ Constant Heat Capacity
 
 In some cases, species properties may only be required at a single temperature
 or over a narrow temperature range. In such cases, the heat capacity can be
-approximated as constant, and simpler expressions used for the thermodynamic
+approximated as constant, and simpler expressions can be used for the thermodynamic
 properties. The :class:`const_cp` parameterization computes the properties as
 follows:
 
@@ -225,3 +225,9 @@ Example::
                        h0 = (-5.0, 'kcal/mol') )
 
 .. See ##REF## for more examples of use of this parameterization.
+
+.. rubric:: References
+
+.. [#Kee1986] R. J. Kee, G. Dixon-Lewis, J. Warnatz, M. E. Coltrin, and J. A. Miller.
+   A FORTRAN Computer Code Package for the Evaluation of Gas-Phase, Multicomponent
+   Transport Properties. Technical Report SAND86-8246, Sandia National Laboratories, 1986.

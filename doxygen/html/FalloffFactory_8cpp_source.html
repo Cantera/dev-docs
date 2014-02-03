@@ -67,7 +67,7 @@
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="FalloffFactory_8h.html" title="Parameterizations for reaction falloff functions. ">cantera/kinetics/FalloffFactory.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ctexceptions_8h.html" title="Definitions for the classes that are thrown when Cantera experiences an error condition (also contain...">cantera/base/ctexceptions.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stringUtils_8h.html" title="Contains declarations for string manipulation functions within Cantera. ">cantera/base/stringUtils.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, HTML_logs (see Input File Handling, Diagnostic Output, Writing messages to the screen and Writing HTML Logfiles). ">cantera/base/global.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, (see Input File Handling, Diagnostic Output, and Writing messages to the screen). ">cantera/base/global.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>Cantera</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
@@ -447,157 +447,34 @@
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">    //! parameter d in the 5-parameter SRI falloff function. This is unitless.</span></div>
 <div class="line"><a name="l00387"></a><span class="lineno"><a class="code" href="classCantera_1_1SRI5.html#ae0e9ce1923b0821aaff76c6d818458eb">  387</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SRI5.html#ae0e9ce1923b0821aaff76c6d818458eb" title="parameter d in the 5-parameter SRI falloff function. This is unitless. ">m_e</a>;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;};</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">//! Wang-Frenklach falloff function.</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment"> * The falloff function defines the value of \f$ F \f$ in the following</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment"> * rate expression</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment"> *  \f[ k = k_{\infty} \left( \frac{P_r}{1 + P_r} \right) F \f]</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment"> *  where</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment"> *  \f[ P_r = \frac{k_0 [M]}{k_{\infty}} \f]</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment"> *  \f[ F = 10.0^{Flog} \f]</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment"> *  where</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment"> *  \f[ Flog = \frac{\log_{10} F_{cent}}{\exp{(\frac{\log_{10} P_r - \alpha}{\sigma})^2}} \f]</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment"> *    where</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment"> *  \f[ F_{cent} = (1 - A)\exp(-T/T_3) + A \exp(-T/T_1) + \exp(-T/T_2) \f]</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment"> *  \f[ \alpha = \alpha_0 + \alpha_1 T + \alpha_2 T^2 \f]</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment"> *  \f[ \sigma = \sigma_0 + \sigma_1 T + \sigma_2 T^2 \f]</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment"> * Reference: Wang, H., and Frenklach, M., Chem. Phys. Lett. vol. 205, 271 (1993).</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment"> * @ingroup falloffGroup</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment"> * @deprecated</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html">  414</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCantera_1_1WF93.html" title="Wang-Frenklach falloff function. ">WF93</a> : <span class="keyword">public</span> <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;{</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">    //! Default constructor</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#a3008c139c00d0e7ebb237fe2b8adfd7e">  418</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1WF93.html#a3008c139c00d0e7ebb237fe2b8adfd7e" title="Default constructor. ">WF93</a>() {</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <a class="code" href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e" title="Print a warning indicating that method is deprecated. ">warn_deprecated</a>(<span class="stringliteral">&quot;class WF93&quot;</span>, <span class="stringliteral">&quot;To be removed in Cantera 2.2.&quot;</span>);</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    }</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment">    //! Initialization routine</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">     *  @param c  Vector of 10 doubles with the following ordering: a, T_1,</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">     *            T_2, T_3, alpha0, alpha1, alpha2 sigma0, sigma1, sigma2</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#ad2cbdcdb257b650b48e294e995bd0ce6">  427</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1WF93.html#ad2cbdcdb257b650b48e294e995bd0ce6" title="Initialization routine. ">init</a>(<span class="keyword">const</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>&amp; c) {</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#af2bdd640938eeaa9b9b36516a8964eb2" title="Value of the  coefficient. ">m_a</a> = c[0];</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#ae0c9304fe29b4639614b04d6de96e68b" title="Value of inverse of the  coefficient. ">m_rt1</a> = 1.0/c[1];</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#a8bb70a5426ecb2f5d5043a0efaffd779" title="Value of the  coefficient. ">m_t2</a> = c[2];</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#acc39af4a327c4ba1e53bac12f84098a7" title="Value of the inverse of the  coefficient. ">m_rt3</a>  = 1.0/c[3];</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#a465a65b529fa383c6f5c71b074657b09" title="Value of the  coefficient. ">m_alpha0</a> = c[4];</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#ae623ba9bbf7551f2f2e8cdf262228ffc" title="Value of the  coefficient. ">m_alpha1</a> = c[5];</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#afd86a44ac1ac16b6f2e2edd0c3718d4a" title="Value of the  coefficient. ">m_alpha2</a> = c[6];</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#ad1d59c2a85fb2715c6337ba174633993" title="Value of the  coefficient. ">m_sigma0</a> = c[7];</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#a17234db0bc4ad1864bd445c832f112a1" title="Value of the  coefficient. ">m_sigma1</a> = c[8];</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <a class="code" href="classCantera_1_1WF93.html#abf369ab2af8fff3145a7ddb94027cc68" title="Value of the  coefficient. ">m_sigma2</a> = c[9];</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    }</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment">    //! Update the temperature parameters in the representation</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="comment">     *   The workspace has a length of three</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment">     *   @param T         Temperature (Kelvin)</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="comment">     *   @param work      Vector of working space representing</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment">     *                    the temperature dependent part of the</span></div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment">     *                    parameterization.</span></div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00449"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#ab58f0e0421506baf08e4b0a38414d527">  449</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1WF93.html#ab58f0e0421506baf08e4b0a38414d527" title="Update the temperature parameters in the representation. ">updateTemp</a>(doublereal T, doublereal* work)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        work[0] = <a class="code" href="classCantera_1_1WF93.html#a465a65b529fa383c6f5c71b074657b09" title="Value of the  coefficient. ">m_alpha0</a> + (<a class="code" href="classCantera_1_1WF93.html#ae623ba9bbf7551f2f2e8cdf262228ffc" title="Value of the  coefficient. ">m_alpha1</a> + <a class="code" href="classCantera_1_1WF93.html#afd86a44ac1ac16b6f2e2edd0c3718d4a" title="Value of the  coefficient. ">m_alpha2</a>*T)*T; <span class="comment">// alpha</span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        work[1] = <a class="code" href="classCantera_1_1WF93.html#ad1d59c2a85fb2715c6337ba174633993" title="Value of the  coefficient. ">m_sigma0</a> + (<a class="code" href="classCantera_1_1WF93.html#a17234db0bc4ad1864bd445c832f112a1" title="Value of the  coefficient. ">m_sigma1</a> + <a class="code" href="classCantera_1_1WF93.html#abf369ab2af8fff3145a7ddb94027cc68" title="Value of the  coefficient. ">m_sigma2</a>*T)*T; <span class="comment">// sigma</span></div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        doublereal Fcent = (1.0 - <a class="code" href="classCantera_1_1WF93.html#af2bdd640938eeaa9b9b36516a8964eb2" title="Value of the  coefficient. ">m_a</a>) * exp(- T * <a class="code" href="classCantera_1_1WF93.html#acc39af4a327c4ba1e53bac12f84098a7" title="Value of the inverse of the  coefficient. ">m_rt3</a>)</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                           + <a class="code" href="classCantera_1_1WF93.html#af2bdd640938eeaa9b9b36516a8964eb2" title="Value of the  coefficient. ">m_a</a> * exp(- T * <a class="code" href="classCantera_1_1WF93.html#ae0c9304fe29b4639614b04d6de96e68b" title="Value of inverse of the  coefficient. ">m_rt1</a>) + exp(-<a class="code" href="classCantera_1_1WF93.html#a8bb70a5426ecb2f5d5043a0efaffd779" title="Value of the  coefficient. ">m_t2</a>/T);</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        work[2] = log10(Fcent);</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    }</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
-<div class="line"><a name="l00457"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#a7dd31228d3cfae7f945446e48568034c">  457</a></span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1WF93.html#a7dd31228d3cfae7f945446e48568034c" title="The falloff function. ">F</a>(doublereal pr, <span class="keyword">const</span> doublereal* work)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        doublereal lpr = log10(std::max(pr, <a class="code" href="namespaceCantera.html#a620178f0e64739ba7edc2d92e7612421" title="smallest number to compare to zero. ">SmallNumber</a>));</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        doublereal x = (lpr - work[0])/work[1];</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        doublereal flog = work[2]/exp(x*x);</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <span class="keywordflow">return</span> pow(10.0, flog);</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    }</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;</div>
-<div class="line"><a name="l00464"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#acc2e7aaf281139ac48852aa6a59ab1d1">  464</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1WF93.html#acc2e7aaf281139ac48852aa6a59ab1d1" title="The size of the work array required. ">workSize</a>() {</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        <span class="keywordflow">return</span> 3;</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    }</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment">    //! Value of the \f$ \alpha_0 \f$ coefficient. This is the fifth</span></div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">    //! coefficient in the xml list.</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#a465a65b529fa383c6f5c71b074657b09">  471</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#a465a65b529fa383c6f5c71b074657b09" title="Value of the  coefficient. ">m_alpha0</a>;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">    //! Value of the \f$ \alpha_1 \f$ coefficient. This is the 6th coefficient</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">    //! in the xml list.</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#ae623ba9bbf7551f2f2e8cdf262228ffc">  475</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#ae623ba9bbf7551f2f2e8cdf262228ffc" title="Value of the  coefficient. ">m_alpha1</a>;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">    //! Value of the \f$ \alpha_2 \f$ coefficient. This is the 7th coefficient</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">    //! in the xml list.</span></div>
-<div class="line"><a name="l00479"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#afd86a44ac1ac16b6f2e2edd0c3718d4a">  479</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#afd86a44ac1ac16b6f2e2edd0c3718d4a" title="Value of the  coefficient. ">m_alpha2</a>;</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="comment">    //! Value of the \f$ \sigma_0 \f$ coefficient. This is the 8th coefficient</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">    //! in the xml list.</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#ad1d59c2a85fb2715c6337ba174633993">  483</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#ad1d59c2a85fb2715c6337ba174633993" title="Value of the  coefficient. ">m_sigma0</a>;</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment">    //! Value of the \f$ \sigma_1 \f$ coefficient. This is the 9th coefficient</span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">    //! in the xml list.</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#a17234db0bc4ad1864bd445c832f112a1">  487</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#a17234db0bc4ad1864bd445c832f112a1" title="Value of the  coefficient. ">m_sigma1</a>;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">    //! Value of the \f$ \sigma_2 \f$ coefficient. This is the 10th</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment">    //! coefficient in the xml list.</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#abf369ab2af8fff3145a7ddb94027cc68">  491</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#abf369ab2af8fff3145a7ddb94027cc68" title="Value of the  coefficient. ">m_sigma2</a>;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">    //! Value of the \f$ a \f$ coefficient. This is the first coefficient in</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">    //! the xml list.</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#af2bdd640938eeaa9b9b36516a8964eb2">  495</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#af2bdd640938eeaa9b9b36516a8964eb2" title="Value of the  coefficient. ">m_a</a>;</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment">    //! Value of inverse of the \f$ t1 \f$ coefficient. This is the second</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">    //! coefficient in the xml list.</span></div>
-<div class="line"><a name="l00499"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#ae0c9304fe29b4639614b04d6de96e68b">  499</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#ae0c9304fe29b4639614b04d6de96e68b" title="Value of inverse of the  coefficient. ">m_rt1</a>;</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">    //! Value of the \f$ t2 \f$ coefficient. This is the third coefficient in</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">    //! the xml list.</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#a8bb70a5426ecb2f5d5043a0efaffd779">  503</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#a8bb70a5426ecb2f5d5043a0efaffd779" title="Value of the  coefficient. ">m_t2</a>;</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">    //! Value of the inverse of the \f$ t3 \f$ coefficient. This is the 4th</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">    //! coefficient in the xml list.</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno"><a class="code" href="classCantera_1_1WF93.html#acc39af4a327c4ba1e53bac12f84098a7">  507</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1WF93.html#acc39af4a327c4ba1e53bac12f84098a7" title="Value of the inverse of the  coefficient. ">m_rt3</a>;</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;};</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
-<div class="line"><a name="l00510"></a><span class="lineno"><a class="code" href="classCantera_1_1FalloffFactory.html#aa64fd4b2876335142337e42c8dcd43c1">  510</a></span>&#160;<a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>* <a class="code" href="classCantera_1_1FalloffFactory.html#aa64fd4b2876335142337e42c8dcd43c1" title="Return a pointer to a new falloff function calculator. ">FalloffFactory::newFalloff</a>(<span class="keywordtype">int</span> type, <span class="keyword">const</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>&amp; c)</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;{</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>* f;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    <span class="keywordflow">switch</span> (type) {</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordflow">case</span> SIMPLE_FALLOFF:</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>();</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">case</span> TROE3_FALLOFF:</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe3.html" title="The 3-parameter Troe falloff parameterization. ">Troe3</a>();</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="keywordflow">case</span> TROE4_FALLOFF:</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe4.html" title="The 4-parameter Troe falloff parameterization. ">Troe4</a>();</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    <span class="keywordflow">case</span> SRI3_FALLOFF:</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI3.html" title="The 3-parameter SRI falloff function for F ">SRI3</a>();</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="keywordflow">case</span> SRI5_FALLOFF:</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI5.html" title="The 5-parameter SRI falloff function. ">SRI5</a>();</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">case</span> WF_FALLOFF:</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1WF93.html" title="Wang-Frenklach falloff function. ">WF93</a>();</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    }</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    f-&gt;<a class="code" href="classCantera_1_1Falloff.html#ad2cbdcdb257b650b48e294e995bd0ce6" title="Initialize. ">init</a>(c);</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;}</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;}</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="code" href="classCantera_1_1FalloffFactory.html#aa64fd4b2876335142337e42c8dcd43c1">  390</a></span>&#160;<a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>* <a class="code" href="classCantera_1_1FalloffFactory.html#aa64fd4b2876335142337e42c8dcd43c1" title="Return a pointer to a new falloff function calculator. ">FalloffFactory::newFalloff</a>(<span class="keywordtype">int</span> type, <span class="keyword">const</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>&amp; c)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;{</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>* f;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">switch</span> (type) {</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordflow">case</span> SIMPLE_FALLOFF:</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Falloff.html" title="Base class for falloff function calculators. ">Falloff</a>();</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordflow">case</span> TROE3_FALLOFF:</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe3.html" title="The 3-parameter Troe falloff parameterization. ">Troe3</a>();</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keywordflow">case</span> TROE4_FALLOFF:</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Troe4.html" title="The 4-parameter Troe falloff parameterization. ">Troe4</a>();</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordflow">case</span> SRI3_FALLOFF:</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI3.html" title="The 3-parameter SRI falloff function for F ">SRI3</a>();</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keywordflow">case</span> SRI5_FALLOFF:</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        f = <span class="keyword">new</span> <a class="code" href="classCantera_1_1SRI5.html" title="The 5-parameter SRI falloff function. ">SRI5</a>();</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    f-&gt;<a class="code" href="classCantera_1_1Falloff.html#ad2cbdcdb257b650b48e294e995bd0ce6" title="Initialize. ">init</a>(c);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;}</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

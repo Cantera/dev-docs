@@ -73,6 +73,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga106f302af6a947a6222a3450a5b888ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#ga106f302af6a947a6222a3450a5b888ab">ct2ctml</a> (const char *file, const int debug=0)</td></tr>
 <tr class="memdesc:ga106f302af6a947a6222a3450a5b888ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a cti file into a ctml file.  <a href="#ga106f302af6a947a6222a3450a5b888ab">More...</a><br/></td></tr>
 <tr class="separator:ga106f302af6a947a6222a3450a5b888ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a8555f1c9005ce92613f4a0586942d3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3">ct2ctml_string</a> (const std::string &amp;file)</td></tr>
+<tr class="memdesc:ga3a8555f1c9005ce92613f4a0586942d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string with the ctml representation of a cti file.  <a href="#ga3a8555f1c9005ce92613f4a0586942d3">More...</a><br/></td></tr>
+<tr class="separator:ga3a8555f1c9005ce92613f4a0586942d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga144465952eb1270d254a049a31411540"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">findInputFile</a> (const std::string &amp;name)</td></tr>
 <tr class="memdesc:ga144465952eb1270d254a049a31411540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find an input file.  <a href="#ga144465952eb1270d254a049a31411540">More...</a><br/></td></tr>
 <tr class="separator:ga144465952eb1270d254a049a31411540"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,11 +131,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00656">656</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00490">490</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8cpp_source.html#l00044">Cantera::dir_mutex</a>, <a class="el" href="application_8h_source.html#l00537">Application::inputDirs</a>, <a class="el" href="application_8cpp_source.html#l00598">Application::setDefaultDirectories()</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00110">Cantera::stripnonprint()</a>.</p>
+<p>References <a class="el" href="application_8cpp_source.html#l00045">Cantera::dir_mutex</a>, <a class="el" href="application_8h_source.html#l00386">Application::inputDirs</a>, <a class="el" href="application_8cpp_source.html#l00432">Application::setDefaultDirectories()</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00109">Cantera::stripnonprint()</a>.</p>
 
-<p>Referenced by <a class="el" href="global_8cpp_source.html#l00186">Cantera::addDirectory()</a>.</p>
+<p>Referenced by <a class="el" href="global_8cpp_source.html#l00145">Cantera::addDirectory()</a>.</p>
 
 </div>
 </div>
@@ -163,11 +166,11 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The absolute path name of the first matching file is returned. If a relative path name is indicated, the relative path name is returned.</dd></dl>
 <p>If the file is not found, a message is written to stdout and a <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a> exception is thrown. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00675">675</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00509">509</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8cpp_source.html#l00044">Cantera::dir_mutex</a>, <a class="el" href="application_8h_source.html#l00537">Application::inputDirs</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="application_8cpp_source.html#l00045">Cantera::dir_mutex</a>, <a class="el" href="application_8h_source.html#l00386">Application::inputDirs</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="global_8cpp_source.html#l00191">Cantera::findInputFile()</a>, and <a class="el" href="application_8cpp_source.html#l00394">Application::get_XML_File()</a>.</p>
+<p>Referenced by <a class="el" href="global_8cpp_source.html#l00150">Cantera::findInputFile()</a>, and <a class="el" href="application_8cpp_source.html#l00225">Application::get_XML_File()</a>.</p>
 
 </div>
 </div>
@@ -200,11 +203,11 @@ Functions</h2></td></tr>
 <p>Finally, the location where the data files were installed when Cantera was built is added to the search path.</p>
 <p>Additional directories may be added by calling function addDirectory. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00598">598</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00432">432</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8h_source.html#l00537">Application::inputDirs</a>.</p>
+<p>References <a class="el" href="application_8h_source.html#l00386">Application::inputDirs</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8cpp_source.html#l00656">Application::addDataDirectory()</a>, and <a class="el" href="application_8cpp_source.html#l00320">Application::Application()</a>.</p>
+<p>Referenced by <a class="el" href="application_8cpp_source.html#l00490">Application::addDataDirectory()</a>, and <a class="el" href="application_8cpp_source.html#l00157">Application::Application()</a>.</p>
 
 </div>
 </div>
@@ -243,9 +246,38 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00054">54</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ct2ctml_8cpp_source.html#l00040">ctml::pypath()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00103">Cantera::stripws()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="ct2ctml_8cpp_source.html#l00078">ctml::ct2ctml_string()</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="ct2ctml_8cpp_source.html#l00214">ctml::get_CTML_Tree()</a>, and <a class="el" href="application_8cpp_source.html#l00394">Application::get_XML_File()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ga3a8555f1c9005ce92613f4a0586942d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ct2ctml_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a string with the ctml representation of a cti file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>Path to the input file in CTI format </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String containing the xml representation of the input file </dd></dl>
+
+<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00078">78</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
+
+<p>References <a class="el" href="ct2ctml_8cpp_source.html#l00040">ctml::pypath()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00102">Cantera::stripws()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+
+<p>Referenced by <a class="el" href="ct2ctml_8cpp_source.html#l00054">ctml::ct2ctml()</a>, <a class="el" href="ct2ctml_8cpp_source.html#l00253">ctml::get_CTML_Tree()</a>, and <a class="el" href="application_8cpp_source.html#l00225">Application::get_XML_File()</a>.</p>
 
 </div>
 </div>
@@ -276,11 +308,11 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The absolute path name of the first matching file is returned. If a relative path name is indicated, the relative path name is returned.</dd></dl>
 <p>If the file is not found, a message is written to stdout and a <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a> exception is thrown. </p>
 
-<p>Definition at line <a class="el" href="global_8cpp_source.html#l00191">191</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
+<p>Definition at line <a class="el" href="global_8cpp_source.html#l00150">150</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00027">Cantera::app()</a>, and <a class="el" href="application_8cpp_source.html#l00675">Application::findInputFile()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00027">Cantera::app()</a>, and <a class="el" href="application_8cpp_source.html#l00509">Application::findInputFile()</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00103">PDSS_ConstVol::constructPDSSFile()</a>, <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00081">PDSS_IdealGas::constructPDSSFile()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00171">PDSS_IonsFromNeutral::constructPDSSFile()</a>, <a class="el" href="PDSS__HKFT_8cpp_source.html#l00756">PDSS_HKFT::constructPDSSFile()</a>, <a class="el" href="PDSS__Water_8cpp_source.html#l00177">PDSS_Water::constructPDSSFile()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00130">PDSS_SSVol::constructPDSSFile()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00199">IonsFromNeutralVPSSTP::constructPhaseFile()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00976">HMWSoln::constructPhaseFile()</a>, <a class="el" href="ct2ctml_8cpp_source.html#l00214">ctml::get_CTML_Tree()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00651">ThermoPhase::initThermoFile()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00103">PDSS_ConstVol::constructPDSSFile()</a>, <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00081">PDSS_IdealGas::constructPDSSFile()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00171">PDSS_IonsFromNeutral::constructPDSSFile()</a>, <a class="el" href="PDSS__HKFT_8cpp_source.html#l00781">PDSS_HKFT::constructPDSSFile()</a>, <a class="el" href="PDSS__Water_8cpp_source.html#l00177">PDSS_Water::constructPDSSFile()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00130">PDSS_SSVol::constructPDSSFile()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00199">IonsFromNeutralVPSSTP::constructPhaseFile()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00976">HMWSoln::constructPhaseFile()</a>, <a class="el" href="ct2ctml_8cpp_source.html#l00253">ctml::get_CTML_Tree()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00644">ThermoPhase::initThermoFile()</a>.</p>
 
 </div>
 </div>
@@ -306,9 +338,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="global_8cpp_source.html#l00186">186</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
+<p>Definition at line <a class="el" href="global_8cpp_source.html#l00145">145</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8cpp_source.html#l00656">Application::addDataDirectory()</a>, and <a class="el" href="global_8cpp_source.html#l00027">Cantera::app()</a>.</p>
+<p>References <a class="el" href="application_8cpp_source.html#l00490">Application::addDataDirectory()</a>, and <a class="el" href="global_8cpp_source.html#l00027">Cantera::app()</a>.</p>
 
 </div>
 </div>
@@ -328,7 +360,7 @@ Functions</h2></td></tr>
 <p>Returns root directory where Cantera is installed. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a string containing the name of the base directory where Cantera is installed. If the environmental variable CANTERA_ROOT is defined, this function will return its value, preferentially. </dd></dl>
 
-<p>Definition at line <a class="el" href="global_8cpp_source.html#l00216">216</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
+<p>Definition at line <a class="el" href="global_8cpp_source.html#l00175">175</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
 </div>
 </div>
@@ -394,9 +426,9 @@ Functions</h2></td></tr>
 <div class="line">ok =  <a class="code" href="group__inputfiles.html#ga1dca65a0acf4436c3ed073f4db8dd0fc" title="Build a single-phase ThermoPhase object with associated kinetics mechanism. ">buildSolutionFromXML</a>(root, <span class="stringliteral">&quot;gri30_mix&quot;</span>, <span class="stringliteral">&quot;phase&quot;</span>, th, k)</div>
 </div><!-- fragment --><dl class="section see"><dt>See Also</dt><dd><a class="el" href="group__kineticsmgr.html#ga222ca55d41ac03b0b6754e9f95d33c04" title="Import a reaction mechanism for a phase or an interface. ">importKinetics()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="importKinetics_8cpp_source.html#l01021">1021</a> of file <a class="el" href="importKinetics_8cpp_source.html">importKinetics.cpp</a>.</p>
+<p>Definition at line <a class="el" href="importKinetics_8cpp_source.html#l01017">1017</a> of file <a class="el" href="importKinetics_8cpp_source.html">importKinetics.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00271">Cantera::get_XML_NameID()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00944">Cantera::importKinetics()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00230">Cantera::get_XML_NameID()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00940">Cantera::importKinetics()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>.</p>
 
 </div>
 </div>
@@ -426,7 +458,7 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoFactory_8cpp_source.html#l00226">226</a> of file <a class="el" href="ThermoFactory_8cpp_source.html">ThermoFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00584">XML_Node::child()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00230">IonsFromNeutralVPSSTP::constructPhaseXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01007">HMWSoln::constructPhaseXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00115">Cantera::newThermoPhase()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::child()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00230">IonsFromNeutralVPSSTP::constructPhaseXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01007">HMWSoln::constructPhaseXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00113">Cantera::newThermoPhase()</a>.</p>
 
 <p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00230">IonsFromNeutralVPSSTP::constructPhaseXML()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00930">IonsFromNeutralVPSSTP::initThermoXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00247">Cantera::newPhase()</a>, and <a class="el" href="LatticeSolidPhase_8cpp_source.html#l00479">LatticeSolidPhase::setParametersFromXML()</a>.</p>
 

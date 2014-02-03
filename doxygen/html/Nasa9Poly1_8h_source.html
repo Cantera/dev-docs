@@ -78,7 +78,7 @@
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef CT_NASA9POLY1_H</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CT_NASA9POLY1_H</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, HTML_logs (see Input File Handling, Diagnostic Output, Writing messages to the screen and Writing HTML Logfiles). ">cantera/base/global.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="global_8h.html" title="This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, (see Input File Handling, Diagnostic Output, and Writing messages to the screen). ">cantera/base/global.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SpeciesThermoInterpType_8h.html" title="Pure Virtual Base class for individual species reference state thermodynamic managers and text for th...">SpeciesThermoInterpType.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span>Cantera</div>
@@ -230,28 +230,26 @@
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">     *      coeffs[1] is min temperature</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">     *      coeffs[2] is max temperature</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">     *      coeffs[3+i] from i =0,9 are the coefficients themselves</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">     * @deprecated</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a6009bb2689c657d035feb3e7c3a95410" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; n, <span class="keywordtype">int</span>&amp; type,</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                  doublereal&amp; tlow, doublereal&amp; thigh,</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                  doublereal&amp; pref,</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">    //! Modify parameters for the standard state</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">     * @param coeffs   Vector of coefficients used to set the</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">     * @deprecated</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">    //! array of polynomial coefficients</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7">  189</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7" title="array of polynomial coefficients ">m_coeff</a>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;};</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a6009bb2689c657d035feb3e7c3a95410" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; n, <span class="keywordtype">int</span>&amp; type,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                  doublereal&amp; tlow, doublereal&amp; thigh,</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                  doublereal&amp; pref,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">    //! Modify parameters for the standard state</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">     * @param coeffs   Vector of coefficients used to set the</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">    //! array of polynomial coefficients</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7">  187</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1Nasa9Poly1.html#a335c61da2820e79426f89e05c95cdaa7" title="array of polynomial coefficients ">m_coeff</a>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;};</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

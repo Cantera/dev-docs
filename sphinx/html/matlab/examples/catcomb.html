@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>catcomb.m &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>catcomb.m &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="diffflame.m" href="diffflame.html" />
     <link rel="prev" title="cantera_demos.m" href="cantera_demos.html" /> 
@@ -121,9 +121,9 @@
 <span class="c">% them</span>
 
 <span class="n">p</span>          <span class="p">=</span>   <span class="n">oneatm</span><span class="p">;</span>              <span class="c">% pressure</span>
-<span class="n">tinlet</span>     <span class="p">=</span>   300<span class="p">.</span>0<span class="p">;</span>               <span class="c">% inlet temperature</span>
-<span class="n">tsurf</span>      <span class="p">=</span>   900<span class="p">.</span>0<span class="p">;</span>               <span class="c">% surface temperature</span>
-<span class="n">mdot</span>       <span class="p">=</span>   0<span class="p">.</span>06<span class="p">;</span>                <span class="c">% kg/m^2/s</span>
+<span class="n">tinlet</span>     <span class="p">=</span>   <span class="mf">300.0</span><span class="p">;</span>               <span class="c">% inlet temperature</span>
+<span class="n">tsurf</span>      <span class="p">=</span>   <span class="mf">900.0</span><span class="p">;</span>               <span class="c">% surface temperature</span>
+<span class="n">mdot</span>       <span class="p">=</span>   <span class="mf">0.06</span><span class="p">;</span>                <span class="c">% kg/m^2/s</span>
 
 <span class="n">transport</span>  <span class="p">=</span>  <span class="s">&#39;Mix&#39;</span><span class="p">;</span>                <span class="c">% transport model</span>
 
@@ -138,17 +138,17 @@
 <span class="n">comp2</span>       <span class="p">=</span>  <span class="s">&#39;CH4:0.095, O2:0.21, N2:0.78, AR:0.01&#39;</span><span class="p">;</span>
 
 <span class="c">% the initial grid, in meters. The inlet/surface separation is 10 cm.</span>
-<span class="n">initial_grid</span> <span class="p">=</span> <span class="p">[</span>0<span class="p">.</span>0 0<span class="p">.</span>02 0<span class="p">.</span>04 0<span class="p">.</span>06 0<span class="p">.</span>08 0<span class="p">.</span>1<span class="p">];</span>  <span class="c">% m</span>
+<span class="n">initial_grid</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.0</span> <span class="mf">0.02</span> <span class="mf">0.04</span> <span class="mf">0.06</span> <span class="mf">0.08</span> <span class="mf">0.1</span><span class="p">];</span>  <span class="c">% m</span>
 
 
 <span class="c">% numerical parameters</span>
-<span class="n">tol_ss</span>    <span class="p">=</span> <span class="p">[</span>1<span class="p">.</span>0<span class="n">e</span><span class="o">-</span>8 1<span class="p">.</span>0<span class="n">e</span><span class="o">-</span>14<span class="p">];</span>       <span class="c">% [rtol atol] for steady-state problem</span>
-<span class="n">tol_ts</span>    <span class="p">=</span> <span class="p">[</span>1<span class="p">.</span>0<span class="n">e</span><span class="o">-</span>4 1<span class="p">.</span>0<span class="n">e</span><span class="o">-</span>9<span class="p">];</span>       <span class="c">% [rtol atol] for time stepping</span>
+<span class="n">tol_ss</span>    <span class="p">=</span> <span class="p">[</span><span class="mf">1.0e-8</span> <span class="mf">1.0e-14</span><span class="p">];</span>       <span class="c">% [rtol atol] for steady-state problem</span>
+<span class="n">tol_ts</span>    <span class="p">=</span> <span class="p">[</span><span class="mf">1.0e-4</span> <span class="mf">1.0e-9</span><span class="p">];</span>       <span class="c">% [rtol atol] for time stepping</span>
 
-<span class="n">loglevel</span>  <span class="p">=</span> 1<span class="p">;</span>                      <span class="c">% amount of diagnostic output</span>
+<span class="n">loglevel</span>  <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="c">% amount of diagnostic output</span>
                                     <span class="c">% (0 to 5)</span>
 				    
-<span class="n">refine_grid</span> <span class="p">=</span> 1<span class="p">;</span>                    <span class="c">% 1 to enable refinement, 0 to</span>
+<span class="n">refine_grid</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                    <span class="c">% 1 to enable refinement, 0 to</span>
                                     <span class="c">% disable</span>
                                      
 				    
@@ -182,7 +182,7 @@
 <span class="c">% integrate the coverage equations in time for 1 s, holding the gas</span>
 <span class="c">% composition fixed to generate a good starting estimate for the</span>
 <span class="c">% coverages. </span>
-<span class="n">advanceCoverages</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> 1<span class="p">.</span>0<span class="p">);</span>
+<span class="n">advanceCoverages</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
 
 
 <span class="c">% The two objects we just created are independent of the problem</span>
@@ -239,14 +239,14 @@
 <span class="n">sim1D</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">([</span><span class="n">inlt</span><span class="p">,</span> <span class="n">flow</span><span class="p">,</span> <span class="n">surf</span><span class="p">]);</span>
 
 <span class="c">% set the initial profiles.</span>
-<span class="n">setProfile</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> 2<span class="p">,</span> <span class="p">{</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">},</span> <span class="p">[</span>0<span class="p">.</span>0            1<span class="p">.</span>0       <span class="c">% z/zmax</span>
-	 	                       0<span class="p">.</span>06           0<span class="p">.</span>0       <span class="c">% u</span>
-  		                       0<span class="p">.</span>0            0<span class="p">.</span>0       <span class="c">% V</span>
+<span class="n">setProfile</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">},</span> <span class="p">[</span><span class="mf">0.0</span>            <span class="mf">1.0</span>       <span class="c">% z/zmax</span>
+	 	                       <span class="mf">0.06</span>           <span class="mf">0.0</span>       <span class="c">% u</span>
+  		                       <span class="mf">0.0</span>            <span class="mf">0.0</span>       <span class="c">% V</span>
 		                       <span class="n">tinlet</span>         <span class="n">tsurf</span><span class="p">]);</span>  <span class="c">% T</span>
 <span class="n">names</span> <span class="p">=</span> <span class="n">speciesNames</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
-<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> 1<span class="p">:</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
   <span class="n">y</span> <span class="p">=</span> <span class="n">massFraction</span><span class="p">(</span><span class="n">inlt</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
-  <span class="n">setProfile</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> 2<span class="p">,</span> <span class="n">names</span><span class="p">{</span><span class="n">k</span><span class="p">},</span> <span class="p">[</span>0    1<span class="p">;</span> <span class="n">y</span> <span class="n">y</span><span class="p">]);</span>
+  <span class="n">setProfile</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="p">{</span><span class="n">k</span><span class="p">},</span> <span class="p">[</span><span class="mi">0</span>    <span class="mi">1</span><span class="p">;</span> <span class="n">y</span> <span class="n">y</span><span class="p">]);</span>
 <span class="k">end</span>
 <span class="n">sim1D</span>
 
@@ -262,20 +262,20 @@
 <span class="c">% disable the surface coverage equations, and turn off all gas and</span>
 <span class="c">% surface chemistry</span>
 <span class="n">setCoverageEqs</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="s">&#39;off&#39;</span><span class="p">);</span>
-<span class="n">setMultiplier</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> 0<span class="p">.</span>0<span class="p">);</span>
-<span class="n">setMultiplier</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> 0<span class="p">.</span>0<span class="p">);</span>
+<span class="n">setMultiplier</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="n">setMultiplier</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
 
 <span class="c">% solve the problem, refining the grid if needed</span>
-<span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> 1<span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
+<span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
 
 <span class="c">% now turn on the surface coverage equations, and turn the</span>
 <span class="c">% chemistry on slowly</span>
 <span class="n">setCoverageEqs</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">);</span>
-<span class="k">for</span> <span class="n">iter</span><span class="p">=</span>1<span class="p">:</span>6
-  <span class="n">mult</span> <span class="p">=</span> 10<span class="p">.</span>0^<span class="p">(</span><span class="n">iter</span> <span class="o">-</span> 6<span class="p">);</span>
+<span class="k">for</span> <span class="n">iter</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span>
+  <span class="n">mult</span> <span class="p">=</span> <span class="mf">10.0</span>^<span class="p">(</span><span class="n">iter</span> <span class="o">-</span> <span class="mi">6</span><span class="p">);</span>
   <span class="n">setMultiplier</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> <span class="n">mult</span><span class="p">);</span>
   <span class="n">setMultiplier</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">mult</span><span class="p">);</span>  
-  <span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> 1<span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
+  <span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
 <span class="k">end</span>
 
 <span class="c">% At this point, we should have the solution for the hydrogen/air</span>
@@ -283,7 +283,7 @@
 <span class="n">set</span><span class="p">(</span><span class="n">inlt</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="n">comp2</span><span class="p">);</span>
 
 <span class="c">% set more stringent grid refinement criteria</span>
-<span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> 2<span class="p">,</span> 100<span class="p">.</span>0<span class="p">,</span> 0<span class="p">.</span>15<span class="p">,</span> 0<span class="p">.</span>2<span class="p">);</span>
+<span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
 
 <span class="c">% solve the problem for the final time</span>
 <span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span> 
@@ -292,7 +292,7 @@
 <span class="n">sim1D</span>
 
 <span class="c">% save the solution</span>
-<span class="n">saveSoln</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span><span class="s">&#39;catcomb.xml&#39;</span><span class="p">,</span><span class="s">&#39;energy&#39;</span><span class="p">,[</span><span class="s">&#39;solution with energy&#39;</span> <span class="p">...</span>
+<span class="n">saveSoln</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span><span class="s">&#39;catcomb.xml&#39;</span><span class="p">,</span><span class="s">&#39;energy&#39;</span><span class="p">,[</span><span class="s">&#39;solution with energy&#39;</span> <span class="c">...</span>
 		    <span class="s">&#39; equation&#39;</span><span class="p">]);</span>
 
 <span class="c">%%%%%%%%%% show statistics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
@@ -305,31 +305,31 @@
 <span class="c">%%%%%%%%%% make plots %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 
 <span class="n">clf</span><span class="p">;</span>
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>1<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;Temperature [K]&#39;</span><span class="p">);</span>
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>2<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;Axial Velocity [m/s]&#39;</span><span class="p">);</span>
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>3<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;Radial Velocity / Radius [1/s]&#39;</span><span class="p">);</span>
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>4<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;CH4&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;CH4 Mass Fraction&#39;</span><span class="p">);</span>
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>5<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;O2 Mass Fraction&#39;</span><span class="p">);</span>  
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>6<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;CO&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;CO Mass Fraction&#39;</span><span class="p">);</span>
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>7<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;CO2&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;CO2 Mass Fraction&#39;</span><span class="p">);</span>  
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>8<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;H2O&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;H2O Mass Fraction&#39;</span><span class="p">);</span>  
-<span class="n">subplot</span><span class="p">(</span>3<span class="p">,</span>3<span class="p">,</span>9<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;H2&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;H2 Mass Fraction&#39;</span><span class="p">);</span>  
 </pre></div>

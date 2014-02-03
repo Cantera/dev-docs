@@ -59,6 +59,7 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classCantera_1_1Reactor-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -73,13 +74,13 @@
 <div class="dynheader">
 Inheritance diagram for Reactor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1Reactor__inherit__graph.svg" width="470" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1Reactor__inherit__graph.svg" width="444" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for Reactor:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1Reactor__coll__graph.svg" width="432" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1Reactor__coll__graph.svg" width="419" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -227,6 +228,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (const std::
 <tr class="memitem:a0fd40414082fed81835fe0fe47be6868 inherit pub_methods_classCantera_1_1ReactorBase"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactorBase.html#a0fd40414082fed81835fe0fe47be6868">massFraction</a> (size_t k) const </td></tr>
 <tr class="memdesc:a0fd40414082fed81835fe0fe47be6868 inherit pub_methods_classCantera_1_1ReactorBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the mass fraction of the <em>k</em>-th species.  <a href="#a0fd40414082fed81835fe0fe47be6868">More...</a><br/></td></tr>
 <tr class="separator:a0fd40414082fed81835fe0fe47be6868 inherit pub_methods_classCantera_1_1ReactorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a221894ebae50f192731b829ab4f319ab"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Reactor.html#a221894ebae50f192731b829ab4f319ab">applySensitivity</a> (double *params)</td></tr>
+<tr class="memdesc:a221894ebae50f192731b829ab4f319ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set reaction rate multipliers based on the sensitivity variables in <em>params</em>.  <a href="#a221894ebae50f192731b829ab4f319ab">More...</a><br/></td></tr>
+<tr class="separator:a221894ebae50f192731b829ab4f319ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec44e718cdcd56423d24433db93e8f5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Reactor.html#aaec44e718cdcd56423d24433db93e8f5">resetSensitivity</a> (double *params)</td></tr>
+<tr class="memdesc:aaec44e718cdcd56423d24433db93e8f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the reaction rate multipliers.  <a href="#aaec44e718cdcd56423d24433db93e8f5">More...</a><br/></td></tr>
+<tr class="separator:aaec44e718cdcd56423d24433db93e8f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2f8bb675ace012952b43f81cd8d73a"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Reactor.html#a6d2f8bb675ace012952b43f81cd8d73a">speciesIndex</a> (const std::string &amp;nm) const </td></tr>
+<tr class="memdesc:a6d2f8bb675ace012952b43f81cd8d73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index in the solution vector for this reactor of the species named <em>nm</em>, in either the homogeneous phase or a surface phase, relative to the start of the species terms.  <a href="#a6d2f8bb675ace012952b43f81cd8d73a">More...</a><br/></td></tr>
+<tr class="separator:a6d2f8bb675ace012952b43f81cd8d73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -602,7 +615,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00029">29</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="Phase_8cpp_source.html#l00561">Phase::getMassFractions()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00940">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="Reactor_8h_source.html#l00153">Reactor::m_mass</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, and <a class="el" href="Phase_8cpp_source.html#l00289">Phase::restoreState()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00534">Phase::density()</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMassFractions()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00939">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="Reactor_8h_source.html#l00165">Reactor::m_mass</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, and <a class="el" href="Phase_8cpp_source.html#l00282">Phase::restoreState()</a>.</p>
 
 </div>
 </div>
@@ -637,7 +650,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00064">64</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00933">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00940">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="Reactor_8h_source.html#l00149">Reactor::m_kin</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Reactor_8h_source.html#l00156">Reactor::m_wdot</a>, <a class="el" href="ThermoPhase_8h_source.html#l00314">ThermoPhase::pressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00289">Phase::restoreState()</a>, and <a class="el" href="Kinetics_8h_source.html#l00288">Kinetics::thermo()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00932">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00939">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="Reactor_8h_source.html#l00161">Reactor::m_kin</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Reactor_8h_source.html#l00168">Reactor::m_wdot</a>, <a class="el" href="ThermoPhase_8h_source.html#l00314">ThermoPhase::pressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00282">Phase::restoreState()</a>, and <a class="el" href="Kinetics_8h_source.html#l00282">Kinetics::thermo()</a>.</p>
 
 </div>
 </div>
@@ -699,7 +712,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00179">179</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00254">AssertFinite</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="ThermoPhase_8h_source.html#l00933">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="Kinetics_8h_source.html#l00600">Kinetics::getNetProductionRates()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="Kinetics_8h_source.html#l00331">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="Reactor_8h_source.html#l00149">Reactor::m_kin</a>, <a class="el" href="Reactor_8h_source.html#l00153">Reactor::m_mass</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Reactor_8h_source.html#l00152">Reactor::m_vdot</a>, <a class="el" href="Reactor_8h_source.html#l00156">Reactor::m_wdot</a>, <a class="el" href="Phase_8h_source.html#l00454">Phase::massFractions()</a>, <a class="el" href="Phase_8cpp_source.html#l00505">Phase::molecularWeights()</a>, <a class="el" href="Kinetics_8h_source.html#l00840">Kinetics::multiplier()</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00314">ThermoPhase::pressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00289">Phase::restoreState()</a>, <a class="el" href="Kinetics_8h_source.html#l00849">Kinetics::setMultiplier()</a>, <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>, <a class="el" href="SurfPhase_8h_source.html#l00415">SurfPhase::siteDensity()</a>, <a class="el" href="Phase_8h_source.html#l00398">Phase::size()</a>, and <a class="el" href="Kinetics_8h_source.html#l00263">Kinetics::surfacePhaseIndex()</a>.</p>
+<p>References <a class="el" href="Reactor_8cpp_source.html#l00363">Reactor::applySensitivity()</a>, <a class="el" href="ctexceptions_8h_source.html#l00254">AssertFinite</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="ThermoPhase_8h_source.html#l00932">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="Kinetics_8h_source.html#l00589">Kinetics::getNetProductionRates()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="Kinetics_8h_source.html#l00320">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="Reactor_8h_source.html#l00161">Reactor::m_kin</a>, <a class="el" href="Reactor_8h_source.html#l00165">Reactor::m_mass</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Reactor_8h_source.html#l00164">Reactor::m_vdot</a>, <a class="el" href="Reactor_8h_source.html#l00168">Reactor::m_wdot</a>, <a class="el" href="Phase_8h_source.html#l00454">Phase::massFractions()</a>, <a class="el" href="Phase_8cpp_source.html#l00498">Phase::molecularWeights()</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00314">ThermoPhase::pressure()</a>, <a class="el" href="Reactor_8cpp_source.html#l00383">Reactor::resetSensitivity()</a>, <a class="el" href="Phase_8cpp_source.html#l00282">Phase::restoreState()</a>, <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>, <a class="el" href="SurfPhase_8h_source.html#l00414">SurfPhase::siteDensity()</a>, <a class="el" href="Phase_8h_source.html#l00398">Phase::size()</a>, and <a class="el" href="Kinetics_8h_source.html#l00257">Kinetics::surfacePhaseIndex()</a>.</p>
 
 </div>
 </div>
@@ -731,7 +744,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00117">117</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00254">AssertFinite</a>, <a class="el" href="ThermoPhase_8h_source.html#l00968">ThermoPhase::cv_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00933">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00940">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="Reactor_8h_source.html#l00153">Reactor::m_mass</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00314">ThermoPhase::pressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00277">Phase::saveState()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, <a class="el" href="Phase_8cpp_source.html#l00388">Phase::setMassFractions_NoNorm()</a>, <a class="el" href="Phase_8cpp_source.html#l00454">Phase::setState_TR()</a>, and <a class="el" href="ReactorBase_8h_source.html#l00164">ReactorBase::temperature()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00254">AssertFinite</a>, <a class="el" href="ThermoPhase_8h_source.html#l00967">ThermoPhase::cv_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00932">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00939">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="Reactor_8h_source.html#l00165">Reactor::m_mass</a>, <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00314">ThermoPhase::pressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00270">Phase::saveState()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, <a class="el" href="Phase_8cpp_source.html#l00381">Phase::setMassFractions_NoNorm()</a>, <a class="el" href="Phase_8cpp_source.html#l00447">Phase::setState_TR()</a>, and <a class="el" href="ReactorBase_8h_source.html#l00164">ReactorBase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -790,9 +803,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Add a sensitivity parameter associated with the reaction number <em>rxn</em> (in the homogeneous phase). </p>
 
-<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00326">326</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00297">297</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="Reactor_8h_source.html#l00149">Reactor::m_kin</a>, <a class="el" href="ReactorBase_8h_source.html#l00042">ReactorBase::name()</a>, <a class="el" href="ReactorBase_8cpp_source.html#l00072">ReactorBase::network()</a>, <a class="el" href="Kinetics_8h_source.html#l00196">Kinetics::nReactions()</a>, <a class="el" href="Kinetics_8h_source.html#l00716">Kinetics::reactionString()</a>, and <a class="el" href="ReactorNet_8cpp_source.html#l00267">ReactorNet::registerSensitivityReaction()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="Reactor_8h_source.html#l00161">Reactor::m_kin</a>, <a class="el" href="ReactorBase_8h_source.html#l00042">ReactorBase::name()</a>, <a class="el" href="ReactorBase_8cpp_source.html#l00072">ReactorBase::network()</a>, <a class="el" href="Kinetics_8h_source.html#l00190">Kinetics::nReactions()</a>, <a class="el" href="Kinetics_8h_source.html#l00705">Kinetics::reactionString()</a>, and <a class="el" href="ReactorNet_8cpp_source.html#l00270">ReactorNet::registerSensitivityReaction()</a>.</p>
 
 </div>
 </div>
@@ -813,7 +826,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 <p>Used to construct <a class="el" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">ReactorNet::m_sensOrder</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of pairs where the first element of each pair is a pointer to either a <a class="el" href="classCantera_1_1Reactor.html" title="Class Reactor is a general-purpose class for stirred reactors. ">Reactor</a> object or a <a class="el" href="classCantera_1_1Wall.html" title="Represents a wall between between two ReactorBase objects. ">Wall</a> object and the second element is either 0 (in the case of a <a class="el" href="classCantera_1_1Reactor.html" title="Class Reactor is a general-purpose class for stirred reactors. ">Reactor</a>) or in the case of a <a class="el" href="classCantera_1_1Wall.html" title="Represents a wall between between two ReactorBase objects. ">Wall</a> indicates that the sensitivity parameters are associated with surface chemistry on the left (0) or right (1) side of the wall. </dd></dl>
 
-<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00338">338</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00309">309</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
 <p>Referenced by <a class="el" href="ReactorNet_8cpp_source.html#l00047">ReactorNet::initialize()</a>.</p>
 
@@ -846,9 +859,106 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1FlowReactor.html#ab14d4b59e74e528b5fcd3513179d1316">FlowReactor</a>, <a class="el" href="classCantera_1_1IdealGasConstPressureReactor.html#ab14d4b59e74e528b5fcd3513179d1316">IdealGasConstPressureReactor</a>, <a class="el" href="classCantera_1_1ConstPressureReactor.html#ab14d4b59e74e528b5fcd3513179d1316">ConstPressureReactor</a>, and <a class="el" href="classCantera_1_1IdealGasReactor.html#ab14d4b59e74e528b5fcd3513179d1316">IdealGasReactor</a>.</p>
 
-<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00350">350</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00347">347</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
-<p>References <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, and <a class="el" href="Phase_8cpp_source.html#l00229">Phase::speciesIndex()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="Reactor_8cpp_source.html#l00321">Reactor::speciesIndex()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a221894ebae50f192731b829ab4f319ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void applySensitivity </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>params</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set reaction rate multipliers based on the sensitivity variables in <em>params</em>. </p>
+
+<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00363">363</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+
+<p>References <a class="el" href="Reactor_8h_source.html#l00161">Reactor::m_kin</a>, <a class="el" href="Kinetics_8h_source.html#l00817">Kinetics::multiplier()</a>, and <a class="el" href="Kinetics_8h_source.html#l00826">Kinetics::setMultiplier()</a>.</p>
+
+<p>Referenced by <a class="el" href="ConstPressureReactor_8cpp_source.html#l00120">ConstPressureReactor::evalEqs()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaec44e718cdcd56423d24433db93e8f5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void resetSensitivity </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>params</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset the reaction rate multipliers. </p>
+
+<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00383">383</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+
+<p>References <a class="el" href="Reactor_8h_source.html#l00161">Reactor::m_kin</a>, <a class="el" href="Kinetics_8h_source.html#l00817">Kinetics::multiplier()</a>, and <a class="el" href="Kinetics_8h_source.html#l00826">Kinetics::setMultiplier()</a>.</p>
+
+<p>Referenced by <a class="el" href="ConstPressureReactor_8cpp_source.html#l00120">ConstPressureReactor::evalEqs()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d2f8bb675ace012952b43f81cd8d73a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t speciesIndex </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>nm</em>)</td><td></td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the index in the solution vector for this reactor of the species named <em>nm</em>, in either the homogeneous phase or a surface phase, relative to the start of the species terms. </p>
+<p>Used to implement componentIndex for specific reactor implementations. </p>
+
+<p>Definition at line <a class="el" href="Reactor_8cpp_source.html#l00321">321</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+
+<p>References <a class="el" href="ReactorBase_8h_source.html#l00213">ReactorBase::m_nsp</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, and <a class="el" href="Phase_8cpp_source.html#l00222">Phase::speciesIndex()</a>.</p>
+
+<p>Referenced by <a class="el" href="ConstPressureReactor_8cpp_source.html#l00224">ConstPressureReactor::componentIndex()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00347">Reactor::componentIndex()</a>.</p>
 
 </div>
 </div>
@@ -873,9 +983,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Pointer to the homogeneous <a class="el" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a> object that handles the reactions. </p>
 
-<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00149">149</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00161">161</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Reactor_8cpp_source.html#l00326">Reactor::addSensitivityReaction()</a>, <a class="el" href="FlowReactor_8cpp_source.html#l00072">FlowReactor::evalEqs()</a>, <a class="el" href="ConstPressureReactor_8cpp_source.html#l00120">ConstPressureReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>, <a class="el" href="ConstPressureReactor_8cpp_source.html#l00053">ConstPressureReactor::initialize()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00064">Reactor::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="Reactor_8cpp_source.html#l00297">Reactor::addSensitivityReaction()</a>, <a class="el" href="Reactor_8cpp_source.html#l00363">Reactor::applySensitivity()</a>, <a class="el" href="FlowReactor_8cpp_source.html#l00072">FlowReactor::evalEqs()</a>, <a class="el" href="ConstPressureReactor_8cpp_source.html#l00120">ConstPressureReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>, <a class="el" href="ConstPressureReactor_8cpp_source.html#l00053">ConstPressureReactor::initialize()</a>, <a class="el" href="Reactor_8cpp_source.html#l00064">Reactor::initialize()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00383">Reactor::resetSensitivity()</a>.</p>
 
 </div>
 </div>
@@ -899,7 +1009,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Tolerance on the temperature. </p>
 
-<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00152">152</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00164">164</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
 
 <p>Referenced by <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>.</p>
 
@@ -925,7 +1035,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>total mass </p>
 
-<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00153">153</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00165">165</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ConstPressureReactor_8cpp_source.html#l00120">ConstPressureReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00029">Reactor::getInitialConditions()</a>, <a class="el" href="ConstPressureReactor_8cpp_source.html#l00090">ConstPressureReactor::updateState()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00117">Reactor::updateState()</a>.</p>
 
@@ -951,7 +1061,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Species net molar production rates. </p>
 
-<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00156">156</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00168">168</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ConstPressureReactor_8cpp_source.html#l00120">ConstPressureReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00179">Reactor::evalEqs()</a>, <a class="el" href="ConstPressureReactor_8cpp_source.html#l00053">ConstPressureReactor::initialize()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00064">Reactor::initialize()</a>.</p>
 
@@ -977,7 +1087,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>m_rho0</b></td></tr
 
 <p>Species molar internal energies. </p>
 
-<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00157">157</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
+<p>Definition at line <a class="el" href="Reactor_8h_source.html#l00169">169</a> of file <a class="el" href="Reactor_8h_source.html">Reactor.h</a>.</p>
 
 </div>
 </div>

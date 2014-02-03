@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Elements and Species &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Elements and Species &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Reactions" href="reactions.html" />
     <link rel="prev" title="Phases and their Interfaces" href="phases.html" /> 
@@ -117,7 +117,7 @@
 <span id="sec-species"></span><h1>Elements and Species<a class="headerlink" href="#elements-and-species" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="elements">
 <span id="sec-elements"></span><h2>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h2>
-<p>The element entry defines an element or an isotope of an element. Note that
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">element</span></tt> entry defines an element or an isotope of an element. Note that
 these entries are not often needed, since the the database file <tt class="docutils literal"><span class="pre">elements.xml</span></tt>
 is searched for element definitions when importing phase and interface
 definitions.  An explicit element entry is needed only if an isotope not in
@@ -130,7 +130,7 @@ definitions.  An explicit element entry is needed only if an isotope not in
 </div>
 <div class="section" id="species">
 <h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
-<p>For each species, a <a class="reference internal" href="classes.html#ctml_writer.species" title="ctml_writer.species"><tt class="xref py py-class docutils literal"><span class="pre">species</span></tt></a> entry is required. Species are defined at
+<p>For each species, a <tt class="xref py py-class docutils literal"><span class="pre">species</span></tt> entry is required. Species are defined at
 the top-level of the input file&#8212;their definitions are not embedded in a phase
 or interface entry.</p>
 <div class="section" id="species-name">
@@ -175,7 +175,7 @@ equivalent to omitting that element.</p>
 </div>
 <div class="section" id="thermodynamic-properties">
 <h3>Thermodynamic Properties<a class="headerlink" href="#thermodynamic-properties" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="classes.html#ctml_writer.phase" title="ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt></a> and <a class="reference internal" href="classes.html#ctml_writer.ideal_interface" title="ctml_writer.ideal_interface"><tt class="xref py py-class docutils literal"><span class="pre">ideal_interface</span></tt></a> entries discussed in the last
+<p>The <tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt> and <tt class="xref py py-class docutils literal"><span class="pre">ideal_interface</span></tt> entries discussed in the last
 chapter implement specific models for the thermodynamic properties appropriate
 for the type of phase or interface they represent. Although each one may use
 different expressions to compute the properties, they all require thermodynamic
@@ -196,12 +196,12 @@ temperature <span class="math">\(T_0\)</span>;</li>
 effect of each species on the transport properties of the phase. The
 <tt class="docutils literal"><span class="pre">transport</span></tt> field may be assigned an embedded entry that provides
 species-specific coefficients.</p>
-<p>Currently, the only entry type is <a class="reference internal" href="classes.html#ctml_writer.gas_transport" title="ctml_writer.gas_transport"><tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt></a>, which supplies
+<p>Currently, the only entry type is <tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt>, which supplies
 parameters needed by the ideal-gas transport property models. The field values
-and their units of the <a class="reference internal" href="classes.html#ctml_writer.gas_transport" title="ctml_writer.gas_transport"><tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt></a> entry are compatible with the
-transport database parameters described by Kee et al. [1986]. Entries in
+and their units of the <tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt> entry are compatible with the
+transport database parameters described by Kee et al. <a class="footnote-reference" href="#kee1986" id="id1">[1]</a>. Entries in
 transport databases in the format described in their report can be used directly
-in the fields of the <a class="reference internal" href="classes.html#ctml_writer.gas_transport" title="ctml_writer.gas_transport"><tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt></a> entry, without requiring any unit
+in the fields of the <tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt> entry, without requiring any unit
 conversion. The numeric field values should all be entered as pure numbers, with
 no attached units string.</p>
 </div>
@@ -209,7 +209,7 @@ no attached units string.</p>
 <div class="section" id="thermodynamic-property-models">
 <span id="sec-thermo-models"></span><h2>Thermodynamic Property Models<a class="headerlink" href="#thermodynamic-property-models" title="Permalink to this headline">¶</a></h2>
 <p>The entry types described in this section can be used to provide data for the
-<tt class="docutils literal"><span class="pre">thermo</span></tt> field of a <a class="reference internal" href="classes.html#ctml_writer.species" title="ctml_writer.species"><tt class="xref py py-class docutils literal"><span class="pre">species</span></tt></a>. Each implements a different
+<tt class="docutils literal"><span class="pre">thermo</span></tt> field of a <tt class="xref py py-class docutils literal"><span class="pre">species</span></tt>. Each implements a different
 <em>parameterization</em> (functional form) for the heat capacity. Note that there is
 no requirement that all species in a phase use the same parameterization; each
 species can use the one most appropriate to represent how the heat capacity
@@ -235,10 +235,10 @@ polynomial:</p>
 equilibrium program and in Chemkin. It is not compatible with the form used in
 the most recent version of the NASA equilibrium program, which uses 9
 coefficients, not 7.</p>
-<p>A NASA parameterization is defined by an embedded <a class="reference internal" href="classes.html#ctml_writer.NASA" title="ctml_writer.NASA"><tt class="xref py py-class docutils literal"><span class="pre">NASA</span></tt></a> entry. Very
+<p>A NASA parameterization is defined by an embedded <tt class="xref py py-class docutils literal"><span class="pre">NASA</span></tt> entry. Very
 often, two NASA parameterizations are used for two contiguous temperature
 ranges. This can be specified by assigning the <tt class="docutils literal"><span class="pre">thermo</span></tt> field of the
-<tt class="docutils literal"><span class="pre">species</span></tt> entry a sequence of two <a class="reference internal" href="classes.html#ctml_writer.NASA" title="ctml_writer.NASA"><tt class="xref py py-class docutils literal"><span class="pre">NASA</span></tt></a> entries:</p>
+<tt class="docutils literal"><span class="pre">species</span></tt> entry a sequence of two <tt class="xref py py-class docutils literal"><span class="pre">NASA</span></tt> entries:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># use one NASA parameterization for T &lt; 1000 K, and another for T &gt; 1000 K.</span>
 <span class="n">species</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;O2&quot;</span><span class="p">,</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="s">&quot; O:2 &quot;</span><span class="p">,</span>
@@ -256,7 +256,7 @@ ranges. This can be specified by assigning the <tt class="docutils literal"><spa
 <h3>The Shomate Parameterization<a class="headerlink" href="#the-shomate-parameterization" title="Permalink to this headline">¶</a></h3>
 <p>The Shomate parameterization is:</p>
 <div class="math">
-\[\hat{c}_p^0(T) = A + Bt + Ct^2 + Dt^3 | \frac{E}{t^2}\]\[\hat{h}^0(T) = At + \frac{Bt^2}{2} + \frac{Ct^3}{3} + \frac{Dt^4}{4} -
+\[\hat{c}_p^0(T) = A + Bt + Ct^2 + Dt^3 + \frac{E}{t^2}\]\[\hat{h}^0(T) = At + \frac{Bt^2}{2} + \frac{Ct^3}{3} + \frac{Dt^4}{4} -
                \frac{E}{t} + F\]\[\hat{s}^0(T) = A \ln t + B t + \frac{Ct^2}{2} + \frac{Dt^3}{3} -
                \frac{E}{2t^2} + G\]</div>
 <p>where <span class="math">\(t = T / 1000 K\)</span>. It requires 7 coefficients A, B, C, D, E, F, and
@@ -264,7 +264,7 @@ G. This parameterization is used to represent reference-state properties in the
 <a class="reference external" href="http://webbook.nist.gov/chemistry">NIST Chemistry WebBook</a>. The values of the
 coefficients A through G should be entered precisely as shown there, with no
 units attached. Unit conversions to SI will be handled internally.</p>
-<p>Example usage of the <tt class="xref py py-class docutils literal"><span class="pre">shomate</span></tt> directive:</p>
+<p>Example usage of the <tt class="xref py py-class docutils literal"><span class="pre">Shomate</span></tt> directive:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># use a single Shomate parameterization.</span>
 <span class="n">species</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;O2&quot;</span><span class="p">,</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="s">&quot; O:2 &quot;</span><span class="p">,</span>
@@ -278,8 +278,8 @@ units attached. Unit conversions to SI will be handled internally.</p>
 <h3>Constant Heat Capacity<a class="headerlink" href="#constant-heat-capacity" title="Permalink to this headline">¶</a></h3>
 <p>In some cases, species properties may only be required at a single temperature
 or over a narrow temperature range. In such cases, the heat capacity can be
-approximated as constant, and simpler expressions used for the thermodynamic
-properties. The <a class="reference internal" href="classes.html#ctml_writer.const_cp" title="ctml_writer.const_cp"><tt class="xref py py-class docutils literal"><span class="pre">const_cp</span></tt></a> parameterization computes the properties as
+approximated as constant, and simpler expressions can be used for the thermodynamic
+properties. The <tt class="xref py py-class docutils literal"><span class="pre">const_cp</span></tt> parameterization computes the properties as
 follows:</p>
 <div class="math">
 \[\hat{c}_p^0(T) = \hat{c}_p^0(T_0)\]\[\hat{h}^0(T) = \hat{h}^0(T_0) + \hat{c}_p^0\cdot(T-T_0)\]\[\hat{s}^0(T) = \hat{s}^0(T_0) + \hat{c}_p^0 \ln (T/T_0)\]</div>
@@ -290,6 +290,15 @@ follows:</p>
                    <span class="n">h0</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="kee1986" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>R. J. Kee, G. Dixon-Lewis, J. Warnatz, M. E. Coltrin, and J. A. Miller.
+A FORTRAN Computer Code Package for the Evaluation of Gas-Phase, Multicomponent
+Transport Properties. Technical Report SAND86-8246, Sandia National Laboratories, 1986.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

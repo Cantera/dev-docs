@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Compiling Cantera C++ Programs &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Compiling Cantera C++ Programs &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="C++ Interface User’s Guide" href="index.html" />
     <link rel="next" title="C++ Header Files" href="headers.html" />
     <link rel="prev" title="C++ Interface User’s Guide" href="index.html" /> 
@@ -118,7 +118,7 @@ example:</p>
 </div>
 <p>It can also be used to populate variables in a Makefile:</p>
 <div class="highlight-make"><div class="highlight"><pre><span class="nv">CFLAGS</span> <span class="o">+=</span> <span class="k">$(</span>shell pkg-config --cflags cantera<span class="k">)</span>
-LIBS +<span class="o">=</span> <span class="k">$(</span>shell pkg-config --libs cantera<span class="k">)</span>
+<span class="nv">LIBS</span> <span class="o">+=</span> <span class="k">$(</span>shell pkg-config --libs cantera<span class="k">)</span>
 </pre></div>
 </div>
 <p>Or in an SConstruct file:</p>
@@ -190,15 +190,15 @@ contained in <tt class="docutils literal"><span class="pre">Cantera.mak</span></
 <span class="nv">SRCS</span><span class="o">=</span>sample.cpp
 <span class="nv">OBJS</span><span class="o">=</span><span class="k">$(</span>subst .cpp,.o,<span class="k">$(</span>SRCS<span class="k">))</span>
 
-all: sample
+<span class="nf">all</span><span class="o">:</span> <span class="m">sample</span>
 
-kinetics1: <span class="k">$(</span>OBJS<span class="k">)</span>
+<span class="nf">kinetics1</span><span class="o">:</span> <span class="m">$(OBJS)</span>
         <span class="k">$(</span>CXX<span class="k">)</span> <span class="k">$(</span>LDFLAGS<span class="k">)</span> -o sample <span class="k">$(</span>OBJS<span class="k">)</span> <span class="k">$(</span>LDLIBS<span class="k">)</span>
 
-clean:
+<span class="nf">clean</span><span class="o">:</span>
         <span class="k">$(</span>RM<span class="k">)</span> <span class="k">$(</span>OBJS<span class="k">)</span>
 
-dist-clean: clean
+<span class="nf">dist-clean</span><span class="o">:</span> <span class="m">clean</span>
         <span class="k">$(</span>RM<span class="k">)</span> *~
 </pre></div>
 </div>

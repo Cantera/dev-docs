@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Working with Input Files &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Working with Input Files &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Phases and their Interfaces" href="phases.html" />
     <link rel="prev" title="Introduction" href="intro.html" /> 
@@ -79,7 +79,7 @@
 <li><a class="reference internal" href="#processing-input-files">Processing Input Files</a><ul>
 <li><a class="reference internal" href="#a-two-step-process">A Two-step Process</a></li>
 <li><a class="reference internal" href="#two-file-formats">Two File Formats</a></li>
-<li><a class="reference internal" href="#preprocessor-intenals-the-ctml-writer-module">Preprocessor Intenals: the <tt class="docutils literal"><span class="pre">ctml_writer</span></tt> Module</a></li>
+<li><a class="reference internal" href="#preprocessor-internals-the-ctml-writer-module">Preprocessor Internals: the <tt class="docutils literal"><span class="pre">ctml_writer</span></tt> Module</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#error-handling">Error Handling</a><ul>
@@ -139,7 +139,7 @@ certain errors should be handled.</p>
 with Python syntax you already understand many of the details and can probably
 skip ahead to <a class="reference internal" href="#sec-dimensions"><em>Dimensional Values</em></a>.</p>
 <p>Entries have fields that can be assigned values. A species entry is shown below
-that has fields name and atoms (plus several others):</p>
+that has fields <em>name</em> and <em>atoms</em> (plus several others):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">species</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;C60&#39;</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="s">&#39;C:60&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -178,7 +178,7 @@ approximated as constant, then the following definition could be used:</p>
 </pre></div>
 </div>
 <p>Note that the thermo field is assigned an embedded entry of type
-<a class="reference internal" href="classes.html#ctml_writer.const_cp" title="ctml_writer.const_cp"><tt class="xref py py-class docutils literal"><span class="pre">const_cp</span></tt></a>. Entries are stored as they are encountered when the file is
+<tt class="xref py py-class docutils literal"><span class="pre">const_cp</span></tt>. Entries are stored as they are encountered when the file is
 read, and only processed once the end of the file has been reached. Therefore,
 the order in which they appear is unimportant.</p>
 <div class="section" id="comments">
@@ -193,10 +193,6 @@ character on a line is ignored:</p>
 </div>
 <div class="section" id="strings">
 <h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
-<p>Strings may be enclosed in single quotes or double quotes, but they must
-match. To create a string containing single quotes, enclose it in double quotes,
-and vice versa. If you want to create a string to extend over multiple lines,
-enclose it in triple double quotes.</p>
 <p>Strings may be enclosed in single quotes or double quotes, but they must
 match. To create a string containing single quotes, enclose it in double quotes,
 and vice versa. If you want to create a string to extend over multiple lines,
@@ -277,7 +273,7 @@ incorrect and would generate an error when processed:</p>
 <span id="sec-dimensions"></span><h2>Dimensional Values<a class="headerlink" href="#dimensional-values" title="Permalink to this headline">¶</a></h2>
 <p>Many fields have numerical values that represent dimensional quantities&#8212;a
 pressure, or a density, for example. If these are entered without specifying the
-units, the default units (set by the <a class="reference internal" href="classes.html#ctml_writer.units" title="ctml_writer.units"><tt class="xref py py-class docutils literal"><span class="pre">units</span></tt></a> directive described in
+units, the default units (set by the <tt class="xref py py-class docutils literal"><span class="pre">units</span></tt> directive described in
 <a class="reference internal" href="#sec-default-units"><em>Setting the Default Units</em></a>) will be used. However, it is also possible to specify
 the units for each individual dimensional quantity (unless stated
 otherwise). All that is required is to group the value in parentheses or square
@@ -306,7 +302,7 @@ be in the range 2&#8211;6. Negative values are not allowed.</li>
 </div>
 <div class="section" id="setting-the-default-units">
 <span id="sec-default-units"></span><h3>Setting the Default Units<a class="headerlink" href="#setting-the-default-units" title="Permalink to this headline">¶</a></h3>
-<p>The default unit system may be set with the <a class="reference internal" href="classes.html#ctml_writer.units" title="ctml_writer.units"><tt class="xref py py-func docutils literal"><span class="pre">units()</span></tt></a> directive. Note
+<p>The default unit system may be set with the <tt class="xref py py-func docutils literal"><span class="pre">units()</span></tt> directive. Note
 that unit conversions are not done until the entire file has been read. Only one
 units directive should be present in a file, and the defaults it specifies apply
 to the entire file.  If the file does not contain a units directive, the default
@@ -339,7 +335,7 @@ activation energies:</p>
 <span class="n">kf</span> <span class="o">=</span> <span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="mf">1.0e14</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="mf">54.0</span><span class="p">)</span> <span class="c"># E is 54 kcal/mol</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="classes.html#ctml_writer.units" title="ctml_writer.units"><tt class="xref py py-func docutils literal"><span class="pre">units()</span></tt></a> for the declaration of the units directive.</p>
+<p>See <tt class="xref py py-func docutils literal"><span class="pre">units()</span></tt> for the declaration of the units directive.</p>
 </div>
 <div class="section" id="recognized-units">
 <h3>Recognized Units<a class="headerlink" href="#recognized-units" title="Permalink to this headline">¶</a></h3>
@@ -465,8 +461,8 @@ use two formats, one designed for writing by humans, the other for reading by
 machines, and provide a preprocessor to convert the human-friendly format to the
 machine-friendly one.</p>
 </div>
-<div class="section" id="preprocessor-intenals-the-ctml-writer-module">
-<h3>Preprocessor Intenals: the <tt class="docutils literal"><span class="pre">ctml_writer</span></tt> Module<a class="headerlink" href="#preprocessor-intenals-the-ctml-writer-module" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="preprocessor-internals-the-ctml-writer-module">
+<h3>Preprocessor Internals: the <tt class="docutils literal"><span class="pre">ctml_writer</span></tt> Module<a class="headerlink" href="#preprocessor-internals-the-ctml-writer-module" title="Permalink to this headline">¶</a></h3>
 <p>If you are interested in seeing the internals of how the preprocessing works,
 take a look at file <tt class="docutils literal"><span class="pre">ctml_writer.py</span></tt> in the Cantera Python package. Or simply
 start Python, and type:</p>

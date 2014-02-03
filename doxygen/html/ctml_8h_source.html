@@ -879,19 +879,28 @@
 <div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__inputfiles.html#ga106f302af6a947a6222a3450a5b888ab" title="Convert a cti file into a ctml file. ">ct2ctml</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* file, <span class="keyword">const</span> <span class="keywordtype">int</span> debug = 0);</div>
 <div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">//! Convert a Chemkin-format mechanism into a CTI file.</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">//! Get a string with the ctml representation of a cti file.</span></div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"> * @param in_file         input file containing species and reactions</span></div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment"> * @param thermo_file     optional input file containing thermo data</span></div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment"> * @param transport_file  optional input file containing transport parameters</span></div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"> * @param id_tag          id of the phase</span></div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;<span class="comment"> *  @param   file    Path to the input file in CTI format</span></div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;<span class="comment"> *  @return  String containing the xml representation of the input file</span></div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;<span class="comment"> *  @ingroup inputfiles</span></div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#a6ea9a1b95781324c5037061411f9f5c3" title="Convert a Chemkin-format mechanism into a CTI file. ">ck2cti</a>(<span class="keyword">const</span> std::string&amp; in_file, <span class="keyword">const</span> std::string&amp; thermo_file=<span class="stringliteral">&quot;&quot;</span>,</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;            <span class="keyword">const</span> std::string&amp; transport_file=<span class="stringliteral">&quot;&quot;</span>,</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;            <span class="keyword">const</span> std::string&amp; id_tag=<span class="stringliteral">&quot;gas&quot;</span>);</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;}</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;std::string <a class="code" href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3" title="Get a string with the ctml representation of a cti file. ">ct2ctml_string</a>(<span class="keyword">const</span> std::string&amp; file);</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;<span class="comment">//! Convert a Chemkin-format mechanism into a CTI file.</span></div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;<span class="comment"> * @param in_file         input file containing species and reactions</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment"> * @param thermo_file     optional input file containing thermo data</span></div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment"> * @param transport_file  optional input file containing transport parameters</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="comment"> * @param id_tag          id of the phase</span></div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacectml.html#a6ea9a1b95781324c5037061411f9f5c3" title="Convert a Chemkin-format mechanism into a CTI file. ">ck2cti</a>(<span class="keyword">const</span> std::string&amp; in_file, <span class="keyword">const</span> std::string&amp; thermo_file=<span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;            <span class="keyword">const</span> std::string&amp; transport_file=<span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;            <span class="keyword">const</span> std::string&amp; id_tag=<span class="stringliteral">&quot;gas&quot;</span>);</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;}</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

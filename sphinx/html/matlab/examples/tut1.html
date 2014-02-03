@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>tut1.m &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>tut1.m &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="tut2.m" href="tut2.html" />
     <link rel="prev" title="Index of Examples" href="../examples.html" /> 
@@ -207,7 +207,7 @@
 
 <span class="c">% The state of the object can be easily changed. For example,</span>
 
-<span class="n">setTemperature</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> 1200<span class="p">)</span>
+<span class="n">setTemperature</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span>
 
 <span class="c">% sets the temperature to 1200 K. (Cantera always uses SI units.)</span>
 
@@ -245,18 +245,18 @@
 <span class="c">% on an object. In MATLAB, methods take the object as the first</span>
 <span class="c">% argument.)</span>
 
-<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Temperature&#39;</span><span class="p">,</span> 900<span class="p">.</span>0<span class="p">,</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> 1<span class="p">.</span><span class="n">e5</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Temperature&#39;</span><span class="p">,</span> <span class="mf">900.0</span><span class="p">,</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> <span class="mf">1.e5</span><span class="p">);</span>
 
 <span class="c">% This statement sets both temperature and pressure at the same</span>
 <span class="c">% time. Any number of property/value pairs can be specified in a</span>
 <span class="c">% call to &#39;set&#39;. For example, the following sets the mole fractions</span>
 <span class="c">% too:</span>
-<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Temperature&#39;</span><span class="p">,</span> 900<span class="p">.</span>0<span class="p">,</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> 1<span class="p">.</span><span class="n">e5</span><span class="p">,</span> <span class="s">&#39;MoleFractions&#39;</span><span class="p">,</span> <span class="p">...</span>
+<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Temperature&#39;</span><span class="p">,</span> <span class="mf">900.0</span><span class="p">,</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> <span class="mf">1.e5</span><span class="p">,</span> <span class="s">&#39;MoleFractions&#39;</span><span class="p">,</span> <span class="c">...</span>
 	  <span class="s">&#39;CH4:1,O2:2,N2:7.52&#39;</span><span class="p">);</span>
 
 <span class="c">% The &#39;set&#39; method also accepts abbreviated property names:</span>
 
-<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span>900<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span>1<span class="p">.</span><span class="n">e5</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="s">&#39;CH4:1,O2:2,N2:7.52&#39;</span><span class="p">)</span>
+<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="mf">900.0</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="mf">1.e5</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="s">&#39;CH4:1,O2:2,N2:7.52&#39;</span><span class="p">)</span>
 
 <span class="c">% Either version results in</span>
 <span class="c">%</span>
@@ -337,7 +337,7 @@
 <span class="c">% extensive properties must be entered *per unit mass*. </span>
 
 <span class="c">% Setting the enthalpy and pressure:</span>
-<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Enthalpy&#39;</span><span class="p">,</span> 2<span class="o">*</span><span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">gas1</span><span class="p">),</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> 2<span class="o">*</span><span class="n">oneatm</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Enthalpy&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">gas1</span><span class="p">),</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">oneatm</span><span class="p">);</span>
 
 
 <span class="c">% The composition above was specified using a string. The format is a</span>
@@ -352,7 +352,7 @@
 <span class="c">% size as the number of species. For example, to set all 53 mole</span>
 <span class="c">% fractions to the same value, do this:</span>
 
-<span class="n">x</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span>53<span class="p">,</span>1<span class="p">);</span>   <span class="c">% a column vector of 53 ones</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">53</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>   <span class="c">% a column vector of 53 ones</span>
 <span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="c">% To set the mass fractions to equal values:</span>

@@ -147,24 +147,23 @@
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorBase.html#a57087ba348c849490e5e7bc239452c6e">   87</a></span>&#160;doublereal <a class="code" href="classCantera_1_1ReactorBase.html#a57087ba348c849490e5e7bc239452c6e" title="Return the residence time (s) of the contents of this reactor, based on the outlet mass flow rates an...">ReactorBase::residenceTime</a>()</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">int</span> nout = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(m_outlet.size());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    doublereal mout = 0.0;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; nout; i++) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        mout += m_outlet[i]-&gt;massFlowRate();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1ReactorBase.html#aafd54bd404fc027d88d945b0755b7547" title="Returns the mass (kg) of the reactor&#39;s contents. ">mass</a>()/mout;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorBase.html#a6547b4766770639bbc455674321b7455">   97</a></span>&#160;<a class="code" href="classCantera_1_1FlowDevice.html" title="Base class for &#39;flow devices&#39; (valves, pressure regulators, etc.) connecting reactors. ">FlowDevice</a>&amp; <a class="code" href="classCantera_1_1ReactorBase.html#a6547b4766770639bbc455674321b7455" title="Return a reference to the n-th inlet FlowDevice connected to this reactor. ">ReactorBase::inlet</a>(<span class="keywordtype">size_t</span> n)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> *m_inlet[n];</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorBase.html#a0ab93a69c96763067f389520847db005">  101</a></span>&#160;<a class="code" href="classCantera_1_1FlowDevice.html" title="Base class for &#39;flow devices&#39; (valves, pressure regulators, etc.) connecting reactors. ">FlowDevice</a>&amp; <a class="code" href="classCantera_1_1ReactorBase.html#a0ab93a69c96763067f389520847db005" title="Return a reference to the n-th outlet FlowDevice connected to this reactor. ">ReactorBase::outlet</a>(<span class="keywordtype">size_t</span> n)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> *m_outlet[n];</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    doublereal mout = 0.0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; m_outlet.size(); i++) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        mout += m_outlet[i]-&gt;massFlowRate();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1ReactorBase.html#aafd54bd404fc027d88d945b0755b7547" title="Returns the mass (kg) of the reactor&#39;s contents. ">mass</a>()/mout;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorBase.html#a6547b4766770639bbc455674321b7455">   96</a></span>&#160;<a class="code" href="classCantera_1_1FlowDevice.html" title="Base class for &#39;flow devices&#39; (valves, pressure regulators, etc.) connecting reactors. ">FlowDevice</a>&amp; <a class="code" href="classCantera_1_1ReactorBase.html#a6547b4766770639bbc455674321b7455" title="Return a reference to the n-th inlet FlowDevice connected to this reactor. ">ReactorBase::inlet</a>(<span class="keywordtype">size_t</span> n)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> *m_inlet[n];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorBase.html#a0ab93a69c96763067f389520847db005">  100</a></span>&#160;<a class="code" href="classCantera_1_1FlowDevice.html" title="Base class for &#39;flow devices&#39; (valves, pressure regulators, etc.) connecting reactors. ">FlowDevice</a>&amp; <a class="code" href="classCantera_1_1ReactorBase.html#a0ab93a69c96763067f389520847db005" title="Return a reference to the n-th outlet FlowDevice connected to this reactor. ">ReactorBase::outlet</a>(<span class="keywordtype">size_t</span> n)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> *m_outlet[n];</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

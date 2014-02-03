@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>equil.m &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>equil.m &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="flame.m" href="flame.html" />
     <link rel="prev" title="diffflame.m" href="diffflame.html" /> 
@@ -103,7 +103,7 @@
 <span class="c">%    equivalence ratio.</span>
 <span class="n">help</span> <span class="n">equil</span><span class="p">;</span>
 
-<span class="k">if</span> <span class="n">nargin</span> <span class="o">==</span> 1 <span class="o">&amp;</span> <span class="n">isa</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="s">&#39;GasMix&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">nargin</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="n">isa</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="s">&#39;GasMix&#39;</span><span class="p">)</span>
    <span class="n">gas</span> <span class="p">=</span> <span class="n">g</span><span class="p">;</span>
 <span class="k">else</span>
    <span class="n">gas</span> <span class="p">=</span> <span class="n">IdealGasMix</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">);</span>
@@ -117,13 +117,13 @@
 <span class="n">io2</span>  <span class="p">=</span> <span class="n">speciesIndex</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;O2&#39;</span><span class="p">);</span>
 <span class="n">in2</span>  <span class="p">=</span> <span class="n">speciesIndex</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;N2&#39;</span><span class="p">);</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span>50
-   <span class="n">phi</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> 0<span class="p">.</span>2 <span class="o">+</span> 0<span class="p">.</span>05<span class="o">*</span><span class="nb">i</span><span class="p">;</span>
-   <span class="n">x</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span>1<span class="p">);</span>
-   <span class="n">x</span><span class="p">(</span><span class="n">ich4</span><span class="p">,</span>1<span class="p">)</span> <span class="p">=</span> <span class="n">phi</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
-   <span class="n">x</span><span class="p">(</span><span class="n">io2</span><span class="p">,</span>1<span class="p">)</span> <span class="p">=</span> 2<span class="p">.</span>0<span class="p">;</span>
-   <span class="n">x</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span>1<span class="p">)</span> <span class="p">=</span> 7<span class="p">.</span>52<span class="p">;</span>
-   <span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;Temperature&#39;</span><span class="p">,</span>300<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;Pressure&#39;</span><span class="p">,</span>101325<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;MoleFractions&#39;</span><span class="p">,</span> <span class="p">...</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">50</span>
+   <span class="n">phi</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="mf">0.2</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="nb">i</span><span class="p">;</span>
+   <span class="n">x</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">nsp</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">x</span><span class="p">(</span><span class="n">ich4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">phi</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+   <span class="n">x</span><span class="p">(</span><span class="n">io2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mf">2.0</span><span class="p">;</span>
+   <span class="n">x</span><span class="p">(</span><span class="n">in2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mf">7.52</span><span class="p">;</span>
+   <span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;Temperature&#39;</span><span class="p">,</span><span class="mf">300.0</span><span class="p">,</span><span class="s">&#39;Pressure&#39;</span><span class="p">,</span><span class="mf">101325.0</span><span class="p">,</span><span class="s">&#39;MoleFractions&#39;</span><span class="p">,</span> <span class="c">...</span>
 	   <span class="n">x</span><span class="p">);</span>
    <span class="n">equilibrate</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;HP&#39;</span><span class="p">);</span>
    <span class="n">tad</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">temperature</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
@@ -132,22 +132,22 @@
 
 <span class="c">% make plots</span>
 <span class="n">clf</span><span class="p">;</span>
-<span class="n">subplot</span><span class="p">(</span>1<span class="p">,</span>2<span class="p">,</span>1<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">tad</span><span class="p">);</span>
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Equivalence Ratio&#39;</span><span class="p">);</span>
 <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Temperature (K)&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;Adiabatic Flame Temperature&#39;</span><span class="p">);</span>
 
-<span class="n">subplot</span><span class="p">(</span>1<span class="p">,</span>2<span class="p">,</span>2<span class="p">);</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">semilogy</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">xeq</span><span class="p">);</span>
-<span class="n">axis</span><span class="p">([</span><span class="n">phi</span><span class="p">(</span>1<span class="p">)</span> <span class="n">phi</span><span class="p">(</span>50<span class="p">)</span> 1<span class="p">.</span>0<span class="n">e</span><span class="o">-</span>14 1<span class="p">]);</span>
+<span class="n">axis</span><span class="p">([</span><span class="n">phi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">phi</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="mf">1.0e-14</span> <span class="mi">1</span><span class="p">]);</span>
 <span class="c">%legend(speciesName(gas,1:nsp),1);</span>
-<span class="nb">j</span> <span class="p">=</span> 10<span class="p">;</span>
-<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> 1<span class="p">:</span><span class="n">nsp</span>
-    <span class="n">text</span><span class="p">(</span><span class="n">phi</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span>1<span class="p">.</span>5<span class="o">*</span><span class="n">xeq</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="nb">j</span><span class="p">),</span><span class="n">speciesName</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="n">k</span><span class="p">))</span>
-    <span class="nb">j</span> <span class="p">=</span> <span class="nb">j</span> <span class="o">+</span> 2<span class="p">;</span>
-    <span class="k">if</span> <span class="nb">j</span> <span class="o">&gt;</span> 46
-        <span class="nb">j</span> <span class="p">=</span> 10<span class="p">;</span>
+<span class="nb">j</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nsp</span>
+    <span class="n">text</span><span class="p">(</span><span class="n">phi</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span><span class="mf">1.5</span><span class="o">*</span><span class="n">xeq</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="nb">j</span><span class="p">),</span><span class="n">speciesName</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="n">k</span><span class="p">))</span>
+    <span class="nb">j</span> <span class="p">=</span> <span class="nb">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="nb">j</span> <span class="o">&gt;</span> <span class="mi">46</span>
+        <span class="nb">j</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="k">end</span>
 <span class="k">end</span>
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Equivalence Ratio&#39;</span><span class="p">);</span>

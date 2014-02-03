@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Thermodynamic Properties &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Thermodynamic Properties &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Chemical Kinetics" href="kinetics.html" />
     <link rel="prev" title="Importing Phase Objects" href="importing.html" /> 
@@ -97,7 +97,7 @@
 <p>These classes are used to describe the thermodynamic state of a system.</p>
 <dl class="class">
 <dt id="cantera.ThermoPhase">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ThermoPhase</tt><a class="headerlink" href="#cantera.ThermoPhase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ThermoPhase</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera._SolutionBase</span></tt></p>
 <p>ThermoPhase(<a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs)</p>
 <p>A phase with an equation of state.</p>
@@ -275,6 +275,18 @@ as a string. Always returns an array:</p>
 <span class="go">array([0.1, 0, 0, 0.4, 0, 0, 0, 0, 0.5])</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ThermoPhase.atomic_weight">
+<tt class="descname">atomic_weight</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.atomic_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Atomic weight [kg/kmol] of element <em>m</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.atomic_weights">
+<tt class="descname">atomic_weights</tt><a class="headerlink" href="#cantera.ThermoPhase.atomic_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of atomic weight [kg/kmol] for each element in the mixture.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -469,11 +481,7 @@ solution.</li>
 <li><strong>maxiter</strong> &#8211; For the Gibbs minimization solver, this specifies the number of
 &#8216;outer&#8217; iterations on T or P when some property pair other
 than TP is specified.</li>
-<li><strong>loglevel</strong> &#8211; Set to a value &gt; 0 to write diagnostic output to a file in HTML
-format. Larger values generate more detailed information. The file
-will be named <tt class="docutils literal"><span class="pre">equilibrate_log.html.</span></tt> Subsequent files will be
-named <tt class="docutils literal"><span class="pre">equilibrate_log1.html</span></tt>, etc., so that log files are
-not overwritten.</li>
+<li><strong>loglevel</strong> &#8211; Set to a value &gt; 0 to write diagnostic output.</li>
 </ul>
 </td>
 </tr>
@@ -723,7 +731,7 @@ current temperature and pressure.</p>
 
 <dl class="class">
 <dt id="cantera.InterfacePhase">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">InterfacePhase</tt><a class="headerlink" href="#cantera.InterfacePhase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">InterfacePhase</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.InterfacePhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></tt></p>
 <p>A class representing a surface or edge phase</p>
 <dl class="attribute">
@@ -743,7 +751,7 @@ edge phases.</p>
 
 <dl class="class">
 <dt id="cantera.PureFluid">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">PureFluid</tt><a class="headerlink" href="#cantera.PureFluid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">PureFluid</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.PureFluid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></tt></p>
 <p>A pure substance that can  be a gas, a liquid, a mixed gas-liquid fluid,
 or a fluid beyond its critical point.</p>

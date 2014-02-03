@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Importing Phase Objects &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Importing Phase Objects &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Thermodynamic Properties" href="thermo.html" />
     <link rel="prev" title="Tutorial" href="tutorial.html" /> 
@@ -106,7 +106,7 @@
 thermodynamic, chemical kinetic, and (optionally) transport properties.</p>
 <dl class="class">
 <dt id="cantera.Solution">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Solution</tt><a class="headerlink" href="#cantera.Solution" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Solution</tt><big>(</big><em>infile</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.Solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Kinetics</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Transport</span></tt></p>
 <p>A class for chemically-reacting solutions.</p>
 <p>Instances can be created to represent any type of solution &#8211; a
@@ -120,7 +120,7 @@ transport properties of a solution.</p>
 
 <dl class="class">
 <dt id="cantera.Interface">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Interface</tt><a class="headerlink" href="#cantera.Interface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Interface</tt><big>(</big><em>infile</em>, <em>phaseid=''</em>, <em>phases=()</em><big>)</big><a class="headerlink" href="#cantera.Interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.InterfacePhase</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.InterfaceKinetics</span></tt></p>
 <p>Two-dimensional interfaces.</p>
 <p>Instances of class Interface represent reacting 2D interfaces
@@ -131,7 +131,7 @@ own. All of its methods derive from either <a class="reference internal" href="t
 
 <dl class="class">
 <dt id="cantera.DustyGas">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">DustyGas</tt><a class="headerlink" href="#cantera.DustyGas" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">DustyGas</tt><big>(</big><em>infile</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.DustyGas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Kinetics</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.DustyGasTransport</span></tt></p>
 <p>A composite class which models a gas in a stationary, solid, porous medium.</p>
 <p>The only transport properties computed are the multicomponent diffusion

@@ -331,7 +331,7 @@
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nspecies; i++) {</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        Xmol_[i] = 1.0/nspecies;</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        creationMoleNumbers_[i] = 1.0/nspecies;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">if</span> (IndSpecies[i] - m_numElemConstraints &gt;= 0) {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">if</span> (IndSpecies[i] &gt;= m_numElemConstraints) {</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            creationGlobalRxnNumbers_[i] = IndSpecies[i] - m_numElemConstraints;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            creationGlobalRxnNumbers_[i] = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>

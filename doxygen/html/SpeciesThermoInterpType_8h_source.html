@@ -223,107 +223,107 @@
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a140e76c7d2f98b7a4e73b003cf5f8801" title="Constructor. ">SpeciesThermoInterpType</a>();</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">    //! Constructor</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ab705acdf87c81f64fbd1752c17a11c97">  165</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ab705acdf87c81f64fbd1752c17a11c97" title="Constructor. ">SpeciesThermoInterpType</a>(<span class="keywordtype">size_t</span> n, doublereal tlow,</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                            doublereal thigh, doublereal pref) :</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>(tlow),</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>(thigh),</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>(pref),</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>(n) {}</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">    //! Destructor</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a7e9141519b5f11b3649f65507738baba" title="Destructor. ">~SpeciesThermoInterpType</a>();</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">    //! duplicator</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>*</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8a325e113a55f8fc38be927062a6d8e5" title="duplicator ">duplMyselfAsSpeciesThermoInterpType</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">    //! Returns the minimum temperature that the thermo</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b">  181</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">    //! Returns the maximum temperature that the thermo</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88">  187</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">    //! Returns the reference pressure (Pa)</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996">  192</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996" title="Returns the reference pressure (Pa) ">refPressure</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">    //! Returns an integer representing the type of parameterization</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5" title="Returns an integer representing the type of parameterization. ">reportType</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">    //! Returns an integer representing the species index</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e">  200</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e" title="Returns an integer representing the species index. ">speciesIndex</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">    //! Update the properties for this species, given a temperature polynomial</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">     * This method is called with a pointer to an array containing the functions of</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">     * temperature needed by this  parameterization, and three pointers to arrays where the</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">     * computed property values should be written. This method updates only one value in</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">     * each array.</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">     * The form and length of the Temperature Polynomial may vary depending on the</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">     * parameterization.</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">     * @param tempPoly  vector of temperature polynomials</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">     * @param cp_R    Vector of Dimensionless heat capacities. (length m_kk).</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">     * @param h_RT    Vector of Dimensionless enthalpies. (length m_kk).</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">     * @param s_R     Vector of Dimensionless entropies. (length m_kk).</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a9071758a7c3ccc108a9fe3e4b1fa691c" title="Update the properties for this species, given a temperature polynomial. ">updateProperties</a>(<span class="keyword">const</span> doublereal* tempPoly,</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                                  doublereal* cp_R, doublereal* h_RT,</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                                  doublereal* s_R) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">    //! Compute the reference-state property of one species</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">     * Given temperature T in K, this method updates the values of</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">     * the non-dimensional heat capacity at constant pressure,</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">     * enthalpy, and entropy, at the reference pressure, Pref</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">     * of one of the species. The species index is used</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">     * to reference into the cp_R, h_RT, and s_R arrays.</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">     * @param temp    Temperature (Kelvin)</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">     * @param cp_R    Vector of Dimensionless heat capacities. (length m_kk).</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">     * @param h_RT    Vector of Dimensionless enthalpies. (length m_kk).</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">     * @param s_R     Vector of Dimensionless entropies. (length m_kk).</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d" title="Compute the reference-state property of one species. ">updatePropertiesTemp</a>(<span class="keyword">const</span> doublereal temp,</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                                      doublereal* cp_R,</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                                      doublereal* h_RT,</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                                      doublereal* s_R) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">    //!This utility function reports back the type of</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">    //! parameterization and all of the parameters for the</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">    //! species, index.</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">     * All parameters are output variables</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">     * @param index     Species index</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">     * @param type      Integer type of the standard type</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">     * @param minTemp   output - Minimum temperature</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">     * @param maxTemp   output - Maximum temperature</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">     * @param refPressure output - reference pressure (Pa).</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">     * @param coeffs    Vector of coefficients used to set the</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">     *                  parameters for the standard state.</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">     * @deprecated</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; index, <span class="keywordtype">int</span>&amp; type,</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                                  doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>, doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>,</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                                  doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996" title="Returns the reference pressure (Pa) ">refPressure</a>,</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">    //! Modify parameters for the standard state</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">     * @param coeffs   Vector of coefficients used to set the</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">     * @deprecated</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a140e76c7d2f98b7a4e73b003cf5f8801" title="Constructor. ">SpeciesThermoInterpType</a>(<span class="keywordtype">size_t</span> n, doublereal tlow,</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                            doublereal thigh, doublereal pref);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">    //! Constructor</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">     *  @param b Object to be copied</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a140e76c7d2f98b7a4e73b003cf5f8801" title="Constructor. ">SpeciesThermoInterpType</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>&amp; b);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">    //! Destructor</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a7e9141519b5f11b3649f65507738baba" title="Destructor. ">~SpeciesThermoInterpType</a>();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">    //! duplicator</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>*</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8a325e113a55f8fc38be927062a6d8e5" title="duplicator ">duplMyselfAsSpeciesThermoInterpType</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">    //! Returns the minimum temperature that the thermo</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b">  183</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">    //! Returns the maximum temperature that the thermo</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88">  189</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">    //! Returns the reference pressure (Pa)</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996">  194</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996" title="Returns the reference pressure (Pa) ">refPressure</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">    //! Returns an integer representing the type of parameterization</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5" title="Returns an integer representing the type of parameterization. ">reportType</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">    //! Returns an integer representing the species index</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e">  202</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e" title="Returns an integer representing the species index. ">speciesIndex</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">    //! Update the properties for this species, given a temperature polynomial</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">     * This method is called with a pointer to an array containing the functions of</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">     * temperature needed by this  parameterization, and three pointers to arrays where the</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">     * computed property values should be written. This method updates only one value in</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">     * each array.</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">     * The form and length of the Temperature Polynomial may vary depending on the</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">     * parameterization.</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">     * @param tempPoly  vector of temperature polynomials</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">     * @param cp_R    Vector of Dimensionless heat capacities. (length m_kk).</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">     * @param h_RT    Vector of Dimensionless enthalpies. (length m_kk).</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">     * @param s_R     Vector of Dimensionless entropies. (length m_kk).</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a9071758a7c3ccc108a9fe3e4b1fa691c" title="Update the properties for this species, given a temperature polynomial. ">updateProperties</a>(<span class="keyword">const</span> doublereal* tempPoly,</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                                  doublereal* cp_R, doublereal* h_RT,</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                                  doublereal* s_R) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">    //! Compute the reference-state property of one species</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">     * Given temperature T in K, this method updates the values of</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">     * the non-dimensional heat capacity at constant pressure,</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">     * enthalpy, and entropy, at the reference pressure, Pref</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">     * of one of the species. The species index is used</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">     * to reference into the cp_R, h_RT, and s_R arrays.</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">     * @param temp    Temperature (Kelvin)</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">     * @param cp_R    Vector of Dimensionless heat capacities. (length m_kk).</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">     * @param h_RT    Vector of Dimensionless enthalpies. (length m_kk).</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">     * @param s_R     Vector of Dimensionless entropies. (length m_kk).</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d" title="Compute the reference-state property of one species. ">updatePropertiesTemp</a>(<span class="keyword">const</span> doublereal temp,</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                                      doublereal* cp_R,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                                      doublereal* h_RT,</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                                      doublereal* s_R) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">    //!This utility function reports back the type of</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">    //! parameterization and all of the parameters for the</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">    //! species, index.</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">     * All parameters are output variables</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">     * @param index     Species index</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">     * @param type      Integer type of the standard type</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">     * @param minTemp   output - Minimum temperature</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">     * @param maxTemp   output - Maximum temperature</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment">     * @param refPressure output - reference pressure (Pa).</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">     * @param coeffs    Vector of coefficients used to set the</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment">     *                  parameters for the standard state.</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; index, <span class="keywordtype">int</span>&amp; type,</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                                  doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>, doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>,</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                                  doublereal&amp; <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996" title="Returns the reference pressure (Pa) ">refPressure</a>,</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">    //! Modify parameters for the standard state</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">     * @param coeffs   Vector of coefficients used to set the</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a51debe8d14b20f331ae059659fd1a5f9">  267</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a51debe8d14b20f331ae059659fd1a5f9" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs) {}</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
@@ -441,31 +441,29 @@
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                                      doublereal* cp_R,</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                                      doublereal* h_RT,</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                                      doublereal* s_R) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment">    //! @deprecated</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#aa359b2381624daeddea4d063ced93047">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; index, <span class="keywordtype">int</span>&amp; type,</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                  doublereal&amp; minTemp, doublereal&amp; maxTemp,</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                                  doublereal&amp; refPressure,</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">    //! @deprecated</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#a6b21f183f73a06486d7f75cfd71fe17b">modifyParameters</a>(doublereal* coeffs);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment">    //! Pointer to the Variable pressure standard state manager</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment">    //! that owns the PDSS object that will handle calls for this object</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6">  396</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6" title="Pointer to the Variable pressure standard state manager that owns the PDSS object that will handle ca...">m_vpssmgr_ptr</a>;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">    //! Pointer to the PDSS object that handles calls for this object</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">     * This object is not owned by the current one.</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145">  402</a></span>&#160;    <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145" title="Pointer to the PDSS object that handles calls for this object. ">m_PDSS_ptr</a>;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;};</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#aa359b2381624daeddea4d063ced93047" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; index, <span class="keywordtype">int</span>&amp; type,</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                                  doublereal&amp; minTemp, doublereal&amp; maxTemp,</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                  doublereal&amp; refPressure,</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">    //! Pointer to the Variable pressure standard state manager</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">    //! that owns the PDSS object that will handle calls for this object</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6">  394</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6" title="Pointer to the Variable pressure standard state manager that owns the PDSS object that will handle ca...">m_vpssmgr_ptr</a>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">    //! Pointer to the PDSS object that handles calls for this object</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">     * This object is not owned by the current one.</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145">  400</a></span>&#160;    <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145" title="Pointer to the PDSS object that handles calls for this object. ">m_PDSS_ptr</a>;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;};</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;}</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;}</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

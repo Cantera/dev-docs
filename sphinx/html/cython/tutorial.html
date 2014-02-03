@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Tutorial &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Tutorial &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Importing Phase Objects" href="importing.html" />
     <link rel="prev" title="Migrating from the Old Python Module" href="migrating.html" /> 
@@ -271,8 +271,8 @@ mass</em>.</p>
 <span class="go">(8346188.494954427, 48.8465747765848)</span>
 </pre></div>
 </div>
-<p>The composition can be set in terms of either mole fractions (<tt class="xref py py-obj docutils literal"><span class="pre">X</span></tt>) or mass
-fractions (<tt class="xref py py-obj docutils literal"><span class="pre">Y</span></tt>):</p>
+<p>The composition can be set in terms of either mole fractions (<tt class="docutils literal"><span class="pre">X</span></tt>) or mass
+fractions (<tt class="docutils literal"><span class="pre">Y</span></tt>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="s">&#39;CH4:1, O2:2, N2:7.52&#39;</span>
 </pre></div>
 </div>
@@ -361,7 +361,7 @@ heat capacity c_v         1096.38         3.03e+04     J/K
 separated list of <tt class="docutils literal"><span class="pre">&lt;species</span> <span class="pre">name&gt;:&lt;relative</span> <span class="pre">mole</span> <span class="pre">numbers&gt;</span></tt> pairs. The mole
 numbers will be normalized to produce the mole fractions, and therefore they
 are &#8220;relative&#8221; mole numbers. Mass fractions can be set in this way too by
-changing &#8216;X&#8217; to &#8216;Y&#8217; in the above statements.</p>
+changing <tt class="docutils literal"><span class="pre">X</span></tt> to <tt class="docutils literal"><span class="pre">Y</span></tt> in the above statements.</p>
 <p>The composition can also be set using an array, which must have the same size
 as the number of species. For example, to set all 53 mole fractions to the
 same value, do this:</p>
@@ -402,7 +402,7 @@ options you specified.</p>
 your system, set environment variable <tt class="docutils literal"><span class="pre">CANTERA_DATA</span></tt> to the directory where
 they are located. Alternatively, you can call function <a class="reference internal" href="importing.html#cantera.add_directory" title="cantera.add_directory"><tt class="xref py py-obj docutils literal"><span class="pre">add_directory</span></tt></a> to add
 a directory to the Cantera search path:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">add_directory</span><span class="p">(</span><span class="s">&#39;/usr/local/cantera/my_data_files&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ct</span><span class="o">.</span><span class="n">add_directory</span><span class="p">(</span><span class="s">&#39;/usr/local/cantera/my_data_files&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Cantera input files are plain text files, and can be created with any text
@@ -416,8 +416,8 @@ two bulk phases and the interface between them from file <tt class="docutils lit
 <span class="go">                                [gas2, diamond])</span>
 </pre></div>
 </div>
-<p>Note that the bulk (i.e., 3D) phases that participate in the surface reactions
-must also be passed as arguments to <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a>.</p>
+<p>Note that the bulk (i.e., 3D or homogeneous) phases that participate in the
+surface reactions must also be passed as arguments to <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a>.</p>
 <p>When Cantera reads a <tt class="docutils literal"><span class="pre">.cti</span></tt> input file, wherever it is located, it always
 writes a file of the same name but with extension <tt class="docutils literal"><span class="pre">.xml</span></tt> <em>in the local
 directory</em>. If you happen to have some other file by that name, it will be
@@ -485,7 +485,7 @@ method:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&#39;TP&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The above statement sets the state of object &#8216;g&#8217; to the state of chemical
+<p>The above statement sets the state of object <tt class="docutils literal"><span class="pre">g</span></tt> to the state of chemical
 equilibrium holding temperature and pressure fixed. Alternatively, the
 specific enthalpy and pressure can be held fixed:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mf">300.0</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span><span class="p">,</span> <span class="s">&#39;CH4:0.95,O2:2,N2:7.52&#39;</span>
@@ -500,7 +500,7 @@ specific enthalpy and pressure can be held fixed:</p>
 <li>&#8216;SP&#8217;   fixed specific entropy and pressure</li>
 </ul>
 </div></blockquote>
-<p>How can you tell if &#8216;equilibrate&#8217; has correctly found the chemical equilibrium
+<p>How can you tell if <tt class="docutils literal"><span class="pre">equilibrate</span></tt> has correctly found the chemical equilibrium
 state? One way is verify that the net rates of progress of all reversible
 reactions are zero. Here is the code to do this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mf">300.0</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span><span class="p">,</span> <span class="s">&#39;CH4:0.95,O2:2,N2:7.52&#39;</span>
@@ -517,12 +517,12 @@ reactions are zero. Here is the code to do this:</p>
 <p>If the magnitudes of the numbers in this list are all very small, then each
 reversible reaction is very nearly equilibrated, which only occurs if the gas
 is in chemical equilibrium.</p>
-<p>You might be wondering how &#8216;equilibrate&#8217; works. (Then again, you might not).
-Method &#8216;equilibrate&#8217; invokes Cantera&#8217;s chemical equilibrium solver, which uses
+<p>You might be wondering how <tt class="docutils literal"><span class="pre">equilibrate</span></tt> works. (Then again, you might not).
+Method <tt class="docutils literal"><span class="pre">equilibrate</span></tt> invokes Cantera&#8217;s chemical equilibrium solver, which uses
 an element potential method. The element potential method is one of a class of
-equivalent &#8216;nonstoichiometric&#8217; methods that all have the characteristic that
+equivalent <em>nonstoichiometric</em> methods that all have the characteristic that
 the problem reduces to solving a set of M nonlinear algebraic equations, where
-M is the number of elements (not species). The so-called &#8216;stoichiometric&#8217;
+M is the number of elements (not species). The so-called <em>stoichiometric</em>
 methods, on the other hand, (including Gibbs minimization), require solving K
 nonlinear equations, where K is the number of species (usually K &gt;&gt; M). See
 Smith and Missen, &#8220;Chemical Reaction Equilibrium Analysis&#8221; for more

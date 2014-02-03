@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Migrating from the Old Python Module &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Migrating from the Old Python Module &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Tutorial" href="tutorial.html" />
     <link rel="prev" title="Python Module Documentation" href="index.html" /> 
@@ -208,7 +208,7 @@ accessed or changed. For example, the following:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">Y</span>
 </pre></div>
 </div>
-<p>For pure fluid phases, the property <tt class="xref py py-obj docutils literal"><span class="pre">X</span></tt> refers to the vapor mass fraction or &#8220;quality&#8221; of the phase. The following:</p>
+<p>For pure fluid phases, the property <tt class="docutils literal"><span class="pre">X</span></tt> refers to the vapor mass fraction or &#8220;quality&#8221; of the phase. The following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">Cantera</span><span class="o">.</span><span class="n">liquidvapor</span><span class="o">.</span><span class="n">Water</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">Vapor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
@@ -344,6 +344,18 @@ of a wall as a function of time, the following are equivalent:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_steady_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">tol_ss</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_transient_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">tol_ts</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To change the transport model and enbale calculation of the Soret diffusion term, the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">addTransportModel</span><span class="p">(</span><span class="s">&#39;Multi&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">switchTransportModel</span><span class="p">(</span><span class="s">&#39;Multi&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">setTransportModel</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">enableSoret</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>should be replaced with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s">&#39;Multi&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">soret_enabled</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 </div>
 </div>

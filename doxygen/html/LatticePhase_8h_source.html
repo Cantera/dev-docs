@@ -914,113 +914,111 @@
 <div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;<span class="comment">     * @param n number of parameters. Must be one</span></div>
 <div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
 <div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;<span class="comment">     *           c[0] = The bulk  lattice density (kmol m-3)</span></div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment">     * @deprecated Use setMolarDensity()</span></div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters from the argument list. ">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;<span class="comment">    //! Get the equation of state parameters in a vector</span></div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;<span class="comment">     * @internal</span></div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="comment">     *  For this phase:</span></div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;<span class="comment">     *       -  n = 1</span></div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="comment">     *       -  c[0] = molar density of phase [ kmol/m^3 ]</span></div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;<span class="comment">     * @deprecated Use molarDensity()</span></div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="comment">    //! Set equation of state parameter values from XML entries.</span></div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;<span class="comment">     * This method is called by function importPhase() in</span></div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="comment">     * model. Note, this method is called before the phase is</span></div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;<span class="comment">     * initialized with elements and/or species.</span></div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;<span class="comment">     *  For this phase, the molar density of the phase is specified in this block,</span></div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;<span class="comment">     *  and is a required parameter.</span></div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="comment">     *                the &quot;thermo&quot; entry for this phase in the input file.</span></div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#ada0ba2f6093d3df4d86c0f1018005544" title="Set the equation of state parameters from the argument list. ">setParameters</a>(<span class="keywordtype">int</span> n, doublereal* <span class="keyword">const</span> c);</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;<span class="comment">    //! Get the equation of state parameters in a vector</span></div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;<span class="comment">     * @internal</span></div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="comment">     * @param n number of parameters</span></div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;<span class="comment">     * @param c array of \a n coefficients</span></div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;<span class="comment">     *  For this phase:</span></div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="comment">     *       -  n = 1</span></div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;<span class="comment">     *       -  c[0] = molar density of phase [ kmol/m^3 ]</span></div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#a899e8e6a1702efe7a26fba7b33504c3f" title="Get the equation of state parameters in a vector. ">getParameters</a>(<span class="keywordtype">int</span>&amp; n, doublereal* <span class="keyword">const</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;<span class="comment">    //! Set equation of state parameter values from XML entries.</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="comment">     * This method is called by function importPhase() in</span></div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;<span class="comment">     * file importCTML.cpp when processing a phase definition in</span></div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;<span class="comment">     * an input file. It should be overloaded in subclasses to set</span></div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;<span class="comment">     * any parameters that are specific to that particular phase</span></div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="comment">     * model. Note, this method is called before the phase is</span></div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="comment">     * initialized with elements and/or species.</span></div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;<span class="comment">     *  For this phase, the molar density of the phase is specified in this block,</span></div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;<span class="comment">     *  and is a required parameter.</span></div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;<span class="comment">     * @param eosdata An XML_Node object corresponding to</span></div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;<span class="comment">     *                the &quot;thermo&quot; entry for this phase in the input file.</span></div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="comment">     * eosdata points to the thermo block, and looks like this:</span></div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;<span class="comment">     * eosdata points to the thermo block, and looks like this:</span></div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;<span class="comment">     * @code</span></div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="comment">     * &lt;phase id=&quot;O_lattice_SiO2&quot; &gt;</span></div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;<span class="comment">     *   &lt;thermo model=&quot;Lattice&quot;&gt;</span></div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;<span class="comment">     *     &lt;site_density units=&quot;kmol/m^3&quot;&gt; 73.159 &lt;/site_density&gt;</span></div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;<span class="comment">     *     &lt;vacancy_species&gt; &quot;O_vacancy&quot;  &lt;/vacancy_species&gt;</span></div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;<span class="comment">     *   &lt;/thermo&gt;</span></div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="comment">     * &lt;/phase&gt;</span></div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="comment">     * @endcode</span></div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">setParametersFromXML</a>(<span class="keyword">const</span> XML_Node&amp; eosdata);<span class="comment"></span></div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="comment">    //@}</span></div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;<span class="comment">    //! Reference state pressure</span></div>
-<div class="line"><a name="l00905"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#ae6416ed4db67e617a45e94e2c4c20dc8">  905</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1LatticePhase.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="comment">    //! The current pressure</span></div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;<span class="comment">     * Since the density isn&#39;t a function of pressure, but only of the</span></div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;<span class="comment">     * mole fractions, we need to independently specify the pressure.</span></div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;<span class="comment">     * The density variable which is inherited as part of the State class,</span></div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;<span class="comment">     * m_dens, is always kept current whenever T, P, or X[] change.</span></div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00914"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#ab231cf2f611695594303229d552c6c27">  914</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1LatticePhase.html#ab231cf2f611695594303229d552c6c27" title="The current pressure. ">m_Pcurrent</a>;</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="comment">    //! Current value of the temperature (Kelvin)</span></div>
-<div class="line"><a name="l00917"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a29be82f24ebd72ee5502b90d994c09a0">  917</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal <a class="code" href="classCantera_1_1LatticePhase.html#a29be82f24ebd72ee5502b90d994c09a0" title="Current value of the temperature (Kelvin) ">m_tlast</a>;</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;<span class="comment">    //! Reference state enthalpies / RT</span></div>
-<div class="line"><a name="l00920"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf">  920</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf" title="Reference state enthalpies / RT. ">m_h0_RT</a>;</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;<span class="comment">    //! Temporary storage for the reference state heat capacities</span></div>
-<div class="line"><a name="l00923"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a0f99f8895cc2109fd4dcebb729d615fb">  923</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a0f99f8895cc2109fd4dcebb729d615fb" title="Temporary storage for the reference state heat capacities. ">m_cp0_R</a>;</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;<span class="comment">    //! Temporary storage for the reference state gibbs energies</span></div>
-<div class="line"><a name="l00926"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a0b34289ccbc27c3af431627fd7a3a4fe">  926</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a0b34289ccbc27c3af431627fd7a3a4fe" title="Temporary storage for the reference state gibbs energies. ">m_g0_RT</a>;</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="comment">    //! Temporary storage for the reference state entropies at the current temperature</span></div>
-<div class="line"><a name="l00929"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a56e8ca74ece671716ff2cb73967e1576">  929</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a56e8ca74ece671716ff2cb73967e1576" title="Temporary storage for the reference state entropies at the current temperature. ">m_s0_R</a>;</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;<span class="comment">    //! String name for the species which represents a vacancy</span></div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;<span class="comment">    //! in the lattice</span></div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;<span class="comment">     *  This string is currently unused</span></div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00936"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a1df67f06c8f03a6e94e16bc9da9f54fc">  936</a></span>&#160;    std::string <a class="code" href="classCantera_1_1LatticePhase.html#a1df67f06c8f03a6e94e16bc9da9f54fc" title="String name for the species which represents a vacancy in the lattice. ">m_vacancy</a>;</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;<span class="comment">    //! Vector of molar volumes for each species in the solution</span></div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="comment">     * Species molar volumes \f$ m^3 kmol^-1 \f$</span></div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00942"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a7eec4e736ec2b5030428f669f8c62724">  942</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>   <a class="code" href="classCantera_1_1LatticePhase.html#a7eec4e736ec2b5030428f669f8c62724" title="Vector of molar volumes for each species in the solution. ">m_speciesMolarVolume</a>;</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;<span class="comment">    //! Site Density of the lattice solid</span></div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;<span class="comment">     *  Currently, this is imposed as a function of T, P or composition</span></div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;<span class="comment">     *  units are kmol m-3</span></div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00950"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#ae7a63994f469865df0c249e61d2ec2ae">  950</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1LatticePhase.html#ae7a63994f469865df0c249e61d2ec2ae" title="Site Density of the lattice solid. ">m_site_density</a>;</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;<span class="comment">    //! Update the species reference state thermodynamic functions</span></div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;<span class="comment">     * The polynomials for the standard state functions are only</span></div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;<span class="comment">     * reevaluated if the temperature has changed.</span></div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#a92a3d91cd7e3a672538133b785b5c27e" title="Update the species reference state thermodynamic functions. ">_updateThermo</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;};</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;}</div>
-<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;</div>
-<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;<span class="comment">     * @code</span></div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;<span class="comment">     * &lt;phase id=&quot;O_lattice_SiO2&quot; &gt;</span></div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;<span class="comment">     *   &lt;thermo model=&quot;Lattice&quot;&gt;</span></div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;<span class="comment">     *     &lt;site_density units=&quot;kmol/m^3&quot;&gt; 73.159 &lt;/site_density&gt;</span></div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;<span class="comment">     *     &lt;vacancy_species&gt; &quot;O_vacancy&quot;  &lt;/vacancy_species&gt;</span></div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;<span class="comment">     *   &lt;/thermo&gt;</span></div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;<span class="comment">     * &lt;/phase&gt;</span></div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;<span class="comment">     * @endcode</span></div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#abe11f2065246742c73c778c5de62f5b7" title="Set equation of state parameter values from XML entries. ">setParametersFromXML</a>(<span class="keyword">const</span> XML_Node&amp; eosdata);<span class="comment"></span></div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;<span class="comment">    //@}</span></div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;<span class="comment">    //! Reference state pressure</span></div>
+<div class="line"><a name="l00903"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#ae6416ed4db67e617a45e94e2c4c20dc8">  903</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1LatticePhase.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;<span class="comment">    //! The current pressure</span></div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="comment">     * Since the density isn&#39;t a function of pressure, but only of the</span></div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;<span class="comment">     * mole fractions, we need to independently specify the pressure.</span></div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;<span class="comment">     * The density variable which is inherited as part of the State class,</span></div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;<span class="comment">     * m_dens, is always kept current whenever T, P, or X[] change.</span></div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00912"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#ab231cf2f611695594303229d552c6c27">  912</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1LatticePhase.html#ab231cf2f611695594303229d552c6c27" title="The current pressure. ">m_Pcurrent</a>;</div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;<span class="comment">    //! Current value of the temperature (Kelvin)</span></div>
+<div class="line"><a name="l00915"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a29be82f24ebd72ee5502b90d994c09a0">  915</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal <a class="code" href="classCantera_1_1LatticePhase.html#a29be82f24ebd72ee5502b90d994c09a0" title="Current value of the temperature (Kelvin) ">m_tlast</a>;</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="comment">    //! Reference state enthalpies / RT</span></div>
+<div class="line"><a name="l00918"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf">  918</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a3c5e8d8c0d3a1e74b657da7f4e9014bf" title="Reference state enthalpies / RT. ">m_h0_RT</a>;</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;<span class="comment">    //! Temporary storage for the reference state heat capacities</span></div>
+<div class="line"><a name="l00921"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a0f99f8895cc2109fd4dcebb729d615fb">  921</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a0f99f8895cc2109fd4dcebb729d615fb" title="Temporary storage for the reference state heat capacities. ">m_cp0_R</a>;</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<span class="comment">    //! Temporary storage for the reference state gibbs energies</span></div>
+<div class="line"><a name="l00924"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a0b34289ccbc27c3af431627fd7a3a4fe">  924</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a0b34289ccbc27c3af431627fd7a3a4fe" title="Temporary storage for the reference state gibbs energies. ">m_g0_RT</a>;</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="comment">    //! Temporary storage for the reference state entropies at the current temperature</span></div>
+<div class="line"><a name="l00927"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a56e8ca74ece671716ff2cb73967e1576">  927</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticePhase.html#a56e8ca74ece671716ff2cb73967e1576" title="Temporary storage for the reference state entropies at the current temperature. ">m_s0_R</a>;</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;<span class="comment">    //! String name for the species which represents a vacancy</span></div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;<span class="comment">    //! in the lattice</span></div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;<span class="comment">     *  This string is currently unused</span></div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00934"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a1df67f06c8f03a6e94e16bc9da9f54fc">  934</a></span>&#160;    std::string <a class="code" href="classCantera_1_1LatticePhase.html#a1df67f06c8f03a6e94e16bc9da9f54fc" title="String name for the species which represents a vacancy in the lattice. ">m_vacancy</a>;</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;<span class="comment">    //! Vector of molar volumes for each species in the solution</span></div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;<span class="comment"></span><span class="comment">    /**</span></div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;<span class="comment">     * Species molar volumes \f$ m^3 kmol^-1 \f$</span></div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00940"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#a7eec4e736ec2b5030428f669f8c62724">  940</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>   <a class="code" href="classCantera_1_1LatticePhase.html#a7eec4e736ec2b5030428f669f8c62724" title="Vector of molar volumes for each species in the solution. ">m_speciesMolarVolume</a>;</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;<span class="comment">    //! Site Density of the lattice solid</span></div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;<span class="comment">     *  Currently, this is imposed as a function of T, P or composition</span></div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;<span class="comment">     *  units are kmol m-3</span></div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00948"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticePhase.html#ae7a63994f469865df0c249e61d2ec2ae">  948</a></span>&#160;    doublereal <a class="code" href="classCantera_1_1LatticePhase.html#ae7a63994f469865df0c249e61d2ec2ae" title="Site Density of the lattice solid. ">m_site_density</a>;</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;<span class="comment">    //! Update the species reference state thermodynamic functions</span></div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;<span class="comment">     * The polynomials for the standard state functions are only</span></div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="comment">     * reevaluated if the temperature has changed.</span></div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticePhase.html#a92a3d91cd7e3a672538133b785b5c27e" title="Update the species reference state thermodynamic functions. ">_updateThermo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;};</div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;}</div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

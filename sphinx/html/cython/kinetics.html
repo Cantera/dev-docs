@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Chemical Kinetics &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Chemical Kinetics &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Transport Properties" href="transport.html" />
     <link rel="prev" title="Thermodynamic Properties" href="thermo.html" /> 
@@ -96,17 +96,11 @@
 <h1>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cantera.Kinetics">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Kinetics</tt><a class="headerlink" href="#cantera.Kinetics" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Kinetics</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em>, <em>phases=()</em><big>)</big><a class="headerlink" href="#cantera.Kinetics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera._SolutionBase</span></tt></p>
 <p>Instances of class <a class="reference internal" href="#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a> are responsible for evaluating reaction rates
 of progress, species production rates, and other quantities pertaining to
 a reaction mechanism.</p>
-<dl class="attribute">
-<dt id="cantera.Kinetics.activation_energies">
-<tt class="descname">activation_energies</tt><a class="headerlink" href="#cantera.Kinetics.activation_energies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Activation energies for all reactions [K].</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="cantera.Kinetics.creation_rates">
 <tt class="descname">creation_rates</tt><a class="headerlink" href="#cantera.Kinetics.creation_rates" title="Permalink to this definition">¶</a></dt>
@@ -323,7 +317,7 @@ is set to <em>value</em>. See <a class="reference internal" href="#cantera.Kinet
 
 <dl class="class">
 <dt id="cantera.ReactionPathDiagram">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ReactionPathDiagram</tt><a class="headerlink" href="#cantera.ReactionPathDiagram" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ReactionPathDiagram</tt><big>(</big><em>Kinetics kin</em>, <em>str element</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>ReactionPathDiagram(Kinetics kin, str element)</p>
 <p>Create a reaction path diagram for the fluxes of the element <em>element</em>

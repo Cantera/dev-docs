@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ignite2.m &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>ignite2.m &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="ignite3.m" href="ignite3.html" />
     <link rel="prev" title="ignite.m" href="ignite.html" /> 
@@ -106,7 +106,7 @@
 
 <span class="n">help</span> <span class="n">ignite2</span>
 
-<span class="k">if</span> <span class="n">nargin</span> <span class="o">==</span> 1 <span class="o">&amp;</span> <span class="n">isa</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="s">&#39;GasMix&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">nargin</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="n">isa</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="s">&#39;GasMix&#39;</span><span class="p">)</span>
    <span class="n">gas</span> <span class="p">=</span> <span class="n">g</span><span class="p">;</span>
 <span class="k">else</span>
    <span class="n">gas</span> <span class="p">=</span> <span class="n">IdealGasMix</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">);</span>
@@ -116,14 +116,14 @@
 
 <span class="c">% set the initial conditions</span>
 
-<span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span>1001<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">oneatm</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="s">&#39;H2:2,O2:1,N2:4&#39;</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="mf">1001.0</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">oneatm</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="s">&#39;H2:2,O2:1,N2:4&#39;</span><span class="p">);</span>
 
 <span class="n">y0</span> <span class="p">=</span> <span class="p">[</span><span class="n">intEnergy_mass</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
-      1<span class="p">.</span>0<span class="o">/</span><span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
+      <span class="mf">1.0</span><span class="o">/</span><span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
       <span class="n">massFractions</span><span class="p">(</span><span class="n">gas</span><span class="p">)];</span>
 
-<span class="n">time_interval</span> <span class="p">=</span> <span class="p">[</span>0 0<span class="p">.</span>001<span class="p">];</span>
-<span class="n">options</span> <span class="p">=</span> <span class="n">odeset</span><span class="p">(</span><span class="s">&#39;RelTol&#39;</span><span class="p">,</span>1<span class="p">.</span><span class="n">e</span><span class="o">-</span>5<span class="p">,</span><span class="s">&#39;AbsTol&#39;</span><span class="p">,</span>1<span class="p">.</span><span class="n">e</span><span class="o">-</span>12<span class="p">,</span><span class="s">&#39;Stats&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">);</span>
+<span class="n">time_interval</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mf">0.001</span><span class="p">];</span>
+<span class="n">options</span> <span class="p">=</span> <span class="n">odeset</span><span class="p">(</span><span class="s">&#39;RelTol&#39;</span><span class="p">,</span><span class="mf">1.e-5</span><span class="p">,</span><span class="s">&#39;AbsTol&#39;</span><span class="p">,</span><span class="mf">1.e-12</span><span class="p">,</span><span class="s">&#39;Stats&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">);</span>
 
 <span class="n">t0</span> <span class="p">=</span> <span class="n">cputime</span><span class="p">;</span>
 <span class="n">out</span> <span class="p">=</span> <span class="n">ode15s</span><span class="p">(@</span><span class="n">reactor_ode</span><span class="p">,</span><span class="n">time_interval</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">options</span><span class="p">,</span><span class="n">gas</span><span class="p">,@</span><span class="n">vdot</span><span class="p">,@</span><span class="n">area</span><span class="p">,@</span><span class="n">heatflux</span><span class="p">);</span>
@@ -144,18 +144,18 @@
 <span class="c">%   gas    ideal gas object</span>
 
 <span class="k">function</span><span class="w"> </span>v <span class="p">=</span><span class="w"> </span><span class="nf">vdot</span><span class="p">(</span>t, vol, gas<span class="p">)</span><span class="w"></span>
-<span class="n">v</span> <span class="p">=</span> 0<span class="p">.</span>0<span class="p">;</span>                                 <span class="c">%constant volume</span>
+<span class="n">v</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">;</span>                                 <span class="c">%constant volume</span>
 <span class="c">%v = 1.e11 * (pressure(gas) - 101325.0);   % holds pressure very</span>
                                           <span class="c">% close to 1 atm</span>
 
 <span class="c">% heat flux (W/m^2). </span>
 <span class="k">function</span><span class="w"> </span>q <span class="p">=</span><span class="w"> </span><span class="nf">heatflux</span><span class="p">(</span>t, gas<span class="p">)</span><span class="w"></span>
-<span class="n">q</span> <span class="p">=</span> 0<span class="p">.</span>0<span class="p">;</span>                                  <span class="c">% adiabatic</span>
+<span class="n">q</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">;</span>                                  <span class="c">% adiabatic</span>
 
 
 <span class="c">% surface area. Used only to compute heat transfer.</span>
 <span class="k">function</span><span class="w"> </span>a <span class="p">=</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span>t,vol<span class="p">)</span><span class="w"></span>
-<span class="n">a</span> <span class="p">=</span> 1<span class="p">.</span>0<span class="p">;</span>
+<span class="n">a</span> <span class="p">=</span> <span class="mf">1.0</span><span class="p">;</span>
 
 <span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 
@@ -168,36 +168,36 @@
 <span class="n">times</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
 <span class="n">soln</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
 <span class="p">[</span><span class="n">m</span> <span class="n">n</span><span class="p">]</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">times</span><span class="p">);</span>
-<span class="n">pv</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span> <span class="o">+</span> 4<span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="n">pv</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
 
-<span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span>1001<span class="p">.</span>0<span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">oneatm</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="mf">1001.0</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">oneatm</span><span class="p">);</span>
 
-<span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> 1<span class="p">:</span><span class="n">n</span>
+<span class="k">for</span> <span class="nb">j</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
   <span class="n">ss</span> <span class="p">=</span> <span class="n">soln</span><span class="p">(:,</span><span class="nb">j</span><span class="p">);</span>
-  <span class="n">y</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span>3<span class="p">:</span><span class="k">end</span><span class="p">);</span>
+  <span class="n">y</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
   <span class="n">mass</span> <span class="p">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-  <span class="n">u_mass</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span>1<span class="p">)</span><span class="o">/</span><span class="n">mass</span><span class="p">;</span>
-  <span class="n">v_mass</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span>2<span class="p">)</span><span class="o">/</span><span class="n">mass</span><span class="p">;</span>
+  <span class="n">u_mass</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">mass</span><span class="p">;</span>
+  <span class="n">v_mass</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">mass</span><span class="p">;</span>
   <span class="n">setMassFractions</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="n">setState_UV</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="p">[</span><span class="n">u_mass</span> <span class="n">v_mass</span><span class="p">]);</span>
   
-  <span class="n">pv</span><span class="p">(</span>1<span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">times</span><span class="p">(</span><span class="nb">j</span><span class="p">);</span>
-  <span class="n">pv</span><span class="p">(</span>2<span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">temperature</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
-  <span class="n">pv</span><span class="p">(</span>3<span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
-  <span class="n">pv</span><span class="p">(</span>4<span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">pressure</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
-  <span class="n">pv</span><span class="p">(</span>5<span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">pv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">times</span><span class="p">(</span><span class="nb">j</span><span class="p">);</span>
+  <span class="n">pv</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">temperature</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
+  <span class="n">pv</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
+  <span class="n">pv</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">pressure</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
+  <span class="n">pv</span><span class="p">(</span><span class="mi">5</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">y</span><span class="p">;</span>
 <span class="k">end</span>
 
 <span class="c">% plot the temperature and OH mole fractions.</span>
-<span class="n">figure</span><span class="p">(</span>1<span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">pv</span><span class="p">(</span>1<span class="p">,:),</span><span class="n">pv</span><span class="p">(</span>2<span class="p">,:));</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">pv</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pv</span><span class="p">(</span><span class="mi">2</span><span class="p">,:));</span>
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">);</span>
 <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Temperature&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">([</span><span class="s">&#39;Final T = &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">pv</span><span class="p">(</span>2<span class="p">,</span><span class="k">end</span><span class="p">))</span> <span class="s">&#39; K&#39;</span><span class="p">]);</span>
+<span class="n">title</span><span class="p">([</span><span class="s">&#39;Final T = &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">pv</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="k">end</span><span class="p">))</span> <span class="s">&#39; K&#39;</span><span class="p">]);</span>
 
-<span class="n">figure</span><span class="p">(</span>2<span class="p">);</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">ioh</span> <span class="p">=</span> <span class="n">speciesIndex</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;OH&#39;</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">pv</span><span class="p">(</span>1<span class="p">,:),</span><span class="n">pv</span><span class="p">(</span>4<span class="o">+</span><span class="n">ioh</span><span class="p">,:));</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">pv</span><span class="p">(</span><span class="mi">1</span><span class="p">,:),</span><span class="n">pv</span><span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="n">ioh</span><span class="p">,:));</span>
 <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">);</span>
 <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Mass Fraction&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;OH Mass Fraction&#39;</span><span class="p">);</span>

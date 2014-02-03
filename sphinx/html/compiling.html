@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Cantera Compilation Guide &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Cantera Compilation Guide &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="_static/site.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="index.html" />
     <link rel="next" title="Configuring Cantera" href="configuring.html" />
     <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
   </head>
@@ -259,7 +259,7 @@ contents.</p>
 </div>
 </li>
 <li><p class="first">Option 3: Check out the code using Git:</p>
-<div class="highlight-python"><pre>git svn clone --std-layout http://cantera.googlecode.com/svn/cantera cantera
+<div class="highlight-python"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
 git checkout 2.0</pre>
 </div>
 </li>
@@ -273,7 +273,7 @@ git checkout 2.0</pre>
 </div>
 </li>
 <li><p class="first">Option 2: Check out the code using Git:</p>
-<div class="highlight-python"><pre>git svn clone --std-layout http://cantera.googlecode.com/svn/cantera cantera</pre>
+<div class="highlight-python"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera</pre>
 </div>
 </li>
 </ul>
@@ -306,7 +306,7 @@ matlab_path=/Applications/MATLAB_R2011a.app</pre>
 respectively.</p>
 </li>
 <li><p class="first">SCons saves configuration options specified on the command line in the file
-b cantera.conf in the root directory of the source tree, so generally it is
+<strong>cantera.conf</strong> in the root directory of the source tree, so generally it is
 not necessary to respecify configuration options when rebuilding Cantera. To
 unset a previously set configuration option, either remove the corresponding
 line from cantera.conf or use the syntax:</p>
@@ -322,9 +322,6 @@ module provides support for both Python 2.x and Python 3.x. It also features a
 redesigned API that simplifies many operations and aims to provide a more
 &#8220;Pythonic&#8221; interface to Cantera.</p>
 <p>Building the new Python module requires the Cython package for Python.</p>
-<p>For compatibility, the legacy Python module is still available, though it will not
-receive feature updates, and will be removed in a future Cantera release. Users
-are encouraged to switch to the new Python module when possible.</p>
 <p>The Cython module is compatible with the following Python versions: 2.6, 2.7,
 3.1, 3.2, and 3.3. Support for Python 2.6 and Python 3.1 requires the <tt class="docutils literal"><span class="pre">scipy</span></tt>
 and <tt class="docutils literal"><span class="pre">unittest2</span></tt> packages to be installed as well (see <a class="reference internal" href="#sec-dependencies"><em>Software used by Cantera</em></a>)
@@ -332,8 +329,8 @@ to provide certain features that are included in the standard
 library in more recent versions.</p>
 <div class="section" id="building-for-python-2">
 <h4>Building for Python 2<a class="headerlink" href="#building-for-python-2" title="Permalink to this headline">¶</a></h4>
-<p>By default, SCons will attempt to build the new Python module. To build the
-legacy Python module instead, use the SCons option <tt class="docutils literal"><span class="pre">python_package=full</span></tt>.</p>
+<p>By default, SCons will attempt to build the Cython-based Python module for
+Python 2, if both Numpy and Cython are installed.</p>
 </div>
 <div class="section" id="building-for-python-3">
 <h4>Building for Python 3<a class="headerlink" href="#building-for-python-3" title="Permalink to this headline">¶</a></h4>
@@ -570,7 +567,7 @@ GCC.</li>
 <li><a class="reference external" href="http://python.org/download/">http://python.org/download/</a></li>
 <li>Known to work with 2.6 and 2.7; Expected to work with versions &gt;= 2.5</li>
 <li>The Cython module supports Python 2.x and 3.x. However, SCons requires
-Python 2.x, so compilation of the Cython module requires two Python
+Python 2.x, so compilation of the Python 3 module requires two Python
 installations.</li>
 </ul>
 </li>
@@ -610,12 +607,12 @@ versions &gt;= 0.17.</li>
 </li>
 <li><p class="first"><a class="reference external" href="http://scipy.org/install.html">Scipy</a></p>
 <ul class="simple">
-<li>Required in order to use the new Python module with Python 2.6 or 3.1.</li>
+<li>Required in order to use the Python module with Python 2.6 or 3.1.</li>
 </ul>
 </li>
 <li><p class="first">Unittest2</p>
 <ul class="simple">
-<li>Required in order to run the test suite for the new Python module with
+<li>Required in order to run the test suite for the Python module with
 Python 2.6 or Python 3.1.</li>
 <li><a class="reference external" href="https://pypi.python.org/pypi/unittest2">https://pypi.python.org/pypi/unittest2</a> (Python 2.6)</li>
 <li><a class="reference external" href="https://pypi.python.org/pypi/unittest2py3k">https://pypi.python.org/pypi/unittest2py3k</a> (Python 3.1)</li>

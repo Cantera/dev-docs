@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Transport Properties &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Transport Properties &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Zero-Dimensional Reactor Networks" href="zerodim.html" />
     <link rel="prev" title="Chemical Kinetics" href="kinetics.html" /> 
@@ -96,7 +96,7 @@
 <h1>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="cantera.Transport">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Transport</tt><a class="headerlink" href="#cantera.Transport" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Transport</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.Transport" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera._SolutionBase</span></tt></p>
 <p>Transport(<a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs)</p>
 <p>This class is used to compute transport properties for a phase of matter.</p>
@@ -105,6 +105,12 @@
 <dt id="cantera.Transport.binary_diff_coeffs">
 <tt class="descname">binary_diff_coeffs</tt><a class="headerlink" href="#cantera.Transport.binary_diff_coeffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Binary diffusion coefficients [m^2/s].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Transport.electrical_conductivity">
+<tt class="descname">electrical_conductivity</tt><a class="headerlink" href="#cantera.Transport.electrical_conductivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Electrical conductivity. [S/m].</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -166,7 +172,7 @@ object and replaces it with a new one implementing the specified model.</p>
 
 <dl class="class">
 <dt id="cantera.DustyGasTransport">
-<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">DustyGasTransport</tt><a class="headerlink" href="#cantera.DustyGasTransport" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">DustyGasTransport</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.DustyGasTransport" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Transport</span></tt></p>
 <p>DustyGasTransport(<a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs)</p>
 <p>Implements the &#8220;dusty gas&#8221; model for transport in porous media.</p>

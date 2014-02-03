@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>tut5.m &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>tut5.m &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="tut6.m" href="tut6.html" />
     <link rel="prev" title="tut4.m" href="tut4.html" /> 
@@ -108,7 +108,7 @@
 <span class="n">help</span> <span class="n">tut5</span>
 
 <span class="n">g</span> <span class="p">=</span> <span class="n">GRI30</span><span class="p">;</span>
-<span class="n">set</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span>1500<span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">oneatm</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="nb">ones</span><span class="p">(</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">g</span><span class="p">),</span>1<span class="p">));</span>
+<span class="n">set</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">oneatm</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="nb">ones</span><span class="p">(</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">g</span><span class="p">),</span><span class="mi">1</span><span class="p">));</span>
 
 <span class="c">% Methods are provided that compute many quantities of interest for</span>
 <span class="c">% kinetics. Some of these are:</span>
@@ -139,7 +139,7 @@
 <span class="n">rop</span> <span class="p">=</span> <span class="p">[</span><span class="n">qf</span><span class="p">,</span> <span class="n">qr</span><span class="p">,</span> <span class="n">qn</span><span class="p">]</span>
 
 <span class="c">% This plots the rates of progress</span>
-<span class="n">figure</span><span class="p">(</span>1<span class="p">);</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">bar</span><span class="p">(</span><span class="n">rop</span><span class="p">);</span>
 <span class="n">legend</span><span class="p">(</span><span class="s">&#39;forward&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">,</span><span class="s">&#39;net&#39;</span><span class="p">);</span>
 
@@ -155,7 +155,7 @@
 <span class="n">rates</span> <span class="p">=</span> <span class="p">[</span><span class="n">cdot</span><span class="p">,</span> <span class="n">ddot</span><span class="p">,</span> <span class="n">wdot</span><span class="p">]</span>
 
 <span class="c">% This plots the production rates</span>
-<span class="n">figure</span><span class="p">(</span>2<span class="p">);</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">bar</span><span class="p">(</span><span class="n">rates</span><span class="p">);</span>
 <span class="n">legend</span><span class="p">(</span><span class="s">&#39;creation&#39;</span><span class="p">,</span><span class="s">&#39;destruction&#39;</span><span class="p">,</span><span class="s">&#39;net&#39;</span><span class="p">);</span>
 
@@ -175,8 +175,8 @@
 
 <span class="c">% 4) Reaction equations</span>
 
-<span class="n">e8</span>    <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">,</span>8<span class="p">)</span>             <span class="c">% equation for reaction 8</span>
-<span class="n">e1_10</span> <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">,</span>1<span class="p">:</span>10<span class="p">)</span>          <span class="c">% equation for rxns 1 - 10</span>
+<span class="n">e8</span>    <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>             <span class="c">% equation for reaction 8</span>
+<span class="n">e1_10</span> <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>          <span class="c">% equation for rxns 1 - 10</span>
 <span class="n">eqs</span>   <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>               <span class="c">% all equations</span>
 
 
@@ -187,7 +187,7 @@
 <span class="c">% with concentrations in kmol/m^3.</span>
 
 <span class="n">kc</span> <span class="p">=</span> <span class="n">equil_Kc</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span><span class="n">nReactions</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nReactions</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
    <span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;%50s  %13.5g&#39;</span><span class="p">,</span> <span class="n">eqs</span><span class="p">{</span><span class="nb">i</span><span class="p">},</span> <span class="n">kc</span><span class="p">(</span><span class="nb">i</span><span class="p">)))</span>
 <span class="k">end</span>
 
@@ -199,8 +199,8 @@
 <span class="c">% to the forward rate coefficient. By default, the multiplier is</span>
 <span class="c">% 1.0 for all reactions.</span>
 
-<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> 1<span class="p">:</span><span class="n">nReactions</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
-   <span class="n">setMultiplier</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="nb">i</span><span class="p">,</span> 2<span class="o">*</span><span class="nb">i</span><span class="p">);</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nReactions</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+   <span class="n">setMultiplier</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="nb">i</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nb">i</span><span class="p">);</span>
    <span class="n">m</span> <span class="p">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="nb">i</span><span class="p">);</span>
 <span class="k">end</span>
 

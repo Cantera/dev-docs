@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Reactor Networks &mdash; Cantera 2.1.0b2 documentation</title>
+    <title>Reactor Networks &mdash; Cantera 2.2a documentation</title>
     
     <link rel="stylesheet" href="_static/site.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.1.0b2',
+        VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.1.0b2 documentation" href="index.html" />
+    <link rel="top" title="Cantera 2.2a documentation" href="index.html" />
     <link rel="next" title="Python Module Documentation" href="cython/index.html" />
     <link rel="prev" title="Example: Hydrogen Combustion" href="cti/example-combustion.html" /> 
   </head>
@@ -181,19 +181,19 @@ generated is:</p>
 <div class="math">
 \[\frac{d(mY_k)}{dt} = \sum_{in} \dot{m}_{in} Y_{k,in} -
                      \sum_{out} \dot{m}_{out} Y_k +
-                    + \dot{m}_{k,gen}\]</div>
+                     \dot{m}_{k,gen}\]</div>
 <p>Expanding the derivative on the left hand side and substituting the equation
 for <span class="math">\(dm/dt\)</span>, the equation for each homogeneous phase species is:</p>
 <div class="math">
-\[m \frac{dY}{dt} = \sum_{in} (Y_{k,in} - Y_k) +
-                  \dot{m}_{k,gen} - Y_k \dot{m}_{gen}\]</div>
+\[m \frac{dY}{dt} = \sum_{in} \dot{m}_{in} (Y_{k,in} - Y_k)+
+                  \dot{m}_{k,gen} - Y_k \dot{m}_{wall}\]</div>
 </div>
 <div class="section" id="energy-conservation">
 <h3>Energy Conservation<a class="headerlink" href="#energy-conservation" title="Permalink to this headline">¶</a></h3>
 <p>The equation for the total internal energy is found by writing the first law
 for an open system:</p>
 <div class="math">
-\[\frac{dU}{dt} = - p \frac{dV}{dt} - Q +
+\[\frac{dU}{dt} = - p \frac{dV}{dt} - \dot{Q} +
                 \sum_{in} \dot{m}_{in} h_{in} - h \sum_{out} \dot{m}_{out}\]</div>
 </div>
 </div>
@@ -210,9 +210,9 @@ of the mass fractions and temperature:</p>
 <p>Substituting the corresponding derivatives yields an equation for the
 temperature:</p>
 <div class="math">
-\[m c_v \frac{dT}{dt} = - p \frac{dV}{dt} - Q
+\[m c_v \frac{dT}{dt} = - p \frac{dV}{dt} - \dot{Q}
     + \sum_{in} \dot{m}_{in} \left( h_{in} - \sum_k u_k Y_{k,in} \right)
-    - p V \sum_{out} \dot{m}_{out} - \sum_k \dot{m}_{k,gen} u_k\]</div>
+    - \frac{p V}{m} \sum_{out} \dot{m}_{out} - \sum_k \dot{m}_{k,gen} u_k\]</div>
 <p>While this form of the energy equation is somewhat more complicated, it
 significantly reduces the cost of evaluating the system Jacobian, since the
 derivatives of the species equations are taken at constant temperature instead
@@ -228,7 +228,7 @@ as a state variable. Using the definition of the total enthalpy:</p>
 \[H = U + pV\]\[\frac{dH}{dt} = p \frac{dV}{dt} + V \frac{dp}{dt}\]</div>
 <p>Noting that <span class="math">\(dp/dt = 0\)</span> and substituting into the energy equation yields:</p>
 <div class="math">
-\[\frac{dH}{dt} = - Q + \sum_{in} \dot{m}_{in} h_{in}
+\[\frac{dH}{dt} = - \dot{Q} + \sum_{in} \dot{m}_{in} h_{in}
                 - h \sum_{out} \dot{m}_{out}\]</div>
 <p>The species and continuity equations are the same as for the general reactor
 model.</p>
@@ -244,7 +244,7 @@ mass fractions and temperature:</p>
 <p>Substituting the corresponding derivatives yields an equation for the
 temperature:</p>
 <div class="math">
-\[m c_p \frac{dT}{dt} = - Q - \sum_k h_k \dot{m}_{k,gen}
+\[m c_p \frac{dT}{dt} = - \dot{Q} - \sum_k h_k \dot{m}_{k,gen}
     + \sum_{in} \dot{m}_{in} \left(h_{in} - \sum_k h_k Y_{k,in} \right)\]</div>
 </div>
 </div>

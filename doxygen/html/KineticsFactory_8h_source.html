@@ -101,71 +101,69 @@
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classCantera_1_1KineticsFactory.html#ad6285cea657558e041f040555a4d1c2e">   41</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1KineticsFactory.html#ad6285cea657558e041f040555a4d1c2e" title="Virtual abstract function that deletes the factory. ">deleteFactory</a>() {</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        ScopedLock lock(kinetics_mutex);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> (s_factory) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keyword">delete</span> s_factory ;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            s_factory = 0 ;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">     * Return a new kinetics manager that implements a reaction mechanism</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     * specified in a CTML file. In other words, the kinetics manager, given</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     * the rate constants and formulation of the reactions that make up a</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     * kinetics mechanism, is responsible for calculating the rates of</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     * progress of the reactions and for calculating the source terms for</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     * species.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     * @param phase An XML_Node that contains the xml data describing the</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">     *              phase. Of particular note to this routine is the child xml</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">     *              element called &quot;kinetics&quot;. The element has one attribute</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">     *              called &quot;model&quot;, with a string value. The value of this</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     *              string is used to decide which kinetics manager is used to</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     *              calculate the reaction mechanism.</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     * @param th    Vector of phases. The first phase is the phase in which</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     *              the reactions occur, and the subsequent phases (if any)</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     *              are e.g. bulk phases adjacent to a reacting surface.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">     * @return Pointer to the new kinetics manager.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="classCantera_1_1KineticsFactory.html#a0e88e9e84db0b77548769d851dd78615" title="Return a new kinetics manager that implements a reaction mechanism specified in a CTML file...">newKinetics</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phase,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                  std::vector&lt;ThermoPhase*&gt; th);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     * Return a new, empty kinetics manager.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="classCantera_1_1KineticsFactory.html#a0e88e9e84db0b77548769d851dd78615" title="Return a new kinetics manager that implements a reaction mechanism specified in a CTML file...">newKinetics</a>(<span class="keyword">const</span> std::string&amp; model);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>* s_factory;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>() {}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> mutex_t kinetics_mutex;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment"> *  Create a new kinetics manager.</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a17f68ff5407d34357c444fee7b59cc0b">   86</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="namespaceCantera.html#a17f68ff5407d34357c444fee7b59cc0b" title="Create a new kinetics manager. ">newKineticsMgr</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phase,</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                std::vector&lt;ThermoPhase*&gt; th, <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>* f=0)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span> (f == 0) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        f = KineticsFactory::factory();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> f-&gt;newKinetics(phase, th);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> *  Create a new kinetics manager.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="namespaceCantera.html#ac8d9c3119c84c23b46a8aad50cbf8485">   98</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="namespaceCantera.html#a17f68ff5407d34357c444fee7b59cc0b" title="Create a new kinetics manager. ">newKineticsMgr</a>(<span class="keyword">const</span> std::string&amp; model, <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>* f=0)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span> (f == 0) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        f = KineticsFactory::factory();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> f-&gt;newKinetics(model);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">delete</span> s_factory ;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        s_factory = 0 ;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">     * Return a new kinetics manager that implements a reaction mechanism</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">     * specified in a CTML file. In other words, the kinetics manager, given</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">     * the rate constants and formulation of the reactions that make up a</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     * kinetics mechanism, is responsible for calculating the rates of</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     * progress of the reactions and for calculating the source terms for</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     * species.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     * @param phase An XML_Node that contains the xml data describing the</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     *              phase. Of particular note to this routine is the child xml</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     *              element called &quot;kinetics&quot;. The element has one attribute</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">     *              called &quot;model&quot;, with a string value. The value of this</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">     *              string is used to decide which kinetics manager is used to</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">     *              calculate the reaction mechanism.</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     * @param th    Vector of phases. The first phase is the phase in which</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     *              the reactions occur, and the subsequent phases (if any)</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     *              are e.g. bulk phases adjacent to a reacting surface.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     * @return Pointer to the new kinetics manager.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="classCantera_1_1KineticsFactory.html#a0e88e9e84db0b77548769d851dd78615" title="Return a new kinetics manager that implements a reaction mechanism specified in a CTML file...">newKinetics</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phase,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                  std::vector&lt;ThermoPhase*&gt; th);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">     * Return a new, empty kinetics manager.</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="classCantera_1_1KineticsFactory.html#a0e88e9e84db0b77548769d851dd78615" title="Return a new kinetics manager that implements a reaction mechanism specified in a CTML file...">newKinetics</a>(<span class="keyword">const</span> std::string&amp; model);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>* s_factory;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>() {}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> mutex_t kinetics_mutex;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment"> *  Create a new kinetics manager.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="namespaceCantera.html#a17f68ff5407d34357c444fee7b59cc0b">   84</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="namespaceCantera.html#a17f68ff5407d34357c444fee7b59cc0b" title="Create a new kinetics manager. ">newKineticsMgr</a>(<a class="code" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a>&amp; phase,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                std::vector&lt;ThermoPhase*&gt; th, <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>* f=0)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (f == 0) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        f = KineticsFactory::factory();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> f-&gt;newKinetics(phase, th);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> *  Create a new kinetics manager.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="namespaceCantera.html#ac8d9c3119c84c23b46a8aad50cbf8485">   96</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a>* <a class="code" href="namespaceCantera.html#a17f68ff5407d34357c444fee7b59cc0b" title="Create a new kinetics manager. ">newKineticsMgr</a>(<span class="keyword">const</span> std::string&amp; model, <a class="code" href="classCantera_1_1KineticsFactory.html" title="Factory for kinetics managers. ">KineticsFactory</a>* f=0)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (f == 0) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        f = KineticsFactory::factory();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> f-&gt;newKinetics(model);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
