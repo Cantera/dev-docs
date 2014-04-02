@@ -268,81 +268,74 @@
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    doublereal ysave, dy;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a>&amp; jac = *j;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">// use a try... catch block, since exceptions are not passed</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">// through CVODE, since it is C code</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="comment">//evaluate the unperturbed ydot</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <a class="code" href="classCantera_1_1ReactorNet.html#aeb7106d9e7ebea0aeaeada1335835ba2" title="Evaluate the right-hand-side function. ">eval</a>(t, y, ydot, p);</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; m_nv; n++) {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="comment">// perturb x(n)</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            ysave = y[n];</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            dy = m_atol[n] + fabs(ysave)*m_rtol;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            y[n] = ysave + dy;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            dy = y[n] - ysave;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">//evaluate the unperturbed ydot</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <a class="code" href="classCantera_1_1ReactorNet.html#aeb7106d9e7ebea0aeaeada1335835ba2" title="Evaluate the right-hand-side function. ">eval</a>(t, y, ydot, p);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; m_nv; n++) {</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="comment">// perturb x(n)</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        ysave = y[n];</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        dy = m_atol[n] + fabs(ysave)*m_rtol;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        y[n] = ysave + dy;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        dy = y[n] - ysave;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="comment">// calculate perturbed residual</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <a class="code" href="classCantera_1_1ReactorNet.html#aeb7106d9e7ebea0aeaeada1335835ba2" title="Evaluate the right-hand-side function. ">eval</a>(t, y, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(m_ydot), p);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <span class="comment">// calculate perturbed residual</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <a class="code" href="classCantera_1_1ReactorNet.html#aeb7106d9e7ebea0aeaeada1335835ba2" title="Evaluate the right-hand-side function. ">eval</a>(t, y, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(m_ydot), p);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="comment">// compute nth column of Jacobian</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> m = 0; m &lt; m_nv; m++) {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                jac(m,n) = (m_ydot[m] - ydot[m])/dy;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            }</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            y[n] = ysave;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    } <span class="keywordflow">catch</span> (<a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>&amp; err) {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        std::cerr &lt;&lt; err.<a class="code" href="classCantera_1_1CanteraError.html#a61cc171fda3d2f63d82fa5b8bb947333" title="Get a description of the error. ">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756" title="Write an error message and quit. ">error</a>(<span class="stringliteral">&quot;Terminating execution.&quot;</span>);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;}</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
-<div class="line"><a name="l00238"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#a0ff521286d89a1422948c0497385cb28">  238</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ReactorNet.html#a0ff521286d89a1422948c0497385cb28" title="Update the state of all the reactors in the network to correspond to the values in the solution vecto...">ReactorNet::updateState</a>(doublereal* y)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;{</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">size_t</span> start = 0;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; m_nreactors; n++) {</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        m_reactors[n]-&gt;updateState(y + start);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        start += m_size[n];</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    }</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#afedd0ba7817f5bf15818f76209adccba">  247</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ReactorNet.html#afedd0ba7817f5bf15818f76209adccba" title="Fill the solution vector with the initial conditions at initial time t0. ">ReactorNet::getInitialConditions</a>(doublereal t0,</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                      <span class="keywordtype">size_t</span> leny, doublereal* y)</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;{</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">size_t</span> start = 0;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; m_nreactors; n++) {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        m_reactors[n]-&gt;getInitialConditions(t0, m_size[n], y + start);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        start += m_size[n];</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="comment">// compute nth column of Jacobian</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> m = 0; m &lt; m_nv; m++) {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            jac(m,n) = (m_ydot[m] - ydot[m])/dy;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        y[n] = ysave;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;}</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#a0ff521286d89a1422948c0497385cb28">  231</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ReactorNet.html#a0ff521286d89a1422948c0497385cb28" title="Update the state of all the reactors in the network to correspond to the values in the solution vecto...">ReactorNet::updateState</a>(doublereal* y)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;{</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">size_t</span> start = 0;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; m_nreactors; n++) {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        m_reactors[n]-&gt;updateState(y + start);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        start += m_size[n];</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#afedd0ba7817f5bf15818f76209adccba">  240</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ReactorNet.html#afedd0ba7817f5bf15818f76209adccba" title="Fill the solution vector with the initial conditions at initial time t0. ">ReactorNet::getInitialConditions</a>(doublereal t0,</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                                      <span class="keywordtype">size_t</span> leny, doublereal* y)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;{</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">size_t</span> start = 0;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; m_nreactors; n++) {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        m_reactors[n]-&gt;getInitialConditions(t0, m_size[n], y + start);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        start += m_size[n];</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#a75e1f40794f69cee675b351986a48875">  250</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1ReactorNet.html#a75e1f40794f69cee675b351986a48875" title="Return the index corresponding to the component named component in the reactor with index reactor in ...">ReactorNet::globalComponentIndex</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; component, <span class="keywordtype">size_t</span> reactor)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;{</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">if</span> (!m_init) {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <a class="code" href="classCantera_1_1ReactorNet.html#a25a40b6614565f755233080a384c35f1" title="Initialize the reactor network. ">initialize</a>();</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#a75e1f40794f69cee675b351986a48875">  257</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1ReactorNet.html#a75e1f40794f69cee675b351986a48875" title="Return the index corresponding to the component named component in the reactor with index reactor in ...">ReactorNet::globalComponentIndex</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; component, <span class="keywordtype">size_t</span> reactor)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;{</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">if</span> (!m_init) {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <a class="code" href="classCantera_1_1ReactorNet.html#a25a40b6614565f755233080a384c35f1" title="Initialize the reactor network. ">initialize</a>();</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">size_t</span> start = 0;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordtype">size_t</span> n;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">for</span> (n = 0; n &lt; <a class="code" href="classCantera_1_1ReactorNet.html#a74ed1131836888ca44c43803b92df3aa" title="Return a reference to the n-th reactor in this network. ">reactor</a>; n++) {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        start += m_size[n];</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">return</span> start + m_reactors[n]-&gt;componentIndex(component);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;}</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#a5819f170ee67a12d8eabd52ee4137ca7">  270</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ReactorNet.html#a5819f170ee67a12d8eabd52ee4137ca7" title="Used by Reactor and Wall objects to register the addition of sensitivity reactions so that the Reacto...">ReactorNet::registerSensitivityReaction</a>(<span class="keywordtype">void</span>* reactor,</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordtype">size_t</span> reactionIndex, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span> leftright)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;{</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::pair&lt;void*, int&gt; R = std::make_pair(reactor, leftright);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">m_sensOrder</a>.count(R) &amp;&amp;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <a class="code" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">m_sensOrder</a>[R].count(reactionIndex)) {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;ReactorNet::registerSensitivityReaction&quot;</span>,</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                           <span class="stringliteral">&quot;Attempted to register duplicate sensitivity reaction&quot;</span>);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <a class="code" href="classCantera_1_1ReactorNet.html#a42a581d721091d919964b742cbe35658" title="Names corresponding to each sensitivity parameter. ">m_paramNames</a>.push_back(name);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <a class="code" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">m_sensOrder</a>[R][reactionIndex] = m_ntotpar;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    m_ntotpar++;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">size_t</span> start = 0;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">size_t</span> n;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">for</span> (n = 0; n &lt; <a class="code" href="classCantera_1_1ReactorNet.html#a74ed1131836888ca44c43803b92df3aa" title="Return a reference to the n-th reactor in this network. ">reactor</a>; n++) {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        start += m_size[n];</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span> start + m_reactors[n]-&gt;componentIndex(component);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;}</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="code" href="classCantera_1_1ReactorNet.html#a5819f170ee67a12d8eabd52ee4137ca7">  263</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ReactorNet.html#a5819f170ee67a12d8eabd52ee4137ca7" title="Used by Reactor and Wall objects to register the addition of sensitivity reactions so that the Reacto...">ReactorNet::registerSensitivityReaction</a>(<span class="keywordtype">void</span>* reactor,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordtype">size_t</span> reactionIndex, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">int</span> leftright)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    std::pair&lt;void*, int&gt; R = std::make_pair(reactor, leftright);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">m_sensOrder</a>.count(R) &amp;&amp;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <a class="code" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">m_sensOrder</a>[R].count(reactionIndex)) {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;ReactorNet::registerSensitivityReaction&quot;</span>,</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                           <span class="stringliteral">&quot;Attempted to register duplicate sensitivity reaction&quot;</span>);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <a class="code" href="classCantera_1_1ReactorNet.html#a42a581d721091d919964b742cbe35658" title="Names corresponding to each sensitivity parameter. ">m_paramNames</a>.push_back(name);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="classCantera_1_1ReactorNet.html#a45617d7f6bf3b36c9763df9700c0703c" title="Structure used to determine the order of sensitivity parameters m_sensOrder[Reactor or Wall...">m_sensOrder</a>[R][reactionIndex] = m_ntotpar;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    m_ntotpar++;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

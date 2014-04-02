@@ -571,139 +571,120 @@
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">     *                 Length: m_kk.</span></div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a495f550104c95cede79d0d787a909d6f" title="Returns the vector of nondimensional enthalpies of the reference state at the current temperature of ...">getEnthalpy_RT_ref</a>(doublereal* hrt) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">    //! Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment">    //!  Returns the vector of nondimensional</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment">    //!  entropies of the reference state at the current temperature</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">    //!  of the solution and the reference pressure for each species.</span></div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">     *   @param  k           Species k</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ThermoPhase.html#a9b9f3dd61d1e4267b63752f66d6b0541" title="Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1) ...">modifyOneHf298SS</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; k, <span class="keyword">const</span> doublereal Hf298New) {</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <a class="code" href="classCantera_1_1ThermoPhase.html#a65525d0f85c5b220a72be867861b4376" title="Pointer to the calculation manager for species reference-state thermodynamic properties. ">m_spthermo</a>-&gt;modifyOneHf298(k, Hf298New);</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <a class="code" href="classCantera_1_1SurfPhase.html#a29be82f24ebd72ee5502b90d994c09a0" title="Current value of the temperature (Kelvin) ">m_tlast</a> += 0.0001234;</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    }</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">    //!  Returns the vector of nondimensional</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">    //!  entropies of the reference state at the current temperature</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment">    //!  of the solution and the reference pressure for each species.</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment">     * @param er      Output vector containing the nondimensional reference state</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">     *                entropies.  Length: m_kk.</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#af5cb9f1731795833a42b5b5746faeaea" title="Returns the vector of nondimensional entropies of the reference state at the current temperature of t...">getEntropy_R_ref</a>(doublereal* er) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">    //! Returns the vector of nondimensional constant pressure heat capacities</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">    //! of the reference state at the current temperature of the solution and</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">    //! reference pressure for each species.</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">     * @param cprt   Output vector of nondimensional reference state</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">     *               heat capacities at constant pressure for the species.</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">     *               Length: m_kk</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a378fd9e77f125c26ef376d2de8e7cbd5" title="Returns the vector of nondimensional constant pressure heat capacities of the reference state at the ...">getCp_R_ref</a>(doublereal* cprt) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment">    //! Set the surface site fractions to a specified state.</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="comment">     * This routine converts to concentrations</span></div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">     * in kmol/m2, using m_n0, the surface site density,</span></div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">     * and size(k), which is defined to be the number of</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">     * surface sites occupied by the kth molecule.</span></div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment">     * It then calls Phase::setConcentrations to set the</span></div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="comment">     * internal concentration in the object.</span></div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="comment">     * @param theta    This is the surface site fraction</span></div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">     *                 for the kth species in the surface phase.</span></div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">     *                 This is a dimensionless quantity.</span></div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">     * This routine normalizes the theta&#39;s to 1, before application</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#af26fcbba9501e215a726463d77b3b96e" title="Set the surface site fractions to a specified state. ">setCoverages</a>(<span class="keyword">const</span> doublereal* theta);</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment">    //! Set the surface site fractions to a specified state.</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">     * This routine converts to concentrations</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="comment">     * in kmol/m2, using m_n0, the surface site density,</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment">     * and size(k), which is defined to be the number of</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="comment">     * surface sites occupied by the kth molecule.</span></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;<span class="comment">     * It then calls Phase::setConcentrations to set the</span></div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment">     * internal concentration in the object.</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">     * @param er      Output vector containing the nondimensional reference state</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment">     *                entropies.  Length: m_kk.</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#af5cb9f1731795833a42b5b5746faeaea" title="Returns the vector of nondimensional entropies of the reference state at the current temperature of t...">getEntropy_R_ref</a>(doublereal* er) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">    //! Returns the vector of nondimensional constant pressure heat capacities</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">    //! of the reference state at the current temperature of the solution and</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">    //! reference pressure for each species.</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">     * @param cprt   Output vector of nondimensional reference state</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">     *               heat capacities at constant pressure for the species.</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">     *               Length: m_kk</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a378fd9e77f125c26ef376d2de8e7cbd5" title="Returns the vector of nondimensional constant pressure heat capacities of the reference state at the ...">getCp_R_ref</a>(doublereal* cprt) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment">    //! Set the surface site fractions to a specified state.</span></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">     * This routine converts to concentrations</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">     * in kmol/m2, using m_n0, the surface site density,</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="comment">     * and size(k), which is defined to be the number of</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment">     * surface sites occupied by the kth molecule.</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">     * It then calls Phase::setConcentrations to set the</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">     * internal concentration in the object.</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">     * @param theta    This is the surface site fraction</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">     *                 for the kth species in the surface phase.</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">     *                 This is a dimensionless quantity.</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">     * This routine normalizes the theta&#39;s to 1, before application</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#af26fcbba9501e215a726463d77b3b96e" title="Set the surface site fractions to a specified state. ">setCoverages</a>(<span class="keyword">const</span> doublereal* theta);</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="comment">    //! Set the surface site fractions to a specified state.</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">     * This routine converts to concentrations</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">     * in kmol/m2, using m_n0, the surface site density,</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">     * and size(k), which is defined to be the number of</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment">     * surface sites occupied by the kth molecule.</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="comment">     * It then calls Phase::setConcentrations to set the</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="comment">     * internal concentration in the object.</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">     * @param theta    This is the surface site fraction</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">     *                 for the kth species in the surface phase.</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">     *                 This is a dimensionless quantity.</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a06eb3f3038c7786e6208e646b2234c80" title="Set the surface site fractions to a specified state. ">setCoveragesNoNorm</a>(<span class="keyword">const</span> doublereal* theta);</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="comment">    //! Set the coverages from a string of colon-separated  name:value pairs.</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment">     *  @param cov  String containing colon-separated  name:value pairs</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a0890537f6409a9b606a70990fc9c3a81" title="Set the coverages from a string of colon-separated name:value pairs. ">setCoveragesByName</a>(<span class="keyword">const</span> std::string&amp; cov);</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="comment">    //! Return a vector of surface coverages</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment">     * Get the coverages.</span></div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">     * @param theta    This is the surface site fraction</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="comment">     *                 for the kth species in the surface phase.</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">     *                 This is a dimensionless quantity.</span></div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a06eb3f3038c7786e6208e646b2234c80" title="Set the surface site fractions to a specified state. ">setCoveragesNoNorm</a>(<span class="keyword">const</span> doublereal* theta);</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment">    //! Set the coverages from a string of colon-separated  name:value pairs.</span></div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment">     *  @param cov  String containing colon-separated  name:value pairs</span></div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a0890537f6409a9b606a70990fc9c3a81" title="Set the coverages from a string of colon-separated name:value pairs. ">setCoveragesByName</a>(<span class="keyword">const</span> std::string&amp; cov);</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">     * @param theta Array theta must be at least as long as</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="comment">     *              the number of species.</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a795fd4c09d68e0737a8860ce0c748d22" title="Return a vector of surface coverages. ">getCoverages</a>(doublereal* theta) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="comment">    //! Surface site density (kmol m-2)</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a62a90b06db3c95ed480adf180b2717a7">  582</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SurfPhase.html#a62a90b06db3c95ed480adf180b2717a7" title="Surface site density (kmol m-2) ">m_n0</a>;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">    //! log of the surface site density</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a66987533110fa8cdf47b76c96dd40f66">  585</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SurfPhase.html#a66987533110fa8cdf47b76c96dd40f66" title="log of the surface site density ">m_logn0</a>;</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">    //! Return a vector of surface coverages</span></div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment">     * Get the coverages.</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="comment">     * @param theta Array theta must be at least as long as</span></div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="comment">     *              the number of species.</span></div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a795fd4c09d68e0737a8860ce0c748d22" title="Return a vector of surface coverages. ">getCoverages</a>(doublereal* theta) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="comment">    //! Surface site density (kmol m-2)</span></div>
-<div class="line"><a name="l00598"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a62a90b06db3c95ed480adf180b2717a7">  598</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SurfPhase.html#a62a90b06db3c95ed480adf180b2717a7" title="Surface site density (kmol m-2) ">m_n0</a>;</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="comment">    //! log of the surface site density</span></div>
-<div class="line"><a name="l00601"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a66987533110fa8cdf47b76c96dd40f66">  601</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SurfPhase.html#a66987533110fa8cdf47b76c96dd40f66" title="log of the surface site density ">m_logn0</a>;</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;<span class="comment">    //! Current value of the pressure (Pa)</span></div>
-<div class="line"><a name="l00604"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a0edab2fddaaaa5321a40af0cbca697cf">  604</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SurfPhase.html#a0edab2fddaaaa5321a40af0cbca697cf" title="Current value of the pressure (Pa) ">m_press</a>;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;<span class="comment">    //! Current value of the temperature (Kelvin)</span></div>
-<div class="line"><a name="l00607"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a29be82f24ebd72ee5502b90d994c09a0">  607</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal    <a class="code" href="classCantera_1_1SurfPhase.html#a29be82f24ebd72ee5502b90d994c09a0" title="Current value of the temperature (Kelvin) ">m_tlast</a>;</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment">    //! Temporary storage for the reference state enthalpies</span></div>
-<div class="line"><a name="l00610"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a66c5cc696e3a0ccbcb7cb2aba73e2e9d">  610</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a66c5cc696e3a0ccbcb7cb2aba73e2e9d" title="Temporary storage for the reference state enthalpies. ">m_h0</a>;</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">    //! Temporary storage for the reference state entropies</span></div>
-<div class="line"><a name="l00613"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a157e4642a3936633ac0d303863c4cc51">  613</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a157e4642a3936633ac0d303863c4cc51" title="Temporary storage for the reference state entropies. ">m_s0</a>;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="comment">    //! Temporary storage for the reference state heat capacities</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#ac9bd71c213a9758ba526a87dc3a23da6">  616</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#ac9bd71c213a9758ba526a87dc3a23da6" title="Temporary storage for the reference state heat capacities. ">m_cp0</a>;</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="comment">    //! Temporary storage for the reference state gibbs energies</span></div>
-<div class="line"><a name="l00619"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a9147a615ac19dd5da1e43f0545759aa0">  619</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a9147a615ac19dd5da1e43f0545759aa0" title="Temporary storage for the reference state gibbs energies. ">m_mu0</a>;</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="comment">    //! Temporary work array</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a85e71e6abf9d224522f8d254f576c369">  622</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a85e71e6abf9d224522f8d254f576c369" title="Temporary work array. ">m_work</a>;</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="comment">    //! vector storing the log of the size of each species.</span></div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment">     * The size of each species is defined as the number of surface</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">     * sites each species occupies.</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00629"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#af86737392e035fc87b33959fc64dcc0c">  629</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#af86737392e035fc87b33959fc64dcc0c" title="vector storing the log of the size of each species. ">m_logsize</a>;</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">    //! Update the species reference state thermodynamic functions</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">     * The polynomials for the standard state functions are only</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">     * reevaluated if the temperature has changed.</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">     * @param force  Boolean, which if true, forces a reevaluation</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">     *               of the thermo polynomials.</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">     *               default = false.</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a81a9ea75f9c7a0e7e95a95da400a68d9" title="Update the species reference state thermodynamic functions. ">_updateThermo</a>(<span class="keywordtype">bool</span> force=<span class="keyword">false</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;};</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;}</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">    //! Current value of the pressure (Pa)</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a0edab2fddaaaa5321a40af0cbca697cf">  588</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SurfPhase.html#a0edab2fddaaaa5321a40af0cbca697cf" title="Current value of the pressure (Pa) ">m_press</a>;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">    //! Temporary storage for the reference state enthalpies</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a66c5cc696e3a0ccbcb7cb2aba73e2e9d">  591</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a66c5cc696e3a0ccbcb7cb2aba73e2e9d" title="Temporary storage for the reference state enthalpies. ">m_h0</a>;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="comment">    //! Temporary storage for the reference state entropies</span></div>
+<div class="line"><a name="l00594"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a157e4642a3936633ac0d303863c4cc51">  594</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a157e4642a3936633ac0d303863c4cc51" title="Temporary storage for the reference state entropies. ">m_s0</a>;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;<span class="comment">    //! Temporary storage for the reference state heat capacities</span></div>
+<div class="line"><a name="l00597"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#ac9bd71c213a9758ba526a87dc3a23da6">  597</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#ac9bd71c213a9758ba526a87dc3a23da6" title="Temporary storage for the reference state heat capacities. ">m_cp0</a>;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="comment">    //! Temporary storage for the reference state gibbs energies</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a9147a615ac19dd5da1e43f0545759aa0">  600</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a9147a615ac19dd5da1e43f0545759aa0" title="Temporary storage for the reference state gibbs energies. ">m_mu0</a>;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="comment">    //! Temporary work array</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#a85e71e6abf9d224522f8d254f576c369">  603</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#a85e71e6abf9d224522f8d254f576c369" title="Temporary work array. ">m_work</a>;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="comment">    //! vector storing the log of the size of each species.</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="comment">     * The size of each species is defined as the number of surface</span></div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="comment">     * sites each species occupies.</span></div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno"><a class="code" href="classCantera_1_1SurfPhase.html#af86737392e035fc87b33959fc64dcc0c">  610</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a>      <a class="code" href="classCantera_1_1SurfPhase.html#af86737392e035fc87b33959fc64dcc0c" title="vector storing the log of the size of each species. ">m_logsize</a>;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="comment">    //! Update the species reference state thermodynamic functions</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="comment">     * The polynomials for the standard state functions are only</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;<span class="comment">     * reevaluated if the temperature has changed.</span></div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="comment">     * @param force  Boolean, which if true, forces a reevaluation</span></div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="comment">     *               of the thermo polynomials.</span></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="comment">     *               default = false.</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SurfPhase.html#a81a9ea75f9c7a0e7e95a95da400a68d9" title="Update the species reference state thermodynamic functions. ">_updateThermo</a>(<span class="keywordtype">bool</span> force=<span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;};</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;}</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

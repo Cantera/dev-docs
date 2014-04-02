@@ -60,6 +60,7 @@
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classCantera_1_1GeneralMatrix-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GeneralMatrix Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -106,18 +107,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a39f67be3c7feeebbc0327db429f6ec8f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a39f67be3c7feeebbc0327db429f6ec8f">factor</a> ()=0</td></tr>
 <tr class="memdesc:a39f67be3c7feeebbc0327db429f6ec8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factors the A matrix, overwriting A.  <a href="#a39f67be3c7feeebbc0327db429f6ec8f">More...</a><br/></td></tr>
 <tr class="separator:a39f67be3c7feeebbc0327db429f6ec8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a572887d858771c9619e795415efacce9"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a572887d858771c9619e795415efacce9">factorQR</a> ()=0</td></tr>
-<tr class="memdesc:a572887d858771c9619e795415efacce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factors the A matrix using the QR algorithm, overwriting A.  <a href="#a572887d858771c9619e795415efacce9">More...</a><br/></td></tr>
-<tr class="separator:a572887d858771c9619e795415efacce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ea018e47c3f29e589518bf473a5aeb0"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a7ea018e47c3f29e589518bf473a5aeb0">rcondQR</a> ()=0</td></tr>
-<tr class="memdesc:a7ea018e47c3f29e589518bf473a5aeb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimate of the inverse of the condition number for the matrix.  <a href="#a7ea018e47c3f29e589518bf473a5aeb0">More...</a><br/></td></tr>
-<tr class="separator:a7ea018e47c3f29e589518bf473a5aeb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81db57f6f1016cf29600569e0043c00d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a81db57f6f1016cf29600569e0043c00d">factorQR</a> ()</td></tr>
+<tr class="memdesc:a81db57f6f1016cf29600569e0043c00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factors the A matrix using the QR algorithm, overwriting A.  <a href="#a81db57f6f1016cf29600569e0043c00d">More...</a><br/></td></tr>
+<tr class="separator:a81db57f6f1016cf29600569e0043c00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a5e3ef84911276200615a6239eac9c"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a43a5e3ef84911276200615a6239eac9c">rcondQR</a> ()</td></tr>
+<tr class="memdesc:a43a5e3ef84911276200615a6239eac9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimate of the inverse of the condition number for the matrix.  <a href="#a43a5e3ef84911276200615a6239eac9c">More...</a><br/></td></tr>
+<tr class="separator:a43a5e3ef84911276200615a6239eac9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25b48ec089ba4c9e5c6f0438a520ce1d"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a25b48ec089ba4c9e5c6f0438a520ce1d">rcond</a> (doublereal a1norm)=0</td></tr>
 <tr class="memdesc:a25b48ec089ba4c9e5c6f0438a520ce1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimate of the inverse of the condition number for the matrix.  <a href="#a25b48ec089ba4c9e5c6f0438a520ce1d">More...</a><br/></td></tr>
 <tr class="separator:a25b48ec089ba4c9e5c6f0438a520ce1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a273c3e84589b2586b707792457e565d0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a273c3e84589b2586b707792457e565d0">useFactorAlgorithm</a> (int fAlgorithm)=0</td></tr>
-<tr class="memdesc:a273c3e84589b2586b707792457e565d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the way the matrix is factored.  <a href="#a273c3e84589b2586b707792457e565d0">More...</a><br/></td></tr>
-<tr class="separator:a273c3e84589b2586b707792457e565d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3b4f049253093c36b74fe8d7166ecd3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#ae3b4f049253093c36b74fe8d7166ecd3">useFactorAlgorithm</a> (int fAlgorithm)</td></tr>
+<tr class="memdesc:ae3b4f049253093c36b74fe8d7166ecd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the way the matrix is factored.  <a href="#ae3b4f049253093c36b74fe8d7166ecd3">More...</a><br/></td></tr>
+<tr class="separator:ae3b4f049253093c36b74fe8d7166ecd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d0eb4006117833b938310862aac3fb7"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a8d0eb4006117833b938310862aac3fb7">factorAlgorithm</a> () const =0</td></tr>
 <tr class="memdesc:a8d0eb4006117833b938310862aac3fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the factor algorithm used.  <a href="#a8d0eb4006117833b938310862aac3fb7">More...</a><br/></td></tr>
 <tr class="separator:a8d0eb4006117833b938310862aac3fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,15 +131,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a42ae079c9e25e53f72090016d823c7cd"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a42ae079c9e25e53f72090016d823c7cd">nRowsAndStruct</a> (size_t *const iStruct=0) const =0</td></tr>
 <tr class="memdesc:a42ae079c9e25e53f72090016d823c7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size and structure of the matrix.  <a href="#a42ae079c9e25e53f72090016d823c7cd">More...</a><br/></td></tr>
 <tr class="separator:a42ae079c9e25e53f72090016d823c7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5068355b2d2d3696818c01b73fb74204"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a5068355b2d2d3696818c01b73fb74204">clearFactorFlag</a> ()=0</td></tr>
-<tr class="memdesc:a5068355b2d2d3696818c01b73fb74204"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the factored flag  <a href="#a5068355b2d2d3696818c01b73fb74204">More...</a><br/></td></tr>
-<tr class="separator:a5068355b2d2d3696818c01b73fb74204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab04479c16dd5339ad9040f19bf8b837d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#ab04479c16dd5339ad9040f19bf8b837d">solve</a> (doublereal *b)=0</td></tr>
-<tr class="memdesc:ab04479c16dd5339ad9040f19bf8b837d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the Ax = b system returning x in the b spot.  <a href="#ab04479c16dd5339ad9040f19bf8b837d">More...</a><br/></td></tr>
-<tr class="separator:ab04479c16dd5339ad9040f19bf8b837d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b9721e7f190f0dc6f987e4a4cb72d48"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a7b9721e7f190f0dc6f987e4a4cb72d48">factored</a> () const =0</td></tr>
-<tr class="memdesc:a7b9721e7f190f0dc6f987e4a4cb72d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the current factorization is up to date with the matrix  <a href="#a7b9721e7f190f0dc6f987e4a4cb72d48">More...</a><br/></td></tr>
-<tr class="separator:a7b9721e7f190f0dc6f987e4a4cb72d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43deefd36585d28649f065c058355d4f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a43deefd36585d28649f065c058355d4f">clearFactorFlag</a> ()</td></tr>
+<tr class="memdesc:a43deefd36585d28649f065c058355d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the factored flag  <a href="#a43deefd36585d28649f065c058355d4f">More...</a><br/></td></tr>
+<tr class="separator:a43deefd36585d28649f065c058355d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a732f1f7fc3da4f68f5fe687a2844ff14"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a732f1f7fc3da4f68f5fe687a2844ff14">solve</a> (doublereal *b, size_t nrhs=1, size_t ldb=0)=0</td></tr>
+<tr class="memdesc:a732f1f7fc3da4f68f5fe687a2844ff14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solves the Ax = b system returning x in the b spot.  <a href="#a732f1f7fc3da4f68f5fe687a2844ff14">More...</a><br/></td></tr>
+<tr class="separator:a732f1f7fc3da4f68f5fe687a2844ff14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458210f6c086406ead1d1586d949d5f0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a458210f6c086406ead1d1586d949d5f0">factored</a> () const </td></tr>
+<tr class="memdesc:a458210f6c086406ead1d1586d949d5f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the current factorization is up to date with the matrix  <a href="#a458210f6c086406ead1d1586d949d5f0">More...</a><br/></td></tr>
+<tr class="separator:a458210f6c086406ead1d1586d949d5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3730c98ca1c4b0a7433f8a32c11028fb"><td class="memItemLeft" align="right" valign="top">virtual doublereal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb">ptrColumn</a> (size_t j)=0</td></tr>
 <tr class="memdesc:a3730c98ca1c4b0a7433f8a32c11028fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the top of column j, columns are assumed to be contiguous in memory.  <a href="#a3730c98ca1c4b0a7433f8a32c11028fb">More...</a><br/></td></tr>
 <tr class="separator:a3730c98ca1c4b0a7433f8a32c11028fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,11 +173,17 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ab81cad571c5cf5937db84ba1e8588bc8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#ab81cad571c5cf5937db84ba1e8588bc8">matrixType_</a></td></tr>
 <tr class="memdesc:ab81cad571c5cf5937db84ba1e8588bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix type.  <a href="#ab81cad571c5cf5937db84ba1e8588bc8">More...</a><br/></td></tr>
 <tr class="separator:ab81cad571c5cf5937db84ba1e8588bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ae15e2697ab2c1ea64fb492f8a14ab080"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#ae15e2697ab2c1ea64fb492f8a14ab080">m_factored</a></td></tr>
+<tr class="memdesc:ae15e2697ab2c1ea64fb492f8a14ab080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the matrix is factored.  <a href="#ae15e2697ab2c1ea64fb492f8a14ab080">More...</a><br/></td></tr>
+<tr class="separator:ae15e2697ab2c1ea64fb492f8a14ab080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generic matrix. </p>
 
-<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00023">23</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00024">24</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5c6dea9f73a4c5654d05d2bf2a7dc298"></a>
 <div class="memitem">
@@ -220,7 +227,7 @@ Public Attributes</h2></td></tr>
 
 <p>Copy Constructor. </p>
 
-<p>Definition at line <a class="el" href="GeneralMatrix_8cpp_source.html#l00023">23</a> of file <a class="el" href="GeneralMatrix_8cpp_source.html">GeneralMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8cpp_source.html#l00024">24</a> of file <a class="el" href="GeneralMatrix_8cpp_source.html">GeneralMatrix.cpp</a>.</p>
 
 </div>
 </div>
@@ -247,7 +254,7 @@ Public Attributes</h2></td></tr>
 
 <p>Destructor. Does nothing. </p>
 
-<p>Definition at line <a class="el" href="GeneralMatrix_8cpp_source.html#l00037">37</a> of file <a class="el" href="GeneralMatrix_8cpp_source.html">GeneralMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8cpp_source.html#l00040">40</a> of file <a class="el" href="GeneralMatrix_8cpp_source.html">GeneralMatrix.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,11 +275,11 @@ Public Attributes</h2></td></tr>
 
 <p>Assignment operator. </p>
 
-<p>Definition at line <a class="el" href="GeneralMatrix_8cpp_source.html#l00028">28</a> of file <a class="el" href="GeneralMatrix_8cpp_source.html">GeneralMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8cpp_source.html#l00030">30</a> of file <a class="el" href="GeneralMatrix_8cpp_source.html">GeneralMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralMatrix_8h_source.html#l00219">GeneralMatrix::matrixType_</a>.</p>
+<p>References <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, and <a class="el" href="GeneralMatrix_8h_source.html#l00233">GeneralMatrix::matrixType_</a>.</p>
 
-<p>Referenced by <a class="el" href="SquareMatrix_8cpp_source.html#l00050">SquareMatrix::operator=()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="SquareMatrix_8cpp_source.html#l00047">SquareMatrix::operator=()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>.</p>
 
 </div>
 </div>
@@ -455,7 +462,7 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a572887d858771c9619e795415efacce9"></a>
+<a class="anchor" id="a81db57f6f1016cf29600569e0043c00d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -471,7 +478,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -480,13 +487,15 @@ Public Attributes</h2></td></tr>
 <p>we set m_factored to 2 to indicate the matrix is now QR factored</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the info variable from lapack </dd></dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#af3aec81480f84e0297861baee47ef0b8">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#af3aec81480f84e0297861baee47ef0b8">SquareMatrix</a>.</p>
+<p>Reimplemented in <a class="el" href="classCantera_1_1SquareMatrix.html#af3aec81480f84e0297861baee47ef0b8">SquareMatrix</a>.</p>
+
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00081">81</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7ea018e47c3f29e589518bf473a5aeb0"></a>
+<a class="anchor" id="a43a5e3ef84911276200615a6239eac9c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -502,7 +511,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -511,7 +520,9 @@ Public Attributes</h2></td></tr>
 <p>The matrix must have been previously factored using the QR algorithm</p>
 <dl class="section return"><dt>Returns</dt><dd>returns the inverse of the condition number </dd></dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#a367a81b82836732805a8de2fea3348eb">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#a367a81b82836732805a8de2fea3348eb">SquareMatrix</a>.</p>
+<p>Reimplemented in <a class="el" href="classCantera_1_1SquareMatrix.html#a367a81b82836732805a8de2fea3348eb">SquareMatrix</a>.</p>
+
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00091">91</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>.</p>
 
@@ -555,7 +566,7 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a273c3e84589b2586b707792457e565d0"></a>
+<a class="anchor" id="ae3b4f049253093c36b74fe8d7166ecd3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -572,7 +583,7 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -585,7 +596,9 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a">SquareMatrix</a>.</p>
+<p>Reimplemented in <a class="el" href="classCantera_1_1SquareMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a">SquareMatrix</a>.</p>
+
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00111">111</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>.</p>
 
@@ -709,11 +722,11 @@ Public Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#ac48a179072a13aab831015bb1a5fd9d9">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#ac48a179072a13aab831015bb1a5fd9d9">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5068355b2d2d3696818c01b73fb74204"></a>
+<a class="anchor" id="a43deefd36585d28649f065c058355d4f"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -729,20 +742,22 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>clear the factored flag </p>
 
-<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#af153f4b88295192381b506948e66e0c2">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#af153f4b88295192381b506948e66e0c2">SquareMatrix</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00133">133</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00515">BEulerInt::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>.</p>
+<p>References <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>.</p>
+
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00515">BEulerInt::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab04479c16dd5339ad9040f19bf8b837d"></a>
+<a class="anchor" id="a732f1f7fc3da4f68f5fe687a2844ff14"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -753,8 +768,24 @@ Public Attributes</h2></td></tr>
           <td class="memname">virtual int solve </td>
           <td>(</td>
           <td class="paramtype">doublereal *&#160;</td>
-          <td class="paramname"><em>b</em>)</td><td></td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>nrhs</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ldb</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -768,17 +799,19 @@ Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">b</td><td>Vector for the rhs of the equation system </td></tr>
+    <tr><td class="paramname">nrhs</td><td>Number of right-hand sides to solve, default 1 </td></tr>
+    <tr><td class="paramname">ldb</td><td>Leading dimension of the right-hand side array. Defaults to <a class="el" href="classCantera_1_1GeneralMatrix.html#ab6bf3d7e7e05dda9a29fd61994712717" title="Return the number of rows in the matrix. ">nRows()</a> </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#af59d13c44ea3b49f881e172e6ac216ff">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#af59d13c44ea3b49f881e172e6ac216ff">SquareMatrix</a>.</p>
+<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#a86320de7d1206d1bd40915104af1a6c4">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#a86320de7d1206d1bd40915104af1a6c4">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00843">NonlinearSolver::doNewtonSolve()</a>, and <a class="el" href="BEulerInt_8cpp_source.html#l01388">BEulerInt::doNewtonSolve()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00843">NonlinearSolver::doNewtonSolve()</a>, and <a class="el" href="BEulerInt_8cpp_source.html#l01387">BEulerInt::doNewtonSolve()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7b9721e7f190f0dc6f987e4a4cb72d48"></a>
+<a class="anchor" id="a458210f6c086406ead1d1586d949d5f0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -794,16 +827,18 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>true if the current factorization is up to date with the matrix </p>
 
-<p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#aca22fa0b1566fa0eede1f4287c151166">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#aca22fa0b1566fa0eede1f4287c151166">SquareMatrix</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00147">147</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00784">NonlinearSolver::calcSolnToResNormVector()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01388">BEulerInt::doNewtonSolve()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
+<p>References <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>.</p>
+
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00784">NonlinearSolver::calcSolnToResNormVector()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01387">BEulerInt::doNewtonSolve()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
 
 </div>
 </div>
@@ -840,7 +875,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#a18f535b798e339d6876a0b853bee2540">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#a18f535b798e339d6876a0b853bee2540">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00515">BEulerInt::beuler_jac()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00476">BandMatrix::copyData()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00515">BEulerInt::beuler_jac()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00447">BandMatrix::copyData()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
 
 </div>
 </div>
@@ -969,7 +1004,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#a0cf4267353b62989517490c13f97979d">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#a0cf4267353b62989517490c13f97979d">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>.</p>
 
 </div>
 </div>
@@ -999,7 +1034,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#a7f5b13acc7ff2d91d2255703d7b8650f">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#a7f5b13acc7ff2d91d2255703d7b8650f">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00287">BEulerInt::computeResidWts()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01388">BEulerInt::doNewtonSolve()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00287">BEulerInt::computeResidWts()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01387">BEulerInt::doNewtonSolve()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1131,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#ac9ed5808b2437d9f0c871d1ebece7e30">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#ac9ed5808b2437d9f0c871d1ebece7e30">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>.</p>
 
 </div>
 </div>
@@ -1134,7 +1169,7 @@ Public Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1BandMatrix.html#a7759bbca975b38f8e76a4b659ca1efa1">BandMatrix</a>, and <a class="el" href="classCantera_1_1SquareMatrix.html#a7759bbca975b38f8e76a4b659ca1efa1">SquareMatrix</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>.</p>
 
 </div>
 </div>
@@ -1152,9 +1187,36 @@ Public Attributes</h2></td></tr>
 <p>Matrix type. </p>
 <p>0 Square 1 Banded </p>
 
-<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00219">219</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00233">233</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03338">NonlinearSolver::beuler_jac()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="GeneralMatrix_8cpp_source.html#l00028">GeneralMatrix::operator=()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03337">NonlinearSolver::beuler_jac()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00926">NonlinearSolver::doAffineNewtonSolve()</a>, <a class="el" href="GeneralMatrix_8cpp_source.html#l00030">GeneralMatrix::operator=()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00638">NonlinearSolver::scaleMatrix()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae15e2697ab2c1ea64fb492f8a14ab080"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int m_factored</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates whether the matrix is factored. </p>
+<p>0 for unfactored; Non-zero values indicate a particular factorization (LU=1, QR=2). </p>
+
+<p>Definition at line <a class="el" href="GeneralMatrix_8h_source.html#l00238">238</a> of file <a class="el" href="GeneralMatrix_8h_source.html">GeneralMatrix.h</a>.</p>
+
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00291">BandMatrix::begin()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00111">BandMatrix::bfill()</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00133">GeneralMatrix::clearFactorFlag()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00447">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00297">BandMatrix::end()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00128">SquareMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00147">GeneralMatrix::factored()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00154">SquareMatrix::factorQR()</a>, <a class="el" href="GeneralMatrix_8cpp_source.html#l00030">GeneralMatrix::operator=()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00235">SquareMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00271">SquareMatrix::rcondQR()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00149">SquareMatrix::setFactorFlag()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00059">SquareMatrix::solve()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00182">SquareMatrix::solveQR()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00117">BandMatrix::zero()</a>.</p>
 
 </div>
 </div>

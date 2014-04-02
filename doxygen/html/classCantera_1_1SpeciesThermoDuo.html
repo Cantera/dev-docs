@@ -121,6 +121,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a153fe4fe1b42d378fd077853ba21597e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a153fe4fe1b42d378fd077853ba21597e">reportParams</a> (size_t index, int &amp;type, doublereal *const c, doublereal &amp;<a class="el" href="classCantera_1_1SpeciesThermoDuo.html#ade0d15fa66201fb19903c2dad9e9553f">minTemp</a>, doublereal &amp;<a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a9627826e38c2a4cc965f557ac35898c8">maxTemp</a>, doublereal &amp;<a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a5f4553c6420d9c24007cf0725c338bff">refPressure</a>) const </td></tr>
 <tr class="memdesc:a153fe4fe1b42d378fd077853ba21597e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This utility function reports back the type of parameterization and all of the parameters for the species with index number <em>index</em>.  <a href="#a153fe4fe1b42d378fd077853ba21597e">More...</a><br/></td></tr>
 <tr class="separator:a153fe4fe1b42d378fd077853ba21597e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21be3e0a8b2c635eb667fa79449b729e"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a21be3e0a8b2c635eb667fa79449b729e">reportOneHf298</a> (const size_t k) const </td></tr>
+<tr class="memdesc:a21be3e0a8b2c635eb667fa79449b729e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)  <a href="#a21be3e0a8b2c635eb667fa79449b729e">More...</a><br/></td></tr>
+<tr class="separator:a21be3e0a8b2c635eb667fa79449b729e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac87e5a3dd35b2e65689cc86f09b473e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoDuo.html#ac87e5a3dd35b2e65689cc86f09b473e6">modifyOneHf298</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:ac87e5a3dd35b2e65689cc86f09b473e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1)  <a href="#ac87e5a3dd35b2e65689cc86f09b473e6">More...</a><br/></td></tr>
+<tr class="separator:ac87e5a3dd35b2e65689cc86f09b473e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCantera_1_1SpeciesThermo"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCantera_1_1SpeciesThermo')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a></td></tr>
 <tr class="memitem:a6672763967d8d8bcbbae6a82d718b0ea inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a6672763967d8d8bcbbae6a82d718b0ea">SpeciesThermo</a> ()</td></tr>
 <tr class="memdesc:a6672763967d8d8bcbbae6a82d718b0ea inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a6672763967d8d8bcbbae6a82d718b0ea">More...</a><br/></td></tr>
@@ -221,7 +227,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00066">66</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00141">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00137">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
 
 </div>
 </div>
@@ -248,9 +254,9 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00141">141</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00137">137</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00129">SpeciesThermoDuo&lt; T1, T2 &gt;::m_p0</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo1</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00127">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo2</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00131">SpeciesThermoDuo&lt; T1, T2 &gt;::speciesToType</a>.</p>
+<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">SpeciesThermoDuo&lt; T1, T2 &gt;::m_p0</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00121">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo1</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00123">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo2</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00127">SpeciesThermoDuo&lt; T1, T2 &gt;::speciesToType</a>.</p>
 
 <p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00066">SpeciesThermoDuo&lt; T1, T2 &gt;::SpeciesThermoDuo()</a>.</p>
 
@@ -282,7 +288,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a285236a2ba7818df8226230571a1691b">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00157">157</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00153">153</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +371,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#ae77a3800ecfa867e203b21cea453c071">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00164">164</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00160">160</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
 </div>
 </div>
@@ -463,7 +469,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a4f4ab4ce24522c0c5a9252508d1e4acc">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00186">186</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00182">182</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
 </div>
 </div>
@@ -502,7 +508,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00090">90</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo1</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00127">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo2</a>.</p>
+<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00121">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo1</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00123">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo2</a>.</p>
 
 </div>
 </div>
@@ -541,7 +547,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00094">94</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo1</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00127">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo2</a>.</p>
+<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00121">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo1</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00123">SpeciesThermoDuo&lt; T1, T2 &gt;::m_thermo2</a>.</p>
 
 </div>
 </div>
@@ -580,7 +586,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00098">98</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00129">SpeciesThermoDuo&lt; T1, T2 &gt;::m_p0</a>.</p>
+<p>References <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">SpeciesThermoDuo&lt; T1, T2 &gt;::m_p0</a>.</p>
 
 </div>
 </div>
@@ -616,7 +622,7 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a01e42c624945ad66cfb68f6385c74990">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00195">195</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00191">191</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +697,93 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a24b85009a9ddb62f6ea4b1756cf6c4fe">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00206">206</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00202">202</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21be3e0a8b2c635eb667fa79449b729e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual doublereal reportOneHf298 </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>k</em>)</td><td></td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Report the 298 K Heat of Formation of the standard state of one species (J kmol-1) </p>
+<p>The 298K Heat of Formation is defined as the enthalpy change to create the standard state of the species from its constituent elements in their standard states at 298 K and 1 bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>species index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current value of the Heat of Formation at 298K and 1 bar </dd></dl>
+
+<p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a5985892b9fa1e28f1249a02dcc6ba6c2">SpeciesThermo</a>.</p>
+
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00110">110</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac87e5a3dd35b2e65689cc86f09b473e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void modifyOneHf298 </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const doublereal&#160;</td>
+          <td class="paramname"><em>Hf298New</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1) </p>
+<p>The 298K heat of formation is defined as the enthalpy change to create the standard state of the species from its constituent elements in their standard states at 298 K and 1 bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>Index of the species </td></tr>
+    <tr><td class="paramname">Hf298New</td><td>Specify the new value of the Heat of Formation at 298K and 1 bar. units = J/kmol. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">SpeciesThermo</a>.</p>
+
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00114">114</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
 </div>
 </div>
@@ -716,9 +808,9 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Thermo Type 1. </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">125</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00121">121</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00094">SpeciesThermoDuo&lt; T1, T2 &gt;::maxTemp()</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00090">SpeciesThermoDuo&lt; T1, T2 &gt;::minTemp()</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00141">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00094">SpeciesThermoDuo&lt; T1, T2 &gt;::maxTemp()</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00090">SpeciesThermoDuo&lt; T1, T2 &gt;::minTemp()</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00137">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
 
 </div>
 </div>
@@ -742,9 +834,9 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Thermo Type 2. </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00127">127</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00123">123</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00094">SpeciesThermoDuo&lt; T1, T2 &gt;::maxTemp()</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00090">SpeciesThermoDuo&lt; T1, T2 &gt;::minTemp()</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00141">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00094">SpeciesThermoDuo&lt; T1, T2 &gt;::maxTemp()</a>, <a class="el" href="SpeciesThermoMgr_8h_source.html#l00090">SpeciesThermoDuo&lt; T1, T2 &gt;::minTemp()</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00137">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
 
 </div>
 </div>
@@ -768,9 +860,9 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>Reference pressure. </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00129">129</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00125">125</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00141">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00098">SpeciesThermoDuo&lt; T1, T2 &gt;::refPressure()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00137">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>, and <a class="el" href="SpeciesThermoMgr_8h_source.html#l00098">SpeciesThermoDuo&lt; T1, T2 &gt;::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -794,9 +886,9 @@ class Cantera::SpeciesThermoDuo&lt; T1, T2 &gt;</h3>
 
 <p>map from species to type </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00131">131</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoMgr_8h_source.html#l00127">127</a> of file <a class="el" href="SpeciesThermoMgr_8h_source.html">SpeciesThermoMgr.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00141">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoMgr_8h_source.html#l00137">SpeciesThermoDuo&lt; T1, T2 &gt;::operator=()</a>.</p>
 
 </div>
 </div>

@@ -239,85 +239,98 @@
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">size_t</span> m_, mmax_;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;};</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">//! Provides a line number</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354">  182</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define XSTR_TRACE_LINE(s) STR_TRACE_LINE(s)</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">//! Provides a line number</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#ae72cb0d0639b561e2abaefe3a60ab2b9">  185</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define STR_TRACE_LINE(s) #s</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">//! Provides a std::string variable containing the file and line number</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment"> *   This is a std:string containing the file name and the line number</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">  191</a></span>&#160;<span class="preprocessor">#define STR_TRACE   (std::string(__FILE__) +  &quot;:&quot; + XSTR_TRACE_LINE(__LINE__))</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#ifdef NDEBUG</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef AssertTrace</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertTrace(expr)                        ((void) (0))</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef AssertThrow</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrow(expr, procedure)             ((void) (0))</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef AssertThrowMsg</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrowMsg(expr,procedure, message)  ((void) (0))</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">//! Assertion must be true or an error is thrown</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment"> * Assertion must be true or else a CanteraError is thrown. A diagnostic string containing the</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"> * file and line number,  indicating where the error</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment"> * occurred is added to the thrown object.</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"> * @param expr  Boolean expression that must be true</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment"> * @ingroup errorhandling</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">#ifndef AssertTrace</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="code" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594">  216</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertTrace(expr)  ((expr) ? (void) 0 : throw Cantera::CanteraError(STR_TRACE, std::string(&quot;failed assert: &quot;) + #expr))</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">//!  Assertion must be true or an error is thrown</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment"> * Assertion must be true or else a CanteraError is thrown. A diagnostic string indicating where the error</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">//! An error indicating that an unimplemented function has been called</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="classCantera_1_1NotImplementedError.html">  182</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classCantera_1_1NotImplementedError.html" title="An error indicating that an unimplemented function has been called. ">NotImplementedError</a> : <span class="keyword">public</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="classCantera_1_1NotImplementedError.html" title="An error indicating that an unimplemented function has been called. ">NotImplementedError</a>(<span class="keyword">const</span> std::string&amp; func) :</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <a class="code" href="classCantera_1_1CanteraError.html#ad307f9ad52ec7d03910102046203a0e0" title="Protected default constructor discourages throwing errors containing no information. ">CanteraError</a>(func, <span class="stringliteral">&quot;Not implemented.&quot;</span>) {}</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="code" href="classCantera_1_1NotImplementedError.html#ad1e70c6142bde21dc340c3d53a424166">  188</a></span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classCantera_1_1NotImplementedError.html#ad1e70c6142bde21dc340c3d53a424166" title="Method overridden by derived classes to indicate their type. ">getClass</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;NotImplementedError&quot;</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;};</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">//! Provides a line number</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354">  195</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define XSTR_TRACE_LINE(s) STR_TRACE_LINE(s)</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">//! Provides a line number</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#ae72cb0d0639b561e2abaefe3a60ab2b9">  198</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define STR_TRACE_LINE(s) #s</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">//! Provides a std::string variable containing the file and line number</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment"> *   This is a std:string containing the file name and the line number</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">  204</a></span>&#160;<span class="preprocessor">#define STR_TRACE   (std::string(__FILE__) +  &quot;:&quot; + XSTR_TRACE_LINE(__LINE__))</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#ifdef NDEBUG</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef AssertTrace</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertTrace(expr)                        ((void) (0))</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef AssertThrow</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrow(expr, procedure)             ((void) (0))</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifndef AssertThrowMsg</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrowMsg(expr,procedure, message)  ((void) (0))</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">//! Assertion must be true or an error is thrown</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment"> * Assertion must be true or else a CanteraError is thrown. A diagnostic string containing the</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment"> * file and line number,  indicating where the error</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment"> * occurred is added to the thrown object.</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment"> * @param expr  Boolean expression that must be true</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"> * @param procedure  Character string or std:string expression indicating the procedure where the assertion failed</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"> * @ingroup errorhandling</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#ifndef AssertThrow</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno"><a class="code" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">  229</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrow(expr, procedure)   ((expr) ? (void) 0 : throw Cantera::CanteraError(procedure, std::string(&quot;failed assert: &quot;) + #expr))</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#ifndef AssertTrace</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="code" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594">  229</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertTrace(expr)  ((expr) ? (void) 0 : throw Cantera::CanteraError(STR_TRACE, std::string(&quot;failed assert: &quot;) + #expr))</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">//!  Assertion must be true or an error is thrown</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment"> * Assertion must be true or else a CanteraError is thrown. A</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment"> * diagnostic string indicating where the error occurred is added</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"> * to the thrown object.</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"> * @param expr  Boolean expression that must be true</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> * @param procedure  Character string or std:string expression indicating</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> *                   the procedure where the assertion failed</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> * @param message  Character string or std:string expression containing</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> *    a descriptive message is added to the thrown error condition.</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> * @ingroup errorhandling</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor">#ifndef AssertThrowMsg</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="code" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">  247</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrowMsg(expr, procedure, message)  ((expr) ? (void) 0 : throw Cantera::CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">//! Throw an exception if the specified exception is not a finite number.</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"></span><span class="preprocessor">#ifndef AssertFinite</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#a91f31c6197f94cd5bc1e7009f8b7be8e">  254</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertFinite(expr, procedure, message) AssertThrowMsg(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, message)</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;}</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment"> * Assertion must be true or else a CanteraError is thrown. A diagnostic string indicating where the error</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment"> * occurred is added to the thrown object.</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"> * @param expr  Boolean expression that must be true</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"> * @param procedure  Character string or std:string expression indicating the procedure where the assertion failed</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> * @ingroup errorhandling</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor">#ifndef AssertThrow</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="code" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">  242</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrow(expr, procedure)   ((expr) ? (void) 0 : throw Cantera::CanteraError(procedure, std::string(&quot;failed assert: &quot;) + #expr))</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">//!  Assertion must be true or an error is thrown</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> * Assertion must be true or else a CanteraError is thrown. A</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"> * diagnostic string indicating where the error occurred is added</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment"> * to the thrown object.</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"> * @param expr  Boolean expression that must be true</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"> * @param procedure  Character string or std:string expression indicating</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> *                   the procedure where the assertion failed</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> * @param message  Character string or std:string expression containing</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> *    a descriptive message is added to the thrown error condition.</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> * @ingroup errorhandling</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#ifndef AssertThrowMsg</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="code" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">  260</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertThrowMsg(expr, procedure, message)  ((expr) ? (void) 0 : throw Cantera::CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">//! Throw an exception if the specified exception is not a finite number.</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"></span><span class="preprocessor">#ifndef AssertFinite</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="ctexceptions_8h.html#a91f31c6197f94cd5bc1e7009f8b7be8e">  267</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#  define AssertFinite(expr, procedure, message) AssertThrowMsg(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, message)</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -775,6 +775,263 @@ or a fluid beyond its critical point.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="cantera.Mixture">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Mixture</tt><a class="headerlink" href="#cantera.Mixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Class Mixture represents mixtures of one or more phases of matter.  To
+construct a mixture, supply a list of phases to the constructor, each
+paired with the number of moles for that phase:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span> <span class="o">=</span> <span class="n">cantera</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gas.cti&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">species_names</span>
+<span class="go">[&#39;H2&#39;, &#39;H&#39;, &#39;O2&#39;, &#39;O&#39;, &#39;OH&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">graphite</span> <span class="o">=</span> <span class="n">cantera</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;graphite.cti&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">graphite</span><span class="o">.</span><span class="n">species_names</span>
+<span class="go">[&#39;C(g)&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span> <span class="o">=</span> <span class="n">cantera</span><span class="o">.</span><span class="n">Mixture</span><span class="p">([(</span><span class="n">gas</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="n">graphite</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="o">.</span><span class="n">species_names</span>
+<span class="go">[&#39;H2&#39;, &#39;H&#39;, &#39;O2&#39;, &#39;O&#39;, &#39;OH&#39;, &#39;C(g)&#39;]</span>
+</pre></div>
+</div>
+<p>Note that the objects representing each phase compute only the intensive
+state of the phase &#8211; they do not store any information on the amount of
+this phase. Mixture objects, on the other hand, represent the full
+extensive state.</p>
+<p>Mixture objects are &#8216;lightweight&#8217; in the sense that they do not store
+parameters needed to compute thermodynamic or kinetic properties of the
+phases. These are contained in the (&#8216;heavyweight&#8217;) phase objects. Multiple
+mixture objects may be constructed using the same set of phase objects.
+Each one stores its own state information locally, and synchronizes the
+phases objects whenever it requires phase properties.</p>
+<dl class="attribute">
+<dt id="cantera.Mixture.P">
+<tt class="descname">P</tt><a class="headerlink" href="#cantera.Mixture.P" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Pressure [Pa] of all phases in the mixture. When set, the
+temperature of the mixture is held fixed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.T">
+<tt class="descname">T</tt><a class="headerlink" href="#cantera.Mixture.T" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Temperature [K] of all phases in the mixture. When set, the
+pressure of the mixture is held fixed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.charge">
+<tt class="descname">charge</tt><a class="headerlink" href="#cantera.Mixture.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The total charge in Coulombs, summed over all phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.chemical_potentials">
+<tt class="descname">chemical_potentials</tt><a class="headerlink" href="#cantera.Mixture.chemical_potentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>The chemical potentials of all species [J/kmol].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.element_index">
+<tt class="descname">element_index</tt><big>(</big><em>self</em>, <em>element</em><big>)</big> &rarr; int<a class="headerlink" href="#cantera.Mixture.element_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of element with name &#8216;element&#8217;:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="o">.</span><span class="n">element_index</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.element_moles">
+<tt class="descname">element_moles</tt><big>(</big><em>self</em>, <em>e</em><big>)</big><a class="headerlink" href="#cantera.Mixture.element_moles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of moles of element <em>e</em>, summed over all species.
+The element may be referenced either by index number or by name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.equilibrate">
+<tt class="descname">equilibrate</tt><big>(</big><em>self</em>, <em>XY</em>, <em>solver='vcs'</em>, <em>rtol=1e-09</em>, <em>max_steps=1000</em>, <em>max_iter=100</em>, <em>estimate_equil=0</em>, <em>print_level=0</em>, <em>log_level=0</em><big>)</big><a class="headerlink" href="#cantera.Mixture.equilibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set to a state of chemical equilibrium holding property pair <em>XY</em>
+constant. This method uses a version of the VCS algorithm to find the
+composition that minimizes the total Gibbs free energy of the mixture,
+subject to element conservation constraints. For a description of the
+theory, see Smith and Missen, &#8220;Chemical Reaction Equilibrium.&#8221;</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>XY</strong> &#8211; <p>A two-letter string, which must be one of the set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="s">&#39;TP&#39;</span><span class="p">,</span> <span class="s">&#39;HP&#39;</span><span class="p">,</span> <span class="s">&#39;SP&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><strong>solver</strong> &#8211; Set to either &#8216;vcs&#8217; or &#8216;gibbs&#8217; to choose implementation
+of the solver to use. &#8216;vcs&#8217; uses the solver implemented in the
+C++ class &#8216;VCSnonideal&#8217;, and &#8216;gibbs&#8217; uses the one implemented
+in class &#8216;MultiPhaseEquil&#8217;.</li>
+<li><strong>rtol</strong> &#8211; Error tolerance. Iteration will continue until (Delta mu)/RT is
+less than this value for each reaction. Note that this default is
+very conservative, and good equilibrium solutions may be obtained
+with larger error tolerances.</li>
+<li><strong>max_steps</strong> &#8211; Maximum number of steps to take while solving the equilibrium
+problem for specified <em>T</em> and <em>P</em>.</li>
+<li><strong>max_iter</strong> &#8211; Maximum number of temperature and/or pressure iterations.
+This is only relevant if a property pair other than (T,P) is
+specified.</li>
+<li><strong>estimate_equil</strong> &#8211; Flag indicating whether the solver should estimate its own initial
+condition. If 0, the initial mole fraction vector in the phase
+objects are used as the initial condition. If 1, the initial mole
+fraction vector is used if the element abundances are satisfied.
+if -1, the initial mole fraction vector is thrown out, and an
+estimate is formulated.</li>
+<li><strong>print_level</strong> &#8211; Determines the amount of output displayed during the solution
+process. 0 indicates no output, while larger numbers produce
+successively more verbose information.</li>
+<li><strong>log_level</strong> &#8211; Controls the amount of diagnostic output written.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.max_temp">
+<tt class="descname">max_temp</tt><a class="headerlink" href="#cantera.Mixture.max_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum temperature for which all species in multi-species
+solutions have valid thermo data. Stoichiometric phases are not
+considered in determining max_temp.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.min_temp">
+<tt class="descname">min_temp</tt><a class="headerlink" href="#cantera.Mixture.min_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The minimum temperature for which all species in multi-species
+solutions have valid thermo data. Stoichiometric phases are not
+considered in determining min_temp.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.n_atoms">
+<tt class="descname">n_atoms</tt><big>(</big><em>self</em>, <em>k</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.Mixture.n_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of atoms of element <em>m</em> in the species with global index <em>k</em>.
+The element may be referenced either by name or by index.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">mix</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">4.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.n_elements">
+<tt class="descname">n_elements</tt><a class="headerlink" href="#cantera.Mixture.n_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of elements present in the mixture.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.n_phases">
+<tt class="descname">n_phases</tt><a class="headerlink" href="#cantera.Mixture.n_phases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of phases</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.n_species">
+<tt class="descname">n_species</tt><a class="headerlink" href="#cantera.Mixture.n_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of species.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.phase">
+<tt class="descname">phase</tt><big>(</big><em>self</em>, <em>n</em><big>)</big><a class="headerlink" href="#cantera.Mixture.phase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.phase_charge">
+<tt class="descname">phase_charge</tt><big>(</big><em>self</em>, <em>p</em><big>)</big><a class="headerlink" href="#cantera.Mixture.phase_charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The charge of phase <em>p</em> in Coulumbs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.phase_index">
+<tt class="descname">phase_index</tt><big>(</big><em>self</em>, <em>p</em><big>)</big><a class="headerlink" href="#cantera.Mixture.phase_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Index of the phase named <em>p</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.phase_moles">
+<tt class="descname">phase_moles</tt><big>(</big><em>self</em>, <em>p=None</em><big>)</big><a class="headerlink" href="#cantera.Mixture.phase_moles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moles in phase <em>p</em>, if <em>p</em> is specified, otherwise the number of
+moles in all phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.phase_names">
+<tt class="descname">phase_names</tt><a class="headerlink" href="#cantera.Mixture.phase_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Names of all phases in the order added.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.report">
+<tt class="descname">report</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#cantera.Mixture.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a report describing the thermodynamic state of this mixture. To
+print the report to the screen, simply call the mixture object. The
+following two statements are equivalent:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">mix</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.set_phase_moles">
+<tt class="descname">set_phase_moles</tt><big>(</big><em>self</em>, <em>p</em>, <em>moles</em><big>)</big><a class="headerlink" href="#cantera.Mixture.set_phase_moles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the number of moles of phase <em>p</em> to <em>moles</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.species_index">
+<tt class="descname">species_index</tt><big>(</big><em>self</em>, <em>phase</em>, <em>species</em><big>)</big><a class="headerlink" href="#cantera.Mixture.species_index" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>phase</strong> &#8211; Phase object, index or name</li>
+<li><strong>species</strong> &#8211; Species name or index</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the global index of species <em>species</em> in phase <em>phase</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.species_moles">
+<tt class="descname">species_moles</tt><a class="headerlink" href="#cantera.Mixture.species_moles" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of moles of each species. May be set either
+as a string, or as an array. If an array is used, it must be
+dimensioned at least as large as the total number of species in the
+mixture. Note that the species may belong to any phase, and
+unspecified species are set to zero.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="o">.</span><span class="n">species_moles</span> <span class="o">=</span> <span class="s">&#39;C(s):1.0, CH4:2.0, O2:0.2&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Mixture.species_name">
+<tt class="descname">species_name</tt><big>(</big><em>self</em>, <em>k</em><big>)</big><a class="headerlink" href="#cantera.Mixture.species_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the species with index <em>k</em>. Note that index numbers
+are assigned in order as phases are added.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Mixture.species_names">
+<tt class="descname">species_names</tt><a class="headerlink" href="#cantera.Mixture.species_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 

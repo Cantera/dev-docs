@@ -60,7 +60,6 @@
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classCantera_1_1BandMatrix-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">BandMatrix Class Reference</div>  </div>
@@ -155,9 +154,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa4014a396abd286663c7e21c4eb83f09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#aa4014a396abd286663c7e21c4eb83f09">solve</a> (const doublereal *const b, doublereal *const x)</td></tr>
 <tr class="memdesc:aa4014a396abd286663c7e21c4eb83f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the matrix problem Ax = b.  <a href="#aa4014a396abd286663c7e21c4eb83f09">More...</a><br/></td></tr>
 <tr class="separator:aa4014a396abd286663c7e21c4eb83f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af59d13c44ea3b49f881e172e6ac216ff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#af59d13c44ea3b49f881e172e6ac216ff">solve</a> (doublereal *b)</td></tr>
-<tr class="memdesc:af59d13c44ea3b49f881e172e6ac216ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the matrix problem Ax = b.  <a href="#af59d13c44ea3b49f881e172e6ac216ff">More...</a><br/></td></tr>
-<tr class="separator:af59d13c44ea3b49f881e172e6ac216ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86320de7d1206d1bd40915104af1a6c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a86320de7d1206d1bd40915104af1a6c4">solve</a> (doublereal *b, size_t nrhs=1, size_t ldb=0)</td></tr>
+<tr class="memdesc:a86320de7d1206d1bd40915104af1a6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solve the matrix problem Ax = b.  <a href="#a86320de7d1206d1bd40915104af1a6c4">More...</a><br/></td></tr>
+<tr class="separator:a86320de7d1206d1bd40915104af1a6c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f5b13acc7ff2d91d2255703d7b8650f"><td class="memItemLeft" align="right" valign="top">virtual vector_fp::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a7f5b13acc7ff2d91d2255703d7b8650f">begin</a> ()</td></tr>
 <tr class="memdesc:a7f5b13acc7ff2d91d2255703d7b8650f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an iterator for the start of the band storage data.  <a href="#a7f5b13acc7ff2d91d2255703d7b8650f">More...</a><br/></td></tr>
 <tr class="separator:a7f5b13acc7ff2d91d2255703d7b8650f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,18 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0c4493a5d4723940d60164428f11adc3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a0c4493a5d4723940d60164428f11adc3">zero</a> ()</td></tr>
 <tr class="memdesc:a0c4493a5d4723940d60164428f11adc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero the matrix elements.  <a href="#a0c4493a5d4723940d60164428f11adc3">More...</a><br/></td></tr>
 <tr class="separator:a0c4493a5d4723940d60164428f11adc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3aec81480f84e0297861baee47ef0b8"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#af3aec81480f84e0297861baee47ef0b8">factorQR</a> ()</td></tr>
-<tr class="memdesc:af3aec81480f84e0297861baee47ef0b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factors the A matrix using the QR algorithm, overwriting A.  <a href="#af3aec81480f84e0297861baee47ef0b8">More...</a><br/></td></tr>
-<tr class="separator:af3aec81480f84e0297861baee47ef0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a367a81b82836732805a8de2fea3348eb"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a367a81b82836732805a8de2fea3348eb">rcondQR</a> ()</td></tr>
-<tr class="memdesc:a367a81b82836732805a8de2fea3348eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimate of the inverse of the condition number for the matrix.  <a href="#a367a81b82836732805a8de2fea3348eb">More...</a><br/></td></tr>
-<tr class="separator:a367a81b82836732805a8de2fea3348eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ad99d631dfdf000fcf9943430f2d5b8"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a6ad99d631dfdf000fcf9943430f2d5b8">rcond</a> (doublereal a1norm)</td></tr>
 <tr class="memdesc:a6ad99d631dfdf000fcf9943430f2d5b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimate of the inverse of the condition number for the matrix.  <a href="#a6ad99d631dfdf000fcf9943430f2d5b8">More...</a><br/></td></tr>
 <tr class="separator:a6ad99d631dfdf000fcf9943430f2d5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab6f7789babde1fa77ee93d54fd3e55a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a">useFactorAlgorithm</a> (int fAlgorithm)</td></tr>
-<tr class="memdesc:aab6f7789babde1fa77ee93d54fd3e55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the way the matrix is factored.  <a href="#aab6f7789babde1fa77ee93d54fd3e55a">More...</a><br/></td></tr>
-<tr class="separator:aab6f7789babde1fa77ee93d54fd3e55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac42a415fc114664eb74778201f63e0c"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#aac42a415fc114664eb74778201f63e0c">factorAlgorithm</a> () const </td></tr>
 <tr class="memdesc:aac42a415fc114664eb74778201f63e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the factor algorithm used.  <a href="#aac42a415fc114664eb74778201f63e0c">More...</a><br/></td></tr>
 <tr class="separator:aac42a415fc114664eb74778201f63e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,9 +184,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2930bac23b531cd7a3b6af71acbe51ec"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCantera_1_1GeneralMatrix.html">GeneralMatrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a2930bac23b531cd7a3b6af71acbe51ec">duplMyselfAsGeneralMatrix</a> () const </td></tr>
 <tr class="memdesc:a2930bac23b531cd7a3b6af71acbe51ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplicator member function.  <a href="#a2930bac23b531cd7a3b6af71acbe51ec">More...</a><br/></td></tr>
 <tr class="separator:a2930bac23b531cd7a3b6af71acbe51ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca22fa0b1566fa0eede1f4287c151166"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#aca22fa0b1566fa0eede1f4287c151166">factored</a> () const </td></tr>
-<tr class="memdesc:aca22fa0b1566fa0eede1f4287c151166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report whether the current matrix has been factored.  <a href="#aca22fa0b1566fa0eede1f4287c151166">More...</a><br/></td></tr>
-<tr class="separator:aca22fa0b1566fa0eede1f4287c151166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18f535b798e339d6876a0b853bee2540"><td class="memItemLeft" align="right" valign="top">virtual doublereal *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a18f535b798e339d6876a0b853bee2540">ptrColumn</a> (size_t j)</td></tr>
 <tr class="memdesc:a18f535b798e339d6876a0b853bee2540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the top of column j, column values are assumed to be contiguous in memory.  <a href="#a18f535b798e339d6876a0b853bee2540">More...</a><br/></td></tr>
 <tr class="separator:a18f535b798e339d6876a0b853bee2540"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,9 +193,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0cf4267353b62989517490c13f97979d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a0cf4267353b62989517490c13f97979d">copyData</a> (const <a class="el" href="classCantera_1_1GeneralMatrix.html">GeneralMatrix</a> &amp;y)</td></tr>
 <tr class="memdesc:a0cf4267353b62989517490c13f97979d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the data from one array into another without doing any checking.  <a href="#a0cf4267353b62989517490c13f97979d">More...</a><br/></td></tr>
 <tr class="separator:a0cf4267353b62989517490c13f97979d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af153f4b88295192381b506948e66e0c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#af153f4b88295192381b506948e66e0c2">clearFactorFlag</a> ()</td></tr>
-<tr class="memdesc:af153f4b88295192381b506948e66e0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the factored flag.  <a href="#af153f4b88295192381b506948e66e0c2">More...</a><br/></td></tr>
-<tr class="separator:af153f4b88295192381b506948e66e0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#ac9ed5808b2437d9f0c871d1ebece7e30">checkRows</a> (doublereal &amp;valueSmall) const </td></tr>
 <tr class="memdesc:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if we have any zero rows in the jacobian.  <a href="#ac9ed5808b2437d9f0c871d1ebece7e30">More...</a><br/></td></tr>
 <tr class="separator:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -228,6 +212,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acd3a1b26e6e35617fb0c4c7c8e64fb4c inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#acd3a1b26e6e35617fb0c4c7c8e64fb4c">~GeneralMatrix</a> ()</td></tr>
 <tr class="memdesc:acd3a1b26e6e35617fb0c4c7c8e64fb4c inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Does nothing.  <a href="#acd3a1b26e6e35617fb0c4c7c8e64fb4c">More...</a><br/></td></tr>
 <tr class="separator:acd3a1b26e6e35617fb0c4c7c8e64fb4c inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81db57f6f1016cf29600569e0043c00d inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a81db57f6f1016cf29600569e0043c00d">factorQR</a> ()</td></tr>
+<tr class="memdesc:a81db57f6f1016cf29600569e0043c00d inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factors the A matrix using the QR algorithm, overwriting A.  <a href="#a81db57f6f1016cf29600569e0043c00d">More...</a><br/></td></tr>
+<tr class="separator:a81db57f6f1016cf29600569e0043c00d inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a5e3ef84911276200615a6239eac9c inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a43a5e3ef84911276200615a6239eac9c">rcondQR</a> ()</td></tr>
+<tr class="memdesc:a43a5e3ef84911276200615a6239eac9c inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an estimate of the inverse of the condition number for the matrix.  <a href="#a43a5e3ef84911276200615a6239eac9c">More...</a><br/></td></tr>
+<tr class="separator:a43a5e3ef84911276200615a6239eac9c inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3b4f049253093c36b74fe8d7166ecd3 inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#ae3b4f049253093c36b74fe8d7166ecd3">useFactorAlgorithm</a> (int fAlgorithm)</td></tr>
+<tr class="memdesc:ae3b4f049253093c36b74fe8d7166ecd3 inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the way the matrix is factored.  <a href="#ae3b4f049253093c36b74fe8d7166ecd3">More...</a><br/></td></tr>
+<tr class="separator:ae3b4f049253093c36b74fe8d7166ecd3 inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43deefd36585d28649f065c058355d4f inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a43deefd36585d28649f065c058355d4f">clearFactorFlag</a> ()</td></tr>
+<tr class="memdesc:a43deefd36585d28649f065c058355d4f inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">clear the factored flag  <a href="#a43deefd36585d28649f065c058355d4f">More...</a><br/></td></tr>
+<tr class="separator:a43deefd36585d28649f065c058355d4f inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458210f6c086406ead1d1586d949d5f0 inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#a458210f6c086406ead1d1586d949d5f0">factored</a> () const </td></tr>
+<tr class="memdesc:a458210f6c086406ead1d1586d949d5f0 inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if the current factorization is up to date with the matrix  <a href="#a458210f6c086406ead1d1586d949d5f0">More...</a><br/></td></tr>
+<tr class="separator:a458210f6c086406ead1d1586d949d5f0 inherit pub_methods_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -237,9 +236,6 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a34750403f350d53f65a5375820e851d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a34750403f350d53f65a5375820e851d5">ludata</a></td></tr>
 <tr class="memdesc:a34750403f350d53f65a5375820e851d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factorized data.  <a href="#a34750403f350d53f65a5375820e851d5">More...</a><br/></td></tr>
 <tr class="separator:a34750403f350d53f65a5375820e851d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f1dbefff0f86a82ed0f668c73d476a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a3f1dbefff0f86a82ed0f668c73d476a4">m_factored</a></td></tr>
-<tr class="memdesc:a3f1dbefff0f86a82ed0f668c73d476a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean indicating whether the matrix is factored.  <a href="#a3f1dbefff0f86a82ed0f668c73d476a4">More...</a><br/></td></tr>
-<tr class="separator:a3f1dbefff0f86a82ed0f668c73d476a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad18a41dcde89b118c3d486d3aa5b5e14"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#ad18a41dcde89b118c3d486d3aa5b5e14">m_n</a></td></tr>
 <tr class="memdesc:ad18a41dcde89b118c3d486d3aa5b5e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rows and columns of the matrix.  <a href="#ad18a41dcde89b118c3d486d3aa5b5e14">More...</a><br/></td></tr>
 <tr class="separator:ad18a41dcde89b118c3d486d3aa5b5e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -264,12 +260,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a9ee2cb99ac8920e655b20273ac12850f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a9ee2cb99ac8920e655b20273ac12850f">work_</a></td></tr>
 <tr class="memdesc:a9ee2cb99ac8920e655b20273ac12850f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra dp work array needed - size = 3n.  <a href="#a9ee2cb99ac8920e655b20273ac12850f">More...</a><br/></td></tr>
 <tr class="separator:a9ee2cb99ac8920e655b20273ac12850f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a07ee5029ef9bf48c9888208d4e64e338"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a07ee5029ef9bf48c9888208d4e64e338">err</a> (const std::string &amp;msg) const </td></tr>
-<tr class="memdesc:a07ee5029ef9bf48c9888208d4e64e338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error function that gets called for unhandled cases.  <a href="#a07ee5029ef9bf48c9888208d4e64e338">More...</a><br/></td></tr>
-<tr class="separator:a07ee5029ef9bf48c9888208d4e64e338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classCantera_1_1GeneralMatrix"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCantera_1_1GeneralMatrix')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classCantera_1_1GeneralMatrix.html">GeneralMatrix</a></td></tr>
+<tr class="memitem:ae15e2697ab2c1ea64fb492f8a14ab080 inherit pro_attribs_classCantera_1_1GeneralMatrix"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralMatrix.html#ae15e2697ab2c1ea64fb492f8a14ab080">m_factored</a></td></tr>
+<tr class="memdesc:ae15e2697ab2c1ea64fb492f8a14ab080 inherit pro_attribs_classCantera_1_1GeneralMatrix"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the matrix is factored.  <a href="#ae15e2697ab2c1ea64fb492f8a14ab080">More...</a><br/></td></tr>
+<tr class="separator:ae15e2697ab2c1ea64fb492f8a14ab080 inherit pro_attribs_classCantera_1_1GeneralMatrix"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -285,7 +279,7 @@ Additional Inherited Members</h2></td></tr>
 <p>QR factorizations of banded matrices are not included in the original LAPACK work. Add-ons are available. However, they are not included here. Instead we just use the stock LU decompositions.</p>
 <p>This class is a derived class of the base class <a class="el" href="classCantera_1_1GeneralMatrix.html" title="Generic matrix. ">GeneralMatrix</a>. However, within the oneD directory, the class is used as is, without reference to the <a class="el" href="classCantera_1_1GeneralMatrix.html" title="Generic matrix. ">GeneralMatrix</a> base type. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00037">37</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00036">36</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a84c04f28d6f50a1d5de566375b60792d"></a>
 <div class="memitem">
@@ -307,9 +301,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00024">24</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00456">BandMatrix::duplMyselfAsGeneralMatrix()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00432">BandMatrix::duplMyselfAsGeneralMatrix()</a>.</p>
 
 </div>
 </div>
@@ -361,9 +355,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00036">36</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00035">35</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00362">BandMatrix::m_ipiv</a>, and <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00323">BandMatrix::m_ipiv</a>, and <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
 </div>
 </div>
@@ -389,9 +383,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00056">56</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00054">54</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00362">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, and <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00323">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, and <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
 </div>
 </div>
@@ -418,9 +412,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00078">78</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00074">74</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00362">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, and <a class="el" href="GeneralMatrix_8cpp_source.html#l00028">GeneralMatrix::operator=()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00323">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, and <a class="el" href="GeneralMatrix_8cpp_source.html#l00030">GeneralMatrix::operator=()</a>.</p>
 
 </div>
 </div>
@@ -472,9 +466,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00099">99</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00094">94</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00362">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, and <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00323">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, and <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
 </div>
 </div>
@@ -500,9 +494,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00116">116</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00111">111</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, and <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>.</p>
 
 <p>Referenced by <a class="el" href="MultiJac_8cpp_source.html#l00048">MultiJac::eval()</a>.</p>
 
@@ -552,9 +546,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ae58be4c2679cecc22e59af4f199fc5bd">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00128">128</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00123">123</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -602,9 +596,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ad7dbb629965713541f9abb17bd6f449a">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00133">133</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00128">128</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -643,11 +637,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a reference to the value of the matrix entry </dd></dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00138">138</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00133">133</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00155">BandMatrix::index()</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, and <a class="el" href="BandMatrix_8h_source.html#l00359">BandMatrix::m_zero</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00150">BandMatrix::index()</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, and <a class="el" href="BandMatrix_8h_source.html#l00320">BandMatrix::m_zero</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00430">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00404">BandMatrix::checkRows()</a>, <a class="el" href="MultiJac_8cpp_source.html#l00048">MultiJac::eval()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00386">BandMatrix::oneNorm()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00128">BandMatrix::operator()()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00406">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00380">BandMatrix::checkRows()</a>, <a class="el" href="MultiJac_8cpp_source.html#l00048">MultiJac::eval()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00362">BandMatrix::oneNorm()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00123">BandMatrix::operator()()</a>.</p>
 
 </div>
 </div>
@@ -686,9 +680,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the value of the matrix entry </dd></dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00147">147</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00142">142</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00155">BandMatrix::index()</a>, and <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00150">BandMatrix::index()</a>, and <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>.</p>
 
 </div>
 </div>
@@ -726,11 +720,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the index of the matrix entry </dd></dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00155">155</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00150">150</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, and <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, and <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::_value()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00158">BandMatrix::_value()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -769,11 +763,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the value of the matrix entry </dd></dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00163">163</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00158">158</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00155">BandMatrix::index()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00150">BandMatrix::index()</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00230">BandMatrix::leftMult()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00213">BandMatrix::mult()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00225">BandMatrix::leftMult()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00208">BandMatrix::mult()</a>.</p>
 
 </div>
 </div>
@@ -802,11 +796,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ab6bf3d7e7e05dda9a29fd61994712717">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00168">168</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00163">163</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00213">BandMatrix::mult()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00315">Cantera::operator&lt;&lt;()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00208">BandMatrix::mult()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00313">Cantera::operator&lt;&lt;()</a>.</p>
 
 </div>
 </div>
@@ -843,9 +837,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a42ae079c9e25e53f72090016d823c7cd">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00173">173</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00168">168</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, and <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, and <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
 </div>
 </div>
@@ -864,11 +858,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Number of columns. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00183">183</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00178">178</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00230">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00315">Cantera::operator&lt;&lt;()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00225">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00313">Cantera::operator&lt;&lt;()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -887,11 +881,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Number of subdiagonals. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00189">189</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00184">184</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -910,11 +904,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Number of superdiagonals. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00195">195</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00190">190</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -933,11 +927,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Return the number of rows of storage needed for the band storage. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00200">200</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00195">195</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, and <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, and <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -956,11 +950,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Return a reference to the pivot vector. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00205">205</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00200">200</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00362">BandMatrix::m_ipiv</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00323">BandMatrix::m_ipiv</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -1007,9 +1001,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ae6db456e2ef9738c2629c96873a3241c">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00213">213</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00208">208</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::_value()</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00168">BandMatrix::nRows()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00158">BandMatrix::_value()</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::nRows()</a>.</p>
 
 </div>
 </div>
@@ -1056,9 +1050,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#afd4f2d5121df72ea0b10e7aae3ddb622">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00230">230</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00225">225</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::_value()</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00183">BandMatrix::nColumns()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00158">BandMatrix::_value()</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00178">BandMatrix::nColumns()</a>.</p>
 
 </div>
 </div>
@@ -1089,11 +1083,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a39f67be3c7feeebbc0327db429f6ec8f">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00248">248</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00243">243</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00205">BandMatrix::ipiv()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00183">BandMatrix::nColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00168">BandMatrix::nRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00189">BandMatrix::nSubDiagonals()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::nSuperDiagonals()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ipiv()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00178">BandMatrix::nColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::nRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00184">BandMatrix::nSubDiagonals()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00190">BandMatrix::nSuperDiagonals()</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00333">BandMatrix::factorQR()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -1131,15 +1125,15 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return a success flag 0 indicates a success ~0 Some error occurred, see the LAPACK documentation </dd></dl>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00267">267</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00262">262</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>.</p>
 
 <p>Referenced by <a class="el" href="MultiNewton_8cpp_source.html#l00198">MultiNewton::step()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af59d13c44ea3b49f881e172e6ac216ff"></a>
+<a class="anchor" id="a86320de7d1206d1bd40915104af1a6c4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1150,8 +1144,24 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">int solve </td>
           <td>(</td>
           <td class="paramtype">doublereal *&#160;</td>
-          <td class="paramname"><em>b</em>)</td><td></td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>nrhs</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ldb</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -1170,11 +1180,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Return a success flag 0 indicates a success ~0 Some error occurred, see the LAPACK documentation </dd></dl>
 
-<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ab04479c16dd5339ad9040f19bf8b837d">GeneralMatrix</a>.</p>
+<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a732f1f7fc3da4f68f5fe687a2844ff14">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00273">273</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00268">268</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00205">BandMatrix::ipiv()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00183">BandMatrix::nColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00189">BandMatrix::nSubDiagonals()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::nSuperDiagonals()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ipiv()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00178">BandMatrix::nColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00184">BandMatrix::nSubDiagonals()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00190">BandMatrix::nSuperDiagonals()</a>.</p>
 
 </div>
 </div>
@@ -1204,9 +1214,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a83bae2c83598316d140e1f84c243ef13">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00293">293</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00291">291</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, and <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>.</p>
 
 </div>
 </div>
@@ -1226,9 +1236,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns an iterator for the end of the band storage data. </p>
 <p>Iterator points to the end of the data, and it is changeable. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00299">299</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00297">297</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, and <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>.</p>
 
 </div>
 </div>
@@ -1258,9 +1268,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a30c66d56f14a4d6174074d91e2a4102a">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00305">305</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00303">303</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>.</p>
 
 </div>
 </div>
@@ -1280,9 +1290,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns a const iterator for the end of the band storage data. </p>
 <p>Iterator points to the end of the data, and it is not changeable. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00310">310</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00308">308</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>.</p>
 
 </div>
 </div>
@@ -1311,75 +1321,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#adc97ef01b93ab09f32bf9a3bd07e6342">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00122">122</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00117">117</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, and <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af3aec81480f84e0297861baee47ef0b8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int factorQR </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Factors the A matrix using the QR algorithm, overwriting A. </p>
-<p>we set m_factored to 2 to indicate the matrix is now QR factored</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns the info variable from lapack </dd></dl>
-
-<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a572887d858771c9619e795415efacce9">GeneralMatrix</a>.</p>
-
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00333">333</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
-
-<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a367a81b82836732805a8de2fea3348eb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">doublereal rcondQR </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns an estimate of the inverse of the condition number for the matrix. </p>
-<p>The matrix must have been previously factored using the QR algorithm</p>
-<dl class="section return"><dt>Returns</dt><dd>returns the inverse of the condition number </dd></dl>
-
-<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a7ea018e47c3f29e589518bf473a5aeb0">GeneralMatrix</a>.</p>
-
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00339">339</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
-
-<p>References <a class="el" href="BandMatrix_8cpp_source.html#l00386">BandMatrix::oneNorm()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, and <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>.</p>
 
 </div>
 </div>
@@ -1417,47 +1361,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a25b48ec089ba4c9e5c6f0438a520ce1d">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00345">345</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00326">326</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="BandMatrix_8h_source.html#l00368">BandMatrix::iwork_</a>, <a class="el" href="BandMatrix_8h_source.html#l00344">BandMatrix::ludata</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00362">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, <a class="el" href="BandMatrix_8h_source.html#l00371">BandMatrix::work_</a>, and <a class="el" href="global_8cpp_source.html#l00048">Cantera::writelogf()</a>.</p>
-
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00339">BandMatrix::rcondQR()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aab6f7789babde1fa77ee93d54fd3e55a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void useFactorAlgorithm </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fAlgorithm</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Change the way the matrix is factored. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fAlgorithm</td><td>integer 0 LU factorization 1 QR factorization </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a273c3e84589b2586b707792457e565d0">GeneralMatrix</a>.</p>
-
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00376">376</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="BandMatrix_8h_source.html#l00329">BandMatrix::iwork_</a>, <a class="el" href="BandMatrix_8h_source.html#l00308">BandMatrix::ludata</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00323">BandMatrix::m_ipiv</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, <a class="el" href="BandMatrix_8h_source.html#l00332">BandMatrix::work_</a>, and <a class="el" href="global_8cpp_source.html#l00048">Cantera::writelogf()</a>.</p>
 
 </div>
 </div>
@@ -1483,13 +1389,11 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the factor algorithm used. </p>
-<pre class="fragment">0 LU decomposition
-1 QR decomposition
-</pre><p>This routine will always return 0 </p>
+<p>This method will always return 0 (LU) for band matrices. </p>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a8d0eb4006117833b938310862aac3fb7">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00381">381</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00357">357</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
 </div>
 </div>
@@ -1518,11 +1422,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a96885af739233744f8fe1545d6b2aaf4">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00386">386</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00362">362</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
-
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00339">BandMatrix::rcondQR()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -1553,40 +1455,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a0aef42a7a5fea6698b119f0b92c219eb">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00456">456</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00432">432</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
 <p>References <a class="el" href="BandMatrix_8cpp_source.html#l00024">BandMatrix::BandMatrix()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aca22fa0b1566fa0eede1f4287c151166"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool factored </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Report whether the current matrix has been factored. </p>
-
-<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a7b9721e7f190f0dc6f987e4a4cb72d48">GeneralMatrix</a>.</p>
-
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00461">461</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
-
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>.</p>
 
 </div>
 </div>
@@ -1628,9 +1499,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00466">466</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00437">437</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>.</p>
 
 </div>
 </div>
@@ -1661,9 +1532,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#adf8b3a593751faf5aaa0f35d46f7be11">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00471">471</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00442">442</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00365">BandMatrix::m_colPtrs</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00326">BandMatrix::m_colPtrs</a>.</p>
 
 </div>
 </div>
@@ -1700,40 +1571,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ae4c9f9bdba7bee38a492685dc13f13c9">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00476">476</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00447">447</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00341">BandMatrix::data</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, and <a class="el" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb">GeneralMatrix::ptrColumn()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af153f4b88295192381b506948e66e0c2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void clearFactorFlag </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clear the factored flag. </p>
-
-<p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#a5068355b2d2d3696818c01b73fb74204">GeneralMatrix</a>.</p>
-
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00484">484</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
-
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00347">BandMatrix::m_factored</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00305">BandMatrix::data</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="GeneralMatrix_8h_source.html#l00238">GeneralMatrix::m_factored</a>, <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, and <a class="el" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb">GeneralMatrix::ptrColumn()</a>.</p>
 
 </div>
 </div>
@@ -1771,9 +1611,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ad6caa0f851ac7317b12c3f5d3bc25c07">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00404">404</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00380">380</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -1811,43 +1651,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#abbb40c674b3d03d31383f30e23813f31">GeneralMatrix</a>.</p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00430">430</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00406">406</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
 
-<p>References <a class="el" href="BandMatrix_8h_source.html#l00353">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00356">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00350">BandMatrix::m_n</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a07ee5029ef9bf48c9888208d4e64e338"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void err </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Error function that gets called for unhandled cases. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>String containing the message. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="BandMatrix_8cpp_source.html#l00328">328</a> of file <a class="el" href="BandMatrix_8cpp_source.html">BandMatrix.cpp</a>.</p>
+<p>References <a class="el" href="BandMatrix_8h_source.html#l00314">BandMatrix::m_kl</a>, <a class="el" href="BandMatrix_8h_source.html#l00317">BandMatrix::m_ku</a>, <a class="el" href="BandMatrix_8h_source.html#l00311">BandMatrix::m_n</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -1872,9 +1678,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Matrix data. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00341">341</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00305">305</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::_value()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00024">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00293">BandMatrix::begin()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00116">BandMatrix::bfill()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00476">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00299">BandMatrix::end()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00122">BandMatrix::zero()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00158">BandMatrix::_value()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00024">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00291">BandMatrix::begin()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00111">BandMatrix::bfill()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00447">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00297">BandMatrix::end()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00117">BandMatrix::zero()</a>.</p>
 
 </div>
 </div>
@@ -1898,35 +1704,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Factorized data. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00344">344</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00308">308</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00024">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3f1dbefff0f86a82ed0f668c73d476a4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool m_factored</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Boolean indicating whether the matrix is factored. </p>
-
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00347">347</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
-
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00056">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00293">BandMatrix::begin()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00116">BandMatrix::bfill()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00484">BandMatrix::clearFactorFlag()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00476">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00299">BandMatrix::end()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00248">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00461">BandMatrix::factored()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00273">BandMatrix::solve()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00122">BandMatrix::zero()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00024">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00243">BandMatrix::factor()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00268">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -1950,9 +1730,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Number of rows and columns of the matrix. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00350">350</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00311">311</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00036">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00430">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00404">BandMatrix::checkRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00476">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00230">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00213">BandMatrix::mult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00183">BandMatrix::nColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00168">BandMatrix::nRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00173">BandMatrix::nRowsAndStruct()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00386">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00267">BandMatrix::solve()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00035">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00406">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00380">BandMatrix::checkRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00447">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00225">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00208">BandMatrix::mult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00178">BandMatrix::nColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00163">BandMatrix::nRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00168">BandMatrix::nRowsAndStruct()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00362">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00262">BandMatrix::solve()</a>.</p>
 
 </div>
 </div>
@@ -1976,9 +1756,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Number of subdiagonals of the matrix. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00353">353</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00314">314</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00056">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00430">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00404">BandMatrix::checkRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00476">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00155">BandMatrix::index()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00230">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00213">BandMatrix::mult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00173">BandMatrix::nRowsAndStruct()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00189">BandMatrix::nSubDiagonals()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00386">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00054">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00406">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00380">BandMatrix::checkRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00447">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00150">BandMatrix::index()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00225">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00208">BandMatrix::mult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00168">BandMatrix::nRowsAndStruct()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00184">BandMatrix::nSubDiagonals()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00362">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -2002,9 +1782,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Number of super diagonals of the matrix. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00356">356</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00317">317</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00056">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00430">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00404">BandMatrix::checkRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00476">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00155">BandMatrix::index()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00230">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00213">BandMatrix::mult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00173">BandMatrix::nRowsAndStruct()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::nSuperDiagonals()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00386">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00054">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00406">BandMatrix::checkColumns()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00380">BandMatrix::checkRows()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00447">BandMatrix::copyData()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00150">BandMatrix::index()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00195">BandMatrix::ldim()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00225">BandMatrix::leftMult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00208">BandMatrix::mult()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00168">BandMatrix::nRowsAndStruct()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00190">BandMatrix::nSuperDiagonals()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00362">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>.</p>
 
 </div>
 </div>
@@ -2028,9 +1808,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>value of zero </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00359">359</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00320">320</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00138">BandMatrix::value()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00133">BandMatrix::value()</a>.</p>
 
 </div>
 </div>
@@ -2054,9 +1834,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Pivot vector. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00362">362</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00323">323</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00036">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00205">BandMatrix::ipiv()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00035">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00200">BandMatrix::ipiv()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>.</p>
 
 </div>
 </div>
@@ -2080,9 +1860,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Vector of column pointers. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00365">365</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00326">326</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00036">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00471">BandMatrix::colPts()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00386">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00078">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00466">BandMatrix::ptrColumn()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00099">BandMatrix::resize()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00035">BandMatrix::BandMatrix()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00442">BandMatrix::colPts()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00362">BandMatrix::oneNorm()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00074">BandMatrix::operator=()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00437">BandMatrix::ptrColumn()</a>, and <a class="el" href="BandMatrix_8cpp_source.html#l00094">BandMatrix::resize()</a>.</p>
 
 </div>
 </div>
@@ -2106,9 +1886,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Extra work array needed - size = n. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00368">368</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00329">329</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>.</p>
 
 </div>
 </div>
@@ -2132,9 +1912,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Extra dp work array needed - size = 3n. </p>
 
-<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00371">371</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
+<p>Definition at line <a class="el" href="BandMatrix_8h_source.html#l00332">332</a> of file <a class="el" href="BandMatrix_8h_source.html">BandMatrix.h</a>.</p>
 
-<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00345">BandMatrix::rcond()</a>.</p>
+<p>Referenced by <a class="el" href="BandMatrix_8cpp_source.html#l00326">BandMatrix::rcond()</a>.</p>
 
 </div>
 </div>

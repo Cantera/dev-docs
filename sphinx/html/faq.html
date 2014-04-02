@@ -61,7 +61,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#installation-compilation">Installation &amp; Compilation</a></li>
 <li><a class="reference internal" href="#general">General</a></li>
 <li><a class="reference internal" href="#support-and-bug-reporting">Support and Bug Reporting</a></li>
 </ul>
@@ -102,18 +102,57 @@
             
   <div class="section" id="frequently-asked-questions">
 <h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-compilation">
+<h2>Installation &amp; Compilation<a class="headerlink" href="#installation-compilation" title="Permalink to this headline">¶</a></h2>
 <p><strong>How do I install Cantera on Windows?</strong></p>
 <blockquote>
 <div>Download the MSI installer for Cantera and the corresponding Python module
-from <a class="reference external" href="https://code.google.com/p/cantera/downloads/list">Google Code</a>.
+from <a class="reference external" href="https://sourceforge.net/projects/cantera/files/cantera/">SourceForge</a>.
 Choose between x86 and x64 based on the versions of Python and/or Matlab
 you want to work with.</div></blockquote>
 <p><strong>How do I install Cantera on Linux?</strong></p>
 <blockquote>
-<div>Download the source code from <a class="reference external" href="https://code.google.com/p/cantera/downloads/list">Google Code</a> and follow the
+<div>Download the source code (e.g. <tt class="docutils literal"><span class="pre">cantera-2.1.1.tar.gz</span></tt>) from <a class="reference external" href="https://sourceforge.net/projects/cantera/files/cantera/">SourceForge</a> and follow the
 instructions in the <a class="reference internal" href="compiling.html#sec-compiling"><em>Cantera Compilation Guide</em></a>.</div></blockquote>
+<p><strong>What do I do if compiling Cantera fails?</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Examine the output of the <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span></tt> command, especially anything
+identified as a       <tt class="docutils literal"><span class="pre">WARNING</span></tt> or <tt class="docutils literal"><span class="pre">ERROR</span></tt>. Check for discrepancies
+with your expected configuration (e.g. not finding SUNDIALS even though
+you have it installed).</li>
+<li>Check the contents of <tt class="docutils literal"><span class="pre">cantera.conf</span></tt> to make sure they are correct.</li>
+<li>If any of the configuration tests (<tt class="docutils literal"><span class="pre">Checking</span> <span class="pre">for...</span></tt>) fail unexpectedly,
+look at the contents of <tt class="docutils literal"><span class="pre">config.log</span></tt> to determine the reason.</li>
+<li>If none of these help identify the cause of the failure, consider asking
+for help on the Cantera Users&#8217; Group. If you decide to make a post, please
+include the following information:<ul>
+<li>The contents of <tt class="docutils literal"><span class="pre">cantera.conf</span></tt> and <tt class="docutils literal"><span class="pre">config.log</span></tt></li>
+<li>The output of the <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span></tt> and <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span> <span class="pre">dump</span></tt> commands
+(you can direct this output to a file by running <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span> <span class="pre">&gt;buildlog.txt</span> <span class="pre">2&gt;&amp;1</span></tt>)</li>
+<li>The exact version of Cantera you are trying to compile, and how it was
+obtained (i.e. downloaded source tarball or the specific Git/SVN commit)</li>
+<li>Your operating system, compiler versions, and the versions of any other
+relevant software.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>How do I debug issues with the SCons build system?</strong></p>
+<blockquote>
+<div><p>Sometimes, it is helpful to see all of the internal variables defined by
+SCons, either automatically or by the Cantera build scripts. To do this, add
+<tt class="docutils literal"><span class="pre">dump</span></tt> to your SCons command line. For example:</p>
+<div class="highlight-python"><pre>$ scons build dump</pre>
+</div>
+<p>will show the variables that would be set during the <tt class="docutils literal"><span class="pre">build</span></tt> step. Note
+that in this case, the <tt class="docutils literal"><span class="pre">build</span></tt> step will not be executed.</p>
+<p>Alternatively, it is also possible to run SCons through the Python debugger, and set a breakpoint in the <tt class="docutils literal"><span class="pre">SConstruct</span></tt> file. For example:</p>
+<div class="highlight-python"><pre>$ scons --debug=pdb build
+(Pdb) b /full/path/to/SConstruct:33
+(Pdb) cont</pre>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="general">
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>

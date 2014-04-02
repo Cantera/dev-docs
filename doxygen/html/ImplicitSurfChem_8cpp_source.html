@@ -359,20 +359,19 @@
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;}</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ImplicitSurfChem.html#ade688892f854ba20de5db2a9430b7574" title="Sets the state variable in all thermodynamic phases (surface and surrounding bulk phases) to the inpu...">ImplicitSurfChem::</a></div>
-<div class="line"><a name="l00302"></a><span class="lineno"><a class="code" href="classCantera_1_1ImplicitSurfChem.html#ade688892f854ba20de5db2a9430b7574">  302</a></span>&#160;<a class="code" href="classCantera_1_1ImplicitSurfChem.html#ade688892f854ba20de5db2a9430b7574" title="Sets the state variable in all thermodynamic phases (surface and surrounding bulk phases) to the inpu...">setCommonState_TP</a>(doublereal TKelvin, doublereal PresPa)</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> ip = 0; ip &lt; <a class="code" href="classCantera_1_1ImplicitSurfChem.html#a113bc14ff35f404763ac05e253d6b11e" title="Total number of surface phases. ">m_nsurf</a>; ip++) {</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a>* TP_ptr = <a class="code" href="classCantera_1_1ImplicitSurfChem.html#a9478a992b902723e5e543e86cffa816d" title="vector of pointers to surface phases. ">m_surf</a>[ip];</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        TP_ptr-&gt;<a class="code" href="classCantera_1_1ThermoPhase.html#a1a5bebf3c4bd81782b54a3761f82215e" title="Set the temperature (K) and pressure (Pa) ">setState_TP</a>(TKelvin, PresPa);</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> ip = 0; ip &lt; m_numBulkPhases; ip++) {</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a>* TP_ptr = <a class="code" href="classCantera_1_1ImplicitSurfChem.html#a16c445ae7a84966a9c25f35a06bc03c6" title="Vector of pointers to bulk phases. ">m_bulkPhases</a>[ip];</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        TP_ptr-&gt;<a class="code" href="classCantera_1_1ThermoPhase.html#a1a5bebf3c4bd81782b54a3761f82215e" title="Set the temperature (K) and pressure (Pa) ">setState_TP</a>(TKelvin, PresPa);</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;}</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="code" href="classCantera_1_1ImplicitSurfChem.html#ade688892f854ba20de5db2a9430b7574">  301</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ImplicitSurfChem.html#ade688892f854ba20de5db2a9430b7574" title="Sets the state variable in all thermodynamic phases (surface and surrounding bulk phases) to the inpu...">ImplicitSurfChem::setCommonState_TP</a>(doublereal TKelvin, doublereal PresPa)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;{</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> ip = 0; ip &lt; <a class="code" href="classCantera_1_1ImplicitSurfChem.html#a113bc14ff35f404763ac05e253d6b11e" title="Total number of surface phases. ">m_nsurf</a>; ip++) {</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a>* TP_ptr = <a class="code" href="classCantera_1_1ImplicitSurfChem.html#a9478a992b902723e5e543e86cffa816d" title="vector of pointers to surface phases. ">m_surf</a>[ip];</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        TP_ptr-&gt;<a class="code" href="classCantera_1_1ThermoPhase.html#a1a5bebf3c4bd81782b54a3761f82215e" title="Set the temperature (K) and pressure (Pa) ">setState_TP</a>(TKelvin, PresPa);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> ip = 0; ip &lt; m_numBulkPhases; ip++) {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <a class="code" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a>* TP_ptr = <a class="code" href="classCantera_1_1ImplicitSurfChem.html#a16c445ae7a84966a9c25f35a06bc03c6" title="Vector of pointers to bulk phases. ">m_bulkPhases</a>[ip];</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        TP_ptr-&gt;<a class="code" href="classCantera_1_1ThermoPhase.html#a1a5bebf3c4bd81782b54a3761f82215e" title="Set the temperature (K) and pressure (Pa) ">setState_TP</a>(TKelvin, PresPa);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;}</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

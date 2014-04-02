@@ -125,6 +125,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fe246ca2e43da4230cf7e01ec0d5611"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ShomateThermo.html#a6fe246ca2e43da4230cf7e01ec0d5611">reportParams</a> (size_t index, int &amp;type, doublereal *const c, doublereal &amp;<a class="el" href="classCantera_1_1ShomateThermo.html#ade0d15fa66201fb19903c2dad9e9553f">minTemp</a>, doublereal &amp;<a class="el" href="classCantera_1_1ShomateThermo.html#a9627826e38c2a4cc965f557ac35898c8">maxTemp</a>, doublereal &amp;<a class="el" href="classCantera_1_1ShomateThermo.html#a5f4553c6420d9c24007cf0725c338bff">refPressure</a>) const </td></tr>
 <tr class="memdesc:a6fe246ca2e43da4230cf7e01ec0d5611"><td class="mdescLeft">&#160;</td><td class="mdescRight">This utility function reports back the type of parameterization and all of the parameters for the species with index number <em>index</em>.  <a href="#a6fe246ca2e43da4230cf7e01ec0d5611">More...</a><br/></td></tr>
 <tr class="separator:a6fe246ca2e43da4230cf7e01ec0d5611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21be3e0a8b2c635eb667fa79449b729e"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ShomateThermo.html#a21be3e0a8b2c635eb667fa79449b729e">reportOneHf298</a> (const size_t k) const </td></tr>
+<tr class="memdesc:a21be3e0a8b2c635eb667fa79449b729e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)  <a href="#a21be3e0a8b2c635eb667fa79449b729e">More...</a><br/></td></tr>
+<tr class="separator:a21be3e0a8b2c635eb667fa79449b729e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac87e5a3dd35b2e65689cc86f09b473e6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ShomateThermo.html#ac87e5a3dd35b2e65689cc86f09b473e6">modifyOneHf298</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:ac87e5a3dd35b2e65689cc86f09b473e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1)  <a href="#ac87e5a3dd35b2e65689cc86f09b473e6">More...</a><br/></td></tr>
+<tr class="separator:ac87e5a3dd35b2e65689cc86f09b473e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCantera_1_1SpeciesThermo"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCantera_1_1SpeciesThermo')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a></td></tr>
 <tr class="memitem:a6672763967d8d8bcbbae6a82d718b0ea inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a6672763967d8d8bcbbae6a82d718b0ea">SpeciesThermo</a> ()</td></tr>
 <tr class="memdesc:a6672763967d8d8bcbbae6a82d718b0ea inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a6672763967d8d8bcbbae6a82d718b0ea">More...</a><br/></td></tr>
@@ -236,7 +242,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00069">69</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ShomateThermo_8h_source.html#l00437">ShomateThermo::m_t</a>.</p>
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_t</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00117">ShomateThermo::duplMyselfAsSpeciesThermo()</a>.</p>
 
@@ -311,7 +317,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00095">95</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ShomateThermo_8h_source.html#l00445">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00387">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00401">ShomateThermo::m_index</a>, <a class="el" href="ShomateThermo_8h_source.html#l00395">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_ngroups</a>, <a class="el" href="ShomateThermo_8h_source.html#l00431">ShomateThermo::m_p0</a>, <a class="el" href="ShomateThermo_8h_source.html#l00452">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00437">ShomateThermo::m_t</a>, <a class="el" href="ShomateThermo_8h_source.html#l00425">ShomateThermo::m_thigh</a>, <a class="el" href="ShomateThermo_8h_source.html#l00413">ShomateThermo::m_thigh_min</a>, <a class="el" href="ShomateThermo_8h_source.html#l00419">ShomateThermo::m_tlow</a>, <a class="el" href="ShomateThermo_8h_source.html#l00410">ShomateThermo::m_tlow_max</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00407">ShomateThermo::m_tmid</a>.</p>
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00442">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00398">ShomateThermo::m_index</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00431">ShomateThermo::m_ngroups</a>, <a class="el" href="ShomateThermo_8h_source.html#l00428">ShomateThermo::m_p0</a>, <a class="el" href="ShomateThermo_8h_source.html#l00449">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_t</a>, <a class="el" href="ShomateThermo_8h_source.html#l00422">ShomateThermo::m_thigh</a>, <a class="el" href="ShomateThermo_8h_source.html#l00410">ShomateThermo::m_thigh_min</a>, <a class="el" href="ShomateThermo_8h_source.html#l00416">ShomateThermo::m_tlow</a>, <a class="el" href="ShomateThermo_8h_source.html#l00407">ShomateThermo::m_tlow_max</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00404">ShomateThermo::m_tmid</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00082">ShomateThermo::ShomateThermo()</a>.</p>
 
@@ -433,7 +439,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00147">147</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00445">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00387">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00401">ShomateThermo::m_index</a>, <a class="el" href="ShomateThermo_8h_source.html#l00395">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_ngroups</a>, <a class="el" href="ShomateThermo_8h_source.html#l00431">ShomateThermo::m_p0</a>, <a class="el" href="ShomateThermo_8h_source.html#l00452">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00425">ShomateThermo::m_thigh</a>, <a class="el" href="ShomateThermo_8h_source.html#l00413">ShomateThermo::m_thigh_min</a>, <a class="el" href="ShomateThermo_8h_source.html#l00419">ShomateThermo::m_tlow</a>, <a class="el" href="ShomateThermo_8h_source.html#l00410">ShomateThermo::m_tlow_max</a>, <a class="el" href="ShomateThermo_8h_source.html#l00407">ShomateThermo::m_tmid</a>, <a class="el" href="ShomateThermo_8h_source.html#l00276">ShomateThermo::maxTemp()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00268">ShomateThermo::minTemp()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00284">ShomateThermo::refPressure()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00442">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00398">ShomateThermo::m_index</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00431">ShomateThermo::m_ngroups</a>, <a class="el" href="ShomateThermo_8h_source.html#l00428">ShomateThermo::m_p0</a>, <a class="el" href="ShomateThermo_8h_source.html#l00449">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00422">ShomateThermo::m_thigh</a>, <a class="el" href="ShomateThermo_8h_source.html#l00410">ShomateThermo::m_thigh_min</a>, <a class="el" href="ShomateThermo_8h_source.html#l00416">ShomateThermo::m_tlow</a>, <a class="el" href="ShomateThermo_8h_source.html#l00407">ShomateThermo::m_tlow_max</a>, <a class="el" href="ShomateThermo_8h_source.html#l00404">ShomateThermo::m_tmid</a>, <a class="el" href="ShomateThermo_8h_source.html#l00276">ShomateThermo::maxTemp()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00268">ShomateThermo::minTemp()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00284">ShomateThermo::refPressure()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
 
 </div>
 </div>
@@ -539,7 +545,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00214">214</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="ShomateThermo_8h_source.html#l00445">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00387">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00395">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00452">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00437">ShomateThermo::m_t</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00149">ShomatePoly::updateProperties()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="ShomateThermo_8h_source.html#l00442">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00449">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_t</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00149">ShomatePoly::updateProperties()</a>.</p>
 
 </div>
 </div>
@@ -603,7 +609,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00240">240</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="ShomateThermo_8h_source.html#l00387">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00395">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_ngroups</a>, <a class="el" href="ShomateThermo_8h_source.html#l00437">ShomateThermo::m_t</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00407">ShomateThermo::m_tmid</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00431">ShomateThermo::m_ngroups</a>, <a class="el" href="ShomateThermo_8h_source.html#l00434">ShomateThermo::m_t</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00404">ShomateThermo::m_tmid</a>.</p>
 
 </div>
 </div>
@@ -642,7 +648,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00268">268</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ShomateThermo_8h_source.html#l00419">ShomateThermo::m_tlow</a>, <a class="el" href="ShomateThermo_8h_source.html#l00410">ShomateThermo::m_tlow_max</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00416">ShomateThermo::m_tlow</a>, <a class="el" href="ShomateThermo_8h_source.html#l00407">ShomateThermo::m_tlow_max</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>.</p>
 
@@ -683,7 +689,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00276">276</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ShomateThermo_8h_source.html#l00425">ShomateThermo::m_thigh</a>, <a class="el" href="ShomateThermo_8h_source.html#l00413">ShomateThermo::m_thigh_min</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00422">ShomateThermo::m_thigh</a>, <a class="el" href="ShomateThermo_8h_source.html#l00410">ShomateThermo::m_thigh_min</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>.</p>
 
@@ -724,7 +730,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00284">284</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ShomateThermo_8h_source.html#l00431">ShomateThermo::m_p0</a>.</p>
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00428">ShomateThermo::m_p0</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>.</p>
 
@@ -843,7 +849,99 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00292">292</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>References <a class="el" href="ShomateThermo_8h_source.html#l00445">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00387">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00395">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00452">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00195">ShomatePoly::reportParameters()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00288">ShomateThermo::reportType()</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00026">SHOMATE</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00047">SHOMATE1</a>.</p>
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00442">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00449">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00195">ShomatePoly::reportParameters()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00288">ShomateThermo::reportType()</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00026">SHOMATE</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00047">SHOMATE1</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21be3e0a8b2c635eb667fa79449b729e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual doublereal reportOneHf298 </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>k</em>)</td><td></td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Report the 298 K Heat of Formation of the standard state of one species (J kmol-1) </p>
+<p>The 298K Heat of Formation is defined as the enthalpy change to create the standard state of the species from its constituent elements in their standard states at 298 K and 1 bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>species index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current value of the Heat of Formation at 298K and 1 bar </dd></dl>
+
+<p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a5985892b9fa1e28f1249a02dcc6ba6c2">SpeciesThermo</a>.</p>
+
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00331">331</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00442">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00449">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00222">ShomatePoly::reportHf298()</a>.</p>
+
+<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00351">ShomateThermo::modifyOneHf298()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac87e5a3dd35b2e65689cc86f09b473e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void modifyOneHf298 </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const doublereal&#160;</td>
+          <td class="paramname"><em>Hf298New</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1) </p>
+<p>The 298K heat of formation is defined as the enthalpy change to create the standard state of the species from its constituent elements in their standard states at 298 K and 1 bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>Index of the species </td></tr>
+    <tr><td class="paramname">Hf298New</td><td>Specify the new value of the Heat of Formation at 298K and 1 bar. units = J/kmol. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">SpeciesThermo</a>.</p>
+
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00351">351</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+
+<p>References <a class="el" href="ShomateThermo_8h_source.html#l00442">ShomateThermo::m_group_map</a>, <a class="el" href="ShomateThermo_8h_source.html#l00384">ShomateThermo::m_high</a>, <a class="el" href="ShomateThermo_8h_source.html#l00392">ShomateThermo::m_low</a>, <a class="el" href="ShomateThermo_8h_source.html#l00449">ShomateThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00246">ShomatePoly::modifyOneHf298()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00222">ShomatePoly::reportHf298()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00331">ShomateThermo::reportOneHf298()</a>.</p>
 
 </div>
 </div>
@@ -886,9 +984,9 @@ Protected Attributes</h2></td></tr>
 <p>Vector of vector of <a class="el" href="classCantera_1_1NasaPoly1.html" title="The NASA polynomial parameterization for one temperature range. ">NasaPoly1</a>'s for the high temp region. </p>
 <p>This is the high temp region representation. The first Length is equal to the number of groups. The second vector is equal to the number of species in that particular group. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00387">387</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00384">384</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00351">ShomateThermo::modifyOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00331">ShomateThermo::reportOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -913,9 +1011,9 @@ Protected Attributes</h2></td></tr>
 <p>Vector of vector of <a class="el" href="classCantera_1_1NasaPoly1.html" title="The NASA polynomial parameterization for one temperature range. ">NasaPoly1</a>'s for the low temp region. </p>
 <p>This is the low temp region representation. The first Length is equal to the number of groups. The second vector is equal to the number of species in that particular group. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00395">395</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00392">392</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00351">ShomateThermo::modifyOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00331">ShomateThermo::reportOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -940,7 +1038,7 @@ Protected Attributes</h2></td></tr>
 <p>Map between the midpoint temperature, as an int, to the group number. </p>
 <p>Length is equal to the number of groups. Only used in the setup. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00401">401</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00398">398</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>.</p>
 
@@ -967,7 +1065,7 @@ Protected Attributes</h2></td></tr>
 <p>Vector of log temperature limits. </p>
 <p>Length is equal to the number of groups. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00407">407</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00404">404</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>.</p>
 
@@ -993,7 +1091,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Maximum value of the low temperature limit. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00410">410</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00407">407</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00268">ShomateThermo::minTemp()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>.</p>
 
@@ -1019,7 +1117,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Minimum value of the high temperature limit. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00413">413</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00410">410</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00276">ShomateThermo::maxTemp()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>.</p>
 
@@ -1046,7 +1144,7 @@ Protected Attributes</h2></td></tr>
 <p>Vector of low temperature limits (species index) </p>
 <p>Length is equal to number of species </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00419">419</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00416">416</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00268">ShomateThermo::minTemp()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>.</p>
 
@@ -1073,7 +1171,7 @@ Protected Attributes</h2></td></tr>
 <p>Vector of low temperature limits (species index) </p>
 <p>Length is equal to number of species </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00425">425</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00422">422</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00276">ShomateThermo::maxTemp()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>.</p>
 
@@ -1100,7 +1198,7 @@ Protected Attributes</h2></td></tr>
 <p>Reference pressure (Pa) </p>
 <p>all species must have the same reference pressure. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00431">431</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00428">428</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00284">ShomateThermo::refPressure()</a>.</p>
 
@@ -1126,7 +1224,7 @@ Protected Attributes</h2></td></tr>
 
 <p>number of groups </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00434">434</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00431">431</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>.</p>
 
@@ -1152,7 +1250,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Vector of temperature polynomials. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00437">437</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00434">434</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00069">ShomateThermo::ShomateThermo()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00240">ShomateThermo::update()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
 
@@ -1177,9 +1275,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This map takes as its index, the species index in the phase. It returns the group index, where the temperature polynomials for that species are stored. group indices start at 1, so a decrement is always performed to access vectors. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00445">445</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00442">442</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00351">ShomateThermo::modifyOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00331">ShomateThermo::reportOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -1202,9 +1300,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This map takes as its index, the species index in the phase. It returns the position index within the group, where the temperature polynomials for that species are stored. </p>
 
-<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00452">452</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="ShomateThermo_8h_source.html#l00449">449</a> of file <a class="el" href="ShomateThermo_8h_source.html">ShomateThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="ShomateThermo_8h_source.html#l00147">ShomateThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00351">ShomateThermo::modifyOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00095">ShomateThermo::operator=()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00331">ShomateThermo::reportOneHf298()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00292">ShomateThermo::reportParams()</a>, and <a class="el" href="ShomateThermo_8h_source.html#l00214">ShomateThermo::update_one()</a>.</p>
 
 </div>
 </div>

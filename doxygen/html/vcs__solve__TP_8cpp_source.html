@@ -145,10 +145,10 @@
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">size_t</span> iphaseDelete;  <span class="comment">/* integer that determines which phase is being deleted */</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::vector&lt;size_t&gt; phasePopPhaseIDs(0);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">size_t</span> doPhaseDeleteIph = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">size_t</span> doPhaseDeleteKspec = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">char</span> ANOTE[128];</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">size_t</span> doPhaseDeleteKspec = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">char</span> ANOTE[128];</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">/*</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">     * Set the debug print lvl to the same as the print lvl.</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">     */</span></div>
@@ -480,10 +480,10 @@
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                  <span class="stringliteral">&quot;phase creation delta was used instead\n&quot;</span>);</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        }</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    }</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="preprocessor"></span>    lec = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    doPhaseDeleteIph = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    doPhaseDeleteKspec = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    doPhaseDeleteKspec = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="preprocessor"></span>    lec = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    doPhaseDeleteIph = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="comment">/*</span></div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     *    Zero out the net change in moles of multispecies phases</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">     */</span></div>
@@ -929,10 +929,10 @@
 <div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;<span class="comment">                                 */</span></div>
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                                m_molNumSpecies_new[kspec] = 0.0;</div>
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                                doPhaseDeleteIph = iph;</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;                                doPhaseDeleteKspec = kspec;</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;<span class="preprocessor"></span>                                <span class="keywordflow">if</span> (m_debug_print_lvl &gt;= 2) {</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="preprocessor"></span>                                doPhaseDeleteKspec = kspec;</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                                <span class="keywordflow">if</span> (m_debug_print_lvl &gt;= 2) {</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                                    <span class="keywordflow">if</span> (m_speciesStatus[kspec] &gt;= 0) {</div>
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;                                        <a class="code" href="vcs__internal_8h.html#aaa5e9d97e39613d1d610f063d5723dc7" title="define this Cantera function to replace printf ">plogf</a>(<span class="stringliteral">&quot;   --- SS species changed to zeroedss: &quot;</span>);</div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;                                        <a class="code" href="vcs__internal_8h.html#aaa5e9d97e39613d1d610f063d5723dc7" title="define this Cantera function to replace printf ">plogf</a>(<span class="stringliteral">&quot;%-12s&quot;</span>, m_speciesName[kspec].c_str());</div>

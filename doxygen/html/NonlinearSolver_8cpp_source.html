@@ -709,7 +709,7 @@
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">     * by the nominal important change in the solution vector</span></div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#adad6bbd6326c98e23960fd1aba1ed4d0" title="The type of column scaling used in the matrix inversion of the problem. ">m_colScaling</a>) {</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        <span class="keywordflow">if</span> (!jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a7b9721e7f190f0dc6f987e4a4cb72d48" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        <span class="keywordflow">if</span> (!jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a458210f6c086406ead1d1586d949d5f0" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;            <span class="keywordflow">if</span> (jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab81cad571c5cf5937db84ba1e8588bc8" title="Matrix type. ">matrixType_</a> == 0) {</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                <span class="comment">/*</span></div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="comment">                 * Go get new scales -&gt; Took this out of this inner loop.</span></div>
@@ -745,7 +745,7 @@
 <div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">     * row sum scaling -&gt; Note, this is an unequivocal success</span></div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment">     *      at keeping the small numbers well balanced and nonnegative.</span></div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">if</span> (! jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a7b9721e7f190f0dc6f987e4a4cb72d48" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">if</span> (! jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a458210f6c086406ead1d1586d949d5f0" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        <span class="comment">/*</span></div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;<span class="comment">         * Ok, this is ugly. jac.begin() returns an vector&lt;double&gt; iterator</span></div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment">         * to the first data location.</span></div>
@@ -844,7 +844,7 @@
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;</div>
 <div class="line"><a name="l00784"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#afb496a35952367fad4a31d6dec22ac57">  784</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#afb496a35952367fad4a31d6dec22ac57" title="Calculate the scaling factor for translating residual norms into solution norms. ">NonlinearSolver::calcSolnToResNormVector</a>()</div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;{</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    <span class="keywordflow">if</span> (! <a class="code" href="classCantera_1_1NonlinearSolver.html#ac28137c5152120a6f5295f2d726547d4" title="Copy of the jacobian that doesn&#39;t get overwritten when the inverse is determined. ...">jacCopyPtr_</a>-&gt;<a class="code" href="classCantera_1_1GeneralMatrix.html#a7b9721e7f190f0dc6f987e4a4cb72d48" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    <span class="keywordflow">if</span> (! <a class="code" href="classCantera_1_1NonlinearSolver.html#ac28137c5152120a6f5295f2d726547d4" title="Copy of the jacobian that doesn&#39;t get overwritten when the inverse is determined. ...">jacCopyPtr_</a>-&gt;<a class="code" href="classCantera_1_1GeneralMatrix.html#a458210f6c086406ead1d1586d949d5f0" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;</div>
 <div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a278daa359f967c2f87032b2b7e99a1d1" title="Check the residual tolerances explicitly against user input. ">checkUserResidualTols_</a> != 1) {</div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;            doublereal sum = 0.0;</div>
@@ -923,7 +923,7 @@
 <div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;<span class="comment">     * Solve the system -&gt; This also involves inverting the</span></div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="comment">     * matrix</span></div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;    <span class="keywordtype">int</span> info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab04479c16dd5339ad9040f19bf8b837d" title="Solves the Ax = b system returning x in the b spot. ">solve</a>(<a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(delta_y));</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;    <span class="keywordtype">int</span> info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a732f1f7fc3da4f68f5fe687a2844ff14" title="Solves the Ax = b system returning x in the b spot. ">solve</a>(<a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(delta_y));</div>
 <div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;</div>
 <div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;</div>
 <div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;    <span class="comment">/*</span></div>
@@ -995,7 +995,7 @@
 <div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;    <span class="keywordtype">bool</span> newtonGood = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;    <span class="comment">// We can default to QR here ( or not )</span></div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;    jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a273c3e84589b2586b707792457e565d0" title="Change the way the matrix is factored. ">useFactorAlgorithm</a>(1);</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;    jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#ae3b4f049253093c36b74fe8d7166ecd3" title="Change the way the matrix is factored. ">useFactorAlgorithm</a>(1);</div>
 <div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;    <span class="keywordtype">int</span> useQR = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a8d0eb4006117833b938310862aac3fb7" title="Return the factor algorithm used. ">factorAlgorithm</a>();</div>
 <div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;    <span class="comment">// multiply the residual by -1</span></div>
 <div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;    <span class="comment">// Scale the residual if there is row scaling. Note, the matrix has already been scaled</span></div>
@@ -1013,9 +1013,9 @@
 <div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;    <span class="comment">// Factor the matrix using a standard Newton solve</span></div>
 <div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;    <a class="code" href="classCantera_1_1NonlinearSolver.html#afc9731e1fe6a803902fb36086e27eea1" title="Condition number of the matrix. ">m_conditionNumber</a> = 1.0E300;</div>
 <div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;    <span class="keywordtype">int</span> info = 0;</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;    <span class="keywordflow">if</span> (!jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a7b9721e7f190f0dc6f987e4a4cb72d48" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;    <span class="keywordflow">if</span> (!jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a458210f6c086406ead1d1586d949d5f0" title="true if the current factorization is up to date with the matrix ">factored</a>()) {</div>
 <div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;        <span class="keywordflow">if</span> (useQR) {</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;            info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a572887d858771c9619e795415efacce9" title="Factors the A matrix using the QR algorithm, overwriting A. ">factorQR</a>();</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;            info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a81db57f6f1016cf29600569e0043c00d" title="Factors the A matrix using the QR algorithm, overwriting A. ">factorQR</a>();</div>
 <div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;            info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a39f67be3c7feeebbc0327db429f6ec8f" title="Factors the A matrix, overwriting A. ">factor</a>();</div>
 <div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;        }</div>
@@ -1027,7 +1027,7 @@
 <div class="line"><a name="l00966"></a><span class="lineno">  966</span>&#160;    <span class="keywordflow">if</span> (info == 0) {</div>
 <div class="line"><a name="l00967"></a><span class="lineno">  967</span>&#160;        doublereal rcond = 0.0;</div>
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;        <span class="keywordflow">if</span> (useQR) {</div>
-<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;            rcond = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a7ea018e47c3f29e589518bf473a5aeb0" title="Returns an estimate of the inverse of the condition number for the matrix. ">rcondQR</a>();</div>
+<div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;            rcond = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a43a5e3ef84911276200615a6239eac9c" title="Returns an estimate of the inverse of the condition number for the matrix. ">rcondQR</a>();</div>
 <div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;            doublereal a1norm = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a96885af739233744f8fe1545d6b2aaf4" title="Calculate the one norm of the matrix. ">oneNorm</a>();</div>
 <div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;            rcond = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a25b48ec089ba4c9e5c6f0438a520ce1d" title="Returns an estimate of the inverse of the condition number for the matrix. ">rcond</a>(a1norm);</div>
@@ -1060,7 +1060,7 @@
 <div class="line"><a name="l00999"></a><span class="lineno">  999</span>&#160;        <span class="comment">/*</span></div>
 <div class="line"><a name="l01000"></a><span class="lineno"> 1000</span>&#160;<span class="comment">         * Solve the system -&gt; This also involves inverting the matrix</span></div>
 <div class="line"><a name="l01001"></a><span class="lineno"> 1001</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;        <span class="keywordtype">int</span> info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab04479c16dd5339ad9040f19bf8b837d" title="Solves the Ax = b system returning x in the b spot. ">solve</a>(<a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(delta_y));</div>
+<div class="line"><a name="l01002"></a><span class="lineno"> 1002</span>&#160;        <span class="keywordtype">int</span> info = jac.<a class="code" href="classCantera_1_1GeneralMatrix.html#a732f1f7fc3da4f68f5fe687a2844ff14" title="Solves the Ax = b system returning x in the b spot. ">solve</a>(<a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(delta_y));</div>
 <div class="line"><a name="l01003"></a><span class="lineno"> 1003</span>&#160;        <span class="keywordflow">if</span> (info) {</div>
 <div class="line"><a name="l01004"></a><span class="lineno"> 1004</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 2) {</div>
 <div class="line"><a name="l01005"></a><span class="lineno"> 1005</span>&#160;                printf(<span class="stringliteral">&quot;\t\t   doAffineNewtonSolve() ERROR: QRSolve returned INFO = %d. Switching to Hessian solve\n&quot;</span>, info);</div>
@@ -3301,376 +3301,376 @@
 <div class="line"><a name="l03240"></a><span class="lineno"> 3240</span>&#160;    <span class="keywordflow">return</span> retnCode;</div>
 <div class="line"><a name="l03241"></a><span class="lineno"> 3241</span>&#160;}</div>
 <div class="line"><a name="l03242"></a><span class="lineno"> 3242</span>&#160;</div>
-<div class="line"><a name="l03243"></a><span class="lineno"> 3243</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#ad8d592b99915d4001fa1e5e2c6b04626" title="Set the values for the previous time step. ">NonlinearSolver::</a></div>
-<div class="line"><a name="l03244"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#ad8d592b99915d4001fa1e5e2c6b04626"> 3244</a></span>&#160;<a class="code" href="classCantera_1_1NonlinearSolver.html#ad8d592b99915d4001fa1e5e2c6b04626" title="Set the values for the previous time step. ">setPreviousTimeStep</a>(<span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; y_nm1, <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; ydot_nm1)</div>
+<div class="line"><a name="l03243"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#ad8d592b99915d4001fa1e5e2c6b04626"> 3243</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#ad8d592b99915d4001fa1e5e2c6b04626" title="Set the values for the previous time step. ">NonlinearSolver::setPreviousTimeStep</a>(<span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; y_nm1,</div>
+<div class="line"><a name="l03244"></a><span class="lineno"> 3244</span>&#160;                                          <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; ydot_nm1)</div>
 <div class="line"><a name="l03245"></a><span class="lineno"> 3245</span>&#160;{</div>
 <div class="line"><a name="l03246"></a><span class="lineno"> 3246</span>&#160;    <a class="code" href="classCantera_1_1NonlinearSolver.html#ae887b63aa95bedbed8315e933a926ff6" title="Vector containing the solution at the previous time step. ">m_y_nm1</a> = y_nm1;</div>
 <div class="line"><a name="l03247"></a><span class="lineno"> 3247</span>&#160;    <a class="code" href="classCantera_1_1NonlinearSolver.html#a59861d25f533ecfb753dc76c0ddcd69d" title="Vector containing the solution derivative at the previous time step. ">m_ydot_nm1</a> = ydot_nm1;</div>
 <div class="line"><a name="l03248"></a><span class="lineno"> 3248</span>&#160;}</div>
 <div class="line"><a name="l03249"></a><span class="lineno"> 3249</span>&#160;</div>
-<div class="line"><a name="l03250"></a><span class="lineno"> 3250</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#a7475348f8c6b800e9f9db8a3e21e3eab" title="Print solution norm contribution. ">NonlinearSolver::</a></div>
-<div class="line"><a name="l03251"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#a7475348f8c6b800e9f9db8a3e21e3eab"> 3251</a></span>&#160;<a class="code" href="classCantera_1_1NonlinearSolver.html#a7475348f8c6b800e9f9db8a3e21e3eab" title="Print solution norm contribution. ">print_solnDelta_norm_contrib</a>(<span class="keyword">const</span> doublereal* <span class="keyword">const</span> step_1,</div>
-<div class="line"><a name="l03252"></a><span class="lineno"> 3252</span>&#160;                             <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> stepNorm_1,</div>
-<div class="line"><a name="l03253"></a><span class="lineno"> 3253</span>&#160;                             <span class="keyword">const</span> doublereal* <span class="keyword">const</span> step_2,</div>
-<div class="line"><a name="l03254"></a><span class="lineno"> 3254</span>&#160;                             <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> stepNorm_2,</div>
-<div class="line"><a name="l03255"></a><span class="lineno"> 3255</span>&#160;                             <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> title,</div>
-<div class="line"><a name="l03256"></a><span class="lineno"> 3256</span>&#160;                             <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y_n_curr,</div>
-<div class="line"><a name="l03257"></a><span class="lineno"> 3257</span>&#160;                             <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y_n_1,</div>
-<div class="line"><a name="l03258"></a><span class="lineno"> 3258</span>&#160;                             doublereal damp,</div>
-<div class="line"><a name="l03259"></a><span class="lineno"> 3259</span>&#160;                             <span class="keywordtype">size_t</span> num_entries)</div>
-<div class="line"><a name="l03260"></a><span class="lineno"> 3260</span>&#160;{</div>
-<div class="line"><a name="l03261"></a><span class="lineno"> 3261</span>&#160;    <span class="keywordtype">bool</span> used;</div>
-<div class="line"><a name="l03262"></a><span class="lineno"> 3262</span>&#160;    doublereal dmax0, dmax1, <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756" title="Write an error message and quit. ">error</a>, rel_norm;</div>
-<div class="line"><a name="l03263"></a><span class="lineno"> 3263</span>&#160;    printf(<span class="stringliteral">&quot;\t\t%s currentDamp = %g\n&quot;</span>, title, damp);</div>
-<div class="line"><a name="l03264"></a><span class="lineno"> 3264</span>&#160;    printf(<span class="stringliteral">&quot;\t\t     I     ysolnOld %13s ysolnNewRaw | ysolnNewTrial &quot;</span></div>
-<div class="line"><a name="l03265"></a><span class="lineno"> 3265</span>&#160;           <span class="stringliteral">&quot;%10s ysolnNewTrialRaw | solnWeight  wtDelSoln wtDelSolnTrial\n&quot;</span>, stepNorm_1, stepNorm_2);</div>
-<div class="line"><a name="l03266"></a><span class="lineno"> 3266</span>&#160;    std::vector&lt;size_t&gt; imax(num_entries, <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>);</div>
-<div class="line"><a name="l03267"></a><span class="lineno"> 3267</span>&#160;    printf(<span class="stringliteral">&quot;\t\t   &quot;</span>);</div>
-<div class="line"><a name="l03268"></a><span class="lineno"> 3268</span>&#160;    <a class="code" href="namespaceCantera.html#ab6b35d8bbcce25a6a3457bc8d062b450" title="Print a line of a single repeated character string. ">print_line</a>(<span class="stringliteral">&quot;-&quot;</span>, 125);</div>
-<div class="line"><a name="l03269"></a><span class="lineno"> 3269</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> jnum = 0; jnum &lt; num_entries; jnum++) {</div>
-<div class="line"><a name="l03270"></a><span class="lineno"> 3270</span>&#160;        dmax1 = -1.0;</div>
-<div class="line"><a name="l03271"></a><span class="lineno"> 3271</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; i++) {</div>
-<div class="line"><a name="l03272"></a><span class="lineno"> 3272</span>&#160;            used = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l03273"></a><span class="lineno"> 3273</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; jnum; j++) {</div>
-<div class="line"><a name="l03274"></a><span class="lineno"> 3274</span>&#160;                <span class="keywordflow">if</span> (imax[j] == i) {</div>
-<div class="line"><a name="l03275"></a><span class="lineno"> 3275</span>&#160;                    used = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l03276"></a><span class="lineno"> 3276</span>&#160;                }</div>
-<div class="line"><a name="l03277"></a><span class="lineno"> 3277</span>&#160;            }</div>
-<div class="line"><a name="l03278"></a><span class="lineno"> 3278</span>&#160;            <span class="keywordflow">if</span> (!used) {</div>
-<div class="line"><a name="l03279"></a><span class="lineno"> 3279</span>&#160;                error     = step_1[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
-<div class="line"><a name="l03280"></a><span class="lineno"> 3280</span>&#160;                rel_norm = sqrt(error * error);</div>
-<div class="line"><a name="l03281"></a><span class="lineno"> 3281</span>&#160;                error     = step_2[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
-<div class="line"><a name="l03282"></a><span class="lineno"> 3282</span>&#160;                rel_norm += sqrt(error * error);</div>
-<div class="line"><a name="l03283"></a><span class="lineno"> 3283</span>&#160;                <span class="keywordflow">if</span> (rel_norm &gt; dmax1) {</div>
-<div class="line"><a name="l03284"></a><span class="lineno"> 3284</span>&#160;                    imax[jnum] = i;</div>
-<div class="line"><a name="l03285"></a><span class="lineno"> 3285</span>&#160;                    dmax1 = rel_norm;</div>
-<div class="line"><a name="l03286"></a><span class="lineno"> 3286</span>&#160;                }</div>
-<div class="line"><a name="l03287"></a><span class="lineno"> 3287</span>&#160;            }</div>
-<div class="line"><a name="l03288"></a><span class="lineno"> 3288</span>&#160;        }</div>
-<div class="line"><a name="l03289"></a><span class="lineno"> 3289</span>&#160;        <span class="keywordflow">if</span> (imax[jnum] != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
-<div class="line"><a name="l03290"></a><span class="lineno"> 3290</span>&#160;            <span class="keywordtype">size_t</span> i = imax[jnum];</div>
-<div class="line"><a name="l03291"></a><span class="lineno"> 3291</span>&#160;            error = step_1[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
-<div class="line"><a name="l03292"></a><span class="lineno"> 3292</span>&#160;            dmax0 = sqrt(error * error);</div>
-<div class="line"><a name="l03293"></a><span class="lineno"> 3293</span>&#160;            error = step_2[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
-<div class="line"><a name="l03294"></a><span class="lineno"> 3294</span>&#160;            dmax1 = sqrt(error * error);</div>
-<div class="line"><a name="l03295"></a><span class="lineno"> 3295</span>&#160;            printf(<span class="stringliteral">&quot;\t\t  %4s %12.4e %12.4e %12.4e |  %12.4e  %12.4e   %12.4e    |%12.4e %12.4e %12.4e\n&quot;</span>,</div>
-<div class="line"><a name="l03296"></a><span class="lineno"> 3296</span>&#160;                   <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(i).c_str(), y_n_curr[i], step_1[i],  y_n_curr[i] + step_1[i], y_n_1[i],</div>
-<div class="line"><a name="l03297"></a><span class="lineno"> 3297</span>&#160;                   step_2[i], y_n_1[i]+ step_2[i], <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i], dmax0, dmax1);</div>
-<div class="line"><a name="l03298"></a><span class="lineno"> 3298</span>&#160;        }</div>
-<div class="line"><a name="l03299"></a><span class="lineno"> 3299</span>&#160;    }</div>
-<div class="line"><a name="l03300"></a><span class="lineno"> 3300</span>&#160;    printf(<span class="stringliteral">&quot;\t\t   &quot;</span>);</div>
-<div class="line"><a name="l03301"></a><span class="lineno"> 3301</span>&#160;    <a class="code" href="namespaceCantera.html#ab6b35d8bbcce25a6a3457bc8d062b450" title="Print a line of a single repeated character string. ">print_line</a>(<span class="stringliteral">&quot;-&quot;</span>, 125);</div>
-<div class="line"><a name="l03302"></a><span class="lineno"> 3302</span>&#160;}</div>
-<div class="line"><a name="l03303"></a><span class="lineno"> 3303</span>&#160;<span class="comment">//====================================================================================================================</span><span class="comment"></span></div>
-<div class="line"><a name="l03304"></a><span class="lineno"> 3304</span>&#160;<span class="comment">//!  This routine subtracts two numbers for one another</span></div>
-<div class="line"><a name="l03305"></a><span class="lineno"> 3305</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l03306"></a><span class="lineno"> 3306</span>&#160;<span class="comment"> *   This routine subtracts 2 numbers. If the difference is less</span></div>
-<div class="line"><a name="l03307"></a><span class="lineno"> 3307</span>&#160;<span class="comment"> *   than 1.0E-14 times the magnitude of the smallest number, then diff returns an exact zero.</span></div>
-<div class="line"><a name="l03308"></a><span class="lineno"> 3308</span>&#160;<span class="comment"> *   It also returns an exact zero if the difference is less than</span></div>
-<div class="line"><a name="l03309"></a><span class="lineno"> 3309</span>&#160;<span class="comment"> *   1.0E-300.</span></div>
-<div class="line"><a name="l03310"></a><span class="lineno"> 3310</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l03311"></a><span class="lineno"> 3311</span>&#160;<span class="comment"> *   returns:  a - b</span></div>
-<div class="line"><a name="l03312"></a><span class="lineno"> 3312</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l03313"></a><span class="lineno"> 3313</span>&#160;<span class="comment"> *   This routine is used in numerical differencing schemes in order</span></div>
-<div class="line"><a name="l03314"></a><span class="lineno"> 3314</span>&#160;<span class="comment"> *   to avoid roundoff errors resulting in creating Jacobian terms.</span></div>
-<div class="line"><a name="l03315"></a><span class="lineno"> 3315</span>&#160;<span class="comment"> *   Note: This is a slow routine. However, jacobian errors may cause</span></div>
-<div class="line"><a name="l03316"></a><span class="lineno"> 3316</span>&#160;<span class="comment"> *         loss of convergence. Therefore, in practice this routine has proved cost-effective.</span></div>
-<div class="line"><a name="l03317"></a><span class="lineno"> 3317</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l03318"></a><span class="lineno"> 3318</span>&#160;<span class="comment"> * @param a   Value of a</span></div>
-<div class="line"><a name="l03319"></a><span class="lineno"> 3319</span>&#160;<span class="comment"> * @param b   value of b</span></div>
-<div class="line"><a name="l03320"></a><span class="lineno"> 3320</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l03321"></a><span class="lineno"> 3321</span>&#160;<span class="comment"> * @return    returns the difference between a and b</span></div>
-<div class="line"><a name="l03322"></a><span class="lineno"> 3322</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l03323"></a><span class="lineno"> 3323</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> doublereal <a class="code" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5" title="This routine subtracts two numbers for one another. ">subtractRD</a>(doublereal a, doublereal b)</div>
-<div class="line"><a name="l03324"></a><span class="lineno"> 3324</span>&#160;{</div>
-<div class="line"><a name="l03325"></a><span class="lineno"> 3325</span>&#160;    doublereal diff = a - b;</div>
-<div class="line"><a name="l03326"></a><span class="lineno"> 3326</span>&#160;    doublereal d = std::min(fabs(a), fabs(b));</div>
-<div class="line"><a name="l03327"></a><span class="lineno"> 3327</span>&#160;    d *= 1.0E-14;</div>
-<div class="line"><a name="l03328"></a><span class="lineno"> 3328</span>&#160;    doublereal ad = fabs(diff);</div>
-<div class="line"><a name="l03329"></a><span class="lineno"> 3329</span>&#160;    <span class="keywordflow">if</span> (ad &lt; 1.0E-300) {</div>
-<div class="line"><a name="l03330"></a><span class="lineno"> 3330</span>&#160;        diff = 0.0;</div>
-<div class="line"><a name="l03331"></a><span class="lineno"> 3331</span>&#160;    }</div>
-<div class="line"><a name="l03332"></a><span class="lineno"> 3332</span>&#160;    <span class="keywordflow">if</span> (ad &lt; d) {</div>
-<div class="line"><a name="l03333"></a><span class="lineno"> 3333</span>&#160;        diff = 0.0;</div>
-<div class="line"><a name="l03334"></a><span class="lineno"> 3334</span>&#160;    }</div>
-<div class="line"><a name="l03335"></a><span class="lineno"> 3335</span>&#160;    <span class="keywordflow">return</span> diff;</div>
-<div class="line"><a name="l03336"></a><span class="lineno"> 3336</span>&#160;}</div>
-<div class="line"><a name="l03337"></a><span class="lineno"> 3337</span>&#160;</div>
-<div class="line"><a name="l03338"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#a98724510572fc75fdbe4f4856d9c7d54"> 3338</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#a98724510572fc75fdbe4f4856d9c7d54" title="Function called to evaluate the jacobian matrix and the current residual vector at the current time s...">NonlinearSolver::beuler_jac</a>(<a class="code" href="classCantera_1_1GeneralMatrix.html" title="Generic matrix. ">GeneralMatrix</a>&amp; J, doublereal* <span class="keyword">const</span> f,</div>
-<div class="line"><a name="l03339"></a><span class="lineno"> 3339</span>&#160;                                doublereal time_curr, doublereal CJ,</div>
-<div class="line"><a name="l03340"></a><span class="lineno"> 3340</span>&#160;                                doublereal* <span class="keyword">const</span> y,  doublereal* <span class="keyword">const</span> ydot,</div>
-<div class="line"><a name="l03341"></a><span class="lineno"> 3341</span>&#160;                                <span class="keywordtype">int</span> num_newt_its)</div>
-<div class="line"><a name="l03342"></a><span class="lineno"> 3342</span>&#160;{</div>
-<div class="line"><a name="l03343"></a><span class="lineno"> 3343</span>&#160;    <span class="keywordtype">double</span>* col_j;</div>
-<div class="line"><a name="l03344"></a><span class="lineno"> 3344</span>&#160;    <span class="keywordtype">int</span> info;</div>
-<div class="line"><a name="l03345"></a><span class="lineno"> 3345</span>&#160;    doublereal ysave, dy;</div>
-<div class="line"><a name="l03346"></a><span class="lineno"> 3346</span>&#160;    doublereal ydotsave = 0;</div>
-<div class="line"><a name="l03347"></a><span class="lineno"> 3347</span>&#160;    <span class="keywordtype">int</span> retn = 1;</div>
-<div class="line"><a name="l03348"></a><span class="lineno"> 3348</span>&#160;</div>
-<div class="line"><a name="l03349"></a><span class="lineno"> 3349</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l03350"></a><span class="lineno"> 3350</span>&#160;<span class="comment">     * Clear the factor flag</span></div>
-<div class="line"><a name="l03351"></a><span class="lineno"> 3351</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l03352"></a><span class="lineno"> 3352</span>&#160;    J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a5068355b2d2d3696818c01b73fb74204" title="clear the factored flag ">clearFactorFlag</a>();</div>
-<div class="line"><a name="l03353"></a><span class="lineno"> 3353</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a97462c08eb5d41a680f143bd9e338393" title="Jacobian formation method. ">m_jacFormMethod</a> == <a class="code" href="NonlinearSolver_8h.html#ad9ff595a3e8b76105712557189cfbd66" title="The jacobian is calculated from an analytical function. ">NSOLN_JAC_ANAL</a>) {</div>
-<div class="line"><a name="l03354"></a><span class="lineno"> 3354</span>&#160;        <span class="comment">/********************************************************************</span></div>
-<div class="line"><a name="l03355"></a><span class="lineno"> 3355</span>&#160;<span class="comment">         * Call the function to get a jacobian.</span></div>
-<div class="line"><a name="l03356"></a><span class="lineno"> 3356</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l03357"></a><span class="lineno"> 3357</span>&#160;        info = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#a41d7851c76c9319d9c971ac0ba9f76be" title="Calculate an analytical jacobian and the residual at the current time and values. ...">evalJacobian</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, CJ, y, ydot, J, f);</div>
-<div class="line"><a name="l03358"></a><span class="lineno"> 3358</span>&#160;        <a class="code" href="classCantera_1_1NonlinearSolver.html#a8783f2fe29e2c6949d1c07a432850fcd" title="Number of Jacobian evaluations. ">m_nJacEval</a>++;</div>
-<div class="line"><a name="l03359"></a><span class="lineno"> 3359</span>&#160;        <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
-<div class="line"><a name="l03360"></a><span class="lineno"> 3360</span>&#160;        <span class="keywordflow">if</span> (info != 1) {</div>
-<div class="line"><a name="l03361"></a><span class="lineno"> 3361</span>&#160;            <span class="keywordflow">return</span> info;</div>
-<div class="line"><a name="l03362"></a><span class="lineno"> 3362</span>&#160;        }</div>
-<div class="line"><a name="l03363"></a><span class="lineno"> 3363</span>&#160;    }  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l03364"></a><span class="lineno"> 3364</span>&#160;        <span class="keywordflow">if</span> (J.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab81cad571c5cf5937db84ba1e8588bc8" title="Matrix type. ">matrixType_</a> == 0) {</div>
-<div class="line"><a name="l03365"></a><span class="lineno"> 3365</span>&#160;            <span class="comment">/*******************************************************************</span></div>
-<div class="line"><a name="l03366"></a><span class="lineno"> 3366</span>&#160;<span class="comment">             * Generic algorithm to calculate a numerical Jacobian</span></div>
-<div class="line"><a name="l03367"></a><span class="lineno"> 3367</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l03368"></a><span class="lineno"> 3368</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l03369"></a><span class="lineno"> 3369</span>&#160;<span class="comment">             * Calculate the current value of the rhs given the</span></div>
-<div class="line"><a name="l03370"></a><span class="lineno"> 3370</span>&#160;<span class="comment">             * current conditions.</span></div>
-<div class="line"><a name="l03371"></a><span class="lineno"> 3371</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l03372"></a><span class="lineno"> 3372</span>&#160;</div>
-<div class="line"><a name="l03373"></a><span class="lineno"> 3373</span>&#160;            info = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, f, <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14ab3ac1217d93227a4ccf060ae8f412e7f" title="Base residual calculation for the Jacobian calculation. ">JacBase_ResidEval</a>);</div>
-<div class="line"><a name="l03374"></a><span class="lineno"> 3374</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
-<div class="line"><a name="l03375"></a><span class="lineno"> 3375</span>&#160;            <span class="keywordflow">if</span> (info != 1) {</div>
-<div class="line"><a name="l03376"></a><span class="lineno"> 3376</span>&#160;                <span class="keywordflow">return</span> info;</div>
-<div class="line"><a name="l03377"></a><span class="lineno"> 3377</span>&#160;            }</div>
-<div class="line"><a name="l03378"></a><span class="lineno"> 3378</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a8783f2fe29e2c6949d1c07a432850fcd" title="Number of Jacobian evaluations. ">m_nJacEval</a>++;</div>
-<div class="line"><a name="l03379"></a><span class="lineno"> 3379</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l03380"></a><span class="lineno"> 3380</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ii = 0; ii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; ii++) {</div>
-<div class="line"><a name="l03381"></a><span class="lineno"> 3381</span>&#160;                <a class="code" href="namespaceCantera.html#a29e84e6914c4eae9fe064bfa1d06644e" title="Check to see that a number is finite (not NaN, +Inf or -Inf) ">checkFinite</a>(f[ii]);</div>
-<div class="line"><a name="l03382"></a><span class="lineno"> 3382</span>&#160;            }</div>
-<div class="line"><a name="l03383"></a><span class="lineno"> 3383</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l03384"></a><span class="lineno"> 3384</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l03385"></a><span class="lineno"> 3385</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l03386"></a><span class="lineno"> 3386</span>&#160;<span class="comment">             * Malloc a vector and call the function object to return a set of</span></div>
-<div class="line"><a name="l03387"></a><span class="lineno"> 3387</span>&#160;<span class="comment">             * deltaY&#39;s that are appropriate for calculating the numerical</span></div>
-<div class="line"><a name="l03388"></a><span class="lineno"> 3388</span>&#160;<span class="comment">             * derivative.</span></div>
-<div class="line"><a name="l03389"></a><span class="lineno"> 3389</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l03390"></a><span class="lineno"> 3390</span>&#160;            <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> dyVector(neq_);</div>
-<div class="line"><a name="l03391"></a><span class="lineno"> 3391</span>&#160;            retn = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ac7057a6c327e85a2a0e2a363ae6a3de9" title="Return a vector of delta y&#39;s for calculation of the numerical Jacobian. ">calcDeltaSolnVariables</a>(time_curr, y, ydot, &amp;dyVector[0], <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>));</div>
-<div class="line"><a name="l03392"></a><span class="lineno"> 3392</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#adf7617c1fe980fb5310969cb679e840b" title="Turn on or off printing of the Jacobian. ">s_print_NumJac</a>) {</div>
-<div class="line"><a name="l03393"></a><span class="lineno"> 3393</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 7) {</div>
-<div class="line"><a name="l03394"></a><span class="lineno"> 3394</span>&#160;                    <span class="keywordflow">if</span> (retn != 1) {</div>
-<div class="line"><a name="l03395"></a><span class="lineno"> 3395</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t  beuler_jac ERROR! calcDeltaSolnVariables() returned an error flag\n&quot;</span>);</div>
-<div class="line"><a name="l03396"></a><span class="lineno"> 3396</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t                    We will bail from the nonlinear solver after calculating the jacobian&quot;</span>);</div>
-<div class="line"><a name="l03397"></a><span class="lineno"> 3397</span>&#160;                    }</div>
-<div class="line"><a name="l03398"></a><span class="lineno"> 3398</span>&#160;                    <span class="keywordflow">if</span> (neq_ &lt; 20) {</div>
-<div class="line"><a name="l03399"></a><span class="lineno"> 3399</span>&#160;                        printf(<span class="stringliteral">&quot;\t\tUnk            m_ewt              y                dyVector            ResN\n&quot;</span>);</div>
-<div class="line"><a name="l03400"></a><span class="lineno"> 3400</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iii = 0; iii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; iii++) {</div>
-<div class="line"><a name="l03401"></a><span class="lineno"> 3401</span>&#160;                            printf(<span class="stringliteral">&quot;\t\t %4s       %16.8e   %16.8e   %16.8e  %16.8e \n&quot;</span>,</div>
-<div class="line"><a name="l03402"></a><span class="lineno"> 3402</span>&#160;                                   <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(iii).c_str(),   <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[iii],  y[iii], dyVector[iii], f[iii]);</div>
-<div class="line"><a name="l03403"></a><span class="lineno"> 3403</span>&#160;                        }</div>
-<div class="line"><a name="l03404"></a><span class="lineno"> 3404</span>&#160;                    }</div>
-<div class="line"><a name="l03405"></a><span class="lineno"> 3405</span>&#160;                }</div>
-<div class="line"><a name="l03406"></a><span class="lineno"> 3406</span>&#160;            }</div>
-<div class="line"><a name="l03407"></a><span class="lineno"> 3407</span>&#160;</div>
-<div class="line"><a name="l03408"></a><span class="lineno"> 3408</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l03409"></a><span class="lineno"> 3409</span>&#160;<span class="comment">             * Loop over the variables, formulating a numerical derivative</span></div>
-<div class="line"><a name="l03410"></a><span class="lineno"> 3410</span>&#160;<span class="comment">             * of the dense matrix.</span></div>
-<div class="line"><a name="l03411"></a><span class="lineno"> 3411</span>&#160;<span class="comment">             * For the delta in the variable, we will use a variety of approaches</span></div>
-<div class="line"><a name="l03412"></a><span class="lineno"> 3412</span>&#160;<span class="comment">             * The original approach was to use the error tolerance amount.</span></div>
-<div class="line"><a name="l03413"></a><span class="lineno"> 3413</span>&#160;<span class="comment">             * This may not be the best approach, as it could be overly large in</span></div>
-<div class="line"><a name="l03414"></a><span class="lineno"> 3414</span>&#160;<span class="comment">             * some instances and overly small in others.</span></div>
-<div class="line"><a name="l03415"></a><span class="lineno"> 3415</span>&#160;<span class="comment">             * We will first protect from being overly small, by using the usual</span></div>
-<div class="line"><a name="l03416"></a><span class="lineno"> 3416</span>&#160;<span class="comment">             * sqrt of machine precision approach, i.e., 1.0E-7,</span></div>
-<div class="line"><a name="l03417"></a><span class="lineno"> 3417</span>&#160;<span class="comment">             * to bound the lower limit of the delta.</span></div>
-<div class="line"><a name="l03418"></a><span class="lineno"> 3418</span>&#160;<span class="comment">             */</span></div>
-<div class="line"><a name="l03419"></a><span class="lineno"> 3419</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03250"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#a7475348f8c6b800e9f9db8a3e21e3eab"> 3250</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#a7475348f8c6b800e9f9db8a3e21e3eab" title="Print solution norm contribution. ">NonlinearSolver::print_solnDelta_norm_contrib</a>(<span class="keyword">const</span> doublereal* <span class="keyword">const</span> step_1,</div>
+<div class="line"><a name="l03251"></a><span class="lineno"> 3251</span>&#160;                                                   <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> stepNorm_1,</div>
+<div class="line"><a name="l03252"></a><span class="lineno"> 3252</span>&#160;                                                   <span class="keyword">const</span> doublereal* <span class="keyword">const</span> step_2,</div>
+<div class="line"><a name="l03253"></a><span class="lineno"> 3253</span>&#160;                                                   <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> stepNorm_2,</div>
+<div class="line"><a name="l03254"></a><span class="lineno"> 3254</span>&#160;                                                   <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> title,</div>
+<div class="line"><a name="l03255"></a><span class="lineno"> 3255</span>&#160;                                                   <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y_n_curr,</div>
+<div class="line"><a name="l03256"></a><span class="lineno"> 3256</span>&#160;                                                   <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y_n_1,</div>
+<div class="line"><a name="l03257"></a><span class="lineno"> 3257</span>&#160;                                                   doublereal damp,</div>
+<div class="line"><a name="l03258"></a><span class="lineno"> 3258</span>&#160;                                                   <span class="keywordtype">size_t</span> num_entries)</div>
+<div class="line"><a name="l03259"></a><span class="lineno"> 3259</span>&#160;{</div>
+<div class="line"><a name="l03260"></a><span class="lineno"> 3260</span>&#160;    <span class="keywordtype">bool</span> used;</div>
+<div class="line"><a name="l03261"></a><span class="lineno"> 3261</span>&#160;    doublereal dmax0, dmax1, <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756" title="Write an error message and quit. ">error</a>, rel_norm;</div>
+<div class="line"><a name="l03262"></a><span class="lineno"> 3262</span>&#160;    printf(<span class="stringliteral">&quot;\t\t%s currentDamp = %g\n&quot;</span>, title, damp);</div>
+<div class="line"><a name="l03263"></a><span class="lineno"> 3263</span>&#160;    printf(<span class="stringliteral">&quot;\t\t     I     ysolnOld %13s ysolnNewRaw | ysolnNewTrial &quot;</span></div>
+<div class="line"><a name="l03264"></a><span class="lineno"> 3264</span>&#160;           <span class="stringliteral">&quot;%10s ysolnNewTrialRaw | solnWeight  wtDelSoln wtDelSolnTrial\n&quot;</span>, stepNorm_1, stepNorm_2);</div>
+<div class="line"><a name="l03265"></a><span class="lineno"> 3265</span>&#160;    std::vector&lt;size_t&gt; imax(num_entries, <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>);</div>
+<div class="line"><a name="l03266"></a><span class="lineno"> 3266</span>&#160;    printf(<span class="stringliteral">&quot;\t\t   &quot;</span>);</div>
+<div class="line"><a name="l03267"></a><span class="lineno"> 3267</span>&#160;    <a class="code" href="namespaceCantera.html#ab6b35d8bbcce25a6a3457bc8d062b450" title="Print a line of a single repeated character string. ">print_line</a>(<span class="stringliteral">&quot;-&quot;</span>, 125);</div>
+<div class="line"><a name="l03268"></a><span class="lineno"> 3268</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> jnum = 0; jnum &lt; num_entries; jnum++) {</div>
+<div class="line"><a name="l03269"></a><span class="lineno"> 3269</span>&#160;        dmax1 = -1.0;</div>
+<div class="line"><a name="l03270"></a><span class="lineno"> 3270</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; i++) {</div>
+<div class="line"><a name="l03271"></a><span class="lineno"> 3271</span>&#160;            used = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l03272"></a><span class="lineno"> 3272</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; jnum; j++) {</div>
+<div class="line"><a name="l03273"></a><span class="lineno"> 3273</span>&#160;                <span class="keywordflow">if</span> (imax[j] == i) {</div>
+<div class="line"><a name="l03274"></a><span class="lineno"> 3274</span>&#160;                    used = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l03275"></a><span class="lineno"> 3275</span>&#160;                }</div>
+<div class="line"><a name="l03276"></a><span class="lineno"> 3276</span>&#160;            }</div>
+<div class="line"><a name="l03277"></a><span class="lineno"> 3277</span>&#160;            <span class="keywordflow">if</span> (!used) {</div>
+<div class="line"><a name="l03278"></a><span class="lineno"> 3278</span>&#160;                error     = step_1[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
+<div class="line"><a name="l03279"></a><span class="lineno"> 3279</span>&#160;                rel_norm = sqrt(error * error);</div>
+<div class="line"><a name="l03280"></a><span class="lineno"> 3280</span>&#160;                error     = step_2[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
+<div class="line"><a name="l03281"></a><span class="lineno"> 3281</span>&#160;                rel_norm += sqrt(error * error);</div>
+<div class="line"><a name="l03282"></a><span class="lineno"> 3282</span>&#160;                <span class="keywordflow">if</span> (rel_norm &gt; dmax1) {</div>
+<div class="line"><a name="l03283"></a><span class="lineno"> 3283</span>&#160;                    imax[jnum] = i;</div>
+<div class="line"><a name="l03284"></a><span class="lineno"> 3284</span>&#160;                    dmax1 = rel_norm;</div>
+<div class="line"><a name="l03285"></a><span class="lineno"> 3285</span>&#160;                }</div>
+<div class="line"><a name="l03286"></a><span class="lineno"> 3286</span>&#160;            }</div>
+<div class="line"><a name="l03287"></a><span class="lineno"> 3287</span>&#160;        }</div>
+<div class="line"><a name="l03288"></a><span class="lineno"> 3288</span>&#160;        <span class="keywordflow">if</span> (imax[jnum] != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>) {</div>
+<div class="line"><a name="l03289"></a><span class="lineno"> 3289</span>&#160;            <span class="keywordtype">size_t</span> i = imax[jnum];</div>
+<div class="line"><a name="l03290"></a><span class="lineno"> 3290</span>&#160;            error = step_1[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
+<div class="line"><a name="l03291"></a><span class="lineno"> 3291</span>&#160;            dmax0 = sqrt(error * error);</div>
+<div class="line"><a name="l03292"></a><span class="lineno"> 3292</span>&#160;            error = step_2[i] /  <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i];</div>
+<div class="line"><a name="l03293"></a><span class="lineno"> 3293</span>&#160;            dmax1 = sqrt(error * error);</div>
+<div class="line"><a name="l03294"></a><span class="lineno"> 3294</span>&#160;            printf(<span class="stringliteral">&quot;\t\t  %4s %12.4e %12.4e %12.4e |  %12.4e  %12.4e   %12.4e    |%12.4e %12.4e %12.4e\n&quot;</span>,</div>
+<div class="line"><a name="l03295"></a><span class="lineno"> 3295</span>&#160;                   <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(i).c_str(), y_n_curr[i], step_1[i],  y_n_curr[i] + step_1[i], y_n_1[i],</div>
+<div class="line"><a name="l03296"></a><span class="lineno"> 3296</span>&#160;                   step_2[i], y_n_1[i]+ step_2[i], <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[i], dmax0, dmax1);</div>
+<div class="line"><a name="l03297"></a><span class="lineno"> 3297</span>&#160;        }</div>
+<div class="line"><a name="l03298"></a><span class="lineno"> 3298</span>&#160;    }</div>
+<div class="line"><a name="l03299"></a><span class="lineno"> 3299</span>&#160;    printf(<span class="stringliteral">&quot;\t\t   &quot;</span>);</div>
+<div class="line"><a name="l03300"></a><span class="lineno"> 3300</span>&#160;    <a class="code" href="namespaceCantera.html#ab6b35d8bbcce25a6a3457bc8d062b450" title="Print a line of a single repeated character string. ">print_line</a>(<span class="stringliteral">&quot;-&quot;</span>, 125);</div>
+<div class="line"><a name="l03301"></a><span class="lineno"> 3301</span>&#160;}</div>
+<div class="line"><a name="l03302"></a><span class="lineno"> 3302</span>&#160;<span class="comment">//====================================================================================================================</span><span class="comment"></span></div>
+<div class="line"><a name="l03303"></a><span class="lineno"> 3303</span>&#160;<span class="comment">//!  This routine subtracts two numbers for one another</span></div>
+<div class="line"><a name="l03304"></a><span class="lineno"> 3304</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l03305"></a><span class="lineno"> 3305</span>&#160;<span class="comment"> *   This routine subtracts 2 numbers. If the difference is less</span></div>
+<div class="line"><a name="l03306"></a><span class="lineno"> 3306</span>&#160;<span class="comment"> *   than 1.0E-14 times the magnitude of the smallest number, then diff returns an exact zero.</span></div>
+<div class="line"><a name="l03307"></a><span class="lineno"> 3307</span>&#160;<span class="comment"> *   It also returns an exact zero if the difference is less than</span></div>
+<div class="line"><a name="l03308"></a><span class="lineno"> 3308</span>&#160;<span class="comment"> *   1.0E-300.</span></div>
+<div class="line"><a name="l03309"></a><span class="lineno"> 3309</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l03310"></a><span class="lineno"> 3310</span>&#160;<span class="comment"> *   returns:  a - b</span></div>
+<div class="line"><a name="l03311"></a><span class="lineno"> 3311</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l03312"></a><span class="lineno"> 3312</span>&#160;<span class="comment"> *   This routine is used in numerical differencing schemes in order</span></div>
+<div class="line"><a name="l03313"></a><span class="lineno"> 3313</span>&#160;<span class="comment"> *   to avoid roundoff errors resulting in creating Jacobian terms.</span></div>
+<div class="line"><a name="l03314"></a><span class="lineno"> 3314</span>&#160;<span class="comment"> *   Note: This is a slow routine. However, jacobian errors may cause</span></div>
+<div class="line"><a name="l03315"></a><span class="lineno"> 3315</span>&#160;<span class="comment"> *         loss of convergence. Therefore, in practice this routine has proved cost-effective.</span></div>
+<div class="line"><a name="l03316"></a><span class="lineno"> 3316</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l03317"></a><span class="lineno"> 3317</span>&#160;<span class="comment"> * @param a   Value of a</span></div>
+<div class="line"><a name="l03318"></a><span class="lineno"> 3318</span>&#160;<span class="comment"> * @param b   value of b</span></div>
+<div class="line"><a name="l03319"></a><span class="lineno"> 3319</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l03320"></a><span class="lineno"> 3320</span>&#160;<span class="comment"> * @return    returns the difference between a and b</span></div>
+<div class="line"><a name="l03321"></a><span class="lineno"> 3321</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l03322"></a><span class="lineno"> 3322</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> doublereal <a class="code" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5" title="This routine subtracts two numbers for one another. ">subtractRD</a>(doublereal a, doublereal b)</div>
+<div class="line"><a name="l03323"></a><span class="lineno"> 3323</span>&#160;{</div>
+<div class="line"><a name="l03324"></a><span class="lineno"> 3324</span>&#160;    doublereal diff = a - b;</div>
+<div class="line"><a name="l03325"></a><span class="lineno"> 3325</span>&#160;    doublereal d = std::min(fabs(a), fabs(b));</div>
+<div class="line"><a name="l03326"></a><span class="lineno"> 3326</span>&#160;    d *= 1.0E-14;</div>
+<div class="line"><a name="l03327"></a><span class="lineno"> 3327</span>&#160;    doublereal ad = fabs(diff);</div>
+<div class="line"><a name="l03328"></a><span class="lineno"> 3328</span>&#160;    <span class="keywordflow">if</span> (ad &lt; 1.0E-300) {</div>
+<div class="line"><a name="l03329"></a><span class="lineno"> 3329</span>&#160;        diff = 0.0;</div>
+<div class="line"><a name="l03330"></a><span class="lineno"> 3330</span>&#160;    }</div>
+<div class="line"><a name="l03331"></a><span class="lineno"> 3331</span>&#160;    <span class="keywordflow">if</span> (ad &lt; d) {</div>
+<div class="line"><a name="l03332"></a><span class="lineno"> 3332</span>&#160;        diff = 0.0;</div>
+<div class="line"><a name="l03333"></a><span class="lineno"> 3333</span>&#160;    }</div>
+<div class="line"><a name="l03334"></a><span class="lineno"> 3334</span>&#160;    <span class="keywordflow">return</span> diff;</div>
+<div class="line"><a name="l03335"></a><span class="lineno"> 3335</span>&#160;}</div>
+<div class="line"><a name="l03336"></a><span class="lineno"> 3336</span>&#160;</div>
+<div class="line"><a name="l03337"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#a98724510572fc75fdbe4f4856d9c7d54"> 3337</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#a98724510572fc75fdbe4f4856d9c7d54" title="Function called to evaluate the jacobian matrix and the current residual vector at the current time s...">NonlinearSolver::beuler_jac</a>(<a class="code" href="classCantera_1_1GeneralMatrix.html" title="Generic matrix. ">GeneralMatrix</a>&amp; J, doublereal* <span class="keyword">const</span> f,</div>
+<div class="line"><a name="l03338"></a><span class="lineno"> 3338</span>&#160;                                doublereal time_curr, doublereal CJ,</div>
+<div class="line"><a name="l03339"></a><span class="lineno"> 3339</span>&#160;                                doublereal* <span class="keyword">const</span> y,  doublereal* <span class="keyword">const</span> ydot,</div>
+<div class="line"><a name="l03340"></a><span class="lineno"> 3340</span>&#160;                                <span class="keywordtype">int</span> num_newt_its)</div>
+<div class="line"><a name="l03341"></a><span class="lineno"> 3341</span>&#160;{</div>
+<div class="line"><a name="l03342"></a><span class="lineno"> 3342</span>&#160;    <span class="keywordtype">double</span>* col_j;</div>
+<div class="line"><a name="l03343"></a><span class="lineno"> 3343</span>&#160;    <span class="keywordtype">int</span> info;</div>
+<div class="line"><a name="l03344"></a><span class="lineno"> 3344</span>&#160;    doublereal ysave, dy;</div>
+<div class="line"><a name="l03345"></a><span class="lineno"> 3345</span>&#160;    doublereal ydotsave = 0;</div>
+<div class="line"><a name="l03346"></a><span class="lineno"> 3346</span>&#160;    <span class="keywordtype">int</span> retn = 1;</div>
+<div class="line"><a name="l03347"></a><span class="lineno"> 3347</span>&#160;</div>
+<div class="line"><a name="l03348"></a><span class="lineno"> 3348</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l03349"></a><span class="lineno"> 3349</span>&#160;<span class="comment">     * Clear the factor flag</span></div>
+<div class="line"><a name="l03350"></a><span class="lineno"> 3350</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l03351"></a><span class="lineno"> 3351</span>&#160;    J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a43deefd36585d28649f065c058355d4f" title="clear the factored flag ">clearFactorFlag</a>();</div>
+<div class="line"><a name="l03352"></a><span class="lineno"> 3352</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a97462c08eb5d41a680f143bd9e338393" title="Jacobian formation method. ">m_jacFormMethod</a> == <a class="code" href="NonlinearSolver_8h.html#ad9ff595a3e8b76105712557189cfbd66" title="The jacobian is calculated from an analytical function. ">NSOLN_JAC_ANAL</a>) {</div>
+<div class="line"><a name="l03353"></a><span class="lineno"> 3353</span>&#160;        <span class="comment">/********************************************************************</span></div>
+<div class="line"><a name="l03354"></a><span class="lineno"> 3354</span>&#160;<span class="comment">         * Call the function to get a jacobian.</span></div>
+<div class="line"><a name="l03355"></a><span class="lineno"> 3355</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l03356"></a><span class="lineno"> 3356</span>&#160;        info = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#a41d7851c76c9319d9c971ac0ba9f76be" title="Calculate an analytical jacobian and the residual at the current time and values. ...">evalJacobian</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, CJ, y, ydot, J, f);</div>
+<div class="line"><a name="l03357"></a><span class="lineno"> 3357</span>&#160;        <a class="code" href="classCantera_1_1NonlinearSolver.html#a8783f2fe29e2c6949d1c07a432850fcd" title="Number of Jacobian evaluations. ">m_nJacEval</a>++;</div>
+<div class="line"><a name="l03358"></a><span class="lineno"> 3358</span>&#160;        <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
+<div class="line"><a name="l03359"></a><span class="lineno"> 3359</span>&#160;        <span class="keywordflow">if</span> (info != 1) {</div>
+<div class="line"><a name="l03360"></a><span class="lineno"> 3360</span>&#160;            <span class="keywordflow">return</span> info;</div>
+<div class="line"><a name="l03361"></a><span class="lineno"> 3361</span>&#160;        }</div>
+<div class="line"><a name="l03362"></a><span class="lineno"> 3362</span>&#160;    }  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l03363"></a><span class="lineno"> 3363</span>&#160;        <span class="keywordflow">if</span> (J.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab81cad571c5cf5937db84ba1e8588bc8" title="Matrix type. ">matrixType_</a> == 0) {</div>
+<div class="line"><a name="l03364"></a><span class="lineno"> 3364</span>&#160;            <span class="comment">/*******************************************************************</span></div>
+<div class="line"><a name="l03365"></a><span class="lineno"> 3365</span>&#160;<span class="comment">             * Generic algorithm to calculate a numerical Jacobian</span></div>
+<div class="line"><a name="l03366"></a><span class="lineno"> 3366</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l03367"></a><span class="lineno"> 3367</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l03368"></a><span class="lineno"> 3368</span>&#160;<span class="comment">             * Calculate the current value of the rhs given the</span></div>
+<div class="line"><a name="l03369"></a><span class="lineno"> 3369</span>&#160;<span class="comment">             * current conditions.</span></div>
+<div class="line"><a name="l03370"></a><span class="lineno"> 3370</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l03371"></a><span class="lineno"> 3371</span>&#160;</div>
+<div class="line"><a name="l03372"></a><span class="lineno"> 3372</span>&#160;            info = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, f, <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14ab3ac1217d93227a4ccf060ae8f412e7f" title="Base residual calculation for the Jacobian calculation. ">JacBase_ResidEval</a>);</div>
+<div class="line"><a name="l03373"></a><span class="lineno"> 3373</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
+<div class="line"><a name="l03374"></a><span class="lineno"> 3374</span>&#160;            <span class="keywordflow">if</span> (info != 1) {</div>
+<div class="line"><a name="l03375"></a><span class="lineno"> 3375</span>&#160;                <span class="keywordflow">return</span> info;</div>
+<div class="line"><a name="l03376"></a><span class="lineno"> 3376</span>&#160;            }</div>
+<div class="line"><a name="l03377"></a><span class="lineno"> 3377</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a8783f2fe29e2c6949d1c07a432850fcd" title="Number of Jacobian evaluations. ">m_nJacEval</a>++;</div>
+<div class="line"><a name="l03378"></a><span class="lineno"> 3378</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l03379"></a><span class="lineno"> 3379</span>&#160;<span class="preprocessor"></span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ii = 0; ii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; ii++) {</div>
+<div class="line"><a name="l03380"></a><span class="lineno"> 3380</span>&#160;                <a class="code" href="namespaceCantera.html#a29e84e6914c4eae9fe064bfa1d06644e" title="Check to see that a number is finite (not NaN, +Inf or -Inf) ">checkFinite</a>(f[ii]);</div>
+<div class="line"><a name="l03381"></a><span class="lineno"> 3381</span>&#160;            }</div>
+<div class="line"><a name="l03382"></a><span class="lineno"> 3382</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l03383"></a><span class="lineno"> 3383</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l03384"></a><span class="lineno"> 3384</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l03385"></a><span class="lineno"> 3385</span>&#160;<span class="comment">             * Malloc a vector and call the function object to return a set of</span></div>
+<div class="line"><a name="l03386"></a><span class="lineno"> 3386</span>&#160;<span class="comment">             * deltaY&#39;s that are appropriate for calculating the numerical</span></div>
+<div class="line"><a name="l03387"></a><span class="lineno"> 3387</span>&#160;<span class="comment">             * derivative.</span></div>
+<div class="line"><a name="l03388"></a><span class="lineno"> 3388</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l03389"></a><span class="lineno"> 3389</span>&#160;            <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> dyVector(neq_);</div>
+<div class="line"><a name="l03390"></a><span class="lineno"> 3390</span>&#160;            retn = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ac7057a6c327e85a2a0e2a363ae6a3de9" title="Return a vector of delta y&#39;s for calculation of the numerical Jacobian. ">calcDeltaSolnVariables</a>(time_curr, y, ydot, &amp;dyVector[0], <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>));</div>
+<div class="line"><a name="l03391"></a><span class="lineno"> 3391</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#adf7617c1fe980fb5310969cb679e840b" title="Turn on or off printing of the Jacobian. ">s_print_NumJac</a>) {</div>
+<div class="line"><a name="l03392"></a><span class="lineno"> 3392</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 7) {</div>
+<div class="line"><a name="l03393"></a><span class="lineno"> 3393</span>&#160;                    <span class="keywordflow">if</span> (retn != 1) {</div>
+<div class="line"><a name="l03394"></a><span class="lineno"> 3394</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t  beuler_jac ERROR! calcDeltaSolnVariables() returned an error flag\n&quot;</span>);</div>
+<div class="line"><a name="l03395"></a><span class="lineno"> 3395</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t                    We will bail from the nonlinear solver after calculating the jacobian&quot;</span>);</div>
+<div class="line"><a name="l03396"></a><span class="lineno"> 3396</span>&#160;                    }</div>
+<div class="line"><a name="l03397"></a><span class="lineno"> 3397</span>&#160;                    <span class="keywordflow">if</span> (neq_ &lt; 20) {</div>
+<div class="line"><a name="l03398"></a><span class="lineno"> 3398</span>&#160;                        printf(<span class="stringliteral">&quot;\t\tUnk            m_ewt              y                dyVector            ResN\n&quot;</span>);</div>
+<div class="line"><a name="l03399"></a><span class="lineno"> 3399</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iii = 0; iii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; iii++) {</div>
+<div class="line"><a name="l03400"></a><span class="lineno"> 3400</span>&#160;                            printf(<span class="stringliteral">&quot;\t\t %4s       %16.8e   %16.8e   %16.8e  %16.8e \n&quot;</span>,</div>
+<div class="line"><a name="l03401"></a><span class="lineno"> 3401</span>&#160;                                   <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(iii).c_str(),   <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[iii],  y[iii], dyVector[iii], f[iii]);</div>
+<div class="line"><a name="l03402"></a><span class="lineno"> 3402</span>&#160;                        }</div>
+<div class="line"><a name="l03403"></a><span class="lineno"> 3403</span>&#160;                    }</div>
+<div class="line"><a name="l03404"></a><span class="lineno"> 3404</span>&#160;                }</div>
+<div class="line"><a name="l03405"></a><span class="lineno"> 3405</span>&#160;            }</div>
+<div class="line"><a name="l03406"></a><span class="lineno"> 3406</span>&#160;</div>
+<div class="line"><a name="l03407"></a><span class="lineno"> 3407</span>&#160;            <span class="comment">/*</span></div>
+<div class="line"><a name="l03408"></a><span class="lineno"> 3408</span>&#160;<span class="comment">             * Loop over the variables, formulating a numerical derivative</span></div>
+<div class="line"><a name="l03409"></a><span class="lineno"> 3409</span>&#160;<span class="comment">             * of the dense matrix.</span></div>
+<div class="line"><a name="l03410"></a><span class="lineno"> 3410</span>&#160;<span class="comment">             * For the delta in the variable, we will use a variety of approaches</span></div>
+<div class="line"><a name="l03411"></a><span class="lineno"> 3411</span>&#160;<span class="comment">             * The original approach was to use the error tolerance amount.</span></div>
+<div class="line"><a name="l03412"></a><span class="lineno"> 3412</span>&#160;<span class="comment">             * This may not be the best approach, as it could be overly large in</span></div>
+<div class="line"><a name="l03413"></a><span class="lineno"> 3413</span>&#160;<span class="comment">             * some instances and overly small in others.</span></div>
+<div class="line"><a name="l03414"></a><span class="lineno"> 3414</span>&#160;<span class="comment">             * We will first protect from being overly small, by using the usual</span></div>
+<div class="line"><a name="l03415"></a><span class="lineno"> 3415</span>&#160;<span class="comment">             * sqrt of machine precision approach, i.e., 1.0E-7,</span></div>
+<div class="line"><a name="l03416"></a><span class="lineno"> 3416</span>&#160;<span class="comment">             * to bound the lower limit of the delta.</span></div>
+<div class="line"><a name="l03417"></a><span class="lineno"> 3417</span>&#160;<span class="comment">             */</span></div>
+<div class="line"><a name="l03418"></a><span class="lineno"> 3418</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03419"></a><span class="lineno"> 3419</span>&#160;</div>
 <div class="line"><a name="l03420"></a><span class="lineno"> 3420</span>&#160;</div>
-<div class="line"><a name="l03421"></a><span class="lineno"> 3421</span>&#160;</div>
-<div class="line"><a name="l03422"></a><span class="lineno"> 3422</span>&#160;                <span class="comment">/*</span></div>
-<div class="line"><a name="l03423"></a><span class="lineno"> 3423</span>&#160;<span class="comment">                 * Get a pointer into the column of the matrix</span></div>
-<div class="line"><a name="l03424"></a><span class="lineno"> 3424</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l03421"></a><span class="lineno"> 3421</span>&#160;                <span class="comment">/*</span></div>
+<div class="line"><a name="l03422"></a><span class="lineno"> 3422</span>&#160;<span class="comment">                 * Get a pointer into the column of the matrix</span></div>
+<div class="line"><a name="l03423"></a><span class="lineno"> 3423</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l03424"></a><span class="lineno"> 3424</span>&#160;</div>
 <div class="line"><a name="l03425"></a><span class="lineno"> 3425</span>&#160;</div>
-<div class="line"><a name="l03426"></a><span class="lineno"> 3426</span>&#160;</div>
-<div class="line"><a name="l03427"></a><span class="lineno"> 3427</span>&#160;                col_j = (doublereal*) J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb" title="Return a pointer to the top of column j, columns are assumed to be contiguous in memory. ">ptrColumn</a>(j);</div>
-<div class="line"><a name="l03428"></a><span class="lineno"> 3428</span>&#160;                ysave = y[j];</div>
-<div class="line"><a name="l03429"></a><span class="lineno"> 3429</span>&#160;                dy = dyVector[j];</div>
-<div class="line"><a name="l03430"></a><span class="lineno"> 3430</span>&#160;                <span class="comment">//dy = fmaxx(1.0E-6 * m_ewt[j], fabs(ysave)*1.0E-7);</span></div>
-<div class="line"><a name="l03431"></a><span class="lineno"> 3431</span>&#160;</div>
-<div class="line"><a name="l03432"></a><span class="lineno"> 3432</span>&#160;                y[j] = ysave + dy;</div>
-<div class="line"><a name="l03433"></a><span class="lineno"> 3433</span>&#160;                dy = y[j] - ysave;</div>
-<div class="line"><a name="l03434"></a><span class="lineno"> 3434</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
-<div class="line"><a name="l03435"></a><span class="lineno"> 3435</span>&#160;                    ydotsave = ydot[j];</div>
-<div class="line"><a name="l03436"></a><span class="lineno"> 3436</span>&#160;                    ydot[j] += dy * CJ;</div>
-<div class="line"><a name="l03437"></a><span class="lineno"> 3437</span>&#160;                }</div>
-<div class="line"><a name="l03438"></a><span class="lineno"> 3438</span>&#160;                <span class="comment">/*</span></div>
-<div class="line"><a name="l03439"></a><span class="lineno"> 3439</span>&#160;<span class="comment">                 * Call the function</span></div>
-<div class="line"><a name="l03440"></a><span class="lineno"> 3440</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l03426"></a><span class="lineno"> 3426</span>&#160;                col_j = (doublereal*) J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb" title="Return a pointer to the top of column j, columns are assumed to be contiguous in memory. ">ptrColumn</a>(j);</div>
+<div class="line"><a name="l03427"></a><span class="lineno"> 3427</span>&#160;                ysave = y[j];</div>
+<div class="line"><a name="l03428"></a><span class="lineno"> 3428</span>&#160;                dy = dyVector[j];</div>
+<div class="line"><a name="l03429"></a><span class="lineno"> 3429</span>&#160;                <span class="comment">//dy = fmaxx(1.0E-6 * m_ewt[j], fabs(ysave)*1.0E-7);</span></div>
+<div class="line"><a name="l03430"></a><span class="lineno"> 3430</span>&#160;</div>
+<div class="line"><a name="l03431"></a><span class="lineno"> 3431</span>&#160;                y[j] = ysave + dy;</div>
+<div class="line"><a name="l03432"></a><span class="lineno"> 3432</span>&#160;                dy = y[j] - ysave;</div>
+<div class="line"><a name="l03433"></a><span class="lineno"> 3433</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
+<div class="line"><a name="l03434"></a><span class="lineno"> 3434</span>&#160;                    ydotsave = ydot[j];</div>
+<div class="line"><a name="l03435"></a><span class="lineno"> 3435</span>&#160;                    ydot[j] += dy * CJ;</div>
+<div class="line"><a name="l03436"></a><span class="lineno"> 3436</span>&#160;                }</div>
+<div class="line"><a name="l03437"></a><span class="lineno"> 3437</span>&#160;                <span class="comment">/*</span></div>
+<div class="line"><a name="l03438"></a><span class="lineno"> 3438</span>&#160;<span class="comment">                 * Call the function</span></div>
+<div class="line"><a name="l03439"></a><span class="lineno"> 3439</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l03440"></a><span class="lineno"> 3440</span>&#160;</div>
 <div class="line"><a name="l03441"></a><span class="lineno"> 3441</span>&#160;</div>
-<div class="line"><a name="l03442"></a><span class="lineno"> 3442</span>&#160;</div>
-<div class="line"><a name="l03443"></a><span class="lineno"> 3443</span>&#160;                info =  <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>),</div>
-<div class="line"><a name="l03444"></a><span class="lineno"> 3444</span>&#160;                                            <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14a0e79d1d952655ddf7eaab9917d81ff1d" title="Delta residual calculation for the Jacbobian calculation. ">JacDelta_ResidEval</a>, j, dy);</div>
-<div class="line"><a name="l03445"></a><span class="lineno"> 3445</span>&#160;                <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
-<div class="line"><a name="l03446"></a><span class="lineno"> 3446</span>&#160;</div>
-<div class="line"><a name="l03447"></a><span class="lineno"> 3447</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l03448"></a><span class="lineno"> 3448</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (fabs(dy) &lt; 1.0E-300) {</div>
-<div class="line"><a name="l03449"></a><span class="lineno"> 3449</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;NonlinearSolver::beuler_jac&quot;</span>, <span class="stringliteral">&quot;dy is equal to zero&quot;</span>);</div>
-<div class="line"><a name="l03450"></a><span class="lineno"> 3450</span>&#160;                }</div>
-<div class="line"><a name="l03451"></a><span class="lineno"> 3451</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ii = 0; ii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; ii++) {</div>
-<div class="line"><a name="l03452"></a><span class="lineno"> 3452</span>&#160;                    <a class="code" href="namespaceCantera.html#a29e84e6914c4eae9fe064bfa1d06644e" title="Check to see that a number is finite (not NaN, +Inf or -Inf) ">checkFinite</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[ii]);</div>
-<div class="line"><a name="l03453"></a><span class="lineno"> 3453</span>&#160;                }</div>
-<div class="line"><a name="l03454"></a><span class="lineno"> 3454</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l03455"></a><span class="lineno"> 3455</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l03456"></a><span class="lineno"> 3456</span>&#160;                <span class="keywordflow">if</span> (info != 1) {</div>
-<div class="line"><a name="l03457"></a><span class="lineno"> 3457</span>&#160;                    <span class="keywordflow">return</span> info;</div>
-<div class="line"><a name="l03458"></a><span class="lineno"> 3458</span>&#160;                }</div>
-<div class="line"><a name="l03459"></a><span class="lineno"> 3459</span>&#160;</div>
-<div class="line"><a name="l03460"></a><span class="lineno"> 3460</span>&#160;                doublereal diff;</div>
-<div class="line"><a name="l03461"></a><span class="lineno"> 3461</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; i++) {</div>
-<div class="line"><a name="l03462"></a><span class="lineno"> 3462</span>&#160;                    diff = <a class="code" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5" title="This routine subtracts two numbers for one another. ">subtractRD</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[i], f[i]);</div>
-<div class="line"><a name="l03463"></a><span class="lineno"> 3463</span>&#160;                    col_j[i] = diff / dy;</div>
-<div class="line"><a name="l03464"></a><span class="lineno"> 3464</span>&#160;                }</div>
-<div class="line"><a name="l03465"></a><span class="lineno"> 3465</span>&#160;                y[j] = ysave;</div>
-<div class="line"><a name="l03466"></a><span class="lineno"> 3466</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
-<div class="line"><a name="l03467"></a><span class="lineno"> 3467</span>&#160;                    ydot[j] = ydotsave;</div>
-<div class="line"><a name="l03468"></a><span class="lineno"> 3468</span>&#160;                }</div>
-<div class="line"><a name="l03469"></a><span class="lineno"> 3469</span>&#160;</div>
-<div class="line"><a name="l03470"></a><span class="lineno"> 3470</span>&#160;            }</div>
-<div class="line"><a name="l03471"></a><span class="lineno"> 3471</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (J.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab81cad571c5cf5937db84ba1e8588bc8" title="Matrix type. ">matrixType_</a> == 1) {</div>
-<div class="line"><a name="l03472"></a><span class="lineno"> 3472</span>&#160;            <span class="keywordtype">int</span> ku, kl;</div>
-<div class="line"><a name="l03473"></a><span class="lineno"> 3473</span>&#160;            <span class="keywordtype">size_t</span> ivec[2];</div>
-<div class="line"><a name="l03474"></a><span class="lineno"> 3474</span>&#160;            <span class="keywordtype">size_t</span> n = J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a42ae079c9e25e53f72090016d823c7cd" title="Return the size and structure of the matrix. ">nRowsAndStruct</a>(ivec);</div>
-<div class="line"><a name="l03475"></a><span class="lineno"> 3475</span>&#160;            kl = ivec[0];</div>
-<div class="line"><a name="l03476"></a><span class="lineno"> 3476</span>&#160;            ku = ivec[1];</div>
-<div class="line"><a name="l03477"></a><span class="lineno"> 3477</span>&#160;            <span class="keywordflow">if</span> (n != <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>) {</div>
-<div class="line"><a name="l03478"></a><span class="lineno"> 3478</span>&#160;                printf(<span class="stringliteral">&quot;we have probs\n&quot;</span>);</div>
-<div class="line"><a name="l03479"></a><span class="lineno"> 3479</span>&#160;                exit(-1);</div>
-<div class="line"><a name="l03480"></a><span class="lineno"> 3480</span>&#160;            }</div>
-<div class="line"><a name="l03481"></a><span class="lineno"> 3481</span>&#160;</div>
-<div class="line"><a name="l03482"></a><span class="lineno"> 3482</span>&#160;            <span class="comment">// --------------------------------- BANDED MATRIX BRAIN DEAD ---------------------------------------------------</span></div>
-<div class="line"><a name="l03483"></a><span class="lineno"> 3483</span>&#160;            info = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, f, <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14ab3ac1217d93227a4ccf060ae8f412e7f" title="Base residual calculation for the Jacobian calculation. ">JacBase_ResidEval</a>);</div>
-<div class="line"><a name="l03484"></a><span class="lineno"> 3484</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
-<div class="line"><a name="l03485"></a><span class="lineno"> 3485</span>&#160;            <span class="keywordflow">if</span> (info != 1) {</div>
-<div class="line"><a name="l03486"></a><span class="lineno"> 3486</span>&#160;                <span class="keywordflow">return</span> info;</div>
-<div class="line"><a name="l03487"></a><span class="lineno"> 3487</span>&#160;            }</div>
-<div class="line"><a name="l03488"></a><span class="lineno"> 3488</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a8783f2fe29e2c6949d1c07a432850fcd" title="Number of Jacobian evaluations. ">m_nJacEval</a>++;</div>
+<div class="line"><a name="l03442"></a><span class="lineno"> 3442</span>&#160;                info =  <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>),</div>
+<div class="line"><a name="l03443"></a><span class="lineno"> 3443</span>&#160;                                            <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14a0e79d1d952655ddf7eaab9917d81ff1d" title="Delta residual calculation for the Jacbobian calculation. ">JacDelta_ResidEval</a>, j, dy);</div>
+<div class="line"><a name="l03444"></a><span class="lineno"> 3444</span>&#160;                <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
+<div class="line"><a name="l03445"></a><span class="lineno"> 3445</span>&#160;</div>
+<div class="line"><a name="l03446"></a><span class="lineno"> 3446</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l03447"></a><span class="lineno"> 3447</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (fabs(dy) &lt; 1.0E-300) {</div>
+<div class="line"><a name="l03448"></a><span class="lineno"> 3448</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;NonlinearSolver::beuler_jac&quot;</span>, <span class="stringliteral">&quot;dy is equal to zero&quot;</span>);</div>
+<div class="line"><a name="l03449"></a><span class="lineno"> 3449</span>&#160;                }</div>
+<div class="line"><a name="l03450"></a><span class="lineno"> 3450</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ii = 0; ii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; ii++) {</div>
+<div class="line"><a name="l03451"></a><span class="lineno"> 3451</span>&#160;                    <a class="code" href="namespaceCantera.html#a29e84e6914c4eae9fe064bfa1d06644e" title="Check to see that a number is finite (not NaN, +Inf or -Inf) ">checkFinite</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[ii]);</div>
+<div class="line"><a name="l03452"></a><span class="lineno"> 3452</span>&#160;                }</div>
+<div class="line"><a name="l03453"></a><span class="lineno"> 3453</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l03454"></a><span class="lineno"> 3454</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l03455"></a><span class="lineno"> 3455</span>&#160;                <span class="keywordflow">if</span> (info != 1) {</div>
+<div class="line"><a name="l03456"></a><span class="lineno"> 3456</span>&#160;                    <span class="keywordflow">return</span> info;</div>
+<div class="line"><a name="l03457"></a><span class="lineno"> 3457</span>&#160;                }</div>
+<div class="line"><a name="l03458"></a><span class="lineno"> 3458</span>&#160;</div>
+<div class="line"><a name="l03459"></a><span class="lineno"> 3459</span>&#160;                doublereal diff;</div>
+<div class="line"><a name="l03460"></a><span class="lineno"> 3460</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; i++) {</div>
+<div class="line"><a name="l03461"></a><span class="lineno"> 3461</span>&#160;                    diff = <a class="code" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5" title="This routine subtracts two numbers for one another. ">subtractRD</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[i], f[i]);</div>
+<div class="line"><a name="l03462"></a><span class="lineno"> 3462</span>&#160;                    col_j[i] = diff / dy;</div>
+<div class="line"><a name="l03463"></a><span class="lineno"> 3463</span>&#160;                }</div>
+<div class="line"><a name="l03464"></a><span class="lineno"> 3464</span>&#160;                y[j] = ysave;</div>
+<div class="line"><a name="l03465"></a><span class="lineno"> 3465</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
+<div class="line"><a name="l03466"></a><span class="lineno"> 3466</span>&#160;                    ydot[j] = ydotsave;</div>
+<div class="line"><a name="l03467"></a><span class="lineno"> 3467</span>&#160;                }</div>
+<div class="line"><a name="l03468"></a><span class="lineno"> 3468</span>&#160;</div>
+<div class="line"><a name="l03469"></a><span class="lineno"> 3469</span>&#160;            }</div>
+<div class="line"><a name="l03470"></a><span class="lineno"> 3470</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (J.<a class="code" href="classCantera_1_1GeneralMatrix.html#ab81cad571c5cf5937db84ba1e8588bc8" title="Matrix type. ">matrixType_</a> == 1) {</div>
+<div class="line"><a name="l03471"></a><span class="lineno"> 3471</span>&#160;            <span class="keywordtype">int</span> ku, kl;</div>
+<div class="line"><a name="l03472"></a><span class="lineno"> 3472</span>&#160;            <span class="keywordtype">size_t</span> ivec[2];</div>
+<div class="line"><a name="l03473"></a><span class="lineno"> 3473</span>&#160;            <span class="keywordtype">size_t</span> n = J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a42ae079c9e25e53f72090016d823c7cd" title="Return the size and structure of the matrix. ">nRowsAndStruct</a>(ivec);</div>
+<div class="line"><a name="l03474"></a><span class="lineno"> 3474</span>&#160;            kl = ivec[0];</div>
+<div class="line"><a name="l03475"></a><span class="lineno"> 3475</span>&#160;            ku = ivec[1];</div>
+<div class="line"><a name="l03476"></a><span class="lineno"> 3476</span>&#160;            <span class="keywordflow">if</span> (n != <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>) {</div>
+<div class="line"><a name="l03477"></a><span class="lineno"> 3477</span>&#160;                printf(<span class="stringliteral">&quot;we have probs\n&quot;</span>);</div>
+<div class="line"><a name="l03478"></a><span class="lineno"> 3478</span>&#160;                exit(-1);</div>
+<div class="line"><a name="l03479"></a><span class="lineno"> 3479</span>&#160;            }</div>
+<div class="line"><a name="l03480"></a><span class="lineno"> 3480</span>&#160;</div>
+<div class="line"><a name="l03481"></a><span class="lineno"> 3481</span>&#160;            <span class="comment">// --------------------------------- BANDED MATRIX BRAIN DEAD ---------------------------------------------------</span></div>
+<div class="line"><a name="l03482"></a><span class="lineno"> 3482</span>&#160;            info = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, f, <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14ab3ac1217d93227a4ccf060ae8f412e7f" title="Base residual calculation for the Jacobian calculation. ">JacBase_ResidEval</a>);</div>
+<div class="line"><a name="l03483"></a><span class="lineno"> 3483</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
+<div class="line"><a name="l03484"></a><span class="lineno"> 3484</span>&#160;            <span class="keywordflow">if</span> (info != 1) {</div>
+<div class="line"><a name="l03485"></a><span class="lineno"> 3485</span>&#160;                <span class="keywordflow">return</span> info;</div>
+<div class="line"><a name="l03486"></a><span class="lineno"> 3486</span>&#160;            }</div>
+<div class="line"><a name="l03487"></a><span class="lineno"> 3487</span>&#160;            <a class="code" href="classCantera_1_1NonlinearSolver.html#a8783f2fe29e2c6949d1c07a432850fcd" title="Number of Jacobian evaluations. ">m_nJacEval</a>++;</div>
+<div class="line"><a name="l03488"></a><span class="lineno"> 3488</span>&#160;</div>
 <div class="line"><a name="l03489"></a><span class="lineno"> 3489</span>&#160;</div>
-<div class="line"><a name="l03490"></a><span class="lineno"> 3490</span>&#160;</div>
-<div class="line"><a name="l03491"></a><span class="lineno"> 3491</span>&#160;            <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> dyVector(<a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>);</div>
-<div class="line"><a name="l03492"></a><span class="lineno"> 3492</span>&#160;            retn = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ac7057a6c327e85a2a0e2a363ae6a3de9" title="Return a vector of delta y&#39;s for calculation of the numerical Jacobian. ">calcDeltaSolnVariables</a>(time_curr, y, ydot, &amp;dyVector[0], <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>));</div>
-<div class="line"><a name="l03493"></a><span class="lineno"> 3493</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#adf7617c1fe980fb5310969cb679e840b" title="Turn on or off printing of the Jacobian. ">s_print_NumJac</a>) {</div>
-<div class="line"><a name="l03494"></a><span class="lineno"> 3494</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 7) {</div>
-<div class="line"><a name="l03495"></a><span class="lineno"> 3495</span>&#160;                    <span class="keywordflow">if</span> (retn != 1) {</div>
-<div class="line"><a name="l03496"></a><span class="lineno"> 3496</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t  beuler_jac ERROR! calcDeltaSolnVariables() returned an error flag\n&quot;</span>);</div>
-<div class="line"><a name="l03497"></a><span class="lineno"> 3497</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t                    We will bail from the nonlinear solver after calculating the jacobian&quot;</span>);</div>
-<div class="line"><a name="l03498"></a><span class="lineno"> 3498</span>&#160;                    }</div>
-<div class="line"><a name="l03499"></a><span class="lineno"> 3499</span>&#160;                    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a> &lt; 20) {</div>
-<div class="line"><a name="l03500"></a><span class="lineno"> 3500</span>&#160;                        printf(<span class="stringliteral">&quot;\t\tUnk            m_ewt              y                dyVector            ResN\n&quot;</span>);</div>
-<div class="line"><a name="l03501"></a><span class="lineno"> 3501</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iii = 0; iii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; iii++) {</div>
-<div class="line"><a name="l03502"></a><span class="lineno"> 3502</span>&#160;                            printf(<span class="stringliteral">&quot;\t\t %4s       %16.8e   %16.8e   %16.8e  %16.8e \n&quot;</span>,</div>
-<div class="line"><a name="l03503"></a><span class="lineno"> 3503</span>&#160;                                   <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(iii).c_str(),   <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[iii],  y[iii], dyVector[iii], f[iii]);</div>
-<div class="line"><a name="l03504"></a><span class="lineno"> 3504</span>&#160;                        }</div>
-<div class="line"><a name="l03505"></a><span class="lineno"> 3505</span>&#160;                    }</div>
-<div class="line"><a name="l03506"></a><span class="lineno"> 3506</span>&#160;                }</div>
-<div class="line"><a name="l03507"></a><span class="lineno"> 3507</span>&#160;            }</div>
+<div class="line"><a name="l03490"></a><span class="lineno"> 3490</span>&#160;            <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> dyVector(<a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>);</div>
+<div class="line"><a name="l03491"></a><span class="lineno"> 3491</span>&#160;            retn = <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ac7057a6c327e85a2a0e2a363ae6a3de9" title="Return a vector of delta y&#39;s for calculation of the numerical Jacobian. ">calcDeltaSolnVariables</a>(time_curr, y, ydot, &amp;dyVector[0], <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>));</div>
+<div class="line"><a name="l03492"></a><span class="lineno"> 3492</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#adf7617c1fe980fb5310969cb679e840b" title="Turn on or off printing of the Jacobian. ">s_print_NumJac</a>) {</div>
+<div class="line"><a name="l03493"></a><span class="lineno"> 3493</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 7) {</div>
+<div class="line"><a name="l03494"></a><span class="lineno"> 3494</span>&#160;                    <span class="keywordflow">if</span> (retn != 1) {</div>
+<div class="line"><a name="l03495"></a><span class="lineno"> 3495</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t  beuler_jac ERROR! calcDeltaSolnVariables() returned an error flag\n&quot;</span>);</div>
+<div class="line"><a name="l03496"></a><span class="lineno"> 3496</span>&#160;                        printf(<span class="stringliteral">&quot;\t\t                    We will bail from the nonlinear solver after calculating the jacobian&quot;</span>);</div>
+<div class="line"><a name="l03497"></a><span class="lineno"> 3497</span>&#160;                    }</div>
+<div class="line"><a name="l03498"></a><span class="lineno"> 3498</span>&#160;                    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a> &lt; 20) {</div>
+<div class="line"><a name="l03499"></a><span class="lineno"> 3499</span>&#160;                        printf(<span class="stringliteral">&quot;\t\tUnk            m_ewt              y                dyVector            ResN\n&quot;</span>);</div>
+<div class="line"><a name="l03500"></a><span class="lineno"> 3500</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iii = 0; iii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; iii++) {</div>
+<div class="line"><a name="l03501"></a><span class="lineno"> 3501</span>&#160;                            printf(<span class="stringliteral">&quot;\t\t %4s       %16.8e   %16.8e   %16.8e  %16.8e \n&quot;</span>,</div>
+<div class="line"><a name="l03502"></a><span class="lineno"> 3502</span>&#160;                                   <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(iii).c_str(),   <a class="code" href="classCantera_1_1NonlinearSolver.html#a502438fe0118af8f6b3b0e6997d1102c" title="Soln error weights. ">m_ewt</a>[iii],  y[iii], dyVector[iii], f[iii]);</div>
+<div class="line"><a name="l03503"></a><span class="lineno"> 3503</span>&#160;                        }</div>
+<div class="line"><a name="l03504"></a><span class="lineno"> 3504</span>&#160;                    }</div>
+<div class="line"><a name="l03505"></a><span class="lineno"> 3505</span>&#160;                }</div>
+<div class="line"><a name="l03506"></a><span class="lineno"> 3506</span>&#160;            }</div>
+<div class="line"><a name="l03507"></a><span class="lineno"> 3507</span>&#160;</div>
 <div class="line"><a name="l03508"></a><span class="lineno"> 3508</span>&#160;</div>
-<div class="line"><a name="l03509"></a><span class="lineno"> 3509</span>&#160;</div>
-<div class="line"><a name="l03510"></a><span class="lineno"> 3510</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03509"></a><span class="lineno"> 3509</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03510"></a><span class="lineno"> 3510</span>&#160;</div>
 <div class="line"><a name="l03511"></a><span class="lineno"> 3511</span>&#160;</div>
-<div class="line"><a name="l03512"></a><span class="lineno"> 3512</span>&#160;</div>
-<div class="line"><a name="l03513"></a><span class="lineno"> 3513</span>&#160;                col_j = (doublereal*) J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb" title="Return a pointer to the top of column j, columns are assumed to be contiguous in memory. ">ptrColumn</a>(j);</div>
-<div class="line"><a name="l03514"></a><span class="lineno"> 3514</span>&#160;                ysave = y[j];</div>
-<div class="line"><a name="l03515"></a><span class="lineno"> 3515</span>&#160;                dy = dyVector[j];</div>
+<div class="line"><a name="l03512"></a><span class="lineno"> 3512</span>&#160;                col_j = (doublereal*) J.<a class="code" href="classCantera_1_1GeneralMatrix.html#a3730c98ca1c4b0a7433f8a32c11028fb" title="Return a pointer to the top of column j, columns are assumed to be contiguous in memory. ">ptrColumn</a>(j);</div>
+<div class="line"><a name="l03513"></a><span class="lineno"> 3513</span>&#160;                ysave = y[j];</div>
+<div class="line"><a name="l03514"></a><span class="lineno"> 3514</span>&#160;                dy = dyVector[j];</div>
+<div class="line"><a name="l03515"></a><span class="lineno"> 3515</span>&#160;</div>
 <div class="line"><a name="l03516"></a><span class="lineno"> 3516</span>&#160;</div>
-<div class="line"><a name="l03517"></a><span class="lineno"> 3517</span>&#160;</div>
-<div class="line"><a name="l03518"></a><span class="lineno"> 3518</span>&#160;                y[j] = ysave + dy;</div>
-<div class="line"><a name="l03519"></a><span class="lineno"> 3519</span>&#160;                dy = y[j] - ysave;</div>
-<div class="line"><a name="l03520"></a><span class="lineno"> 3520</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
-<div class="line"><a name="l03521"></a><span class="lineno"> 3521</span>&#160;                    ydotsave = ydot[j];</div>
-<div class="line"><a name="l03522"></a><span class="lineno"> 3522</span>&#160;                    ydot[j] += dy * CJ;</div>
-<div class="line"><a name="l03523"></a><span class="lineno"> 3523</span>&#160;                }</div>
-<div class="line"><a name="l03524"></a><span class="lineno"> 3524</span>&#160;</div>
-<div class="line"><a name="l03525"></a><span class="lineno"> 3525</span>&#160;                info =  <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>), <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14a0e79d1d952655ddf7eaab9917d81ff1d" title="Delta residual calculation for the Jacbobian calculation. ">JacDelta_ResidEval</a>, static_cast&lt;int&gt;(j), dy);</div>
-<div class="line"><a name="l03526"></a><span class="lineno"> 3526</span>&#160;                <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
-<div class="line"><a name="l03527"></a><span class="lineno"> 3527</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l03528"></a><span class="lineno"> 3528</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (fabs(dy) &lt; 1.0E-300) {</div>
-<div class="line"><a name="l03529"></a><span class="lineno"> 3529</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;NonlinearSolver::beuler_jac&quot;</span>, <span class="stringliteral">&quot;dy is equal to zero&quot;</span>);</div>
-<div class="line"><a name="l03530"></a><span class="lineno"> 3530</span>&#160;                }</div>
-<div class="line"><a name="l03531"></a><span class="lineno"> 3531</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ii = 0; ii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; ii++) {</div>
-<div class="line"><a name="l03532"></a><span class="lineno"> 3532</span>&#160;                    <a class="code" href="namespaceCantera.html#a29e84e6914c4eae9fe064bfa1d06644e" title="Check to see that a number is finite (not NaN, +Inf or -Inf) ">checkFinite</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[ii]);</div>
-<div class="line"><a name="l03533"></a><span class="lineno"> 3533</span>&#160;                }</div>
-<div class="line"><a name="l03534"></a><span class="lineno"> 3534</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l03535"></a><span class="lineno"> 3535</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (info != 1) {</div>
-<div class="line"><a name="l03536"></a><span class="lineno"> 3536</span>&#160;                    <span class="keywordflow">return</span> info;</div>
-<div class="line"><a name="l03537"></a><span class="lineno"> 3537</span>&#160;                }</div>
-<div class="line"><a name="l03538"></a><span class="lineno"> 3538</span>&#160;</div>
-<div class="line"><a name="l03539"></a><span class="lineno"> 3539</span>&#160;                doublereal diff;</div>
+<div class="line"><a name="l03517"></a><span class="lineno"> 3517</span>&#160;                y[j] = ysave + dy;</div>
+<div class="line"><a name="l03518"></a><span class="lineno"> 3518</span>&#160;                dy = y[j] - ysave;</div>
+<div class="line"><a name="l03519"></a><span class="lineno"> 3519</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
+<div class="line"><a name="l03520"></a><span class="lineno"> 3520</span>&#160;                    ydotsave = ydot[j];</div>
+<div class="line"><a name="l03521"></a><span class="lineno"> 3521</span>&#160;                    ydot[j] += dy * CJ;</div>
+<div class="line"><a name="l03522"></a><span class="lineno"> 3522</span>&#160;                }</div>
+<div class="line"><a name="l03523"></a><span class="lineno"> 3523</span>&#160;</div>
+<div class="line"><a name="l03524"></a><span class="lineno"> 3524</span>&#160;                info =  <a class="code" href="classCantera_1_1NonlinearSolver.html#ab31a760aa77161b9550f7823f0ae7871" title="Pointer to the residual and jacobian evaluator for the function. ">m_func</a>-&gt;<a class="code" href="classCantera_1_1ResidJacEval.html#ab9fd438b2d9fc96ba5d0ed9fe70e1e26" title="Evaluate the residual function. ">evalResidNJ</a>(time_curr, <a class="code" href="classCantera_1_1NonlinearSolver.html#a14536bd9502016fb7d83dffa23a442c3" title="Delta t for the current step. ">delta_t_n</a>, y, ydot, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>), <a class="code" href="namespaceCantera.html#a929b71317e0aa7f81336a73311423c14a0e79d1d952655ddf7eaab9917d81ff1d" title="Delta residual calculation for the Jacbobian calculation. ">JacDelta_ResidEval</a>, static_cast&lt;int&gt;(j), dy);</div>
+<div class="line"><a name="l03525"></a><span class="lineno"> 3525</span>&#160;                <a class="code" href="classCantera_1_1NonlinearSolver.html#a5460f2ea4d509ecf3f4a7ed34af72496" title="Counter for the total number of function evaluations. ">m_nfe</a>++;</div>
+<div class="line"><a name="l03526"></a><span class="lineno"> 3526</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l03527"></a><span class="lineno"> 3527</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (fabs(dy) &lt; 1.0E-300) {</div>
+<div class="line"><a name="l03528"></a><span class="lineno"> 3528</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>(<span class="stringliteral">&quot;NonlinearSolver::beuler_jac&quot;</span>, <span class="stringliteral">&quot;dy is equal to zero&quot;</span>);</div>
+<div class="line"><a name="l03529"></a><span class="lineno"> 3529</span>&#160;                }</div>
+<div class="line"><a name="l03530"></a><span class="lineno"> 3530</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ii = 0; ii &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; ii++) {</div>
+<div class="line"><a name="l03531"></a><span class="lineno"> 3531</span>&#160;                    <a class="code" href="namespaceCantera.html#a29e84e6914c4eae9fe064bfa1d06644e" title="Check to see that a number is finite (not NaN, +Inf or -Inf) ">checkFinite</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[ii]);</div>
+<div class="line"><a name="l03532"></a><span class="lineno"> 3532</span>&#160;                }</div>
+<div class="line"><a name="l03533"></a><span class="lineno"> 3533</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l03534"></a><span class="lineno"> 3534</span>&#160;<span class="preprocessor"></span>                <span class="keywordflow">if</span> (info != 1) {</div>
+<div class="line"><a name="l03535"></a><span class="lineno"> 3535</span>&#160;                    <span class="keywordflow">return</span> info;</div>
+<div class="line"><a name="l03536"></a><span class="lineno"> 3536</span>&#160;                }</div>
+<div class="line"><a name="l03537"></a><span class="lineno"> 3537</span>&#160;</div>
+<div class="line"><a name="l03538"></a><span class="lineno"> 3538</span>&#160;                doublereal diff;</div>
+<div class="line"><a name="l03539"></a><span class="lineno"> 3539</span>&#160;</div>
 <div class="line"><a name="l03540"></a><span class="lineno"> 3540</span>&#160;</div>
 <div class="line"><a name="l03541"></a><span class="lineno"> 3541</span>&#160;</div>
-<div class="line"><a name="l03542"></a><span class="lineno"> 3542</span>&#160;</div>
-<div class="line"><a name="l03543"></a><span class="lineno"> 3543</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = (<span class="keywordtype">int</span>) j - ku; i &lt;= (int) j + kl; i++) {</div>
-<div class="line"><a name="l03544"></a><span class="lineno"> 3544</span>&#160;                    <span class="keywordflow">if</span> (i &gt;= 0 &amp;&amp;  i &lt; (<span class="keywordtype">int</span>) <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>) {</div>
-<div class="line"><a name="l03545"></a><span class="lineno"> 3545</span>&#160;                        diff = <a class="code" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5" title="This routine subtracts two numbers for one another. ">subtractRD</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[i], f[i]);</div>
-<div class="line"><a name="l03546"></a><span class="lineno"> 3546</span>&#160;                        col_j[kl + ku + i - j] = diff / dy;</div>
-<div class="line"><a name="l03547"></a><span class="lineno"> 3547</span>&#160;                    }</div>
-<div class="line"><a name="l03548"></a><span class="lineno"> 3548</span>&#160;                }</div>
-<div class="line"><a name="l03549"></a><span class="lineno"> 3549</span>&#160;                y[j] = ysave;</div>
-<div class="line"><a name="l03550"></a><span class="lineno"> 3550</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
-<div class="line"><a name="l03551"></a><span class="lineno"> 3551</span>&#160;                    ydot[j] = ydotsave;</div>
-<div class="line"><a name="l03552"></a><span class="lineno"> 3552</span>&#160;                }</div>
-<div class="line"><a name="l03553"></a><span class="lineno"> 3553</span>&#160;</div>
-<div class="line"><a name="l03554"></a><span class="lineno"> 3554</span>&#160;            }</div>
-<div class="line"><a name="l03555"></a><span class="lineno"> 3555</span>&#160;</div>
-<div class="line"><a name="l03556"></a><span class="lineno"> 3556</span>&#160;            <span class="keywordtype">double</span> vSmall;</div>
-<div class="line"><a name="l03557"></a><span class="lineno"> 3557</span>&#160;            <span class="keywordtype">size_t</span> ismall = J.<a class="code" href="classCantera_1_1GeneralMatrix.html#ad6caa0f851ac7317b12c3f5d3bc25c07" title="Check to see if we have any zero rows in the jacobian. ">checkRows</a>(vSmall);</div>
-<div class="line"><a name="l03558"></a><span class="lineno"> 3558</span>&#160;            <span class="keywordflow">if</span> (vSmall &lt; 1.0E-100) {</div>
-<div class="line"><a name="l03559"></a><span class="lineno"> 3559</span>&#160;                printf(<span class="stringliteral">&quot;WE have a zero row, %s\n&quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(ismall).c_str());</div>
-<div class="line"><a name="l03560"></a><span class="lineno"> 3560</span>&#160;                exit(-1);</div>
-<div class="line"><a name="l03561"></a><span class="lineno"> 3561</span>&#160;            }</div>
-<div class="line"><a name="l03562"></a><span class="lineno"> 3562</span>&#160;            ismall = J.<a class="code" href="classCantera_1_1GeneralMatrix.html#abbb40c674b3d03d31383f30e23813f31" title="Check to see if we have any zero columns in the jacobian. ">checkColumns</a>(vSmall);</div>
-<div class="line"><a name="l03563"></a><span class="lineno"> 3563</span>&#160;            <span class="keywordflow">if</span> (vSmall &lt; 1.0E-100) {</div>
-<div class="line"><a name="l03564"></a><span class="lineno"> 3564</span>&#160;                printf(<span class="stringliteral">&quot;WE have a zero column, %s\n&quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(ismall).c_str());</div>
-<div class="line"><a name="l03565"></a><span class="lineno"> 3565</span>&#160;                exit(-1);</div>
-<div class="line"><a name="l03566"></a><span class="lineno"> 3566</span>&#160;            }</div>
-<div class="line"><a name="l03567"></a><span class="lineno"> 3567</span>&#160;</div>
-<div class="line"><a name="l03568"></a><span class="lineno"> 3568</span>&#160;            <span class="comment">// ---------------------BANDED MATRIX BRAIN DEAD -----------------------</span></div>
-<div class="line"><a name="l03569"></a><span class="lineno"> 3569</span>&#160;        }</div>
-<div class="line"><a name="l03570"></a><span class="lineno"> 3570</span>&#160;    }</div>
-<div class="line"><a name="l03571"></a><span class="lineno"> 3571</span>&#160;</div>
-<div class="line"><a name="l03572"></a><span class="lineno"> 3572</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 7 &amp;&amp; <a class="code" href="classCantera_1_1NonlinearSolver.html#adf7617c1fe980fb5310969cb679e840b" title="Turn on or off printing of the Jacobian. ">s_print_NumJac</a>) {</div>
-<div class="line"><a name="l03573"></a><span class="lineno"> 3573</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a> &lt; 30) {</div>
-<div class="line"><a name="l03574"></a><span class="lineno"> 3574</span>&#160;            printf(<span class="stringliteral">&quot;\t\tCurrent Matrix and Residual:\n&quot;</span>);</div>
-<div class="line"><a name="l03575"></a><span class="lineno"> 3575</span>&#160;            printf(<span class="stringliteral">&quot;\t\t    I,J | &quot;</span>);</div>
-<div class="line"><a name="l03576"></a><span class="lineno"> 3576</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
-<div class="line"><a name="l03577"></a><span class="lineno"> 3577</span>&#160;                printf(<span class="stringliteral">&quot;  %5s     &quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(j).c_str());</div>
-<div class="line"><a name="l03578"></a><span class="lineno"> 3578</span>&#160;            }</div>
-<div class="line"><a name="l03579"></a><span class="lineno"> 3579</span>&#160;            printf(<span class="stringliteral">&quot;|   Residual  \n&quot;</span>);</div>
-<div class="line"><a name="l03580"></a><span class="lineno"> 3580</span>&#160;            printf(<span class="stringliteral">&quot;\t\t        --&quot;</span>);</div>
-<div class="line"><a name="l03581"></a><span class="lineno"> 3581</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
-<div class="line"><a name="l03582"></a><span class="lineno"> 3582</span>&#160;                printf(<span class="stringliteral">&quot;------------&quot;</span>);</div>
-<div class="line"><a name="l03583"></a><span class="lineno"> 3583</span>&#160;            }</div>
-<div class="line"><a name="l03584"></a><span class="lineno"> 3584</span>&#160;            printf(<span class="stringliteral">&quot;|  -----------\n&quot;</span>);</div>
+<div class="line"><a name="l03542"></a><span class="lineno"> 3542</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = (<span class="keywordtype">int</span>) j - ku; i &lt;= (int) j + kl; i++) {</div>
+<div class="line"><a name="l03543"></a><span class="lineno"> 3543</span>&#160;                    <span class="keywordflow">if</span> (i &gt;= 0 &amp;&amp;  i &lt; (<span class="keywordtype">int</span>) <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>) {</div>
+<div class="line"><a name="l03544"></a><span class="lineno"> 3544</span>&#160;                        diff = <a class="code" href="namespaceCantera.html#a969db5f826e145c2fccf7a00271a32b5" title="This routine subtracts two numbers for one another. ">subtractRD</a>(<a class="code" href="classCantera_1_1NonlinearSolver.html#a4b6f47defb104b5207fd9bb1d2d5e969" title="Workspace of length neq_. ">m_wksp</a>[i], f[i]);</div>
+<div class="line"><a name="l03545"></a><span class="lineno"> 3545</span>&#160;                        col_j[kl + ku + i - j] = diff / dy;</div>
+<div class="line"><a name="l03546"></a><span class="lineno"> 3546</span>&#160;                    }</div>
+<div class="line"><a name="l03547"></a><span class="lineno"> 3547</span>&#160;                }</div>
+<div class="line"><a name="l03548"></a><span class="lineno"> 3548</span>&#160;                y[j] = ysave;</div>
+<div class="line"><a name="l03549"></a><span class="lineno"> 3549</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a2f8347e2f52301d52138eeacfdf21c43" title="Solution type. ">solnType_</a> != <a class="code" href="NonlinearSolver_8h.html#ac60a4b7018649530fced0d4642b41459" title="The nonlinear problem is part of a steady state calculation. ">NSOLN_TYPE_STEADY_STATE</a>) {</div>
+<div class="line"><a name="l03550"></a><span class="lineno"> 3550</span>&#160;                    ydot[j] = ydotsave;</div>
+<div class="line"><a name="l03551"></a><span class="lineno"> 3551</span>&#160;                }</div>
+<div class="line"><a name="l03552"></a><span class="lineno"> 3552</span>&#160;</div>
+<div class="line"><a name="l03553"></a><span class="lineno"> 3553</span>&#160;            }</div>
+<div class="line"><a name="l03554"></a><span class="lineno"> 3554</span>&#160;</div>
+<div class="line"><a name="l03555"></a><span class="lineno"> 3555</span>&#160;            <span class="keywordtype">double</span> vSmall;</div>
+<div class="line"><a name="l03556"></a><span class="lineno"> 3556</span>&#160;            <span class="keywordtype">size_t</span> ismall = J.<a class="code" href="classCantera_1_1GeneralMatrix.html#ad6caa0f851ac7317b12c3f5d3bc25c07" title="Check to see if we have any zero rows in the jacobian. ">checkRows</a>(vSmall);</div>
+<div class="line"><a name="l03557"></a><span class="lineno"> 3557</span>&#160;            <span class="keywordflow">if</span> (vSmall &lt; 1.0E-100) {</div>
+<div class="line"><a name="l03558"></a><span class="lineno"> 3558</span>&#160;                printf(<span class="stringliteral">&quot;WE have a zero row, %s\n&quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(ismall).c_str());</div>
+<div class="line"><a name="l03559"></a><span class="lineno"> 3559</span>&#160;                exit(-1);</div>
+<div class="line"><a name="l03560"></a><span class="lineno"> 3560</span>&#160;            }</div>
+<div class="line"><a name="l03561"></a><span class="lineno"> 3561</span>&#160;            ismall = J.<a class="code" href="classCantera_1_1GeneralMatrix.html#abbb40c674b3d03d31383f30e23813f31" title="Check to see if we have any zero columns in the jacobian. ">checkColumns</a>(vSmall);</div>
+<div class="line"><a name="l03562"></a><span class="lineno"> 3562</span>&#160;            <span class="keywordflow">if</span> (vSmall &lt; 1.0E-100) {</div>
+<div class="line"><a name="l03563"></a><span class="lineno"> 3563</span>&#160;                printf(<span class="stringliteral">&quot;WE have a zero column, %s\n&quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(ismall).c_str());</div>
+<div class="line"><a name="l03564"></a><span class="lineno"> 3564</span>&#160;                exit(-1);</div>
+<div class="line"><a name="l03565"></a><span class="lineno"> 3565</span>&#160;            }</div>
+<div class="line"><a name="l03566"></a><span class="lineno"> 3566</span>&#160;</div>
+<div class="line"><a name="l03567"></a><span class="lineno"> 3567</span>&#160;            <span class="comment">// ---------------------BANDED MATRIX BRAIN DEAD -----------------------</span></div>
+<div class="line"><a name="l03568"></a><span class="lineno"> 3568</span>&#160;        }</div>
+<div class="line"><a name="l03569"></a><span class="lineno"> 3569</span>&#160;    }</div>
+<div class="line"><a name="l03570"></a><span class="lineno"> 3570</span>&#160;</div>
+<div class="line"><a name="l03571"></a><span class="lineno"> 3571</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#aceeb402cd1f0dd3f4ad1f59e9b1fd0ce" title="Determines the level of printing for each time step. ">m_print_flag</a> &gt;= 7 &amp;&amp; <a class="code" href="classCantera_1_1NonlinearSolver.html#adf7617c1fe980fb5310969cb679e840b" title="Turn on or off printing of the Jacobian. ">s_print_NumJac</a>) {</div>
+<div class="line"><a name="l03572"></a><span class="lineno"> 3572</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a> &lt; 30) {</div>
+<div class="line"><a name="l03573"></a><span class="lineno"> 3573</span>&#160;            printf(<span class="stringliteral">&quot;\t\tCurrent Matrix and Residual:\n&quot;</span>);</div>
+<div class="line"><a name="l03574"></a><span class="lineno"> 3574</span>&#160;            printf(<span class="stringliteral">&quot;\t\t    I,J | &quot;</span>);</div>
+<div class="line"><a name="l03575"></a><span class="lineno"> 3575</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03576"></a><span class="lineno"> 3576</span>&#160;                printf(<span class="stringliteral">&quot;  %5s     &quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(j).c_str());</div>
+<div class="line"><a name="l03577"></a><span class="lineno"> 3577</span>&#160;            }</div>
+<div class="line"><a name="l03578"></a><span class="lineno"> 3578</span>&#160;            printf(<span class="stringliteral">&quot;|   Residual  \n&quot;</span>);</div>
+<div class="line"><a name="l03579"></a><span class="lineno"> 3579</span>&#160;            printf(<span class="stringliteral">&quot;\t\t        --&quot;</span>);</div>
+<div class="line"><a name="l03580"></a><span class="lineno"> 3580</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03581"></a><span class="lineno"> 3581</span>&#160;                printf(<span class="stringliteral">&quot;------------&quot;</span>);</div>
+<div class="line"><a name="l03582"></a><span class="lineno"> 3582</span>&#160;            }</div>
+<div class="line"><a name="l03583"></a><span class="lineno"> 3583</span>&#160;            printf(<span class="stringliteral">&quot;|  -----------\n&quot;</span>);</div>
+<div class="line"><a name="l03584"></a><span class="lineno"> 3584</span>&#160;</div>
 <div class="line"><a name="l03585"></a><span class="lineno"> 3585</span>&#160;</div>
-<div class="line"><a name="l03586"></a><span class="lineno"> 3586</span>&#160;</div>
-<div class="line"><a name="l03587"></a><span class="lineno"> 3587</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; i++) {</div>
-<div class="line"><a name="l03588"></a><span class="lineno"> 3588</span>&#160;                printf(<span class="stringliteral">&quot;\t\t   %4s |&quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(i).c_str());</div>
-<div class="line"><a name="l03589"></a><span class="lineno"> 3589</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
-<div class="line"><a name="l03590"></a><span class="lineno"> 3590</span>&#160;                    printf(<span class="stringliteral">&quot; % 11.4E&quot;</span>, J(i,j));</div>
-<div class="line"><a name="l03591"></a><span class="lineno"> 3591</span>&#160;                }</div>
-<div class="line"><a name="l03592"></a><span class="lineno"> 3592</span>&#160;                printf(<span class="stringliteral">&quot; |  % 11.4E\n&quot;</span>, f[i]);</div>
-<div class="line"><a name="l03593"></a><span class="lineno"> 3593</span>&#160;            }</div>
-<div class="line"><a name="l03594"></a><span class="lineno"> 3594</span>&#160;</div>
-<div class="line"><a name="l03595"></a><span class="lineno"> 3595</span>&#160;            printf(<span class="stringliteral">&quot;\t\t        --&quot;</span>);</div>
-<div class="line"><a name="l03596"></a><span class="lineno"> 3596</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
-<div class="line"><a name="l03597"></a><span class="lineno"> 3597</span>&#160;                printf(<span class="stringliteral">&quot;------------&quot;</span>);</div>
-<div class="line"><a name="l03598"></a><span class="lineno"> 3598</span>&#160;            }</div>
-<div class="line"><a name="l03599"></a><span class="lineno"> 3599</span>&#160;            printf(<span class="stringliteral">&quot;--------------\n&quot;</span>);</div>
-<div class="line"><a name="l03600"></a><span class="lineno"> 3600</span>&#160;        }</div>
-<div class="line"><a name="l03601"></a><span class="lineno"> 3601</span>&#160;    }</div>
-<div class="line"><a name="l03602"></a><span class="lineno"> 3602</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l03603"></a><span class="lineno"> 3603</span>&#160;<span class="comment">     *  Make a copy of the data. Note, this jacobian copy occurs before any matrix scaling operations.</span></div>
-<div class="line"><a name="l03604"></a><span class="lineno"> 3604</span>&#160;<span class="comment">     *  It&#39;s the raw matrix producted by this routine.</span></div>
-<div class="line"><a name="l03605"></a><span class="lineno"> 3605</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l03606"></a><span class="lineno"> 3606</span>&#160;    <a class="code" href="classCantera_1_1NonlinearSolver.html#ac28137c5152120a6f5295f2d726547d4" title="Copy of the jacobian that doesn&#39;t get overwritten when the inverse is determined. ...">jacCopyPtr_</a>-&gt;<a class="code" href="classCantera_1_1GeneralMatrix.html#ae4c9f9bdba7bee38a492685dc13f13c9" title="Copy the data from one array into another without doing any checking. ">copyData</a>(J);</div>
-<div class="line"><a name="l03607"></a><span class="lineno"> 3607</span>&#160;</div>
-<div class="line"><a name="l03608"></a><span class="lineno"> 3608</span>&#160;    <span class="keywordflow">return</span> retn;</div>
-<div class="line"><a name="l03609"></a><span class="lineno"> 3609</span>&#160;}</div>
-<div class="line"><a name="l03610"></a><span class="lineno"> 3610</span>&#160;</div>
-<div class="line"><a name="l03611"></a><span class="lineno"> 3611</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#ab16d5989dfa5a240750146865174cadb" title="Internal function to calculate the time derivative of the solution at the new step. ">NonlinearSolver::</a></div>
-<div class="line"><a name="l03612"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#ab16d5989dfa5a240750146865174cadb"> 3612</a></span>&#160;<a class="code" href="classCantera_1_1NonlinearSolver.html#ab16d5989dfa5a240750146865174cadb" title="Internal function to calculate the time derivative of the solution at the new step. ">calc_ydot</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> order, <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y_curr, doublereal* <span class="keyword">const</span> ydot_curr)<span class="keyword"> const</span></div>
+<div class="line"><a name="l03586"></a><span class="lineno"> 3586</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; i++) {</div>
+<div class="line"><a name="l03587"></a><span class="lineno"> 3587</span>&#160;                printf(<span class="stringliteral">&quot;\t\t   %4s |&quot;</span>, <a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(i).c_str());</div>
+<div class="line"><a name="l03588"></a><span class="lineno"> 3588</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03589"></a><span class="lineno"> 3589</span>&#160;                    printf(<span class="stringliteral">&quot; % 11.4E&quot;</span>, J(i,j));</div>
+<div class="line"><a name="l03590"></a><span class="lineno"> 3590</span>&#160;                }</div>
+<div class="line"><a name="l03591"></a><span class="lineno"> 3591</span>&#160;                printf(<span class="stringliteral">&quot; |  % 11.4E\n&quot;</span>, f[i]);</div>
+<div class="line"><a name="l03592"></a><span class="lineno"> 3592</span>&#160;            }</div>
+<div class="line"><a name="l03593"></a><span class="lineno"> 3593</span>&#160;</div>
+<div class="line"><a name="l03594"></a><span class="lineno"> 3594</span>&#160;            printf(<span class="stringliteral">&quot;\t\t        --&quot;</span>);</div>
+<div class="line"><a name="l03595"></a><span class="lineno"> 3595</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="classCantera_1_1NonlinearSolver.html#a12d33912e53ba58fd87ae2b8781b5e54" title="Local copy of the number of equations. ">neq_</a>; j++) {</div>
+<div class="line"><a name="l03596"></a><span class="lineno"> 3596</span>&#160;                printf(<span class="stringliteral">&quot;------------&quot;</span>);</div>
+<div class="line"><a name="l03597"></a><span class="lineno"> 3597</span>&#160;            }</div>
+<div class="line"><a name="l03598"></a><span class="lineno"> 3598</span>&#160;            printf(<span class="stringliteral">&quot;--------------\n&quot;</span>);</div>
+<div class="line"><a name="l03599"></a><span class="lineno"> 3599</span>&#160;        }</div>
+<div class="line"><a name="l03600"></a><span class="lineno"> 3600</span>&#160;    }</div>
+<div class="line"><a name="l03601"></a><span class="lineno"> 3601</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l03602"></a><span class="lineno"> 3602</span>&#160;<span class="comment">     *  Make a copy of the data. Note, this jacobian copy occurs before any matrix scaling operations.</span></div>
+<div class="line"><a name="l03603"></a><span class="lineno"> 3603</span>&#160;<span class="comment">     *  It&#39;s the raw matrix producted by this routine.</span></div>
+<div class="line"><a name="l03604"></a><span class="lineno"> 3604</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l03605"></a><span class="lineno"> 3605</span>&#160;    <a class="code" href="classCantera_1_1NonlinearSolver.html#ac28137c5152120a6f5295f2d726547d4" title="Copy of the jacobian that doesn&#39;t get overwritten when the inverse is determined. ...">jacCopyPtr_</a>-&gt;<a class="code" href="classCantera_1_1GeneralMatrix.html#ae4c9f9bdba7bee38a492685dc13f13c9" title="Copy the data from one array into another without doing any checking. ">copyData</a>(J);</div>
+<div class="line"><a name="l03606"></a><span class="lineno"> 3606</span>&#160;</div>
+<div class="line"><a name="l03607"></a><span class="lineno"> 3607</span>&#160;    <span class="keywordflow">return</span> retn;</div>
+<div class="line"><a name="l03608"></a><span class="lineno"> 3608</span>&#160;}</div>
+<div class="line"><a name="l03609"></a><span class="lineno"> 3609</span>&#160;</div>
+<div class="line"><a name="l03610"></a><span class="lineno"><a class="code" href="classCantera_1_1NonlinearSolver.html#ab16d5989dfa5a240750146865174cadb"> 3610</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1NonlinearSolver.html#ab16d5989dfa5a240750146865174cadb" title="Internal function to calculate the time derivative of the solution at the new step. ">NonlinearSolver::calc_ydot</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> order, </div>
+<div class="line"><a name="l03611"></a><span class="lineno"> 3611</span>&#160;                                <span class="keyword">const</span> doublereal* <span class="keyword">const</span> y_curr,</div>
+<div class="line"><a name="l03612"></a><span class="lineno"> 3612</span>&#160;                                doublereal* <span class="keyword">const</span> ydot_curr)<span class="keyword"> const</span></div>
 <div class="line"><a name="l03613"></a><span class="lineno"> 3613</span>&#160;<span class="keyword"></span>{</div>
 <div class="line"><a name="l03614"></a><span class="lineno"> 3614</span>&#160;    <span class="keywordflow">if</span> (!ydot_curr) {</div>
 <div class="line"><a name="l03615"></a><span class="lineno"> 3615</span>&#160;        <span class="keywordflow">return</span>;</div>

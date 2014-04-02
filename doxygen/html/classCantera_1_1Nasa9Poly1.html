@@ -140,6 +140,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8783991dce8724223a1203dad597482e inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e">speciesIndex</a> () const </td></tr>
 <tr class="memdesc:a8783991dce8724223a1203dad597482e inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an integer representing the species index.  <a href="#a8783991dce8724223a1203dad597482e">More...</a><br/></td></tr>
 <tr class="separator:a8783991dce8724223a1203dad597482e inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6df957f9edebc416883aeb746c7ce65 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ae6df957f9edebc416883aeb746c7ce65">reportHf298</a> (doublereal *const h298=0) const </td></tr>
+<tr class="memdesc:ae6df957f9edebc416883aeb746c7ce65 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)  <a href="#ae6df957f9edebc416883aeb746c7ce65">More...</a><br/></td></tr>
+<tr class="separator:ae6df957f9edebc416883aeb746c7ce65 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770cf32674ea8e0da12ee537e82216a1 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a770cf32674ea8e0da12ee537e82216a1">modifyOneHf298</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:a770cf32674ea8e0da12ee537e82216a1 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)  <a href="#a770cf32674ea8e0da12ee537e82216a1">More...</a><br/></td></tr>
+<tr class="separator:a770cf32674ea8e0da12ee537e82216a1 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -197,7 +203,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9Poly1_8cpp_source.html#l00018">18</a> of file <a class="el" href="Nasa9Poly1_8cpp_source.html">Nasa9Poly1.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00301">SpeciesThermoInterpType::m_Pref</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00297">SpeciesThermoInterpType::m_Pref</a>.</p>
 
 <p>Referenced by <a class="el" href="Nasa9Poly1_8cpp_source.html#l00054">Nasa9Poly1::duplMyselfAsSpeciesThermoInterpType()</a>.</p>
 
@@ -443,7 +449,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9Poly1_8cpp_source.html#l00064">64</a> of file <a class="el" href="Nasa9Poly1_8cpp_source.html">Nasa9Poly1.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9Poly1_8h_source.html#l00187">Nasa9Poly1::m_coeff</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>, and <a class="el" href="ct__defs_8h_source.html#l00127">Cantera::OneThird</a>.</p>
+<p>References <a class="el" href="Nasa9Poly1_8h_source.html#l00187">Nasa9Poly1::m_coeff</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>, and <a class="el" href="ct__defs_8h_source.html#l00127">Cantera::OneThird</a>.</p>
 
 <p>Referenced by <a class="el" href="Nasa9Poly1_8cpp_source.html#l00093">Nasa9Poly1::updatePropertiesTemp()</a>.</p>
 
@@ -588,7 +594,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9Poly1_8cpp_source.html#l00108">108</a> of file <a class="el" href="Nasa9Poly1_8cpp_source.html">Nasa9Poly1.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9Poly1_8h_source.html#l00187">Nasa9Poly1::m_coeff</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_highT</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00297">SpeciesThermoInterpType::m_lowT</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00301">SpeciesThermoInterpType::m_Pref</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00055">NASA9</a>.</p>
+<p>References <a class="el" href="Nasa9Poly1_8h_source.html#l00187">Nasa9Poly1::m_coeff</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00295">SpeciesThermoInterpType::m_highT</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00293">SpeciesThermoInterpType::m_lowT</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00297">SpeciesThermoInterpType::m_Pref</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00055">NASA9</a>.</p>
 
 </div>
 </div>

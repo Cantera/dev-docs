@@ -75,7 +75,7 @@
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ImplicitSurfChem_8h.html" title="Declarations for the implicit integration of surface site density equations (see Kinetics Managers an...">ImplicitSurfChem.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="InterfaceKinetics_8h.html">cantera/kinetics/InterfaceKinetics.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Array_8h.html" title="Header file for class Cantera::Array2D. ">cantera/base/Array.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SquareMatrix_8h.html" title="Dense, Square (not sparse) matrices. ">cantera/numerics/SquareMatrix.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//! @defgroup solvesp_methods Surface Problem Solver Methods</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//! @{</span></div>
@@ -377,242 +377,231 @@
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">    //! Main routine that calculates the current residual and Jacobian</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">     *  @param JacCol  Vector of pointers to the tops of columns of the</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">     *                 Jacobian to be evaluated.</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">     *  @param resid   output Vector of residuals, length = m_neq</span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">     *  @param CSolnSP  Vector of species concentrations, unknowns in the</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">     *                  problem, length = m_neq. These are tweaked in order</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">     *                  to derive the columns of the jacobian.</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">     *  @param CSolnSPOld Old Vector of species concentrations, unknowns in the</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">     *                  problem, length = m_neq</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     *  @param do_time Calculate a time dependent residual</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     *  @param deltaT  Delta time for time dependent problem.</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1solveSP.html#a57870ad4541c9641da7c35602240bc3b" title="Main routine that calculates the current residual and Jacobian. ">resjac_eval</a>(std::vector&lt;doublereal*&gt;&amp; JacCol, doublereal* resid,</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                     doublereal* CSolnSP,</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                     <span class="keyword">const</span> doublereal* CSolnSPOld,  <span class="keyword">const</span> <span class="keywordtype">bool</span> do_time,</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                     <span class="keyword">const</span> doublereal deltaT);</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">    //!   Pointer to the manager of the implicit surface chemistry problem</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">     *    This object actually calls the current object. Thus, we are</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">     *    providing a loop-back functionality here.</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ab779026afb3d8ddc1b528c93b50cb995">  340</a></span>&#160;    <a class="code" href="classCantera_1_1ImplicitSurfChem.html" title="Advances the surface coverages of the associated set of SurfacePhase objects in time. ">ImplicitSurfChem</a>* <a class="code" href="classCantera_1_1solveSP.html#ab779026afb3d8ddc1b528c93b50cb995" title="Pointer to the manager of the implicit surface chemistry problem. ">m_SurfChemPtr</a>;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment">    //! Vector of interface kinetics objects</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">     * Each of these is associated with one and only one surface phase.</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ae9f118496b12597af806099055984e63">  346</a></span>&#160;    std::vector&lt;InterfaceKinetics*&gt; &amp;<a class="code" href="classCantera_1_1solveSP.html#ae9f118496b12597af806099055984e63" title="Vector of interface kinetics objects. ">m_objects</a>;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment">    //! Total number of equations to solve in the implicit problem.</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">     * Note, this can be zero, and frequently is</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#add89b2f10e5ea353a52f71636d9dbd0b">  352</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#add89b2f10e5ea353a52f71636d9dbd0b" title="Total number of equations to solve in the implicit problem. ">m_neq</a>;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">    //! This variable determines how the bulk phases are to be handled</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">     *  Possible values are given in @ref solvesp_bulkFunc.</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5a54a572b419916d383e643ca54bee55">  358</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1solveSP.html#a5a54a572b419916d383e643ca54bee55" title="This variable determines how the bulk phases are to be handled. ">m_bulkFunc</a>;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment">    //! Number of surface phases in the surface problem</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="comment">     * This number is equal to the number of InterfaceKinetics objects</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment">     * in the problem. (until further noted)</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#abef3802fe832886e7ccf82492d7d53c1">  365</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#abef3802fe832886e7ccf82492d7d53c1" title="Number of surface phases in the surface problem. ">m_numSurfPhases</a>;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment">    //! Total number of surface species in all surface phases.</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">     * This is also the number of equations to solve for m_mode=0 system</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">     * It&#39;s equal to the sum of the number of species in each of the</span></div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment">     * m_numSurfPhases.</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a15377933280ff2d90299115705f86014">  373</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#a15377933280ff2d90299115705f86014" title="Total number of surface species in all surface phases. ">m_numTotSurfSpecies</a>;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment">    //! Mapping between the surface phases and the InterfaceKinetics objects</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">     *  Currently this is defined to be a 1-1 mapping (and probably assumed</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment">     *  in some places)</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment">     *  m_surfKinObjID[i] = i</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a104389a88f40111f841d5b11262b0ddb">  381</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a104389a88f40111f841d5b11262b0ddb" title="Mapping between the surface phases and the InterfaceKinetics objects. ">m_indexKinObjSurfPhase</a>;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">    //! Vector of length number of surface phases containing</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment">    //! the number of surface species in each phase</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">     *  Length is equal to the number of surface phases, m_numSurfPhases</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a8f87dcfaea04012e8ffb43a45b1b978e">  388</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a8f87dcfaea04012e8ffb43a45b1b978e" title="Vector of length number of surface phases containing the number of surface species in each phase...">m_nSpeciesSurfPhase</a>;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">    //!  Vector of surface phase pointers</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">     *  This is created during the constructor</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">     *  Length is equal to the number of surface phases, m_numSurfPhases</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5f68303c05e6638c8b748964f85ab1b7">  395</a></span>&#160;    std::vector&lt;SurfPhase*&gt; <a class="code" href="classCantera_1_1solveSP.html#a5f68303c05e6638c8b748964f85ab1b7" title="Vector of surface phase pointers. ">m_ptrsSurfPhase</a>;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment">    //! Index of the start of the unknowns for each solution phase</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">     *        i_eqn = m_eqnIndexStartPhase[isp]</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">     *  isp is the phase id in the list of phases solved by the</span></div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment">     *  surface problem.</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">     *  i_eqn is the equation number of the first unknown in the</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment">     *  solution vector corresponding to isp&#39;th phase.</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ade0e686e842481fd9a0bead6cf9c6156">  407</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#ade0e686e842481fd9a0bead6cf9c6156" title="Index of the start of the unknowns for each solution phase. ">m_eqnIndexStartSolnPhase</a>;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment">    //! Phase ID in the InterfaceKinetics object of the surface phase</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">     *  For each surface phase, this lists the PhaseId of the</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">     *  surface phase in the corresponding InterfaceKinetics object</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">     * Length is equal to m_numSurfPhases</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00416"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#acb872d59fc6fd04ce894c6b63a96e7e0">  416</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#acb872d59fc6fd04ce894c6b63a96e7e0" title="Phase ID in the InterfaceKinetics object of the surface phase. ">m_kinObjPhaseIDSurfPhase</a>;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment">    //! Total number of volumetric condensed phases included in the steady state</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment">    //! problem handled by this routine.</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">     * This is equal to or less than the total number of volumetric phases in</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment">     * all of the InterfaceKinetics objects. We usually do not include bulk</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment">     * phases. Bulk phases are only included in the calculation when their</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">     * domain isn&#39;t included in the underlying continuum  model conservation</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">     * equation system.</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     * This is equal to 0, for the time being</span></div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ada0bac79849cc87575c0c2fafbc1431a">  429</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#ada0bac79849cc87575c0c2fafbc1431a" title="Total number of volumetric condensed phases included in the steady state problem handled by this rout...">m_numBulkPhasesSS</a>;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">    //! Vector of number of species in the m_numBulkPhases phases.</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">     * Length is number of bulk phases</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a857e9a830a7341988f1abe2655c2e86e">  435</a></span>&#160;    std::vector&lt;size_t&gt;              <a class="code" href="classCantera_1_1solveSP.html#a857e9a830a7341988f1abe2655c2e86e" title="Vector of number of species in the m_numBulkPhases phases. ">m_numBulkSpecies</a>;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="comment">//std::vector&lt;int&gt;              m_bulkKinObjID;</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="comment">//std::vector&lt;int&gt;              m_bulkKinObjPhaseID;</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="comment">    //! Total number of species in all bulk phases.</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">     *  This is also the number of bulk equations to solve when bulk equation</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment">     *  solving is turned on.</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a9b0368f07cc516aeda6166719086374c">  446</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#a9b0368f07cc516aeda6166719086374c" title="Total number of species in all bulk phases. ">m_numTotBulkSpeciesSS</a>;</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">    //! Vector of bulk phase pointers, length is equal to m_numBulkPhases.</span></div>
-<div class="line"><a name="l00449"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a8284122e1ef47b69795cf18d329396f9">  449</a></span>&#160;<span class="comment"></span>    std::vector&lt;ThermoPhase*&gt; <a class="code" href="classCantera_1_1solveSP.html#a8284122e1ef47b69795cf18d329396f9" title="Vector of bulk phase pointers, length is equal to m_numBulkPhases. ">m_bulkPhasePtrs</a>;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="comment">    //! Index between the equation index and the position in the kinetic</span></div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="comment">    //! species array for the appropriate kinetics operator</span></div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment">     *  Length = m_neq.</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment">     *  ksp = m_kinSpecIndex[ieq]</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment">     *  ksp is the kinetic species index for the ieq&#39;th equation.</span></div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a88f969fad504c333a85909a29c39cc48">  459</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a88f969fad504c333a85909a29c39cc48" title="Index between the equation index and the position in the kinetic species array for the appropriate ki...">m_kinSpecIndex</a>;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment">    //! Index between the equation index and the index of the</span></div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment">    //! InterfaceKinetics object</span></div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">     *   Length m_neq</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a365d16833a665e3dceb9191caab0f9fa">  466</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a365d16833a665e3dceb9191caab0f9fa" title="Index between the equation index and the index of the InterfaceKinetics object. ">m_kinObjIndex</a>;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">    //! Vector containing the indices of the largest species</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment">    //! in each surface phase</span></div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">     *  `k = m_spSurfLarge[i]` where `k` is the local species index, i.e., it</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment">     *  varies from 0 to (num species in phase - 1) and `i` is the surface</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">     *  phase index in the problem. Length is equal to #m_numSurfPhases.</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#aa994b8ea1a209c52e5d5afb0012c0500">  475</a></span>&#160;    std::vector&lt;size_t&gt;  <a class="code" href="classCantera_1_1solveSP.html#aa994b8ea1a209c52e5d5afb0012c0500" title="Vector containing the indices of the largest species in each surface phase. ">m_spSurfLarge</a>;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">    //! The absolute tolerance in real units. units are (kmol/m2)</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#afb7bd5b7f4cac79454aca2f0a5329217">  478</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1solveSP.html#afb7bd5b7f4cac79454aca2f0a5329217" title="The absolute tolerance in real units. units are (kmol/m2) ">m_atol</a>;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="comment">    //! The relative error tolerance.</span></div>
-<div class="line"><a name="l00481"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a4d12e55d7fcc98bdfda31d8f7ad4878c">  481</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1solveSP.html#a4d12e55d7fcc98bdfda31d8f7ad4878c" title="The relative error tolerance. ">m_rtol</a>;</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">    //! maximum value of the time step. units = seconds</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5355ef6cd918be18187dc92b8f0c6f3f">  484</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1solveSP.html#a5355ef6cd918be18187dc92b8f0c6f3f" title="maximum value of the time step. units = seconds ">m_maxstep</a>;</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">    //! Maximum number of species in any single kinetics operator</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">    //! -&gt; also maxed wrt the total # of solution species</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#af129879d6b8c65557ec801e00cf0b595">  488</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#af129879d6b8c65557ec801e00cf0b595" title="Maximum number of species in any single kinetics operator -&gt; also maxed wrt the total # of solution s...">m_maxTotSpecies</a>;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
-<div class="line"><a name="l00491"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a36eebb9f31e6862b8ca298749eb40474">  491</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a36eebb9f31e6862b8ca298749eb40474" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_netProductionRatesSave</a>;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#acbaccd6cc2d0a49bdfb31ec2fbf348e5">  494</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#acbaccd6cc2d0a49bdfb31ec2fbf348e5" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_numEqn1</a>;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ab575b078dcc5c18cb93b4ceea7a4004b">  497</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#ab575b078dcc5c18cb93b4ceea7a4004b" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_numEqn2</a>;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a758f58d02aaac6ee5c3e1bd1f552f80f">  500</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a758f58d02aaac6ee5c3e1bd1f552f80f" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_CSolnSave</a>;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">    //! Solution vector. length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a67e2517b16eb8d985b6bf320febca262">  503</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a67e2517b16eb8d985b6bf320febca262" title="Solution vector. length MAX(1, m_neq) ">m_CSolnSP</a>;</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">    //! Saved initial solution vector. length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#af9096736d379da6b76399757e5f25831">  506</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#af9096736d379da6b76399757e5f25831" title="Saved initial solution vector. length MAX(1, m_neq) ">m_CSolnSPInit</a>;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">    //! Saved  solution vector at the old time step. length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00509"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#af46b837b8c31dd6ad97885d0f3c5c5f9">  509</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#af46b837b8c31dd6ad97885d0f3c5c5f9" title="Saved solution vector at the old time step. length MAX(1, m_neq) ">m_CSolnSPOld</a>;</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="comment">    //!  Weights for the residual norm calculation. length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a7188360a69395ae7af069bf89614a80d">  512</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a7188360a69395ae7af069bf89614a80d" title="Weights for the residual norm calculation. length MAX(1, m_neq) ">m_wtResid</a>;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment">    //!  Weights for the species concentrations norm calculation</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">     * length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00518"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a91564c9868ff3ff9337d7965daf5cd9c">  518</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a91564c9868ff3ff9337d7965daf5cd9c" title="Weights for the species concentrations norm calculation. ">m_wtSpecies</a>;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">    //!  Residual for the surface problem</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">     *  The residual vector of length &quot;dim&quot; that, that has the value</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">     *  of &quot;sdot&quot; for surface species.  The residuals for the bulk</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">     *  species are a function of the sdots for all species in the bulk</span></div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">     *  phase. The last residual of each phase enforces {Sum(fractions)</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">     *  = 1}. After linear solve (dgetrf_ &amp; dgetrs_), resid holds the</span></div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">     *  update vector.</span></div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">     * length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a738256a57014ad91e64eb5ca1a1690df">  531</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a738256a57014ad91e64eb5ca1a1690df" title="Residual for the surface problem. ">m_resid</a>;</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="comment">    //! Vector of mole fractions. length m_maxTotSpecies</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a76cb995293eb40c80c6c9b82d4f0d61e">  534</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a76cb995293eb40c80c6c9b82d4f0d61e" title="Vector of mole fractions. length m_maxTotSpecies. ">m_XMolKinSpecies</a>;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">    //! pivots. length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5d415389d71b97707776d96238611223">  537</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76" title="Vector of ints. ">vector_int</a> <a class="code" href="classCantera_1_1solveSP.html#a5d415389d71b97707776d96238611223" title="pivots. length MAX(1, m_neq) ">m_ipiv</a>;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">    //! Vector of pointers to the top of the columns of the Jacobian</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">     *   The &quot;dim&quot; by &quot;dim&quot; computed Jacobian matrix for the</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="comment">     *   local Newton&#39;s method.</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a51bf45bf47bfc5be38d687a61ca9fd79">  544</a></span>&#160;    std::vector&lt;doublereal*&gt; <a class="code" href="classCantera_1_1solveSP.html#a51bf45bf47bfc5be38d687a61ca9fd79" title="Vector of pointers to the top of the columns of the Jacobian. ">m_JacCol</a>;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="comment">    //! Jacobian. m_neq by m_neq computed Jacobian matrix for the local</span></div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">    //! Newton&#39;s method.</span></div>
-<div class="line"><a name="l00548"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ace18cebae5e9ee867c33beea30a8e850">  548</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a> <a class="code" href="classCantera_1_1solveSP.html#ace18cebae5e9ee867c33beea30a8e850" title="Jacobian. ">m_Jac</a>;</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">int</span> m_ioflag;</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;};</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;}</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">     *  @param jac     Jacobian to be evaluated.</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">     *  @param resid   output Vector of residuals, length = m_neq</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">     *  @param CSolnSP  Vector of species concentrations, unknowns in the</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">     *                  problem, length = m_neq. These are tweaked in order</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">     *                  to derive the columns of the jacobian.</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">     *  @param CSolnSPOld Old Vector of species concentrations, unknowns in the</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">     *                  problem, length = m_neq</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">     *  @param do_time Calculate a time dependent residual</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     *  @param deltaT  Delta time for time dependent problem.</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1solveSP.html#a0d70c3425a473792a1828067faccb6df" title="Main routine that calculates the current residual and Jacobian. ">resjac_eval</a>(<a class="code" href="classCantera_1_1SquareMatrix.html" title="A class for full (non-sparse) matrices with Fortran-compatible data storage. ">SquareMatrix</a>&amp; jac, doublereal* resid,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                     doublereal* CSolnSP,</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                     <span class="keyword">const</span> doublereal* CSolnSPOld,  <span class="keyword">const</span> <span class="keywordtype">bool</span> do_time,</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                     <span class="keyword">const</span> doublereal deltaT);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">    //!   Pointer to the manager of the implicit surface chemistry problem</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">     *    This object actually calls the current object. Thus, we are</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">     *    providing a loop-back functionality here.</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ab779026afb3d8ddc1b528c93b50cb995">  339</a></span>&#160;    <a class="code" href="classCantera_1_1ImplicitSurfChem.html" title="Advances the surface coverages of the associated set of SurfacePhase objects in time. ">ImplicitSurfChem</a>* <a class="code" href="classCantera_1_1solveSP.html#ab779026afb3d8ddc1b528c93b50cb995" title="Pointer to the manager of the implicit surface chemistry problem. ">m_SurfChemPtr</a>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">    //! Vector of interface kinetics objects</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">     * Each of these is associated with one and only one surface phase.</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ae9f118496b12597af806099055984e63">  345</a></span>&#160;    std::vector&lt;InterfaceKinetics*&gt; &amp;<a class="code" href="classCantera_1_1solveSP.html#ae9f118496b12597af806099055984e63" title="Vector of interface kinetics objects. ">m_objects</a>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">    //! Total number of equations to solve in the implicit problem.</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment">     * Note, this can be zero, and frequently is</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#add89b2f10e5ea353a52f71636d9dbd0b">  351</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#add89b2f10e5ea353a52f71636d9dbd0b" title="Total number of equations to solve in the implicit problem. ">m_neq</a>;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">    //! This variable determines how the bulk phases are to be handled</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">     *  Possible values are given in @ref solvesp_bulkFunc.</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5a54a572b419916d383e643ca54bee55">  357</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1solveSP.html#a5a54a572b419916d383e643ca54bee55" title="This variable determines how the bulk phases are to be handled. ">m_bulkFunc</a>;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment">    //! Number of surface phases in the surface problem</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">     * This number is equal to the number of InterfaceKinetics objects</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="comment">     * in the problem. (until further noted)</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#abef3802fe832886e7ccf82492d7d53c1">  364</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#abef3802fe832886e7ccf82492d7d53c1" title="Number of surface phases in the surface problem. ">m_numSurfPhases</a>;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment">    //! Total number of surface species in all surface phases.</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">     * This is also the number of equations to solve for m_mode=0 system</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">     * It&#39;s equal to the sum of the number of species in each of the</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">     * m_numSurfPhases.</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a15377933280ff2d90299115705f86014">  372</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#a15377933280ff2d90299115705f86014" title="Total number of surface species in all surface phases. ">m_numTotSurfSpecies</a>;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment">    //! Mapping between the surface phases and the InterfaceKinetics objects</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">     *  Currently this is defined to be a 1-1 mapping (and probably assumed</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">     *  in some places)</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment">     *  m_surfKinObjID[i] = i</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a104389a88f40111f841d5b11262b0ddb">  380</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a104389a88f40111f841d5b11262b0ddb" title="Mapping between the surface phases and the InterfaceKinetics objects. ">m_indexKinObjSurfPhase</a>;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment">    //! Vector of length number of surface phases containing</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">    //! the number of surface species in each phase</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment">     *  Length is equal to the number of surface phases, m_numSurfPhases</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a8f87dcfaea04012e8ffb43a45b1b978e">  387</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a8f87dcfaea04012e8ffb43a45b1b978e" title="Vector of length number of surface phases containing the number of surface species in each phase...">m_nSpeciesSurfPhase</a>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment">    //!  Vector of surface phase pointers</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment">     *  This is created during the constructor</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">     *  Length is equal to the number of surface phases, m_numSurfPhases</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5f68303c05e6638c8b748964f85ab1b7">  394</a></span>&#160;    std::vector&lt;SurfPhase*&gt; <a class="code" href="classCantera_1_1solveSP.html#a5f68303c05e6638c8b748964f85ab1b7" title="Vector of surface phase pointers. ">m_ptrsSurfPhase</a>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">    //! Index of the start of the unknowns for each solution phase</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">     *        i_eqn = m_eqnIndexStartPhase[isp]</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">     *  isp is the phase id in the list of phases solved by the</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">     *  surface problem.</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment">     *  i_eqn is the equation number of the first unknown in the</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">     *  solution vector corresponding to isp&#39;th phase.</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ade0e686e842481fd9a0bead6cf9c6156">  406</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#ade0e686e842481fd9a0bead6cf9c6156" title="Index of the start of the unknowns for each solution phase. ">m_eqnIndexStartSolnPhase</a>;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="comment">    //! Phase ID in the InterfaceKinetics object of the surface phase</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">     *  For each surface phase, this lists the PhaseId of the</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">     *  surface phase in the corresponding InterfaceKinetics object</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">     * Length is equal to m_numSurfPhases</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#acb872d59fc6fd04ce894c6b63a96e7e0">  415</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#acb872d59fc6fd04ce894c6b63a96e7e0" title="Phase ID in the InterfaceKinetics object of the surface phase. ">m_kinObjPhaseIDSurfPhase</a>;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment">    //! Total number of volumetric condensed phases included in the steady state</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment">    //! problem handled by this routine.</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">     * This is equal to or less than the total number of volumetric phases in</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">     * all of the InterfaceKinetics objects. We usually do not include bulk</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment">     * phases. Bulk phases are only included in the calculation when their</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment">     * domain isn&#39;t included in the underlying continuum  model conservation</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">     * equation system.</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">     * This is equal to 0, for the time being</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ada0bac79849cc87575c0c2fafbc1431a">  428</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#ada0bac79849cc87575c0c2fafbc1431a" title="Total number of volumetric condensed phases included in the steady state problem handled by this rout...">m_numBulkPhasesSS</a>;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment">    //! Vector of number of species in the m_numBulkPhases phases.</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">     * Length is number of bulk phases</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a857e9a830a7341988f1abe2655c2e86e">  434</a></span>&#160;    std::vector&lt;size_t&gt;              <a class="code" href="classCantera_1_1solveSP.html#a857e9a830a7341988f1abe2655c2e86e" title="Vector of number of species in the m_numBulkPhases phases. ">m_numBulkSpecies</a>;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="comment">//std::vector&lt;int&gt;              m_bulkKinObjID;</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="comment">//std::vector&lt;int&gt;              m_bulkKinObjPhaseID;</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment">    //! Total number of species in all bulk phases.</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="comment">     *  This is also the number of bulk equations to solve when bulk equation</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">     *  solving is turned on.</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a9b0368f07cc516aeda6166719086374c">  445</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#a9b0368f07cc516aeda6166719086374c" title="Total number of species in all bulk phases. ">m_numTotBulkSpeciesSS</a>;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment">    //! Vector of bulk phase pointers, length is equal to m_numBulkPhases.</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a8284122e1ef47b69795cf18d329396f9">  448</a></span>&#160;<span class="comment"></span>    std::vector&lt;ThermoPhase*&gt; <a class="code" href="classCantera_1_1solveSP.html#a8284122e1ef47b69795cf18d329396f9" title="Vector of bulk phase pointers, length is equal to m_numBulkPhases. ">m_bulkPhasePtrs</a>;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="comment">    //! Index between the equation index and the position in the kinetic</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="comment">    //! species array for the appropriate kinetics operator</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment">     *  Length = m_neq.</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="comment">     *  ksp = m_kinSpecIndex[ieq]</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="comment">     *  ksp is the kinetic species index for the ieq&#39;th equation.</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a88f969fad504c333a85909a29c39cc48">  458</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a88f969fad504c333a85909a29c39cc48" title="Index between the equation index and the position in the kinetic species array for the appropriate ki...">m_kinSpecIndex</a>;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment">    //! Index between the equation index and the index of the</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment">    //! InterfaceKinetics object</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment">     *   Length m_neq</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a365d16833a665e3dceb9191caab0f9fa">  465</a></span>&#160;    std::vector&lt;size_t&gt; <a class="code" href="classCantera_1_1solveSP.html#a365d16833a665e3dceb9191caab0f9fa" title="Index between the equation index and the index of the InterfaceKinetics object. ">m_kinObjIndex</a>;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="comment">    //! Vector containing the indices of the largest species</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="comment">    //! in each surface phase</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="comment">     *  `k = m_spSurfLarge[i]` where `k` is the local species index, i.e., it</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="comment">     *  varies from 0 to (num species in phase - 1) and `i` is the surface</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="comment">     *  phase index in the problem. Length is equal to #m_numSurfPhases.</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#aa994b8ea1a209c52e5d5afb0012c0500">  474</a></span>&#160;    std::vector&lt;size_t&gt;  <a class="code" href="classCantera_1_1solveSP.html#aa994b8ea1a209c52e5d5afb0012c0500" title="Vector containing the indices of the largest species in each surface phase. ">m_spSurfLarge</a>;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="comment">    //! The absolute tolerance in real units. units are (kmol/m2)</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#afb7bd5b7f4cac79454aca2f0a5329217">  477</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1solveSP.html#afb7bd5b7f4cac79454aca2f0a5329217" title="The absolute tolerance in real units. units are (kmol/m2) ">m_atol</a>;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">    //! The relative error tolerance.</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a4d12e55d7fcc98bdfda31d8f7ad4878c">  480</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1solveSP.html#a4d12e55d7fcc98bdfda31d8f7ad4878c" title="The relative error tolerance. ">m_rtol</a>;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">    //! maximum value of the time step. units = seconds</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a5355ef6cd918be18187dc92b8f0c6f3f">  483</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1solveSP.html#a5355ef6cd918be18187dc92b8f0c6f3f" title="maximum value of the time step. units = seconds ">m_maxstep</a>;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment">    //! Maximum number of species in any single kinetics operator</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">    //! -&gt; also maxed wrt the total # of solution species</span></div>
+<div class="line"><a name="l00487"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#af129879d6b8c65557ec801e00cf0b595">  487</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1solveSP.html#af129879d6b8c65557ec801e00cf0b595" title="Maximum number of species in any single kinetics operator -&gt; also maxed wrt the total # of solution s...">m_maxTotSpecies</a>;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
+<div class="line"><a name="l00490"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a36eebb9f31e6862b8ca298749eb40474">  490</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a36eebb9f31e6862b8ca298749eb40474" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_netProductionRatesSave</a>;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#acbaccd6cc2d0a49bdfb31ec2fbf348e5">  493</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#acbaccd6cc2d0a49bdfb31ec2fbf348e5" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_numEqn1</a>;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ab575b078dcc5c18cb93b4ceea7a4004b">  496</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#ab575b078dcc5c18cb93b4ceea7a4004b" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_numEqn2</a>;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="comment">    //! Temporary vector with length equal to max m_maxTotSpecies</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a758f58d02aaac6ee5c3e1bd1f552f80f">  499</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a758f58d02aaac6ee5c3e1bd1f552f80f" title="Temporary vector with length equal to max m_maxTotSpecies. ">m_CSolnSave</a>;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">    //! Solution vector. length MAX(1, m_neq)</span></div>
+<div class="line"><a name="l00502"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a67e2517b16eb8d985b6bf320febca262">  502</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a67e2517b16eb8d985b6bf320febca262" title="Solution vector. length MAX(1, m_neq) ">m_CSolnSP</a>;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">    //! Saved initial solution vector. length MAX(1, m_neq)</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#af9096736d379da6b76399757e5f25831">  505</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#af9096736d379da6b76399757e5f25831" title="Saved initial solution vector. length MAX(1, m_neq) ">m_CSolnSPInit</a>;</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">    //! Saved  solution vector at the old time step. length MAX(1, m_neq)</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#af46b837b8c31dd6ad97885d0f3c5c5f9">  508</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#af46b837b8c31dd6ad97885d0f3c5c5f9" title="Saved solution vector at the old time step. length MAX(1, m_neq) ">m_CSolnSPOld</a>;</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="comment">    //!  Weights for the residual norm calculation. length MAX(1, m_neq)</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a7188360a69395ae7af069bf89614a80d">  511</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a7188360a69395ae7af069bf89614a80d" title="Weights for the residual norm calculation. length MAX(1, m_neq) ">m_wtResid</a>;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment">    //!  Weights for the species concentrations norm calculation</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="comment">     * length MAX(1, m_neq)</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a91564c9868ff3ff9337d7965daf5cd9c">  517</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a91564c9868ff3ff9337d7965daf5cd9c" title="Weights for the species concentrations norm calculation. ">m_wtSpecies</a>;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="comment">    //!  Residual for the surface problem</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">     *  The residual vector of length &quot;dim&quot; that, that has the value</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="comment">     *  of &quot;sdot&quot; for surface species.  The residuals for the bulk</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">     *  species are a function of the sdots for all species in the bulk</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">     *  phase. The last residual of each phase enforces {Sum(fractions)</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">     *  = 1}. After linear solve (dgetrf_ &amp; dgetrs_), resid holds the</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="comment">     *  update vector.</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">     * length MAX(1, m_neq)</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a738256a57014ad91e64eb5ca1a1690df">  530</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a738256a57014ad91e64eb5ca1a1690df" title="Residual for the surface problem. ">m_resid</a>;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<span class="comment">    //! Vector of mole fractions. length m_maxTotSpecies</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#a76cb995293eb40c80c6c9b82d4f0d61e">  533</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveSP.html#a76cb995293eb40c80c6c9b82d4f0d61e" title="Vector of mole fractions. length m_maxTotSpecies. ">m_XMolKinSpecies</a>;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="comment">    //! Jacobian. m_neq by m_neq computed Jacobian matrix for the local</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="comment">    //! Newton&#39;s method.</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno"><a class="code" href="classCantera_1_1solveSP.html#ae815334c63997cf0ab831dca83b02cf6">  537</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1SquareMatrix.html" title="A class for full (non-sparse) matrices with Fortran-compatible data storage. ">SquareMatrix</a> <a class="code" href="classCantera_1_1solveSP.html#ae815334c63997cf0ab831dca83b02cf6" title="Jacobian. ">m_Jac</a>;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordtype">int</span> m_ioflag;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;};</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;}</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -684,67 +684,61 @@
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="comment">     *               of species on a particular lattice</span></div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a66cc98442cbe38332239c50caabde0c5" title="Set the Lattice mole fractions using a string. ">setLatticeMoleFractionsByName</a>(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::string&amp; x);</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">    //! Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">     *   @param  k           Species k</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ThermoPhase.html#a9b9f3dd61d1e4267b63752f66d6b0541" title="Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1) ...">modifyOneHf298SS</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span>&amp; k, <span class="keyword">const</span> doublereal Hf298New);</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment">    //! error routine</span></div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">     *  @param msg Message</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">     *  @return nothing</span></div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    doublereal <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="error routine ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">    //! Last temperature at which the reference thermo was calculated</span></div>
-<div class="line"><a name="l00651"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a29be82f24ebd72ee5502b90d994c09a0">  651</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> doublereal  <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a29be82f24ebd72ee5502b90d994c09a0" title="Last temperature at which the reference thermo was calculated. ">m_tlast</a>;</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">    //! Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">     *   @param  k           Species k</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#ad2bb703fa348e97f485a446b89a46ebe" title="Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1) ...">modifyOneHf298SS</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> k, <span class="keyword">const</span> doublereal Hf298New);</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">    //! error routine</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment">     *  @param msg Message</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">     *  @return nothing</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    doublereal <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a7ccbe3d18b37fb3aad7d4220f18fdbff" title="error routine ">err</a>(<span class="keyword">const</span> std::string&amp; msg) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">    //! Current value of the pressure</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0edab2fddaaaa5321a40af0cbca697cf">  648</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0edab2fddaaaa5321a40af0cbca697cf" title="Current value of the pressure. ">m_press</a>;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">    //! Current value of the molar density</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0523af6574fc2bbaa5d43ea496de0f4c">  651</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0523af6574fc2bbaa5d43ea496de0f4c" title="Current value of the molar density. ">m_molar_density</a>;</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment">    //! Current value of the pressure</span></div>
-<div class="line"><a name="l00654"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0edab2fddaaaa5321a40af0cbca697cf">  654</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0edab2fddaaaa5321a40af0cbca697cf" title="Current value of the pressure. ">m_press</a>;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment">    //! Number of sublattice phases</span></div>
+<div class="line"><a name="l00654"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#ad1d97ed50722203edddb66dd14bb1fac">  654</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#ad1d97ed50722203edddb66dd14bb1fac" title="Number of sublattice phases. ">m_nlattice</a>;</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">    //! Current value of the molar density</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0523af6574fc2bbaa5d43ea496de0f4c">  657</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a0523af6574fc2bbaa5d43ea496de0f4c" title="Current value of the molar density. ">m_molar_density</a>;</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">    //! Vector of sublattic ThermoPhase objects</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#acfc156aefeea97e98c283cf64d182f7f">  657</a></span>&#160;<span class="comment"></span>    std::vector&lt;LatticePhase*&gt; <a class="code" href="classCantera_1_1LatticeSolidPhase.html#acfc156aefeea97e98c283cf64d182f7f" title="Vector of sublattic ThermoPhase objects. ">m_lattice</a>;</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">    //! Number of sublattice phases</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#ad1d97ed50722203edddb66dd14bb1fac">  660</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#ad1d97ed50722203edddb66dd14bb1fac" title="Number of sublattice phases. ">m_nlattice</a>;</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="comment">    //! Vector of sublattic ThermoPhase objects</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#acfc156aefeea97e98c283cf64d182f7f">  663</a></span>&#160;<span class="comment"></span>    std::vector&lt;LatticePhase*&gt; <a class="code" href="classCantera_1_1LatticeSolidPhase.html#acfc156aefeea97e98c283cf64d182f7f" title="Vector of sublattic ThermoPhase objects. ">m_lattice</a>;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment">    //! Vector of mole fractions</span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">     *  Note these mole fractions sum to one when summed over all phases.</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">     *  However, this is not what&#39;s passed down to the lower m_lattice objects.</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a235e43d360bbe2f315ff6156d60c7207">  670</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a235e43d360bbe2f315ff6156d60c7207" title="Vector of mole fractions. ">m_x</a>;</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">    //! Lattice stoichiometric coefficients</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a9f950f35cc52315295517b2bbb008359">  673</a></span>&#160;<span class="comment"></span>    std::vector&lt;doublereal&gt; <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a9f950f35cc52315295517b2bbb008359" title="Lattice stoichiometric coefficients. ">theta_</a>;</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment">    //! Temporary vector</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#ae79b53efd668e14c4fa1365d02043aec">  676</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#ae79b53efd668e14c4fa1365d02043aec" title="Temporary vector. ">tmpV_</a>;</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    std::vector&lt;size_t&gt; lkstart_;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">    //! Vector of mole fractions</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment">     *  Note these mole fractions sum to one when summed over all phases.</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="comment">     *  However, this is not what&#39;s passed down to the lower m_lattice objects.</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a235e43d360bbe2f315ff6156d60c7207">  664</a></span>&#160;    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a235e43d360bbe2f315ff6156d60c7207" title="Vector of mole fractions. ">m_x</a>;</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">    //! Lattice stoichiometric coefficients</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#a9f950f35cc52315295517b2bbb008359">  667</a></span>&#160;<span class="comment"></span>    std::vector&lt;doublereal&gt; <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a9f950f35cc52315295517b2bbb008359" title="Lattice stoichiometric coefficients. ">theta_</a>;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">    //! Temporary vector</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno"><a class="code" href="classCantera_1_1LatticeSolidPhase.html#ae79b53efd668e14c4fa1365d02043aec">  670</a></span>&#160;<span class="comment"></span>    <span class="keyword">mutable</span> <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#ae79b53efd668e14c4fa1365d02043aec" title="Temporary vector. ">tmpV_</a>;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    std::vector&lt;size_t&gt; lkstart_;</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment">    //! Update the reference thermodynamic functions</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a92a3d91cd7e3a672538133b785b5c27e" title="Update the reference thermodynamic functions. ">_updateThermo</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;};</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;}</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">    //! Update the reference thermodynamic functions</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1LatticeSolidPhase.html#a92a3d91cd7e3a672538133b785b5c27e" title="Update the reference thermodynamic functions. ">_updateThermo</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;};</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;}</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -140,6 +140,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8783991dce8724223a1203dad597482e inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e">speciesIndex</a> () const </td></tr>
 <tr class="memdesc:a8783991dce8724223a1203dad597482e inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an integer representing the species index.  <a href="#a8783991dce8724223a1203dad597482e">More...</a><br/></td></tr>
 <tr class="separator:a8783991dce8724223a1203dad597482e inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6df957f9edebc416883aeb746c7ce65 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ae6df957f9edebc416883aeb746c7ce65">reportHf298</a> (doublereal *const h298=0) const </td></tr>
+<tr class="memdesc:ae6df957f9edebc416883aeb746c7ce65 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)  <a href="#ae6df957f9edebc416883aeb746c7ce65">More...</a><br/></td></tr>
+<tr class="separator:ae6df957f9edebc416883aeb746c7ce65 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770cf32674ea8e0da12ee537e82216a1 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a770cf32674ea8e0da12ee537e82216a1">modifyOneHf298</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:a770cf32674ea8e0da12ee537e82216a1 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)  <a href="#a770cf32674ea8e0da12ee537e82216a1">More...</a><br/></td></tr>
+<tr class="separator:a770cf32674ea8e0da12ee537e82216a1 inherit pub_methods_classCantera_1_1SpeciesThermoInterpType"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -171,7 +177,7 @@ Additional Inherited Members</h2></td></tr>
 <p>This class is a pass-through class for handling thermodynamics calls for reference state thermo to an pressure dependent standard state (<a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>) class. For some situations, it makes no sense to have a reference state at all. One example of this is the real water standard state.</p>
 <p>What this class does is just to pass through the calls for thermo at (T , p0) to the <a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a> class, which evaluates the calls at (T, p0). </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00319">319</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00315">315</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adbf136f40b28956358241a815477daa8"></a>
 <div class="memitem">
@@ -188,11 +194,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00071">71</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00067">67</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00095">STITbyPDSS::duplMyselfAsSpeciesThermoInterpType()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00091">STITbyPDSS::duplMyselfAsSpeciesThermoInterpType()</a>.</p>
 
 </div>
 </div>
@@ -236,9 +242,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00077">77</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00073">73</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>.</p>
 
 </div>
 </div>
@@ -264,7 +270,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00086">86</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00082">82</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,9 +300,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8a325e113a55f8fc38be927062a6d8e5">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00095">95</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00091">91</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00071">STITbyPDSS::STITbyPDSS()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00067">STITbyPDSS::STITbyPDSS()</a>.</p>
 
 </div>
 </div>
@@ -341,9 +347,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00101">101</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00097">97</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00229">AssertThrow</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00394">STITbyPDSS::m_vpssmgr_ptr</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00242">AssertThrow</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00390">STITbyPDSS::m_vpssmgr_ptr</a>.</p>
 
 <p>Referenced by <a class="el" href="VPSSMgr_8cpp_source.html#l00125">VPSSMgr::initAllPtrs()</a>.</p>
 
@@ -374,9 +380,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a994e60ab2778ff373cca79858dddcb9b">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00109">109</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00105">105</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00370">PDSS::minTemp()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00370">PDSS::minTemp()</a>.</p>
 
 </div>
 </div>
@@ -405,9 +411,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00115">115</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00111">111</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00375">PDSS::maxTemp()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00375">PDSS::maxTemp()</a>.</p>
 
 </div>
 </div>
@@ -436,9 +442,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a761c0adb3faed68bffaa0f0b6cfbc996">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00121">121</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00117">117</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00365">PDSS::refPressure()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">STITbyPDSS::m_PDSS_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00365">PDSS::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -467,7 +473,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00127">127</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00123">123</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
 <p>References <a class="el" href="speciesThermoTypes_8h_source.html#l00072">PDSS_TYPE</a>.</p>
 
@@ -532,9 +538,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a9071758a7c3ccc108a9fe3e4b1fa691c">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00133">133</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00129">129</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00142">STITbyPDSS::updatePropertiesTemp()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00138">STITbyPDSS::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>
@@ -596,11 +602,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00142">142</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00138">138</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00247">AssertThrowMsg</a>, <a class="el" href="PDSS_8cpp_source.html#l00305">PDSS::cp_R_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00293">PDSS::enthalpy_RT_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00299">PDSS::entropy_R_ref()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">STITbyPDSS::m_PDSS_ptr</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="PDSS_8cpp_source.html#l00384">PDSS::setTemperature()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00260">AssertThrowMsg</a>, <a class="el" href="PDSS_8cpp_source.html#l00305">PDSS::cp_R_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00293">PDSS::enthalpy_RT_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00299">PDSS::entropy_R_ref()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">STITbyPDSS::m_PDSS_ptr</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="PDSS_8cpp_source.html#l00383">PDSS::setTemperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00133">STITbyPDSS::updateProperties()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00129">STITbyPDSS::updateProperties()</a>.</p>
 
 </div>
 </div>
@@ -676,9 +682,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00157">157</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00153">153</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00303">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">STITbyPDSS::m_PDSS_ptr</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00394">STITbyPDSS::m_vpssmgr_ptr</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00467">VPSSMgr::maxTemp()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00458">VPSSMgr::minTemp()</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00072">PDSS_TYPE</a>, and <a class="el" href="PDSS_8h_source.html#l00365">PDSS::refPressure()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00299">SpeciesThermoInterpType::m_index</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">STITbyPDSS::m_PDSS_ptr</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00390">STITbyPDSS::m_vpssmgr_ptr</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00467">VPSSMgr::maxTemp()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00458">VPSSMgr::minTemp()</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00072">PDSS_TYPE</a>, and <a class="el" href="PDSS_8h_source.html#l00365">PDSS::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -714,7 +720,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a51debe8d14b20f331ae059659fd1a5f9">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00170">170</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00166">166</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
 </div>
 </div>
@@ -739,9 +745,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Pointer to the Variable pressure standard state manager that owns the <a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a> object that will handle calls for this object. </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00394">394</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00390">390</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00101">STITbyPDSS::initAllPtrs()</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00157">STITbyPDSS::reportParameters()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00097">STITbyPDSS::initAllPtrs()</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00153">STITbyPDSS::reportParameters()</a>.</p>
 
 </div>
 </div>
@@ -766,9 +772,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Pointer to the <a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a> object that handles calls for this object. </p>
 <p>This object is not owned by the current one. </p>
 
-<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00400">400</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00396">396</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00101">STITbyPDSS::initAllPtrs()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00115">STITbyPDSS::maxTemp()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00109">STITbyPDSS::minTemp()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00121">STITbyPDSS::refPressure()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00157">STITbyPDSS::reportParameters()</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00142">STITbyPDSS::updatePropertiesTemp()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00097">STITbyPDSS::initAllPtrs()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00111">STITbyPDSS::maxTemp()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00105">STITbyPDSS::minTemp()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00117">STITbyPDSS::refPressure()</a>, <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00153">STITbyPDSS::reportParameters()</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00138">STITbyPDSS::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>

@@ -84,9 +84,6 @@ Collaboration diagram for GibbsExcessVPSSTP:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a36b73c670ec31b170180a5555d37c330"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a36b73c670ec31b170180a5555d37c330">eosType</a> () const </td></tr>
-<tr class="memdesc:a36b73c670ec31b170180a5555d37c330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equation of state type flag.  <a href="#a36b73c670ec31b170180a5555d37c330">More...</a><br/></td></tr>
-<tr class="separator:a36b73c670ec31b170180a5555d37c330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a12209d08a5c4876d9894d619368a79"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">initThermo</a> ()</td></tr>
 <tr class="separator:a8a12209d08a5c4876d9894d619368a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Constructors</div></td></tr>
@@ -142,9 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a24b1f84a3214bbe1dab107d0ffe6fc13"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a24b1f84a3214bbe1dab107d0ffe6fc13">getPartialMolarVolumes</a> (doublereal *vbar) const </td></tr>
 <tr class="memdesc:a24b1f84a3214bbe1dab107d0ffe6fc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return an array of partial molar volumes for the species in the mixture.  <a href="#a24b1f84a3214bbe1dab107d0ffe6fc13">More...</a><br/></td></tr>
 <tr class="separator:a24b1f84a3214bbe1dab107d0ffe6fc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a550cd155e791c659f33a09e1422ce140"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a550cd155e791c659f33a09e1422ce140"></a>
-virtual const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPartialMolarVolumes</b> () const </td></tr>
-<tr class="separator:a550cd155e791c659f33a09e1422ce140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28aab80480a82f01f07bdc7efb5b9e63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28aab80480a82f01f07bdc7efb5b9e63"></a>
+virtual const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPartialMolarVolumesVector</b> () const </td></tr>
+<tr class="separator:a28aab80480a82f01f07bdc7efb5b9e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Setting the State</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These methods set all or part of the thermodynamic state. </p>
 </div></td></tr>
@@ -227,6 +224,9 @@ virtual const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1
 <tr class="memitem:a495f550104c95cede79d0d787a909d6f inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a495f550104c95cede79d0d787a909d6f">getEnthalpy_RT_ref</a> (doublereal *hrt) const </td></tr>
 <tr class="memdesc:a495f550104c95cede79d0d787a909d6f inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional enthalpies of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a495f550104c95cede79d0d787a909d6f">More...</a><br/></td></tr>
 <tr class="separator:a495f550104c95cede79d0d787a909d6f inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bb703fa348e97f485a446b89a46ebe inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#ad2bb703fa348e97f485a446b89a46ebe">modifyOneHf298SS</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:ad2bb703fa348e97f485a446b89a46ebe inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1)  <a href="#ad2bb703fa348e97f485a446b89a46ebe">More...</a><br/></td></tr>
+<tr class="separator:ad2bb703fa348e97f485a446b89a46ebe inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4352f7e28912366fe049ec6b77ba01a9 inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a4352f7e28912366fe049ec6b77ba01a9">getGibbs_RT_ref</a> (doublereal *grt) const </td></tr>
 <tr class="memdesc:a4352f7e28912366fe049ec6b77ba01a9 inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional Gibbs free energies of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a4352f7e28912366fe049ec6b77ba01a9">More...</a><br/></td></tr>
 <tr class="separator:a4352f7e28912366fe049ec6b77ba01a9 inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -343,7 +343,13 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a9a66f5fb7265fe164b88cd7c2c488fcc inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">std::vector&lt; doublereal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a9a66f5fb7265fe164b88cd7c2c488fcc">xMol_Ref</a></td></tr>
 <tr class="memdesc:a9a66f5fb7265fe164b88cd7c2c488fcc inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference Mole Fraction Composition.  <a href="#a9a66f5fb7265fe164b88cd7c2c488fcc">More...</a><br/></td></tr>
 <tr class="separator:a9a66f5fb7265fe164b88cd7c2c488fcc inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29be82f24ebd72ee5502b90d994c09a0 inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a29be82f24ebd72ee5502b90d994c09a0">m_tlast</a></td></tr>
+<tr class="memdesc:a29be82f24ebd72ee5502b90d994c09a0 inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">last value of the temperature processed by reference state  <a href="#a29be82f24ebd72ee5502b90d994c09a0">More...</a><br/></td></tr>
+<tr class="separator:a29be82f24ebd72ee5502b90d994c09a0 inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classCantera_1_1Phase"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCantera_1_1Phase')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classCantera_1_1Phase.html">Phase</a></td></tr>
+<tr class="memitem:a1e53dfbc10d711d50fdae85bf49423ca inherit pro_attribs_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e53dfbc10d711d50fdae85bf49423ca"></a>
+<a class="el" href="classCantera_1_1ValueCache.html">ValueCache</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_cache</b></td></tr>
+<tr class="separator:a1e53dfbc10d711d50fdae85bf49423ca inherit pro_attribs_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44776286c3ba788047554eef4620e6de inherit pro_attribs_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Phase.html#a44776286c3ba788047554eef4620e6de">m_kk</a></td></tr>
 <tr class="memdesc:a44776286c3ba788047554eef4620e6de inherit pro_attribs_classCantera_1_1Phase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of species in the phase.  <a href="#a44776286c3ba788047554eef4620e6de">More...</a><br/></td></tr>
 <tr class="separator:a44776286c3ba788047554eef4620e6de inherit pro_attribs_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -420,7 +426,7 @@ Mechanical Properties</h2></td></tr>
 
 <p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00029">29</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00078">GibbsExcessVPSSTP::duplMyselfAsThermoPhase()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00077">GibbsExcessVPSSTP::duplMyselfAsThermoPhase()</a>.</p>
 
 </div>
 </div>
@@ -448,7 +454,7 @@ Mechanical Properties</h2></td></tr>
 
 <p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00042">42</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -475,11 +481,11 @@ Mechanical Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">57</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">56</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00515">GibbsExcessVPSSTP::d2lnActCoeffdT2_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00532">GibbsExcessVPSSTP::dlnActCoeffdlnN_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00520">GibbsExcessVPSSTP::dlnActCoeffdlnN_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00525">GibbsExcessVPSSTP::dlnActCoeffdlnX_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00510">GibbsExcessVPSSTP::dlnActCoeffdT_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00505">GibbsExcessVPSSTP::lnActCoeff_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00535">GibbsExcessVPSSTP::m_pp</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00049">VPStandardStateTP::operator=()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00505">GibbsExcessVPSSTP::d2lnActCoeffdT2_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00522">GibbsExcessVPSSTP::dlnActCoeffdlnN_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00510">GibbsExcessVPSSTP::dlnActCoeffdlnN_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00515">GibbsExcessVPSSTP::dlnActCoeffdlnX_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00500">GibbsExcessVPSSTP::dlnActCoeffdT_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00495">GibbsExcessVPSSTP::lnActCoeff_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00525">GibbsExcessVPSSTP::m_pp</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00049">VPStandardStateTP::operator=()</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00042">GibbsExcessVPSSTP::GibbsExcessVPSSTP()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00058">PseudoBinaryVPSSTP::operator=()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00084">MolarityIonicVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00126">IonsFromNeutralVPSSTP::operator=()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00135">RedlichKisterVPSSTP::operator=()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00057">MargulesVPSSTP::operator=()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00056">PhaseCombo_Interaction::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00042">GibbsExcessVPSSTP::GibbsExcessVPSSTP()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00057">PseudoBinaryVPSSTP::operator=()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00083">MolarityIonicVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00126">IonsFromNeutralVPSSTP::operator=()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00134">RedlichKisterVPSSTP::operator=()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00056">MargulesVPSSTP::operator=()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00055">PhaseCombo_Interaction::operator=()</a>.</p>
 
 </div>
 </div>
@@ -511,43 +517,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#ada5dc6bcebfe0f6e38b664e204013159">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#ada5dc6bcebfe0f6e38b664e204013159">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#ada5dc6bcebfe0f6e38b664e204013159">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#ada5dc6bcebfe0f6e38b664e204013159">RedlichKisterVPSSTP</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#ada5dc6bcebfe0f6e38b664e204013159">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1MolarityIonicVPSSTP.html#ada5dc6bcebfe0f6e38b664e204013159">MolarityIonicVPSSTP</a>, and <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#ada5dc6bcebfe0f6e38b664e204013159">PseudoBinaryVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00078">78</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00077">77</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
 <p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00029">GibbsExcessVPSSTP::GibbsExcessVPSSTP()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36b73c670ec31b170180a5555d37c330"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int eosType </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Equation of state type flag. </p>
-<p>The <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> base class returns zero. Subclasses should define this to return a unique non-zero value. Known constants defined for this purpose are listed in <a class="el" href="mix__defs_8h.html">mix_defs.h</a>. The <a class="el" href="classCantera_1_1MolalityVPSSTP.html">MolalityVPSSTP</a> class also returns zero, as it is a non-complete class. </p>
-
-<p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a49fb2c3b20bb862fc595b4525dd05069">VPStandardStateTP</a>.</p>
-
-<p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a36b73c670ec31b170180a5555d37c330">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a36b73c670ec31b170180a5555d37c330">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a36b73c670ec31b170180a5555d37c330">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a36b73c670ec31b170180a5555d37c330">RedlichKisterVPSSTP</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a36b73c670ec31b170180a5555d37c330">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1MolarityIonicVPSSTP.html#a36b73c670ec31b170180a5555d37c330">MolarityIonicVPSSTP</a>, and <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#a36b73c670ec31b170180a5555d37c330">PseudoBinaryVPSSTP</a>.</p>
-
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00113">113</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
-
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00231">GibbsExcessVPSSTP::err()</a>.</p>
 
 </div>
 </div>
@@ -581,15 +553,15 @@ Mechanical Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Implement a variable pressure capability </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Implement a variable pressure capability </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">VPStandardStateTP</a>.</p>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00122">122</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00116">116</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00141">GibbsExcessVPSSTP::setState_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00135">GibbsExcessVPSSTP::setState_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -625,11 +597,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#afac1b45437d49cc161e7ca2d5c00906a">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00127">127</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00121">121</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00218">GibbsExcessVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="Phase_8h_source.html#l00589">Phase::meanMolecularWeight()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00550">Phase::setDensity()</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00141">GibbsExcessVPSSTP::setState_TP()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00135">GibbsExcessVPSSTP::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -666,9 +638,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ad2bfee0d6025dc22f2713a9d94285fa9">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00164">164</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00158">158</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00179">GibbsExcessVPSSTP::getActivities()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00173">GibbsExcessVPSSTP::getActivities()</a>.</p>
 
 </div>
 </div>
@@ -708,7 +680,7 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#aa81efc070d01d794751663264e32c841">PseudoBinaryVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00169">169</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00163">163</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -744,9 +716,7 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a42b2c2b9b30b8ce3f2c04723a573b466">ThermoPhase</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#a42b2c2b9b30b8ce3f2c04723a573b466">PseudoBinaryVPSSTP</a>.</p>
-
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00174">174</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00168">168</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -801,7 +771,7 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00248">248</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00242">242</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -841,11 +811,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aa713c1dc99a4d892e4207a348329cba6">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00179">179</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00173">173</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00188">GibbsExcessVPSSTP::getActivityCoefficients()</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, and <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00182">GibbsExcessVPSSTP::getActivityCoefficients()</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, and <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00164">GibbsExcessVPSSTP::getActivityConcentrations()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00198">PseudoBinaryVPSSTP::report()</a>, and <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00485">MolarityIonicVPSSTP::report()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00158">GibbsExcessVPSSTP::getActivityConcentrations()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00186">PseudoBinaryVPSSTP::report()</a>, and <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00475">MolarityIonicVPSSTP::report()</a>.</p>
 
 </div>
 </div>
@@ -883,11 +853,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a934570cdd62d30c4e5bc3885ab5e2ce6">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a934570cdd62d30c4e5bc3885ab5e2ce6">MixedSolventElectrolyte</a>, and <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a934570cdd62d30c4e5bc3885ab5e2ce6">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00188">188</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00182">182</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8cpp_source.html#l00129">ThermoPhase::getLnActivityCoefficients()</a>, and <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8cpp_source.html#l00128">ThermoPhase::getLnActivityCoefficients()</a>, and <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00179">GibbsExcessVPSSTP::getActivities()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00173">GibbsExcessVPSSTP::getActivities()</a>.</p>
 
 </div>
 </div>
@@ -925,11 +895,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#af0c9de37dc5c618cc94272b65239a44d">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#af0c9de37dc5c618cc94272b65239a44d">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#af0c9de37dc5c618cc94272b65239a44d">MixedSolventElectrolyte</a>, and <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#af0c9de37dc5c618cc94272b65239a44d">RedlichKisterVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00300">300</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00290">290</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00231">GibbsExcessVPSSTP::err()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00225">GibbsExcessVPSSTP::err()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01246">IonsFromNeutralVPSSTP::s_update_dlnActCoeffdT()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01238">IonsFromNeutralVPSSTP::s_update_dlnActCoeffdT()</a>.</p>
 
 </div>
 </div>
@@ -984,11 +954,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a4a2e93544bb41c14ed880a4595e110cc">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a4a2e93544bb41c14ed880a4595e110cc">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a4a2e93544bb41c14ed880a4595e110cc">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a4a2e93544bb41c14ed880a4595e110cc">RedlichKisterVPSSTP</a>, and <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a4a2e93544bb41c14ed880a4595e110cc">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00323">323</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00313">313</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00231">GibbsExcessVPSSTP::err()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00225">GibbsExcessVPSSTP::err()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01408">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01400">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN()</a>.</p>
 
 </div>
 </div>
@@ -1024,9 +994,9 @@ Mechanical Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00345">345</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00335">335</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00231">GibbsExcessVPSSTP::err()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00225">GibbsExcessVPSSTP::err()</a>.</p>
 
 </div>
 </div>
@@ -1054,9 +1024,9 @@ Mechanical Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00205">205</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00199">199</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00504">Phase::charge()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00391">ThermoPhase::electricPotential()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00594">ThermoPhase::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00505">Phase::charge()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00355">ThermoPhase::electricPotential()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00557">ThermoPhase::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>.</p>
 
 </div>
 </div>
@@ -1096,11 +1066,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a24b1f84a3214bbe1dab107d0ffe6fc13">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a24b1f84a3214bbe1dab107d0ffe6fc13">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a24b1f84a3214bbe1dab107d0ffe6fc13">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a24b1f84a3214bbe1dab107d0ffe6fc13">RedlichKisterVPSSTP</a>, and <a class="el" href="classCantera_1_1MolarityIonicVPSSTP.html#a24b1f84a3214bbe1dab107d0ffe6fc13">MolarityIonicVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00218">218</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00212">212</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00205">VPStandardStateTP::getStandardVolumes()</a>.</p>
-
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00127">GibbsExcessVPSSTP::calcDensity()</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00203">VPStandardStateTP::getStandardVolumes()</a>.</p>
 
 </div>
 </div>
@@ -1150,11 +1118,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a1a5bebf3c4bd81782b54a3761f82215e">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00141">141</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00135">135</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00127">GibbsExcessVPSSTP::calcDensity()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00563">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="Phase_8h_source.html#l00562">Phase::setTemperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00395">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00121">GibbsExcessVPSSTP::calcDensity()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00552">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="Phase_8h_source.html#l00563">Phase::setTemperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00393">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00122">GibbsExcessVPSSTP::setPressure()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00116">GibbsExcessVPSSTP::setPressure()</a>.</p>
 
 </div>
 </div>
@@ -1193,11 +1161,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a7aed419246e2ec528d92aadb299369ee">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00083">83</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00082">82</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00367">Phase::setMassFractions()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00367">Phase::setMassFractions()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00819">IonsFromNeutralVPSSTP::setMassFractions()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00811">IonsFromNeutralVPSSTP::setMassFractions()</a>.</p>
 
 </div>
 </div>
@@ -1236,11 +1204,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#abf3f7be7d56c2e1832869479c99cf97c">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00089">89</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00088">88</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00381">Phase::setMassFractions_NoNorm()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00381">Phase::setMassFractions_NoNorm()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00826">IonsFromNeutralVPSSTP::setMassFractions_NoNorm()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00818">IonsFromNeutralVPSSTP::setMassFractions_NoNorm()</a>.</p>
 
 </div>
 </div>
@@ -1279,11 +1247,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a9021a59aefd96f389045818f8513abb3">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00095">95</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00094">94</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00299">Phase::setMoleFractions()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00299">Phase::setMoleFractions()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00833">IonsFromNeutralVPSSTP::setMoleFractions()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00825">IonsFromNeutralVPSSTP::setMoleFractions()</a>.</p>
 
 </div>
 </div>
@@ -1322,11 +1290,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#aa64f4b501431fbeedcc035b6a94d705c">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00101">101</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00100">100</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00337">Phase::setMoleFractions_NoNorm()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00337">Phase::setMoleFractions_NoNorm()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00840">IonsFromNeutralVPSSTP::setMoleFractions_NoNorm()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00832">IonsFromNeutralVPSSTP::setMoleFractions_NoNorm()</a>.</p>
 
 </div>
 </div>
@@ -1364,11 +1332,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a51ba2bc35caa0ec446e308d7ea6349ca">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00107">107</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00106">106</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00570">Phase::setConcentrations()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, and <a class="el" href="Phase_8cpp_source.html#l00570">Phase::setConcentrations()</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00847">IonsFromNeutralVPSSTP::setConcentrations()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00839">IonsFromNeutralVPSSTP::setConcentrations()</a>.</p>
 
 </div>
 </div>
@@ -1399,11 +1367,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a8a12209d08a5c4876d9894d619368a79">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a8a12209d08a5c4876d9894d619368a79">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">RedlichKisterVPSSTP</a>, <a class="el" href="classCantera_1_1MolarityIonicVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">MolarityIonicVPSSTP</a>, and <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">PseudoBinaryVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00272">272</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00266">266</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00262">VPStandardStateTP::initThermo()</a>, and <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00512">Phase::getMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00260">VPStandardStateTP::initThermo()</a>, and <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>.</p>
 
-<p>Referenced by <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00181">PseudoBinaryVPSSTP::initThermo()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00372">MolarityIonicVPSSTP::initThermo()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00361">RedlichKisterVPSSTP::initThermo()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00373">MargulesVPSSTP::initThermo()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00865">IonsFromNeutralVPSSTP::initThermo()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00378">PhaseCombo_Interaction::initThermo()</a>.</p>
+<p>Referenced by <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00169">PseudoBinaryVPSSTP::initThermo()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00362">MolarityIonicVPSSTP::initThermo()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00354">RedlichKisterVPSSTP::initThermo()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00359">MargulesVPSSTP::initThermo()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00857">IonsFromNeutralVPSSTP::initThermo()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00377">PhaseCombo_Interaction::initThermo()</a>.</p>
 
 </div>
 </div>
@@ -1430,11 +1398,11 @@ Mechanical Properties</h2></td></tr>
 
 <p>Initialize lengths of local variables after all species have been identified. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">279</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">273</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00515">GibbsExcessVPSSTP::d2lnActCoeffdT2_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00532">GibbsExcessVPSSTP::dlnActCoeffdlnN_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00520">GibbsExcessVPSSTP::dlnActCoeffdlnN_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00525">GibbsExcessVPSSTP::dlnActCoeffdlnX_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00510">GibbsExcessVPSSTP::dlnActCoeffdT_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00505">GibbsExcessVPSSTP::lnActCoeff_Scaled_</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00535">GibbsExcessVPSSTP::m_pp</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">GibbsExcessVPSSTP::moleFractions_</a>, <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>, and <a class="el" href="Array_8h_source.html#l00128">Array2D::resize()</a>.</p>
+<p>References <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00505">GibbsExcessVPSSTP::d2lnActCoeffdT2_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00522">GibbsExcessVPSSTP::dlnActCoeffdlnN_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00510">GibbsExcessVPSSTP::dlnActCoeffdlnN_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00515">GibbsExcessVPSSTP::dlnActCoeffdlnX_diag_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00500">GibbsExcessVPSSTP::dlnActCoeffdT_Scaled_</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00495">GibbsExcessVPSSTP::lnActCoeff_Scaled_</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00525">GibbsExcessVPSSTP::m_pp</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">GibbsExcessVPSSTP::moleFractions_</a>, <a class="el" href="Phase_8h_source.html#l00253">Phase::nSpecies()</a>, and <a class="el" href="Array_8h_source.html#l00128">Array2D::resize()</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00272">GibbsExcessVPSSTP::initThermo()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00266">GibbsExcessVPSSTP::initThermo()</a>.</p>
 
 </div>
 </div>
@@ -1469,11 +1437,11 @@ Mechanical Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00231">231</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00225">225</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00113">GibbsExcessVPSSTP::eosType()</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00144">ThermoPhase::eosType()</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00323">GibbsExcessVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00345">GibbsExcessVPSSTP::getdlnActCoeffdlnX()</a>, and <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00300">GibbsExcessVPSSTP::getdlnActCoeffdT()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00313">GibbsExcessVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00335">GibbsExcessVPSSTP::getdlnActCoeffdlnX()</a>, and <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00290">GibbsExcessVPSSTP::getdlnActCoeffdT()</a>.</p>
 
 </div>
 </div>
@@ -1507,9 +1475,9 @@ Mechanical Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00238">238</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00232">232</a> of file <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html">GibbsExcessVPSSTP.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, and <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, and <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>.</p>
 
 </div>
 </div>
@@ -1536,9 +1504,9 @@ Mechanical Properties</h2></td></tr>
 <p>This vector is kept up-to-date when the setState functions are called. Therefore, it may be considered to be an independent variable.</p>
 <p>Note in order to do this, the setState functions are redefined to always keep this vector current. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00501">501</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00491">491</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00127">GibbsExcessVPSSTP::calcDensity()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00606">IonsFromNeutralVPSSTP::calcNeutralMoleculeMoleFractions()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00114">PseudoBinaryVPSSTP::calcPseudoBinaryMoleFractions()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00262">MolarityIonicVPSSTP::calcPseudoBinaryMoleFractions()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00247">RedlichKisterVPSSTP::cp_mole()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00241">MixedSolventElectrolyte::cp_mole()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00236">MargulesVPSSTP::cp_mole()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00240">PhaseCombo_Interaction::cp_mole()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00223">RedlichKisterVPSSTP::enthalpy_mole()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00217">MixedSolventElectrolyte::enthalpy_mole()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00212">MargulesVPSSTP::enthalpy_mole()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00216">PhaseCombo_Interaction::enthalpy_mole()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00235">RedlichKisterVPSSTP::entropy_mole()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00229">MixedSolventElectrolyte::entropy_mole()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00224">MargulesVPSSTP::entropy_mole()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00228">PhaseCombo_Interaction::entropy_mole()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00179">GibbsExcessVPSSTP::getActivities()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00140">MolarityIonicVPSSTP::getChemPotentials()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00389">IonsFromNeutralVPSSTP::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00199">RedlichKisterVPSSTP::getChemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00193">MixedSolventElectrolyte::getChemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00191">MargulesVPSSTP::getChemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00192">PhaseCombo_Interaction::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00652">RedlichKisterVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01181">IonsFromNeutralVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00528">MixedSolventElectrolyte::getdlnActCoeffds()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00534">MargulesVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00544">PhaseCombo_Interaction::getdlnActCoeffds()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00715">IonsFromNeutralVPSSTP::getNeutralMoleculeMoleGrads()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00224">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00480">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00315">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00309">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00304">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00308">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00336">MixedSolventElectrolyte::getPartialMolarVolumes()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00331">MargulesVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00335">PhaseCombo_Interaction::getPartialMolarVolumes()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00187">PseudoBinaryVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00871">IonsFromNeutralVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00272">GibbsExcessVPSSTP::initThermo()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00625">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00626">MargulesVPSSTP::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00647">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00570">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00571">MargulesVPSSTP::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00596">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00691">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00694">MargulesVPSSTP::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00714">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00506">RedlichKisterVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00482">MixedSolventElectrolyte::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00482">MargulesVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00498">PhaseCombo_Interaction::s_update_dlnActCoeff_dT()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00568">RedlichKisterVPSSTP::s_update_dlnActCoeff_dX_()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00435">RedlichKisterVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00455">MixedSolventElectrolyte::s_update_lnActCoeff()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00454">MargulesVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00457">PhaseCombo_Interaction::s_update_lnActCoeff()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00107">GibbsExcessVPSSTP::setConcentrations()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00083">GibbsExcessVPSSTP::setMassFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00089">GibbsExcessVPSSTP::setMassFractions_NoNorm()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00095">GibbsExcessVPSSTP::setMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00101">GibbsExcessVPSSTP::setMoleFractions_NoNorm()</a>, and <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00782">RedlichKisterVPSSTP::Vint()</a>.</p>
+<p>Referenced by <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00121">GibbsExcessVPSSTP::calcDensity()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00598">IonsFromNeutralVPSSTP::calcNeutralMoleculeMoleFractions()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00102">PseudoBinaryVPSSTP::calcPseudoBinaryMoleFractions()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00252">MolarityIonicVPSSTP::calcPseudoBinaryMoleFractions()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00240">RedlichKisterVPSSTP::cp_mole()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00232">MixedSolventElectrolyte::cp_mole()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00226">MargulesVPSSTP::cp_mole()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00239">PhaseCombo_Interaction::cp_mole()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00216">RedlichKisterVPSSTP::enthalpy_mole()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00208">MixedSolventElectrolyte::enthalpy_mole()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00202">MargulesVPSSTP::enthalpy_mole()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00215">PhaseCombo_Interaction::enthalpy_mole()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00228">RedlichKisterVPSSTP::entropy_mole()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00220">MixedSolventElectrolyte::entropy_mole()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00214">MargulesVPSSTP::entropy_mole()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00227">PhaseCombo_Interaction::entropy_mole()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00173">GibbsExcessVPSSTP::getActivities()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00130">MolarityIonicVPSSTP::getChemPotentials()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00381">IonsFromNeutralVPSSTP::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00192">RedlichKisterVPSSTP::getChemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00184">MixedSolventElectrolyte::getChemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00181">MargulesVPSSTP::getChemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00191">PhaseCombo_Interaction::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00645">RedlichKisterVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01173">IonsFromNeutralVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00519">MixedSolventElectrolyte::getdlnActCoeffds()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00520">MargulesVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00543">PhaseCombo_Interaction::getdlnActCoeffds()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00707">IonsFromNeutralVPSSTP::getNeutralMoleculeMoleGrads()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00214">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00472">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00308">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00300">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00294">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00307">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00327">MixedSolventElectrolyte::getPartialMolarVolumes()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00321">MargulesVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00334">PhaseCombo_Interaction::getPartialMolarVolumes()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00175">PseudoBinaryVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00863">IonsFromNeutralVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00266">GibbsExcessVPSSTP::initThermo()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00616">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00612">MargulesVPSSTP::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00646">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00561">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00557">MargulesVPSSTP::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00595">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00682">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00680">MargulesVPSSTP::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00713">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00499">RedlichKisterVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00473">MixedSolventElectrolyte::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00468">MargulesVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00497">PhaseCombo_Interaction::s_update_dlnActCoeff_dT()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00561">RedlichKisterVPSSTP::s_update_dlnActCoeff_dX_()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00428">RedlichKisterVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00446">MixedSolventElectrolyte::s_update_lnActCoeff()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00440">MargulesVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00456">PhaseCombo_Interaction::s_update_lnActCoeff()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00106">GibbsExcessVPSSTP::setConcentrations()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00082">GibbsExcessVPSSTP::setMassFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00088">GibbsExcessVPSSTP::setMassFractions_NoNorm()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00094">GibbsExcessVPSSTP::setMoleFractions()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00100">GibbsExcessVPSSTP::setMoleFractions_NoNorm()</a>, and <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00775">RedlichKisterVPSSTP::Vint()</a>.</p>
 
 </div>
 </div>
@@ -1562,9 +1530,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Storage for the current values of the activity coefficients of the species. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00505">505</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00495">495</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00364">IonsFromNeutralVPSSTP::getActivityCoefficients()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00165">MixedSolventElectrolyte::getActivityCoefficients()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00164">PhaseCombo_Interaction::getActivityCoefficients()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00140">MolarityIonicVPSSTP::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00199">RedlichKisterVPSSTP::getChemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00193">MixedSolventElectrolyte::getChemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00191">MargulesVPSSTP::getChemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00192">PhaseCombo_Interaction::getChemPotentials()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00125">MolarityIonicVPSSTP::getLnActivityCoefficients()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00171">RedlichKisterVPSSTP::getLnActivityCoefficients()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00163">MargulesVPSSTP::getLnActivityCoefficients()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00224">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00480">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00315">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00309">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00304">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00308">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00343">MolarityIonicVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01132">IonsFromNeutralVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00435">RedlichKisterVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00455">MixedSolventElectrolyte::s_update_lnActCoeff()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00454">MargulesVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00457">PhaseCombo_Interaction::s_update_lnActCoeff()</a>, and <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00782">RedlichKisterVPSSTP::Vint()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00356">IonsFromNeutralVPSSTP::getActivityCoefficients()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00156">MixedSolventElectrolyte::getActivityCoefficients()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00163">PhaseCombo_Interaction::getActivityCoefficients()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00130">MolarityIonicVPSSTP::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00192">RedlichKisterVPSSTP::getChemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00184">MixedSolventElectrolyte::getChemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00181">MargulesVPSSTP::getChemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00191">PhaseCombo_Interaction::getChemPotentials()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00115">MolarityIonicVPSSTP::getLnActivityCoefficients()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00164">RedlichKisterVPSSTP::getLnActivityCoefficients()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00153">MargulesVPSSTP::getLnActivityCoefficients()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00214">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00472">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00308">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00300">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00294">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00307">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00333">MolarityIonicVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01124">IonsFromNeutralVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00428">RedlichKisterVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00446">MixedSolventElectrolyte::s_update_lnActCoeff()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00440">MargulesVPSSTP::s_update_lnActCoeff()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00456">PhaseCombo_Interaction::s_update_lnActCoeff()</a>, and <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00775">RedlichKisterVPSSTP::Vint()</a>.</p>
 
 </div>
 </div>
@@ -1588,9 +1556,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Storage for the current derivative values of the gradients with respect to temperature of the log of the activity coefficients of the species. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00510">510</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00500">500</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00639">RedlichKisterVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00528">MixedSolventElectrolyte::getdlnActCoeffds()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00534">MargulesVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00544">PhaseCombo_Interaction::getdlnActCoeffds()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00552">RedlichKisterVPSSTP::getdlnActCoeffdT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00512">MixedSolventElectrolyte::getdlnActCoeffdT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00518">MargulesVPSSTP::getdlnActCoeffdT()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00528">PhaseCombo_Interaction::getdlnActCoeffdT()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00199">MolarityIonicVPSSTP::getPartialMolarCp()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00290">RedlichKisterVPSSTP::getPartialMolarCp()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00284">MixedSolventElectrolyte::getPartialMolarCp()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00279">MargulesVPSSTP::getPartialMolarCp()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00283">PhaseCombo_Interaction::getPartialMolarCp()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00173">MolarityIonicVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00454">IonsFromNeutralVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00264">RedlichKisterVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00258">MixedSolventElectrolyte::getPartialMolarEnthalpies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00253">MargulesVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00257">PhaseCombo_Interaction::getPartialMolarEnthalpies()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00224">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00480">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00315">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00309">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00304">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00308">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00506">RedlichKisterVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00482">MixedSolventElectrolyte::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00482">MargulesVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00498">PhaseCombo_Interaction::s_update_dlnActCoeff_dT()</a>, and <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01246">IonsFromNeutralVPSSTP::s_update_dlnActCoeffdT()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00632">RedlichKisterVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00519">MixedSolventElectrolyte::getdlnActCoeffds()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00520">MargulesVPSSTP::getdlnActCoeffds()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00543">PhaseCombo_Interaction::getdlnActCoeffds()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00545">RedlichKisterVPSSTP::getdlnActCoeffdT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00503">MixedSolventElectrolyte::getdlnActCoeffdT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00504">MargulesVPSSTP::getdlnActCoeffdT()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00527">PhaseCombo_Interaction::getdlnActCoeffdT()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00189">MolarityIonicVPSSTP::getPartialMolarCp()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00283">RedlichKisterVPSSTP::getPartialMolarCp()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00275">MixedSolventElectrolyte::getPartialMolarCp()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00269">MargulesVPSSTP::getPartialMolarCp()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00282">PhaseCombo_Interaction::getPartialMolarCp()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00163">MolarityIonicVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00446">IonsFromNeutralVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00257">RedlichKisterVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00249">MixedSolventElectrolyte::getPartialMolarEnthalpies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00243">MargulesVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00256">PhaseCombo_Interaction::getPartialMolarEnthalpies()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00214">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00472">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00308">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00300">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00294">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00307">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00499">RedlichKisterVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00473">MixedSolventElectrolyte::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00468">MargulesVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00497">PhaseCombo_Interaction::s_update_dlnActCoeff_dT()</a>, and <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01238">IonsFromNeutralVPSSTP::s_update_dlnActCoeffdT()</a>.</p>
 
 </div>
 </div>
@@ -1614,9 +1582,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Storage for the current derivative values of the gradients with respect to temperature of the log of the activity coefficients of the species. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00515">515</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00505">505</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00560">RedlichKisterVPSSTP::getd2lnActCoeffdT2()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00520">MixedSolventElectrolyte::getd2lnActCoeffdT2()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00526">MargulesVPSSTP::getd2lnActCoeffdT2()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00536">PhaseCombo_Interaction::getd2lnActCoeffdT2()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00199">MolarityIonicVPSSTP::getPartialMolarCp()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00290">RedlichKisterVPSSTP::getPartialMolarCp()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00284">MixedSolventElectrolyte::getPartialMolarCp()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00279">MargulesVPSSTP::getPartialMolarCp()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00283">PhaseCombo_Interaction::getPartialMolarCp()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00506">RedlichKisterVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00482">MixedSolventElectrolyte::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00482">MargulesVPSSTP::s_update_dlnActCoeff_dT()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00498">PhaseCombo_Interaction::s_update_dlnActCoeff_dT()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00553">RedlichKisterVPSSTP::getd2lnActCoeffdT2()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00511">MixedSolventElectrolyte::getd2lnActCoeffdT2()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00512">MargulesVPSSTP::getd2lnActCoeffdT2()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00535">PhaseCombo_Interaction::getd2lnActCoeffdT2()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00189">MolarityIonicVPSSTP::getPartialMolarCp()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00283">RedlichKisterVPSSTP::getPartialMolarCp()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00275">MixedSolventElectrolyte::getPartialMolarCp()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00269">MargulesVPSSTP::getPartialMolarCp()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00282">PhaseCombo_Interaction::getPartialMolarCp()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00499">RedlichKisterVPSSTP::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00473">MixedSolventElectrolyte::s_update_dlnActCoeff_dT()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00468">MargulesVPSSTP::s_update_dlnActCoeff_dT()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00497">PhaseCombo_Interaction::s_update_dlnActCoeff_dT()</a>.</p>
 
 </div>
 </div>
@@ -1640,9 +1608,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Storage for the current derivative values of the gradients with respect to logarithm of the mole fraction of the log of the activity coefficients of the species. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00520">520</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00510">510</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00517">IonsFromNeutralVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00716">MixedSolventElectrolyte::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00715">MargulesVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00738">PhaseCombo_Interaction::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01408">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01354">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00570">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00571">MargulesVPSSTP::s_update_dlnActCoeff_dlnN_diag()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00596">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN_diag()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00509">IonsFromNeutralVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00707">MixedSolventElectrolyte::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00701">MargulesVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00737">PhaseCombo_Interaction::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01400">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01346">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00561">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00557">MargulesVPSSTP::s_update_dlnActCoeff_dlnN_diag()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00595">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN_diag()</a>.</p>
 
 </div>
 </div>
@@ -1666,9 +1634,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Storage for the current derivative values of the gradients with respect to logarithm of the mole fraction of the log of the activity coefficients of the species. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00525">525</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00515">515</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00507">IonsFromNeutralVPSSTP::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00663">RedlichKisterVPSSTP::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00724">MixedSolventElectrolyte::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00723">MargulesVPSSTP::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00746">PhaseCombo_Interaction::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01300">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00691">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00694">MargulesVPSSTP::s_update_dlnActCoeff_dlnX_diag()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00714">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnX_diag()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00499">IonsFromNeutralVPSSTP::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00656">RedlichKisterVPSSTP::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00715">MixedSolventElectrolyte::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00709">MargulesVPSSTP::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00745">PhaseCombo_Interaction::getdlnActCoeffdlnX_diag()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01292">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00682">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnX_diag()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00680">MargulesVPSSTP::s_update_dlnActCoeff_dlnX_diag()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00713">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnX_diag()</a>.</p>
 
 </div>
 </div>
@@ -1693,9 +1661,9 @@ Mechanical Properties</h2></td></tr>
 <p>Storage for the current derivative values of the gradients with respect to logarithm of the species mole number of the log of the activity coefficients of the species. </p>
 <p>dlnActCoeffdlnN_(k, m) is the derivative of ln(gamma_k) wrt ln mole number of species m </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00532">532</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00522">522</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00527">IonsFromNeutralVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00671">RedlichKisterVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00732">MixedSolventElectrolyte::getdlnActCoeffdlnN()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00731">MargulesVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00754">PhaseCombo_Interaction::getdlnActCoeffdlnN()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00367">RedlichKisterVPSSTP::initLengths()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00384">MixedSolventElectrolyte::initLengths()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00379">MargulesVPSSTP::initLengths()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00384">PhaseCombo_Interaction::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01408">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00625">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00626">MargulesVPSSTP::s_update_dlnActCoeff_dlnN()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00647">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00519">IonsFromNeutralVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00664">RedlichKisterVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00723">MixedSolventElectrolyte::getdlnActCoeffdlnN()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00717">MargulesVPSSTP::getdlnActCoeffdlnN()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00753">PhaseCombo_Interaction::getdlnActCoeffdlnN()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00360">RedlichKisterVPSSTP::initLengths()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00375">MixedSolventElectrolyte::initLengths()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00365">MargulesVPSSTP::initLengths()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00383">PhaseCombo_Interaction::initLengths()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l01400">IonsFromNeutralVPSSTP::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00616">MixedSolventElectrolyte::s_update_dlnActCoeff_dlnN()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00612">MargulesVPSSTP::s_update_dlnActCoeff_dlnN()</a>, and <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00646">PhaseCombo_Interaction::s_update_dlnActCoeff_dlnN()</a>.</p>
 
 </div>
 </div>
@@ -1719,9 +1687,9 @@ Mechanical Properties</h2></td></tr>
 
 <p>Temporary storage space that is fair game. </p>
 
-<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00535">535</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
+<p>Definition at line <a class="el" href="GibbsExcessVPSSTP_8h_source.html#l00525">525</a> of file <a class="el" href="GibbsExcessVPSSTP_8h_source.html">GibbsExcessVPSSTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00337">IonsFromNeutralVPSSTP::cp_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00343">IonsFromNeutralVPSSTP::cv_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00311">IonsFromNeutralVPSSTP::enthalpy_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00325">IonsFromNeutralVPSSTP::entropy_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00331">IonsFromNeutralVPSSTP::gibbs_mole()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00279">GibbsExcessVPSSTP::initLengths()</a>, and <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00057">GibbsExcessVPSSTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00329">IonsFromNeutralVPSSTP::cp_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00335">IonsFromNeutralVPSSTP::cv_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00311">IonsFromNeutralVPSSTP::enthalpy_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00317">IonsFromNeutralVPSSTP::entropy_mole()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00323">IonsFromNeutralVPSSTP::gibbs_mole()</a>, <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00273">GibbsExcessVPSSTP::initLengths()</a>, and <a class="el" href="GibbsExcessVPSSTP_8cpp_source.html#l00056">GibbsExcessVPSSTP::operator=()</a>.</p>
 
 </div>
 </div>

@@ -443,51 +443,51 @@
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordtype">int</span> nJacReeval = 0;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">while</span> (1 &gt; 0) {</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        <span class="comment">// Check whether the Jacobian should be re-evaluated.</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordflow">if</span> (jac.<a class="code" href="classCantera_1_1MultiJac.html#a9a6869c7a4a6b9776e0fe0dcbd29fa3f" title="Number of times &#39;incrementAge&#39; has been called since the last evaluation. ">age</a>() &gt; m_maxAge) {</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;\nMaximum Jacobian age reached (&quot;</span>+<a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(m_maxAge)+<span class="stringliteral">&quot;)\n&quot;</span>, loglevel);</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            forceNewJac = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        }</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">if</span> (forceNewJac) {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            r.<a class="code" href="classCantera_1_1OneDim.html#a6928ad2243f06496669b56d339ea240c" title="Evaluate the multi-domain residual function. ">eval</a>(<a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>, x, stp, 0.0, 0);</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            jac.<a class="code" href="classCantera_1_1MultiJac.html#a48c5fe865af43e47a39a5529e2971639" title="Evaluate the Jacobian at x0. ">eval</a>(x, stp, 0.0);</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            jac.updateTransient(rdt, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(r.transientMask()));</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            forceNewJac = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        }</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="comment">// compute the undamped Newton step</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <a class="code" href="classCantera_1_1MultiNewton.html#af5009605c1e1c2c67825f40391fe3785" title="Compute the undamped Newton step. ">step</a>(x, stp, r, jac, loglevel-1);</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="comment">// increment the Jacobian age</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        jac.<a class="code" href="classCantera_1_1MultiJac.html#a9e8878f4214c030942dd195f28ba81ef" title="Increment the Jacobian age. ">incrementAge</a>();</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="comment">// damp the Newton step</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        m = <a class="code" href="classCantera_1_1MultiNewton.html#a7ada3ff2fad1ae208bd3a96e8849c6fe" title="On entry, step0 must contain an undamped Newton step for the solution x0. ">dampStep</a>(x, stp, x1, stp1, s1, r, jac, loglevel-1, frst);</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">if</span> (loglevel == 1 &amp;&amp; m &gt;= 0) {</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            <span class="keywordflow">if</span> (frst) {</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                sprintf(m_buf,<span class="stringliteral">&quot;\n\n    %10s    %10s   %5s &quot;</span>,</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                        <span class="stringliteral">&quot;log10(ss)&quot;</span>,<span class="stringliteral">&quot;log10(s1)&quot;</span>,<span class="stringliteral">&quot;N_jac&quot;</span>);</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(m_buf);</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                sprintf(m_buf,<span class="stringliteral">&quot;\n    ------------------------------------&quot;</span>);</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(m_buf);</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            }</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            doublereal ss = r.<a class="code" href="classCantera_1_1OneDim.html#a28b3d1077c14a411e74248a8e530fcca" title="Steady-state max norm (infinity norm) of the residual evaluated using solution x. ...">ssnorm</a>(x, stp);</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            sprintf(m_buf,<span class="stringliteral">&quot;\n    %10.4f    %10.4f       %d &quot;</span>,</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                    log10(ss),log10(s1),jac.<a class="code" href="classCantera_1_1MultiJac.html#a6d10eb35883cd63483c8d49f7289809d" title="Number of Jacobian evaluations. ">nEvals</a>());</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(m_buf);</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        }</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        frst = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="comment">// Successful step, but not converged yet. Take the damped</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="comment">// step, and try again.</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <span class="keywordflow">if</span> (m == 0) {</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            copy(x1, x1 + m_n, x);</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        }</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="comment">// convergence</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m == 1) {</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="comment">// Check whether the Jacobian should be re-evaluated.</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        <span class="keywordflow">if</span> (jac.<a class="code" href="classCantera_1_1MultiJac.html#a9a6869c7a4a6b9776e0fe0dcbd29fa3f" title="Number of times &#39;incrementAge&#39; has been called since the last evaluation. ">age</a>() &gt; m_maxAge) {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(<span class="stringliteral">&quot;\nMaximum Jacobian age reached (&quot;</span>+<a class="code" href="namespaceCantera.html#ac4ca3028c5f94e2283fc91e94fd0460a" title="Convert an int to a string using a format converter. ">int2str</a>(m_maxAge)+<span class="stringliteral">&quot;)\n&quot;</span>, loglevel);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            forceNewJac = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordflow">if</span> (forceNewJac) {</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            r.<a class="code" href="classCantera_1_1OneDim.html#a6928ad2243f06496669b56d339ea240c" title="Evaluate the multi-domain residual function. ">eval</a>(<a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed" title="index returned by functions to indicate &quot;no position&quot; ">npos</a>, x, stp, 0.0, 0);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            jac.<a class="code" href="classCantera_1_1MultiJac.html#a48c5fe865af43e47a39a5529e2971639" title="Evaluate the Jacobian at x0. ">eval</a>(x, stp, 0.0);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            jac.updateTransient(rdt, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337" title="Creates a pointer to the start of the raw data for a vector. ">DATA_PTR</a>(r.transientMask()));</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            forceNewJac = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        }</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="comment">// compute the undamped Newton step</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <a class="code" href="classCantera_1_1MultiNewton.html#af5009605c1e1c2c67825f40391fe3785" title="Compute the undamped Newton step. ">step</a>(x, stp, r, jac, loglevel-1);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="comment">// increment the Jacobian age</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        jac.<a class="code" href="classCantera_1_1MultiJac.html#a9e8878f4214c030942dd195f28ba81ef" title="Increment the Jacobian age. ">incrementAge</a>();</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="comment">// damp the Newton step</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        m = <a class="code" href="classCantera_1_1MultiNewton.html#a7ada3ff2fad1ae208bd3a96e8849c6fe" title="On entry, step0 must contain an undamped Newton step for the solution x0. ">dampStep</a>(x, stp, x1, stp1, s1, r, jac, loglevel-1, frst);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keywordflow">if</span> (loglevel == 1 &amp;&amp; m &gt;= 0) {</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;            <span class="keywordflow">if</span> (frst) {</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                sprintf(m_buf,<span class="stringliteral">&quot;\n\n    %10s    %10s   %5s &quot;</span>,</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                        <span class="stringliteral">&quot;log10(ss)&quot;</span>,<span class="stringliteral">&quot;log10(s1)&quot;</span>,<span class="stringliteral">&quot;N_jac&quot;</span>);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(m_buf);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                sprintf(m_buf,<span class="stringliteral">&quot;\n    ------------------------------------&quot;</span>);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(m_buf);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            }</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            doublereal ss = r.<a class="code" href="classCantera_1_1OneDim.html#a28b3d1077c14a411e74248a8e530fcca" title="Steady-state max norm (infinity norm) of the residual evaluated using solution x. ...">ssnorm</a>(x, stp);</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            sprintf(m_buf,<span class="stringliteral">&quot;\n    %10.4f    %10.4f       %d &quot;</span>,</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;                    log10(ss),log10(s1),jac.<a class="code" href="classCantera_1_1MultiJac.html#a6d10eb35883cd63483c8d49f7289809d" title="Number of Jacobian evaluations. ">nEvals</a>());</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <a class="code" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog</a>(m_buf);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        }</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        frst = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="comment">// Successful step, but not converged yet. Take the damped</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="comment">// step, and try again.</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keywordflow">if</span> (m == 0) {</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            copy(x1, x1 + m_n, x);</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        }</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="comment">// convergence</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (m == 1) {</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            jac.<a class="code" href="classCantera_1_1MultiJac.html#a23e901febda7a2f14791b3557c247df0" title="Set the Jacobian age. ">setAge</a>(0); <span class="comment">// for efficient sensitivity analysis</span></div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        }</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>

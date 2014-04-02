@@ -122,6 +122,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9ebaa41f7ad03ab57e8854736d5b9f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a153fe4fe1b42d378fd077853ba21597e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1NasaThermo.html#a153fe4fe1b42d378fd077853ba21597e">reportParams</a> (size_t index, int &amp;type, doublereal *const c, doublereal &amp;<a class="el" href="classCantera_1_1NasaThermo.html#ade0d15fa66201fb19903c2dad9e9553f">minTemp</a>, doublereal &amp;<a class="el" href="classCantera_1_1NasaThermo.html#a9627826e38c2a4cc965f557ac35898c8">maxTemp</a>, doublereal &amp;<a class="el" href="classCantera_1_1NasaThermo.html#a5f4553c6420d9c24007cf0725c338bff">refPressure</a>) const </td></tr>
 <tr class="separator:a153fe4fe1b42d378fd077853ba21597e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab793f6e1f89ac60ae664908f251d15aa"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1NasaThermo.html#ab793f6e1f89ac60ae664908f251d15aa">reportOneHf298</a> (const size_t k) const </td></tr>
+<tr class="memdesc:ab793f6e1f89ac60ae664908f251d15aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)  <a href="#ab793f6e1f89ac60ae664908f251d15aa">More...</a><br/></td></tr>
+<tr class="separator:ab793f6e1f89ac60ae664908f251d15aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770cf32674ea8e0da12ee537e82216a1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1NasaThermo.html#a770cf32674ea8e0da12ee537e82216a1">modifyOneHf298</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:a770cf32674ea8e0da12ee537e82216a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1)  <a href="#a770cf32674ea8e0da12ee537e82216a1">More...</a><br/></td></tr>
+<tr class="separator:a770cf32674ea8e0da12ee537e82216a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCantera_1_1SpeciesThermo"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCantera_1_1SpeciesThermo')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a></td></tr>
 <tr class="memitem:a6672763967d8d8bcbbae6a82d718b0ea inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a6672763967d8d8bcbbae6a82d718b0ea">SpeciesThermo</a> ()</td></tr>
 <tr class="memdesc:a6672763967d8d8bcbbae6a82d718b0ea inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a6672763967d8d8bcbbae6a82d718b0ea">More...</a><br/></td></tr>
@@ -331,7 +337,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00058">58</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8cpp_source.html#l00274">NasaThermo::checkContinuity()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="NasaThermo_8h_source.html#l00226">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00167">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00182">NasaThermo::m_index</a>, <a class="el" href="NasaThermo_8h_source.html#l00176">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00236">NasaThermo::m_name</a>, <a class="el" href="NasaThermo_8h_source.html#l00215">NasaThermo::m_ngroups</a>, <a class="el" href="NasaThermo_8h_source.html#l00212">NasaThermo::m_p0</a>, <a class="el" href="NasaThermo_8h_source.html#l00233">NasaThermo::m_posInGroup_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00206">NasaThermo::m_thigh</a>, <a class="el" href="NasaThermo_8h_source.html#l00194">NasaThermo::m_thigh_min</a>, <a class="el" href="NasaThermo_8h_source.html#l00200">NasaThermo::m_tlow</a>, <a class="el" href="NasaThermo_8h_source.html#l00191">NasaThermo::m_tlow_max</a>, <a class="el" href="NasaThermo_8h_source.html#l00188">NasaThermo::m_tmid</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="NasaThermo_8cpp_source.html#l00272">NasaThermo::checkContinuity()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="NasaThermo_8h_source.html#l00224">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00165">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00180">NasaThermo::m_index</a>, <a class="el" href="NasaThermo_8h_source.html#l00174">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00234">NasaThermo::m_name</a>, <a class="el" href="NasaThermo_8h_source.html#l00213">NasaThermo::m_ngroups</a>, <a class="el" href="NasaThermo_8h_source.html#l00210">NasaThermo::m_p0</a>, <a class="el" href="NasaThermo_8h_source.html#l00231">NasaThermo::m_posInGroup_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00204">NasaThermo::m_thigh</a>, <a class="el" href="NasaThermo_8h_source.html#l00192">NasaThermo::m_thigh_min</a>, <a class="el" href="NasaThermo_8h_source.html#l00198">NasaThermo::m_tlow</a>, <a class="el" href="NasaThermo_8h_source.html#l00189">NasaThermo::m_tlow_max</a>, <a class="el" href="NasaThermo_8h_source.html#l00186">NasaThermo::m_tmid</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
 
 </div>
 </div>
@@ -437,7 +443,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00118">118</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8h_source.html#l00226">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00167">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00176">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00233">NasaThermo::m_posInGroup_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00218">NasaThermo::m_t</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="NasaPoly1_8h_source.html#l00128">NasaPoly1::updateProperties()</a>.</p>
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00224">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00165">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00174">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00231">NasaThermo::m_posInGroup_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00216">NasaThermo::m_t</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="NasaPoly1_8h_source.html#l00128">NasaPoly1::updateProperties()</a>.</p>
 
 </div>
 </div>
@@ -501,7 +507,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00143">143</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8h_source.html#l00167">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00176">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00215">NasaThermo::m_ngroups</a>, <a class="el" href="NasaThermo_8h_source.html#l00218">NasaThermo::m_t</a>, and <a class="el" href="NasaThermo_8h_source.html#l00188">NasaThermo::m_tmid</a>.</p>
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00165">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00174">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00213">NasaThermo::m_ngroups</a>, <a class="el" href="NasaThermo_8h_source.html#l00216">NasaThermo::m_t</a>, and <a class="el" href="NasaThermo_8h_source.html#l00186">NasaThermo::m_tmid</a>.</p>
 
 </div>
 </div>
@@ -540,7 +546,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00104">104</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8h_source.html#l00200">NasaThermo::m_tlow</a>, <a class="el" href="NasaThermo_8h_source.html#l00191">NasaThermo::m_tlow_max</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00198">NasaThermo::m_tlow</a>, <a class="el" href="NasaThermo_8h_source.html#l00189">NasaThermo::m_tlow_max</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
 </div>
 </div>
@@ -579,7 +585,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00112">112</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8h_source.html#l00206">NasaThermo::m_thigh</a>, <a class="el" href="NasaThermo_8h_source.html#l00194">NasaThermo::m_thigh_min</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00204">NasaThermo::m_thigh</a>, <a class="el" href="NasaThermo_8h_source.html#l00192">NasaThermo::m_thigh_min</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
 
 </div>
 </div>
@@ -618,7 +624,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00120">120</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8h_source.html#l00212">NasaThermo::m_p0</a>.</p>
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00210">NasaThermo::m_p0</a>.</p>
 
 </div>
 </div>
@@ -734,7 +740,99 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00172">172</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8h_source.html#l00226">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00167">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00176">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00233">NasaThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00019">NASA</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00051">NASA1</a>, <a class="el" href="NasaPoly1_8h_source.html#l00165">NasaPoly1::reportParameters()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00124">NasaThermo::reportType()</a>.</p>
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00224">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00165">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00174">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00231">NasaThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00019">NASA</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00051">NASA1</a>, <a class="el" href="NasaPoly1_8h_source.html#l00165">NasaPoly1::reportParameters()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00124">NasaThermo::reportType()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab793f6e1f89ac60ae664908f251d15aa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">doublereal reportOneHf298 </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>k</em>)</td><td></td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Report the 298 K Heat of Formation of the standard state of one species (J kmol-1) </p>
+<p>The 298K Heat of Formation is defined as the enthalpy change to create the standard state of the species from its constituent elements in their standard states at 298 K and 1 bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>species index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current value of the Heat of Formation at 298K and 1 bar </dd></dl>
+
+<p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a5985892b9fa1e28f1249a02dcc6ba6c2">SpeciesThermo</a>.</p>
+
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00212">212</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00224">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00165">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00174">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00231">NasaThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="NasaPoly1_8h_source.html#l00194">NasaPoly1::reportHf298()</a>.</p>
+
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00230">NasaThermo::modifyOneHf298()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a770cf32674ea8e0da12ee537e82216a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modifyOneHf298 </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const doublereal&#160;</td>
+          <td class="paramname"><em>Hf298New</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1) </p>
+<p>The 298K heat of formation is defined as the enthalpy change to create the standard state of the species from its constituent elements in their standard states at 298 K and 1 bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>Index of the species </td></tr>
+    <tr><td class="paramname">Hf298New</td><td>Specify the new value of the Heat of Formation at 298K and 1 bar. units = J/kmol. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">SpeciesThermo</a>.</p>
+
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00230">230</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+
+<p>References <a class="el" href="NasaThermo_8h_source.html#l00224">NasaThermo::m_group_map</a>, <a class="el" href="NasaThermo_8h_source.html#l00165">NasaThermo::m_high</a>, <a class="el" href="NasaThermo_8h_source.html#l00174">NasaThermo::m_low</a>, <a class="el" href="NasaThermo_8h_source.html#l00231">NasaThermo::m_posInGroup_map</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00219">NasaPoly1::modifyOneHf298()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00194">NasaPoly1::reportHf298()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00212">NasaThermo::reportOneHf298()</a>.</p>
 
 </div>
 </div>
@@ -779,11 +877,11 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00257">257</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00255">255</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
 <p>References <a class="el" href="utilities_8h_source.html#l00638">Cantera::poly4()</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00274">NasaThermo::checkContinuity()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00325">NasaThermo::fixDiscontinuities()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00272">NasaThermo::checkContinuity()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00323">NasaThermo::fixDiscontinuities()</a>.</p>
 
 </div>
 </div>
@@ -828,11 +926,11 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00262">262</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00260">260</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
 <p>References <a class="el" href="ct__defs_8h_source.html#l00127">Cantera::OneThird</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00274">NasaThermo::checkContinuity()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00325">NasaThermo::fixDiscontinuities()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00272">NasaThermo::checkContinuity()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00323">NasaThermo::fixDiscontinuities()</a>.</p>
 
 </div>
 </div>
@@ -877,11 +975,11 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00268">268</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00266">266</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
 <p>References <a class="el" href="ct__defs_8h_source.html#l00127">Cantera::OneThird</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00274">NasaThermo::checkContinuity()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00325">NasaThermo::fixDiscontinuities()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00272">NasaThermo::checkContinuity()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00323">NasaThermo::fixDiscontinuities()</a>.</p>
 
 </div>
 </div>
@@ -941,9 +1039,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00274">274</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00272">272</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="NasaThermo_8cpp_source.html#l00257">NasaThermo::cp_R()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00262">NasaThermo::enthalpy_RT()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00268">NasaThermo::entropy_R()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="NasaThermo_8cpp_source.html#l00255">NasaThermo::cp_R()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00260">NasaThermo::enthalpy_RT()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00266">NasaThermo::entropy_R()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>.</p>
 
@@ -1012,9 +1110,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00325">325</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8cpp_source.html#l00323">323</a> of file <a class="el" href="NasaThermo_8cpp_source.html">NasaThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00216">AssertTrace</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00257">NasaThermo::cp_R()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00262">NasaThermo::enthalpy_RT()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00268">NasaThermo::entropy_R()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00229">AssertTrace</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00255">NasaThermo::cp_R()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00260">NasaThermo::enthalpy_RT()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00266">NasaThermo::entropy_R()</a>.</p>
 
 </div>
 </div>
@@ -1032,7 +1130,7 @@ Protected Attributes</h2></td></tr>
 <p>Initialized to the type of parameterization. </p>
 <p>Note, this value is used in some template functions </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00157">157</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00155">155</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 </div>
 </div>
@@ -1057,9 +1155,9 @@ Protected Attributes</h2></td></tr>
 <p>Vector of vector of <a class="el" href="classCantera_1_1NasaPoly1.html" title="The NASA polynomial parameterization for one temperature range. ">NasaPoly1</a>'s for the high temp region. </p>
 <p>This is the high temp region representation. The first Length is equal to the number of groups. The second vector is equal to the number of species in that particular group. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00167">167</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00165">165</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00230">NasaThermo::modifyOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00212">NasaThermo::reportOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -1084,9 +1182,9 @@ Protected Attributes</h2></td></tr>
 <p>Vector of vector of <a class="el" href="classCantera_1_1NasaPoly1.html" title="The NASA polynomial parameterization for one temperature range. ">NasaPoly1</a>'s for the low temp region. </p>
 <p>This is the low temp region representation. The first Length is equal to the number of groups. The second vector is equal to the number of species in that particular group. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00176">176</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00174">174</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00230">NasaThermo::modifyOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00212">NasaThermo::reportOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -1111,7 +1209,7 @@ Protected Attributes</h2></td></tr>
 <p>Map between the midpoint temperature, as an int, to the group number. </p>
 <p>Length is equal to the number of groups. Only used in the setup. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00182">182</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00180">180</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>.</p>
 
@@ -1138,7 +1236,7 @@ Protected Attributes</h2></td></tr>
 <p>Vector of log temperature limits. </p>
 <p>Length is equal to the number of groups. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00188">188</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00186">186</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>.</p>
 
@@ -1164,7 +1262,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Maximum value of the low temperature limit. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00191">191</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00189">189</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00104">NasaThermo::minTemp()</a>.</p>
 
@@ -1190,7 +1288,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Minimum value of the high temperature limit. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00194">194</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00192">192</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00112">NasaThermo::maxTemp()</a>.</p>
 
@@ -1217,7 +1315,7 @@ Protected Attributes</h2></td></tr>
 <p>Vector of low temperature limits (species index) </p>
 <p>Length is equal to number of species </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00200">200</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00198">198</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00104">NasaThermo::minTemp()</a>.</p>
 
@@ -1244,7 +1342,7 @@ Protected Attributes</h2></td></tr>
 <p>Vector of low temperature limits (species index) </p>
 <p>Length is equal to number of species </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00206">206</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00204">204</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00112">NasaThermo::maxTemp()</a>.</p>
 
@@ -1271,7 +1369,7 @@ Protected Attributes</h2></td></tr>
 <p>Reference pressure (Pa) </p>
 <p>all species must have the same reference pressure. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00212">212</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00210">210</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8h_source.html#l00120">NasaThermo::refPressure()</a>.</p>
 
@@ -1297,7 +1395,7 @@ Protected Attributes</h2></td></tr>
 
 <p>number of groups </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00215">215</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00213">213</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>.</p>
 
@@ -1323,7 +1421,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Vector of temperature polynomials. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00218">218</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00216">216</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00143">NasaThermo::update()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
 
@@ -1348,9 +1446,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This map takes as its index, the species index in the phase. It returns the group index, where the temperature polynomials for that species are stored. group indices start at 1, so a decrement is always performed to access vectors. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00226">226</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00224">224</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00230">NasaThermo::modifyOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00212">NasaThermo::reportOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -1373,9 +1471,9 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This map takes as its index, the species index in the phase. It returns the position index within the group, where the temperature polynomials for that species are stored. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00233">233</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00231">231</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00230">NasaThermo::modifyOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00212">NasaThermo::reportOneHf298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00172">NasaThermo::reportParams()</a>, and <a class="el" href="NasaThermo_8cpp_source.html#l00118">NasaThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -1399,7 +1497,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Species name as a function of the species index. </p>
 
-<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00236">236</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="NasaThermo_8h_source.html#l00234">234</a> of file <a class="el" href="NasaThermo_8h_source.html">NasaThermo.h</a>.</p>
 
 <p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00058">NasaThermo::install()</a>.</p>
 

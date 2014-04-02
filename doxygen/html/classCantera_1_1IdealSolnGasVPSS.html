@@ -91,9 +91,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa81efc070d01d794751663264e32c841"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#aa81efc070d01d794751663264e32c841">standardConcentration</a> (size_t k=0) const </td></tr>
 <tr class="memdesc:aa81efc070d01d794751663264e32c841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the standard concentration \( C^0_k \), which is used to normalize the generalized concentration.  <a href="#aa81efc070d01d794751663264e32c841">More...</a><br/></td></tr>
 <tr class="separator:aa81efc070d01d794751663264e32c841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42b2c2b9b30b8ce3f2c04723a573b466"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a42b2c2b9b30b8ce3f2c04723a573b466">logStandardConc</a> (size_t k=0) const </td></tr>
-<tr class="memdesc:a42b2c2b9b30b8ce3f2c04723a573b466"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the natural logarithm of the standard concentration of the kth species.  <a href="#a42b2c2b9b30b8ce3f2c04723a573b466">More...</a><br/></td></tr>
-<tr class="separator:a42b2c2b9b30b8ce3f2c04723a573b466"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbf7704c3f9ae6f3374ad82de5f7e325"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#abbf7704c3f9ae6f3374ad82de5f7e325">getUnitsStandardConc</a> (double *uA, int k=0, int sizeUA=6) const </td></tr>
 <tr class="memdesc:abbf7704c3f9ae6f3374ad82de5f7e325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the units of the standard and generalized concentrations.  <a href="#abbf7704c3f9ae6f3374ad82de5f7e325">More...</a><br/></td></tr>
 <tr class="separator:abbf7704c3f9ae6f3374ad82de5f7e325"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +161,9 @@ virtual const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1
 <tr class="memitem:a495f550104c95cede79d0d787a909d6f inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a495f550104c95cede79d0d787a909d6f">getEnthalpy_RT_ref</a> (doublereal *hrt) const </td></tr>
 <tr class="memdesc:a495f550104c95cede79d0d787a909d6f inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional enthalpies of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a495f550104c95cede79d0d787a909d6f">More...</a><br/></td></tr>
 <tr class="separator:a495f550104c95cede79d0d787a909d6f inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2bb703fa348e97f485a446b89a46ebe inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#ad2bb703fa348e97f485a446b89a46ebe">modifyOneHf298SS</a> (const size_t k, const doublereal Hf298New)</td></tr>
+<tr class="memdesc:ad2bb703fa348e97f485a446b89a46ebe inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1)  <a href="#ad2bb703fa348e97f485a446b89a46ebe">More...</a><br/></td></tr>
+<tr class="separator:ad2bb703fa348e97f485a446b89a46ebe inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4352f7e28912366fe049ec6b77ba01a9 inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a4352f7e28912366fe049ec6b77ba01a9">getGibbs_RT_ref</a> (doublereal *grt) const </td></tr>
 <tr class="memdesc:a4352f7e28912366fe049ec6b77ba01a9 inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional Gibbs free energies of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a4352f7e28912366fe049ec6b77ba01a9">More...</a><br/></td></tr>
 <tr class="separator:a4352f7e28912366fe049ec6b77ba01a9 inherit pub_methods_classCantera_1_1VPStandardStateTP"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,7 +246,13 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a9a66f5fb7265fe164b88cd7c2c488fcc inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">std::vector&lt; doublereal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a9a66f5fb7265fe164b88cd7c2c488fcc">xMol_Ref</a></td></tr>
 <tr class="memdesc:a9a66f5fb7265fe164b88cd7c2c488fcc inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference Mole Fraction Composition.  <a href="#a9a66f5fb7265fe164b88cd7c2c488fcc">More...</a><br/></td></tr>
 <tr class="separator:a9a66f5fb7265fe164b88cd7c2c488fcc inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29be82f24ebd72ee5502b90d994c09a0 inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a29be82f24ebd72ee5502b90d994c09a0">m_tlast</a></td></tr>
+<tr class="memdesc:a29be82f24ebd72ee5502b90d994c09a0 inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">last value of the temperature processed by reference state  <a href="#a29be82f24ebd72ee5502b90d994c09a0">More...</a><br/></td></tr>
+<tr class="separator:a29be82f24ebd72ee5502b90d994c09a0 inherit pro_attribs_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classCantera_1_1Phase"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classCantera_1_1Phase')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classCantera_1_1Phase.html">Phase</a></td></tr>
+<tr class="memitem:a1e53dfbc10d711d50fdae85bf49423ca inherit pro_attribs_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e53dfbc10d711d50fdae85bf49423ca"></a>
+<a class="el" href="classCantera_1_1ValueCache.html">ValueCache</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_cache</b></td></tr>
+<tr class="separator:a1e53dfbc10d711d50fdae85bf49423ca inherit pro_attribs_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44776286c3ba788047554eef4620e6de inherit pro_attribs_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Phase.html#a44776286c3ba788047554eef4620e6de">m_kk</a></td></tr>
 <tr class="memdesc:a44776286c3ba788047554eef4620e6de inherit pro_attribs_classCantera_1_1Phase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of species in the phase.  <a href="#a44776286c3ba788047554eef4620e6de">More...</a><br/></td></tr>
 <tr class="separator:a44776286c3ba788047554eef4620e6de inherit pro_attribs_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -292,15 +298,9 @@ Molar Thermodynamic Properties</h2></td></tr>
 <tr class="memitem:aa93e126a1c8f2f7d17291b5618b40e3c"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#aa93e126a1c8f2f7d17291b5618b40e3c">enthalpy_mole</a> () const </td></tr>
 <tr class="memdesc:aa93e126a1c8f2f7d17291b5618b40e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molar enthalpy. Units: J/kmol.  <a href="#aa93e126a1c8f2f7d17291b5618b40e3c">More...</a><br/></td></tr>
 <tr class="separator:aa93e126a1c8f2f7d17291b5618b40e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129b5bab1efffda61d59356f48fc3480"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a129b5bab1efffda61d59356f48fc3480">intEnergy_mole</a> () const </td></tr>
-<tr class="memdesc:a129b5bab1efffda61d59356f48fc3480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molar internal energy. Units: J/kmol.  <a href="#a129b5bab1efffda61d59356f48fc3480">More...</a><br/></td></tr>
-<tr class="separator:a129b5bab1efffda61d59356f48fc3480"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d968b4485911ebd3fb1ea4538ea4894"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a4d968b4485911ebd3fb1ea4538ea4894">entropy_mole</a> () const </td></tr>
 <tr class="memdesc:a4d968b4485911ebd3fb1ea4538ea4894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molar entropy. Units: J/kmol/K.  <a href="#a4d968b4485911ebd3fb1ea4538ea4894">More...</a><br/></td></tr>
 <tr class="separator:a4d968b4485911ebd3fb1ea4538ea4894"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0287f3139c8bcda71c1158e16796e168"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a0287f3139c8bcda71c1158e16796e168">gibbs_mole</a> () const </td></tr>
-<tr class="memdesc:a0287f3139c8bcda71c1158e16796e168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molar Gibbs function. Units: J/kmol.  <a href="#a0287f3139c8bcda71c1158e16796e168">More...</a><br/></td></tr>
-<tr class="separator:a0287f3139c8bcda71c1158e16796e168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97e9695b61ef8531663286baf653e31"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#ab97e9695b61ef8531663286baf653e31">cp_mole</a> () const </td></tr>
 <tr class="memdesc:ab97e9695b61ef8531663286baf653e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molar heat capacity at constant pressure. Units: J/kmol/K.  <a href="#ab97e9695b61ef8531663286baf653e31">More...</a><br/></td></tr>
 <tr class="separator:ab97e9695b61ef8531663286baf653e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -397,7 +397,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00027">27</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00077">IdealSolnGasVPSS::duplMyselfAsThermoPhase()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00076">IdealSolnGasVPSS::duplMyselfAsThermoPhase()</a>.</p>
 
 </div>
 </div>
@@ -429,7 +429,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00034">34</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00103">Cantera::get_XML_File()</a>, <a class="el" href="global_8cpp_source.html#l00230">Cantera::get_XML_NameID()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00394">Cantera::importPhase()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00104">Cantera::get_XML_File()</a>, <a class="el" href="global_8cpp_source.html#l00231">Cantera::get_XML_NameID()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00319">Cantera::importPhase()</a>.</p>
 
 </div>
 </div>
@@ -470,9 +470,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Assignment operator. </p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00060">60</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00059">59</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00396">IdealSolnGasVPSS::m_formGC</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00049">VPStandardStateTP::operator=()</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00383">IdealSolnGasVPSS::m_formGC</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00049">VPStandardStateTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -501,7 +501,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#ada5dc6bcebfe0f6e38b664e204013159">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00077">77</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00076">76</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
 <p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00027">IdealSolnGasVPSS::IdealSolnGasVPSS()</a>.</p>
 
@@ -531,13 +531,13 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 <p>Equation of state type flag. </p>
 <p>The base class returns zero. Subclasses should define this to return a unique non-zero value. Constants defined for this purpose are listed in <a class="el" href="mix__defs_8h.html">mix_defs.h</a>. </p>
 
-<p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a49fb2c3b20bb862fc595b4525dd05069">VPStandardStateTP</a>.</p>
+<p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a49fb2c3b20bb862fc595b4525dd05069">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00082">82</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00081">81</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00226">IdealSolnGasVPSS::getUnitsStandardConc()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00207">IdealSolnGasVPSS::getUnitsStandardConc()</a>.</p>
 
 </div>
 </div>
@@ -566,42 +566,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a6dd87c68aea566830f1e6af8b2412d63">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00094">94</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00093">93</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="VPSSMgr_8h_source.html#l00300">VPSSMgr::enthalpy_RT()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8cpp_source.html#l00616">Phase::mean_X()</a>, <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00395">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
-
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00117">IdealSolnGasVPSS::gibbs_mole()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00102">IdealSolnGasVPSS::intEnergy_mole()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a129b5bab1efffda61d59356f48fc3480"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">doublereal intEnergy_mole </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Molar internal energy. Units: J/kmol. </p>
-
-<p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a7d91504042e45a5c0f6fbe909d213b19">ThermoPhase</a>.</p>
-
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00102">102</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
-
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00094">IdealSolnGasVPSS::enthalpy_mole()</a>, <a class="el" href="Phase_8cpp_source.html#l00590">Phase::molarDensity()</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00323">VPStandardStateTP::pressure()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="VPSSMgr_8h_source.html#l00300">VPSSMgr::enthalpy_RT()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8cpp_source.html#l00616">Phase::mean_X()</a>, <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00393">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -630,42 +597,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a0aaface72ff4183cc80062cac9a5ceb0">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00109">109</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00101">101</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="VPSSMgr_8h_source.html#l00314">VPSSMgr::entropy_R()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8cpp_source.html#l00616">Phase::mean_X()</a>, <a class="el" href="Phase_8cpp_source.html#l00626">Phase::sum_xlogx()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00395">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
-
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00117">IdealSolnGasVPSS::gibbs_mole()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0287f3139c8bcda71c1158e16796e168"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">doublereal gibbs_mole </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Molar Gibbs function. Units: J/kmol. </p>
-
-<p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a523d6ba3b0f025a939b04e2ce7620397">ThermoPhase</a>.</p>
-
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00117">117</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
-
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00094">IdealSolnGasVPSS::enthalpy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00109">IdealSolnGasVPSS::entropy_mole()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="VPSSMgr_8h_source.html#l00314">VPSSMgr::entropy_R()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8cpp_source.html#l00616">Phase::mean_X()</a>, <a class="el" href="Phase_8cpp_source.html#l00626">Phase::sum_xlogx()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00393">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -694,11 +628,11 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a2ff807189e615cec31440ca4388853c1">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00122">122</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00109">109</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8h_source.html#l00348">VPSSMgr::cp_R()</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8cpp_source.html#l00616">Phase::mean_X()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00395">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8h_source.html#l00348">VPSSMgr::cp_R()</a>, <a class="el" href="ct__defs_8h_source.html#l00035">DATA_PTR</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8cpp_source.html#l00616">Phase::mean_X()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00393">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00129">IdealSolnGasVPSS::cv_mole()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00116">IdealSolnGasVPSS::cv_mole()</a>.</p>
 
 </div>
 </div>
@@ -727,9 +661,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#acf4e2659dbe9417665362cf64543e826">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00129">129</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00116">116</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00122">IdealSolnGasVPSS::cp_mole()</a>, and <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00109">IdealSolnGasVPSS::cp_mole()</a>, and <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>.</p>
 
 </div>
 </div>
@@ -765,9 +699,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00134">134</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00121">121</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00141">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00563">VPStandardStateTP::m_Pcurrent</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00395">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00128">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00552">VPStandardStateTP::m_Pcurrent</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00393">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -800,9 +734,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
  
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a9f4c2aef0e88de3e33eba6a20531ee4a">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00163">163</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00150">150</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00563">VPStandardStateTP::m_Pcurrent</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00552">VPStandardStateTP::m_Pcurrent</a>.</p>
 
 </div>
 </div>
@@ -837,11 +771,11 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#afac1b45437d49cc161e7ca2d5c00906a">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00141">141</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00128">128</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="utilities_8h_source.html#l00131">Cantera::dot()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00217">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00563">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8h_source.html#l00588">Phase::meanMolecularWeight()</a>, <a class="el" href="Phase_8cpp_source.html#l00533">Phase::moleFractdivMMW()</a>, <a class="el" href="Phase_8h_source.html#l00549">Phase::setDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="utilities_8h_source.html#l00131">Cantera::dot()</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00217">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00552">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="Phase_8h_source.html#l00589">Phase::meanMolecularWeight()</a>, <a class="el" href="Phase_8cpp_source.html#l00533">Phase::moleFractdivMMW()</a>, <a class="el" href="Phase_8h_source.html#l00550">Phase::setDensity()</a>, and <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00134">IdealSolnGasVPSS::setPressure()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00121">IdealSolnGasVPSS::setPressure()</a>.</p>
 
 </div>
 </div>
@@ -878,9 +812,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ad2bfee0d6025dc22f2713a9d94285fa9">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00174">174</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00161">161</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8cpp_source.html#l00565">Phase::getConcentrations()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00217">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00396">IdealSolnGasVPSS::m_formGC</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="Phase_8cpp_source.html#l00517">Phase::moleFraction()</a>.</p>
+<p>References <a class="el" href="Phase_8cpp_source.html#l00565">Phase::getConcentrations()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00217">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00383">IdealSolnGasVPSS::m_formGC</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="Phase_8cpp_source.html#l00517">Phase::moleFraction()</a>.</p>
 
 </div>
 </div>
@@ -918,49 +852,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#af80ce4b0c20042cc93d607bbcf59ba09">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00200">200</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00187">187</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00217">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00396">IdealSolnGasVPSS::m_formGC</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00323">VPStandardStateTP::pressure()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
-
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00220">IdealSolnGasVPSS::logStandardConc()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a42b2c2b9b30b8ce3f2c04723a573b466"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">doublereal logStandardConc </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>k</em> = <code>0</code>)</td><td></td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the natural logarithm of the standard concentration of the kth species. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">k</td><td>index of the species. (defaults to zero) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a42b2c2b9b30b8ce3f2c04723a573b466">ThermoPhase</a>.</p>
-
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00220">220</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
-
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00200">IdealSolnGasVPSS::standardConcentration()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00217">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00383">IdealSolnGasVPSS::m_formGC</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00314">VPStandardStateTP::pressure()</a>, and <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -1017,9 +911,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00226">226</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00207">207</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00082">IdealSolnGasVPSS::eosType()</a>, and <a class="el" href="Phase_8h_source.html#l00512">Phase::nDim()</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00081">IdealSolnGasVPSS::eosType()</a>, and <a class="el" href="Phase_8h_source.html#l00513">Phase::nDim()</a>.</p>
 
 </div>
 </div>
@@ -1056,9 +950,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#adaf2f2e222725e863f8da82c91732a13">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00257">257</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00238">238</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>.</p>
 
 </div>
 </div>
@@ -1096,9 +990,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a99752b4ea07387801115177833701d50">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00268">268</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00249">249</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00976">ThermoPhase::_RT()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00277">IdealSolnGasVPSS::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00939">ThermoPhase::_RT()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00258">IdealSolnGasVPSS::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>.</p>
 
 </div>
 </div>
@@ -1135,11 +1029,11 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a04733b99f18bae806e25ff9d2d2b0046">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00277">277</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00258">258</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00148">VPStandardStateTP::getStandardChemPotentials()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="Phase_8cpp_source.html#l00517">Phase::moleFraction()</a>, <a class="el" href="ct__defs_8h_source.html#l00138">Cantera::SmallNumber</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00148">VPStandardStateTP::getStandardChemPotentials()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="Phase_8cpp_source.html#l00517">Phase::moleFraction()</a>, <a class="el" href="ct__defs_8h_source.html#l00138">Cantera::SmallNumber</a>, and <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00268">IdealSolnGasVPSS::getChemPotentials_RT()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00249">IdealSolnGasVPSS::getChemPotentials_RT()</a>.</p>
 
 </div>
 </div>
@@ -1175,9 +1069,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a86a2afc6ed698459e8379e18ba67cef1">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00288">288</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00269">269</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00158">VPStandardStateTP::getEnthalpy_RT()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00158">VPStandardStateTP::getEnthalpy_RT()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -1213,9 +1107,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a6fe5f92ea93a26c6e8e70b96bf1d6e42">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00295">295</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00276">276</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00173">VPStandardStateTP::getEntropy_R()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="Phase_8cpp_source.html#l00517">Phase::moleFraction()</a>, <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>, and <a class="el" href="ct__defs_8h_source.html#l00138">Cantera::SmallNumber</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00171">VPStandardStateTP::getEntropy_R()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="Phase_8cpp_source.html#l00517">Phase::moleFraction()</a>, <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>, and <a class="el" href="ct__defs_8h_source.html#l00138">Cantera::SmallNumber</a>.</p>
 
 </div>
 </div>
@@ -1251,9 +1145,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a555fe615abfe4413595ca7d1895862d7">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00306">306</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00287">287</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00193">VPStandardStateTP::getIntEnergy_RT()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00528">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00191">VPStandardStateTP::getIntEnergy_RT()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00529">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -1289,9 +1183,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ac6451d96eccd894479fdf635964d7727">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00313">313</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00294">294</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00199">VPStandardStateTP::getCp_R()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, and <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00197">VPStandardStateTP::getCp_R()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, and <a class="el" href="utilities_8h_source.html#l00154">Cantera::scale()</a>.</p>
 
 </div>
 </div>
@@ -1327,9 +1221,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aad8205cf1022182c8fc3260d46f75c09">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00320">320</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00301">301</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00205">VPStandardStateTP::getStandardVolumes()</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00203">VPStandardStateTP::getStandardVolumes()</a>.</p>
 
 </div>
 </div>
@@ -1367,9 +1261,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#af03a726f2f5d141fc1ec3c6a9aed03a7">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00422">422</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00403">403</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00495">VPStandardStateTP::setParametersFromXML()</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00484">VPStandardStateTP::setParametersFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1399,9 +1293,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a8a12209d08a5c4876d9894d619368a79">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00325">325</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00306">306</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00364">IdealSolnGasVPSS::initLengths()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00262">VPStandardStateTP::initThermo()</a>.</p>
+<p>References <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00345">IdealSolnGasVPSS::initLengths()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00260">VPStandardStateTP::initThermo()</a>.</p>
 
 </div>
 </div>
@@ -1442,9 +1336,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#abff9a8a035d3a59f00458ff8fca4f8c9">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00331">331</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00312">312</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8h_source.html#l00407">VPSSMgr::Gibbs_RT_ref()</a>, <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00399">IdealSolnGasVPSS::m_pp</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00583">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00476">VPSSMgr::refPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00184">ThermoPhase::setState_PX()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00395">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8h_source.html#l00407">VPSSMgr::Gibbs_RT_ref()</a>, <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00386">IdealSolnGasVPSS::m_pp</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00572">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00476">VPSSMgr::refPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00180">ThermoPhase::setState_PX()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00393">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -1492,9 +1386,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a42dab55c3f7b95e3fc87507816541e87">VPStandardStateTP</a>.</p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00370">370</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00351">351</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00509">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::child()</a>, <a class="el" href="xml_8cpp_source.html#l00549">XML_Node::hasChild()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00364">IdealSolnGasVPSS::initLengths()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00361">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00058">Cantera::lowercase()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00396">IdealSolnGasVPSS::m_formGC</a>, and <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">IdealSolnGasVPSS::m_idealGas</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00519">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00569">XML_Node::child()</a>, <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00345">IdealSolnGasVPSS::initLengths()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00359">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00058">Cantera::lowercase()</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00383">IdealSolnGasVPSS::m_formGC</a>, and <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">IdealSolnGasVPSS::m_idealGas</a>.</p>
 
 </div>
 </div>
@@ -1521,11 +1415,11 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 <p>Initialize the internal lengths in this object.</p>
 <p>Note this is not a virtual function and only handles this object </p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00364">364</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00345">345</a> of file <a class="el" href="IdealSolnGasVPSS_8cpp_source.html">IdealSolnGasVPSS.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00701">Phase::m_kk</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00399">IdealSolnGasVPSS::m_pp</a>, and <a class="el" href="Phase_8h_source.html#l00252">Phase::nSpecies()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00704">Phase::m_kk</a>, <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00386">IdealSolnGasVPSS::m_pp</a>, and <a class="el" href="Phase_8h_source.html#l00253">Phase::nSpecies()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00325">IdealSolnGasVPSS::initThermo()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00370">IdealSolnGasVPSS::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00306">IdealSolnGasVPSS::initThermo()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00351">IdealSolnGasVPSS::initThermoXML()</a>.</p>
 
 </div>
 </div>
@@ -1554,9 +1448,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 <li>0 = ideal soln </li>
 </ul>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00388">388</a> of file <a class="el" href="IdealSolnGasVPSS_8h_source.html">IdealSolnGasVPSS.h</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00375">375</a> of file <a class="el" href="IdealSolnGasVPSS_8h_source.html">IdealSolnGasVPSS.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00141">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00082">IdealSolnGasVPSS::eosType()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00174">IdealSolnGasVPSS::getActivityConcentrations()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00370">IdealSolnGasVPSS::initThermoXML()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00163">IdealSolnGasVPSS::isothermalCompressibility()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00060">IdealSolnGasVPSS::operator=()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00422">IdealSolnGasVPSS::setParametersFromXML()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00200">IdealSolnGasVPSS::standardConcentration()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00128">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00081">IdealSolnGasVPSS::eosType()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00161">IdealSolnGasVPSS::getActivityConcentrations()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00351">IdealSolnGasVPSS::initThermoXML()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00150">IdealSolnGasVPSS::isothermalCompressibility()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00059">IdealSolnGasVPSS::operator=()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00403">IdealSolnGasVPSS::setParametersFromXML()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00187">IdealSolnGasVPSS::standardConcentration()</a>.</p>
 
 </div>
 </div>
@@ -1585,9 +1479,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 <li>2 1/V_0 </li>
 </ul>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00396">396</a> of file <a class="el" href="IdealSolnGasVPSS_8h_source.html">IdealSolnGasVPSS.h</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00383">383</a> of file <a class="el" href="IdealSolnGasVPSS_8h_source.html">IdealSolnGasVPSS.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00174">IdealSolnGasVPSS::getActivityConcentrations()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00370">IdealSolnGasVPSS::initThermoXML()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00060">IdealSolnGasVPSS::operator=()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00200">IdealSolnGasVPSS::standardConcentration()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00161">IdealSolnGasVPSS::getActivityConcentrations()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00351">IdealSolnGasVPSS::initThermoXML()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00059">IdealSolnGasVPSS::operator=()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00187">IdealSolnGasVPSS::standardConcentration()</a>.</p>
 
 </div>
 </div>
@@ -1611,9 +1505,9 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Temporary storage - length = m_kk. </p>
 
-<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00399">399</a> of file <a class="el" href="IdealSolnGasVPSS_8h_source.html">IdealSolnGasVPSS.h</a>.</p>
+<p>Definition at line <a class="el" href="IdealSolnGasVPSS_8h_source.html#l00386">386</a> of file <a class="el" href="IdealSolnGasVPSS_8h_source.html">IdealSolnGasVPSS.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00364">IdealSolnGasVPSS::initLengths()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00331">IdealSolnGasVPSS::setToEquilState()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00345">IdealSolnGasVPSS::initLengths()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00312">IdealSolnGasVPSS::setToEquilState()</a>.</p>
 
 </div>
 </div>

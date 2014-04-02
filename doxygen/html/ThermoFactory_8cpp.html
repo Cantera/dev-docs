@@ -74,6 +74,7 @@
 <code>#include &quot;<a class="el" href="VPSSMgr_8h_source.html">cantera/thermo/VPSSMgr.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="IdealSolidSolnPhase_8h_source.html">cantera/thermo/IdealSolidSolnPhase.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="MaskellSolidSolnPhase_8h_source.html">cantera/thermo/MaskellSolidSolnPhase.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="MargulesVPSSTP_8h_source.html">cantera/thermo/MargulesVPSSTP.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="RedlichKisterVPSSTP_8h_source.html">cantera/thermo/RedlichKisterVPSSTP.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="IonsFromNeutralVPSSTP_8h_source.html">cantera/thermo/IonsFromNeutralVPSSTP.h</a>&quot;</code><br/>
@@ -101,7 +102,7 @@
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ThermoFactory.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ThermoFactory_8cpp__incl.svg" width="4834" height="630"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ThermoFactory_8cpp__incl.svg" width="4431" height="646"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -145,14 +146,14 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a63fd5f00cf27a20499f15f1796d5b7ea">ntypes</a> = 26</td></tr>
-<tr class="memdesc:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the number of ThermoPhase types for use in this factory routine.  <a href="#a63fd5f00cf27a20499f15f1796d5b7ea">More...</a><br/></td></tr>
+<tr class="memitem:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a63fd5f00cf27a20499f15f1796d5b7ea">ntypes</a> = 27</td></tr>
+<tr class="memdesc:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the number of <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> types for use in this factory routine.  <a href="#a63fd5f00cf27a20499f15f1796d5b7ea">More...</a><br/></td></tr>
 <tr class="separator:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bc4854ac64e659add6686cd22795988"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a7bc4854ac64e659add6686cd22795988">_types</a> []</td></tr>
-<tr class="memdesc:a7bc4854ac64e659add6686cd22795988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the string name of the ThermoPhase types that are handled by this factory routine.  <a href="#a7bc4854ac64e659add6686cd22795988">More...</a><br/></td></tr>
+<tr class="memdesc:a7bc4854ac64e659add6686cd22795988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the string name of the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> types that are handled by this factory routine.  <a href="#a7bc4854ac64e659add6686cd22795988">More...</a><br/></td></tr>
 <tr class="separator:a7bc4854ac64e659add6686cd22795988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e6b93935fc89766d2b3e2659aa296bb"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a6e6b93935fc89766d2b3e2659aa296bb">_itypes</a> []</td></tr>
-<tr class="memdesc:a6e6b93935fc89766d2b3e2659aa296bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the integer id of the ThermoPhase types that are handled by this factory routine.  <a href="#a6e6b93935fc89766d2b3e2659aa296bb">More...</a><br/></td></tr>
+<tr class="memdesc:a6e6b93935fc89766d2b3e2659aa296bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the integer id of the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> types that are handled by this factory routine.  <a href="#a6e6b93935fc89766d2b3e2659aa296bb">More...</a><br/></td></tr>
 <tr class="separator:a6e6b93935fc89766d2b3e2659aa296bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

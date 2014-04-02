@@ -78,7 +78,7 @@
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * @defgroup solverGroup Solvers for Equation Systems</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Array_8h.html" title="Header file for class Cantera::Array2D. ">cantera/base/Array.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SquareMatrix_8h.html" title="Dense, Square (not sparse) matrices. ">cantera/numerics/SquareMatrix.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ResidEval_8h.html">ResidEval.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//! Solution Methods</span></div>
@@ -476,42 +476,36 @@
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00416"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#a738256a57014ad91e64eb5ca1a1690df">  416</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveProb.html#a738256a57014ad91e64eb5ca1a1690df" title="Residual for the surface problem. ">m_resid</a>;</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment">    //!  pivots</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment">    //! Vector of pointers to the top of the columns of the jacobians</span></div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">     * length MAX(1, m_neq)</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#a5d415389d71b97707776d96238611223">  422</a></span>&#160;    <a class="code" href="namespaceCantera.html#a7d0431e3a93eea8d736432705e278a76" title="Vector of ints. ">vector_int</a> <a class="code" href="classCantera_1_1solveProb.html#a5d415389d71b97707776d96238611223" title="pivots ">m_ipiv</a>;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">    //! Vector of pointers to the top of the columns of the jacobians</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment">     *   The &quot;dim&quot; by &quot;dim&quot; computed Jacobian matrix for the</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     *   local Newton&#39;s method.</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">     *   The &quot;dim&quot; by &quot;dim&quot; computed Jacobian matrix for the</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">     *   local Newton&#39;s method.</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#a51bf45bf47bfc5be38d687a61ca9fd79">  423</a></span>&#160;    std::vector&lt;doublereal*&gt; <a class="code" href="classCantera_1_1solveProb.html#a51bf45bf47bfc5be38d687a61ca9fd79" title="Vector of pointers to the top of the columns of the jacobians. ">m_JacCol</a>;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment">    //! Jacobian</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment">     *  m_neq by m_neq computed Jacobian matrix for the local Newton&#39;s method.</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00429"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#a51bf45bf47bfc5be38d687a61ca9fd79">  429</a></span>&#160;    std::vector&lt;doublereal*&gt; <a class="code" href="classCantera_1_1solveProb.html#a51bf45bf47bfc5be38d687a61ca9fd79" title="Vector of pointers to the top of the columns of the jacobians. ">m_JacCol</a>;</div>
+<div class="line"><a name="l00429"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#ae815334c63997cf0ab831dca83b02cf6">  429</a></span>&#160;    <a class="code" href="classCantera_1_1SquareMatrix.html" title="A class for full (non-sparse) matrices with Fortran-compatible data storage. ">SquareMatrix</a> <a class="code" href="classCantera_1_1solveProb.html#ae815334c63997cf0ab831dca83b02cf6" title="Jacobian. ">m_Jac</a>;</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">    //! Jacobian</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">    //! Top bounds for the solution vector</span></div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">     *  m_neq by m_neq computed Jacobian matrix for the local Newton&#39;s method.</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">     *  This defaults to 1.0</span></div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#ace18cebae5e9ee867c33beea30a8e850">  435</a></span>&#160;    <a class="code" href="classCantera_1_1Array2D.html" title="A class for 2D arrays stored in column-major (Fortran-compatible) form. ">Array2D</a> <a class="code" href="classCantera_1_1solveProb.html#ace18cebae5e9ee867c33beea30a8e850" title="Jacobian. ">m_Jac</a>;</div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#a2e894c1a00fedad4f98d1ef9be6b421a">  435</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveProb.html#a2e894c1a00fedad4f98d1ef9be6b421a" title="Top bounds for the solution vector. ">m_topBounds</a>;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">    //! Top bounds for the solution vector</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">    //! Bottom bounds for the solution vector</span></div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment">     *  This defaults to 1.0</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment">     *  This defaults to 0.0</span></div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#a2e894c1a00fedad4f98d1ef9be6b421a">  441</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveProb.html#a2e894c1a00fedad4f98d1ef9be6b421a" title="Top bounds for the solution vector. ">m_topBounds</a>;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">    //! Bottom bounds for the solution vector</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="comment">     *  This defaults to 0.0</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00447"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#af1059a56e630efbfac9879ff01b21e3b">  447</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveProb.html#af1059a56e630efbfac9879ff01b21e3b" title="Bottom bounds for the solution vector. ">m_botBounds</a>;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordtype">int</span> m_ioflag;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;};</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;}</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno"><a class="code" href="classCantera_1_1solveProb.html#af1059a56e630efbfac9879ff01b21e3b">  441</a></span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420" title="Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. ">vector_fp</a> <a class="code" href="classCantera_1_1solveProb.html#af1059a56e630efbfac9879ff01b21e3b" title="Bottom bounds for the solution vector. ">m_botBounds</a>;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordtype">int</span> m_ioflag;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;};</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;}</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -326,144 +326,140 @@
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">     *                 parameters for the standard state.</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a51debe8d14b20f331ae059659fd1a5f9">  267</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a51debe8d14b20f331ae059659fd1a5f9" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs) {}</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">#ifdef H298MODIFY_CAPABILITY</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor"></span><span class="comment"></span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">    //! Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment">     *   The 298K Heat of Formation is defined as the enthalpy change to create the standard state</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">     *   @param h298 If this is nonnull,  the current value of the Heat of Formation at 298K and 1 bar for</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">     *               species m_speciesIndex is returned in h298[m_speciesIndex].</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">     *   @return     Returns the current value of the Heat of Formation at 298K and 1 bar for</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">     *               species m_speciesIndex.</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">virtual</span> doublereal reportHf298(doublereal* <span class="keyword">const</span> h298 = 0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">    //! Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">     *   @param  k           Species k</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> modifyOneHf298(<span class="keyword">const</span> <span class="keywordtype">int</span> k, <span class="keyword">const</span> doublereal Hf298New);</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">    //!  lowest valid temperature</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318">  297</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">    //! Highest valid temperature</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056">  299</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">    //! Reference state pressure</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8">  301</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;<span class="comment"></span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">    //! species index</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df">  303</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;};</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">//!  Class for the thermodynamic manager for an individual species&#39; reference state</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">//!  which uses the PDSS base class to satisfy the requests.</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment"> *  This class is a pass-through class for handling thermodynamics calls</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment"> *  for reference state thermo to an pressure dependent standard state (PDSS)</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment"> *  class. For some situations, it makes no sense to have a reference state</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment"> *  at all. One example of this is the real water standard state.</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment"> *  What this class does is just to pass through the calls for thermo at (T , p0)</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment"> *  to the PDSS class, which evaluates the calls at (T, p0).</span></div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment"> * @ingroup spthermo</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html">  319</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCantera_1_1STITbyPDSS.html" title="Class for the thermodynamic manager for an individual species&#39; reference state which uses the PDSS ba...">STITbyPDSS</a> : <span class="keyword">public</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;{</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">    //! Constructor</span></div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1STITbyPDSS.html#adbf136f40b28956358241a815477daa8" title="Constructor. ">STITbyPDSS</a>();</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">    //! Main Constructor</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     *  @param speciesIndex species index for this object. Note, this must</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     *         agree with what was internally set before.</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">     *  @param vpssmgr_ptr  Pointer to the Variable pressure standard state manager</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">     *                      that owns the PDSS object that will handle calls for this object</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">     *  @param PDSS_ptr     Pointer to the PDSS object that handles calls for this object</span></div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <a class="code" href="classCantera_1_1STITbyPDSS.html#adbf136f40b28956358241a815477daa8" title="Constructor. ">STITbyPDSS</a>(<span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e" title="Returns an integer representing the species index. ">speciesIndex</a>, <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* vpssmgr_ptr, <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* PDSS_ptr);</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">    //! copy constructor</span></div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">     *  @param b Object to be copied</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <a class="code" href="classCantera_1_1STITbyPDSS.html#adbf136f40b28956358241a815477daa8" title="Constructor. ">STITbyPDSS</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1STITbyPDSS.html" title="Class for the thermodynamic manager for an individual species&#39; reference state which uses the PDSS ba...">STITbyPDSS</a>&amp; b);</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#a3aaf62fc911ba93837065ec8bf9d927d" title="duplicator ">duplMyselfAsSpeciesThermoInterpType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">    //! Initialize and/or Reinitialize all the pointers for this object</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">     *  This routine is needed because the STITbyPDSS object doesn&#39;t own the</span></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment">     *  underlying objects. Therefore, shallow copies during duplication operations</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment">     *  may fail.</span></div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">     *  @param speciesIndex species index for this object. Note, this must</span></div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">     *         agree with what was internally set before.</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">     *  @param vpssmgr_ptr  Pointer to the Variable pressure standard state manager</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">     *                      that owns the PDSS object that will handle calls for this object</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">     *  @param PDSS_ptr     Pointer to the PDSS object that handles calls for this object</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#af225bc319d50d476396fff203d87d3a1" title="Initialize and/or Reinitialize all the pointers for this object. ">initAllPtrs</a>(<span class="keywordtype">size_t</span> speciesIndex, <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* vpssmgr_ptr, <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* PDSS_ptr);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">    //! Report the 298 K Heat of Formation of the standard state of one species (J kmol-1)</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">     *   The 298K Heat of Formation is defined as the enthalpy change to create the standard state</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">     *   @param h298 If this is nonnull,  the current value of the Heat of Formation at 298K and 1 bar for</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">     *               species m_speciesIndex is returned in h298[m_speciesIndex].</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">     *   @return     Returns the current value of the Heat of Formation at 298K and 1 bar for</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">     *               species m_speciesIndex.</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6df957f9edebc416883aeb746c7ce65" title="Report the 298 K Heat of Formation of the standard state of one species (J kmol-1) ...">reportHf298</a>(doublereal* <span class="keyword">const</span> h298 = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">    //! Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1)</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">     *   The 298K heat of formation is defined as the enthalpy change to create the standard state</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">     *   of the species from its constituent elements in their standard states at 298 K and 1 bar.</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">     *   @param  k           Species k</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">     *   @param  Hf298New    Specify the new value of the Heat of Formation at 298K and 1 bar</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a770cf32674ea8e0da12ee537e82216a1" title="Modify the value of the 298 K Heat of Formation of one species in the phase (J kmol-1) ...">modifyOneHf298</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> k, <span class="keyword">const</span> doublereal Hf298New);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">    //!  lowest valid temperature</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318">  293</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a93400a214d7197d8cf16c8ee3e365318" title="lowest valid temperature ">m_lowT</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">    //! Highest valid temperature</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056">  295</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#adc5ea559351e8c2736c2a70a657c4056" title="Highest valid temperature. ">m_highT</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">    //! Reference state pressure</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8">  297</a></span>&#160;<span class="comment"></span>    doublereal <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#ae6416ed4db67e617a45e94e2c4c20dc8" title="Reference state pressure. ">m_Pref</a>;<span class="comment"></span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">    //! species index</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df">  299</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df" title="species index ">m_index</a>;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;};</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">//!  Class for the thermodynamic manager for an individual species&#39; reference state</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">//!  which uses the PDSS base class to satisfy the requests.</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"> *  This class is a pass-through class for handling thermodynamics calls</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment"> *  for reference state thermo to an pressure dependent standard state (PDSS)</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment"> *  class. For some situations, it makes no sense to have a reference state</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment"> *  at all. One example of this is the real water standard state.</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="comment"> *  What this class does is just to pass through the calls for thermo at (T , p0)</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment"> *  to the PDSS class, which evaluates the calls at (T, p0).</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment"> * @ingroup spthermo</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html">  315</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCantera_1_1STITbyPDSS.html" title="Class for the thermodynamic manager for an individual species&#39; reference state which uses the PDSS ba...">STITbyPDSS</a> : <span class="keyword">public</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">    //! Constructor</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1STITbyPDSS.html#adbf136f40b28956358241a815477daa8" title="Constructor. ">STITbyPDSS</a>();</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">    //! Main Constructor</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">     *  @param speciesIndex species index for this object. Note, this must</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">     *         agree with what was internally set before.</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">     *  @param vpssmgr_ptr  Pointer to the Variable pressure standard state manager</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">     *                      that owns the PDSS object that will handle calls for this object</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">     *  @param PDSS_ptr     Pointer to the PDSS object that handles calls for this object</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="classCantera_1_1STITbyPDSS.html#adbf136f40b28956358241a815477daa8" title="Constructor. ">STITbyPDSS</a>(<span class="keywordtype">size_t</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e" title="Returns an integer representing the species index. ">speciesIndex</a>, <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* vpssmgr_ptr, <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* PDSS_ptr);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">    //! copy constructor</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">     *  @param b Object to be copied</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="code" href="classCantera_1_1STITbyPDSS.html#adbf136f40b28956358241a815477daa8" title="Constructor. ">STITbyPDSS</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1STITbyPDSS.html" title="Class for the thermodynamic manager for an individual species&#39; reference state which uses the PDSS ba...">STITbyPDSS</a>&amp; b);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#a3aaf62fc911ba93837065ec8bf9d927d" title="duplicator ">duplMyselfAsSpeciesThermoInterpType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">    //! Initialize and/or Reinitialize all the pointers for this object</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="comment">     *  This routine is needed because the STITbyPDSS object doesn&#39;t own the</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">     *  underlying objects. Therefore, shallow copies during duplication operations</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">     *  may fail.</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">     *  @param speciesIndex species index for this object. Note, this must</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="comment">     *         agree with what was internally set before.</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">     *  @param vpssmgr_ptr  Pointer to the Variable pressure standard state manager</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">     *                      that owns the PDSS object that will handle calls for this object</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">     *  @param PDSS_ptr     Pointer to the PDSS object that handles calls for this object</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#af225bc319d50d476396fff203d87d3a1" title="Initialize and/or Reinitialize all the pointers for this object. ">initAllPtrs</a>(<span class="keywordtype">size_t</span> speciesIndex, <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* vpssmgr_ptr, <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* PDSS_ptr);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">    //! Returns the minimum temperature that the thermo</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1STITbyPDSS.html#adb8ce95c2f3b579fbef8c93e8521f7c8" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">    //! Returns the minimum temperature that the thermo</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">    //! Returns the maximum temperature that the thermo</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1STITbyPDSS.html#adb8ce95c2f3b579fbef8c93e8521f7c8" title="Returns the minimum temperature that the thermo parameterization is valid. ">minTemp</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1STITbyPDSS.html#a2418b7ed6ccddf530b2f8ddfb93c7933" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="comment">    //! Returns the maximum temperature that the thermo</span></div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment">    //! parameterization is valid</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1STITbyPDSS.html#a2418b7ed6ccddf530b2f8ddfb93c7933" title="Returns the maximum temperature that the thermo parameterization is valid. ">maxTemp</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">    //! Returns the reference pressure (Pa)</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1STITbyPDSS.html#a23b7890b63a3f563a8d79841676f4724" title="Returns the reference pressure (Pa) ">refPressure</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="comment">    //! Returns an integer representing the type of parameterization</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#af4eaad774bdcf710d2f443406f19867a" title="Returns an integer representing the type of parameterization. ">reportType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="comment">    //! Returns the reference pressure (Pa)</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> doublereal <a class="code" href="classCantera_1_1STITbyPDSS.html#a23b7890b63a3f563a8d79841676f4724" title="Returns the reference pressure (Pa) ">refPressure</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">    //! Returns an integer representing the type of parameterization</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#af4eaad774bdcf710d2f443406f19867a" title="Returns an integer representing the type of parameterization. ">reportType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#a9071758a7c3ccc108a9fe3e4b1fa691c" title="Update the properties for this species, given a temperature polynomial. ">updateProperties</a>(<span class="keyword">const</span> doublereal* tempPoly,</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                                  doublereal* cp_R, doublereal* h_RT,</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                                  doublereal* s_R) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#a9071758a7c3ccc108a9fe3e4b1fa691c" title="Update the properties for this species, given a temperature polynomial. ">updateProperties</a>(<span class="keyword">const</span> doublereal* tempPoly,</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                  doublereal* cp_R, doublereal* h_RT,</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                  doublereal* s_R) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#ac8d990ced0f91be75d3bacc676125bb9" title="Compute the reference-state property of one species. ">updatePropertiesTemp</a>(<span class="keyword">const</span> doublereal temp,</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                                      doublereal* cp_R,</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                                      doublereal* h_RT,</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                                      doublereal* s_R) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#aa359b2381624daeddea4d063ced93047" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; index, <span class="keywordtype">int</span>&amp; type,</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                                  doublereal&amp; minTemp, doublereal&amp; maxTemp,</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                  doublereal&amp; refPressure,</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">    //! Pointer to the Variable pressure standard state manager</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">    //! that owns the PDSS object that will handle calls for this object</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6">  394</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6" title="Pointer to the Variable pressure standard state manager that owns the PDSS object that will handle ca...">m_vpssmgr_ptr</a>;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">    //! Pointer to the PDSS object that handles calls for this object</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">     * This object is not owned by the current one.</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145">  400</a></span>&#160;    <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145" title="Pointer to the PDSS object that handles calls for this object. ">m_PDSS_ptr</a>;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;};</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;}</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#ac8d990ced0f91be75d3bacc676125bb9" title="Compute the reference-state property of one species. ">updatePropertiesTemp</a>(<span class="keyword">const</span> doublereal temp,</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                      doublereal* cp_R,</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                      doublereal* h_RT,</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                                      doublereal* s_R) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#aa359b2381624daeddea4d063ced93047" title="This utility function reports back the type of parameterization and all of the parameters for the spe...">reportParameters</a>(<span class="keywordtype">size_t</span>&amp; index, <span class="keywordtype">int</span>&amp; type,</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                                  doublereal&amp; minTemp, doublereal&amp; maxTemp,</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                                  doublereal&amp; refPressure,</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                                  doublereal* <span class="keyword">const</span> coeffs) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1STITbyPDSS.html#a6b21f183f73a06486d7f75cfd71fe17b" title="Modify parameters for the standard state. ">modifyParameters</a>(doublereal* coeffs);</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment">    //! Pointer to the Variable pressure standard state manager</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment">    //! that owns the PDSS object that will handle calls for this object</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6">  390</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#ab8e95a1d48b035ff7f88cdc58fa5dee6" title="Pointer to the Variable pressure standard state manager that owns the PDSS object that will handle ca...">m_vpssmgr_ptr</a>;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">    //! Pointer to the PDSS object that handles calls for this object</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment">     * This object is not owned by the current one.</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno"><a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145">  396</a></span>&#160;    <a class="code" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a>* <a class="code" href="classCantera_1_1STITbyPDSS.html#a8ec76167936e83d7cc6accb4bea97145" title="Pointer to the PDSS object that handles calls for this object. ">m_PDSS_ptr</a>;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;};</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;}</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

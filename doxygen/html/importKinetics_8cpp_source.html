@@ -817,11 +817,11 @@
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> participants = 0;</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> nn = 0; nn &lt; rdata.reactants.size(); nn++) {</div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;            rdata.net_stoich[-1 - int(rdata.reactants[nn])] -= rdata.rstoich[nn];</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;            participants += rdata.reactants[nn];</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;            participants += <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(rdata.reactants[nn]);</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        }</div>
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> nn = 0; nn &lt; rdata.products.size(); nn++) {</div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            rdata.net_stoich[int(rdata.products[nn])+1] += rdata.pstoich[nn];</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            participants += 1000000 * rdata.products[nn];</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            participants += 1000000 * <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(rdata.products[nn]);</div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        }</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        vector&lt;size_t&gt;&amp; related = <a class="code" href="classCantera_1_1rxninfo.html#acd693f522ede14133e312ad774015669" title="Map of (key indicating participating species) to reaction numbers Used to speed up duplicate reaction...">m_participants</a>[participants];</div>
