@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +13,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '2.2a',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -156,11 +154,13 @@ additional configuration may be required.</p>
 <ul>
 <li><p class="first">For Ubuntu or Debian users, the following packages should be installed using
 your choice of package manager:</p>
-<div class="highlight-python"><pre>g++ python scons libboost-all-dev libsundials-serial-dev subversion</pre>
+<div class="highlight-python"><div class="highlight"><pre>g++ python scons libboost-all-dev libsundials-serial-dev subversion
+</pre></div>
 </div>
 </li>
 <li><p class="first">Building the python module also requires:</p>
-<div class="highlight-python"><pre>cython python-dev python-numpy python-numpy-dev</pre>
+<div class="highlight-python"><div class="highlight"><pre>cython python-dev python-numpy python-numpy-dev
+</pre></div>
 </div>
 </li>
 <li><p class="first">The minimum compatible Cython version is 0.17. If your distribution does not
@@ -207,13 +207,15 @@ automatically.</p>
 <li><p class="first">There is no 64-bit installer for SCons under Windows, so you will need to
 download the ZIP version. After extracting it, start a command prompt in the
 unzipped folder and run:</p>
-<div class="highlight-python"><pre>python setup.py install</pre>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py install
+</pre></div>
 </div>
 </li>
 <li><p class="first">It is generally helpful to have SCons and Python in your PATH. This can
 usually be accomplished by adding the top-level Python directory
 (e.g. <tt class="docutils literal"><span class="pre">C:\Python27</span></tt>) to your PATH. This is accessible from:</p>
-<div class="highlight-python"><pre>Control Panel &gt; System and Security &gt; System &gt; Advanced System Settings &gt; Environment Variables</pre>
+<div class="highlight-python"><div class="highlight"><pre>Control Panel &gt; System and Security &gt; System &gt; Advanced System Settings &gt; Environment Variables
+</pre></div>
 </div>
 </li>
 </ul>
@@ -228,18 +230,22 @@ usually be accomplished by adding the top-level Python directory
 Xcode 3.x, Xcode 4.x, or Xcode 5.x. Xcode 5.x is recommended.</p>
 </li>
 <li><p class="first">If you don&#8217;t have numpy version &gt;= 1.3, you can install a recent version with:</p>
-<div class="highlight-python"><pre>sudo easy_install -U numpy</pre>
+<div class="highlight-python"><div class="highlight"><pre>sudo easy_install -U numpy
+</pre></div>
 </div>
 </li>
 <li><p class="first">If you want to build Cantera with Fortran 90 support, download gfortran from:</p>
-<div class="highlight-python"><pre>http://gcc.gnu.org/wiki/GFortranBinaries#MacOS</pre>
+<div class="highlight-python"><div class="highlight"><pre>http://gcc.gnu.org/wiki/GFortranBinaries#MacOS
+</pre></div>
 </div>
 </li>
 <li><p class="first">Download scons-2.x.y.tar.gz from scons.org and extract the contents. Install with either:</p>
-<div class="highlight-python"><pre>sudo python setup.py install</pre>
+<div class="highlight-python"><div class="highlight"><pre>sudo python setup.py install
+</pre></div>
 </div>
 <p>to install for all users, or:</p>
-<div class="highlight-python"><pre>python setup.py install --user</pre>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py install --user
+</pre></div>
 </div>
 <p>to install to a location in your home directory.</p>
 </li>
@@ -255,12 +261,14 @@ Xcode 3.x, Xcode 4.x, or Xcode 5.x. Xcode 5.x is recommended.</p>
 contents.</p>
 </li>
 <li><p class="first">Option 2: Check out the code using Subversion:</p>
-<div class="highlight-python"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/branches/2.0/ cantera</pre>
+<div class="highlight-python"><div class="highlight"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/branches/2.1/ cantera
+</pre></div>
 </div>
 </li>
 <li><p class="first">Option 3: Check out the code using Git:</p>
-<div class="highlight-python"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
-git checkout 2.0</pre>
+<div class="highlight-python"><div class="highlight"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
+git checkout 2.1
+</pre></div>
 </div>
 </li>
 </ul>
@@ -269,11 +277,13 @@ git checkout 2.0</pre>
 <h3>Development Version<a class="headerlink" href="#development-version" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Option 1: Check out the code using Subversion:</p>
-<div class="highlight-python"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/trunk/ cantera</pre>
+<div class="highlight-python"><div class="highlight"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/trunk/ cantera
+</pre></div>
 </div>
 </li>
 <li><p class="first">Option 2: Check out the code using Git:</p>
-<div class="highlight-python"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera</pre>
+<div class="highlight-python"><div class="highlight"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
+</pre></div>
 </div>
 </li>
 </ul>
@@ -292,15 +302,17 @@ should work.</p>
 </li>
 <li><p class="first">If you installed Sundials to a non-standard location (e.g. the libraries
 aren&#8217;t in /usr/lib), you will need to specify the options:</p>
-<div class="highlight-python"><pre>sundials_include=/path/to/sundials/include
-sundials_libdir=/path/to/sundials/lib</pre>
+<div class="highlight-python"><div class="highlight"><pre>sundials_include=/path/to/sundials/include
+sundials_libdir=/path/to/sundials/lib
+</pre></div>
 </div>
 </li>
 <li><p class="first">If you want to build the Matlab toolbox, you will need to specify the path
 to the Matlab installation, e.g.:</p>
-<div class="highlight-python"><pre>matlab_path=/opt/MATLAB/R2011a
-matlab_path="C:\Program Files\MATLAB\R2011a"
-matlab_path=/Applications/MATLAB_R2011a.app</pre>
+<div class="highlight-python"><div class="highlight"><pre>matlab_path=/opt/MATLAB/R2011a
+matlab_path=&quot;C:\Program Files\MATLAB\R2011a&quot;
+matlab_path=/Applications/MATLAB_R2011a.app
+</pre></div>
 </div>
 <p>The above paths are typical defaults on Linux, Windows, and OS X,
 respectively.</p>
@@ -310,7 +322,8 @@ respectively.</p>
 not necessary to respecify configuration options when rebuilding Cantera. To
 unset a previously set configuration option, either remove the corresponding
 line from cantera.conf or use the syntax:</p>
-<div class="highlight-python"><pre>option_name=</pre>
+<div class="highlight-python"><div class="highlight"><pre>option_name=
+</pre></div>
 </div>
 </li>
 </ul>
@@ -338,10 +351,11 @@ Python 2, if both Numpy and Cython are installed.</p>
 (i.e. <tt class="docutils literal"><span class="pre">python3</span></tt> is on the path), it will try to build the new Python module
 for Python 3. The following SCons options control how the Python 3 module is
 built:</p>
-<div class="highlight-python"><pre>python3_package=[y|n]
+<div class="highlight-python"><div class="highlight"><pre>python3_package=[y|n]
 python3_cmd=/path/to/python3/interpreter
 python3_array_home=/path/to/numpy
-python3_prefix=/path/to/cantera/module</pre>
+python3_prefix=/path/to/cantera/module
+</pre></div>
 </div>
 <p>Note that even when building the Python 3 Cantera module, you should still use
 Python 2 with SCons, as SCons does not currently support Python 3.</p>
@@ -391,15 +405,18 @@ Xcode that is installed.</p>
 <ul>
 <li><p class="first">If Xcode 3 is installed, you can use either GCC by leaving the <tt class="docutils literal"><span class="pre">CC</span></tt> and
 <tt class="docutils literal"><span class="pre">CXX</span></tt> options unspecified, or setting them to:</p>
-<div class="highlight-python"><pre>CC=gcc CXX=g++</pre>
+<div class="highlight-python"><div class="highlight"><pre>CC=gcc CXX=g++
+</pre></div>
 </div>
 <p>You can also use LLVM with the GCC frontend by specifying:</p>
-<div class="highlight-python"><pre>CC=llvm-gcc CXX=llvm-g++</pre>
+<div class="highlight-python"><div class="highlight"><pre>CC=llvm-gcc CXX=llvm-g++
+</pre></div>
 </div>
 </li>
 <li><p class="first">If Xcode 4 is installed, then you can either use LLVM-GCC as above or
 Clang by specifying:</p>
-<div class="highlight-python"><pre>CC=clang CXX=clang++</pre>
+<div class="highlight-python"><div class="highlight"><pre>CC=clang CXX=clang++
+</pre></div>
 </div>
 </li>
 <li><p class="first">With Xcode 5, SCons should use Clang automatically, and not additional
@@ -417,7 +434,8 @@ the <tt class="docutils literal"><span class="pre">blas_lapack_libs</span></tt> 
 <ul>
 <li><p class="first">Before compiling Cantera, you may need to set up the appropriate environment
 variables for the Intel compiler suite, e.g.:</p>
-<div class="highlight-python"><pre>source /opt/intel/bin/compilervars.sh intel64</pre>
+<div class="highlight-python"><div class="highlight"><pre>source /opt/intel/bin/compilervars.sh intel64
+</pre></div>
 </div>
 </li>
 <li><p class="first">For the Intel compiler to work with SCons, these environment variables need
@@ -429,20 +447,23 @@ to be passed through SCons by using the command line option:</p>
 <li><p class="first">If you want to use the Intel MKL versions of BLAS and LAPACK, you will need
 to provide additional options. The following are typically correct on
 64-bit Linux systems:</p>
-<div class="highlight-python"><pre>blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64</pre>
+<div class="highlight-python"><div class="highlight"><pre>blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64
+</pre></div>
 </div>
 <p>Your final SCons call might then look something like:</p>
-<div class="highlight-python"><pre>scons build env_vars=all CC=icc CXX=icpc F90=ifort F77=ifort blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64</pre>
+<div class="highlight-python"><div class="highlight"><pre>scons build env_vars=all CC=icc CXX=icpc F90=ifort F77=ifort blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64
+</pre></div>
 </div>
 <p>When installing Cantera after building with the Intel compiler, the normal
 method of using <tt class="docutils literal"><span class="pre">sudo</span></tt> to install Cantera will not work because <tt class="docutils literal"><span class="pre">sudo</span></tt>
 does not pass the environment variables needed by the Intel compiler.
 Instead, you will need to do something like:</p>
-<div class="highlight-python"><pre>scons build ...
+<div class="highlight-python"><div class="highlight"><pre>scons build ...
 sudo -s
 source /path/to/compilervars.sh intel64
 scons install
-exit</pre>
+exit
+</pre></div>
 </div>
 </li>
 </ul>
@@ -452,23 +473,26 @@ exit</pre>
 <h2>Compile Cantera &amp; Test<a class="headerlink" href="#compile-cantera-test" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Run scons with the list of desired configuration options, e.g.:</p>
-<div class="highlight-python"><pre>scons build optimize=n blas_lapack_libs=blas,lapack prefix=/opt/cantera</pre>
+<div class="highlight-python"><div class="highlight"><pre>scons build optimize=n blas_lapack_libs=blas,lapack prefix=/opt/cantera
+</pre></div>
 </div>
 </li>
 <li><p class="first">If Cantera compiles successfully, you should see a message that looks like:</p>
-<div class="highlight-python"><pre>*******************************************************
+<div class="highlight-python"><div class="highlight"><pre>*******************************************************
 Compilation completed successfully.
 
-- To run the test suite, type 'scons test'.
-- To install, type '[sudo] scons install'.
-*******************************************************</pre>
+- To run the test suite, type &#39;scons test&#39;.
+- To install, type &#39;[sudo] scons install&#39;.
+*******************************************************
+</pre></div>
 </div>
 </li>
 <li><p class="first">If you do not see this message, check the output for errors to see what went
 wrong.</p>
 </li>
 <li><p class="first">Cantera has a series of tests that can be run with the command:</p>
-<div class="highlight-python"><pre>scons test</pre>
+<div class="highlight-python"><div class="highlight"><pre>scons test
+</pre></div>
 </div>
 </li>
 <li><p class="first">When the tests finish, you should see a summary indicating the number of
@@ -491,7 +515,8 @@ source of the error:</p>
 version of MinGW has a problem with the order of its internal include paths,
 such that it sees the GCC float.h before its own special version. To fix this
 problem edit the GCC float.h located at (roughly):</p>
-<div class="highlight-python"><pre>c:\MinGW\lib\gcc\mingw32\4.6.1\include\float.h</pre>
+<div class="highlight-python"><div class="highlight"><pre>c:\MinGW\lib\gcc\mingw32\4.6.1\include\float.h
+</pre></div>
 </div>
 <p>and add the following just before the end (before the final #endif)</p>
 <div class="highlight-c++"><div class="highlight"><pre><span class="cp">#ifndef _MINGW_FLOAT_H_</span>
@@ -647,10 +672,27 @@ versions &gt;= 2009a.</li>
 </li>
 <li><p class="first">To use Sundials with Cantera, you may need to compile it with the
 <tt class="docutils literal"><span class="pre">-fPIC</span></tt> flag. You can specify this flag when configuring Sundials:</p>
-<div class="highlight-python"><pre>configure --with-cflags=-fPIC</pre>
+<div class="highlight-python"><div class="highlight"><pre>configure --with-cflags=-fPIC
+</pre></div>
 </div>
 </li>
 </ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you are compiling Sundials 2.5.0 on Windows using CMake, you need
+to edit the <tt class="docutils literal"><span class="pre">CMakeLists.txt</span></tt> file first and change the lines:</p>
+<div class="highlight-python"><div class="highlight"><pre>SET(PACKAGE_STRING &quot;SUNDIALS 2.4.0&quot;)
+SET(PACKAGE_VERSION &quot;2.4.0&quot;)
+</pre></div>
+</div>
+<p>to read:</p>
+<div class="highlight-python"><div class="highlight"><pre>SET(PACKAGE_STRING &quot;SUNDIALS 2.5.0&quot;)
+SET(PACKAGE_VERSION &quot;2.5.0&quot;)
+</pre></div>
+</div>
+<p class="last">instead, so that Cantera can correctly identify the version of
+Sundials.</p>
+</div>
 </li>
 <li><p class="first"><a class="reference external" href="http://wixtoolset.org/">Windows Installer XML (WiX) toolset</a></p>
 <ul class="simple">
@@ -670,6 +712,7 @@ the other Python modules.</li>
 <li><a class="reference external" href="http://pygments.org/">Pygments</a> (install with <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">-U</span> <span class="pre">pygments</span></tt>)</li>
 <li><a class="reference external" href="http://sourceforge.net/projects/pyparsing/">pyparsing</a> (install with <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">-U</span> <span class="pre">pyparsing</span></tt>)</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/sphinxcontrib-doxylink/">doxylink</a> (install with <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">sphinxcontrib-doxylink</span></tt>)</li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-matlabdomain">matlabdomain</a> (install with <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">sphinxcontrib-matlabdomain</span></tt>)</li>
 </ul>
 </li>
 <li><p class="first"><a class="reference external" href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a></p>
@@ -709,7 +752,7 @@ the other Python modules.</li>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

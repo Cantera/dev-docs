@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -154,7 +152,8 @@ of another entry.</p>
 <p>The fields of an entry are specified in the form <tt class="docutils literal"><span class="pre">&lt;field_name&gt;</span> <span class="pre">=</span> <span class="pre">&lt;value&gt;</span></tt>, and may
 be listed on one line, or extend across several. For example, two entries for
 graphite are shown below. The first is compact:</p>
-<div class="highlight-python"><pre>stoichiometric_solid(name='graphite', species='C(gr)', elements='C', density=(2.2, 'g/cm3')))</pre>
+<div class="highlight-python"><div class="highlight"><pre>stoichiometric_solid(name=&#39;graphite&#39;, species=&#39;C(gr)&#39;, elements=&#39;C&#39;, density=(2.2, &#39;g/cm3&#39;)))
+</pre></div>
 </div>
 <p>and the second is formatted to be easier to read:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">stoichiometric_solid</span><span class="p">(</span>
@@ -311,17 +310,19 @@ units are meters, kilograms, kilomoles, and seconds.</p>
 interface. In the first version, the site density is specified without a units
 string, and so its units are constructed from the default units for quantity and
 length, which are set with a units directive:</p>
-<div class="highlight-python"><pre>units(length = 'cm', quantity = 'molec')
-interface(name = 'Si-100',
+<div class="highlight-python"><div class="highlight"><pre>units(length = &#39;cm&#39;, quantity = &#39;molec&#39;)
+interface(name = &#39;Si-100&#39;,
           site_density = 1.0e15, # molecules/cm2 (default units)
-          ...)</pre>
+          ...)
+</pre></div>
 </div>
 <p>The second version uses a different default unit system, but overrides the
 default units by specifying an explicit units string for the site density:</p>
-<div class="highlight-python"><pre>units(length = 'cm', quantity = 'mol')
-interface(name = 'Si-100',
-          site_density = (1.0e15, 'molec/cm2') # override default units
-          ...)</pre>
+<div class="highlight-python"><div class="highlight"><pre>units(length = &#39;cm&#39;, quantity = &#39;mol&#39;)
+interface(name = &#39;Si-100&#39;,
+          site_density = (1.0e15, &#39;molec/cm2&#39;) # override default units
+          ...)
+</pre></div>
 </div>
 <p>The second version is equivalent to the first, but would be very different if
 the units of the site density were not specified!</p>
@@ -411,7 +412,8 @@ network computing applications.</p>
 lower-level description in the CTML file may be illustrated by how reactions are
 handled. In the input file, the reaction stoichiometry and its reversibility or
 irreversibility are determined from the reaction equation. For example:</p>
-<div class="highlight-python"><pre>O + HCCO &lt;=&gt; H + 2 CO</pre>
+<div class="highlight-python"><div class="highlight"><pre>O + HCCO &lt;=&gt; H + 2 CO
+</pre></div>
 </div>
 <p>specifies a reversible reaction between an oxygen atom and the ketenyl radical
 HCCO to produce one hydrogen atom and two carbon monoxide molecules. If <tt class="docutils literal"><span class="pre">&lt;=&gt;</span></tt>
@@ -466,16 +468,23 @@ machine-friendly one.</p>
 <p>If you are interested in seeing the internals of how the preprocessing works,
 take a look at file <tt class="docutils literal"><span class="pre">ctml_writer.py</span></tt> in the Cantera Python package. Or simply
 start Python, and type:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ctml_writer</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">ctml_writer</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cantera.ctml_writer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">cantera</span><span class="o">.</span><span class="n">ctml_writer</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <tt class="docutils literal"><span class="pre">ctml_writer.py</span></tt> module can also be run as a script to convert input .cti
 files to CTML. For example, if you have an input file <tt class="docutils literal"><span class="pre">phasedefs.cti</span></tt>, then
 simply type at the command line:</p>
-<div class="highlight-python"><pre>python ctml_writer.py phasedefs.cti</pre>
+<div class="highlight-python"><div class="highlight"><pre>python -m cantera.ctml_writer phasedefs.cti
+</pre></div>
 </div>
-<p>to create CTML file <tt class="docutils literal"><span class="pre">phasedefs.xml</span></tt>.</p>
+<p>to create CTML file <tt class="docutils literal"><span class="pre">phasedefs.xml</span></tt>. On systems which support running Python
+scripts directly, a script to run <tt class="docutils literal"><span class="pre">ctml_writer</span></tt> directly is also installed. If
+the Cantera <tt class="docutils literal"><span class="pre">bin</span></tt> directory is on your <tt class="docutils literal"><span class="pre">PATH</span></tt>, you can also do the
+conversion by running:</p>
+<div class="highlight-python"><div class="highlight"><pre>ctml_writer phasedefs.cti
+</pre></div>
+</div>
 <p>Of course, most of the time creation of the CTML file will happen behind the
 scenes, and you will not need to be concerned with CTML files at all.</p>
 </div>
@@ -504,15 +513,15 @@ reactions of GRI-Mech 3.0, but has a misspelled the field name <tt class="docuti
 <p>When this definition is imported into an application, an error message like the
 following would be printed to the screen, and execution of the program or script
 would terminate.</p>
-<div class="highlight-python"><pre>Traceback (most recent call last):
-  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-  File "/some/path/Cantera/importFromFile.py", line 18, in importPhase
+<div class="highlight-python"><div class="highlight"><pre>Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/some/path/Cantera/importFromFile.py&quot;, line 18, in importPhase
     return importPhases(file, [name], loglevel, debug)[0]
-  File "/some/path/Cantera/importFromFile.py", line 25, in importPhases
+  File &quot;/some/path/Cantera/importFromFile.py&quot;, line 25, in importPhases
     s.append(solution.Solution(src=file,id=nm,loglevel=loglevel,debug=debug))
-  File "/some/path/solution.py", line 39, in __init__
+  File &quot;/some/path/solution.py&quot;, line 39, in __init__
     preprocess = 1, debug = debug)
-  File "/some/path/Cantera/XML.py", line 35, in __init__
+  File &quot;/some/path/Cantera/XML.py&quot;, line 35, in __init__
     self._xml_id = _cantera.xml_get_XML_File(src, debug)
 cantera.error:
 
@@ -521,20 +530,21 @@ cantera.error:
 ************************************************
 
 Procedure: ct2ctml
-Error:   Error converting input file "./gas.cti" to CTML.
-Python command was: '/usr/bin/python'
+Error:   Error converting input file &quot;./gas.cti&quot; to CTML.
+Python command was: &#39;/usr/bin/python&#39;
 The exit code was: 4
 -------------- start of converter log --------------
-TypeError on line 4 of './gas.cti':
-__init__() got an unexpected keyword argument 'reactionss'
+TypeError on line 4 of &#39;./gas.cti&#39;:
+__init__() got an unexpected keyword argument &#39;reactionss&#39;
 
 | Line |
-|    1 | ideal_gas(name = 'gas',
-|    2 |           elements = 'H O',
-|    3 |           species = 'gri30: all',
-&gt;    4 &gt;           reactionss = 'gri30: all')
+|    1 | ideal_gas(name = &#39;gas&#39;,
+|    2 |           elements = &#39;H O&#39;,
+|    3 |           species = &#39;gri30: all&#39;,
+&gt;    4 &gt;           reactionss = &#39;gri30: all&#39;)
 |    5 |
---------------- end of converter log ---------------</pre>
+--------------- end of converter log ---------------
+</pre></div>
 </div>
 <p>The top part of the error message shows the chain of functions that were called
 before the error was encountered. For the most part, these are internal Cantera
@@ -551,9 +561,10 @@ recognized. Seeing this message, it is clear that the problem is that
 detects. Continuing the example above, suppose that the misspelling is
 corrected, and the input file processed again. Again an error message results,
 but this time it is from Cantera:</p>
-<div class="highlight-python"><pre>cantera.error:
+<div class="highlight-python"><div class="highlight"><pre>cantera.error:
 Procedure: installSpecies
-Error: species C contains undeclared element C</pre>
+Error: species C contains undeclared element C
+</pre></div>
 </div>
 <p>The problem is that the phase definition specifies that all species are to be
 imported from dataset gri30, but only the elements H and O are declared. The
@@ -603,7 +614,7 @@ extract a portion of a large reaction mechanism, as described in <a class="refer
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

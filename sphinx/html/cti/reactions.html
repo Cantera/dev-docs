@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -134,11 +132,12 @@ in the following sections.</p>
 relatively simple parsing strategy is currently used, which assumes that all
 coefficient and species symbols on either side of the equation are delimited by
 spaces:</p>
-<div class="highlight-python"><pre>2 CH2 &lt;=&gt; CH + CH3      # OK
+<div class="highlight-python"><div class="highlight"><pre>2 CH2 &lt;=&gt; CH + CH3      # OK
 2 CH2&lt;=&gt;CH + CH3        # OK
 2CH2 &lt;=&gt; CH + CH3       # error
 CH2 + CH2 &lt;=&gt; CH + CH3  # OK
-2 CH2 &lt;=&gt; CH+CH3        # error</pre>
+2 CH2 &lt;=&gt; CH+CH3        # error
+</pre></div>
 </div>
 <p>The incorrect versions here would generate &#8220;undeclared species&#8221; errors and would
 halt processing of the input file. In the first case, the error would be that
@@ -334,7 +333,7 @@ al. <a class="footnote-reference" href="#kee1989" id="id5">[5]</a> generalized t
 supports the extended 5-parameter form, given by:</p>
 <div class="math">
 \[F(T, P_r) = d \bigl[a \exp(-b/T) + \exp(-T/c)\bigr]^{1/(1+\log_{10}^2 P_r )} T^e\]</div>
-<p>In keeping with the nomenclature of Kee et al.[#Kee1989]_, we will refer to this as
+<p>In keeping with the nomenclature of Kee et al. <a class="footnote-reference" href="#kee1989" id="id6">[5]</a>, we will refer to this as
 the &#8220;SRI&#8221; falloff function. It is implemented by the <tt class="xref py py-class docutils literal"><span class="pre">SRI</span></tt> directive.</p>
 </div>
 </div>
@@ -468,7 +467,7 @@ Zhiwei Qin. GRI-Mech version 3.0, 1997. see
 <table class="docutils footnote" frame="void" id="kee1989" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>R. J. Kee, F. M. Rupley, and J. A. Miller. Chemkin-II: A Fortran
+<tr><td class="label">[5]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> R. J. Kee, F. M. Rupley, and J. A. Miller. Chemkin-II: A Fortran
 chemical kinetics package for the analysis of gas-phase chemical
 kinetics. Technical Report SAND89-8009, Sandia National Laboratories, 1989.</td></tr>
 </tbody>
@@ -503,7 +502,7 @@ kinetics. Technical Report SAND89-8009, Sandia National Laboratories, 1989.</td>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

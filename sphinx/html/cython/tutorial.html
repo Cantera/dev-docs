@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -129,7 +127,7 @@ function:</p>
 </pre></div>
 </div>
 <p>You should see something like this:</p>
-<div class="highlight-python"><pre> gri30:
+<div class="highlight-python"><div class="highlight"><pre> gri30:
 
       temperature             300  K
          pressure          101325  Pa
@@ -199,7 +197,8 @@ heat capacity c_v         10187.3        2.054e+04     J/K
              C3H7              0                0
              C3H8              0                0
            CH2CHO              0                0
-           CH3CHO              0                0</pre>
+           CH3CHO              0                0
+</pre></div>
 </div>
 <p>What you have just done is to create an object, <tt class="xref py py-obj docutils literal"><span class="pre">gas1</span></tt> that implements GRI-
 Mech 3.0, the 53-species, 325-reaction natural gas combustion mechanism
@@ -225,7 +224,7 @@ of 1.0, and all of the others will be zero.</p>
 </div>
 <p>sets the temperature to 1200 K and the pressure to 101325 Pa (Cantera always
 uses SI units). After this statement, calling <tt class="docutils literal"><span class="pre">gas1()</span></tt> results in:</p>
-<div class="highlight-python"><pre> gri30:
+<div class="highlight-python"><div class="highlight"><pre> gri30:
 
       temperature            1200  K
          pressure          101325  Pa
@@ -244,7 +243,8 @@ heat capacity c_v         11253.4        2.269e+04     J/K
                           X                 Y          Chem. Pot. / RT
                     -------------     ------------     ------------
                H2              1                1         -17.9775
-                    (other species not shown)</pre>
+                    (other species not shown)
+</pre></div>
 </div>
 <p>Notice that the temperature has been changed as requested, but the pressure
 has changed too. The density and composition have not.</p>
@@ -285,7 +285,7 @@ properties of the mixture:</p>
 </pre></div>
 </div>
 <p>results in:</p>
-<div class="highlight-python"><pre> gri30:
+<div class="highlight-python"><div class="highlight"><pre> gri30:
 
       temperature            1200  K
          pressure          101325  Pa
@@ -355,7 +355,8 @@ heat capacity c_v         1096.38         3.03e+04     J/K
              C3H7              0                0
              C3H8              0                0
            CH2CHO              0                0
-           CH3CHO              0                0</pre>
+           CH3CHO              0                0
+</pre></div>
 </div>
 <p>The composition above was specified using a string. The format is a comma-
 separated list of <tt class="docutils literal"><span class="pre">&lt;species</span> <span class="pre">name&gt;:&lt;relative</span> <span class="pre">mole</span> <span class="pre">numbers&gt;</span></tt> pairs. The mole
@@ -433,7 +434,8 @@ Report SAND89-8009 (1989).]</p>
 that converts CK format into Cantera format. This program should be run from
 the command line first to convert any CK files you plan to use into Cantera
 format. Here&#8217;s an example of how to use it. The command:</p>
-<div class="highlight-python"><pre>$python ck2cti.py --input=mech.inp --thermo=therm.dat --transport=tran.dat</pre>
+<div class="highlight-python"><div class="highlight"><pre>$python ck2cti.py --input=mech.inp --thermo=therm.dat --transport=tran.dat
+</pre></div>
 </div>
 <p>will produce the file <tt class="docutils literal"><span class="pre">mech.cti</span></tt> in the current directory.</p>
 </div>
@@ -472,7 +474,8 @@ temperature property, ask for the attribute of the class object itself:</p>
 </div>
 <p>If you are using the IPython shell, help can also be obtained using the <tt class="xref py py-obj docutils literal"><span class="pre">?</span></tt>
 syntax:</p>
-<div class="highlight-python"><pre>In[1]: g.species_index?</pre>
+<div class="highlight-python"><div class="highlight"><pre>In[1]: g.species_index?
+</pre></div>
 </div>
 </div>
 <div class="section" id="chemical-equilibrium">
@@ -561,7 +564,7 @@ line documented source code of Cantera C++ class &#8216;ChemEquil.h&#8217;.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

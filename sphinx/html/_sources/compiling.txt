@@ -123,12 +123,12 @@ Stable Release
 
 * Option 2: Check out the code using Subversion::
 
-    svn checkout http://cantera.googlecode.com/svn/cantera/branches/2.0/ cantera
+    svn checkout http://cantera.googlecode.com/svn/cantera/branches/2.1/ cantera
 
 * Option 3: Check out the code using Git::
 
     git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
-    git checkout 2.0
+    git checkout 2.1
 
 Development Version
 -------------------
@@ -491,6 +491,21 @@ Optional Programs
 
           configure --with-cflags=-fPIC
 
+  .. note:: If you are compiling Sundials 2.5.0 on Windows using CMake, you need
+            to edit the ``CMakeLists.txt`` file first and change the lines::
+
+              SET(PACKAGE_STRING "SUNDIALS 2.4.0")
+              SET(PACKAGE_VERSION "2.4.0")
+
+            to read::
+
+              SET(PACKAGE_STRING "SUNDIALS 2.5.0")
+              SET(PACKAGE_VERSION "2.5.0")
+
+            instead, so that Cantera can correctly identify the version of
+            Sundials.
+
+
 * `Windows Installer XML (WiX) toolset <http://wixtoolset.org/>`_
 
   * Required to build MSI installers on Windows.
@@ -507,6 +522,7 @@ Optional Programs
   * `Pygments <http://pygments.org/>`_ (install with ``easy_install -U pygments``)
   * `pyparsing <http://sourceforge.net/projects/pyparsing/>`_ (install with ``easy_install -U pyparsing``)
   * `doxylink <http://pypi.python.org/pypi/sphinxcontrib-doxylink/>`_ (install with ``easy_install sphinxcontrib-doxylink``)
+  * `matlabdomain <https://pypi.python.org/pypi/sphinxcontrib-matlabdomain>`_ (install with ``easy_install sphinxcontrib-matlabdomain``)
 
 * `Doxygen <http://www.stack.nl/~dimitri/doxygen/>`_
 
