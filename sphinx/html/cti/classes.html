@@ -133,6 +133,25 @@
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="cantera.ctml_writer.validate">
+<tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">validate</tt><big>(</big><em>species='yes'</em>, <em>reactions='yes'</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable validation of species and reactions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>species</strong> &#8211; Set to <tt class="docutils literal"><span class="pre">'yes'</span></tt> (default) or <tt class="docutils literal"><span class="pre">'no'</span></tt>.</li>
+<li><strong>reactions</strong> &#8211; Set to <tt class="docutils literal"><span class="pre">'yes'</span></tt> (default) or <tt class="docutils literal"><span class="pre">'no'</span></tt>. This controls duplicate reaction checks
+and validation of rate expressions for some reaction types.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="class">
 <dt id="cantera.ctml_writer.state">
 <em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">state</tt><big>(</big><em>temperature=None</em>, <em>pressure=None</em>, <em>mole_fractions=None</em>, <em>mass_fractions=None</em>, <em>density=None</em>, <em>coverages=None</em>, <em>solute_molalities=None</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.state" title="Permalink to this definition">¶</a></dt>
@@ -507,7 +526,7 @@ vibrational frequencies.</p>
 <h2>Transport Properties<a class="headerlink" href="#transport-properties" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.ctml_writer.gas_transport">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">gas_transport</tt><big>(</big><em>geom='nonlin'</em>, <em>diam=0.0</em>, <em>well_depth=0.0</em>, <em>dipole=0.0</em>, <em>polar=0.0</em>, <em>rot_relax=0.0</em>, <em>acentric_factor=0.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.gas_transport" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">gas_transport</tt><big>(</big><em>geom='nonlin'</em>, <em>diam=0.0</em>, <em>well_depth=0.0</em>, <em>dipole=0.0</em>, <em>polar=0.0</em>, <em>rot_relax=0.0</em>, <em>acentric_factor=None</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.gas_transport" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.transport</span></tt></p>
 <p>Species-specific Transport coefficients for gas-phase transport models.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -583,7 +602,11 @@ affect the units. The resulting units string is written to the CTML
 file individually for each reaction pre-exponential coefficient.</li>
 <li><strong>b</strong> &#8211; The temperature exponent. Dimensionless. Default: 0.0.</li>
 <li><strong>E</strong> &#8211; Activation energy. Default: 0.0.</li>
-<li><strong>coverage</strong> &#8211; </li>
+<li><strong>coverage</strong> &#8211; For a single coverage dependency, a list with four
+elements: the species name followed by the three coverage
+parameters. For multiple coverage dependencies, a list of lists
+containing the individual sets of coverage parameters. Only used for
+surface and edge reactions.</li>
 <li><strong>rate_type</strong> &#8211; </li>
 <li><strong>n</strong> &#8211; The temperature exponent. Dimensionless. Default: 0.0. Deprecated usage
 provided for compatibility.</li>

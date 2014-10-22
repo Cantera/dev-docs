@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -222,7 +222,7 @@
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment"> * @return</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"> *   Returns an initialized ThermoPhase object.</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;ThermoPhase* <a class="code" href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">newPhase</a>(<span class="keyword">const</span> std::string&amp; infile, std::string <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;ThermoPhase* <a class="code" href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">newPhase</a>(<span class="keyword">const</span> std::string&amp; infile, std::string <span class="keywordtype">id</span>=<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">//! Import a phase information into an empty thermophase object</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
@@ -286,100 +286,109 @@
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment"> * @param spfactory species Thermo factory pointer, if</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment"> *                  available. If not available, one will be</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment"> *                  created.</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment"> * @ingroup thermoprops</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">importPhase</a>(XML_Node&amp; phase, ThermoPhase* th, SpeciesThermoFactory* spfactory = 0);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">//! Install a species into a ThermoPhase object, which defines</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">//! the phase thermodynamics and speciation.</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"> *  This routine first gathers the information from the Species XML</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment"> *  tree and calls addUniqueSpecies() to add it to the</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"> *  ThermoPhase object, p.</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> *  This information consists of:</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> *         ecomp[] = element composition of species.</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> *         chgr    = electric charge of species</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> *         name    = string name of species</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> *         sz      = size of the species</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> *                 (option double used a lot in thermo)</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"> *  Then, the routine processes the &quot;thermo&quot; XML element and</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> *  calls underlying utility routines to read the XML elements</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"> *  containing the thermodynamic information for the reference</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment"> *  state of the species. Failures or lack of information trigger</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment"> *  an &quot;UnknownSpeciesThermoModel&quot; exception being thrown.</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"> * @param k     Species Index in the phase</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> * @param s     XML_Node containing the species data for this species.</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> * @param p     Reference to the ThermoPhase object.</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> * @param spthermo_ptr Reference to the SpeciesThermo object, where</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> *              the standard state thermo properties for this</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> *              species will be installed.</span></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> * @param rule  Parameter that handles what to do with species</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment"> *              who have elements that aren&#39;t declared.</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"> *              Check that all elements in the species</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"> *              exist in &#39;p&#39;. If rule != 0, quietly skip</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"> *              this species if some elements are undeclared;</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"> *              otherwise, throw an exception</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"> * @param phaseNode_ptr Pointer to the XML_Node for this phase</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"> *              (defaults to 0)</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"> * @param vpss_ptr pointer to the Manager that calculates standard</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment"> *                state thermo properties</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment"> * @param factory Pointer to the SpeciesThermoFactory .</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment"> *              (defaults to 0)</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment"> * @return</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment"> *  Returns true if everything is ok, false otherwise.</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__thermoprops.html#ga6d805e908a9dc0e76c79a4d220873199">installSpecies</a>(<span class="keywordtype">size_t</span> k, <span class="keyword">const</span> XML_Node&amp; s, <a class="code" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a>&amp; p,</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                    SpeciesThermo* spthermo_ptr, <span class="keywordtype">int</span> rule,</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                    XML_Node* phaseNode_ptr = 0,</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                    VPSSMgr* vpss_ptr = 0,</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                    SpeciesThermoFactory* factory = 0);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment">//!  Search an XML tree for species data.</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment"> *   This utility routine will search the XML tree for the species</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment"> *   named by the string, kname. It will return the XML_Node</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"> *   pointer to the species data for that species.</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment"> *   Failures of any kind return the null pointer.</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment"> * @param kname String containing the name of the species.</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment"> * @param phaseSpeciesData   Pointer to the XML speciesData element</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment"> *              containing the species data for that phase.</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keyword">const</span> XML_Node* <a class="code" href="group__thermoprops.html#ga795278f91e905724307bc51f240a5574">speciesXML_Node</a>(<span class="keyword">const</span> std::string&amp; kname,</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                                <span class="keyword">const</span> XML_Node* phaseSpeciesData);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">//@}</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;}</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> * @deprecated the &#39;spfactory&#39; argument is unused and will be removed after</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment"> *     Cantera 2.2.</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment"> * @ingroup thermoprops</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment"> * @deprecated: The return value of this function is always &#39;true&#39;. After</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment"> * Cantera 2.2, this function will return &#39;void&#39;.</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">importPhase</a>(XML_Node&amp; phase, ThermoPhase* th, SpeciesThermoFactory* spfactory = 0);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">//! Add the elements given in an XML_Node tree to the specified phase</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="group__thermoprops.html#gaa1a8e4e755addef4ebd3d6a10a619768">installElements</a>(Phase&amp; th, <span class="keyword">const</span> XML_Node&amp; phaseNode);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">//! Install a species into a ThermoPhase object, which defines</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">//! the phase thermodynamics and speciation.</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> *  This routine first gathers the information from the Species XML</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> *  tree and calls addUniqueSpecies() to add it to the</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> *  ThermoPhase object, p.</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"> *  This information consists of:</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> *         ecomp[] = element composition of species.</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"> *         chgr    = electric charge of species</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment"> *         name    = string name of species</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment"> *         sz      = size of the species</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"> *                 (option double used a lot in thermo)</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> *  Then, the routine processes the &quot;thermo&quot; XML element and</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> *  calls underlying utility routines to read the XML elements</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> *  containing the thermodynamic information for the reference</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> *  state of the species. Failures or lack of information trigger</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> *  an &quot;UnknownSpeciesThermoModel&quot; exception being thrown.</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment"> * @param k     Species Index in the phase</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"> * @param s     XML_Node containing the species data for this species.</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"> * @param p     Reference to the ThermoPhase object.</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"> * @param spthermo_ptr Reference to the SpeciesThermo object, where</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"> *              the standard state thermo properties for this</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"> *              species will be installed.</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"> * @param rule  Parameter that handles what to do with species</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"> *              who have elements that aren&#39;t declared.</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment"> *              Check that all elements in the species</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment"> *              exist in &#39;p&#39;. If rule != 0, quietly skip</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment"> *              this species if some elements are undeclared;</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"> *              otherwise, throw an exception</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment"> * @param phaseNode_ptr Pointer to the XML_Node for this phase</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment"> *              (defaults to 0)</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment"> * @param vpss_ptr pointer to the Manager that calculates standard</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment"> *                state thermo properties</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment"> * @param factory Pointer to the SpeciesThermoFactory .</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment"> *              (defaults to 0)</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment"> * @deprecated The &#39;factory&#39; argument is unused and will be removed after</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment"> *     Cantera 2.2.</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment"> * @return</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="comment"> *  Returns true if everything is ok, false otherwise.</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__thermoprops.html#ga6d805e908a9dc0e76c79a4d220873199">installSpecies</a>(<span class="keywordtype">size_t</span> k, <span class="keyword">const</span> XML_Node&amp; s, <a class="code" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a>&amp; p,</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                    SpeciesThermo* spthermo_ptr, <span class="keywordtype">int</span> rule,</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                    XML_Node* phaseNode_ptr = 0,</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                    VPSSMgr* vpss_ptr = 0,</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                    SpeciesThermoFactory* factory = 0);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">//!  Search an XML tree for species data.</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment"></span><span class="comment">/*!</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment"> *   This utility routine will search the XML tree for the species</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment"> *   named by the string, kname. It will return the XML_Node</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment"> *   pointer to the species data for that species.</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment"> *   Failures of any kind return the null pointer.</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment"> * @param kname String containing the name of the species.</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment"> * @param phaseSpeciesData   Pointer to the XML speciesData element</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"> *              containing the species data for that phase.</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keyword">const</span> XML_Node* <a class="code" href="group__thermoprops.html#ga795278f91e905724307bc51f240a5574">speciesXML_Node</a>(<span class="keyword">const</span> std::string&amp; kname,</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                                <span class="keyword">const</span> XML_Node* phaseSpeciesData);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">//@}</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;}</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
 <div class="ttc" id="classCantera_1_1UnknownThermoPhaseModel_html"><div class="ttname"><a href="classCantera_1_1UnknownThermoPhaseModel.html">Cantera::UnknownThermoPhaseModel</a></div><div class="ttdoc">Specific error to be thrown if the type of Thermo manager is unrecognized. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00037">ThermoFactory.h:37</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoFactory_html_ad6285cea657558e041f040555a4d1c2e"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#ad6285cea657558e041f040555a4d1c2e">Cantera::ThermoFactory::deleteFactory</a></div><div class="ttdeci">virtual void deleteFactory()</div><div class="ttdoc">delete the static instance of this factory </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00073">ThermoFactory.h:73</a></div></div>
-<div class="ttc" id="group__inputfiles_html_gae7ab44a3276a87e4e3408c91c9167f4a"><div class="ttname"><a href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">Cantera::newPhase</a></div><div class="ttdeci">ThermoPhase * newPhase(XML_Node &amp;xmlphase)</div><div class="ttdoc">Create a new ThermoPhase object and initializes it according to the XML tree. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00175">ThermoFactory.cpp:175</a></div></div>
-<div class="ttc" id="group__thermoprops_html_ga395b8c517c4e50c2c962f7bfea0bc781"><div class="ttname"><a href="group__thermoprops.html#ga395b8c517c4e50c2c962f7bfea0bc781">Cantera::eosTypeString</a></div><div class="ttdeci">std::string eosTypeString(int ieos, int length)</div><div class="ttdoc">Translate the eosType id into a string. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00164">ThermoFactory.cpp:164</a></div></div>
-<div class="ttc" id="group__thermoprops_html_ga6d805e908a9dc0e76c79a4d220873199"><div class="ttname"><a href="group__thermoprops.html#ga6d805e908a9dc0e76c79a4d220873199">Cantera::installSpecies</a></div><div class="ttdeci">bool installSpecies(size_t k, const XML_Node &amp;s, thermo_t &amp;th, SpeciesThermo *spthermo_ptr, int rule, XML_Node *phaseNode_ptr, VPSSMgr *vpss_ptr, SpeciesThermoFactory *factory)</div><div class="ttdoc">Install a species into a ThermoPhase object, which defines the phase thermodynamics and speciation...</div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00526">ThermoFactory.cpp:526</a></div></div>
+<div class="ttc" id="group__inputfiles_html_gae7ab44a3276a87e4e3408c91c9167f4a"><div class="ttname"><a href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">Cantera::newPhase</a></div><div class="ttdeci">ThermoPhase * newPhase(XML_Node &amp;xmlphase)</div><div class="ttdoc">Create a new ThermoPhase object and initializes it according to the XML tree. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00176">ThermoFactory.cpp:176</a></div></div>
+<div class="ttc" id="group__thermoprops_html_ga395b8c517c4e50c2c962f7bfea0bc781"><div class="ttname"><a href="group__thermoprops.html#ga395b8c517c4e50c2c962f7bfea0bc781">Cantera::eosTypeString</a></div><div class="ttdeci">std::string eosTypeString(int ieos, int length)</div><div class="ttdoc">Translate the eosType id into a string. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00165">ThermoFactory.cpp:165</a></div></div>
+<div class="ttc" id="group__thermoprops_html_ga6d805e908a9dc0e76c79a4d220873199"><div class="ttname"><a href="group__thermoprops.html#ga6d805e908a9dc0e76c79a4d220873199">Cantera::installSpecies</a></div><div class="ttdeci">bool installSpecies(size_t k, const XML_Node &amp;s, thermo_t &amp;th, SpeciesThermo *spthermo_ptr, int rule, XML_Node *phaseNode_ptr, VPSSMgr *vpss_ptr, SpeciesThermoFactory *factory)</div><div class="ttdoc">Install a species into a ThermoPhase object, which defines the phase thermodynamics and speciation...</div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00569">ThermoFactory.cpp:569</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoFactory_html_a926cc3de2bceb9444a0309b2452e679a"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#a926cc3de2bceb9444a0309b2452e679a">Cantera::ThermoFactory::thermo_mutex</a></div><div class="ttdeci">static mutex_t thermo_mutex</div><div class="ttdoc">Decl for locking mutex for thermo factory singleton. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00096">ThermoFactory.h:96</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoFactory_html_a86db678c79d95be373c078cef2b243eb"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#a86db678c79d95be373c078cef2b243eb">Cantera::ThermoFactory::factory</a></div><div class="ttdeci">static ThermoFactory * factory()</div><div class="ttdoc">Static function that creates a static instance of the factory. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00064">ThermoFactory.h:64</a></div></div>
 <div class="ttc" id="classCantera_1_1FactoryBase_html"><div class="ttname"><a href="classCantera_1_1FactoryBase.html">Cantera::FactoryBase</a></div><div class="ttdoc">Base class for factories. </div><div class="ttdef"><b>Definition:</b> <a href="FactoryBase_8h_source.html#l00018">FactoryBase.h:18</a></div></div>
-<div class="ttc" id="group__thermoprops_html_ga795278f91e905724307bc51f240a5574"><div class="ttname"><a href="group__thermoprops.html#ga795278f91e905724307bc51f240a5574">Cantera::speciesXML_Node</a></div><div class="ttdeci">const XML_Node * speciesXML_Node(const std::string &amp;kname, const XML_Node *phaseSpeciesData)</div><div class="ttdoc">Search an XML tree for species data. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00602">ThermoFactory.cpp:602</a></div></div>
+<div class="ttc" id="group__thermoprops_html_ga795278f91e905724307bc51f240a5574"><div class="ttname"><a href="group__thermoprops.html#ga795278f91e905724307bc51f240a5574">Cantera::speciesXML_Node</a></div><div class="ttdeci">const XML_Node * speciesXML_Node(const std::string &amp;kname, const XML_Node *phaseSpeciesData)</div><div class="ttdoc">Search an XML tree for species data. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00630">ThermoFactory.cpp:630</a></div></div>
 <div class="ttc" id="classCantera_1_1UnknownThermoPhaseModel_html_ab023c559be3664db4adc2f0f668b1a38"><div class="ttname"><a href="classCantera_1_1UnknownThermoPhaseModel.html#ab023c559be3664db4adc2f0f668b1a38">Cantera::UnknownThermoPhaseModel::UnknownThermoPhaseModel</a></div><div class="ttdeci">UnknownThermoPhaseModel(const std::string &amp;proc, const std::string &amp;thermoModel)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00045">ThermoFactory.h:45</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoFactory_html"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html">Cantera::ThermoFactory</a></div><div class="ttdoc">Factory class for thermodynamic property managers. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00058">ThermoFactory.h:58</a></div></div>
-<div class="ttc" id="namespaceCantera_html_a8236f718220883b27d0dcb93d3b0f328"><div class="ttname"><a href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">Cantera::thermo_t</a></div><div class="ttdeci">ThermoPhase thermo_t</div><div class="ttdoc">typedef for the ThermoPhase class </div><div class="ttdef"><b>Definition:</b> <a href="ThermoPhase_8h_source.html#l01614">ThermoPhase.h:1614</a></div></div>
+<div class="ttc" id="namespaceCantera_html_a8236f718220883b27d0dcb93d3b0f328"><div class="ttname"><a href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">Cantera::thermo_t</a></div><div class="ttdeci">ThermoPhase thermo_t</div><div class="ttdoc">typedef for the ThermoPhase class </div><div class="ttdef"><b>Definition:</b> <a href="ThermoPhase_8h_source.html#l01628">ThermoPhase.h:1628</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoPhase_html"><div class="ttname"><a href="classCantera_1_1ThermoPhase.html">Cantera::ThermoPhase</a></div><div class="ttdoc">Base class for a phase with thermodynamic properties. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoPhase_8h_source.html#l00097">ThermoPhase.h:97</a></div></div>
-<div class="ttc" id="group__thermoprops_html_ga4ef7f7632b3f3932f3ada7c75aa980b0"><div class="ttname"><a href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">Cantera::importPhase</a></div><div class="ttdeci">bool importPhase(XML_Node &amp;phase, ThermoPhase *th, SpeciesThermoFactory *spfactory)</div><div class="ttdoc">Import a phase information into an empty thermophase object. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00319">ThermoFactory.cpp:319</a></div></div>
-<div class="ttc" id="classCantera_1_1ThermoFactory_html_ad4b7b79d00d366f18d50d42db5260671"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#ad4b7b79d00d366f18d50d42db5260671">Cantera::ThermoFactory::newThermoPhase</a></div><div class="ttdeci">virtual ThermoPhase * newThermoPhase(const std::string &amp;model)</div><div class="ttdoc">Create a new thermodynamic property manager. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00092">ThermoFactory.cpp:92</a></div></div>
+<div class="ttc" id="group__thermoprops_html_ga4ef7f7632b3f3932f3ada7c75aa980b0"><div class="ttname"><a href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">Cantera::importPhase</a></div><div class="ttdeci">bool importPhase(XML_Node &amp;phase, ThermoPhase *th, SpeciesThermoFactory *spfactory)</div><div class="ttdoc">Import a phase information into an empty thermophase object. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00318">ThermoFactory.cpp:318</a></div></div>
+<div class="ttc" id="classCantera_1_1ThermoFactory_html_ad4b7b79d00d366f18d50d42db5260671"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#ad4b7b79d00d366f18d50d42db5260671">Cantera::ThermoFactory::newThermoPhase</a></div><div class="ttdeci">virtual ThermoPhase * newThermoPhase(const std::string &amp;model)</div><div class="ttdoc">Create a new thermodynamic property manager. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00093">ThermoFactory.cpp:93</a></div></div>
 <div class="ttc" id="xml_8h_html"><div class="ttname"><a href="xml_8h.html">xml.h</a></div><div class="ttdoc">Classes providing support for XML data files. </div></div>
-<div class="ttc" id="classCantera_1_1CanteraError_html"><div class="ttname"><a href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a></div><div class="ttdoc">Base class for exceptions thrown by Cantera classes. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00068">ctexceptions.h:68</a></div></div>
+<div class="ttc" id="classCantera_1_1CanteraError_html"><div class="ttname"><a href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a></div><div class="ttdoc">Base class for exceptions thrown by Cantera classes. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00099">ctexceptions.h:99</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoFactory_html_ae239e9c8d196674e6385354c18c284b9"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#ae239e9c8d196674e6385354c18c284b9">Cantera::ThermoFactory::s_factory</a></div><div class="ttdeci">static ThermoFactory * s_factory</div><div class="ttdoc">static member of a single instance </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00093">ThermoFactory.h:93</a></div></div>
 <div class="ttc" id="group__thermoprops_html_ga9543a554274f1cbc05688ad5fd3e2dce"><div class="ttname"><a href="group__thermoprops.html#ga9543a554274f1cbc05688ad5fd3e2dce">Cantera::newThermoPhase</a></div><div class="ttdeci">ThermoPhase * newThermoPhase(const std::string &amp;model, ThermoFactory *f=0)</div><div class="ttdoc">Create a new thermo manager instance. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00113">ThermoFactory.h:113</a></div></div>
+<div class="ttc" id="group__thermoprops_html_gaa1a8e4e755addef4ebd3d6a10a619768"><div class="ttname"><a href="group__thermoprops.html#gaa1a8e4e755addef4ebd3d6a10a619768">Cantera::installElements</a></div><div class="ttdeci">void installElements(Phase &amp;th, const XML_Node &amp;phaseNode)</div><div class="ttdoc">Add the elements given in an XML_Node tree to the specified phase. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8cpp_source.html#l00502">ThermoFactory.cpp:502</a></div></div>
 <div class="ttc" id="ct__thread_8h_html"><div class="ttname"><a href="ct__thread_8h.html">ct_thread.h</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoFactory_html_a5383746d195a492f63fe0bb072787990"><div class="ttname"><a href="classCantera_1_1ThermoFactory.html#a5383746d195a492f63fe0bb072787990">Cantera::ThermoFactory::ThermoFactory</a></div><div class="ttdeci">ThermoFactory()</div><div class="ttdoc">Private constructors prevents usage. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoFactory_8h_source.html#l00096">ThermoFactory.h:96</a></div></div>
 <div class="ttc" id="ThermoPhase_8h_html"><div class="ttname"><a href="ThermoPhase_8h.html">ThermoPhase.h</a></div><div class="ttdoc">Header file for class ThermoPhase, the base class for phases with thermodynamic properties, and the text for the Module thermoprops (see Thermodynamic Properties and class ThermoPhase). </div></div>

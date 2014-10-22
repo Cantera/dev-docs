@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -59,6 +59,8 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCantera_1_1SpeciesThermo-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SpeciesThermo Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__mgrsrefcalc.html">Managers for Calculating Reference-State Thermodynamics</a></div></div>  </div>
@@ -72,8 +74,7 @@
 <div class="dynheader">
 Inheritance diagram for SpeciesThermo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1SpeciesThermo__inherit__graph.svg" width="336" height="255"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1SpeciesThermo__inherit__graph.svg" width="336" height="255"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -126,6 +127,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaaaea4ab32fd0d45250a1444d2442bec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">modifyOneHf298</a> (const size_t k, const doublereal Hf298New)=0</td></tr>
 <tr class="memdesc:aaaaea4ab32fd0d45250a1444d2442bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the 298 K Heat of Formation of the standard state of one species in the phase (J kmol-1)  <a href="#aaaaea4ab32fd0d45250a1444d2442bec">More...</a><br/></td></tr>
 <tr class="separator:aaaaea4ab32fd0d45250a1444d2442bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e3152f283c801368140ecd8ab82384"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a04e3152f283c801368140ecd8ab82384">ready</a> (size_t nSpecies)</td></tr>
+<tr class="memdesc:a04e3152f283c801368140ecd8ab82384"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if data for all species (0 through nSpecies-1) has been installed.  <a href="#a04e3152f283c801368140ecd8ab82384">More...</a><br/></td></tr>
+<tr class="separator:a04e3152f283c801368140ecd8ab82384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3847dd050cb7db03482541c4bbce3080"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a3847dd050cb7db03482541c4bbce3080">markInstalled</a> (size_t k)</td></tr>
+<tr class="memdesc:a3847dd050cb7db03482541c4bbce3080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark species <em>k</em> as having its thermodynamic data installed.  <a href="#a3847dd050cb7db03482541c4bbce3080">More...</a><br/></td></tr>
+<tr class="separator:a3847dd050cb7db03482541c4bbce3080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a70f9195cf274457998c2997165d437d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70f9195cf274457998c2997165d437d5"></a>
+std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_installed</b></td></tr>
+<tr class="separator:a70f9195cf274457998c2997165d437d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Pure Virtual base class for the species thermo manager classes. </p>
@@ -362,9 +378,9 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a95c34c489c15b3e7932337bed0fc787a">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a177984bee2d94f9655f63ac4fe99a19f">SimpleThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a4a0c5ebf1004308dee4aae0962f4ebfe">GeneralSpeciesThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#aabdb7ad621e6a8ea35f304a4bd34409e">NasaThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a0f8fa9ff2dbb9235bae506e91609dfee">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a95c34c489c15b3e7932337bed0fc787a">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a177984bee2d94f9655f63ac4fe99a19f">SimpleThermo</a>, <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a0f8fa9ff2dbb9235bae506e91609dfee">SpeciesThermoDuo&lt; T1, T2 &gt;</a>, <a class="el" href="classCantera_1_1NasaThermo.html#aabdb7ad621e6a8ea35f304a4bd34409e">NasaThermo</a>, and <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a4a0c5ebf1004308dee4aae0962f4ebfe">GeneralSpeciesThermo</a>.</p>
 
-<p>Referenced by <a class="el" href="FixedChemPotSSTP_8cpp_source.html#l00079">FixedChemPotSSTP::FixedChemPotSSTP()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00336">Cantera::installMinEQ3asShomateThermoFromXML()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00123">Cantera::installMu0ThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00200">Cantera::installNasaThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00423">Cantera::installShomateThermoFromXML()</a>, and <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00499">Cantera::installSimpleThermoFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="FixedChemPotSSTP_8cpp_source.html#l00079">FixedChemPotSSTP::FixedChemPotSSTP()</a>.</p>
 
 </div>
 </div>
@@ -398,9 +414,9 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a41e497f0d3a68be56119ed6ae2cb1a56">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a41e497f0d3a68be56119ed6ae2cb1a56">SimpleThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#ae3d4b6f1c32ac982a40519228c17d4c1">GeneralSpeciesThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a41e497f0d3a68be56119ed6ae2cb1a56">NasaThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a41e497f0d3a68be56119ed6ae2cb1a56">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a41e497f0d3a68be56119ed6ae2cb1a56">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a41e497f0d3a68be56119ed6ae2cb1a56">SimpleThermo</a>, <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a41e497f0d3a68be56119ed6ae2cb1a56">SpeciesThermoDuo&lt; T1, T2 &gt;</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a41e497f0d3a68be56119ed6ae2cb1a56">NasaThermo</a>, and <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#ae3d4b6f1c32ac982a40519228c17d4c1">GeneralSpeciesThermo</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00529">Cantera::installNasa9ThermoFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoPhase_8cpp_source.html#l00698">ThermoPhase::addSpecies()</a>, <a class="el" href="VPSSMgr__IdealGas_8cpp_source.html#l00091">VPSSMgr_IdealGas::createInstallPDSS()</a>, <a class="el" href="LatticeSolidPhase_8cpp_source.html#l00337">LatticeSolidPhase::installSlavePhases()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00401">VPSSMgr::installSTSpecies()</a>, and <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00603">SpeciesThermoFactory::installThermoForSpecies()</a>.</p>
 
 </div>
 </div>
@@ -462,7 +478,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a03d5616a6ea88c2dbe475db8336614f8">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a03d5616a6ea88c2dbe475db8336614f8">SimpleThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#aa2117f28ead06136865807dd01b38bff">GeneralSpeciesThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a6649a8b7c8630f90c05dd5fefa6d00e8">NasaThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a6649a8b7c8630f90c05dd5fefa6d00e8">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01022">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00158">VPSSMgr_Water_ConstVol::_updateRefStateThermo()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00341">VPSSMgr::_updateRefStateThermo()</a>, <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00312">MaskellSolidSolnPhase::_updateThermo()</a>, <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00339">SingleSpeciesTP::_updateThermo()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00367">SurfPhase::_updateThermo()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00363">LatticePhase::_updateThermo()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00372">IdealGasPhase::_updateThermo()</a>, <a class="el" href="IdealSolidSolnPhase_8cpp_source.html#l00656">IdealSolidSolnPhase::_updateThermo()</a>, and <a class="el" href="SpeciesThermo_8h_source.html#l00247">SpeciesThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="MixtureFugacityTP_8cpp_source.html#l01021">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00160">VPSSMgr_Water_ConstVol::_updateRefStateThermo()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00343">VPSSMgr::_updateRefStateThermo()</a>, <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00311">MaskellSolidSolnPhase::_updateThermo()</a>, <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00340">SingleSpeciesTP::_updateThermo()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00366">SurfPhase::_updateThermo()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00361">LatticePhase::_updateThermo()</a>, <a class="el" href="IdealSolidSolnPhase_8cpp_source.html#l00655">IdealSolidSolnPhase::_updateThermo()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00371">IdealGasPhase::_updateThermo()</a>, and <a class="el" href="SpeciesThermo_8h_source.html#l00247">SpeciesThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -535,7 +551,7 @@ Public Member Functions</h2></td></tr>
 
 <p>References <a class="el" href="classCantera_1_1SpeciesThermo.html#a4f4ab4ce24522c0c5a9252508d1e4acc">SpeciesThermo::update()</a>.</p>
 
-<p>Referenced by <a class="el" href="PureFluidPhase_8cpp_source.html#l00064">PureFluidPhase::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00245">PDSS_ConstVol::setTemperature()</a>, <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00215">PDSS_IdealGas::setTemperature()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">PDSS_SSVol::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="PureFluidPhase_8cpp_source.html#l00063">PureFluidPhase::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00241">PDSS_ConstVol::setTemperature()</a>, <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00212">PDSS_IdealGas::setTemperature()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">PDSS_SSVol::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -565,14 +581,14 @@ Public Member Functions</h2></td></tr>
 <p>If no argument is supplied, this method returns the minimum temperature for which <em>all</em> parameterizations are valid. If an integer index k is supplied, then the value returned is the minimum temperature for species k in the phase.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>Species index </td></tr>
+    <tr><td class="paramname">k</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#ade0d15fa66201fb19903c2dad9e9553f">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#ade0d15fa66201fb19903c2dad9e9553f">SimpleThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a412c64c9f6d37c1d4cbb8a1eec84103a">GeneralSpeciesThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#ade0d15fa66201fb19903c2dad9e9553f">NasaThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#ade0d15fa66201fb19903c2dad9e9553f">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00110">PDSS_IdealGas::initThermo()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00209">PDSS_IonsFromNeutral::initThermo()</a>, <a class="el" href="StoichSubstance_8cpp_source.html#l00076">StoichSubstance::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00140">PDSS_ConstVol::initThermoXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00167">PDSS_SSVol::initThermoXML()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00107">PDSS_IdealGas::initThermo()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00205">PDSS_IonsFromNeutral::initThermo()</a>, <a class="el" href="StoichSubstance_8cpp_source.html#l00074">StoichSubstance::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00136">PDSS_ConstVol::initThermoXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00163">PDSS_SSVol::initThermoXML()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>.</p>
 
 </div>
 </div>
@@ -602,14 +618,14 @@ Public Member Functions</h2></td></tr>
 <p>If no argument is supplied, this method returns the maximum temperature for which <em>all</em> parameterizations are valid. If an integer index k is supplied, then the value returned is the maximum temperature for parameterization k.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>Species Index </td></tr>
+    <tr><td class="paramname">k</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> Index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a9627826e38c2a4cc965f557ac35898c8">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a9627826e38c2a4cc965f557ac35898c8">SimpleThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a9b737407965ecb32db623a6cdebeee12">GeneralSpeciesThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a9627826e38c2a4cc965f557ac35898c8">NasaThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a9627826e38c2a4cc965f557ac35898c8">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00110">PDSS_IdealGas::initThermo()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00209">PDSS_IonsFromNeutral::initThermo()</a>, <a class="el" href="StoichSubstance_8cpp_source.html#l00076">StoichSubstance::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00140">PDSS_ConstVol::initThermoXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00167">PDSS_SSVol::initThermoXML()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00107">PDSS_IdealGas::initThermo()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00205">PDSS_IonsFromNeutral::initThermo()</a>, <a class="el" href="StoichSubstance_8cpp_source.html#l00074">StoichSubstance::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00136">PDSS_ConstVol::initThermoXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00163">PDSS_SSVol::initThermoXML()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>.</p>
 
 </div>
 </div>
@@ -639,14 +655,14 @@ Public Member Functions</h2></td></tr>
 <p>Returns the reference state pressure in Pascals for species k. If k is left out of the argument list, it returns the reference state pressure for the first species. Note that some <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> implementations, such as those for ideal gases, require that all species in the same phase have the same reference state pressures.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>Species Index </td></tr>
+    <tr><td class="paramname">k</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> Index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a5f4553c6420d9c24007cf0725c338bff">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a5f4553c6420d9c24007cf0725c338bff">SimpleThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a5f4553c6420d9c24007cf0725c338bff">NasaThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a04133ca12b89d9311a4338d085a77eae">GeneralSpeciesThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a5f4553c6420d9c24007cf0725c338bff">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00074">PDSS_ConstVol::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="VPSSMgr__IdealGas_8cpp_source.html#l00092">VPSSMgr_IdealGas::createInstallPDSS()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00070">LatticePhase::enthalpy_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00242">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00072">IdealGasPhase::entropy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00145">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00229">IdealGasPhase::getEntropy_R()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00276">PureFluidPhase::getEntropy_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00155">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00239">IdealGasPhase::getGibbs_RT()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00258">PureFluidPhase::getGibbs_RT_ref()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00186">IdealGasPhase::getPartialMolarEntropies()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00165">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00249">IdealGasPhase::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00123">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00155">IdealGasPhase::getStandardChemPotentials()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00149">PDSS_ConstVol::initThermo()</a>, <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00110">PDSS_IdealGas::initThermo()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00209">PDSS_IonsFromNeutral::initThermo()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00176">PDSS_SSVol::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00140">PDSS_ConstVol::initThermoXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00167">PDSS_SSVol::initThermoXML()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00399">VPSSMgr::installSTSpecies()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00070">PDSS_ConstVol::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="VPSSMgr__IdealGas_8cpp_source.html#l00091">VPSSMgr_IdealGas::createInstallPDSS()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00068">LatticePhase::enthalpy_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00243">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00070">IdealGasPhase::entropy_mole()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00144">MixtureFugacityTP::getEntropy_R()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00227">IdealGasPhase::getEntropy_R()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00270">PureFluidPhase::getEntropy_R_ref()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00154">MixtureFugacityTP::getGibbs_RT()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00237">IdealGasPhase::getGibbs_RT()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00252">PureFluidPhase::getGibbs_RT_ref()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00184">IdealGasPhase::getPartialMolarEntropies()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00164">MixtureFugacityTP::getPureGibbs()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00247">IdealGasPhase::getPureGibbs()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00122">MixtureFugacityTP::getStandardChemPotentials()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00153">IdealGasPhase::getStandardChemPotentials()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00145">PDSS_ConstVol::initThermo()</a>, <a class="el" href="PDSS__IdealGas_8cpp_source.html#l00107">PDSS_IdealGas::initThermo()</a>, <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00205">PDSS_IonsFromNeutral::initThermo()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00172">PDSS_SSVol::initThermo()</a>, <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00136">PDSS_ConstVol::initThermoXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00163">PDSS_SSVol::initThermoXML()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00401">VPSSMgr::installSTSpecies()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -675,14 +691,14 @@ Public Member Functions</h2></td></tr>
 <p>This utility function reports the type of parameterization used for the species with index number <em>index</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Species index </td></tr>
+    <tr><td class="paramname">index</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a9ebaa41f7ad03ab57e8854736d5b9f2a">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a9ebaa41f7ad03ab57e8854736d5b9f2a">SimpleThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a9ebaa41f7ad03ab57e8854736d5b9f2a">NasaThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#acadbe3cbbdadd9ce4f60a184529bda50">GeneralSpeciesThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#aeae0941af28445281e727eb17e7ae87f">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealGasPhase_8cpp_source.html#l00087">IdealGasPhase::cv_tr()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00117">IdealGasPhase::cv_vib()</a>, and <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00758">VCSnonideal::vcs_Cantera_to_vprob()</a>.</p>
+<p>Referenced by <a class="el" href="IdealGasPhase_8cpp_source.html#l00085">IdealGasPhase::cv_tr()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00115">IdealGasPhase::cv_vib()</a>, and <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00754">VCSnonideal::vcs_Cantera_to_vprob()</a>.</p>
 
 </div>
 </div>
@@ -745,7 +761,7 @@ Public Member Functions</h2></td></tr>
 <p>This utility function reports back the type of parameterization and all of the parameters for the species with index number <em>index</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Species index </td></tr>
+    <tr><td class="paramname">index</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index </td></tr>
     <tr><td class="paramname">type</td><td>Integer type of the standard type </td></tr>
     <tr><td class="paramname">c</td><td>Vector of coefficients used to set the parameters for the standard state. </td></tr>
     <tr><td class="paramname">minTemp</td><td>output - Minimum temperature </td></tr>
@@ -757,7 +773,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#a6fe246ca2e43da4230cf7e01ec0d5611">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#a90a98650118d718221eff75bae5e4707">SimpleThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a153fe4fe1b42d378fd077853ba21597e">NasaThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a153fe4fe1b42d378fd077853ba21597e">GeneralSpeciesThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#a153fe4fe1b42d378fd077853ba21597e">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealGasPhase_8cpp_source.html#l00087">IdealGasPhase::cv_tr()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00117">IdealGasPhase::cv_vib()</a>, and <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00758">VCSnonideal::vcs_Cantera_to_vprob()</a>.</p>
+<p>Referenced by <a class="el" href="IdealGasPhase_8cpp_source.html#l00085">IdealGasPhase::cv_tr()</a>, <a class="el" href="IdealGasPhase_8cpp_source.html#l00115">IdealGasPhase::cv_vib()</a>, and <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00754">VCSnonideal::vcs_Cantera_to_vprob()</a>.</p>
 
 </div>
 </div>
@@ -843,12 +859,65 @@ Public Member Functions</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1ShomateThermo.html#ac87e5a3dd35b2e65689cc86f09b473e6">ShomateThermo</a>, <a class="el" href="classCantera_1_1SimpleThermo.html#ac87e5a3dd35b2e65689cc86f09b473e6">SimpleThermo</a>, <a class="el" href="classCantera_1_1NasaThermo.html#a770cf32674ea8e0da12ee537e82216a1">NasaThermo</a>, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a770cf32674ea8e0da12ee537e82216a1">GeneralSpeciesThermo</a>, and <a class="el" href="classCantera_1_1SpeciesThermoDuo.html#ac87e5a3dd35b2e65689cc86f09b473e6">SpeciesThermoDuo&lt; T1, T2 &gt;</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoPhase_8h_source.html#l00190">ThermoPhase::modifyOneHf298SS()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00158">VPStandardStateTP::modifyOneHf298SS()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00139">MixtureFugacityTP::modifyOneHf298SS()</a>, and <a class="el" href="LatticeSolidPhase_8cpp_source.html#l00510">LatticeSolidPhase::modifyOneHf298SS()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoPhase_8h_source.html#l00190">ThermoPhase::modifyOneHf298SS()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00156">VPStandardStateTP::modifyOneHf298SS()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00138">MixtureFugacityTP::modifyOneHf298SS()</a>, and <a class="el" href="LatticeSolidPhase_8cpp_source.html#l00504">LatticeSolidPhase::modifyOneHf298SS()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a class="anchor" id="a04e3152f283c801368140ecd8ab82384"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ready </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>nSpecies</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if data for all species (0 through nSpecies-1) has been installed. </p>
+
+<p>Definition at line <a class="el" href="SpeciesThermo_8cpp_source.html#l00005">5</a> of file <a class="el" href="SpeciesThermo_8cpp_source.html">SpeciesThermo.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="ThermoPhase_8cpp_source.html#l00680">ThermoPhase::initThermo()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3847dd050cb7db03482541c4bbce3080"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void markInstalled </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mark species <em>k</em> as having its thermodynamic data installed. </p>
+
+<p>Definition at line <a class="el" href="SpeciesThermo_8cpp_source.html#l00017">17</a> of file <a class="el" href="SpeciesThermo_8cpp_source.html">SpeciesThermo.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="NasaThermo_8cpp_source.html#l00060">NasaThermo::install()</a>, <a class="el" href="SimpleThermo_8h_source.html#l00139">SimpleThermo::install()</a>, <a class="el" href="ShomateThermo_8h_source.html#l00151">ShomateThermo::install()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="SpeciesThermo_8h_source.html">SpeciesThermo.h</a></li>
+<li><a class="el" href="SpeciesThermo_8cpp_source.html">SpeciesThermo.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

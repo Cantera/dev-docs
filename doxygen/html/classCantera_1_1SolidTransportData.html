@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -73,14 +73,12 @@
 <div class="dynheader">
 Inheritance diagram for SolidTransportData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1SolidTransportData__inherit__graph.svg" width="142" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1SolidTransportData__inherit__graph.svg" width="142" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for SolidTransportData:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1SolidTransportData__coll__graph.svg" width="456" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1SolidTransportData__coll__graph.svg" width="456" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -144,7 +142,7 @@ Public Attributes</h2></td></tr>
 <p>This class is mainly used to collect transport properties from the parse phase in the TranportFactory and transfer them to the <a class="el" href="classCantera_1_1Transport.html" title="Base class for transport property managers. ">Transport</a> class. <a class="el" href="classCantera_1_1Transport.html" title="Base class for transport property managers. ">Transport</a> properties are expressed by subclasses of <a class="el" href="classCantera_1_1LTPspecies.html" title="Class LTPspecies holds transport parameterizations for a specific liquid-phase species. ">LTPspecies</a>. Note that we use the liquid phase species model for the solid phases. That is, for the time being at least, we ignore mixing models for solid phases and just specify a transport property at the level that we specify the transport property for a species in the liquid phase. One may need to be careful about deleting pointers to <a class="el" href="classCantera_1_1LTPspecies.html" title="Class LTPspecies holds transport parameterizations for a specific liquid-phase species. ">LTPspecies</a> objects created in the <a class="el" href="classCantera_1_1TransportFactory.html" title="Factory class for creating new instances of classes derived from Transport. ">TransportFactory</a>.</p>
 <p>All of the pointers in this class are shallow pointers. Therefore, this is a passthrough class, which keeps track of pointer ownership by zeroing pointers as we go. Yes, Yes, yes, this is not good. </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00037">37</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00035">35</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a3e9adc165c89c8fb94220c3df3706e39"></a>
 <div class="memitem">
@@ -159,7 +157,7 @@ Public Attributes</h2></td></tr>
 <p>A <a class="el" href="classCantera_1_1SolidTransportData.html" title="Class SolidTransportData holds transport parameters for a specific solid-phase species. ">SolidTransportData</a> object is instantiated for each species. </p>
 <p>This is the species name for which this object is instantiated. </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00047">47</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00045">45</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 
 </div>
 </div>
@@ -176,9 +174,9 @@ Public Attributes</h2></td></tr>
 <p>Model type for the ionic conductivity. </p>
 <p>shallow pointer that should be zero during destructor </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00053">53</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00051">51</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01040">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00075">SolidTransport::initSolid()</a>.</p>
+<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01054">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00074">SolidTransport::initSolid()</a>.</p>
 
 </div>
 </div>
@@ -195,9 +193,9 @@ Public Attributes</h2></td></tr>
 <p>Model type for the thermal conductivity. </p>
 <p>shallow pointer that should be zero during destructor </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00059">59</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00057">57</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01040">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00075">SolidTransport::initSolid()</a>.</p>
+<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01054">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00074">SolidTransport::initSolid()</a>.</p>
 
 </div>
 </div>
@@ -214,9 +212,9 @@ Public Attributes</h2></td></tr>
 <p>Model type for the electrical conductivity. </p>
 <p>shallow pointer that should be zero during destructor </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00065">65</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00063">63</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01040">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00075">SolidTransport::initSolid()</a>.</p>
+<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01054">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00074">SolidTransport::initSolid()</a>.</p>
 
 </div>
 </div>
@@ -233,9 +231,9 @@ Public Attributes</h2></td></tr>
 <p>Model type for the defectDiffusivity &ndash; or more like a defect diffusivity in the context of the solid phase. </p>
 <p>shallow pointer that should be zero during destructor </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00071">71</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00069">69</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01040">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00075">SolidTransport::initSolid()</a>.</p>
+<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01054">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00074">SolidTransport::initSolid()</a>.</p>
 
 </div>
 </div>
@@ -252,9 +250,9 @@ Public Attributes</h2></td></tr>
 <p>Model type for the defectActivity. </p>
 <p>shallow pointer that should be zero during destructor </p>
 
-<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00077">77</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
+<p>Definition at line <a class="el" href="SolidTransportData_8h_source.html#l00075">75</a> of file <a class="el" href="SolidTransportData_8h_source.html">SolidTransportData.h</a>.</p>
 
-<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01040">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00075">SolidTransport::initSolid()</a>.</p>
+<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l01054">TransportFactory::getSolidTransportData()</a>, and <a class="el" href="SolidTransport_8cpp_source.html#l00074">SolidTransport::initSolid()</a>.</p>
 
 </div>
 </div>

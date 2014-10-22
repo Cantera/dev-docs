@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -59,6 +59,7 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
@@ -75,14 +76,12 @@
 <div class="dynheader">
 Inheritance diagram for GeneralSpeciesThermo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1GeneralSpeciesThermo__inherit__graph.svg" width="168" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1GeneralSpeciesThermo__inherit__graph.svg" width="168" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for GeneralSpeciesThermo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1GeneralSpeciesThermo__coll__graph.svg" width="168" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1GeneralSpeciesThermo__coll__graph.svg" width="168" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -151,13 +150,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a90618c21cdb10772cd6cdc1f7a4fd838 inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a90618c21cdb10772cd6cdc1f7a4fd838">operator=</a> (const <a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a> &amp;right)</td></tr>
 <tr class="memdesc:a90618c21cdb10772cd6cdc1f7a4fd838 inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator for the SpeciesThermo object.  <a href="#a90618c21cdb10772cd6cdc1f7a4fd838">More...</a><br/></td></tr>
 <tr class="separator:a90618c21cdb10772cd6cdc1f7a4fd838 inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04e3152f283c801368140ecd8ab82384 inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a04e3152f283c801368140ecd8ab82384">ready</a> (size_t nSpecies)</td></tr>
+<tr class="memdesc:a04e3152f283c801368140ecd8ab82384 inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if data for all species (0 through nSpecies-1) has been installed.  <a href="#a04e3152f283c801368140ecd8ab82384">More...</a><br/></td></tr>
+<tr class="separator:a04e3152f283c801368140ecd8ab82384 inherit pub_methods_classCantera_1_1SpeciesThermo"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:ac88d7425dda09258f31563caf3d53540"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac88d7425dda09258f31563caf3d53540"></a>
+typedef std::map&lt; int, <br class="typebreak"/>
+std::vector<br class="typebreak"/>
+&lt; <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html">SpeciesThermoInterpType</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>STIT_map</b></td></tr>
+<tr class="separator:ac88d7425dda09258f31563caf3d53540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8bd7c4d1e21aa0e39b58c42f7d8e3ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8bd7c4d1e21aa0e39b58c42f7d8e3ad"></a>
+typedef std::map&lt; int, <br class="typebreak"/>
+std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tpoly_map</b></td></tr>
+<tr class="separator:ae8bd7c4d1e21aa0e39b58c42f7d8e3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a5c609970c46c6132b79c7cc23859323b"><td class="memItemLeft" align="right" valign="top">std::vector<br class="typebreak"/>
-&lt; <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html">SpeciesThermoInterpType</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b">m_sp</a></td></tr>
-<tr class="memdesc:a5c609970c46c6132b79c7cc23859323b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main unknown in the object.  <a href="#a5c609970c46c6132b79c7cc23859323b">More...</a><br/></td></tr>
-<tr class="separator:a5c609970c46c6132b79c7cc23859323b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a068c6e7ee5121bb7be10e0f9ecd8801c"><td class="memItemLeft" align="right" valign="top">STIT_map&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a068c6e7ee5121bb7be10e0f9ecd8801c">m_sp</a></td></tr>
+<tr class="memdesc:a068c6e7ee5121bb7be10e0f9ecd8801c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main unknown in the object.  <a href="#a068c6e7ee5121bb7be10e0f9ecd8801c">More...</a><br/></td></tr>
+<tr class="separator:a068c6e7ee5121bb7be10e0f9ecd8801c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa25d627e0668168d3def75faf1525c10"><td class="memItemLeft" align="right" valign="top">tpoly_map&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#aa25d627e0668168d3def75faf1525c10">m_tpoly</a></td></tr>
+<tr class="memdesc:aa25d627e0668168d3def75faf1525c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature polynomials for each thermo parameterization.  <a href="#aa25d627e0668168d3def75faf1525c10">More...</a><br/></td></tr>
+<tr class="separator:aa25d627e0668168d3def75faf1525c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabf58420e597019eb063c50640c82690"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabf58420e597019eb063c50640c82690"></a>
+std::map&lt; size_t, std::pair<br class="typebreak"/>
+&lt; int, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_speciesLoc</b></td></tr>
+<tr class="separator:aabf58420e597019eb063c50640c82690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea83c2ffed3a01e875462c23ac11b89a"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#aea83c2ffed3a01e875462c23ac11b89a">m_tlow_max</a></td></tr>
 <tr class="memdesc:aea83c2ffed3a01e875462c23ac11b89a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum value of the lowest temperature.  <a href="#aea83c2ffed3a01e875462c23ac11b89a">More...</a><br/></td></tr>
 <tr class="separator:aea83c2ffed3a01e875462c23ac11b89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,27 +187,37 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:abdd15cd78af8bfd2a1ae1424e1010af9"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#abdd15cd78af8bfd2a1ae1424e1010af9">m_p0</a></td></tr>
 <tr class="memdesc:abdd15cd78af8bfd2a1ae1424e1010af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">reference pressure (Pa)  <a href="#abdd15cd78af8bfd2a1ae1424e1010af9">More...</a><br/></td></tr>
 <tr class="separator:abdd15cd78af8bfd2a1ae1424e1010af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44776286c3ba788047554eef4620e6de"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a44776286c3ba788047554eef4620e6de">m_kk</a></td></tr>
-<tr class="memdesc:a44776286c3ba788047554eef4620e6de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal variable indicating the length of the number of species in the phase.  <a href="#a44776286c3ba788047554eef4620e6de">More...</a><br/></td></tr>
-<tr class="separator:a44776286c3ba788047554eef4620e6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a1d47e43104fb3ab3e61af117d5a1156a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCantera_1_1SpeciesThermoInterpType.html">SpeciesThermoInterpType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a">provideSTIT</a> (size_t k)</td></tr>
 <tr class="memdesc:a1d47e43104fb3ab3e61af117d5a1156a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide the SpeciesthermoInterpType object.  <a href="#a1d47e43104fb3ab3e61af117d5a1156a">More...</a><br/></td></tr>
 <tr class="separator:a1d47e43104fb3ab3e61af117d5a1156a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64bef6e3694609a960330697c1ec87ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64bef6e3694609a960330697c1ec87ee"></a>
+const <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html">SpeciesThermoInterpType</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>provideSTIT</b> (size_t k) const </td></tr>
+<tr class="separator:a64bef6e3694609a960330697c1ec87ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8bb3912a3ce86b15842e79d0b421204"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8bb3912a3ce86b15842e79d0b421204"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="separator:ac8bb3912a3ce86b15842e79d0b421204"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:ae2f0449a9aa706bb35103b9de28c0a13"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#ae2f0449a9aa706bb35103b9de28c0a13">VPSSMgr</a></td></tr>
 <tr class="memdesc:ae2f0449a9aa706bb35103b9de28c0a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the class <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> a friend because we need to access the function <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a" title="Provide the SpeciesthermoInterpType object. ">provideSTIT()</a>  <a href="#ae2f0449a9aa706bb35103b9de28c0a13">More...</a><br/></td></tr>
 <tr class="separator:ae2f0449a9aa706bb35103b9de28c0a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_classCantera_1_1SpeciesThermo"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCantera_1_1SpeciesThermo')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a></td></tr>
+<tr class="memitem:a3847dd050cb7db03482541c4bbce3080 inherit pro_methods_classCantera_1_1SpeciesThermo"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SpeciesThermo.html#a3847dd050cb7db03482541c4bbce3080">markInstalled</a> (size_t k)</td></tr>
+<tr class="memdesc:a3847dd050cb7db03482541c4bbce3080 inherit pro_methods_classCantera_1_1SpeciesThermo"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark species <em>k</em> as having its thermodynamic data installed.  <a href="#a3847dd050cb7db03482541c4bbce3080">More...</a><br/></td></tr>
+<tr class="separator:a3847dd050cb7db03482541c4bbce3080 inherit pro_methods_classCantera_1_1SpeciesThermo"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A species thermodynamic property manager for a phase. </p>
 <p>This is a general manager that can handle a wide variety of species thermodynamic polynomials for individual species. It is slow, however, because it recomputes the functions of temperature needed for each species. What it does is to create a vector of <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a> objects. </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00031">31</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00028">28</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac77d362e71ba84ff1fcf7f4f071c3598"></a>
 <div class="memitem">
@@ -204,11 +234,9 @@ Friends</h2></td></tr>
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00023">23</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00014">14</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_thigh_min</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00153">GeneralSpeciesThermo::m_tlow_max</a>.</p>
-
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00087">GeneralSpeciesThermo::duplMyselfAsSpeciesThermo()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00071">GeneralSpeciesThermo::duplMyselfAsSpeciesThermo()</a>.</p>
 
 </div>
 </div>
@@ -234,9 +262,9 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00034">34</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00022">22</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8a325e113a55f8fc38be927062a6d8e5">SpeciesThermoInterpType::duplMyselfAsSpeciesThermoInterpType()</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00165">GeneralSpeciesThermo::m_kk</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00148">GeneralSpeciesThermo::m_sp</a>.</p>
 
 </div>
 </div>
@@ -263,9 +291,7 @@ Friends</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00074">74</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
-
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00165">GeneralSpeciesThermo::m_kk</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00065">65</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
 </div>
 </div>
@@ -292,9 +318,9 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00049">49</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00041">41</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8a325e113a55f8fc38be927062a6d8e5">SpeciesThermoInterpType::duplMyselfAsSpeciesThermoInterpType()</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00165">GeneralSpeciesThermo::m_kk</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_thigh_min</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00153">GeneralSpeciesThermo::m_tlow_max</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00162">GeneralSpeciesThermo::m_p0</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00148">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00159">GeneralSpeciesThermo::m_thigh_min</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_tlow_max</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00151">GeneralSpeciesThermo::m_tpoly</a>.</p>
 
 </div>
 </div>
@@ -324,9 +350,9 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a285236a2ba7818df8226230571a1691b">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00087">87</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00071">71</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00023">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00014">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>.</p>
 
 </div>
 </div>
@@ -411,9 +437,9 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#ae77a3800ecfa867e203b21cea453c071">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00092">92</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00088">88</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="speciesThermoTypes_8h_source.html#l00067">ADSORBATE</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00012">CONSTANT_CP</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00165">GeneralSpeciesThermo::m_kk</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_thigh_min</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00153">GeneralSpeciesThermo::m_tlow_max</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00042">MU0_INTERP</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00051">NASA1</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00023">NASA2</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00047">SHOMATE1</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00029">SHOMATE2</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00038">SIMPLE</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00063">STAT</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00190">Cantera::newSpeciesThermoInterpType()</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00192">SpeciesThermoInterpType::validate()</a>.</p>
 
 </div>
 </div>
@@ -449,11 +475,11 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a2b45b0faaf874d61e53cbe3df0722381">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00169">169</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">111</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00242">AssertThrow</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00165">GeneralSpeciesThermo::m_kk</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_thigh_min</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00153">GeneralSpeciesThermo::m_tlow_max</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00183">SpeciesThermoInterpType::minTemp()</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00202">SpeciesThermoInterpType::speciesIndex()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00283">AssertThrow</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00148">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00159">GeneralSpeciesThermo::m_thigh_min</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_tlow_max</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00151">GeneralSpeciesThermo::m_tpoly</a>, <a class="el" href="SpeciesThermo_8cpp_source.html#l00017">SpeciesThermo::markInstalled()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00181">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00175">SpeciesThermoInterpType::minTemp()</a>, <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5">SpeciesThermoInterpType::reportType()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00198">SpeciesThermoInterpType::speciesIndex()</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00207">SpeciesThermoInterpType::temperaturePolySize()</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00198">GeneralSpeciesThermo::installPDSShandler()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00088">GeneralSpeciesThermo::install()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00134">GeneralSpeciesThermo::installPDSShandler()</a>.</p>
 
 </div>
 </div>
@@ -497,11 +523,11 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00198">198</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00134">134</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00169">GeneralSpeciesThermo::install_STIT()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00248">VPSSMgr_Water_ConstVol::createInstallPDSS()</a>, <a class="el" href="VPSSMgr__Water__HKFT_8cpp_source.html#l00243">VPSSMgr_Water_HKFT::createInstallPDSS()</a>, and <a class="el" href="VPSSMgr__General_8cpp_source.html#l00145">VPSSMgr_General::returnPDSS_ptr()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00250">VPSSMgr_Water_ConstVol::createInstallPDSS()</a>, <a class="el" href="VPSSMgr__Water__HKFT_8cpp_source.html#l00245">VPSSMgr_Water_HKFT::createInstallPDSS()</a>, and <a class="el" href="VPSSMgr__General_8cpp_source.html#l00145">VPSSMgr_General::returnPDSS_ptr()</a>.</p>
 
 </div>
 </div>
@@ -569,9 +595,9 @@ Friends</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermo.html#a4f6f3fd2eaf3daf91bfcefa216981878">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00205">205</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00141">141</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d">SpeciesThermoInterpType::updatePropertiesTemp()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d">SpeciesThermoInterpType::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>
@@ -633,9 +659,9 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a4f4ab4ce24522c0c5a9252508d1e4acc">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00214">214</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00150">150</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d">SpeciesThermoInterpType::updatePropertiesTemp()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00148">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00151">GeneralSpeciesThermo::m_tpoly</a>.</p>
 
 </div>
 </div>
@@ -665,16 +691,16 @@ Friends</h2></td></tr>
 <p>If no argument is supplied, this method returns the minimum temperature for which <em>all</em> parameterizations are valid. If an integer index k is supplied, then the value returned is the minimum temperature for species k in the phase.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>Species index </td></tr>
+    <tr><td class="paramname">k</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#ab7ec7a5e58657c336ba78839f43942c6">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00256">256</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00192">192</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00153">GeneralSpeciesThermo::m_tlow_max</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00183">SpeciesThermoInterpType::minTemp()</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_tlow_max</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00175">SpeciesThermoInterpType::minTemp()</a>, <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>.</p>
 
 </div>
 </div>
@@ -704,16 +730,16 @@ Friends</h2></td></tr>
 <p>If no argument is supplied, this method returns the maximum temperature for which <em>all</em> parameterizations are valid. If an integer index k is supplied, then the value returned is the maximum temperature for parameterization k.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>Species Index </td></tr>
+    <tr><td class="paramname">k</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> Index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a4bf2a2567c1c5380e2e86dd7513bb6fa">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00269">269</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00203">203</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">GeneralSpeciesThermo::m_thigh_min</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00189">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00159">GeneralSpeciesThermo::m_thigh_min</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00181">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>.</p>
 
 </div>
 </div>
@@ -743,16 +769,16 @@ Friends</h2></td></tr>
 <p>Returns the reference state pressure in Pascals for species k. If k is left out of the argument list, it returns the reference state pressure for the first species. Note that some <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> implementations, such as those for ideal gases, require that all species in the same phase have the same reference state pressures.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>Species Index </td></tr>
+    <tr><td class="paramname">k</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> Index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00282">282</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00214">214</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00159">GeneralSpeciesThermo::m_p0</a>, <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00194">SpeciesThermoInterpType::refPressure()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00162">GeneralSpeciesThermo::m_p0</a>, <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00186">SpeciesThermoInterpType::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -781,16 +807,16 @@ Friends</h2></td></tr>
 <p>This utility function reports the type of parameterization used for the species with index number <em>index</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Species index </td></tr>
+    <tr><td class="paramname">index</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a01e42c624945ad66cfb68f6385c74990">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00229">229</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00165">165</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5">SpeciesThermoInterpType::reportType()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5">SpeciesThermoInterpType::reportType()</a>.</p>
 
 </div>
 </div>
@@ -853,7 +879,7 @@ Friends</h2></td></tr>
 <p>This utility function reports back the type of parameterization and all of the parameters for the species with index number <em>index</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Species index </td></tr>
+    <tr><td class="paramname">index</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index </td></tr>
     <tr><td class="paramname">type</td><td>Integer type of the standard type </td></tr>
     <tr><td class="paramname">c</td><td>Vector of coefficients used to set the parameters for the standard state. </td></tr>
     <tr><td class="paramname">minTemp</td><td>output - Minimum temperature </td></tr>
@@ -865,9 +891,9 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a24b85009a9ddb62f6ea4b1756cf6c4fe">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00238">238</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00174">174</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb">SpeciesThermoInterpType::reportParameters()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>, and <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb">SpeciesThermoInterpType::reportParameters()</a>.</p>
 
 </div>
 </div>
@@ -905,9 +931,9 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#a5985892b9fa1e28f1249a02dcc6ba6c2">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00300">300</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00246">246</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00053">SpeciesThermoInterpType::reportHf298()</a>.</p>
+<p>References <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00047">SpeciesThermoInterpType::reportHf298()</a>.</p>
 
 </div>
 </div>
@@ -955,9 +981,9 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">SpeciesThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00310">310</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00256">256</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>, and <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00060">SpeciesThermoInterpType::modifyOneHf298()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00053">SpeciesThermoInterpType::modifyOneHf298()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>.</p>
 
 </div>
 </div>
@@ -992,11 +1018,11 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a> object. </dd></dl>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00295">295</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">225</a> of file <a class="el" href="GeneralSpeciesThermo_8cpp_source.html">GeneralSpeciesThermo.cpp</a>.</p>
 
-<p>References <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">GeneralSpeciesThermo::m_sp</a>.</p>
+<p>References <a class="el" href="utilities_8h_source.html#l00714">Cantera::getValue()</a>, and <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00148">GeneralSpeciesThermo::m_sp</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgr_8cpp_source.html#l00121">VPSSMgr::initAllPtrs()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgr_8cpp_source.html#l00123">VPSSMgr::initAllPtrs()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00203">GeneralSpeciesThermo::maxTemp()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00192">GeneralSpeciesThermo::minTemp()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00256">GeneralSpeciesThermo::modifyOneHf298()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00214">GeneralSpeciesThermo::refPressure()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00246">GeneralSpeciesThermo::reportOneHf298()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00174">GeneralSpeciesThermo::reportParams()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00165">GeneralSpeciesThermo::reportType()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00141">GeneralSpeciesThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -1021,12 +1047,12 @@ Friends</h2></td></tr>
 
 <p>Make the class <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> a friend because we need to access the function <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a1d47e43104fb3ab3e61af117d5a1156a" title="Provide the SpeciesthermoInterpType object. ">provideSTIT()</a> </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00169">169</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00166">166</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a5c609970c46c6132b79c7cc23859323b"></a>
+<a class="anchor" id="a068c6e7ee5121bb7be10e0f9ecd8801c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1034,7 +1060,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classCantera_1_1SpeciesThermoInterpType.html">SpeciesThermoInterpType</a>*&gt; m_sp</td>
+          <td class="memname">STIT_map m_sp</td>
         </tr>
       </table>
   </td>
@@ -1045,11 +1071,37 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This is the main unknown in the object. </p>
-<p>It is a list of pointers to type <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a>. Note, this object owns the objects, so they are deleted in the destructor of this object. Note, that in some instances, m_sp[k] = 0, e.g., no <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a> is installed for one or more species. These cases must be handled by the calling routine. </p>
+<p>It contains pointers to <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a> objects, sorted by the parameterization type. This object owns the <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html" title="Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...">SpeciesThermoInterpType</a> objects, so they are deleted in the destructor of this object. </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00150">150</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00148">148</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00034">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00092">GeneralSpeciesThermo::install()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00169">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00269">GeneralSpeciesThermo::maxTemp()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00256">GeneralSpeciesThermo::minTemp()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00310">GeneralSpeciesThermo::modifyOneHf298()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00049">GeneralSpeciesThermo::operator=()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00295">GeneralSpeciesThermo::provideSTIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00282">GeneralSpeciesThermo::refPressure()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00300">GeneralSpeciesThermo::reportOneHf298()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00238">GeneralSpeciesThermo::reportParams()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00229">GeneralSpeciesThermo::reportType()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00214">GeneralSpeciesThermo::update()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00205">GeneralSpeciesThermo::update_one()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00074">GeneralSpeciesThermo::~GeneralSpeciesThermo()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00022">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00041">GeneralSpeciesThermo::operator=()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00225">GeneralSpeciesThermo::provideSTIT()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00150">GeneralSpeciesThermo::update()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa25d627e0668168d3def75faf1525c10"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tpoly_map m_tpoly</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temperature polynomials for each thermo parameterization. </p>
+
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00151">151</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00041">GeneralSpeciesThermo::operator=()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00150">GeneralSpeciesThermo::update()</a>.</p>
 
 </div>
 </div>
@@ -1073,9 +1125,9 @@ Friends</h2></td></tr>
 
 <p>Maximum value of the lowest temperature. </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00153">153</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">156</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00023">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00092">GeneralSpeciesThermo::install()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00169">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00256">GeneralSpeciesThermo::minTemp()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00049">GeneralSpeciesThermo::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00192">GeneralSpeciesThermo::minTemp()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00041">GeneralSpeciesThermo::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1099,9 +1151,9 @@ Friends</h2></td></tr>
 
 <p>Minimum value of the highest temperature. </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00156">156</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00159">159</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00023">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00092">GeneralSpeciesThermo::install()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00169">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00269">GeneralSpeciesThermo::maxTemp()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00049">GeneralSpeciesThermo::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00203">GeneralSpeciesThermo::maxTemp()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00041">GeneralSpeciesThermo::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1125,35 +1177,9 @@ Friends</h2></td></tr>
 
 <p>reference pressure (Pa) </p>
 
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00159">159</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
+<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00162">162</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00282">GeneralSpeciesThermo::refPressure()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a44776286c3ba788047554eef4620e6de"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t m_kk</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Internal variable indicating the length of the number of species in the phase. </p>
-
-<p>Definition at line <a class="el" href="GeneralSpeciesThermo_8h_source.html#l00165">165</a> of file <a class="el" href="GeneralSpeciesThermo_8h_source.html">GeneralSpeciesThermo.h</a>.</p>
-
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00034">GeneralSpeciesThermo::GeneralSpeciesThermo()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00092">GeneralSpeciesThermo::install()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00169">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00049">GeneralSpeciesThermo::operator=()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00074">GeneralSpeciesThermo::~GeneralSpeciesThermo()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00041">GeneralSpeciesThermo::operator=()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00214">GeneralSpeciesThermo::refPressure()</a>.</p>
 
 </div>
 </div>

@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -72,14 +72,12 @@
 <div class="dynheader">
 Inheritance diagram for PDSS_SSVol:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1PDSS__SSVol__inherit__graph.svg" width="166" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1PDSS__SSVol__inherit__graph.svg" width="166" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for PDSS_SSVol:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1PDSS__SSVol__coll__graph.svg" width="374" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1PDSS__SSVol__coll__graph.svg" width="374" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -315,7 +313,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:abf5389c2ce4d647032551bcb1db5cad3 inherit pro_attribs_classCantera_1_1PDSS"><td class="mdescLeft">&#160;</td><td class="mdescRight">Molecular Weight of the species.  <a href="#abf5389c2ce4d647032551bcb1db5cad3">More...</a><br/></td></tr>
 <tr class="separator:abf5389c2ce4d647032551bcb1db5cad3 inherit pro_attribs_classCantera_1_1PDSS"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a252b668936134d20b7f655dc8f9f778e inherit pro_attribs_classCantera_1_1PDSS"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1PDSS.html#a252b668936134d20b7f655dc8f9f778e">m_spindex</a></td></tr>
-<tr class="memdesc:a252b668936134d20b7f655dc8f9f778e inherit pro_attribs_classCantera_1_1PDSS"><td class="mdescLeft">&#160;</td><td class="mdescRight">Species index in the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> corresponding to this species.  <a href="#a252b668936134d20b7f655dc8f9f778e">More...</a><br/></td></tr>
+<tr class="memdesc:a252b668936134d20b7f655dc8f9f778e inherit pro_attribs_classCantera_1_1PDSS"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index in the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> corresponding to this species.  <a href="#a252b668936134d20b7f655dc8f9f778e">More...</a><br/></td></tr>
 <tr class="separator:a252b668936134d20b7f655dc8f9f778e inherit pro_attribs_classCantera_1_1PDSS"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65525d0f85c5b220a72be867861b4376 inherit pro_attribs_classCantera_1_1PDSS"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCantera_1_1SpeciesThermo.html">SpeciesThermo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1PDSS.html#a65525d0f85c5b220a72be867861b4376">m_spthermo</a></td></tr>
 <tr class="memdesc:a65525d0f85c5b220a72be867861b4376 inherit pro_attribs_classCantera_1_1PDSS"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the species thermodynamic property manager.  <a href="#a65525d0f85c5b220a72be867861b4376">More...</a><br/></td></tr>
@@ -378,7 +376,7 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </li>
 </ul>
-<p><b> Specification of Species Standard State Properties </b></p>
+<p><b> Specification of <a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> Standard State Properties </b></p>
 <p>The standard molar Gibbs free energy for species <em>k</em> is determined from the enthalpy and entropy expressions</p>
 <p class="formulaDsp">
 \[ G^o_k(T,P) = H^o_k(T,P) - S^o_k(T,P) \]
@@ -473,16 +471,16 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>Pointer to the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object pertaining to the phase </td></tr>
-    <tr><td class="paramname">spindex</td><td>Species index of the species in the phase </td></tr>
+    <tr><td class="paramname">spindex</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index of the species in the phase </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00025">25</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00021">21</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00559">PDSS::m_pdssType</a>, and <a class="el" href="PDSS__SSVol_8h_source.html#l00323">PDSS_SSVol::TCoeff_</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00083">PDSS_SSVol::duplMyselfAsPDSS()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00079">PDSS_SSVol::duplMyselfAsPDSS()</a>.</p>
 
 </div>
 </div>
@@ -527,16 +525,16 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tp</td><td>Pointer to the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object pertaining to the phase </td></tr>
-    <tr><td class="paramname">spindex</td><td>Species index of the species in the phase </td></tr>
+    <tr><td class="paramname">spindex</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index of the species in the phase </td></tr>
     <tr><td class="paramname">inputFile</td><td>String name of the input file </td></tr>
     <tr><td class="paramname">id</td><td>String name of the phase in the input file. The default is the empty string, in which case the first phase in the file is used. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00036">36</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00032">32</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00130">PDSS_SSVol::constructPDSSFile()</a>, and <a class="el" href="PDSS_8h_source.html#l00559">PDSS::m_pdssType</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00126">PDSS_SSVol::constructPDSSFile()</a>, and <a class="el" href="PDSS_8h_source.html#l00559">PDSS::m_pdssType</a>.</p>
 
 </div>
 </div>
@@ -587,7 +585,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vptp_ptr</td><td>Pointer to the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object pertaining to the phase </td></tr>
-    <tr><td class="paramname">spindex</td><td>Species index of the species in the phase </td></tr>
+    <tr><td class="paramname">spindex</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index of the species in the phase </td></tr>
     <tr><td class="paramname">speciesNode</td><td>Reference to the species XML tree. </td></tr>
     <tr><td class="paramname">phaseRef</td><td>Reference to the XML tree containing the phase information. </td></tr>
     <tr><td class="paramname">spInstalled</td><td>Boolean indicating whether the species is installed yet or not. </td></tr>
@@ -595,9 +593,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00047">47</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00043">43</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, and <a class="el" href="PDSS_8h_source.html#l00559">PDSS::m_pdssType</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, and <a class="el" href="PDSS_8h_source.html#l00559">PDSS::m_pdssType</a>.</p>
 
 </div>
 </div>
@@ -623,7 +621,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00059">59</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00055">55</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 </div>
 </div>
@@ -650,9 +648,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00071">71</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00067">67</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8cpp_source.html#l00110">PDSS::operator=()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00323">PDSS_SSVol::TCoeff_</a>, and <a class="el" href="PDSS__SSVol_8h_source.html#l00314">PDSS_SSVol::volumeModel_</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8cpp_source.html#l00104">PDSS::operator=()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00323">PDSS_SSVol::TCoeff_</a>, and <a class="el" href="PDSS__SSVol_8h_source.html#l00314">PDSS_SSVol::volumeModel_</a>.</p>
 
 </div>
 </div>
@@ -683,9 +681,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a06ead971aa7e73536f3ad0db5a91ee35">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00083">83</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00079">79</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00025">PDSS_SSVol::PDSS_SSVol()</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00021">PDSS_SSVol::PDSS_SSVol()</a>.</p>
 
 </div>
 </div>
@@ -715,7 +713,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#abaa2249046d637d37ebd12fcde4daabc">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00186">186</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00182">182</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00645">PDSS::m_hss_RT_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -747,9 +745,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a129b5bab1efffda61d59356f48fc3480">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00192">192</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00188">188</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, and <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00066">Cantera::GasConstant</a>, <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, and <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>.</p>
 
 </div>
 </div>
@@ -779,7 +777,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a05943db8a356dc45c0ad112109f3fb8c">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00201">201</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00197">197</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, and <a class="el" href="PDSS_8h_source.html#l00659">PDSS::m_sss_R_ptr</a>.</p>
 
@@ -811,7 +809,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#ad07803806d518aaf805be04667b39e74">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00207">207</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00203">203</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00666">PDSS::m_gss_RT_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -843,7 +841,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a2006f835b7069b34cfbff6ebfeed9768">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00213">213</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00209">209</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00652">PDSS::m_cpss_R_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -875,9 +873,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#ad38ceec94c8ad35971841f60e47071ee">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00219">219</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00215">215</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00445">PDSS_Nondimensional::cp_mole()</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, and <a class="el" href="PDSS_8h_source.html#l00638">PDSS::m_V0_ptr</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00439">PDSS_Nondimensional::cp_mole()</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, and <a class="el" href="PDSS_8h_source.html#l00638">PDSS::m_V0_ptr</a>.</p>
 
 </div>
 </div>
@@ -907,7 +905,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#ae9d9787b440293bab49e22035c5adbc9">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00225">225</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00221">221</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, and <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>.</p>
 
@@ -939,7 +937,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#afde7b7b531a296811c9695466da59bc7">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00231">231</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00227">227</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00590">PDSS::m_mw</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, and <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>.</p>
 
@@ -971,7 +969,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a91290239b71ca6bdafec50fa9dce3227">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00238">238</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00234">234</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00631">PDSS::m_g0_RT_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -1003,7 +1001,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a0de3db5f1756b0ee9948bfb8430474fa">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00243">243</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00239">239</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -1035,7 +1033,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#ae70139ad82c47ec9c423abfbf5ed94f2">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00248">248</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00244">244</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00625">PDSS::m_s0_R_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -1067,7 +1065,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#aa9b54dc3b91a1db66e3f39fe8d395d85">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00253">253</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00249">249</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00618">PDSS::m_cp0_R_ptr</a>, and <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>.</p>
 
@@ -1099,7 +1097,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a10f1136b515ef579e86677d4eca55d53">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00258">258</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00254">254</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, and <a class="el" href="PDSS_8h_source.html#l00638">PDSS::m_V0_ptr</a>.</p>
 
@@ -1128,11 +1126,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Does the internal calculation of the volume. </p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">263</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">259</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 <p>References <a class="el" href="mix__defs_8h_source.html#l00106">Cantera::cSSVOLUME_CONSTANT</a>, <a class="el" href="mix__defs_8h_source.html#l00117">Cantera::cSSVOLUME_DENSITY_TPOLY</a>, <a class="el" href="mix__defs_8h_source.html#l00111">Cantera::cSSVOLUME_TPOLY</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00329">PDSS_SSVol::d2VdT2_</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00326">PDSS_SSVol::dVdT_</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00590">PDSS::m_mw</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00323">PDSS_SSVol::TCoeff_</a>, and <a class="el" href="PDSS__SSVol_8h_source.html#l00314">PDSS_SSVol::volumeModel_</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">PDSS_SSVol::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">PDSS_SSVol::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -1169,9 +1167,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a47308c7661d4a0af39bd19c14cd5b4f8">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00284">284</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00280">280</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8h_source.html#l00329">PDSS_SSVol::d2VdT2_</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00326">PDSS_SSVol::dVdT_</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="PDSS_8h_source.html#l00618">PDSS::m_cp0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00652">PDSS::m_cpss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00666">PDSS::m_gss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00645">PDSS::m_hss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, <a class="el" href="PDSS_8h_source.html#l00625">PDSS::m_s0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00659">PDSS::m_sss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, and <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8h_source.html#l00329">PDSS_SSVol::d2VdT2_</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00326">PDSS_SSVol::dVdT_</a>, <a class="el" href="ct__defs_8h_source.html#l00066">Cantera::GasConstant</a>, <a class="el" href="PDSS_8h_source.html#l00618">PDSS::m_cp0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00652">PDSS::m_cpss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00666">PDSS::m_gss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00645">PDSS::m_hss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, <a class="el" href="PDSS_8h_source.html#l00625">PDSS::m_s0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00659">PDSS::m_sss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, and <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>.</p>
 
 </div>
 </div>
@@ -1207,11 +1205,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a6af23ee4714da8286b984b3730f5b58e">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">303</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">299</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00329">PDSS_SSVol::d2VdT2_</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00326">PDSS_SSVol::dVdT_</a>, <a class="el" href="ct__defs_8h_source.html#l00065">Cantera::GasConstant</a>, <a class="el" href="PDSS_8h_source.html#l00618">PDSS::m_cp0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00652">PDSS::m_cpss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00631">PDSS::m_g0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00666">PDSS::m_gss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00645">PDSS::m_hss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, <a class="el" href="PDSS_8h_source.html#l00625">PDSS::m_s0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00604">PDSS::m_spthermo</a>, <a class="el" href="PDSS_8h_source.html#l00659">PDSS::m_sss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>, and <a class="el" href="SpeciesThermo_8h_source.html#l00247">SpeciesThermo::update_one()</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00329">PDSS_SSVol::d2VdT2_</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00326">PDSS_SSVol::dVdT_</a>, <a class="el" href="ct__defs_8h_source.html#l00066">Cantera::GasConstant</a>, <a class="el" href="PDSS_8h_source.html#l00618">PDSS::m_cp0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00652">PDSS::m_cpss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00631">PDSS::m_g0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00666">PDSS::m_gss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00611">PDSS::m_h0_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00645">PDSS::m_hss_RT_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, <a class="el" href="PDSS_8h_source.html#l00625">PDSS::m_s0_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00604">PDSS::m_spthermo</a>, <a class="el" href="PDSS_8h_source.html#l00659">PDSS::m_sss_R_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00562">PDSS::m_temp</a>, <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>, and <a class="el" href="SpeciesThermo_8h_source.html#l00247">SpeciesThermo::update_one()</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00325">PDSS_SSVol::setState_TP()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00331">PDSS_SSVol::setState_TR()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00321">PDSS_SSVol::setState_TP()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00327">PDSS_SSVol::setState_TR()</a>.</p>
 
 </div>
 </div>
@@ -1258,9 +1256,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a4b6275f3750b35ed5d1e2706613efa33">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00325">325</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00321">321</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">PDSS_SSVol::setTemperature()</a>.</p>
+<p>References <a class="el" href="PDSS_8h_source.html#l00565">PDSS::m_pres</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">PDSS_SSVol::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -1307,9 +1305,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#ac04a7631adf59927f573421ea932a36d">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00331">331</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00327">327</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00590">PDSS::m_mw</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">PDSS_SSVol::setTemperature()</a>.</p>
+<p>References <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00590">PDSS::m_mw</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">PDSS_SSVol::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -1345,7 +1343,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#ae3fc47f48b0df5655050c8b662a94646">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00341">341</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00337">337</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
 </div>
 </div>
@@ -1377,9 +1375,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a8a12209d08a5c4876d9894d619368a79">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00176">176</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00172">172</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00183">PDSS::initThermo()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00582">PDSS::m_tp</a>, <a class="el" href="PDSS_8h_source.html#l00638">PDSS::m_V0_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00620">ThermoPhase::speciesThermo()</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00177">PDSS::initThermo()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00582">PDSS::m_tp</a>, <a class="el" href="PDSS_8h_source.html#l00638">PDSS::m_V0_ptr</a>, <a class="el" href="PDSS_8h_source.html#l00673">PDSS::m_Vss_ptr</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00629">ThermoPhase::speciesThermo()</a>.</p>
 
 </div>
 </div>
@@ -1432,18 +1430,18 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vptp_ptr</td><td>Pointer to the Variable pressure ThermoPhase object This object must have already been malloced.</td></tr>
-    <tr><td class="paramname">spindex</td><td>Species index within the phase</td></tr>
+    <tr><td class="paramname">spindex</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index within the phase</td></tr>
     <tr><td class="paramname">inputFile</td><td>XML file containing the description of the phase</td></tr>
     <tr><td class="paramname">id</td><td>Optional parameter identifying the name of the phase. If none is given, the first XML phase element will be used. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00130">130</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00126">126</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00760">XML_Node::build()</a>, <a class="el" href="xml_8cpp_source.html#l00569">XML_Node::child()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="xml_8cpp_source.html#l00700">XML_Node::findByAttr()</a>, <a class="el" href="global_8cpp_source.html#l00161">Cantera::findInputFile()</a>, <a class="el" href="xml_8cpp_source.html#l01087">Cantera::findXMLPhase()</a>, <a class="el" href="global_8cpp_source.html#l00241">Cantera::get_XML_NameID()</a>, <a class="el" href="xml_8cpp_source.html#l01074">XML_Node::root()</a>, and <a class="el" href="Phase_8cpp_source.html#l00280">Phase::speciesNames()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00757">XML_Node::build()</a>, <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="xml_8cpp_source.html#l00697">XML_Node::findByAttr()</a>, <a class="el" href="global_8cpp_source.html#l00164">Cantera::findInputFile()</a>, <a class="el" href="xml_8cpp_source.html#l01097">Cantera::findXMLPhase()</a>, <a class="el" href="global_8cpp_source.html#l00260">Cantera::get_XML_NameID()</a>, <a class="el" href="xml_8cpp_source.html#l01084">XML_Node::root()</a>, and <a class="el" href="Phase_8cpp_source.html#l00284">Phase::speciesNames()</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00036">PDSS_SSVol::PDSS_SSVol()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00032">PDSS_SSVol::PDSS_SSVol()</a>.</p>
 
 </div>
 </div>
@@ -1508,7 +1506,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vptp_ptr</td><td>Pointer to the Variable pressure ThermoPhase object This object must have already been malloced.</td></tr>
-    <tr><td class="paramname">spindex</td><td>Species index within the phase</td></tr>
+    <tr><td class="paramname">spindex</td><td><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> index within the phase</td></tr>
     <tr><td class="paramname">speciesNode</td><td>XML Node containing the species information</td></tr>
     <tr><td class="paramname">phaseNode</td><td>Reference to the phase Information for the phase that owns this species.</td></tr>
     <tr><td class="paramname">spInstalled</td><td>Boolean indicating whether the species is already installed. </td></tr>
@@ -1516,11 +1514,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">88</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">84</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="mix__defs_8h_source.html#l00106">Cantera::cSSVOLUME_CONSTANT</a>, <a class="el" href="mix__defs_8h_source.html#l00117">Cantera::cSSVOLUME_DENSITY_TPOLY</a>, <a class="el" href="mix__defs_8h_source.html#l00111">Cantera::cSSVOLUME_TPOLY</a>, <a class="el" href="xml_8cpp_source.html#l00738">XML_Node::findByName()</a>, <a class="el" href="ctml_8cpp_source.html#l00209">ctml::getFloat()</a>, <a class="el" href="ctml_8cpp_source.html#l00339">ctml::getFloatArray()</a>, <a class="el" href="PDSS_8cpp_source.html#l00183">PDSS::initThermo()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00582">PDSS::m_tp</a>, <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00620">ThermoPhase::speciesThermo()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00323">PDSS_SSVol::TCoeff_</a>, and <a class="el" href="PDSS__SSVol_8h_source.html#l00314">PDSS_SSVol::volumeModel_</a>.</p>
+<p>References <a class="el" href="mix__defs_8h_source.html#l00106">Cantera::cSSVOLUME_CONSTANT</a>, <a class="el" href="mix__defs_8h_source.html#l00117">Cantera::cSSVOLUME_DENSITY_TPOLY</a>, <a class="el" href="mix__defs_8h_source.html#l00111">Cantera::cSSVOLUME_TPOLY</a>, <a class="el" href="xml_8cpp_source.html#l00735">XML_Node::findByName()</a>, <a class="el" href="ctml_8cpp_source.html#l00195">ctml::getFloat()</a>, <a class="el" href="ctml_8cpp_source.html#l00325">ctml::getFloatArray()</a>, <a class="el" href="PDSS_8cpp_source.html#l00177">PDSS::initThermo()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00320">PDSS_SSVol::m_constMolarVolume</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00582">PDSS::m_tp</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00629">ThermoPhase::speciesThermo()</a>, <a class="el" href="PDSS__SSVol_8h_source.html#l00323">PDSS_SSVol::TCoeff_</a>, and <a class="el" href="PDSS__SSVol_8h_source.html#l00314">PDSS_SSVol::volumeModel_</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00130">PDSS_SSVol::constructPDSSFile()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00047">PDSS_SSVol::PDSS_SSVol()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00126">PDSS_SSVol::constructPDSSFile()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00043">PDSS_SSVol::PDSS_SSVol()</a>.</p>
 
 </div>
 </div>
@@ -1568,9 +1566,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1PDSS.html#a83a414cf1b11cec111bf9ad1e95b210a">PDSS</a>.</p>
 
-<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00167">167</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="PDSS__SSVol_8cpp_source.html#l00163">163</a> of file <a class="el" href="PDSS__SSVol_8cpp_source.html">PDSS_SSVol.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00175">PDSS::initThermoXML()</a>, <a class="el" href="PDSS_8h_source.html#l00574">PDSS::m_maxTemp</a>, <a class="el" href="PDSS_8h_source.html#l00571">PDSS::m_minTemp</a>, <a class="el" href="PDSS_8h_source.html#l00590">PDSS::m_mw</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00604">PDSS::m_spthermo</a>, <a class="el" href="PDSS_8h_source.html#l00582">PDSS::m_tp</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a4bf2a2567c1c5380e2e86dd7513bb6fa">SpeciesThermo::maxTemp()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#ab7ec7a5e58657c336ba78839f43942c6">SpeciesThermo::minTemp()</a>, <a class="el" href="Phase_8cpp_source.html#l00508">Phase::molecularWeight()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00169">PDSS::initThermoXML()</a>, <a class="el" href="PDSS_8h_source.html#l00574">PDSS::m_maxTemp</a>, <a class="el" href="PDSS_8h_source.html#l00571">PDSS::m_minTemp</a>, <a class="el" href="PDSS_8h_source.html#l00590">PDSS::m_mw</a>, <a class="el" href="PDSS_8h_source.html#l00568">PDSS::m_p0</a>, <a class="el" href="PDSS_8h_source.html#l00595">PDSS::m_spindex</a>, <a class="el" href="PDSS_8h_source.html#l00604">PDSS::m_spthermo</a>, <a class="el" href="PDSS_8h_source.html#l00582">PDSS::m_tp</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a4bf2a2567c1c5380e2e86dd7513bb6fa">SpeciesThermo::maxTemp()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#ab7ec7a5e58657c336ba78839f43942c6">SpeciesThermo::minTemp()</a>, <a class="el" href="Phase_8cpp_source.html#l00506">Phase::molecularWeight()</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1595,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PDSS__SSVol_8h_source.html#l00314">314</a> of file <a class="el" href="PDSS__SSVol_8h_source.html">PDSS_SSVol.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00071">PDSS_SSVol::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00067">PDSS_SSVol::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1624,7 +1622,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PDSS__SSVol_8h_source.html#l00320">320</a> of file <a class="el" href="PDSS__SSVol_8h_source.html">PDSS_SSVol.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00176">PDSS_SSVol::initThermo()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00071">PDSS_SSVol::operator=()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00331">PDSS_SSVol::setState_TR()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00172">PDSS_SSVol::initThermo()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00067">PDSS_SSVol::operator=()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00327">PDSS_SSVol::setState_TR()</a>.</p>
 
 </div>
 </div>
@@ -1650,7 +1648,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PDSS__SSVol_8h_source.html#l00323">323</a> of file <a class="el" href="PDSS__SSVol_8h_source.html">PDSS_SSVol.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00071">PDSS_SSVol::operator=()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00025">PDSS_SSVol::PDSS_SSVol()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00067">PDSS_SSVol::operator=()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00021">PDSS_SSVol::PDSS_SSVol()</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1674,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PDSS__SSVol_8h_source.html#l00326">326</a> of file <a class="el" href="PDSS__SSVol_8h_source.html">PDSS_SSVol.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00284">PDSS_SSVol::setPressure()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">PDSS_SSVol::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00280">PDSS_SSVol::setPressure()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">PDSS_SSVol::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -1702,7 +1700,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="PDSS__SSVol_8h_source.html#l00329">329</a> of file <a class="el" href="PDSS__SSVol_8h_source.html">PDSS_SSVol.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00263">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00284">PDSS_SSVol::setPressure()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00303">PDSS_SSVol::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00259">PDSS_SSVol::calcMolarVolume()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00280">PDSS_SSVol::setPressure()</a>, and <a class="el" href="PDSS__SSVol_8cpp_source.html#l00299">PDSS_SSVol::setTemperature()</a>.</p>
 
 </div>
 </div>

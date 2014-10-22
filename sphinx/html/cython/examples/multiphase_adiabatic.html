@@ -120,27 +120,17 @@
 <span class="c"># gaseous fuel species</span>
 <span class="n">fuel_species</span> <span class="o">=</span> <span class="s">&#39;CH4&#39;</span>
 
-<span class="c"># air composition</span>
-<span class="n">air_N2_O2_ratio</span> <span class="o">=</span> <span class="mf">3.76</span>
-
 <span class="c"># equivalence ratio range</span>
-<span class="n">phi_min</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="n">phi_max</span> <span class="o">=</span> <span class="mf">3.5</span>
 <span class="n">npoints</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
 
 <span class="c">##############################################################################</span>
 
 <span class="n">mix</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Mixture</span><span class="p">(</span><span class="n">mix_phases</span><span class="p">)</span>
 
 <span class="c"># create some arrays to hold the data</span>
-<span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
 <span class="n">tad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
 <span class="n">xeq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">mix</span><span class="o">.</span><span class="n">n_species</span><span class="p">,</span><span class="n">npoints</span><span class="p">))</span>
-
-<span class="c"># find fuel, nitrogen, and oxygen indices</span>
-<span class="n">ifuel</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">)</span>
-<span class="n">io2</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s">&#39;O2&#39;</span><span class="p">)</span>
-<span class="n">in2</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s">&#39;N2&#39;</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;O&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;N&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">raise</span> <span class="s">&quot;Error: only hydrocarbon fuels are supported.&quot;</span>
@@ -148,12 +138,7 @@
 <span class="n">stoich_O2</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;C&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npoints</span><span class="p">):</span>
-    <span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi_min</span> <span class="o">+</span> <span class="p">(</span><span class="n">phi_max</span> <span class="o">-</span> <span class="n">phi_min</span><span class="p">)</span><span class="o">*</span><span class="n">i</span><span class="o">/</span><span class="p">(</span><span class="n">npoints</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">gas</span><span class="o">.</span><span class="n">n_species</span><span class="p">)</span>
-    <span class="n">X</span><span class="p">[</span><span class="n">ifuel</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">X</span><span class="p">[</span><span class="n">io2</span><span class="p">]</span> <span class="o">=</span> <span class="n">stoich_O2</span>
-    <span class="n">X</span><span class="p">[</span><span class="n">in2</span><span class="p">]</span> <span class="o">=</span> <span class="n">stoich_O2</span><span class="o">*</span><span class="n">air_N2_O2_ratio</span>
-
+    <span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">fuel_species</span><span class="p">:</span> <span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">stoich_O2</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;N2&#39;</span><span class="p">:</span> <span class="mf">3.76</span><span class="p">}</span>
     <span class="c"># set the gas state</span>
     <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X</span>
 

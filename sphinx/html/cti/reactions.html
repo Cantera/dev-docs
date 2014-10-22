@@ -77,6 +77,7 @@
 <li><a class="reference internal" href="#chemically-activated-reactions">Chemically-Activated Reactions</a></li>
 <li><a class="reference internal" href="#pressure-dependent-arrhenius-rate-expressions-p-log">Pressure-Dependent Arrhenius Rate Expressions (P-Log)</a></li>
 <li><a class="reference internal" href="#chebyshev-reaction-rate-expressions">Chebyshev Reaction Rate Expressions</a></li>
+<li><a class="reference internal" href="#surface-reactions">Surface Reactions</a></li>
 </ul>
 </li>
 </ul>
@@ -118,7 +119,7 @@
 <p>Cantera supports a number of different types of reactions, including several
 types of homogeneous reactions, surface reactions, and electrochemical
 reactions. For each, there is a corresponding entry type. The simplest entry
-type is <tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt>, which can be used for any homogeneous reaction that
+type is <a class="reference internal" href="classes.html#cantera.ctml_writer.reaction" title="cantera.ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt></a>, which can be used for any homogeneous reaction that
 has a rate expression that obeys the law of mass action, with a rate coefficient
 that depends only on temperature.</p>
 <div class="section" id="common-attributes">
@@ -153,7 +154,7 @@ rate coefficient type. At present, the only implemented type is the modified
 Arrhenius function</p>
 <div class="math">
 \[k_f(T) = A T^b \exp(-E/\hat{R}T)\]</div>
-<p>which is defined with an <tt class="xref py py-class docutils literal"><span class="pre">Arrhenius</span></tt> entry:</p>
+<p>which is defined with an <a class="reference internal" href="classes.html#cantera.ctml_writer.Arrhenius" title="cantera.ctml_writer.Arrhenius"><tt class="xref py py-class docutils literal"><span class="pre">Arrhenius</span></tt></a> entry:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">rate_coeff</span> <span class="o">=</span> <span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="mf">1.0e13</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="p">(</span><span class="mf">7.3</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">))</span>
 <span class="n">rate_coeff</span> <span class="o">=</span> <span class="n">Arrhenius</span><span class="p">(</span><span class="mf">1.0e13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="mf">7.3</span><span class="p">,</span> <span class="s">&#39;kcal/mol&#39;</span><span class="p">))</span>
 </pre></div>
@@ -181,7 +182,7 @@ formally express this is to replace <span class="math">\(T^b\)</span> by the non
 <div class="section" id="the-id-string">
 <h3>The ID String<a class="headerlink" href="#the-id-string" title="Permalink to this headline">¶</a></h3>
 <p>An optional identifying string can be entered in the <tt class="docutils literal"><span class="pre">ID</span></tt> field, which can
-then be used in the <tt class="docutils literal"><span class="pre">reactions</span></tt> field of a <tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt> or interface entry
+then be used in the <tt class="docutils literal"><span class="pre">reactions</span></tt> field of a <a class="reference internal" href="classes.html#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt></a> or interface entry
 to identify this reaction. If omitted, the reactions are assigned ID strings as
 they are read in, beginning with <tt class="docutils literal"><span class="pre">'0001'</span></tt>, <tt class="docutils literal"><span class="pre">'0002'</span></tt>, etc.</p>
 <p>Note that the ID string is only used when selectively importing reactions. If
@@ -231,7 +232,7 @@ positive, then negative <em>A</em> parameters are acceptable, as long as the
 </div>
 <div class="section" id="reactions-with-pressure-independent-rate">
 <h2>Reactions with Pressure-Independent Rate<a class="headerlink" href="#reactions-with-pressure-independent-rate" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt> entry is used to represent homogeneous reactions with
+<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.reaction" title="cantera.ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">reaction</span></tt></a> entry is used to represent homogeneous reactions with
 pressure-independent rate coefficients and mass action kinetics.  Examples of
 reaction entries that implement some reactions in the GRI-Mech 3.0 natural gas
 combustion mechanism <a class="footnote-reference" href="#smith1997" id="id1">[3]</a> are shown below:</p>
@@ -269,7 +270,7 @@ complex may be much more effective at exchanging energy than would otherwise be 
 <p>where <span class="math">\(C_k\)</span> is the concentration of species <em>k</em>. Since any constant
 collision efficiency can be absorbed into the rate coefficient <span class="math">\(k_f(T)\)</span>, the
 default collision efficiency is 1.0.</p>
-<p>A three-body reaction may be defined using the <tt class="xref py py-class docutils literal"><span class="pre">three_body_reaction</span></tt> entry. The equation string for a three-body
+<p>A three-body reaction may be defined using the <a class="reference internal" href="classes.html#cantera.ctml_writer.three_body_reaction" title="cantera.ctml_writer.three_body_reaction"><tt class="xref py py-class docutils literal"><span class="pre">three_body_reaction</span></tt></a> entry. The equation string for a three-body
 reaction must contain an <tt class="docutils literal"><span class="pre">'M'</span></tt> or <tt class="docutils literal"><span class="pre">'m'</span></tt> on both the reactant and product sides of the equation. The collision
 efficiencies are specified as a string, with the species name followed by a colon and the efficiency.</p>
 <p>Some examples from GRI-Mech 3.0 are shown below:</p>
@@ -321,7 +322,7 @@ specified by assigning an embedded entry to the <tt class="docutils literal"><sp
 al. <a class="footnote-reference" href="#gilbert1983" id="id3">[1]</a>:</p>
 <div class="math">
 \[\log_{10} F(T, P_r) = \frac{\log_{10} F_{cent}(T)}{1 + f_1^2}\]\[F_{cent}(T) = (1-A) \exp(-T/T_3) + A \exp (-T/T_1) + \exp(-T_2/T)\]\[f_1 = (\log_{10} P_r + C) / (N - 0.14 (\log_{10} P_r + C))\]\[C = -0.4 - 0.67\; \log_{10} F_{cent}\]\[N = 0.75 - 1.27\; \log_{10} F_{cent}\]</div>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Troe</span></tt> directive requires specifying the first three parameters
+<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.Troe" title="cantera.ctml_writer.Troe"><tt class="xref py py-class docutils literal"><span class="pre">Troe</span></tt></a> directive requires specifying the first three parameters
 <span class="math">\((A, T_3, T_1)\)</span>. The fourth parameter, <span class="math">\(T_2\)</span>, is optional, defaulting to 0.0.</p>
 </div>
 <div class="section" id="the-sri-falloff-function">
@@ -334,7 +335,7 @@ supports the extended 5-parameter form, given by:</p>
 <div class="math">
 \[F(T, P_r) = d \bigl[a \exp(-b/T) + \exp(-T/c)\bigr]^{1/(1+\log_{10}^2 P_r )} T^e\]</div>
 <p>In keeping with the nomenclature of Kee et al. <a class="footnote-reference" href="#kee1989" id="id6">[5]</a>, we will refer to this as
-the &#8220;SRI&#8221; falloff function. It is implemented by the <tt class="xref py py-class docutils literal"><span class="pre">SRI</span></tt> directive.</p>
+the &#8220;SRI&#8221; falloff function. It is implemented by the <a class="reference internal" href="classes.html#cantera.ctml_writer.SRI" title="cantera.ctml_writer.SRI"><tt class="xref py py-class docutils literal"><span class="pre">SRI</span></tt></a> directive.</p>
 </div>
 </div>
 <div class="section" id="chemically-activated-reactions">
@@ -354,7 +355,7 @@ to the <em>low pressure</em> rate constant:</p>
 \[k_f(T, P_r) = k_0 \left(\frac{1}{1 + P_r}\right) F(T, P_r)\]</div>
 <p>and the optional blending function <em>F</em> may described by any of the
 parameterizations allowed for falloff reactions. Chemically-activated
-reactions can be defined using the <tt class="xref py py-class docutils literal"><span class="pre">chemically_activated_reaction</span></tt>
+reactions can be defined using the <a class="reference internal" href="classes.html#cantera.ctml_writer.chemically_activated_reaction" title="cantera.ctml_writer.chemically_activated_reaction"><tt class="xref py py-class docutils literal"><span class="pre">chemically_activated_reaction</span></tt></a>
 directive.</p>
 <p>An example of a reaction specified with this parameterization:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">chemically_activated_reaction</span><span class="p">(</span><span class="s">&#39;CH3 + OH (+ M) &lt;=&gt; CH2O + H2 (+ M)&#39;</span><span class="p">,</span>
@@ -368,7 +369,7 @@ units of <span class="math">\(k_\infty\)</span> (<tt class="xref py py-obj docut
 </div>
 <div class="section" id="pressure-dependent-arrhenius-rate-expressions-p-log">
 <h2>Pressure-Dependent Arrhenius Rate Expressions (P-Log)<a class="headerlink" href="#pressure-dependent-arrhenius-rate-expressions-p-log" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">pdep_arrhenius</span></tt> class represents pressure-dependent reaction rates
+<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.pdep_arrhenius" title="cantera.ctml_writer.pdep_arrhenius"><tt class="xref py py-class docutils literal"><span class="pre">pdep_arrhenius</span></tt></a> class represents pressure-dependent reaction rates
 by logarithmically interpolating between Arrhenius rate expressions at various
 pressures. Given two rate expressions at two specific pressures:</p>
 <div class="math">
@@ -397,7 +398,7 @@ that pressure.</p>
 </div>
 <div class="section" id="chebyshev-reaction-rate-expressions">
 <h2>Chebyshev Reaction Rate Expressions<a class="headerlink" href="#chebyshev-reaction-rate-expressions" title="Permalink to this headline">¶</a></h2>
-<p>Class <tt class="xref py py-class docutils literal"><span class="pre">chebyshev_reaction</span></tt> represents a phenomenological rate coefficient
+<p>Class <a class="reference internal" href="classes.html#cantera.ctml_writer.chebyshev_reaction" title="cantera.ctml_writer.chebyshev_reaction"><tt class="xref py py-class docutils literal"><span class="pre">chebyshev_reaction</span></tt></a> represents a phenomenological rate coefficient
 <span class="math">\(k(T,P)\)</span> in terms of a bivariate Chebyshev polynomial. The rate constant
 can be written as:</p>
 <div class="math">
@@ -430,6 +431,37 @@ Chebyshev rate expression where <span class="math">\(N_T = 6\)</span> and <span 
 <p>Note that the Chebyshev polynomials are not defined outside the interval
 <span class="math">\((-1,1)\)</span>, and therefore extrapolation of rates outside the range of
 temperatures and pressure for which they are defined is strongly discouraged.</p>
+</div>
+<div class="section" id="surface-reactions">
+<h2>Surface Reactions<a class="headerlink" href="#surface-reactions" title="Permalink to this headline">¶</a></h2>
+<p>Heterogeneous reactions on surfaces are represented by an extended Arrhenius-
+like rate expression, which combines the modified Arrhenius rate expression with
+further corrections dependent on the fractional surface coverages
+<span class="math">\(\theta_k\)</span> of one or more surface species. The forward rate constant for a
+reaction of this type is:</p>
+<div class="math">
+\[k_f = A T^b \exp \left( - \frac{E_a}{RT} \right)
+        \prod_k 10^{a_k \theta_k} \theta_k^{m_k}
+        \exp \left( \frac{- E_k \theta_k}{RT} \right)\]</div>
+<p>where <span class="math">\(A\)</span>, <span class="math">\(b\)</span>, and <span class="math">\(E_a\)</span> are the modified Arrhenius
+parameters and <span class="math">\(a_k\)</span>, <span class="math">\(m_k\)</span>, and <span class="math">\(E_k\)</span> are the coverage
+dependencies from species <em>k</em>. A reaction of this form with a single coverage
+dependency (on the species <tt class="docutils literal"><span class="pre">H(S)</span></tt>) can be written using class
+<a class="reference internal" href="classes.html#cantera.ctml_writer.surface_reaction" title="cantera.ctml_writer.surface_reaction"><tt class="xref py py-class docutils literal"><span class="pre">surface_reaction</span></tt></a> with the <tt class="docutils literal"><span class="pre">coverage</span></tt> keyword argument supplied to the
+class <a class="reference internal" href="classes.html#cantera.ctml_writer.Arrhenius" title="cantera.ctml_writer.Arrhenius"><tt class="xref py py-class docutils literal"><span class="pre">Arrhenius</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">surface_reaction</span><span class="p">(</span><span class="s">&quot;2 H(S) =&gt; H2 + 2 PT(S)&quot;</span><span class="p">,</span>
+                 <span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">E_a</span><span class="p">,</span>
+                           <span class="n">coverage</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;H(S)&#39;</span><span class="p">,</span> <span class="n">a_1</span><span class="p">,</span> <span class="n">m_1</span><span class="p">,</span> <span class="n">E_1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>For a reaction with multiple coverage dependencies, the following syntax is
+used:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">surface_reaction</span><span class="p">(</span><span class="s">&quot;2 H(S) =&gt; H2 + 2 PT(S)&quot;</span><span class="p">,</span>
+                 <span class="n">Arrhenius</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">E_a</span><span class="p">,</span>
+                           <span class="n">coverage</span><span class="o">=</span><span class="p">[[</span><span class="s">&#39;H(S)&#39;</span><span class="p">,</span> <span class="n">a_1</span><span class="p">,</span> <span class="n">m_1</span><span class="p">,</span> <span class="n">E_1</span><span class="p">],</span>
+                                     <span class="p">[</span><span class="s">&#39;PT(S)&#39;</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">m_2</span><span class="p">,</span> <span class="n">E_2</span><span class="p">]]))</span>
+</pre></div>
+</div>
 <p class="rubric">References</p>
 <table class="docutils footnote" frame="void" id="gilbert1983" rules="none">
 <colgroup><col class="label" /><col /></colgroup>

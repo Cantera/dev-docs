@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -89,8 +89,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>update_C</b> (const d
 <tr class="memitem:aa4fe0f65450a40b50a1266042c233597"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SurfaceArrhenius.html#aa4fe0f65450a40b50a1266042c233597">updateRC</a> (doublereal logT, doublereal recipT) const </td></tr>
 <tr class="memdesc:aa4fe0f65450a40b50a1266042c233597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the value the rate constant.  <a href="#aa4fe0f65450a40b50a1266042c233597">More...</a><br/></td></tr>
 <tr class="separator:aa4fe0f65450a40b50a1266042c233597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95afa7f3889451f6deaee4f9bb71ddd0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95afa7f3889451f6deaee4f9bb71ddd0"></a>
-doublereal&#160;</td><td class="memItemRight" valign="bottom"><b>activationEnergy_R</b> () const </td></tr>
+<tr class="memitem:a95afa7f3889451f6deaee4f9bb71ddd0"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SurfaceArrhenius.html#a95afa7f3889451f6deaee4f9bb71ddd0">activationEnergy_R</a> () const </td></tr>
 <tr class="separator:a95afa7f3889451f6deaee4f9bb71ddd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -98,8 +97,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e3be63dca2a4aae8e55262718273283"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e3be63dca2a4aae8e55262718273283"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> ()</td></tr>
 <tr class="separator:a2e3be63dca2a4aae8e55262718273283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0260b13df92bd19b464c84920d7c3806"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0260b13df92bd19b464c84920d7c3806"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>alwaysComputeRate</b> ()</td></tr>
+<tr class="memitem:a0260b13df92bd19b464c84920d7c3806"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SurfaceArrhenius.html#a0260b13df92bd19b464c84920d7c3806">alwaysComputeRate</a> ()</td></tr>
 <tr class="separator:a0260b13df92bd19b464c84920d7c3806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -151,11 +149,11 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 <div class="textblock"><p>An <a class="el" href="classCantera_1_1Arrhenius.html" title="Arrhenius reaction rate type depends only on temperature. ">Arrhenius</a> rate with coverage-dependent terms. </p>
 <p>The rate expression is given by: </p>
 <p class="formulaDsp">
-\[ k_f = A T^b \exp \left( \sum a_k \theta_k - \frac{1}{RT} \left( E_a + \sum E_k\theta_k \right) + \sum m_k \log \theta_k \right) \]
+\[ k_f = A T^b \exp \left( \ln 10 \sum a_k \theta_k - \frac{1}{RT} \left( E_a + \sum E_k\theta_k \right) + \sum m_k \ln \theta_k \right) \]
 </p>
 <p> where the parameters \( (a_k, E_k, m_k) \) describe the dependency on the surface coverage of species \(k, \theta_k \). </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00145">145</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00146">146</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ae24cd084de63f6b9eb3b6d68e61608ba"></a>
 <div class="memitem">
@@ -191,8 +189,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 
 <p>Update the value of the logarithm of the rate constant. </p>
 <p>This calculation is not safe for negative values of the preexponential. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000045">Deprecated:</a></b></dt><dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00228">228</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00230">230</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>
@@ -231,7 +230,59 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 <p>Update the value the rate constant. </p>
 <p>This function returns the actual value of the rate constant. It can be safely called for negative values of the pre-exponential factor. </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00240">240</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00242">242</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a95afa7f3889451f6deaee4f9bb71ddd0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">doublereal activationEnergy_R </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000046">Deprecated:</a></b></dt><dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00248">248</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0260b13df92bd19b464c84920d7c3806"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool alwaysComputeRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000047">Deprecated:</a></b></dt><dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00253">253</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>

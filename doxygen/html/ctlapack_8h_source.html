@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -313,7 +313,7 @@
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                     <span class="keywordtype">int</span>&amp; info)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    integer f_n = n, f_kl = kl, f_ku = ku, f_nrhs = nrhs, f_lda = lda,</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            f_ldb = ldb, f_info = info;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            f_ldb = ldb, f_info = 0;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    _DGBSV_(&amp;f_n, &amp;f_kl, &amp;f_ku, &amp;f_nrhs, a, &amp;f_lda, ipiv,</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            b, &amp;f_ldb, &amp;f_info);</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    info = f_info;</div>
@@ -348,7 +348,7 @@
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    integer f_kl = (int) kl;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    integer f_ku = (int) ku;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    integer f_lda = (int) lda;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    _DGBTRF_(&amp;f_m, &amp;f_n, &amp;f_kl, &amp;f_ku, a, &amp;f_lda, ipiv, &amp;f_info);</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    info = f_info;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;}</div>
@@ -363,7 +363,7 @@
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    integer f_nrhs = (int) nrhs;</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    integer f_lda = (int) lda;</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    integer f_ldb = (int) ldb;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordtype">char</span> tr = no_yes[trans];</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor"></span>    _DGBTRS_(&amp;tr, &amp;f_n, &amp;f_kl, &amp;f_ku, &amp;f_nrhs, a, &amp;f_lda, ipiv,</div>
@@ -387,7 +387,7 @@
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    integer mm = (int) m;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    integer nn = (int) n;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    integer ldaa = (int) lda;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    integer infoo = info;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    integer infoo = 0;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    _DGETRF_(&amp;mm, &amp;nn, a, &amp;ldaa, ipiv, &amp;infoo);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    info = infoo;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}</div>
@@ -400,7 +400,7 @@
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    integer f_lda = (int) lda;</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    integer f_nrhs = (int) nrhs;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    integer f_ldb = (int) ldb;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordtype">char</span> tr = no_yes[trans];</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
@@ -420,7 +420,7 @@
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> ct_dgetri(<span class="keywordtype">int</span> n, doublereal* a, <span class="keywordtype">int</span> lda, integer* ipiv,</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                      doublereal* work, <span class="keywordtype">int</span> lwork, <span class="keywordtype">int</span>&amp; info)</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;{</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    integer f_n = n, f_lda = lda, f_lwork = lwork, f_info = info;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    integer f_n = n, f_lda = lda, f_lwork = lwork, f_info = 0;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    _DGETRI_(&amp;f_n, a, &amp;f_lda, ipiv, work, &amp;f_lwork, &amp;f_info);</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;}</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
@@ -437,7 +437,7 @@
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    integer f_n = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(n);</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    integer f_lwork = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lwork);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    _DGEQRF_(&amp;f_m, &amp;f_n, a, &amp;f_lda, tau, work, &amp;f_lwork, &amp;f_info);</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    info = f_info;</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;}</div>
@@ -454,7 +454,7 @@
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    integer f_lwork = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lwork);</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    integer f_ldc = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(ldc);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="preprocessor"></span>    _DORMQR_(&amp;side, &amp;tr, &amp;f_m, &amp;f_n,  &amp;f_k, a, &amp;f_lda, tau, c, &amp;f_ldc, work, &amp;f_lwork, &amp;f_info);</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="preprocessor">#else</span></div>
@@ -481,7 +481,7 @@
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    integer f_nrhs = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(nrhs);</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    integer f_ldb = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(ldb);</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="preprocessor"></span>    _DTRTRS_(&amp;uplo, &amp;tr, &amp;dd, &amp;f_n, &amp;f_nrhs, a, &amp;f_lda, b, &amp;f_ldb, &amp;f_info);</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="preprocessor">#else</span></div>
@@ -514,7 +514,7 @@
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    }</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    integer f_n = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(n);</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    doublereal rcond;</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="preprocessor"></span>    _DTRCON_(&amp;nn, &amp;uplo, &amp;dd, &amp;f_n, a, &amp;f_lda, &amp;rcond, work, iwork, &amp;f_info);</div>
@@ -536,7 +536,7 @@
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordtype">char</span> uplo = upper_lower[uplot];</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    integer f_n = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(n);</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;<span class="preprocessor"></span>    _DPOTRF_(&amp;uplo, &amp;f_n, a, &amp;f_lda, &amp;f_info);</div>
@@ -563,7 +563,7 @@
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    integer f_nrhs = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(nrhs);</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    integer f_ldb = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(ldb);</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="preprocessor"></span>    _DPOTRS_(&amp;uplo, &amp;f_n, &amp;f_nrhs, a, &amp;f_lda, b, &amp;f_ldb, &amp;f_info);</div>
@@ -592,7 +592,7 @@
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    integer f_n = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(n);</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    integer f_lda = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(lda);</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    doublereal rcond;</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>
@@ -625,7 +625,7 @@
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    integer f_kl = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(kl);</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    integer f_ku = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(ku);</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    integer f_ldab = <span class="keyword">static_cast&lt;</span>integer<span class="keyword">&gt;</span>(ldab);</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    integer f_info = info;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    integer f_info = 0;</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    doublereal rcond;</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="preprocessor">#ifdef NO_FTN_STRING_LEN_AT_END</span></div>

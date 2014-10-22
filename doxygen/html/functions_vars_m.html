@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -72,6 +72,7 @@
       <li><a href="functions_vars_h.html#index_h"><span>h</span></a></li>
       <li><a href="functions_vars_i.html#index_i"><span>i</span></a></li>
       <li><a href="functions_vars_j.html#index_j"><span>j</span></a></li>
+      <li><a href="functions_vars_k.html#index_k"><span>k</span></a></li>
       <li><a href="functions_vars_l.html#index_l"><span>l</span></a></li>
       <li class="current"><a href="functions_vars_m.html#index_m"><span>m</span></a></li>
       <li><a href="functions_vars_n.html#index_n"><span>n</span></a></li>
@@ -142,6 +143,9 @@
 </li>
 <li>m_actCoeffSpecies_old
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#a068f43c2399e18b433b3712e32203337">VCS_SOLVE</a>
+</li>
+<li>m_actConc
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">InterfaceKinetics</a>
 </li>
 <li>m_actConventionSpecies
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#aeec9e40ec0830c5ee7fc2b5c4df03a3e">VCS_SOLVE</a>
@@ -231,6 +235,10 @@
 : <a class="el" href="classCantera_1_1AqueousTransport.html#a7ce68336304abe3f1270fb30d0f1a9f4">AqueousTransport</a>
 , <a class="el" href="classCantera_1_1GasTransport.html#a7ce68336304abe3f1270fb30d0f1a9f4">GasTransport</a>
 , <a class="el" href="classCantera_1_1LiquidTransport.html#a7ce68336304abe3f1270fb30d0f1a9f4">LiquidTransport</a>
+</li>
+<li>m_beta
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">InterfaceKinetics</a>
+, <a class="el" href="classCantera_1_1RxnMolChange.html#a18c413a52e6391d131cff0bc1bd92a58">RxnMolChange</a>
 </li>
 <li>m_Beta0MX_ij
 : <a class="el" href="classCantera_1_1HMWSoln.html#acc43ea98af7b8a5fc3399e9008cd8efa">HMWSoln</a>
@@ -359,6 +367,9 @@
 <li>m_c2
 : <a class="el" href="classCantera_1_1PDSS__HKFT.html#a2ec50e0f7f55d13172c0b8141f77ab64">PDSS_HKFT</a>
 </li>
+<li>m_cache
+: <a class="el" href="classCantera_1_1Phase.html#a1e53dfbc10d711d50fdae85bf49423ca">Phase</a>
+</li>
 <li>m_charge_j
 : <a class="el" href="classCantera_1_1PDSS__HKFT.html#a2ac438339aa81b023fea50594edf3b8d">PDSS_HKFT</a>
 </li>
@@ -370,6 +381,9 @@
 , <a class="el" href="classCantera_1_1LiquidTransport.html#aa634101f880f7344c1e8a08cef7c92e1">LiquidTransport</a>
 , <a class="el" href="classCantera_1_1SimpleTransport.html#aa634101f880f7344c1e8a08cef7c92e1">SimpleTransport</a>
 , <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#a85251835d6874550904f884776899129">VCS_SOLVE</a>
+</li>
+<li>m_ChargeTransferInRxn
+: <a class="el" href="classCantera_1_1RxnMolChange.html#ac3e8852c157eeb25e6a43c0342080389">RxnMolChange</a>
 </li>
 <li>m_childindex
 : <a class="el" href="classCantera_1_1XML__Node.html#aa9d53af72a2f51efec8a4047a0dd8ec7">XML_Node</a>
@@ -535,8 +549,17 @@
 <li>m_ctrxn
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#a6a56df4f62e68de8fab902f0cd5b0f46">InterfaceKinetics</a>
 </li>
+<li>m_ctrxn_BVform
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#aa1033e4849e5aef2ab0de47b422aa8c0">InterfaceKinetics</a>
+</li>
 <li>m_ctrxn_ecdf
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#a84c443efecc2bf73b8dedb6a0b76a6a5">InterfaceKinetics</a>
+</li>
+<li>m_ctrxn_FwdOrdersList_
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#a45f44d6428f267b9ea863a6b3cb4bafc">InterfaceKinetics</a>
+</li>
+<li>m_ctrxn_ROPOrdersList_
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#ae0f5b8efdbb690e7f56ab03cee46a6f4">InterfaceKinetics</a>
 </li>
 <li>m_currRegion
 : <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac4ff5d4986ff558391a3a470514e4237">Nasa9PolyMultiTempRegion</a>
@@ -579,6 +602,9 @@
 </li>
 <li>m_defectDiffusivity
 : <a class="el" href="classCantera_1_1SolidTransport.html#a798751fb08928f92d5c009af72ffd631">SolidTransport</a>
+</li>
+<li>m_deltaG
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#a34f6b5575caa2a5da19c4aba3813146c">InterfaceKinetics</a>
 </li>
 <li>m_deltaG0
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#a2483d75538c79c9d78a01fbb804e7091">InterfaceKinetics</a>
@@ -699,9 +725,6 @@
 <li>m_domega_jdT_prtr
 : <a class="el" href="classCantera_1_1PDSS__HKFT.html#a2985d78cef7e16bbdde0ae8856845376">PDSS_HKFT</a>
 </li>
-<li>m_dummygroups
-: <a class="el" href="classCantera_1_1Kinetics.html#acc19884dfb67695ab1902d9cd3155608">Kinetics</a>
-</li>
 <li>m_dumpJacobians
 : <a class="el" href="classCantera_1_1BEulerInt.html#a74b2e9dadc3b733e59712d4ff39d02c7">BEulerInt</a>
 </li>
@@ -713,6 +736,9 @@
 </li>
 <li>m_Ediff
 : <a class="el" href="classCantera_1_1SolidTransport.html#af5e08922a1c751e9729e281b6e28ccee">SolidTransport</a>
+</li>
+<li>m_egr
+: <a class="el" href="classCantera_1_1RxnMolChange.html#a32804067a7ef4d16a585db97a7784ca9">RxnMolChange</a>
 </li>
 <li>m_Eij
 : <a class="el" href="classCantera_1_1LiquidTranInteraction.html#af814415fbe7bdb087ade2c24c753d120">LiquidTranInteraction</a>
@@ -755,7 +781,6 @@
 </li>
 <li>m_elementsFrozen
 : <a class="el" href="classCantera_1_1Elements.html#ad6d00e966a6a82e45328a5ff72ba7274">Elements</a>
-, <a class="el" href="classCantera_1_1Phase.html#ad6d00e966a6a82e45328a5ff72ba7274">Phase</a>
 </li>
 <li>m_elementType
 : <a class="el" href="classVCSnonideal_1_1vcs__VolPhase.html#ac886198315a1c914f14b5a154eedff97">vcs_VolPhase</a>
@@ -798,6 +823,9 @@
 </li>
 <li>m_eqnState
 : <a class="el" href="classVCSnonideal_1_1vcs__VolPhase.html#abedf8ebcbcfdf9d49f3bb4543c026cc2">vcs_VolPhase</a>
+</li>
+<li>m_error_message
+: <a class="el" href="classCantera_1_1CVodesIntegrator.html#a358b8ca3782e323f6078989924fe320a">CVodesIntegrator</a>
 </li>
 <li>m_ewt
 : <a class="el" href="classCantera_1_1BEulerInt.html#aaab52f37b25451eebfbe1c38d04e3a76">BEulerInt</a>
@@ -1058,8 +1086,7 @@
 : <a class="el" href="classCantera_1_1Domain1D.html#a090566cd91917c1870ac39dcf13d7a7f">Domain1D</a>
 </li>
 <li>m_index
-: <a class="el" href="classCantera_1_1InterfaceKinetics.html#ae23e5c6e8525d4f1350f262d83af5612">InterfaceKinetics</a>
-, <a class="el" href="classCantera_1_1NasaThermo.html#a6bd5db8d432d07d628bb13a8ce723e35">NasaThermo</a>
+: <a class="el" href="classCantera_1_1NasaThermo.html#a6bd5db8d432d07d628bb13a8ce723e35">NasaThermo</a>
 , <a class="el" href="classCantera_1_1ShomateThermo.html#a6bd5db8d432d07d628bb13a8ce723e35">ShomateThermo</a>
 , <a class="el" href="classCantera_1_1SimpleThermo.html#a2d2a0166c1bc08de8fed7f154cc9d5b2">SimpleThermo</a>
 , <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df">SpeciesThermoInterpType</a>
@@ -1084,6 +1111,9 @@
 </li>
 <li>m_integrator
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#ab8a3e00a3ec0ee8e4cc7d48be0ac5448">InterfaceKinetics</a>
+</li>
+<li>m_InterfaceKinetics
+: <a class="el" href="classCantera_1_1ExtraGlobalRxn.html#a06d6eaaea158560c04c8f89cd5ae7fca">ExtraGlobalRxn</a>
 </li>
 <li>m_interrupt
 : <a class="el" href="classCantera_1_1OneDim.html#a781aa8177775778ed5c620ca42c23e2e">OneDim</a>
@@ -1121,6 +1151,9 @@
 </li>
 <li>m_irrev
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#a8e7251e19598df7416da759bbf56ae15">InterfaceKinetics</a>
+</li>
+<li>m_iRxn
+: <a class="el" href="classCantera_1_1RxnMolChange.html#a2c04c851609ec5d65b6bfe23cdadb7de">RxnMolChange</a>
 </li>
 <li>m_iscomment
 : <a class="el" href="classCantera_1_1XML__Node.html#a7c0d87393b1c9b87bb142befed049615">XML_Node</a>
@@ -1164,6 +1197,12 @@
 <li>m_kin
 : <a class="el" href="classCantera_1_1Reactor.html#a2caf634900eea31d5c76527d1156c996">Reactor</a>
 </li>
+<li>m_kinBase
+: <a class="el" href="classCantera_1_1RxnMolChange.html#a06b26c6c126df4e8fa88e41c0e48e410">RxnMolChange</a>
+</li>
+<li>m_kinetics
+: <a class="el" href="classCantera_1_1ExtraGlobalRxn.html#a150d950db49b90fe62995ab677bf05d9">ExtraGlobalRxn</a>
+</li>
 <li>m_kinObjIndex
 : <a class="el" href="classCantera_1_1solveSP.html#a365d16833a665e3dceb9191caab0f9fa">solveSP</a>
 </li>
@@ -1175,7 +1214,6 @@
 </li>
 <li>m_kk
 : <a class="el" href="classCantera_1_1ChemEquil.html#a44776286c3ba788047554eef4620e6de">ChemEquil</a>
-, <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a44776286c3ba788047554eef4620e6de">GeneralSpeciesThermo</a>
 , <a class="el" href="classCantera_1_1Kinetics.html#a44776286c3ba788047554eef4620e6de">Kinetics</a>
 , <a class="el" href="classCantera_1_1Phase.html#a44776286c3ba788047554eef4620e6de">Phase</a>
 , <a class="el" href="classCantera_1_1VPSSMgr.html#a44776286c3ba788047554eef4620e6de">VPSSMgr</a>
@@ -1468,6 +1506,9 @@
 <li>m_msg
 : <a class="el" href="classCantera_1_1XML__Error.html#a83d1e8acb4861a68b6facc74af427564">XML_Error</a>
 </li>
+<li>m_mu
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#aa375e2256b2c6340eb2aa527eda1bca6">InterfaceKinetics</a>
+</li>
 <li>m_mu0
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#a9147a615ac19dd5da1e43f0545759aa0">InterfaceKinetics</a>
 , <a class="el" href="classCantera_1_1SurfPhase.html#a9147a615ac19dd5da1e43f0545759aa0">SurfPhase</a>
@@ -1628,6 +1669,12 @@
 <li>m_npActCoeff
 : <a class="el" href="classCantera_1_1DebyeHuckel.html#ac9d1003b7c50fe7e326e38df07c81b7a">DebyeHuckel</a>
 </li>
+<li>m_nPhases
+: <a class="el" href="classCantera_1_1RxnMolChange.html#ac17597b26b5aaeeb45af833e5f5b38b7">RxnMolChange</a>
+</li>
+<li>m_nReactants
+: <a class="el" href="classCantera_1_1ExtraGlobalRxn.html#ae98cc444723dff5a65d0975e275b0981">ExtraGlobalRxn</a>
+</li>
 <li>m_nrev
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#a64bf4618b18fcdb3b042cbc44a77f3b0">InterfaceKinetics</a>
 </li>
@@ -1750,6 +1797,7 @@
 </li>
 <li>m_order
 : <a class="el" href="classCantera_1_1BEulerInt.html#a0795f26a2aa019683b9dfaeebbe6839b">BEulerInt</a>
+, <a class="el" href="classCantera_1_1C__AnyN.html#aa98cdfa0e38a0ccfaa9287a353e12d29">C_AnyN</a>
 , <a class="el" href="classCantera_1_1NonlinearSolver.html#a0795f26a2aa019683b9dfaeebbe6839b">NonlinearSolver</a>
 , <a class="el" href="classVCSnonideal_1_1vcs__MultiPhaseEquil.html#a1b238febade8e2f33afb6454ddb80773">vcs_MultiPhaseEquil</a>
 </li>
@@ -1817,6 +1865,12 @@
 <li>m_phaseActConvention
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#ad54471d55277cbcd415ca27bdeb4dad2">VCS_SOLVE</a>
 </li>
+<li>m_phaseChargeChange
+: <a class="el" href="classCantera_1_1RxnMolChange.html#a205bd32284f19d2bc0175116eb3e83e0">RxnMolChange</a>
+</li>
+<li>m_phaseDims
+: <a class="el" href="classCantera_1_1RxnMolChange.html#a16384d6342aa6fc447d8bec92ed731b0">RxnMolChange</a>
+</li>
 <li>m_phaseExists
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#ad42de44edcbd9f9c2cfe0630ce71f68e">InterfaceKinetics</a>
 </li>
@@ -1832,11 +1886,20 @@
 <li>m_phaseIsStable
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#af36e61d11f9afad26add2d4689d0fd57">InterfaceKinetics</a>
 </li>
+<li>m_phaseMassChange
+: <a class="el" href="classCantera_1_1RxnMolChange.html#ab5561f5e7e7f7faedb9dbeae2d483639">RxnMolChange</a>
+</li>
+<li>m_phaseMoleChange
+: <a class="el" href="classCantera_1_1RxnMolChange.html#a344a1e321c62d28f1f0fba5012bf187b">RxnMolChange</a>
+</li>
 <li>m_phaseParticipation
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#ac43b6ae6bbd1183a968047a383ae41e9">VCS_SOLVE</a>
 </li>
 <li>m_phasePhi
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#a3e4a3c357dba9cdf359c43da571ad620">VCS_SOLVE</a>
+</li>
+<li>m_phaseTypes
+: <a class="el" href="classCantera_1_1RxnMolChange.html#ac1bf20c9f3bda31bd5a57ecc440d54d9">RxnMolChange</a>
 </li>
 <li>m_phi
 : <a class="el" href="classCantera_1_1AqueousTransport.html#ad51c50b5be3689fce04d45414f7b840b">AqueousTransport</a>
@@ -1962,8 +2025,14 @@
 <li>m_printSolnStepInterval
 : <a class="el" href="classCantera_1_1BEulerInt.html#a62cf3889e64f427459b9a4815d6082d6">BEulerInt</a>
 </li>
+<li>m_ProdStanConcReac
+: <a class="el" href="classCantera_1_1InterfaceKinetics.html#ade59d815f0af4d435f306119716ecd76">InterfaceKinetics</a>
+</li>
 <li>m_products
 : <a class="el" href="classCantera_1_1Kinetics.html#aee822efea2c20d45fc8a5cc28671aae9">Kinetics</a>
+</li>
+<li>m_productStrings
+: <a class="el" href="classCantera_1_1Kinetics.html#aa1ae289d5740050f7bf43b3d38486094">Kinetics</a>
 </li>
 <li>m_prop
 : <a class="el" href="classCantera_1_1LTPspecies__Arrhenius.html#ad925ec9e8e6c75f5839e24b094c7399c">LTPspecies_Arrhenius</a>
@@ -2034,8 +2103,17 @@
 <li>m_rates
 : <a class="el" href="classCantera_1_1InterfaceKinetics.html#af65690966130dbbbef60db27abe932bc">InterfaceKinetics</a>
 </li>
+<li>m_Reactants
+: <a class="el" href="classCantera_1_1ExtraGlobalRxn.html#abaa65ec608e4c7daef83bdf28745a5fd">ExtraGlobalRxn</a>
+</li>
 <li>m_reactants
 : <a class="el" href="classCantera_1_1Kinetics.html#adce2224978ad59f9f2dd4babe462c8ef">Kinetics</a>
+</li>
+<li>m_ReactantStoich
+: <a class="el" href="classCantera_1_1ExtraGlobalRxn.html#a26c9a3044950a0e8368656c469858d59">ExtraGlobalRxn</a>
+</li>
+<li>m_reactantStrings
+: <a class="el" href="classCantera_1_1Kinetics.html#a036e3a862e46b4a977545fcad8f8ece7">Kinetics</a>
 </li>
 <li>m_reactionType
 : <a class="el" href="classCantera_1_1FalloffMgr.html#af70ebd0ee978d6f00b703730397e0b1d">FalloffMgr</a>
@@ -2109,16 +2187,13 @@
 <li>m_rtolx
 : <a class="el" href="group__solverGroup.html#ga28fb215dfbe83f91587795cdb6ab97d0">RootFind</a>
 </li>
-<li>m_rwork
-: <a class="el" href="classCantera_1_1InterfaceKinetics.html#a4934104f810f786df9cd87d8f9900f5a">InterfaceKinetics</a>
-</li>
 <li>m_rxn
 : <a class="el" href="classCantera_1_1C1.html#a0a4dc3ed928e51ab29031e303842bc79">C1</a>
 , <a class="el" href="classCantera_1_1C2.html#a0a4dc3ed928e51ab29031e303842bc79">C2</a>
 , <a class="el" href="classCantera_1_1C__AnyN.html#a0a4dc3ed928e51ab29031e303842bc79">C_AnyN</a>
 </li>
 <li>m_rxneqn
-: <a class="el" href="classCantera_1_1InterfaceKinetics.html#ab6b2061c3ef041e16769c660a88762f7">InterfaceKinetics</a>
+: <a class="el" href="classCantera_1_1Kinetics.html#ab6b2061c3ef041e16769c660a88762f7">Kinetics</a>
 </li>
 <li>m_rxnphase
 : <a class="el" href="classCantera_1_1Kinetics.html#a4b3f51055927a4700b96484c15880ab7">Kinetics</a>
@@ -2229,7 +2304,7 @@
 : <a class="el" href="classCantera_1_1MultiPhase.html#a7bc62d712e91ff1dc28fa09a720fcfd2">MultiPhase</a>
 </li>
 <li>m_sp
-: <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a5c609970c46c6132b79c7cc23859323b">GeneralSpeciesThermo</a>
+: <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a068c6e7ee5121bb7be10e0f9ecd8801c">GeneralSpeciesThermo</a>
 , <a class="el" href="classCantera_1_1SolidTransport.html#a0054b2725429ffabc47593cef292600d">SolidTransport</a>
 </li>
 <li>m_spcond_ok
@@ -2362,6 +2437,9 @@
 </li>
 <li>m_steps
 : <a class="el" href="classCantera_1_1Sim1D.html#a38b12611985b36d27ef538afe601c053">Sim1D</a>
+</li>
+<li>m_stoich
+: <a class="el" href="classCantera_1_1C__AnyN.html#ad1b2526fc34783ccd334f64be06402c9">C_AnyN</a>
 </li>
 <li>m_stoichCoeffRxnMatrix
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#a41f25a1a54a704ce791c6283be77ce42">VCS_SOLVE</a>
@@ -2588,6 +2666,9 @@
 <li>m_tPhaseMoles_old
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#ac99fbb758dd6ee5e42a507d6f59b005c">VCS_SOLVE</a>
 </li>
+<li>m_tpoly
+: <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#aa25d627e0668168d3def75faf1525c10">GeneralSpeciesThermo</a>
+</li>
 <li>m_tranPropMap
 : <a class="el" href="classCantera_1_1TransportFactory.html#a18195e907847c562cd1a9d606506e56f">TransportFactory</a>
 </li>
@@ -2600,6 +2681,9 @@
 <li>m_uk
 : <a class="el" href="classCantera_1_1IdealGasReactor.html#af7dd637d7a7279532697899e09d06796">IdealGasReactor</a>
 , <a class="el" href="classCantera_1_1Reactor.html#af7dd637d7a7279532697899e09d06796">Reactor</a>
+</li>
+<li>m_undefinedElementBehavior
+: <a class="el" href="classCantera_1_1Phase.html#a353035056269c0c93681d94c3b0dbc6b">Phase</a>
 </li>
 <li>m_unitsState
 : <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#a3ec278829478d69c86953dbb14e0a5b7">VCS_SOLVE</a>
@@ -2922,6 +3006,9 @@
 <li>meanMolecularWeight_
 : <a class="el" href="classCantera_1_1LiquidTransport.html#a9d94212f5042c5e4c8093a67862ad56c">LiquidTransport</a>
 , <a class="el" href="classCantera_1_1SimpleTransport.html#a9d94212f5042c5e4c8093a67862ad56c">SimpleTransport</a>
+</li>
+<li>metalPhaseIndex_
+: <a class="el" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">ElectrodeKinetics</a>
 </li>
 <li>mf
 : <a class="el" href="classVCSnonideal_1_1VCS__PROB.html#a11d44977494679938b6e5e14f6e1e8f4">VCS_PROB</a>

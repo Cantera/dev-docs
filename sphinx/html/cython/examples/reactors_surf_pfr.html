@@ -165,80 +165,72 @@
 
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;    distance       X_CH4        X_H2        X_CO&#39;</span><span class="p">)</span>
 
+<span class="c"># create a new reactor</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">TDY</span> <span class="o">=</span> <span class="n">TDY</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">IdealGasReactor</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="n">rvol</span>
+
+<span class="c"># create a reservoir to represent the reactor immediately upstream. Note</span>
+<span class="c"># that the gas object is set already to the state of the upstream reactor</span>
+<span class="n">upstream</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reservoir</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;upstream&#39;</span><span class="p">)</span>
+
+<span class="c"># create a reservoir for the reactor to exhaust into. The composition of</span>
+<span class="c"># this reservoir is irrelevant.</span>
+<span class="n">downstream</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reservoir</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;downstream&#39;</span><span class="p">)</span>
+
+<span class="c"># use a &#39;Wall&#39; object to implement the reacting surface in the reactor.</span>
+<span class="c"># Since walls have to be installed between two reactors/reserviors, we&#39;ll</span>
+<span class="c"># install it between the upstream reservoir and the reactor.  The area is</span>
+<span class="c"># set to the desired catalyst area in the reactor, and surface reactions</span>
+<span class="c"># are included only on the side facing the reactor.</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Wall</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">cat_area</span><span class="p">,</span> <span class="n">kinetics</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="n">surf</span><span class="p">])</span>
+
+<span class="c"># The mass flow rate into the reactor will be fixed by using a</span>
+<span class="c"># MassFlowController object.</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">MassFlowController</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mdot</span><span class="o">=</span><span class="n">mass_flow_rate</span><span class="p">)</span>
+
+<span class="c"># We need an outlet to the downstream reservoir. This will determine the</span>
+<span class="c"># pressure in the reactor. The value of K will only affect the transient</span>
+<span class="c"># pressure difference.</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">PressureController</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">downstream</span><span class="p">,</span> <span class="n">master</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">max_err_test_fails</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="c"># set relative and absolute tolerances on the simulation</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1.0e-9</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1.0e-21</span>
+
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NReactors</span><span class="p">):</span>
-    <span class="n">surf</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">TDY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>
-    <span class="n">surf</span><span class="o">.</span><span class="n">coverages</span> <span class="o">=</span> <span class="n">cov</span>
-
-    <span class="c"># create a new reactor</span>
-    <span class="n">gas</span><span class="o">.</span><span class="n">TDY</span> <span class="o">=</span> <span class="n">TDY</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">IdealGasReactor</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
-    <span class="n">r</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="n">rvol</span>
-
-    <span class="c"># create a reservoir to represent the reactor immediately upstream. Note</span>
-    <span class="c"># that the gas object is set already to the state of the upstream reactor</span>
-    <span class="n">upstream</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reservoir</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;upstream&#39;</span><span class="p">)</span>
-
-    <span class="c"># create a reservoir for the reactor to exhaust into. The composition of</span>
-    <span class="c"># this reservoir is irrelevant.</span>
-    <span class="n">downstream</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reservoir</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;downstream&#39;</span><span class="p">)</span>
-
-    <span class="c"># use a &#39;Wall&#39; object to implement the reacting surface in the reactor.</span>
-    <span class="c"># Since walls have to be installed between two reactors/reserviors, we&#39;ll</span>
-    <span class="c"># install it between the upstream reservoir and the reactor.  The area is</span>
-    <span class="c"># set to the desired catalyst area in the reactor, and surface reactions</span>
-    <span class="c"># are included only on the side facing the reactor.</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Wall</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">cat_area</span><span class="p">,</span> <span class="n">kinetics</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="n">surf</span><span class="p">])</span>
-
-    <span class="c"># We need a valve between the reactor and the downstream reservoir. This</span>
-    <span class="c"># will determine the pressure in the reactor. Set K large enough that the</span>
-    <span class="c"># pressure difference is very small.</span>
-    <span class="n">v</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Valve</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">downstream</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
-
-    <span class="c"># The mass flow rate into the reactor will be fixed by using a</span>
-    <span class="c"># MassFlowController object.</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">MassFlowController</span><span class="p">(</span><span class="n">upstream</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">mdot</span><span class="o">=</span><span class="n">mass_flow_rate</span><span class="p">)</span>
-
-    <span class="n">sim</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">max_err_test_fails</span> <span class="o">=</span> <span class="mi">12</span>
-
-    <span class="c"># set relative and absolute tolerances on the simulation</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">rtol</span> <span class="o">=</span> <span class="mf">1.0e-9</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">atol</span> <span class="o">=</span> <span class="mf">1.0e-21</span>
-
-    <span class="n">T_start</span><span class="p">,</span> <span class="n">rho_start</span><span class="p">,</span> <span class="n">Y_start</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">TDY</span>
-    <span class="n">cov_start</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">coverages</span>
-    <span class="n">V_start</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">volume</span>
-
-    <span class="n">Tu_start</span><span class="p">,</span> <span class="n">rhou_start</span><span class="p">,</span> <span class="n">Yu_start</span> <span class="o">=</span> <span class="n">upstream</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">TDY</span>
+    <span class="c"># Set the state of the reservoir to match that of the previous reactor</span>
+    <span class="n">gas</span><span class="o">.</span><span class="n">TDY</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">TDY</span>
+    <span class="n">upstream</span><span class="o">.</span><span class="n">syncState</span><span class="p">()</span>
 
     <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">all_done</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">set_initial_time</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c"># forces reinitialization</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="n">all_done</span><span class="p">:</span>
         <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
         <span class="n">sim</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 
-        <span class="c"># check whether surface coverages are in steady state. This will be</span>
-        <span class="c"># the case if the creation and destruction rates for a surface (but</span>
-        <span class="c"># not gas) species are equal.</span>
-        <span class="n">all_done</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">dt</span><span class="p">:</span>
+            <span class="c"># check whether surface coverages are in steady state. This will be</span>
+            <span class="c"># the case if the creation and destruction rates for a surface (but</span>
+            <span class="c"># not gas) species are equal.</span>
+            <span class="n">all_done</span> <span class="o">=</span> <span class="bp">True</span>
 
-        <span class="c"># Note: netProduction = creation - destruction. By supplying the</span>
-        <span class="c"># surface object as an argument, only the values for the surface</span>
-        <span class="c"># species are returned by these methods</span>
-        <span class="n">sdot</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">get_net_production_rates</span><span class="p">(</span><span class="n">surf</span><span class="p">)</span>
-        <span class="n">cdot</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">get_creation_rates</span><span class="p">(</span><span class="n">surf</span><span class="p">)</span>
-        <span class="n">ddot</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">get_destruction_rates</span><span class="p">(</span><span class="n">surf</span><span class="p">)</span>
+            <span class="c"># Note: netProduction = creation - destruction. By supplying the</span>
+            <span class="c"># surface object as an argument, only the values for the surface</span>
+            <span class="c"># species are returned by these methods</span>
+            <span class="n">sdot</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">get_net_production_rates</span><span class="p">(</span><span class="n">surf</span><span class="p">)</span>
+            <span class="n">cdot</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">get_creation_rates</span><span class="p">(</span><span class="n">surf</span><span class="p">)</span>
+            <span class="n">ddot</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">get_destruction_rates</span><span class="p">(</span><span class="n">surf</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">ks</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">surf</span><span class="o">.</span><span class="n">n_species</span><span class="p">):</span>
-            <span class="n">ratio</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sdot</span><span class="p">[</span><span class="n">ks</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">cdot</span><span class="p">[</span><span class="n">ks</span><span class="p">]</span> <span class="o">+</span> <span class="n">ddot</span><span class="p">[</span><span class="n">ks</span><span class="p">]))</span>
-            <span class="k">if</span> <span class="n">ratio</span> <span class="o">&gt;</span> <span class="mf">1.0e-9</span> <span class="ow">or</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">*</span><span class="n">dt</span><span class="p">:</span>
-                <span class="n">all_done</span> <span class="o">=</span> <span class="bp">False</span>
-
-    <span class="c"># Save the reactor and surface states, in preparation for the simulation</span>
-    <span class="c"># of the next reactor downstream, where this object will set the inlet</span>
-    <span class="c"># conditions and the initial surface coverages</span>
-    <span class="n">TDY</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">TDY</span>
-    <span class="n">cov</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">coverages</span>
+            <span class="k">for</span> <span class="n">ks</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">surf</span><span class="o">.</span><span class="n">n_species</span><span class="p">):</span>
+                <span class="n">ratio</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sdot</span><span class="p">[</span><span class="n">ks</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">cdot</span><span class="p">[</span><span class="n">ks</span><span class="p">]</span> <span class="o">+</span> <span class="n">ddot</span><span class="p">[</span><span class="n">ks</span><span class="p">]))</span>
+                <span class="k">if</span> <span class="n">ratio</span> <span class="o">&gt;</span> <span class="mf">1.0e-9</span><span class="p">:</span>
+                    <span class="n">all_done</span> <span class="o">=</span> <span class="bp">False</span>
+                    <span class="k">break</span>
 
     <span class="n">dist</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">rlen</span> <span class="o">*</span> <span class="mf">1.0e3</span>   <span class="c"># distance in mm</span>
 

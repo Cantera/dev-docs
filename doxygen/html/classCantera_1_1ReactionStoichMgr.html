@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -93,13 +93,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae9f59e328bae9e5fcc30cbd151f5f9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a reaction with specified, possibly non-integral, reaction orders.  <a href="#ae9f59e328bae9e5fcc30cbd151f5f9db">More...</a><br/></td></tr>
 <tr class="separator:ae9f59e328bae9e5fcc30cbd151f5f9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bbca8efc0feeba503eea829c6363a86"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a3bbca8efc0feeba503eea829c6363a86">getCreationRates</a> (size_t nSpecies, const doublereal *fwdRatesOfProgress, const doublereal *revRatesOfProgress, doublereal *creationRates)</td></tr>
-<tr class="memdesc:a3bbca8efc0feeba503eea829c6363a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Species creation rates.  <a href="#a3bbca8efc0feeba503eea829c6363a86">More...</a><br/></td></tr>
+<tr class="memdesc:a3bbca8efc0feeba503eea829c6363a86"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> creation rates.  <a href="#a3bbca8efc0feeba503eea829c6363a86">More...</a><br/></td></tr>
 <tr class="separator:a3bbca8efc0feeba503eea829c6363a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ff3f56157cbde470a63df77a64ea7ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a0ff3f56157cbde470a63df77a64ea7ec">getDestructionRates</a> (size_t nSpecies, const doublereal *fwdRatesOfProgress, const doublereal *revRatesOfProgress, doublereal *destructionRates)</td></tr>
-<tr class="memdesc:a0ff3f56157cbde470a63df77a64ea7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Species destruction rates.  <a href="#a0ff3f56157cbde470a63df77a64ea7ec">More...</a><br/></td></tr>
+<tr class="memdesc:a0ff3f56157cbde470a63df77a64ea7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> destruction rates.  <a href="#a0ff3f56157cbde470a63df77a64ea7ec">More...</a><br/></td></tr>
 <tr class="separator:a0ff3f56157cbde470a63df77a64ea7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e73bcdc6b4f0463b961a1a4ec3ae117"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a9e73bcdc6b4f0463b961a1a4ec3ae117">getNetProductionRates</a> (size_t nsp, const doublereal *ropnet, doublereal *w)</td></tr>
-<tr class="memdesc:a9e73bcdc6b4f0463b961a1a4ec3ae117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Species net production rates.  <a href="#a9e73bcdc6b4f0463b961a1a4ec3ae117">More...</a><br/></td></tr>
+<tr class="memdesc:a9e73bcdc6b4f0463b961a1a4ec3ae117"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> net production rates.  <a href="#a9e73bcdc6b4f0463b961a1a4ec3ae117">More...</a><br/></td></tr>
 <tr class="separator:a9e73bcdc6b4f0463b961a1a4ec3ae117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54dee91f32d773b98fd5c09e47f26579"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a54dee91f32d773b98fd5c09e47f26579">getReactionDelta</a> (size_t nReactions, const doublereal *g, doublereal *dg)</td></tr>
 <tr class="memdesc:a54dee91f32d773b98fd5c09e47f26579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the change of a molar species property in a reaction.  <a href="#a54dee91f32d773b98fd5c09e47f26579">More...</a><br/></td></tr>
@@ -113,26 +113,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61456f7c21dcef43985d82ff7cfe4266"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a61456f7c21dcef43985d82ff7cfe4266">multiplyRevProducts</a> (const doublereal *c, doublereal *r)</td></tr>
 <tr class="memdesc:a61456f7c21dcef43985d82ff7cfe4266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given an array of concentrations C, multiply the entries in array R by the concentration products for the products.  <a href="#a61456f7c21dcef43985d82ff7cfe4266">More...</a><br/></td></tr>
 <tr class="separator:a61456f7c21dcef43985d82ff7cfe4266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d532fbde64960e468132b50085f8ec0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d532fbde64960e468132b50085f8ec0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (const std::string &amp;filename)</td></tr>
+<tr class="memitem:a6d532fbde64960e468132b50085f8ec0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a6d532fbde64960e468132b50085f8ec0">write</a> (const std::string &amp;filename)</td></tr>
 <tr class="separator:a6d532fbde64960e468132b50085f8ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:afd2f227af62c8cd7838ffcb3cae813f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd2f227af62c8cd7838ffcb3cae813f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeCreationRates</b> (std::ostream &amp;f)</td></tr>
+<tr class="memitem:afd2f227af62c8cd7838ffcb3cae813f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#afd2f227af62c8cd7838ffcb3cae813f6">writeCreationRates</a> (std::ostream &amp;f)</td></tr>
 <tr class="separator:afd2f227af62c8cd7838ffcb3cae813f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a390f24fe123b54b283b2aca36df6557a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a390f24fe123b54b283b2aca36df6557a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeDestructionRates</b> (std::ostream &amp;f)</td></tr>
+<tr class="memitem:a390f24fe123b54b283b2aca36df6557a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a390f24fe123b54b283b2aca36df6557a">writeDestructionRates</a> (std::ostream &amp;f)</td></tr>
 <tr class="separator:a390f24fe123b54b283b2aca36df6557a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a253f5983d718beba020a3a95d3ce6101"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a253f5983d718beba020a3a95d3ce6101"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeNetProductionRates</b> (std::ostream &amp;f)</td></tr>
+<tr class="memitem:a253f5983d718beba020a3a95d3ce6101"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a253f5983d718beba020a3a95d3ce6101">writeNetProductionRates</a> (std::ostream &amp;f)</td></tr>
 <tr class="separator:a253f5983d718beba020a3a95d3ce6101"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5be743fd125dc12f7f9ca83bb2428b84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5be743fd125dc12f7f9ca83bb2428b84"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeMultiplyReactants</b> (std::ostream &amp;f)</td></tr>
+<tr class="memitem:a5be743fd125dc12f7f9ca83bb2428b84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a5be743fd125dc12f7f9ca83bb2428b84">writeMultiplyReactants</a> (std::ostream &amp;f)</td></tr>
 <tr class="separator:a5be743fd125dc12f7f9ca83bb2428b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96d14a1e1eab743ebc7269bd343e4644"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96d14a1e1eab743ebc7269bd343e4644"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeMultiplyRevProducts</b> (std::ostream &amp;f)</td></tr>
+<tr class="memitem:a96d14a1e1eab743ebc7269bd343e4644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ReactionStoichMgr.html#a96d14a1e1eab743ebc7269bd343e4644">writeMultiplyRevProducts</a> (std::ostream &amp;f)</td></tr>
 <tr class="separator:a96d14a1e1eab743ebc7269bd343e4644"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -190,7 +184,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Constructor. </p>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00020">20</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00019">19</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
 </div>
 </div>
@@ -217,7 +211,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00025">25</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00024">24</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
 </div>
 </div>
@@ -284,14 +278,14 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>Reaction number. This number will be used as the index into the rate of progress vector in the methods below. </td></tr>
-    <tr><td class="paramname">reactants</td><td>vector of integer reactant indices </td></tr>
-    <tr><td class="paramname">products</td><td>vector of integer product indices </td></tr>
-    <tr><td class="paramname">reversible</td><td>true if the reaction is reversible, false otherwise </td></tr>
+    <tr><td class="paramname">reactants</td><td>Vector of integer reactant indices </td></tr>
+    <tr><td class="paramname">products</td><td>Vector of integer product indices </td></tr>
+    <tr><td class="paramname">reversible</td><td>True if the reaction is reversible, false otherwise </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00049">49</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00048">48</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
 </div>
 </div>
@@ -338,7 +332,7 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 
 <p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00063">63</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>References <a class="el" href="ReactionData_8h_source.html#l00130">ReactionData::global</a>, <a class="el" href="ReactionData_8h_source.html#l00137">ReactionData::isReversibleWithFrac</a>, <a class="el" href="ReactionData_8h_source.html#l00055">ReactionData::porder</a>, <a class="el" href="ReactionData_8h_source.html#l00045">ReactionData::products</a>, <a class="el" href="ReactionData_8h_source.html#l00062">ReactionData::pstoich</a>, <a class="el" href="ReactionData_8h_source.html#l00044">ReactionData::reactants</a>, <a class="el" href="ReactionData_8h_source.html#l00076">ReactionData::reversible</a>, <a class="el" href="ReactionData_8h_source.html#l00050">ReactionData::rorder</a>, and <a class="el" href="ReactionData_8h_source.html#l00059">ReactionData::rstoich</a>.</p>
+<p>References <a class="el" href="ReactionData_8h_source.html#l00082">ReactionData::forwardFullOrder_</a>, <a class="el" href="ReactionData_8h_source.html#l00186">ReactionData::global</a>, <a class="el" href="ReactionData_8h_source.html#l00193">ReactionData::isReversibleWithFrac</a>, <a class="el" href="ReactionData_8h_source.html#l00075">ReactionData::porder</a>, <a class="el" href="ReactionData_8h_source.html#l00059">ReactionData::products</a>, <a class="el" href="ReactionData_8h_source.html#l00096">ReactionData::pstoich</a>, <a class="el" href="ReactionData_8h_source.html#l00058">ReactionData::reactants</a>, <a class="el" href="ReactionData_8h_source.html#l00132">ReactionData::reversible</a>, <a class="el" href="ReactionData_8h_source.html#l00067">ReactionData::rorder</a>, and <a class="el" href="ReactionData_8h_source.html#l00089">ReactionData::rstoich</a>.</p>
 
 </div>
 </div>
@@ -386,15 +380,15 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 </table>
 </div><div class="memdoc">
 
-<p>Species creation rates. </p>
+<p><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> creation rates. </p>
 <p>Given the arrays of the forward and reverse rates of progress for all reactions, compute the species creation rates, given by </p>
 <p class="formulaDsp">
 \[ C = N_p Q_f + N_r Q_r. \]
 </p>
  
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00119">119</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00185">185</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00336">GasKinetics::getCreationRates()</a>, <a class="el" href="AqueousKinetics_8h_source.html#l00117">AqueousKinetics::getCreationRates()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00377">InterfaceKinetics::getCreationRates()</a>.</p>
+<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00324">GasKinetics::getCreationRates()</a>, <a class="el" href="AqueousKinetics_8h_source.html#l00112">AqueousKinetics::getCreationRates()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00448">InterfaceKinetics::getCreationRates()</a>.</p>
 
 </div>
 </div>
@@ -442,16 +436,16 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 </table>
 </div><div class="memdoc">
 
-<p>Species destruction rates. </p>
+<p><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> destruction rates. </p>
 <p>Given the arrays of the forward and reverse rates of progress for all reactions, compute the species destruction rates, given by </p>
 <p class="formulaDsp">
 \[ D = N_r Q_f + N_p Q_r, \]
 </p>
 <p> Note that the stoichiometric coefficient matrices are very sparse, integer matrices. </p>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00133">133</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00199">199</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00342">GasKinetics::getDestructionRates()</a>, <a class="el" href="AqueousKinetics_8h_source.html#l00122">AqueousKinetics::getDestructionRates()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00383">InterfaceKinetics::getDestructionRates()</a>.</p>
+<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00330">GasKinetics::getDestructionRates()</a>, <a class="el" href="AqueousKinetics_8h_source.html#l00117">AqueousKinetics::getDestructionRates()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00454">InterfaceKinetics::getDestructionRates()</a>.</p>
 
 </div>
 </div>
@@ -493,15 +487,15 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 </table>
 </div><div class="memdoc">
 
-<p>Species net production rates. </p>
+<p><a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> net production rates. </p>
 <p>Given the array of the net rates of progress for all reactions, compute the species net production rates, given by </p>
 <p class="formulaDsp">
 \[ W = (N_r - N_p) Q_{\rm net}, \]
 </p>
  
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00144">144</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00210">210</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00330">GasKinetics::getNetProductionRates()</a>, <a class="el" href="AqueousKinetics_8h_source.html#l00112">AqueousKinetics::getNetProductionRates()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00389">InterfaceKinetics::getNetProductionRates()</a>.</p>
+<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00318">GasKinetics::getNetProductionRates()</a>, <a class="el" href="AqueousKinetics_8h_source.html#l00107">AqueousKinetics::getNetProductionRates()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00460">InterfaceKinetics::getNetProductionRates()</a>.</p>
 
 </div>
 </div>
@@ -557,9 +551,9 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00156">156</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00222">222</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00395">InterfaceKinetics::applyButlerVolmerCorrection()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00616">InterfaceKinetics::getDeltaElectrochemPotentials()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00247">GasKinetics::getDeltaEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00193">AqueousKinetics::getDeltaEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00632">InterfaceKinetics::getDeltaEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00261">GasKinetics::getDeltaEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00207">AqueousKinetics::getDeltaEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00647">InterfaceKinetics::getDeltaEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00233">GasKinetics::getDeltaGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00179">AqueousKinetics::getDeltaGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00600">InterfaceKinetics::getDeltaGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00291">GasKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00237">AqueousKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00681">InterfaceKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00311">GasKinetics::getDeltaSSEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00257">AqueousKinetics::getDeltaSSEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00703">InterfaceKinetics::getDeltaSSEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00275">GasKinetics::getDeltaSSGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00221">AqueousKinetics::getDeltaSSGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00663">InterfaceKinetics::getDeltaSSGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00214">GasKinetics::getEquilibriumConstants()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00154">AqueousKinetics::getEquilibriumConstants()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00332">InterfaceKinetics::getEquilibriumConstants()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00348">InterfaceKinetics::updateExchangeCurrentQuantities()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00466">InterfaceKinetics::applyVoltageKfwdCorrection()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00760">InterfaceKinetics::getDeltaElectrochemPotentials()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00235">GasKinetics::getDeltaEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00187">AqueousKinetics::getDeltaEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00776">InterfaceKinetics::getDeltaEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00249">GasKinetics::getDeltaEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00201">AqueousKinetics::getDeltaEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00791">InterfaceKinetics::getDeltaEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00221">GasKinetics::getDeltaGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00173">AqueousKinetics::getDeltaGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00741">InterfaceKinetics::getDeltaGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00279">GasKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00231">AqueousKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00825">InterfaceKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00299">GasKinetics::getDeltaSSEntropy()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00251">AqueousKinetics::getDeltaSSEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00847">InterfaceKinetics::getDeltaSSEntropy()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00263">GasKinetics::getDeltaSSGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00215">AqueousKinetics::getDeltaSSGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00807">InterfaceKinetics::getDeltaSSGibbs()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00202">GasKinetics::getEquilibriumConstants()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00148">AqueousKinetics::getEquilibriumConstants()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00398">InterfaceKinetics::getEquilibriumConstants()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00412">InterfaceKinetics::updateExchangeCurrentQuantities()</a>.</p>
 
 </div>
 </div>
@@ -604,9 +598,9 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 <p>Given an array of species properties 'g', return in array 'dg' the change in this quantity in the reversible reactions. </p>
 <p>Array 'g' must have a length at least as great as the number of species, and array 'dg' must have a length as great as the total number of reactions. This method only computes 'dg' for the reversible reactions, and the entries of 'dg' for the irreversible reactions are unaltered. This is primarily designed for use in calculating reverse rate coefficients from thermochemistry for reversible reactions. </p>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00167">167</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00233">233</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="AqueousKinetics_8cpp_source.html#l00129">AqueousKinetics::updateKc()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00194">GasKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00232">InterfaceKinetics::updateKc()</a>.</p>
+<p>Referenced by <a class="el" href="GasKinetics_8cpp_source.html#l00182">GasKinetics::updateKc()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00123">AqueousKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00291">InterfaceKinetics::updateKc()</a>.</p>
 
 </div>
 </div>
@@ -648,9 +642,9 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 </p>
 <p>Here \( o_{k,i} \) is the reaction order of species k in reaction i. </p>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00175">175</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00241">241</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00348">InterfaceKinetics::updateExchangeCurrentQuantities()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00499">InterfaceKinetics::updateROP()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00412">InterfaceKinetics::updateExchangeCurrentQuantities()</a>, <a class="el" href="ElectrodeKinetics_8cpp_source.html#l00161">ElectrodeKinetics::updateROP()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00598">InterfaceKinetics::updateROP()</a>.</p>
 
 </div>
 </div>
@@ -692,9 +686,189 @@ StoichManagerN&#160;</td><td class="memItemRight" valign="bottom"><b>m_irrevprod
 </p>
 <p> Here \( \nu^{(p)}_{k,i} \) is the product stoichiometric coefficient of species k in reaction i. </p>
 
-<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00180">180</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00246">246</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00499">InterfaceKinetics::updateROP()</a>.</p>
+<p>Referenced by <a class="el" href="ElectrodeKinetics_8cpp_source.html#l00161">ElectrodeKinetics::updateROP()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00598">InterfaceKinetics::updateROP()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d532fbde64960e468132b50085f8ec0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void write </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000035">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00251">251</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>References <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00264">ReactionStoichMgr::writeCreationRates()</a>, <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00281">ReactionStoichMgr::writeDestructionRates()</a>, <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00313">ReactionStoichMgr::writeMultiplyReactants()</a>, <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00326">ReactionStoichMgr::writeMultiplyRevProducts()</a>, and <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00297">ReactionStoichMgr::writeNetProductionRates()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd2f227af62c8cd7838ffcb3cae813f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeCreationRates </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000036">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00264">264</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00330">Cantera::wrapString()</a>.</p>
+
+<p>Referenced by <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00251">ReactionStoichMgr::write()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a390f24fe123b54b283b2aca36df6557a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeDestructionRates </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000037">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00281">281</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00330">Cantera::wrapString()</a>.</p>
+
+<p>Referenced by <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00251">ReactionStoichMgr::write()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a253f5983d718beba020a3a95d3ce6101"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeNetProductionRates </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000038">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00297">297</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00330">Cantera::wrapString()</a>.</p>
+
+<p>Referenced by <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00251">ReactionStoichMgr::write()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5be743fd125dc12f7f9ca83bb2428b84"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeMultiplyReactants </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000039">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00313">313</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00251">ReactionStoichMgr::write()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96d14a1e1eab743ebc7269bd343e4644"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeMultiplyRevProducts </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000040">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
+
+<p>Definition at line <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00326">326</a> of file <a class="el" href="ReactionStoichMgr_8cpp_source.html">ReactionStoichMgr.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="ReactionStoichMgr_8cpp_source.html#l00251">ReactionStoichMgr::write()</a>.</p>
 
 </div>
 </div>

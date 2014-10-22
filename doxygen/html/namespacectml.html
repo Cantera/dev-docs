@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -70,9 +70,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga106f302af6a947a6222a3450a5b888ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#ga106f302af6a947a6222a3450a5b888ab">ct2ctml</a> (const char *file, const int debug=0)</td></tr>
 <tr class="memdesc:ga106f302af6a947a6222a3450a5b888ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a cti file into a ctml file.  <a href="group__inputfiles.html#ga106f302af6a947a6222a3450a5b888ab">More...</a><br/></td></tr>
 <tr class="separator:ga106f302af6a947a6222a3450a5b888ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af47edae8e5f44e370735e51b9565c390"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af47edae8e5f44e370735e51b9565c390"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>call_ctml_writer</b> (const std::string &amp;text, bool isfile)</td></tr>
+<tr class="separator:af47edae8e5f44e370735e51b9565c390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3a8555f1c9005ce92613f4a0586942d3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3">ct2ctml_string</a> (const std::string &amp;file)</td></tr>
 <tr class="memdesc:ga3a8555f1c9005ce92613f4a0586942d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string with the ctml representation of a cti file.  <a href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3">More...</a><br/></td></tr>
 <tr class="separator:ga3a8555f1c9005ce92613f4a0586942d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8eae1f606cb70310c81d4514bca5a3ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#ga8eae1f606cb70310c81d4514bca5a3ba">ct_string2ctml_string</a> (const std::string &amp;cti)</td></tr>
+<tr class="memdesc:ga8eae1f606cb70310c81d4514bca5a3ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a string with the ctml representation of a cti input string.  <a href="group__inputfiles.html#ga8eae1f606cb70310c81d4514bca5a3ba">More...</a><br/></td></tr>
+<tr class="separator:ga8eae1f606cb70310c81d4514bca5a3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ea9a1b95781324c5037061411f9f5c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacectml.html#a6ea9a1b95781324c5037061411f9f5c3">ck2cti</a> (const std::string &amp;in_file, const std::string &amp;thermo_file=&quot;&quot;, const std::string &amp;transport_file=&quot;&quot;, const std::string &amp;id_tag=&quot;gas&quot;)</td></tr>
 <tr class="memdesc:a6ea9a1b95781324c5037061411f9f5c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a Chemkin-format mechanism into a CTI file.  <a href="#a6ea9a1b95781324c5037061411f9f5c3">More...</a><br/></td></tr>
 <tr class="separator:a6ea9a1b95781324c5037061411f9f5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,11 +190,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
 <p>Use the environment variable PYTHON_CMD if it is set. If not, return the string 'python'.</p>
 <p>Note, there are hidden problems here that really direct us to use a full pathname for the location of python. Basically the system call will use the shell /bin/sh, in order to launch python. This default shell may not be the shell that the user is employing. Therefore, the default path to python may be different during a system call than during the default user shell environment. This is quite a headache. The answer is to always set the PYTHON_CMD environmental variable in the user environment to an absolute path to locate the python executable. Then this issue goes away. </p>
 
-<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00044">44</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00042">42</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00118">Cantera::stripws()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00117">Cantera::stripws()</a>.</p>
 
-<p>Referenced by <a class="el" href="ct2ctml_8cpp_source.html#l00173">ck2cti()</a>, and <a class="el" href="ct2ctml_8cpp_source.html#l00082">ct2ctml_string()</a>.</p>
+<p>Referenced by <a class="el" href="ct2ctml_8cpp_source.html#l00189">ck2cti()</a>.</p>
 
 </div>
 </div>
@@ -239,9 +245,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00173">173</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00189">189</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ct2ctml_8cpp_source.html#l00044">pypath()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00118">Cantera::stripws()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="ct2ctml_8cpp_source.html#l00042">pypath()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00117">Cantera::stripws()</a>, and <a class="el" href="global_8cpp_source.html#l00041">Cantera::writelog()</a>.</p>
 
 </div>
 </div>
@@ -285,12 +291,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </table>
   </dd>
 </dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="namespaceCantera.html#a235b0367c7f1d78a08cf52c4a8c5448c" title="Return a pointer to the XML tree for a Cantera input file. ">get_XML_File()</a> instead. </dd></dl>
 
-<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00262">262</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00278">278</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00760">XML_Node::build()</a>, <a class="el" href="ct2ctml_8cpp_source.html#l00082">ct2ctml_string()</a>, <a class="el" href="global_8cpp_source.html#l00161">Cantera::findInputFile()</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
-
-<p>Referenced by <a class="el" href="ct2ctml_8cpp_source.html#l00300">getCtmlTree()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00856">XML_Node::copy()</a>, <a class="el" href="global_8cpp_source.html#l00113">Cantera::get_XML_File()</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
 </div>
 </div>
@@ -316,10 +321,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Root of the tree </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="namespaceCantera.html#a235b0367c7f1d78a08cf52c4a8c5448c" title="Return a pointer to the XML tree for a Cantera input file. ">get_XML_File()</a> instead. </dd></dl>
 
-<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00300">300</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ct2ctml_8cpp_source.html#l00286">286</a> of file <a class="el" href="ct2ctml_8cpp_source.html">ct2ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ct2ctml_8cpp_source.html#l00262">get_CTML_Tree()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00856">XML_Node::copy()</a>, <a class="el" href="global_8cpp_source.html#l00113">Cantera::get_XML_File()</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
 </div>
 </div>
@@ -393,9 +399,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
 </dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>I don't think this is used. Figure out what is used for writing integers, and codify that. unitsString shouldn't be here, since it's an int. typeString should be codified as to its usage. </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00021">21</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00018">18</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00493">XML_Node::addAttribute()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00494">XML_Node::addAttribute()</a>.</p>
 
 </div>
 </div>
@@ -484,11 +490,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00039">39</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00031">31</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00493">XML_Node::addAttribute()</a>, and <a class="el" href="ct__defs_8h_source.html#l00146">Cantera::Undef</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00494">XML_Node::addAttribute()</a>, and <a class="el" href="ct__defs_8h_source.html#l00147">Cantera::Undef</a>.</p>
 
-<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00756">StFlow::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00221">Inlet1D::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00602">OutletRes1D::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00690">Surf1D::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00821">ReactingSurf1D::save()</a>, and <a class="el" href="StFlow_8cpp_source.html#l00962">FreeFlame::save()</a>.</p>
+<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00751">StFlow::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00224">Inlet1D::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00605">OutletRes1D::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00693">Surf1D::save()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00824">ReactingSurf1D::save()</a>, and <a class="el" href="StFlow_8cpp_source.html#l00957">FreeFlame::save()</a>.</p>
 
 </div>
 </div>
@@ -583,11 +589,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00065">65</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00052">52</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00493">XML_Node::addAttribute()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, and <a class="el" href="ct__defs_8h_source.html#l00146">Cantera::Undef</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00494">XML_Node::addAttribute()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, and <a class="el" href="ct__defs_8h_source.html#l00147">Cantera::Undef</a>.</p>
 
-<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00756">StFlow::save()</a>, and <a class="el" href="Domain1D_8cpp_source.html#l00097">Domain1D::save()</a>.</p>
+<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00751">StFlow::save()</a>, and <a class="el" href="Domain1D_8cpp_source.html#l00096">Domain1D::save()</a>.</p>
 
 </div>
 </div>
@@ -682,11 +688,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00098">98</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00085">85</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00493">XML_Node::addAttribute()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, and <a class="el" href="ct__defs_8h_source.html#l00146">Cantera::Undef</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00494">XML_Node::addAttribute()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, and <a class="el" href="ct__defs_8h_source.html#l00147">Cantera::Undef</a>.</p>
 
-<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00756">StFlow::save()</a>.</p>
+<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00751">StFlow::save()</a>.</p>
 
 </div>
 </div>
@@ -746,11 +752,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00136">136</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00123">123</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00493">XML_Node::addAttribute()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00494">XML_Node::addAttribute()</a>.</p>
 
-<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00756">StFlow::save()</a>.</p>
+<p>Referenced by <a class="el" href="StFlow_8cpp_source.html#l00751">StFlow::save()</a>.</p>
 
 </div>
 </div>
@@ -788,11 +794,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to the matched child node. Returns 0 if no node is found. </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00147">147</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00134">134</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00700">XML_Node::findByAttr()</a>, and <a class="el" href="xml_8cpp_source.html#l00548">XML_Node::parent()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00697">XML_Node::findByAttr()</a>, and <a class="el" href="xml_8cpp_source.html#l00545">XML_Node::parent()</a>.</p>
 
-<p>Referenced by <a class="el" href="ctml_8cpp_source.html#l00177">getNamedStringValue()</a>, <a class="el" href="ctml_8cpp_source.html#l00164">getString()</a>, <a class="el" href="TransportFactory_8cpp_source.html#l00693">TransportFactory::getTransportData()</a>, and <a class="el" href="Mu0Poly_8cpp_source.html#l00123">Cantera::installMu0ThermoFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="ctml_8cpp_source.html#l00164">getNamedStringValue()</a>, <a class="el" href="ctml_8cpp_source.html#l00151">getString()</a>, <a class="el" href="TransportFactory_8cpp_source.html#l00685">TransportFactory::getTransportData()</a>, and <a class="el" href="Mu0Poly_8cpp_source.html#l00120">Cantera::newMu0ThermoFromXML()</a>.</p>
 
 </div>
 </div>
@@ -840,11 +846,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String value of the child XML_Node </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00156">156</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00143">143</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>.</p>
 
-<p>Referenced by <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01134">HMWSoln::initThermoXML()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00389">LatticePhase::setParametersFromXML()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00396">SurfPhase::setStateFromXML()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00255">MixtureFugacityTP::setStateFromXML()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00367">MolalityVPSSTP::setStateFromXML()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00720">ThermoPhase::setStateFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01131">HMWSoln::initThermoXML()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00387">LatticePhase::setParametersFromXML()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00395">SurfPhase::setStateFromXML()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00254">MixtureFugacityTP::setStateFromXML()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00367">MolalityVPSSTP::setStateFromXML()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00727">ThermoPhase::setStateFromXML()</a>.</p>
 
 </div>
 </div>
@@ -906,9 +912,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00164">164</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00151">151</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ctml_8cpp_source.html#l00147">getByTitle()</a>, <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>, and <a class="el" href="xml_8cpp_source.html#l00463">XML_Node::value()</a>.</p>
+<p>References <a class="el" href="ctml_8cpp_source.html#l00134">getByTitle()</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, and <a class="el" href="xml_8cpp_source.html#l00462">XML_Node::value()</a>.</p>
 
 </div>
 </div>
@@ -976,11 +982,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>FP_Format</b> 
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00177">177</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00164">164</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00569">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00147">getByTitle()</a>, <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>, <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00463">XML_Node::value()</a>, and <a class="el" href="global_8cpp_source.html#l00088">Cantera::warn_deprecated()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00134">getByTitle()</a>, <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00462">XML_Node::value()</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
 </div>
 </div>
@@ -1032,9 +1038,9 @@ v["i3"] = 3
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00196">196</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00183">183</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00900">XML_Node::getChildren()</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00234">Cantera::intValue()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00897">XML_Node::getChildren()</a>.</p>
 
 </div>
 </div>
@@ -1091,11 +1097,11 @@ v["i3"] = 3
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00209">209</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00195">195</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00569">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00221">getFloatCurrent()</a>, <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>, and <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00207">getFloatCurrent()</a>, <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>, and <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00074">PDSS_ConstVol::constructPDSSXML()</a>, <a class="el" href="PDSS__HKFT_8cpp_source.html#l00561">PDSS_HKFT::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00248">VPSSMgr_Water_ConstVol::createInstallPDSS()</a>, <a class="el" href="VPSSMgr__ConstVol_8cpp_source.html#l00131">VPSSMgr_ConstVol::createInstallPDSS()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00249">Cantera::getArrhenius()</a>, <a class="el" href="ctml_8cpp_source.html#l00280">getFloatDefaultUnits()</a>, <a class="el" href="ctml_8cpp_source.html#l00268">getOptionalFloat()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00461">Cantera::getRateCoefficient()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00286">Cantera::getStick()</a>, <a class="el" href="TransportFactory_8cpp_source.html#l00693">TransportFactory::getTransportData()</a>, <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00069">LiquidTranInteraction::init()</a>, <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00206">VPSSMgr_Water_ConstVol::initThermoXML()</a>, <a class="el" href="VPSSMgr__ConstVol_8cpp_source.html#l00101">VPSSMgr_ConstVol::initThermoXML()</a>, <a class="el" href="MineralEQ3_8cpp_source.html#l00245">MineralEQ3::initThermoXML()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00493">IdealMolalSoln::initThermoXML()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00310">LatticePhase::initThermoXML()</a>, <a class="el" href="IdealSolidSolnPhase_8cpp_source.html#l00527">IdealSolidSolnPhase::initThermoXML()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01134">HMWSoln::initThermoXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00634">Cantera::installAdsorbateThermoFromXML()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00123">Cantera::installMu0ThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00499">Cantera::installSimpleThermoFromXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00526">Cantera::installSpecies()</a>, <a class="el" href="LTPspecies_8cpp_source.html#l00053">LTPspecies::LTPspecies()</a>, <a class="el" href="StFlow_8cpp_source.html#l00586">StFlow::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00236">Inlet1D::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00614">OutletRes1D::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00701">Surf1D::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00834">ReactingSurf1D::restore()</a>, <a class="el" href="SemiconductorPhase_8h_source.html#l00067">SemiconductorPhase::setParametersFromXML()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00436">EdgePhase::setParametersFromXML()</a>, <a class="el" href="MetalPhase_8h_source.html#l00118">MetalPhase::setParametersFromXML()</a>, <a class="el" href="ConstDensityThermo_8cpp_source.html#l00155">ConstDensityThermo::setParametersFromXML()</a>, <a class="el" href="StoichSubstance_8cpp_source.html#l00259">StoichSubstance::setParametersFromXML()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00385">SurfPhase::setParametersFromXML()</a>, <a class="el" href="StoichSubstanceSSTP_8cpp_source.html#l00266">StoichSubstanceSSTP::setParametersFromXML()</a>, <a class="el" href="MetalSHEelectrons_8cpp_source.html#l00320">MetalSHEelectrons::setParametersFromXML()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00389">LatticePhase::setParametersFromXML()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00255">MixtureFugacityTP::setStateFromXML()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00367">MolalityVPSSTP::setStateFromXML()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00720">ThermoPhase::setStateFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__ConstVol_8cpp_source.html#l00070">PDSS_ConstVol::constructPDSSXML()</a>, <a class="el" href="PDSS__HKFT_8cpp_source.html#l00561">PDSS_HKFT::constructPDSSXML()</a>, <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00250">VPSSMgr_Water_ConstVol::createInstallPDSS()</a>, <a class="el" href="VPSSMgr__ConstVol_8cpp_source.html#l00130">VPSSMgr_ConstVol::createInstallPDSS()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00498">Cantera::getArrhenius()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00625">Cantera::getCoverageDependence()</a>, <a class="el" href="ctml_8cpp_source.html#l00266">getFloatDefaultUnits()</a>, <a class="el" href="ctml_8cpp_source.html#l00254">getOptionalFloat()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00724">Cantera::getRateCoefficient()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00535">Cantera::getStick()</a>, <a class="el" href="TransportFactory_8cpp_source.html#l00685">TransportFactory::getTransportData()</a>, <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00070">LiquidTranInteraction::init()</a>, <a class="el" href="VPSSMgr__Water__ConstVol_8cpp_source.html#l00208">VPSSMgr_Water_ConstVol::initThermoXML()</a>, <a class="el" href="VPSSMgr__ConstVol_8cpp_source.html#l00100">VPSSMgr_ConstVol::initThermoXML()</a>, <a class="el" href="MineralEQ3_8cpp_source.html#l00235">MineralEQ3::initThermoXML()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00495">IdealMolalSoln::initThermoXML()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00308">LatticePhase::initThermoXML()</a>, <a class="el" href="IdealSolidSolnPhase_8cpp_source.html#l00526">IdealSolidSolnPhase::initThermoXML()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01131">HMWSoln::initThermoXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00569">Cantera::installSpecies()</a>, <a class="el" href="LTPspecies_8cpp_source.html#l00055">LTPspecies::LTPspecies()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00571">Cantera::newAdsorbateThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00474">Cantera::newConstCpThermoFromXML()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00120">Cantera::newMu0ThermoFromXML()</a>, <a class="el" href="StFlow_8cpp_source.html#l00583">StFlow::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00239">Inlet1D::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00617">OutletRes1D::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00704">Surf1D::restore()</a>, <a class="el" href="boundaries1D_8cpp_source.html#l00837">ReactingSurf1D::restore()</a>, <a class="el" href="SemiconductorPhase_8h_source.html#l00068">SemiconductorPhase::setParametersFromXML()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00435">EdgePhase::setParametersFromXML()</a>, <a class="el" href="MetalPhase_8h_source.html#l00118">MetalPhase::setParametersFromXML()</a>, <a class="el" href="ConstDensityThermo_8cpp_source.html#l00154">ConstDensityThermo::setParametersFromXML()</a>, <a class="el" href="StoichSubstance_8cpp_source.html#l00258">StoichSubstance::setParametersFromXML()</a>, <a class="el" href="SurfPhase_8cpp_source.html#l00384">SurfPhase::setParametersFromXML()</a>, <a class="el" href="StoichSubstanceSSTP_8cpp_source.html#l00265">StoichSubstanceSSTP::setParametersFromXML()</a>, <a class="el" href="MetalSHEelectrons_8cpp_source.html#l00311">MetalSHEelectrons::setParametersFromXML()</a>, <a class="el" href="LatticePhase_8cpp_source.html#l00387">LatticePhase::setParametersFromXML()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00254">MixtureFugacityTP::setStateFromXML()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00367">MolalityVPSSTP::setStateFromXML()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00727">ThermoPhase::setStateFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1146,11 +1152,11 @@ v["i3"] = 3
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00221">221</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00207">207</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00177">Cantera::actEnergyToSI()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00239">Cantera::fpValue()</a>, <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>, <a class="el" href="ct__defs_8h_source.html#l00154">Cantera::Tiny</a>, <a class="el" href="global_8cpp_source.html#l00166">Cantera::toSI()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00180">Cantera::actEnergyToSI()</a>, <a class="el" href="xml_8cpp_source.html#l00474">XML_Node::fp_value()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00267">Cantera::fpValue()</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="ct__defs_8h_source.html#l00155">Cantera::Tiny</a>, <a class="el" href="global_8cpp_source.html#l00169">Cantera::toSI()</a>, <a class="el" href="xml_8cpp_source.html#l00462">XML_Node::value()</a>, and <a class="el" href="global_8cpp_source.html#l00041">Cantera::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="ctml_8cpp_source.html#l00209">getFloat()</a>, and <a class="el" href="LTPspecies_8cpp_source.html#l00116">LTPspecies_Const::LTPspecies_Const()</a>.</p>
+<p>Referenced by <a class="el" href="ctml_8cpp_source.html#l00195">getFloat()</a>, and <a class="el" href="LTPspecies_8cpp_source.html#l00118">LTPspecies_Const::LTPspecies_Const()</a>.</p>
 
 </div>
 </div>
@@ -1212,11 +1218,11 @@ v["i3"] = 3
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns true if the child element named "name" exists </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00268">268</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00254">254</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ctml_8cpp_source.html#l00209">getFloat()</a>, and <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>.</p>
+<p>References <a class="el" href="ctml_8cpp_source.html#l00195">getFloat()</a>, and <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>.</p>
 
-<p>Referenced by <a class="el" href="HMWSoln__input_8cpp_source.html#l01134">HMWSoln::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00944">HMWSoln::readXMLCroppingCoefficients()</a>, <a class="el" href="StFlow_8cpp_source.html#l00955">FreeFlame::restore()</a>, and <a class="el" href="SurfPhase_8cpp_source.html#l00396">SurfPhase::setStateFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="TransportFactory_8cpp_source.html#l00685">TransportFactory::getTransportData()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01131">HMWSoln::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00945">HMWSoln::readXMLCroppingCoefficients()</a>, <a class="el" href="StFlow_8cpp_source.html#l00950">FreeFlame::restore()</a>, and <a class="el" href="SurfPhase_8cpp_source.html#l00395">SurfPhase::setStateFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1279,11 +1285,11 @@ v["i3"] = 3
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00280">280</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00266">266</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00177">Cantera::actEnergyToSI()</a>, <a class="el" href="ctml_8cpp_source.html#l00209">getFloat()</a>, and <a class="el" href="global_8cpp_source.html#l00166">Cantera::toSI()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00180">Cantera::actEnergyToSI()</a>, <a class="el" href="ctml_8cpp_source.html#l00195">getFloat()</a>, and <a class="el" href="global_8cpp_source.html#l00169">Cantera::toSI()</a>.</p>
 
-<p>Referenced by <a class="el" href="MineralEQ3_8cpp_source.html#l00245">MineralEQ3::initThermoXML()</a>, <a class="el" href="StoichSubstanceSSTP_8cpp_source.html#l00238">StoichSubstanceSSTP::initThermoXML()</a>, <a class="el" href="MetalSHEelectrons_8cpp_source.html#l00236">MetalSHEelectrons::initThermoXML()</a>, <a class="el" href="FixedChemPotSSTP_8cpp_source.html#l00307">FixedChemPotSSTP::initThermoXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00336">Cantera::installMinEQ3asShomateThermoFromXML()</a>, and <a class="el" href="FixedChemPotSSTP_8cpp_source.html#l00339">FixedChemPotSSTP::setParametersFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="MineralEQ3_8cpp_source.html#l00235">MineralEQ3::initThermoXML()</a>, <a class="el" href="StoichSubstanceSSTP_8cpp_source.html#l00237">StoichSubstanceSSTP::initThermoXML()</a>, <a class="el" href="MetalSHEelectrons_8cpp_source.html#l00227">MetalSHEelectrons::initThermoXML()</a>, <a class="el" href="FixedChemPotSSTP_8cpp_source.html#l00296">FixedChemPotSSTP::initThermoXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00328">Cantera::newShomateForMineralEQ3()</a>, and <a class="el" href="FixedChemPotSSTP_8cpp_source.html#l00328">FixedChemPotSSTP::setParametersFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1339,9 +1345,9 @@ v["i3"] = 3
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the nodeName XML node exists. False otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00307">307</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00293">293</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00569">XML_Node::child()</a>, and <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, and <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>.</p>
 
 </div>
 </div>
@@ -1390,11 +1396,11 @@ v["i3"] = 3
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00317">317</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00303">303</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00569">XML_Node::child()</a>, <a class="el" href="xml_8cpp_source.html#l00559">XML_Node::hasChild()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00234">Cantera::intValue()</a>, <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>, <a class="el" href="xml_8cpp_source.html#l00479">XML_Node::int_value()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00262">Cantera::intValue()</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00462">XML_Node::value()</a>, and <a class="el" href="global_8cpp_source.html#l00041">Cantera::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="Mu0Poly_8cpp_source.html#l00123">Cantera::installMu0ThermoFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="Mu0Poly_8cpp_source.html#l00120">Cantera::newMu0ThermoFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1470,11 +1476,11 @@ v[2] = 100.
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of floats read into v. </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00339">339</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00325">325</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00177">Cantera::actEnergyToSI()</a>, <a class="el" href="xml_8cpp_source.html#l00519">XML_Node::attrib()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00029">Cantera::fp2str()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00248">Cantera::fpValueCheck()</a>, <a class="el" href="xml_8cpp_source.html#l00900">XML_Node::getChildren()</a>, <a class="el" href="xml_8h_source.html#l00393">XML_Node::name()</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, <a class="el" href="ct__defs_8h_source.html#l00154">Cantera::Tiny</a>, <a class="el" href="global_8cpp_source.html#l00166">Cantera::toSI()</a>, <a class="el" href="ct__defs_8h_source.html#l00146">Cantera::Undef</a>, <a class="el" href="xml_8cpp_source.html#l00463">XML_Node::value()</a>, and <a class="el" href="global_8cpp_source.html#l00043">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00180">Cantera::actEnergyToSI()</a>, <a class="el" href="xml_8cpp_source.html#l00520">XML_Node::attrib()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00276">Cantera::fpValueCheck()</a>, <a class="el" href="xml_8cpp_source.html#l00897">XML_Node::getChildren()</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>, <a class="el" href="ct__defs_8h_source.html#l00155">Cantera::Tiny</a>, <a class="el" href="global_8cpp_source.html#l00169">Cantera::toSI()</a>, <a class="el" href="ct__defs_8h_source.html#l00147">Cantera::Undef</a>, <a class="el" href="xml_8cpp_source.html#l00462">XML_Node::value()</a>, and <a class="el" href="global_8cpp_source.html#l00041">Cantera::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00088">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00461">Cantera::getRateCoefficient()</a>, <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00069">LiquidTranInteraction::init()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00634">Cantera::installAdsorbateThermoFromXML()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00123">Cantera::installMu0ThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00529">Cantera::installNasa9ThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00200">Cantera::installNasaThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00423">Cantera::installShomateThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00583">Cantera::installStatMechThermoFromXML()</a>, <a class="el" href="LTPspecies_8cpp_source.html#l00266">LTPspecies_ExpT::LTPspecies_ExpT()</a>, <a class="el" href="LTPspecies_8cpp_source.html#l00220">LTPspecies_Poly::LTPspecies_Poly()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00053">HMWSoln::readXMLBinarySalt()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00672">RedlichKisterVPSSTP::readXMLBinarySpecies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00714">MixedSolventElectrolyte::readXMLBinarySpecies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00703">MargulesVPSSTP::readXMLBinarySpecies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00772">PhaseCombo_Interaction::readXMLBinarySpecies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00917">RedlichKwongMFTP::readXMLCrossFluid()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00696">HMWSoln::readXMLLambdaNeutral()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00776">HMWSoln::readXMLMunnnNeutral()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00555">HMWSoln::readXMLPsiCommonAnion()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00415">HMWSoln::readXMLPsiCommonCation()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00836">RedlichKwongMFTP::readXMLPureFluid()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00253">HMWSoln::readXMLThetaAnion()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00334">HMWSoln::readXMLThetaCation()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00845">HMWSoln::readXMLZetaCation()</a>, <a class="el" href="StFlow_8cpp_source.html#l00586">StFlow::restore()</a>, and <a class="el" href="Domain1D_8cpp_source.html#l00110">Domain1D::restore()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__SSVol_8cpp_source.html#l00084">PDSS_SSVol::constructPDSSXML()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00724">Cantera::getRateCoefficient()</a>, <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00070">LiquidTranInteraction::init()</a>, <a class="el" href="LTPspecies_8cpp_source.html#l00268">LTPspecies_ExpT::LTPspecies_ExpT()</a>, <a class="el" href="LTPspecies_8cpp_source.html#l00222">LTPspecies_Poly::LTPspecies_Poly()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00571">Cantera::newAdsorbateThermoFromXML()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00120">Cantera::newMu0ThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00501">Cantera::newNasa9ThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00254">Cantera::newNasaThermoFromXML()</a>, <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00400">Cantera::newShomateThermoFromXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00054">HMWSoln::readXMLBinarySalt()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00670">RedlichKisterVPSSTP::readXMLBinarySpecies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00712">MixedSolventElectrolyte::readXMLBinarySpecies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00701">MargulesVPSSTP::readXMLBinarySpecies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00770">PhaseCombo_Interaction::readXMLBinarySpecies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00950">RedlichKwongMFTP::readXMLCrossFluid()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00697">HMWSoln::readXMLLambdaNeutral()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00777">HMWSoln::readXMLMunnnNeutral()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00556">HMWSoln::readXMLPsiCommonAnion()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00416">HMWSoln::readXMLPsiCommonCation()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00869">RedlichKwongMFTP::readXMLPureFluid()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00254">HMWSoln::readXMLThetaAnion()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00335">HMWSoln::readXMLThetaCation()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l00846">HMWSoln::readXMLZetaCation()</a>, <a class="el" href="StFlow_8cpp_source.html#l00583">StFlow::restore()</a>, and <a class="el" href="Domain1D_8cpp_source.html#l00109">Domain1D::restore()</a>.</p>
 
 </div>
 </div>
@@ -1514,11 +1520,11 @@ v[2] = 100.
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00421">421</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00405">405</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ctml_8cpp_source.html#l00521">getStringArray()</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="ctml_8cpp_source.html#l00505">getStringArray()</a>, and <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01134">HMWSoln::initThermoXML()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00526">Cantera::installSpecies()</a>.</p>
+<p>Referenced by <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01131">HMWSoln::initThermoXML()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00569">Cantera::installSpecies()</a>.</p>
 
 </div>
 </div>
@@ -1579,11 +1585,11 @@ v[2] = 100.
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the number of pairs found </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00435">435</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00419">419</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="ctml_8cpp_source.html#l00521">getStringArray()</a>, and <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>.</p>
+<p>References <a class="el" href="ctml_8cpp_source.html#l00505">getStringArray()</a>, and <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00117">PDSS_IonsFromNeutral::constructPDSSXML()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00438">Cantera::getEfficiencies()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00142">Cantera::getReagents()</a>, and <a class="el" href="LatticeSolidPhase_8cpp_source.html#l00474">LatticeSolidPhase::setParametersFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00113">PDSS_IonsFromNeutral::constructPDSSXML()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00701">Cantera::getEfficiencies()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00287">Cantera::getOrders()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00131">Cantera::getReagents()</a>, and <a class="el" href="LatticeSolidPhase_8cpp_source.html#l00469">LatticeSolidPhase::setParametersFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1658,9 +1664,9 @@ retnValues(1, 2) = 3.3E-23
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00453">453</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00437">437</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00248">Cantera::fpValueCheck()</a>, <a class="el" href="ctml_8cpp_source.html#l00521">getStringArray()</a>, <a class="el" href="Array_8h_source.html#l00317">Array2D::nColumns()</a>, <a class="el" href="ct__defs_8h_source.html#l00172">Cantera::npos</a>, <a class="el" href="Array_8h_source.html#l00312">Array2D::nRows()</a>, and <a class="el" href="global_8cpp_source.html#l00166">Cantera::toSI()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00276">Cantera::fpValueCheck()</a>, <a class="el" href="ctml_8cpp_source.html#l00505">getStringArray()</a>, <a class="el" href="Array_8h_source.html#l00315">Array2D::nColumns()</a>, <a class="el" href="ct__defs_8h_source.html#l00173">Cantera::npos</a>, <a class="el" href="Array_8h_source.html#l00310">Array2D::nRows()</a>, and <a class="el" href="global_8cpp_source.html#l00169">Cantera::toSI()</a>.</p>
 
 <p>Referenced by <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>.</p>
 
@@ -1701,11 +1707,11 @@ retnValues(1, 2) = 3.3E-23
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00521">521</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8cpp_source.html#l00505">505</a> of file <a class="el" href="ctml_8cpp_source.html">ctml.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00413">Cantera::tokenizeString()</a>, and <a class="el" href="xml_8cpp_source.html#l00463">XML_Node::value()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00441">Cantera::tokenizeString()</a>, and <a class="el" href="xml_8cpp_source.html#l00462">XML_Node::value()</a>.</p>
 
-<p>Referenced by <a class="el" href="Elements_8cpp_source.html#l00512">Elements::addElementsFromXML()</a>, <a class="el" href="Phase_8cpp_source.html#l00769">Phase::addElementsFromXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01007">HMWSoln::constructPhaseXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00220">Cantera::formSpeciesXMLNodeList()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00392">Cantera::getFalloff()</a>, <a class="el" href="ctml_8cpp_source.html#l00421">getMap()</a>, <a class="el" href="ctml_8cpp_source.html#l00453">getMatrixValues()</a>, <a class="el" href="ctml_8cpp_source.html#l00435">getPairs()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00935">Cantera::importKinetics()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00493">IdealMolalSoln::initThermoXML()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, and <a class="el" href="HMWSoln__input_8cpp_source.html#l01134">HMWSoln::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="Elements_8cpp_source.html#l00513">Elements::addElementsFromXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01008">HMWSoln::constructPhaseXML()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00221">Cantera::formSpeciesXMLNodeList()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00655">Cantera::getFalloff()</a>, <a class="el" href="ctml_8cpp_source.html#l00405">getMap()</a>, <a class="el" href="ctml_8cpp_source.html#l00437">getMatrixValues()</a>, <a class="el" href="ctml_8cpp_source.html#l00419">getPairs()</a>, <a class="el" href="importKinetics_8cpp_source.html#l01249">Cantera::importKinetics()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00495">IdealMolalSoln::initThermoXML()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00584">DebyeHuckel::initThermoXML()</a>, <a class="el" href="HMWSoln__input_8cpp_source.html#l01131">HMWSoln::initThermoXML()</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00502">Cantera::installElements()</a>.</p>
 
 </div>
 </div>
@@ -1723,7 +1729,7 @@ retnValues(1, 2) = 3.3E-23
 <p>const Specifying the CTML version number </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Codify what the CTML_Version number means. </dd></dl>
 
-<p>Definition at line <a class="el" href="ctml_8h_source.html#l00029">29</a> of file <a class="el" href="ctml_8h_source.html">ctml.h</a>.</p>
+<p>Definition at line <a class="el" href="ctml_8h_source.html#l00033">33</a> of file <a class="el" href="ctml_8h_source.html">ctml.h</a>.</p>
 
 </div>
 </div>

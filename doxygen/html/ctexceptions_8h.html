@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -58,7 +58,9 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ctexceptions.h File Reference</div>  </div>
 </div><!--header-->
@@ -71,14 +73,12 @@
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ctexceptions.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__incl.svg" width="166" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__incl.svg" width="166" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__dep__incl.svg" width="5939" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__dep__incl.svg" width="6191" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="ctexceptions_8h_source.html">Go to the source code of this file.</a></p>
@@ -127,6 +127,29 @@ Macros</h2></td></tr>
 <tr class="memitem:a91f31c6197f94cd5bc1e7009f8b7be8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ctexceptions_8h.html#a91f31c6197f94cd5bc1e7009f8b7be8e">AssertFinite</a>(expr, procedure, message)&#160;&#160;&#160;<a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, message)</td></tr>
 <tr class="memdesc:a91f31c6197f94cd5bc1e7009f8b7be8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throw an exception if the specified exception is not a finite number.  <a href="#a91f31c6197f94cd5bc1e7009f8b7be8e">More...</a><br/></td></tr>
 <tr class="separator:a91f31c6197f94cd5bc1e7009f8b7be8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ad49bb08a114cea0779c13671e58dbbba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbba">CT_RealNumber_Range_Behavior</a> { <br/>
+&#160;&#160;<a class="el" href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbbaa630b70cf47f26bf4400f17081852d56e">DONOTHING_CTRB</a> = -1, 
+<a class="el" href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbbaa5b5043c584de196980d91c94e7462df2">CHANGE_OVERFLOW_CTRB</a>, 
+<a class="el" href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbbaa6cd2cebbb4f3e0caaa52bd3d404585f6">THROWON_OVERFLOW_CTRB</a>, 
+<a class="el" href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbbaa1be7130de1b5bf8bca102317e5d5f60e">FENV_CHECK_CTRB</a>, 
+<br/>
+&#160;&#160;<a class="el" href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbbaa00efd6c9b696250090586903242e1a7c">THROWON_OVERFLOW_DEBUGMODEONLY_CTRB</a>
+<br/>
+ }</td></tr>
+<tr class="memdesc:ad49bb08a114cea0779c13671e58dbbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum containing <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a>'s behavior for situations where overflow or underflow of real variables may occur.  <a href="namespaceCantera.html#ad49bb08a114cea0779c13671e58dbbba">More...</a><br/></td></tr>
+<tr class="separator:ad49bb08a114cea0779c13671e58dbbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a145be50208da873d118ca6451fb86eeb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a145be50208da873d118ca6451fb86eeb">check_FENV_OverUnder_Flow</a> ()</td></tr>
+<tr class="memdesc:a145be50208da873d118ca6451fb86eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quick check on whether there has been an underflow or overflow condition in the floating point unit.  <a href="#a145be50208da873d118ca6451fb86eeb">More...</a><br/></td></tr>
+<tr class="separator:a145be50208da873d118ca6451fb86eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155f3312bf13db0b02d5f801808fc650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a155f3312bf13db0b02d5f801808fc650">clear_FENV</a> ()</td></tr>
+<tr class="memdesc:a155f3312bf13db0b02d5f801808fc650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all the flags for floating-point exceptions.  <a href="#a155f3312bf13db0b02d5f801808fc650">More...</a><br/></td></tr>
+<tr class="separator:a155f3312bf13db0b02d5f801808fc650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitions for the classes that are thrown when Cantera experiences an error condition (also contains errorhandling module text - see <a class="el" href="group__errorhandling.html">Error Handling</a>). </p>
@@ -149,7 +172,7 @@ Macros</h2></td></tr>
 
 <p>Provides a line number. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00195">195</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00236">236</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -169,7 +192,7 @@ Macros</h2></td></tr>
 
 <p>Provides a line number. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00198">198</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00239">239</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -186,7 +209,7 @@ Macros</h2></td></tr>
 <p>Provides a std::string variable containing the file and line number. </p>
 <p>This is a std:string containing the file name and the line number </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00204">204</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00245">245</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -222,9 +245,9 @@ Macros</h2></td></tr>
 
 <p>Throw an exception if the specified exception is not a finite number. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00267">267</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00308">308</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealGasReactor_8cpp_source.html#l00083">IdealGasReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00189">Reactor::evalEqs()</a>, <a class="el" href="IdealGasReactor_8cpp_source.html#l00060">IdealGasReactor::updateState()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00123">Reactor::updateState()</a>.</p>
+<p>Referenced by <a class="el" href="IdealGasReactor_8cpp_source.html#l00080">IdealGasReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00190">Reactor::evalEqs()</a>, <a class="el" href="IdealGasReactor_8cpp_source.html#l00057">IdealGasReactor::updateState()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00124">Reactor::updateState()</a>.</p>
 
 </div>
 </div>

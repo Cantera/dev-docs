@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.2a</span>
    </div>
   </td>
  </tr>
@@ -79,13 +79,13 @@
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == <span class="stringliteral">&quot;-&quot;</span>) {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordtype">id</span> = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        m_ok = <a class="code" href="group__inputfiles.html#ga1dca65a0acf4436c3ed073f4db8dd0fc">buildSolutionFromXML</a>(*m_r, <span class="keywordtype">id</span>, <span class="stringliteral">&quot;phase&quot;</span>, <span class="keyword">this</span>, 0);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        m_ok = <a class="code" href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">buildSolutionFromXML</a>(*m_r, <span class="keywordtype">id</span>, <span class="stringliteral">&quot;phase&quot;</span>, <span class="keyword">this</span>, 0);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span> (!m_ok) <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;PureFluid&quot;</span>,</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                          <span class="stringliteral">&quot;buildSolutionFromXML returned false&quot;</span>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    PureFluid(XML_Node&amp; root, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>) : m_ok(false), m_r(0) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        m_ok = <a class="code" href="group__inputfiles.html#ga1dca65a0acf4436c3ed073f4db8dd0fc">buildSolutionFromXML</a>(root, <span class="keywordtype">id</span>, <span class="stringliteral">&quot;phase&quot;</span>, <span class="keyword">this</span>, 0);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        m_ok = <a class="code" href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">buildSolutionFromXML</a>(root, <span class="keywordtype">id</span>, <span class="stringliteral">&quot;phase&quot;</span>, <span class="keyword">this</span>, 0);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> operator!() {</div>
@@ -117,9 +117,9 @@
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="namespaceCantera_html_a235b0367c7f1d78a08cf52c4a8c5448c"><div class="ttname"><a href="namespaceCantera.html#a235b0367c7f1d78a08cf52c4a8c5448c">Cantera::get_XML_File</a></div><div class="ttdeci">XML_Node * get_XML_File(const std::string &amp;file, int debug)</div><div class="ttdoc">Return a pointer to the XML tree for a Cantera input file. </div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00115">global.cpp:115</a></div></div>
-<div class="ttc" id="group__inputfiles_html_ga1dca65a0acf4436c3ed073f4db8dd0fc"><div class="ttname"><a href="group__inputfiles.html#ga1dca65a0acf4436c3ed073f4db8dd0fc">Cantera::buildSolutionFromXML</a></div><div class="ttdeci">bool buildSolutionFromXML(XML_Node &amp;root, const std::string &amp;id, const std::string &amp;nm, ThermoPhase *th, Kinetics *k)</div><div class="ttdoc">Build a single-phase ThermoPhase object with associated kinetics mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l01014">importKinetics.cpp:1014</a></div></div>
+<div class="ttc" id="namespaceCantera_html_a235b0367c7f1d78a08cf52c4a8c5448c"><div class="ttname"><a href="namespaceCantera.html#a235b0367c7f1d78a08cf52c4a8c5448c">Cantera::get_XML_File</a></div><div class="ttdeci">XML_Node * get_XML_File(const std::string &amp;file, int debug)</div><div class="ttdoc">Return a pointer to the XML tree for a Cantera input file. </div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00113">global.cpp:113</a></div></div>
 <div class="ttc" id="PureFluidPhase_8h_html"><div class="ttname"><a href="PureFluidPhase_8h.html">PureFluidPhase.h</a></div><div class="ttdoc">Header for a ThermoPhase class for a pure fluid phase consisting of gas, liquid, mixed-gas-liquid and...</div></div>
+<div class="ttc" id="group__inputfiles_html_ga4e74133eafef0f135fda21a954bcd588"><div class="ttname"><a href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">Cantera::buildSolutionFromXML</a></div><div class="ttdeci">bool buildSolutionFromXML(XML_Node &amp;root, const std::string &amp;id, const std::string &amp;nm, ThermoPhase *th, Kinetics *kin)</div><div class="ttdoc">Build a single-phase ThermoPhase object with associated kinetics mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l01328">importKinetics.cpp:1328</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

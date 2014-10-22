@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="index.html" />
     <link rel="next" title="Configuring Cantera" href="configuring.html" />
-    <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
+    <link rel="prev" title="Installing Cantera" href="install.html" /> 
   </head>
   <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
@@ -48,7 +48,7 @@
           <a href="configuring.html" title="Configuring Cantera"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="faq.html" title="Frequently Asked Questions"
+          <a href="install.html" title="Installing Cantera"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">Cantera</a> &raquo;</li> 
       </ul>
@@ -98,8 +98,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="faq.html"
-                        title="previous chapter">Frequently Asked Questions</a></p>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installing Cantera</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="configuring.html"
                         title="next chapter">Configuring Cantera</a></p>
@@ -154,7 +154,7 @@ additional configuration may be required.</p>
 <ul>
 <li><p class="first">For Ubuntu or Debian users, the following packages should be installed using
 your choice of package manager:</p>
-<div class="highlight-python"><div class="highlight"><pre>g++ python scons libboost-all-dev libsundials-serial-dev subversion
+<div class="highlight-python"><div class="highlight"><pre>g++ python scons libboost-all-dev libsundials-serial-dev
 </pre></div>
 </div>
 </li>
@@ -162,6 +162,9 @@ your choice of package manager:</p>
 <div class="highlight-python"><div class="highlight"><pre>cython python-dev python-numpy python-numpy-dev
 </pre></div>
 </div>
+</li>
+<li><p class="first">Checking out the source code from version control requires either Git (install
+<tt class="docutils literal"><span class="pre">git</span></tt> and <tt class="docutils literal"><span class="pre">git-svn</span></tt>) or Subversion (install <tt class="docutils literal"><span class="pre">subversion</span></tt>).</p>
 </li>
 <li><p class="first">The minimum compatible Cython version is 0.17. If your distribution does not
 contain a suitable version, you may be able to install a more recent version
@@ -182,17 +185,6 @@ depending on which interfaces (Python, Matlab) you want to build and what
 architecture (32-bit or 64-bit) you want to use. See <a class="reference internal" href="#sec-dependencies"><em>Software used by Cantera</em></a> for
 the full list of dependencies.</p>
 <ul>
-<li><p class="first">If you want to build the Python module, you must use the same version of the
-Microsoft compiler as was used to compile Python. For Python 2.6 and Python
-2.7, this means that you must use Visual Studio 2008 or the equivalent version
-of the Windows SDK (see link below). For Python 3.3, you should use Visual
-Studio 2010, or the corresponding version of the Windows SDK. You can use
-MinGW to sidestep this requirement.</p>
-</li>
-<li><p class="first">Note that the the &#8220;Express&#8221; editions of Visual Studio 2008 do not include a
-64-bit compiler, so if you want to build 64-bit Cantera, you will also need to
-install the Windows SDK.</p>
-</li>
 <li><p class="first">The build process will produce a Python module compatible with the version of
 Python used for the compilation. To generate different modules for other
 versions of Python, you will need to install those versions of Python and
@@ -217,6 +209,10 @@ usually be accomplished by adding the top-level Python directory
 <div class="highlight-python"><div class="highlight"><pre>Control Panel &gt; System and Security &gt; System &gt; Advanced System Settings &gt; Environment Variables
 </pre></div>
 </div>
+</li>
+<li><p class="first">In order to use SCons to install Cantera to a system folder (e.g. <tt class="docutils literal"><span class="pre">C:\Program</span>
+<span class="pre">Files\Cantera</span></tt>) you must run the <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">install</span></tt> command in a command
+prompt that has been launched by selecting the <em>run as administrator</em> option.</p>
 </li>
 </ul>
 </div>
@@ -260,14 +256,22 @@ Xcode 3.x, Xcode 4.x, or Xcode 5.x. Xcode 5.x is recommended.</p>
 <li><p class="first">Option 1: Download the most recent source tarball from <a class="reference external" href="https://sourceforge.net/projects/cantera/files/cantera/">SourceForge</a> and extract the
 contents.</p>
 </li>
-<li><p class="first">Option 2: Check out the code using Subversion:</p>
-<div class="highlight-python"><div class="highlight"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/branches/2.1/ cantera
+<li><p class="first">Option 2: Check out the code from the Github mirror using Git:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/Cantera/cantera.git
+cd cantera
+git checkout 2.1-svn
 </pre></div>
 </div>
 </li>
-<li><p class="first">Option 3: Check out the code using Git:</p>
+<li><p class="first">Option 3: Check out the code from the Subversion repository using Git:</p>
 <div class="highlight-python"><div class="highlight"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
+cd cantera
 git checkout 2.1
+</pre></div>
+</div>
+</li>
+<li><p class="first">Option 4: Check out the code using Subversion:</p>
+<div class="highlight-python"><div class="highlight"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/branches/2.1/ cantera
 </pre></div>
 </div>
 </li>
@@ -276,13 +280,18 @@ git checkout 2.1
 <div class="section" id="development-version">
 <h3>Development Version<a class="headerlink" href="#development-version" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first">Option 1: Check out the code using Subversion:</p>
-<div class="highlight-python"><div class="highlight"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/trunk/ cantera
+<li><p class="first">Option 1: Check out the code from the Github mirror using Git:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/Cantera/cantera.git
 </pre></div>
 </div>
 </li>
-<li><p class="first">Option 2: Check out the code using Git:</p>
+<li><p class="first">Option 3: Check out the code from the Subversion repository using Git:</p>
 <div class="highlight-python"><div class="highlight"><pre>git svn clone --stdlayout http://cantera.googlecode.com/svn/cantera cantera
+</pre></div>
+</div>
+</li>
+<li><p class="first">Option 2: Check out the code using Subversion:</p>
+<div class="highlight-python"><div class="highlight"><pre>svn checkout http://cantera.googlecode.com/svn/cantera/trunk/ cantera
 </pre></div>
 </div>
 </li>
@@ -368,11 +377,10 @@ Python 2 with SCons, as SCons does not currently support Python 3.</p>
 that Cantera depends on, so you will need to specify these paths explicitly.</li>
 <li>Remember to put double quotes around any paths with spaces in them, e.g.
 &#8220;C:Program Files&#8221;.</li>
-<li>By default, SCons attempts to use the same architecture and version of the
-Microsoft compiler as was used to compile Python, typically Visual Studio
-2008 or the equivalent version of the Windows SDK. If you aren&#8217;t building the
-Python module, you can override this with the configuration options
-<tt class="docutils literal"><span class="pre">target_arch</span></tt> and <tt class="docutils literal"><span class="pre">msvc_version</span></tt>.</li>
+<li>By default, SCons attempts to use the same architecture as the copy of Python
+that is running SCons, and the most recent installed version of the Visual
+Studio compiler. If you aren&#8217;t building the Python module, you can override
+this with the configuration options <tt class="docutils literal"><span class="pre">target_arch</span></tt> and <tt class="docutils literal"><span class="pre">msvc_version</span></tt>.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -554,13 +562,8 @@ versions &gt;= 11.0</li>
 </ul>
 </li>
 <li>Microsoft compilers (C/C++)<ul>
-<li>Known to work with version 9.0 (Visual Studio 2008) and version 10.0
-(Visual Studio 2010). Expected to work with version 11.0 (Visual Studio
-2012).</li>
-<li>If you are building the Python module, you must use the same version and
-architecture (32- or 64-bit) as your copy of Python was compiled with:
-Visual Studio 2008 for Python 2.6, 2.7, and 3.2, or Visual Studio 2010 for
-Python 3.3.</li>
+<li>Known to work with versions 9.0 (Visual Studio 2008) through 12.0 (Visual
+Studio 2013).</li>
 <li>The &#8220;Express&#8221; editions of Visual Studio 2008 and 2010 do not include a
 64-bit compiler. To compile Cantera with 64-bit support, you must install
 the corresponding version of the Windows SDK, available as a free download.</li>
@@ -590,6 +593,7 @@ with any version that provides a supported version of GCC.</li>
 <li>SCons:<ul>
 <li><a class="reference external" href="http://www.scons.org/download.php">http://www.scons.org/download.php</a></li>
 <li>Known to work with SCons 2.1.0; Expected to work with versions &gt;= 1.0.0</li>
+<li>Version 2.3.2 or newer is required to use Visual Studio 2013.</li>
 </ul>
 </li>
 <li>Python:<ul>
@@ -745,7 +749,7 @@ the other Python modules.</li>
           <a href="configuring.html" title="Configuring Cantera"
              >next</a> |</li>
         <li class="right" >
-          <a href="faq.html" title="Frequently Asked Questions"
+          <a href="install.html" title="Installing Cantera"
              >previous</a> |</li>
         <li><a href="index.html">Cantera</a> &raquo;</li> 
       </ul>

@@ -252,7 +252,7 @@ fractions.</p>
 <dl class="attribute">
 <dt id="cantera.ThermoPhase.X">
 <tt class="descname">X</tt><a class="headerlink" href="#cantera.ThermoPhase.X" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get/Set the species mole fractions. Can be set as an array, as a dict,
+<dd><p>Get/Set the species mole fractions. Can be set as an array, as a dictionary,
 or as a string. Always returns an array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;H2&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span> <span class="s">&#39;AR&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
@@ -266,7 +266,7 @@ or as a string. Always returns an array:</p>
 <dl class="attribute">
 <dt id="cantera.ThermoPhase.Y">
 <tt class="descname">Y</tt><a class="headerlink" href="#cantera.ThermoPhase.Y" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get/Set the species mass fractions. Can be set as an array, as a dict,
+<dd><p>Get/Set the species mass fractions. Can be set as an array, as a dictionary,
 or as a string. Always returns an array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;H2&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span> <span class="s">&#39;AR&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
@@ -531,6 +531,11 @@ than TP is specified.</li>
 <dd><p>Isothermal compressibility [1/Pa].</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cantera.ThermoPhase.mass_fraction_dict">
+<tt class="descname">mass_fraction_dict</tt><big>(</big><em>self</em>, <em>double threshold=0.0</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.mass_fraction_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.ThermoPhase.max_temp">
 <tt class="descname">max_temp</tt><a class="headerlink" href="#cantera.ThermoPhase.max_temp" title="Permalink to this definition">¶</a></dt>
@@ -550,6 +555,11 @@ valid.</p>
 <dd><p>Minimum temperature for which the thermodynamic data for the phase are
 valid.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="cantera.ThermoPhase.mole_fraction_dict">
+<tt class="descname">mole_fraction_dict</tt><big>(</big><em>self</em>, <em>double threshold=0.0</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.mole_fraction_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.ThermoPhase.molecular_weights">
@@ -848,11 +858,11 @@ pressure of the mixture is held fixed.</p>
 <dl class="method">
 <dt id="cantera.Mixture.element_index">
 <tt class="descname">element_index</tt><big>(</big><em>self</em>, <em>element</em><big>)</big> &rarr; int<a class="headerlink" href="#cantera.Mixture.element_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Index of element with name &#8216;element&#8217;:</p>
+<dd><p>Index of element with name &#8216;element&#8217;.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="o">.</span><span class="n">element_index</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">2</span>
 </pre></div>
 </div>
-<p>2</p>
 </dd></dl>
 
 <dl class="method">
