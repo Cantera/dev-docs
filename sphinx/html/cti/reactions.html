@@ -78,6 +78,10 @@
 <li><a class="reference internal" href="#pressure-dependent-arrhenius-rate-expressions-p-log">Pressure-Dependent Arrhenius Rate Expressions (P-Log)</a></li>
 <li><a class="reference internal" href="#chebyshev-reaction-rate-expressions">Chebyshev Reaction Rate Expressions</a></li>
 <li><a class="reference internal" href="#surface-reactions">Surface Reactions</a></li>
+<li><a class="reference internal" href="#additional-options">Additional Options</a><ul>
+<li><a class="reference internal" href="#reaction-orders">Reaction Orders</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -190,7 +194,7 @@ all reactions in the local file or in an external one are imported into a phase
 or interface, then the reaction <tt class="docutils literal"><span class="pre">ID</span></tt> field is not used.</p>
 </div>
 <div class="section" id="options">
-<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<span id="sec-reaction-options"></span><h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
 <p>Certain conditions are normally flagged as errors by Cantera. In some cases,
 they may not be errors, and the options field can be used to specify how they
 should be handled.</p>
@@ -227,6 +231,11 @@ fails, since Cantera normally does not allow negative pre-exponential
 factors. But if there are duplicate reactions such that the total rate is
 positive, then negative <em>A</em> parameters are acceptable, as long as the
 <tt class="docutils literal"><span class="pre">'negative_A'</span></tt> option is specified.</dd>
+<dt><tt class="docutils literal"><span class="pre">negative_orders</span></tt></dt>
+<dd>Reaction orders are normally required to be non-negative, since negative
+orders are non-physical and undefined at zero concentration. Cantera allows
+negative orders for a global reaction only if the <tt class="docutils literal"><span class="pre">negative_orders</span></tt>
+override option is specified for the reaction.</dd>
 </dl>
 </div>
 </div>
@@ -462,6 +471,35 @@ used:</p>
                                      <span class="p">[</span><span class="s">&#39;PT(S)&#39;</span><span class="p">,</span> <span class="n">a_2</span><span class="p">,</span> <span class="n">m_2</span><span class="p">,</span> <span class="n">E_2</span><span class="p">]]))</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="additional-options">
+<h2>Additional Options<a class="headerlink" href="#additional-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reaction-orders">
+<h3>Reaction Orders<a class="headerlink" href="#reaction-orders" title="Permalink to this headline">¶</a></h3>
+<p>Explicit reaction orders different from the stoichiometric coefficients are
+sometimes used for non-elementary reactions. For example, consider the global
+reaction:</p>
+<div class="math">
+\[\mathrm{C_8H_{18} + 12.5 O_2 \rightarrow 8 CO_2 + 9 H_2O}\]</div>
+<p>the forward rate constant might be given as <a class="footnote-reference" href="#westbrook1981" id="id7">[6]</a>:</p>
+<div class="math">
+\[k_f = 4.6 \times 10^{11} [\mathrm{C_8H_{18}}]^{0.25} [\mathrm{O_2}]^{1.5}
+      \exp\left(\frac{30.0\,\mathrm{kcal/mol}}{RT}\right)\]</div>
+<p>This reaction could be defined as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reaction</span><span class="p">(</span><span class="s">&quot;C8H18 + 12.5 O2 =&gt; 8 CO2 + 9 H2O&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">4.6e11</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span>
+         <span class="n">order</span><span class="o">=</span><span class="s">&quot;C8H18:0.25 O2:1.5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Special care is required in this case since the units of the pre-exponential
+factor depend on the sum of the reaction orders, which may not be an integer.</p>
+<p>Normally, reaction orders are required to be positive. However, in some cases
+negative reaction orders are found to be better fits for experimental data. In
+these cases, the default behavior may be overridden by adding
+<tt class="docutils literal"><span class="pre">negative_orders</span></tt> to the reaction options, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reaction</span><span class="p">(</span><span class="s">&quot;C8H18 + 12.5 O2 =&gt; 8 CO2 + 9 H2O&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">4.6e11</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span>
+         <span class="n">order</span><span class="o">=</span><span class="s">&quot;C8H18:-0.25 O2:1.75&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;negative_orders&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
 <p class="rubric">References</p>
 <table class="docutils footnote" frame="void" id="gilbert1983" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -504,6 +542,15 @@ chemical kinetics package for the analysis of gas-phase chemical
 kinetics. Technical Report SAND89-8009, Sandia National Laboratories, 1989.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="westbrook1981" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td>C. K. Westbrook and F. L. Dryer. Simplified reaction
+mechanisms for the oxidation of hydrocarbon fuels in flames. <em>Combustion
+Science and Technology</em> <strong>27</strong>, pp. 31&#8211;43. 1981.</td></tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
@@ -534,7 +581,7 @@ kinetics. Technical Report SAND89-8009, Sandia National Laboratories, 1989.</td>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

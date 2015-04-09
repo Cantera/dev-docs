@@ -426,6 +426,55 @@ to a state of equilibrium at constant T and P, then computes the
 element potentials for this equilibrium state.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cantera.ThermoPhase.elemental_mass_fraction">
+<tt class="descname">elemental_mass_fraction</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.elemental_mass_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the elemental mass fraction <span class="math">\(Z_{\mathrm{mass},m}\)</span> of element
+<span class="math">\(m\)</span> as defined by:</p>
+<div class="math">
+\[Z_{\mathrm{mass},m} = \sum_k \frac{a_{m,k} M_m}{M_k} Y_k\]</div>
+<p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
+species <span class="math">\(k\)</span>, <span class="math">\(M_m\)</span> the atomic weight of element <span class="math">\(m\)</span>,
+<span class="math">\(M_k\)</span> the molecular weight of species <span class="math">\(k\)</span>, and <span class="math">\(Y_k\)</span>
+the mass fraction of species <span class="math">\(k\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">elemental_mass_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ThermoPhase.elemental_mole_fraction">
+<tt class="descname">elemental_mole_fraction</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.elemental_mole_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the elemental mole fraction <span class="math">\(Z_{\mathrm{mole},m}\)</span> of element
+<span class="math">\(m\)</span> as defined by:</p>
+<div class="math">
+\[Z_{\mathrm{mole},m} = \sum_k \frac{a_{m,k}}{\sum_j a_{j,k}} X_k\]</div>
+<p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
+species <span class="math">\(k\)</span> and <span class="math">\(X_k\)</span> the mole fraction of species
+<span class="math">\(k\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">elemental_mole_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.ThermoPhase.enthalpy_mass">
 <tt class="descname">enthalpy_mass</tt><a class="headerlink" href="#cantera.ThermoPhase.enthalpy_mass" title="Permalink to this definition">¶</a></dt>
@@ -452,7 +501,7 @@ element potentials for this equilibrium state.</p>
 
 <dl class="method">
 <dt id="cantera.ThermoPhase.equilibrate">
-<tt class="descname">equilibrate</tt><big>(</big><em>self</em>, <em>XY</em>, <em>solver='auto'</em>, <em>double rtol=1e-09</em>, <em>int maxsteps=1000</em>, <em>int maxiter=100</em>, <em>int loglevel=0</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.equilibrate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">equilibrate</tt><big>(</big><em>self</em>, <em>XY</em>, <em>solver='auto'</em>, <em>double rtol=1e-09</em>, <em>int maxsteps=1000</em>, <em>int maxiter=100</em>, <em>int estimate_equil=0</em>, <em>int loglevel=0</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.equilibrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set to a state of chemical equilibrium holding property pair
 <em>XY</em> constant.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -481,6 +530,12 @@ solution.</li>
 <li><strong>maxiter</strong> &#8211; For the Gibbs minimization solver, this specifies the number of
 &#8216;outer&#8217; iterations on T or P when some property pair other
 than TP is specified.</li>
+<li><strong>estimate_equil</strong> &#8211; Integer indicating whether the solver should estimate its own
+initial condition. If 0, the initial mole fraction vector in the
+ThermoPhase object is used as the initial condition. If 1, the
+initial mole fraction vector is used if the element abundances are
+satisfied. If -1, the initial mole fraction vector is thrown out,
+and an estimate is formulated.</li>
 <li><strong>loglevel</strong> &#8211; Set to a value &gt; 0 to write diagnostic output.</li>
 </ul>
 </td>
@@ -832,15 +887,15 @@ phases objects whenever it requires phase properties.</p>
 <dl class="attribute">
 <dt id="cantera.Mixture.P">
 <tt class="descname">P</tt><a class="headerlink" href="#cantera.Mixture.P" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Pressure [Pa] of all phases in the mixture. When set, the
-temperature of the mixture is held fixed.</p>
+<dd><p>Get or set the Pressure [Pa] of all phases in the mixture. When set,
+the temperature of the mixture is held fixed.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.Mixture.T">
 <tt class="descname">T</tt><a class="headerlink" href="#cantera.Mixture.T" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Temperature [K] of all phases in the mixture. When set, the
-pressure of the mixture is held fixed.</p>
+<dd><p>Get or set the Temperature [K] of all phases in the mixture. When set,
+the pressure of the mixture is held fixed.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -874,7 +929,7 @@ The element may be referenced either by index number or by name.</p>
 
 <dl class="method">
 <dt id="cantera.Mixture.equilibrate">
-<tt class="descname">equilibrate</tt><big>(</big><em>self</em>, <em>XY</em>, <em>solver='vcs'</em>, <em>rtol=1e-09</em>, <em>max_steps=1000</em>, <em>max_iter=100</em>, <em>estimate_equil=0</em>, <em>print_level=0</em>, <em>log_level=0</em><big>)</big><a class="headerlink" href="#cantera.Mixture.equilibrate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">equilibrate</tt><big>(</big><em>self</em>, <em>XY</em>, <em>solver='auto'</em>, <em>rtol=1e-09</em>, <em>max_steps=1000</em>, <em>max_iter=100</em>, <em>estimate_equil=0</em>, <em>log_level=0</em><big>)</big><a class="headerlink" href="#cantera.Mixture.equilibrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set to a state of chemical equilibrium holding property pair <em>XY</em>
 constant. This method uses a version of the VCS algorithm to find the
 composition that minimizes the total Gibbs free energy of the mixture,
@@ -890,10 +945,11 @@ theory, see Smith and Missen, &#8220;Chemical Reaction Equilibrium.&#8221;</p>
 </pre></div>
 </div>
 </li>
-<li><strong>solver</strong> &#8211; Set to either &#8216;vcs&#8217; or &#8216;gibbs&#8217; to choose implementation
-of the solver to use. &#8216;vcs&#8217; uses the solver implemented in the
-C++ class &#8216;VCSnonideal&#8217;, and &#8216;gibbs&#8217; uses the one implemented
-in class &#8216;MultiPhaseEquil&#8217;.</li>
+<li><strong>solver</strong> &#8211; Set to either &#8216;auto&#8217;, &#8216;vcs&#8217;, or &#8216;gibbs&#8217; to choose
+implementation of the solver to use. &#8216;vcs&#8217; uses the solver
+implemented in the C++ class &#8216;VCSnonideal&#8217;, &#8216;gibbs&#8217; uses the one
+implemented in class &#8216;MultiPhaseEquil&#8217;. &#8216;auto&#8217; will try the &#8216;vcs&#8217;
+solver first and then the &#8216;gibbs&#8217; solver if that fails.</li>
 <li><strong>rtol</strong> &#8211; Error tolerance. Iteration will continue until (Delta mu)/RT is
 less than this value for each reaction. Note that this default is
 very conservative, and good equilibrium solutions may be obtained
@@ -909,10 +965,9 @@ objects are used as the initial condition. If 1, the initial mole
 fraction vector is used if the element abundances are satisfied.
 if -1, the initial mole fraction vector is thrown out, and an
 estimate is formulated.</li>
-<li><strong>print_level</strong> &#8211; Determines the amount of output displayed during the solution
+<li><strong>log_level</strong> &#8211; Determines the amount of output displayed during the solution
 process. 0 indicates no output, while larger numbers produce
 successively more verbose information.</li>
-<li><strong>log_level</strong> &#8211; Controls the amount of diagnostic output written.</li>
 </ul>
 </td>
 </tr>
@@ -1034,11 +1089,11 @@ following two statements are equivalent:</p>
 <dl class="attribute">
 <dt id="cantera.Mixture.species_moles">
 <tt class="descname">species_moles</tt><a class="headerlink" href="#cantera.Mixture.species_moles" title="Permalink to this definition">¶</a></dt>
-<dd><p>The number of moles of each species. May be set either
-as a string, or as an array. If an array is used, it must be
-dimensioned at least as large as the total number of species in the
-mixture. Note that the species may belong to any phase, and
-unspecified species are set to zero.</p>
+<dd><p>Get or set the number of moles of each species. May be set either as a
+string or as an array. If an array is used, it must be dimensioned at
+least as large as the total number of species in the mixture. Note that
+the species may belong to any phase, and unspecified species are set to
+zero.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mix</span><span class="o">.</span><span class="n">species_moles</span> <span class="o">=</span> <span class="s">&#39;C(s):1.0, CH4:2.0, O2:0.2&#39;</span>
 </pre></div>
 </div>
@@ -1087,7 +1142,7 @@ are assigned in order as phases are added.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

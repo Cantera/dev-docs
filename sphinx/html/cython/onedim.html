@@ -283,6 +283,32 @@ stack are stored as <tt class="docutils literal"><span class="pre">self.fuel_inl
 <tt class="descname">fuel_inlet</tt><a class="headerlink" href="#cantera.CounterflowDiffusionFlame.fuel_inlet" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cantera.CounterflowDiffusionFlame.mixture_fraction">
+<tt class="descname">mixture_fraction</tt><big>(</big><em>m</em><big>)</big><a class="headerlink" href="#cantera.CounterflowDiffusionFlame.mixture_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the mixture fraction based on element <em>m</em></p>
+<p>The mixture fraction is computed from the elemental mass fraction of
+element <em>m</em>, normalized by its values on the fuel and oxidizer
+inlets:</p>
+<div class="math">
+\[Z = \frac{Z_{\mathrm{mass},m}(z) -
+ Z_{\mathrm{mass},m}(z_\mathrm{oxidizer})}
+{Z_{\mathrm{mass},m}(z_\mathrm{fuel}) -
+ Z_{\mathrm{mass},m}(z_\mathrm{oxidizer})}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; The element based on which the mixture fraction is computed,
+may be specified by name or by index</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">mixture_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.CounterflowDiffusionFlame.oxidizer_inlet">
 <tt class="descname">oxidizer_inlet</tt><a class="headerlink" href="#cantera.CounterflowDiffusionFlame.oxidizer_inlet" title="Permalink to this definition">¶</a></dt>
@@ -304,7 +330,21 @@ fast chemistry.</p>
 <dl class="method">
 <dt id="cantera.CounterflowDiffusionFlame.solve">
 <tt class="descname">solve</tt><big>(</big><em>loglevel=1</em>, <em>refine_grid=True</em><big>)</big><a class="headerlink" href="#cantera.CounterflowDiffusionFlame.solve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Solve the problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loglevel</strong> &#8211; integer flag controlling the amount of diagnostic output. Zero
+suppresses all output, and 5 produces very verbose output.</li>
+<li><strong>refine_grid</strong> &#8211; if True, enable grid refinement.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="cantera.CounterflowDiffusionFlame.strain_rate">
@@ -460,6 +500,17 @@ of a stack.</p>
 <dd><p>The name / id of this domain</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cantera.FreeFlow.radiation_enabled">
+<tt class="descname">radiation_enabled</tt><a class="headerlink" href="#cantera.FreeFlow.radiation_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether or not to include radiative heat transfer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.FreeFlow.set_boundary_emissivities">
+<tt class="descname">set_boundary_emissivities</tt><big>(</big><em>self</em>, <em>e_left</em>, <em>e_right</em><big>)</big><a class="headerlink" href="#cantera.FreeFlow.set_boundary_emissivities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cantera.FreeFlow.set_bounds">
 <tt class="descname">set_bounds</tt><big>(</big><em>self</em>, <em>*</em>, <em>default=None</em>, <em>Y=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cantera.FreeFlow.set_bounds" title="Permalink to this definition">¶</a></dt>
@@ -522,7 +573,8 @@ species mass fractions in flow domains.</p>
 <dl class="method">
 <dt id="cantera.FreeFlow.set_transport">
 <tt class="descname">set_transport</tt><big>(</big><em>self</em>, <em>_SolutionBase phase</em><big>)</big><a class="headerlink" href="#cantera.FreeFlow.set_transport" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set the <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> object used for calculating transport properties.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FreeFlow.soret_enabled">
@@ -653,6 +705,17 @@ of a stack.</p>
 <dd><p>The name / id of this domain</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cantera.AxisymmetricStagnationFlow.radiation_enabled">
+<tt class="descname">radiation_enabled</tt><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.radiation_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether or not to include radiative heat transfer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.AxisymmetricStagnationFlow.set_boundary_emissivities">
+<tt class="descname">set_boundary_emissivities</tt><big>(</big><em>self</em>, <em>e_left</em>, <em>e_right</em><big>)</big><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.set_boundary_emissivities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cantera.AxisymmetricStagnationFlow.set_bounds">
 <tt class="descname">set_bounds</tt><big>(</big><em>self</em>, <em>*</em>, <em>default=None</em>, <em>Y=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.set_bounds" title="Permalink to this definition">¶</a></dt>
@@ -715,7 +778,8 @@ species mass fractions in flow domains.</p>
 <dl class="method">
 <dt id="cantera.AxisymmetricStagnationFlow.set_transport">
 <tt class="descname">set_transport</tt><big>(</big><em>self</em>, <em>_SolutionBase phase</em><big>)</big><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.set_transport" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set the <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> object used for calculating transport properties.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.AxisymmetricStagnationFlow.soret_enabled">
@@ -753,7 +817,8 @@ stack.</p>
 <dl class="attribute">
 <dt id="cantera.Inlet1D.spread_rate">
 <tt class="descname">spread_rate</tt><a class="headerlink" href="#cantera.Inlet1D.spread_rate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get/set the tangential velocity gradient [1/s] at this boundary.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1395,7 +1460,8 @@ each point. Note: This value is named &#8216;lambda&#8217; in the C++ code.</p>
 <dl class="attribute">
 <dt id="cantera.FlameBase.P">
 <tt class="descname">P</tt><a class="headerlink" href="#cantera.FlameBase.P" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get/Set the pressure of the flame [Pa]</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FlameBase.T">
@@ -1586,10 +1652,60 @@ for each reaction [J/kmol].</p>
 <p>Returns an array of size <tt class="xref py py-obj docutils literal"><span class="pre">n_species</span></tt> x <tt class="xref py py-obj docutils literal"><span class="pre">n_points</span></tt>.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cantera.FlameBase.elemental_mass_fraction">
+<tt class="descname">elemental_mass_fraction</tt><big>(</big><em>m</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.elemental_mass_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the elemental mass fraction <span class="math">\(Z_{\mathrm{mass},m}\)</span> of element
+<span class="math">\(m\)</span> at each grid point, which is defined as:</p>
+<div class="math">
+\[Z_{\mathrm{mass},m} = \sum_k \frac{a_{m,k} M_m}{M_k} Y_k\]</div>
+<p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
+species <span class="math">\(k\)</span>, <span class="math">\(M_m\)</span> the atomic weight of element <span class="math">\(m\)</span>,
+<span class="math">\(M_k\)</span> the molecular weight of species <span class="math">\(k\)</span>, and <span class="math">\(Y_k\)</span>
+the mass fraction of species <span class="math">\(k\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">elemental_mass_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">[1.0, ..., 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.FlameBase.elemental_mole_fraction">
+<tt class="descname">elemental_mole_fraction</tt><big>(</big><em>m</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.elemental_mole_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the elemental mole fraction <span class="math">\(Z_{\mathrm{mole},m}\)</span> of element
+<span class="math">\(m\)</span> at each grid point, which is defined as:</p>
+<div class="math">
+\[Z_{\mathrm{mole},m} = \sum_k \frac{a_{m,k}}{\sum_j a_{j,k}} X_k\]</div>
+<p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
+species <span class="math">\(k\)</span> and <span class="math">\(X_k\)</span> the mole fraction of species
+<span class="math">\(k\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">elemental_mole_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">[1.0, ..., 0.0]</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.FlameBase.energy_enabled">
 <tt class="descname">energy_enabled</tt><a class="headerlink" href="#cantera.FlameBase.energy_enabled" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get/Set whether or not to solve the energy equation.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FlameBase.enthalpy_mass">
@@ -1679,6 +1795,24 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <tt class="descname">h</tt><a class="headerlink" href="#cantera.FlameBase.h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enthalpy [J/kg or J/kmol] depending on <tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt>.</p>
 <p>Returns an array of length <tt class="xref py py-obj docutils literal"><span class="pre">n_points</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.FlameBase.heat_production_rates">
+<tt class="descname">heat_production_rates</tt><a class="headerlink" href="#cantera.FlameBase.heat_production_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the volumetric heat production rates [W/m^3] on a per-reaction
+basis. The sum over all reactions results in the total volumetric heat
+release rate.
+Example: C. K. Law: Combustion Physics (2006), Fig. 7.8.6</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">heat_production_rates</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c"># heat production rate of the 2nd reaction</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.FlameBase.heat_release_rate">
+<tt class="descname">heat_release_rate</tt><a class="headerlink" href="#cantera.FlameBase.heat_release_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total volumetric heat release rate [W/m^3].</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1787,6 +1921,12 @@ pressure [J/kmol/K].</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cantera.FlameBase.radiation_enabled">
+<tt class="descname">radiation_enabled</tt><a class="headerlink" href="#cantera.FlameBase.radiation_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set whether or not to include radiative heat transfer</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cantera.FlameBase.reverse_rate_constants">
 <tt class="descname">reverse_rate_constants</tt><a class="headerlink" href="#cantera.FlameBase.reverse_rate_constants" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverse rate constants for all reactions. Units are a combination of
@@ -1810,29 +1950,86 @@ phases or [kmol/m^2/s] for surface phases.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cantera.FlameBase.set_boundary_emissivities">
+<tt class="descname">set_boundary_emissivities</tt><big>(</big><em>e_left</em>, <em>e_right</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.set_boundary_emissivities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cantera.FlameBase.set_gas_state">
 <tt class="descname">set_gas_state</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.set_gas_state" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set the state of the the Solution object used for calculations,
+<tt class="xref py py-obj docutils literal"><span class="pre">self.gas</span></tt>, to the temperature and composition at the point with index
+<em>point</em>.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cantera.FlameBase.set_profile">
 <tt class="descname">set_profile</tt><big>(</big><em>component</em>, <em>locations</em>, <em>values</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.set_profile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set an initial estimate for a profile of one component.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>component</strong> &#8211; component name or index</li>
+<li><strong>positions</strong> &#8211; sequence of relative positions, from 0 on the left to 1 on the right</li>
+<li><strong>values</strong> &#8211; sequence of values at the relative positions specified in <em>positions</em></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">400.0</span><span class="p">,</span> <span class="mf">800.0</span><span class="p">,</span> <span class="mf">1500.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="cantera.FlameBase.set_refine_criteria">
 <tt class="descname">set_refine_criteria</tt><big>(</big><em>ratio=10.0</em>, <em>slope=0.8</em>, <em>curve=0.8</em>, <em>prune=0.0</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.set_refine_criteria" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Set the criteria used for grid refinement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ratio</strong> &#8211; additional points will be added if the ratio of the spacing on
+either side of a grid point exceeds this value</li>
+<li><strong>slope</strong> &#8211; maximum difference in value between two adjacent points, scaled by
+the maximum difference in the profile (0.0 &lt; slope &lt; 1.0). Adds
+points in regions of high slope.</li>
+<li><strong>curve</strong> &#8211; maximum difference in slope between two adjacent intervals, scaled
+by the maximum difference in the profile (0.0 &lt; curve &lt; 1.0). Adds
+points in regions of high curvature.</li>
+<li><strong>prune</strong> &#8211; if the slope or curve criteria are satisfied to the level of
+&#8216;prune&#8217;, the grid point is assumed not to be needed and is removed.
+Set prune significantly smaller than &#8216;slope&#8217; and &#8216;curve&#8217;. Set to
+zero to disable pruning the grid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="cantera.FlameBase.solution">
 <tt class="descname">solution</tt><big>(</big><em>component</em>, <em>point=None</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.solution" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the solution at one point or for the full flame domain (if
+<tt class="xref py py-obj docutils literal"><span class="pre">point=None</span></tt>) for the specified <em>component</em>. The <em>compnent</em> can be
+specified by name or index.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FlameBase.soret_enabled">
 <tt class="descname">soret_enabled</tt><a class="headerlink" href="#cantera.FlameBase.soret_enabled" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get/Set whether or not to include diffusive mass fluxes due to the
+Soret effect. Enabling this option works only when using the
+multicomponent transport model.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FlameBase.standard_cp_R">
@@ -1899,7 +2096,9 @@ coefficients [kg/m/s].</p>
 <dl class="attribute">
 <dt id="cantera.FlameBase.transport_model">
 <tt class="descname">transport_model</tt><a class="headerlink" href="#cantera.FlameBase.transport_model" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get/Set the transport model used by the <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> object used for this
+simulation.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FlameBase.u">
@@ -1988,7 +2187,7 @@ mole fractions or <tt class="docutils literal"><span class="pre">Y</span></tt> f
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

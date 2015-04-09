@@ -111,8 +111,7 @@
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>Start by creating a new Python script (filename ending with &#8221;.py&#8221;) in the text editor of your choice.</p>
-<p>Put the following statement at the top of your script to import the Cantera Python module:</p>
+<p>Start by opening an interactive Python session, e.g. by running <a class="reference external" href="http://ipython.org/">IPython</a>. Import the Cantera Python module by running:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cantera</span> <span class="kn">as</span> <span class="nn">ct</span>
 </pre></div>
 </div>
@@ -146,58 +145,7 @@ heat capacity c_v         10187.3        2.054e+04     J/K
                           X                 Y          Chem. Pot. / RT
                     -------------     ------------     ------------
                H2              1                1         -15.7173
-                H              0                0
-                O              0                0
-               O2              0                0
-               OH              0                0
-              H2O              0                0
-              HO2              0                0
-             H2O2              0                0
-                C              0                0
-               CH              0                0
-              CH2              0                0
-           CH2(S)              0                0
-              CH3              0                0
-              CH4              0                0
-               CO              0                0
-              CO2              0                0
-              HCO              0                0
-             CH2O              0                0
-            CH2OH              0                0
-             CH3O              0                0
-            CH3OH              0                0
-              C2H              0                0
-             C2H2              0                0
-             C2H3              0                0
-             C2H4              0                0
-             C2H5              0                0
-             C2H6              0                0
-             HCCO              0                0
-            CH2CO              0                0
-            HCCOH              0                0
-                N              0                0
-               NH              0                0
-              NH2              0                0
-              NH3              0                0
-              NNH              0                0
-               NO              0                0
-              NO2              0                0
-              N2O              0                0
-              HNO              0                0
-               CN              0                0
-              HCN              0                0
-             H2CN              0                0
-             HCNN              0                0
-             HCNO              0                0
-             HOCN              0                0
-             HNCO              0                0
-              NCO              0                0
-               N2              0                0
-               AR              0                0
-             C3H7              0                0
-             C3H8              0                0
-           CH2CHO              0                0
-           CH3CHO              0                0
+    [  +52 minor]              0                0
 </pre></div>
 </div>
 <p>What you have just done is to create an object, <tt class="xref py py-obj docutils literal"><span class="pre">gas1</span></tt> that implements GRI-
@@ -243,7 +191,7 @@ heat capacity c_v         11253.4        2.269e+04     J/K
                           X                 Y          Chem. Pot. / RT
                     -------------     ------------     ------------
                H2              1                1         -17.9775
-                    (other species not shown)
+    [  +52 minor]              0                0
 </pre></div>
 </div>
 <p>Notice that the temperature has been changed as requested, but the pressure
@@ -303,59 +251,10 @@ heat capacity c_v         1096.38         3.03e+04     J/K
 
                           X                 Y          Chem. Pot. / RT
                     -------------     ------------     ------------
-               H2              0                0
-                H              0                0
-                O              0                0
                O2       0.190114         0.220149         -28.7472
-               OH              0                0
-              H2O              0                0
-              HO2              0                0
-             H2O2              0                0
-                C              0                0
-               CH              0                0
-              CH2              0                0
-           CH2(S)              0                0
-              CH3              0                0
               CH4       0.095057        0.0551863          -35.961
-               CO              0                0
-              CO2              0                0
-              HCO              0                0
-             CH2O              0                0
-            CH2OH              0                0
-             CH3O              0                0
-            CH3OH              0                0
-              C2H              0                0
-             C2H2              0                0
-             C2H3              0                0
-             C2H4              0                0
-             C2H5              0                0
-             C2H6              0                0
-             HCCO              0                0
-            CH2CO              0                0
-            HCCOH              0                0
-                N              0                0
-               NH              0                0
-              NH2              0                0
-              NH3              0                0
-              NNH              0                0
-               NO              0                0
-              NO2              0                0
-              N2O              0                0
-              HNO              0                0
-               CN              0                0
-              HCN              0                0
-             H2CN              0                0
-             HCNN              0                0
-             HCNO              0                0
-             HOCN              0                0
-             HNCO              0                0
-              NCO              0                0
                N2       0.714829         0.724665         -25.6789
-               AR              0                0
-             C3H7              0                0
-             C3H8              0                0
-           CH2CHO              0                0
-           CH3CHO              0                0
+    [  +50 minor]              0                0
 </pre></div>
 </div>
 <p>The composition above was specified using a string. The format is a comma-
@@ -376,11 +275,11 @@ same value, do this:</p>
 <p>When setting the state, you can control what properties are held constant by
 passing the special value <tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt> to the property setter. For example, to
 change the specific volume to 2.1 m^3/kg while holding entropy constant:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">SV</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="mf">2.1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span><span class="o">.</span><span class="n">SV</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="mf">2.1</span>
 </pre></div>
 </div>
 <p>Or to set the mass fractions while holding temperature and pressure constant:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;CH4:1.0, O2:0.5&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s">&#39;CH4:1.0, O2:0.5&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -399,10 +298,11 @@ subdirectory of the Cantera installation directory, e.g. <tt class="docutils lit
 <span class="pre">Files\\Cantera\\data</span></tt> on Windows or <tt class="docutils literal"><span class="pre">/usr/local/cantera/data/</span></tt> on
 Unix/Linux/Mac OS X machines, depending on how you installed Cantera and the
 options you specified.</p>
-<p>If for some reason Cantera has difficulty finding where these files are on
-your system, set environment variable <tt class="docutils literal"><span class="pre">CANTERA_DATA</span></tt> to the directory where
-they are located. Alternatively, you can call function <a class="reference internal" href="importing.html#cantera.add_directory" title="cantera.add_directory"><tt class="xref py py-obj docutils literal"><span class="pre">add_directory</span></tt></a> to add
-a directory to the Cantera search path:</p>
+<p>If for some reason Cantera has difficulty finding where these files are on your
+system, set environment variable <tt class="docutils literal"><span class="pre">CANTERA_DATA</span></tt> to the directory or
+directories (separated using <tt class="docutils literal"><span class="pre">;</span></tt> on Windows or <tt class="docutils literal"><span class="pre">:</span></tt> on other operating
+systems) where they are located. Alternatively, you can call function
+<a class="reference internal" href="importing.html#cantera.add_directory" title="cantera.add_directory"><tt class="xref py py-obj docutils literal"><span class="pre">add_directory</span></tt></a> to add a directory to the Cantera search path:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ct</span><span class="o">.</span><span class="n">add_directory</span><span class="p">(</span><span class="s">&#39;/usr/local/cantera/my_data_files&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -447,7 +347,7 @@ documentation of the Python classes and their methods can be accessed from
 within the Python interpreter as well.</p>
 <p>Suppose you have created a Cantera object and want to know what methods are
 available for it, and get help on using the methods:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">Cantera</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To get help on the Python class that this object is an instance of:</p>
@@ -564,7 +464,7 @@ line documented source code of Cantera C++ class &#8216;ChemEquil.h&#8217;.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

@@ -184,7 +184,7 @@ set to zero. Can only be specified for interfaces.</li>
 <h2>Phases of Matter<a class="headerlink" href="#phases-of-matter" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.ctml_writer.phase">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">phase</tt><big>(</big><em>name=''</em>, <em>dim=3</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.phase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">phase</tt><big>(</big><em>name=''</em>, <em>dim=3</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.phase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Base class for phases of matter.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -217,7 +217,7 @@ property calculation will be disabled.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.ideal_gas">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">ideal_gas</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>kinetics='GasKinetics'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.ideal_gas" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">ideal_gas</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>kinetics='GasKinetics'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.ideal_gas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>An ideal gas mixture.</p>
 <p>The parameters correspond to those of <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt></a>, with the
@@ -241,7 +241,7 @@ mixtures, is used.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.stoichiometric_solid">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">stoichiometric_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=None</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.stoichiometric_solid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">stoichiometric_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=None</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.stoichiometric_solid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A solid compound or pure element. Stoichiometric solid phases contain
 exactly one species, which always has unit activity. The solid is assumed
@@ -253,7 +253,7 @@ phase, since the concentration is always the same.</p>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.stoichiometric_liquid">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">stoichiometric_liquid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=-1.0</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.stoichiometric_liquid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">stoichiometric_liquid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=-1.0</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.stoichiometric_liquid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.stoichiometric_solid" title="cantera.ctml_writer.stoichiometric_solid"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.stoichiometric_solid</span></tt></a></p>
 <p>An incompressible stoichiometric liquid. Currently, there is no
 distinction between stoichiometric liquids and solids.</p>
@@ -262,41 +262,41 @@ distinction between stoichiometric liquids and solids.</p>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.metal">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">metal</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=-1.0</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.metal" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">metal</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=-1.0</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.metal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A metal.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.semiconductor">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">semiconductor</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=-1.0</em>, <em>bandgap=96485336.4595687</em>, <em>effectiveMass_e=9.10938291e-31</em>, <em>effectiveMass_h=9.10938291e-31</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.semiconductor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">semiconductor</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=-1.0</em>, <em>bandgap=96485336.4595687</em>, <em>effectiveMass_e=9.10938291e-31</em>, <em>effectiveMass_h=9.10938291e-31</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.semiconductor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A semiconductor.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.incompressible_solid">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">incompressible_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=None</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.incompressible_solid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">incompressible_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>density=None</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.incompressible_solid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>An incompressible solid.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.lattice">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">lattice</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em>, <span class="optional">[</span><span class="optional">]</span><em>site_density=None</em>, <em>vacancy_species=''</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.lattice" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">lattice</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em>, <em>site_density=None</em>, <em>vacancy_species=''</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.lattice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.lattice_solid">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">lattice_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>lattices=</em>, <span class="optional">[</span><span class="optional">]</span><em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.lattice_solid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">lattice_solid</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>lattices=[]</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.lattice_solid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A solid crystal consisting of one or more sublattices.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.liquid_vapor">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">liquid_vapor</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>substance_flag=0</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.liquid_vapor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">liquid_vapor</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>substance_flag=0</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.liquid_vapor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A fluid with a complete liquid/vapor equation of state.
 This entry type selects one of a set of predefined fluids with
@@ -307,7 +307,7 @@ of this entry type.</p>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.redlich_kwong">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">redlich_kwong</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>substance_flag=7</em>, <em>initial_state=None</em>, <em>Tcrit=1.0</em>, <em>Pcrit=1.0</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.redlich_kwong" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">redlich_kwong</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>substance_flag=7</em>, <em>initial_state=None</em>, <em>Tcrit=1.0</em>, <em>Pcrit=1.0</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.redlich_kwong" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A fluid with a complete liquid/vapor equation of state.
 This entry type selects one of a set of predefined fluids with
@@ -318,7 +318,7 @@ of this entry type.</p>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.ideal_interface">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">ideal_interface</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>site_density=0.0</em>, <em>phases=</em>, <span class="optional">[</span><span class="optional">]</span><em>kinetics='Interface'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.ideal_interface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">ideal_interface</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>site_density=0.0</em>, <em>phases=[]</em>, <em>kinetics='Interface'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.ideal_interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A chemically-reacting ideal surface solution of multiple species.</p>
 <p>The parameters correspond to those of <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt></a>, with the
@@ -343,7 +343,7 @@ at this interface.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.edge">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">edge</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>site_density=0.0</em>, <em>phases=</em>, <span class="optional">[</span><span class="optional">]</span><em>kinetics='Edge'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.edge" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">edge</tt><big>(</big><em>name=''</em>, <em>elements=''</em>, <em>species=''</em>, <em>note=''</em>, <em>reactions='none'</em>, <em>site_density=0.0</em>, <em>phases=[]</em>, <em>kinetics='Edge'</em>, <em>transport='None'</em>, <em>initial_state=None</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.edge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.phase</span></tt></a></p>
 <p>A 1D boundary between two surface phases.</p>
 </dd></dl>
@@ -423,7 +423,7 @@ chemical potentials vs. T.</p>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.NASA">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">NASA</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>coeffs=</em>, <span class="optional">[</span><span class="optional">]</span><em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.NASA" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">NASA</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>coeffs=[]</em>, <em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.NASA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.thermo</span></tt></p>
 <p>The 7-coefficient NASA polynomial parameterization.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -447,7 +447,7 @@ directive.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.NASA9">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">NASA9</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>coeffs=</em>, <span class="optional">[</span><span class="optional">]</span><em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.NASA9" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">NASA9</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>coeffs=[]</em>, <em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.NASA9" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.thermo</span></tt></p>
 <p>NASA9 polynomial parameterization for a single temperature region.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -471,7 +471,7 @@ directive.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.Shomate">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">Shomate</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>coeffs=</em>, <span class="optional">[</span><span class="optional">]</span><em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.Shomate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">Shomate</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>coeffs=[]</em>, <em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.Shomate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.thermo</span></tt></p>
 <p>Shomate polynomial parameterization.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -494,7 +494,7 @@ the default value set by the <tt class="docutils literal"><span class="pre">stan
 
 <dl class="class">
 <dt id="cantera.ctml_writer.Adsorbate">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">Adsorbate</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>binding_energy=0.0</em>, <em>frequencies=</em>, <span class="optional">[</span><span class="optional">]</span><em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.Adsorbate" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">Adsorbate</tt><big>(</big><em>Trange=(0.0</em>, <em>0.0)</em>, <em>binding_energy=0.0</em>, <em>frequencies=[]</em>, <em>p0=-1.0</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.Adsorbate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.thermo</span></tt></p>
 <p>Adsorbed species characterized by a binding energy and a set of
 vibrational frequencies.</p>
@@ -556,7 +556,7 @@ Default: 0.0</li>
 <h2>Reactions<a class="headerlink" href="#reactions" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.ctml_writer.reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>A homogeneous chemical reaction with pressure-independent rate coefficient
 and mass-action kinetics.</p>
@@ -572,7 +572,12 @@ the modified Arrhenius function <span class="math">\(A T^b exp(-E/\hat{R}T)\)</s
 <li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</li>
+<li><strong>order</strong> &#8211; Override the default reaction orders implied by the reactant
+stoichiometric coefficients. Given as a string of key:value pairs,
+e.g. <tt class="docutils literal"><span class="pre">&quot;CH4:0.25</span> <span class="pre">O2:1.5&quot;</span></tt>.</li>
+<li><strong>options</strong> &#8211; Processing options, as described in
+<a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>. May be one or more (as a list) of the
+following: &#8216;skip&#8217;, &#8216;duplicate&#8217;, &#8216;negative_A&#8217;, &#8216;negative_orders&#8217;.</li>
 </ul>
 </td>
 </tr>
@@ -589,7 +594,7 @@ used internally by Cantera, taking into account the reaction order.</p>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.Arrhenius">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">Arrhenius</tt><big>(</big><em>A=0.0</em>, <em>b=0.0</em>, <em>E=0.0</em>, <em>coverage=</em>, <span class="optional">[</span><span class="optional">]</span><em>rate_type=''</em>, <em>n=None</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.Arrhenius" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">Arrhenius</tt><big>(</big><em>A=0.0</em>, <em>b=0.0</em>, <em>E=0.0</em>, <em>coverage=[]</em>, <em>rate_type=''</em>, <em>n=None</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.Arrhenius" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.rate_expression</span></tt></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -619,7 +624,7 @@ provided for compatibility.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.three_body_reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">three_body_reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>efficiencies=''</em>, <em>id=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.three_body_reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">three_body_reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>efficiencies=''</em>, <em>id=''</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.three_body_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.reaction" title="cantera.ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.reaction</span></tt></a></p>
 <p>A three-body reaction.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -638,7 +643,8 @@ The efficiencies for unspecified species are set to 1.0.</li>
 <li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</li>
+<li><strong>options</strong> &#8211; Processing options, as described in
+<a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
 </ul>
 </td>
 </tr>
@@ -648,7 +654,7 @@ reaction in the file.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.falloff_reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">falloff_reaction</tt><big>(</big><em>equation</em>, <em>kf0</em>, <em>kf</em>, <em>efficiencies=''</em>, <em>falloff=None</em>, <em>id=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.falloff_reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">falloff_reaction</tt><big>(</big><em>equation</em>, <em>kf0</em>, <em>kf</em>, <em>efficiencies=''</em>, <em>falloff=None</em>, <em>id=''</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.falloff_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.pdep_reaction</span></tt></p>
 <p>A gas-phase falloff reaction.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -670,7 +676,7 @@ unity falloff function (Lindemann form) will be used.</li>
 <li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</li>
+<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
 </ul>
 </td>
 </tr>
@@ -680,7 +686,7 @@ reaction in the file.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.chemically_activated_reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">chemically_activated_reaction</tt><big>(</big><em>equation</em>, <em>kLow</em>, <em>kHigh</em>, <em>efficiencies=''</em>, <em>falloff=None</em>, <em>id=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.chemically_activated_reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">chemically_activated_reaction</tt><big>(</big><em>equation</em>, <em>kLow</em>, <em>kHigh</em>, <em>efficiencies=''</em>, <em>falloff=None</em>, <em>id=''</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.chemically_activated_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.pdep_reaction</span></tt></p>
 <p>A gas-phase, chemically activated reaction.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -702,7 +708,7 @@ unity falloff function (Lindemann form) will be used.</li>
 <li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</li>
+<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
 </ul>
 </td>
 </tr>
@@ -733,7 +739,7 @@ pressure and the Arrhenius parameters at that pressure.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.chebyshev_reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">chebyshev_reaction</tt><big>(</big><em>equation=''</em>, <em>Tmin=300.0</em>, <em>Tmax=2500.0</em>, <em>Pmin=(0.001</em>, <em>'atm')</em>, <em>Pmax=(100.0</em>, <em>'atm')</em>, <em>coeffs=</em>, <span class="optional">[</span><span class="optional">[</span><span class="optional">]</span><span class="optional">]</span><em>**kwargs</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.chebyshev_reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">chebyshev_reaction</tt><big>(</big><em>equation='', Tmin=300.0, Tmax=2500.0, Pmin=(0.001, 'atm'), Pmax=(100.0, 'atm'), coeffs=[[]], **kwargs</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.chebyshev_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.reaction" title="cantera.ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.reaction</span></tt></a></p>
 <p>Pressure-dependent rate calculated in terms of a bivariate Chebyshev
 polynomial.</p>
@@ -759,7 +765,7 @@ should be a list of M lists each with N elements.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.surface_reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">surface_reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.surface_reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">surface_reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.surface_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.reaction" title="cantera.ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.reaction</span></tt></a></p>
 <p>A heterogeneous chemical reaction with pressure-independent rate
 coefficient and mass-action kinetics.</p>
@@ -780,7 +786,7 @@ Arrhenius function.</li>
 <li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</li>
+<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
 </ul>
 </td>
 </tr>
@@ -790,7 +796,7 @@ reaction in the file.</li>
 
 <dl class="class">
 <dt id="cantera.ctml_writer.edge_reaction">
-<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">edge_reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>beta=0.0</em>, <em>options=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#cantera.ctml_writer.edge_reaction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">cantera.ctml_writer.</tt><tt class="descname">edge_reaction</tt><big>(</big><em>equation=''</em>, <em>kf=None</em>, <em>id=''</em>, <em>order=''</em>, <em>beta=0.0</em>, <em>options=[]</em><big>)</big><a class="headerlink" href="#cantera.ctml_writer.edge_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cantera.ctml_writer.reaction" title="cantera.ctml_writer.reaction"><tt class="xref py py-class docutils literal"><span class="pre">cantera.ctml_writer.reaction</span></tt></a></p>
 </dd></dl>
 
@@ -853,7 +859,7 @@ pure numbers without attached dimensions.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

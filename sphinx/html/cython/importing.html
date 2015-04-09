@@ -106,18 +106,36 @@ thermodynamic, chemical kinetic, and (optionally) transport properties.</p>
 <dt id="cantera.Solution">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Solution</tt><big>(</big><em>infile</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.Solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Kinetics</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Transport</span></tt></p>
+<p>A class for chemically-reacting solutions.</p>
+<p>Instances can be created to represent any type of solution &#8211; a
+mixture of gases, a liquid solution, or a solid solution, for
+example.</p>
+<p>Class Solution derives from classes <a class="reference internal" href="thermo.html#cantera.ThermoPhase" title="cantera.ThermoPhase"><tt class="xref py py-obj docutils literal"><span class="pre">ThermoPhase</span></tt></a>, <a class="reference internal" href="kinetics.html#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a>, and
+<a class="reference internal" href="transport.html#cantera.Transport" title="cantera.Transport"><tt class="xref py py-obj docutils literal"><span class="pre">Transport</span></tt></a>.  It defines very few methods of its own, and is provided so
+that a single object can be used to compute thermodynamic, kinetic, and
+transport properties of a solution.</p>
+<p>To skip initialization of the Transport object, pass the argument
+<tt class="xref py py-obj docutils literal"><span class="pre">transport_model=None</span></tt> to the <a class="reference internal" href="#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> constructor.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.Interface">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Interface</tt><big>(</big><em>infile</em>, <em>phaseid=''</em>, <em>phases=()</em><big>)</big><a class="headerlink" href="#cantera.Interface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.InterfacePhase</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.InterfaceKinetics</span></tt></p>
+<p>Two-dimensional interfaces.</p>
+<p>Instances of class Interface represent reacting 2D interfaces
+between bulk 3D phases. Class Interface defines no methods of its
+own. All of its methods derive from either <a class="reference internal" href="thermo.html#cantera.InterfacePhase" title="cantera.InterfacePhase"><tt class="xref py py-obj docutils literal"><span class="pre">InterfacePhase</span></tt></a> or
+<tt class="xref py py-obj docutils literal"><span class="pre">InterfaceKinetics</span></tt>.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="cantera.DustyGas">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">DustyGas</tt><big>(</big><em>infile</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.DustyGas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Kinetics</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.DustyGasTransport</span></tt></p>
+<p>A composite class which models a gas in a stationary, solid, porous medium.</p>
+<p>The only transport properties computed are the multicomponent diffusion
+coefficients. The model does not compute viscosity or thermal conductivity.</p>
 </dd></dl>
 
 <div class="section" id="utility-functions">
@@ -158,7 +176,7 @@ thermodynamic, chemical kinetic, and (optionally) transport properties.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>
