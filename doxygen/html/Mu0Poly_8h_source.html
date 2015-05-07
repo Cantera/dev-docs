@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -339,17 +339,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> * parameterization for species k into a SpeciesThermo instance,</span></div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment"> * getting the information from an XML database.</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> * @param speciesName  Name of the species</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> * @param Mu0Node      Pointer to the XML element containing the</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> *                     Mu0 information.</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> *  @ingroup spthermo</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<a class="code" href="classCantera_1_1Mu0Poly.html">Mu0Poly</a>* <a class="code" href="group__spthermo.html#ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f">newMu0ThermoFromXML</a>(<span class="keyword">const</span> std::string&amp; speciesName,</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                             <span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>&amp; Mu0Node);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;}</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment"> * @param Mu0Node      Pointer to the XML element containing the</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment"> *                     Mu0 information.</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment"> *  @ingroup spthermo</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<a class="code" href="classCantera_1_1Mu0Poly.html">Mu0Poly</a>* <a class="code" href="group__spthermo.html#ga4959cf373636daf31768b7ba9cf2e593">newMu0ThermoFromXML</a>(<span class="keyword">const</span> <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>&amp; Mu0Node);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classCantera_1_1SpeciesThermoInterpType_html"><div class="ttname"><a href="classCantera_1_1SpeciesThermoInterpType.html">Cantera::SpeciesThermoInterpType</a></div><div class="ttdoc">Pure Virtual Base class for the thermodynamic manager for an individual species&#39; reference state...</div><div class="ttdef"><b>Definition:</b> <a href="SpeciesThermoInterpType_8h_source.html#l00158">SpeciesThermoInterpType.h:158</a></div></div>
 <div class="ttc" id="classCantera_1_1Mu0Poly_html_aa8a2d5af2bbb165449f4e7d338ad27d2"><div class="ttname"><a href="classCantera_1_1Mu0Poly.html#aa8a2d5af2bbb165449f4e7d338ad27d2">Cantera::Mu0Poly::m_s0_R_int</a></div><div class="ttdeci">vector_fp m_s0_R_int</div><div class="ttdoc">Entropy at the points. </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8h_source.html#l00209">Mu0Poly.h:209</a></div></div>
 <div class="ttc" id="classCantera_1_1Mu0Poly_html_ac8d990ced0f91be75d3bacc676125bb9"><div class="ttname"><a href="classCantera_1_1Mu0Poly.html#ac8d990ced0f91be75d3bacc676125bb9">Cantera::Mu0Poly::updatePropertiesTemp</a></div><div class="ttdeci">virtual void updatePropertiesTemp(const doublereal temp, doublereal *cp_R, doublereal *h_RT, doublereal *s_R) const </div><div class="ttdoc">Compute the reference-state property of one species. </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8cpp_source.html#l00093">Mu0Poly.cpp:93</a></div></div>
@@ -370,8 +368,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="namespaceCantera_html_a8a71f536c7e45bda27ec0f1df26e6420"><div class="ttname"><a href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">Cantera::vector_fp</a></div><div class="ttdeci">std::vector&lt; double &gt; vector_fp</div><div class="ttdoc">Turn on the use of stl vectors for the basic array type within cantera Vector of doubles. </div><div class="ttdef"><b>Definition:</b> <a href="ct__defs_8h_source.html#l00157">ct_defs.h:157</a></div></div>
 <div class="ttc" id="classCantera_1_1Mu0Poly_html_aeb84d0fbb895c54151007d2cc68d1345"><div class="ttname"><a href="classCantera_1_1Mu0Poly.html#aeb84d0fbb895c54151007d2cc68d1345">Cantera::Mu0Poly::m_t0_int</a></div><div class="ttdeci">vector_fp m_t0_int</div><div class="ttdoc">Points at which the standard state chemical potential are given. </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8h_source.html#l00197">Mu0Poly.h:197</a></div></div>
 <div class="ttc" id="classCantera_1_1Mu0Poly_html_af0d3b24084605e06e0421514ebcd0d0a"><div class="ttname"><a href="classCantera_1_1Mu0Poly.html#af0d3b24084605e06e0421514ebcd0d0a">Cantera::Mu0Poly::m_h0_R_int</a></div><div class="ttdeci">vector_fp m_h0_R_int</div><div class="ttdoc">Dimensionless Enthalpies at the temperature points. </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8h_source.html#l00206">Mu0Poly.h:206</a></div></div>
-<div class="ttc" id="group__spthermo_html_ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f"><div class="ttname"><a href="group__spthermo.html#ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f">Cantera::newMu0ThermoFromXML</a></div><div class="ttdeci">Mu0Poly * newMu0ThermoFromXML(const std::string &amp;speciesName, const XML_Node &amp;Mu0Node)</div><div class="ttdoc">Install a Mu0 polynomial thermodynamic reference state. </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8cpp_source.html#l00126">Mu0Poly.cpp:126</a></div></div>
-<div class="ttc" id="classCantera_1_1Mu0Poly_html_aa1546f9f3611c3d83e34c810f90b5e2a"><div class="ttname"><a href="classCantera_1_1Mu0Poly.html#aa1546f9f3611c3d83e34c810f90b5e2a">Cantera::Mu0Poly::processCoeffs</a></div><div class="ttdeci">void processCoeffs(const doublereal *coeffs)</div><div class="ttdoc">process the coefficients </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8cpp_source.html#l00200">Mu0Poly.cpp:200</a></div></div>
+<div class="ttc" id="group__spthermo_html_ga4959cf373636daf31768b7ba9cf2e593"><div class="ttname"><a href="group__spthermo.html#ga4959cf373636daf31768b7ba9cf2e593">Cantera::newMu0ThermoFromXML</a></div><div class="ttdeci">Mu0Poly * newMu0ThermoFromXML(const XML_Node &amp;Mu0Node)</div><div class="ttdoc">Install a Mu0 polynomial thermodynamic reference state. </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8cpp_source.html#l00126">Mu0Poly.cpp:126</a></div></div>
+<div class="ttc" id="classCantera_1_1Mu0Poly_html_aa1546f9f3611c3d83e34c810f90b5e2a"><div class="ttname"><a href="classCantera_1_1Mu0Poly.html#aa1546f9f3611c3d83e34c810f90b5e2a">Cantera::Mu0Poly::processCoeffs</a></div><div class="ttdeci">void processCoeffs(const doublereal *coeffs)</div><div class="ttdoc">process the coefficients </div><div class="ttdef"><b>Definition:</b> <a href="Mu0Poly_8cpp_source.html#l00192">Mu0Poly.cpp:192</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

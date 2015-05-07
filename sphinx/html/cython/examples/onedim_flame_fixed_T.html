@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
@@ -92,7 +92,7 @@
           <div class="body">
             
   <div class="section" id="flame-fixed-t-py">
-<h1>flame_fixed_T.py<a class="headerlink" href="#flame-fixed-t-py" title="Permalink to this headline">¶</a></h1>
+<span id="py-example-flame-fixed-t-py"></span><h1>flame_fixed_T.py<a class="headerlink" href="#flame-fixed-t-py" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">FIXED_T_FLAME - A burner-stabilized, premixed methane/air flat flame with</span>
 <span class="sd">multicomponent transport properties and a specified temperature profile.</span>
@@ -100,43 +100,6 @@
 
 <span class="kn">import</span> <span class="nn">cantera</span> <span class="kn">as</span> <span class="nn">ct</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="c"># read temperature vs. position data from a file.</span>
-<span class="c"># The file is assumed to have one z, T pair per line, separated by a comma.</span>
-<span class="k">def</span> <span class="nf">getTempData</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="c"># open the file containing the temperature data for reading</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-
-    <span class="c"># check for unix/Windows/Mac line ending problems</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Warning: only one line found.&#39;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Possible text file line-ending problem?&#39;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;The one line found is: &#39;</span><span class="p">,</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;#&#39;</span><span class="p">:</span>   <span class="c"># use &#39;#&#39; as the comment character</span>
-            <span class="k">continue</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">zval</span><span class="p">,</span> <span class="n">tval</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)</span>
-            <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">zval</span><span class="p">))</span>
-            <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">tval</span><span class="p">))</span>
-        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;read {0} temperature values.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
-
-    <span class="c"># convert z values into non-dimensional relative positions.</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-    <span class="n">zmax</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">zmax</span>
-
-    <span class="k">return</span> <span class="n">z</span><span class="p">,</span><span class="n">T</span>
-
 
 <span class="c">################################################################</span>
 <span class="c"># parameter values</span>
@@ -167,13 +130,13 @@
 <span class="c"># create the BurnerFlame object.</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">BurnerFlame</span><span class="p">(</span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">initial_grid</span><span class="p">)</span>
 
-<span class="c"># set the properties at the burner</span>
+<span class="c"># set the mass flow rate at the burner</span>
 <span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">mdot</span> <span class="o">=</span> <span class="n">mdot</span>
-<span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">comp</span>
-<span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">tburner</span>
 
-<span class="c"># read in the fixed temperature profile</span>
-<span class="p">[</span><span class="n">zloc</span><span class="p">,</span> <span class="n">tvalues</span><span class="p">]</span> <span class="o">=</span> <span class="n">getTempData</span><span class="p">(</span><span class="s">&#39;tdata.dat&#39;</span><span class="p">)</span>
+<span class="c"># read temperature vs. position data from a file.</span>
+<span class="c"># The file is assumed to have one z, T pair per line, separated by a comma.</span>
+<span class="n">zloc</span><span class="p">,</span> <span class="n">tvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s">&#39;tdata.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s">&#39;#&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">zloc</span> <span class="o">/=</span> <span class="nb">max</span><span class="p">(</span><span class="n">zloc</span><span class="p">)</span>
 
 <span class="c"># set the temperature profile to the values read in</span>
 <span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_fixed_temp_profile</span><span class="p">(</span><span class="n">zloc</span><span class="p">,</span> <span class="n">tvalues</span><span class="p">)</span>

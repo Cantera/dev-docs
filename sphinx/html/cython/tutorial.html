@@ -23,11 +23,11 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
-    <link rel="next" title="Importing Phase Objects" href="importing.html" />
+    <link rel="next" title="Creating Phase Objects" href="importing.html" />
     <link rel="prev" title="Migrating from the Old Python Module" href="migrating.html" /> 
   </head>
   <body>
@@ -46,7 +46,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="importing.html" title="Importing Phase Objects"
+          <a href="importing.html" title="Creating Phase Objects"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="migrating.html" title="Migrating from the Old Python Module"
@@ -80,7 +80,7 @@
                         title="previous chapter">Migrating from the Old Python Module</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="importing.html"
-                        title="next chapter">Importing Phase Objects</a></p>
+                        title="next chapter">Creating Phase Objects</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/cython/tutorial.txt"
@@ -319,11 +319,6 @@ two bulk phases and the interface between them from file <tt class="docutils lit
 </div>
 <p>Note that the bulk (i.e., 3D or homogeneous) phases that participate in the
 surface reactions must also be passed as arguments to <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a>.</p>
-<p>When Cantera reads a <tt class="docutils literal"><span class="pre">.cti</span></tt> input file, wherever it is located, it always
-writes a file of the same name but with extension <tt class="docutils literal"><span class="pre">.xml</span></tt> <em>in the local
-directory</em>. If you happen to have some other file by that name, it will be
-overwritten. Once the XML file is created, you can use it instead of the
-<tt class="docutils literal"><span class="pre">.cti</span></tt> file, which will result in somewhat faster startup.</p>
 <div class="section" id="converting-ck-format-files">
 <h3>Converting CK-format files<a class="headerlink" href="#converting-ck-format-files" title="Permalink to this headline">¶</a></h3>
 <p>Many existing reaction mechanism files are in &#8220;CK format,&#8221; by which we mean
@@ -453,7 +448,7 @@ line documented source code of Cantera C++ class &#8216;ChemEquil.h&#8217;.</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="importing.html" title="Importing Phase Objects"
+          <a href="importing.html" title="Creating Phase Objects"
              >next</a> |</li>
         <li class="right" >
           <a href="migrating.html" title="Migrating from the Old Python Module"

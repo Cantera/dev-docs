@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -118,8 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b6175525bbb4d7731dcd267a085ca1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b6175525bbb4d7731dcd267a085ca1b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>SurfaceArrhenius</b> (const <a class="el" href="classCantera_1_1ReactionData.html">ReactionData</a> &amp;rdata)</td></tr>
 <tr class="separator:a0b6175525bbb4d7731dcd267a085ca1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4065ec2b9341fecd3af471152228856"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4065ec2b9341fecd3af471152228856"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addCoverageDependence</b> (size_t k, doublereal a, doublereal m, doublereal e)</td></tr>
+<tr class="memitem:ae4065ec2b9341fecd3af471152228856"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1SurfaceArrhenius.html#ae4065ec2b9341fecd3af471152228856">addCoverageDependence</a> (size_t k, doublereal a, doublereal m, doublereal e)</td></tr>
+<tr class="memdesc:ae4065ec2b9341fecd3af471152228856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a coverage dependency for species <em>k</em>, with pre-exponential dependence <em>a</em>, temperature exponent dependence <em>m</em> and activation energy dependence <em>e</em>, where <em>e</em> is in Kelvin, i.e.  <a href="#ae4065ec2b9341fecd3af471152228856">More...</a><br/></td></tr>
 <tr class="separator:ae4065ec2b9341fecd3af471152228856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af41ce8f80645f5186316ba0507d18737"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af41ce8f80645f5186316ba0507d18737"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update_C</b> (const doublereal *theta)</td></tr>
@@ -195,8 +195,51 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 </p>
 <p> where the parameters \( (a_k, E_k, m_k) \) describe the dependency on the surface coverage of species \(k, \theta_k \). </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00138">138</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00145">145</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae4065ec2b9341fecd3af471152228856"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addCoverageDependence </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">doublereal&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">doublereal&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">doublereal&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a coverage dependency for species <em>k</em>, with pre-exponential dependence <em>a</em>, temperature exponent dependence <em>m</em> and activation energy dependence <em>e</em>, where <em>e</em> is in Kelvin, i.e. </p>
+<p>energy divided by the molar gas constant. </p>
+
+<p>Definition at line <a class="el" href="RxnRates_8cpp_source.html#l00091">91</a> of file <a class="el" href="RxnRates_8cpp_source.html">RxnRates.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae24cd084de63f6b9eb3b6d68e61608ba"></a>
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +276,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 <p>This calculation is not safe for negative values of the preexponential. </p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000072">Deprecated:</a></b></dt><dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00180">180</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00191">191</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>
@@ -272,7 +315,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 <p>Update the value the rate constant. </p>
 <p>This function returns the actual value of the rate constant. It can be safely called for negative values of the pre-exponential factor. </p>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00192">192</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00203">203</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +341,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_nmcov</b></td></t
 </div><div class="memdoc">
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000073">Deprecated:</a></b></dt><dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
 
-<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00202">202</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
+<p>Definition at line <a class="el" href="RxnRates_8h_source.html#l00213">213</a> of file <a class="el" href="RxnRates_8h_source.html">RxnRates.h</a>.</p>
 
 </div>
 </div>

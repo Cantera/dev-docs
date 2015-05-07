@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="index.html" />
     <link rel="next" title="Configuring Cantera" href="configuring.html" />
@@ -164,8 +164,8 @@ your choice of package manager:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Checking out the source code from version control requires either Git (install
-<tt class="docutils literal"><span class="pre">git</span></tt> and <tt class="docutils literal"><span class="pre">git-svn</span></tt>) or Subversion (install <tt class="docutils literal"><span class="pre">subversion</span></tt>).</p>
+<li><p class="first">Checking out the source code from version control requires Git (install
+<tt class="docutils literal"><span class="pre">git</span></tt>).</p>
 </li>
 <li><p class="first">The minimum compatible Cython version is 0.17. If your distribution does not
 contain a suitable version, you may be able to install a more recent version
@@ -569,11 +569,6 @@ with any version that provides a supported version of GCC.</li>
 <div class="section" id="other-required-software">
 <h3>Other Required Software<a class="headerlink" href="#other-required-software" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Subversion<ul>
-<li>For Windows: <a class="reference external" href="http://tortoisesvn.net/downloads.html">http://tortoisesvn.net/downloads.html</a></li>
-<li>Known to work with versions &gt;= 1.6</li>
-</ul>
-</li>
 <li>SCons:<ul>
 <li><a class="reference external" href="http://www.scons.org/download.php">http://www.scons.org/download.php</a></li>
 <li>Known to work with SCons 2.3.0; Expected to work with versions &gt;= 1.0.0</li>
@@ -655,11 +650,16 @@ Python 2.6 or Python 3.1.</li>
 </li>
 <li><p class="first"><a class="reference external" href="https://computation.llnl.gov/casc/sundials/download/download.html">https://computation.llnl.gov/casc/sundials/download/download.html</a></p>
 </li>
-<li><p class="first">Known to work with versions 2.4 and 2.5.</p>
+<li><p class="first">Known to work with versions 2.4, 2.5 and 2.6.</p>
 </li>
-<li><p class="first">To use Sundials with Cantera, you may need to compile it with the
-<tt class="docutils literal"><span class="pre">-fPIC</span></tt> flag. You can specify this flag when configuring Sundials:</p>
+<li><p class="first">To use Sundials with Cantera on a Linux/Unix system, it must be compiled
+with the <tt class="docutils literal"><span class="pre">-fPIC</span></tt> flag. You can specify this flag when configuring
+Sundials (2.4 or 2.5):</p>
 <div class="highlight-python"><div class="highlight"><pre>configure --with-cflags=-fPIC
+</pre></div>
+</div>
+<p>or Sundials 2.6:</p>
+<div class="highlight-python"><div class="highlight"><pre>cmake -DCMAKE_C_FLAGS=-fPIC &lt;other command-line options&gt;
 </pre></div>
 </div>
 </li>

@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
@@ -58,6 +58,16 @@
 
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chemical Kinetics</a><ul>
+<li><a class="reference internal" href="#reactions">Reactions</a></li>
+<li><a class="reference internal" href="#auxilliary-reaction-data">Auxilliary Reaction Data</a></li>
+<li><a class="reference internal" href="#reaction-path-analysis">Reaction Path Analysis</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="thermo.html"
                         title="previous chapter">Thermodynamic Properties</a></p>
@@ -270,6 +280,11 @@ reaction <em>i</em>.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cantera.Kinetics.reaction">
+<tt class="descname">reaction</tt><big>(</big><em>self</em>, <em>int i_reaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reaction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cantera.Kinetics.reaction_equation">
 <tt class="descname">reaction_equation</tt><big>(</big><em>self</em>, <em>int i_reaction</em><big>)</big><a class="headerlink" href="#cantera.Kinetics.reaction_equation" title="Permalink to this definition">¶</a></dt>
 <dd><p>The equation for the specified reaction. See also <a class="reference internal" href="#cantera.Kinetics.reaction_equations" title="cantera.Kinetics.reaction_equations"><tt class="xref py py-obj docutils literal"><span class="pre">reaction_equations</span></tt></a>.</p>
@@ -326,6 +341,490 @@ is set to <em>value</em>. See <a class="reference internal" href="#cantera.Kinet
 
 </dd></dl>
 
+<div class="section" id="reactions">
+<h2>Reactions<a class="headerlink" href="#reactions" title="Permalink to this headline">¶</a></h2>
+<p>These classes contain the definition of a single reaction and its associated
+rate expression, indepenent of a specific <a class="reference internal" href="#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a> object.</p>
+<dl class="class">
+<dt id="cantera.Reaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Reaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.Reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A class which stores data about a reaction and its rate parameterization so
+that it can be added to a <a class="reference internal" href="#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a> object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reactants</strong> &#8211; Value used to set <a class="reference internal" href="#cantera.Reaction.reactants" title="cantera.Reaction.reactants"><tt class="xref py py-obj docutils literal"><span class="pre">reactants</span></tt></a></li>
+<li><strong>products</strong> &#8211; Value used to set <a class="reference internal" href="#cantera.Reaction.products" title="cantera.Reaction.products"><tt class="xref py py-obj docutils literal"><span class="pre">products</span></tt></a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The static methods <a class="reference internal" href="#cantera.Reaction.listFromFile" title="cantera.Reaction.listFromFile"><tt class="xref py py-obj docutils literal"><span class="pre">listFromFile</span></tt></a>, <a class="reference internal" href="#cantera.Reaction.listFromCti" title="cantera.Reaction.listFromCti"><tt class="xref py py-obj docutils literal"><span class="pre">listFromCti</span></tt></a>, and <a class="reference internal" href="#cantera.Reaction.listFromXml" title="cantera.Reaction.listFromXml"><tt class="xref py py-obj docutils literal"><span class="pre">listFromXml</span></tt></a> can be
+used to create lists of <a class="reference internal" href="#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> objects from existing definitions in the
+CTI or XML format. All of the following will produce a list of the 325
+reactions which make up the GRI 3.0 mechanism:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">R</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reaction</span><span class="o">.</span><span class="n">listFromFile</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reaction</span><span class="o">.</span><span class="n">listFromCti</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;path/to/gri30.cti&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reaction</span><span class="o">.</span><span class="n">listFromXml</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;path/to/gri30.xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The methods <a class="reference internal" href="#cantera.Reaction.fromCti" title="cantera.Reaction.fromCti"><tt class="xref py py-obj docutils literal"><span class="pre">fromCti</span></tt></a> and <a class="reference internal" href="#cantera.Reaction.fromXml" title="cantera.Reaction.fromXml"><tt class="xref py py-obj docutils literal"><span class="pre">fromXml</span></tt></a> can be used to create individual
+<a class="reference internal" href="#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> objects from definitions in these formats. In the case of using
+CTI definitions, it is important to verify that either the pre-exponential
+factor and activation energy are supplied in SI units, or that they have
+their units specified:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">R</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reaction</span><span class="o">.</span><span class="n">fromCti</span><span class="p">(</span><span class="s">&#39;&#39;&#39;reaction(&#39;O + H2 &lt;=&gt; H + OH&#39;,</span>
+<span class="s">        [3.87e1, 2.7, 2.619184e7])&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reaction</span><span class="o">.</span><span class="n">fromCti</span><span class="p">(</span><span class="s">&#39;&#39;&#39;reaction(&#39;O + H2 &lt;=&gt; H + OH&#39;,</span>
+<span class="s">                [(3.87e4, &#39;cm3/mol/s&#39;), 2.7, (6260, &#39;cal/mol&#39;)])&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="cantera.Reaction.ID">
+<tt class="descname">ID</tt><a class="headerlink" href="#cantera.Reaction.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the identification string for the reaction, which can be used in
+filtering operations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.allow_negative_orders">
+<tt class="descname">allow_negative_orders</tt><a class="headerlink" href="#cantera.Reaction.allow_negative_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a flag which is <tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt> if negative reaction orders are allowed.
+Default is <tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.allow_nonreactant_orders">
+<tt class="descname">allow_nonreactant_orders</tt><a class="headerlink" href="#cantera.Reaction.allow_nonreactant_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a flag which is <tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt> if reaction orders can be specified for
+non-reactant species. Default is <tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.duplicate">
+<tt class="descname">duplicate</tt><a class="headerlink" href="#cantera.Reaction.duplicate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a flag which is <tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt> if this reaction is marked as a duplicate
+or <tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt> otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.equation">
+<tt class="descname">equation</tt><a class="headerlink" href="#cantera.Reaction.equation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string giving the chemical equation for this reaction. Determined
+automatically based on <a class="reference internal" href="#cantera.Reaction.reactants" title="cantera.Reaction.reactants"><tt class="xref py py-obj docutils literal"><span class="pre">reactants</span></tt></a> and <a class="reference internal" href="#cantera.Reaction.products" title="cantera.Reaction.products"><tt class="xref py py-obj docutils literal"><span class="pre">products</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Reaction.fromCti">
+<tt class="descname">fromCti</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Reaction.fromCti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Reaction object from its CTI string representation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Reaction.fromXml">
+<tt class="descname">fromXml</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Reaction.fromXml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Reaction object from its XML string representation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Reaction.listFromCti">
+<tt class="descname">listFromCti</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Reaction.listFromCti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of Species objects from all the species defined in a CTI
+string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Reaction.listFromFile">
+<tt class="descname">listFromFile</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#cantera.Reaction.listFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of Reaction objects from all of the reactions defined in a
+CTI or XML file.</p>
+<p>Directories on Cantera&#8217;s input file path will be searched for the
+specified file.</p>
+<p>In the case of an XML file, the <tt class="docutils literal"><span class="pre">&lt;reactions&gt;</span></tt> nodes are assumed to be
+children of the <tt class="docutils literal"><span class="pre">&lt;reactionsData&gt;</span></tt> node in a document with a <tt class="docutils literal"><span class="pre">&lt;ctml&gt;</span></tt>
+root node, as in the XML files produced by conversion from CTI files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Reaction.listFromXml">
+<tt class="descname">listFromXml</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Reaction.listFromXml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of Reaction objects from all the reaction defined in an
+XML string. The <tt class="docutils literal"><span class="pre">&lt;reaction&gt;</span></tt> nodes are assumed to be children of the
+<tt class="docutils literal"><span class="pre">&lt;reactionData&gt;</span></tt> node in a document with a <tt class="docutils literal"><span class="pre">&lt;ctml&gt;</span></tt> root node, as in
+the XML files produced by conversion from CTI files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.orders">
+<tt class="descname">orders</tt><a class="headerlink" href="#cantera.Reaction.orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the reaction order with respect to specific species as a dict
+with species names as the keys and orders as the values, or as a
+composition string. By default, mass-action kinetics is assumed, with
+the reaction order for each reactant species equal to each its
+stoichiometric coefficient.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.product_string">
+<tt class="descname">product_string</tt><a class="headerlink" href="#cantera.Reaction.product_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string representing the products side of the chemical equation for
+this reaction. Determined automatically based on <a class="reference internal" href="#cantera.Reaction.products" title="cantera.Reaction.products"><tt class="xref py py-obj docutils literal"><span class="pre">products</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.products">
+<tt class="descname">products</tt><a class="headerlink" href="#cantera.Reaction.products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the products in this reaction as a dict where the keys are
+species names and the values, are the stoichiometric coefficients, e.g.
+<tt class="docutils literal"><span class="pre">{'CH3':1,</span> <span class="pre">'H2O':1}</span></tt>, or as a composition string, e.g.
+<tt class="docutils literal"><span class="pre">'CH3:1,</span> <span class="pre">H2O:1'</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.reactant_string">
+<tt class="descname">reactant_string</tt><a class="headerlink" href="#cantera.Reaction.reactant_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string representing the reactants side of the chemical equation for
+this reaction. Determined automatically based on <a class="reference internal" href="#cantera.Reaction.reactants" title="cantera.Reaction.reactants"><tt class="xref py py-obj docutils literal"><span class="pre">reactants</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.reactants">
+<tt class="descname">reactants</tt><a class="headerlink" href="#cantera.Reaction.reactants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the reactants in this reaction as a dict where the keys are
+species names and the values, are the stoichiometric coefficients, e.g.
+<tt class="docutils literal"><span class="pre">{'CH4':1,</span> <span class="pre">'OH':1}</span></tt>, or as a composition string, e.g.
+<tt class="docutils literal"><span class="pre">'CH4:1,</span> <span class="pre">OH:1'</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Reaction.reversible">
+<tt class="descname">reversible</tt><a class="headerlink" href="#cantera.Reaction.reversible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a flag which is <tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt> if this reaction is reversible or <tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt>
+otherwise.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ElementaryReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ElementaryReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.ElementaryReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Reaction</span></tt></p>
+<p>A reaction which follows mass-action kinetics with a modified Arrhenius
+reaction rate.</p>
+<dl class="attribute">
+<dt id="cantera.ElementaryReaction.rate">
+<tt class="descname">rate</tt><a class="headerlink" href="#cantera.ElementaryReaction.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the <a class="reference internal" href="#cantera.Arrhenius" title="cantera.Arrhenius"><tt class="xref py py-obj docutils literal"><span class="pre">Arrhenius</span></tt></a> rate coefficient for this reaction.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ThirdBodyReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ThirdBodyReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.ThirdBodyReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ElementaryReaction</span></tt></p>
+<p>A reaction with a non-reacting third body &#8220;M&#8221; that acts to add or remove
+energy from the reacting species.</p>
+<dl class="attribute">
+<dt id="cantera.ThirdBodyReaction.default_efficiency">
+<tt class="descname">default_efficiency</tt><a class="headerlink" href="#cantera.ThirdBodyReaction.default_efficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the default third-body efficiency for this reaction, used for
+species used for species not in <a class="reference internal" href="#cantera.ThirdBodyReaction.efficiencies" title="cantera.ThirdBodyReaction.efficiencies"><tt class="xref py py-obj docutils literal"><span class="pre">efficiencies</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThirdBodyReaction.efficiencies">
+<tt class="descname">efficiencies</tt><a class="headerlink" href="#cantera.ThirdBodyReaction.efficiencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a <tt class="xref py py-obj docutils literal"><span class="pre">dict</span></tt> defining non-default third-body efficiencies for this
+reaction, where the keys are the species names and the values are the
+efficiencies.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ThirdBodyReaction.efficiency">
+<tt class="descname">efficiency</tt><big>(</big><em>self</em>, <em>species</em><big>)</big><a class="headerlink" href="#cantera.ThirdBodyReaction.efficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the efficiency of the third body named <em>species</em> considering both
+the default efficiency and species-specific efficiencies.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.FalloffReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">FalloffReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.FalloffReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Reaction</span></tt></p>
+<p>A reaction that is first-order in [M] at low pressure, like a third-body
+reaction, but zeroth-order in [M] as pressure increases.</p>
+<dl class="attribute">
+<dt id="cantera.FalloffReaction.default_efficiency">
+<tt class="descname">default_efficiency</tt><a class="headerlink" href="#cantera.FalloffReaction.default_efficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the default third-body efficiency for this reaction, used for
+species used for species not in <a class="reference internal" href="#cantera.FalloffReaction.efficiencies" title="cantera.FalloffReaction.efficiencies"><tt class="xref py py-obj docutils literal"><span class="pre">efficiencies</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.FalloffReaction.efficiencies">
+<tt class="descname">efficiencies</tt><a class="headerlink" href="#cantera.FalloffReaction.efficiencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a <tt class="xref py py-obj docutils literal"><span class="pre">dict</span></tt> defining non-default third-body efficiencies for this
+reaction, where the keys are the species names and the values are the
+efficiencies.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.FalloffReaction.efficiency">
+<tt class="descname">efficiency</tt><big>(</big><em>self</em>, <em>species</em><big>)</big><a class="headerlink" href="#cantera.FalloffReaction.efficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the efficiency of the third body named <em>species</em> considering both
+the default efficiency and species-specific efficiencies.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.FalloffReaction.falloff">
+<tt class="descname">falloff</tt><a class="headerlink" href="#cantera.FalloffReaction.falloff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the <a class="reference internal" href="#cantera.Falloff" title="cantera.Falloff"><tt class="xref py py-obj docutils literal"><span class="pre">Falloff</span></tt></a> function used to blend the high- and low-pressure
+rate coefficients</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.FalloffReaction.high_rate">
+<tt class="descname">high_rate</tt><a class="headerlink" href="#cantera.FalloffReaction.high_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the <a class="reference internal" href="#cantera.Arrhenius" title="cantera.Arrhenius"><tt class="xref py py-obj docutils literal"><span class="pre">Arrhenius</span></tt></a> rate constant in the high-pressure limit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.FalloffReaction.low_rate">
+<tt class="descname">low_rate</tt><a class="headerlink" href="#cantera.FalloffReaction.low_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the <a class="reference internal" href="#cantera.Arrhenius" title="cantera.Arrhenius"><tt class="xref py py-obj docutils literal"><span class="pre">Arrhenius</span></tt></a> rate constant in the low-pressure limit</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ChemicallyActivatedReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ChemicallyActivatedReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.ChemicallyActivatedReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.FalloffReaction</span></tt></p>
+<p>A reaction where the rate decreases as pressure increases due to collisional
+stabilization of a reaction intermediate. Like a <a class="reference internal" href="#cantera.FalloffReaction" title="cantera.FalloffReaction"><tt class="xref py py-obj docutils literal"><span class="pre">FalloffReaction</span></tt></a>, except
+that the forward rate constant is written as being proportional to the low-
+pressure rate constant.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.PlogReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">PlogReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.PlogReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Reaction</span></tt></p>
+<p>A pressure-dependent reaction parameterized by logarithmically interpolating
+between Arrhenius rate expressions at various pressures.</p>
+<dl class="attribute">
+<dt id="cantera.PlogReaction.rates">
+<tt class="descname">rates</tt><a class="headerlink" href="#cantera.PlogReaction.rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the rate coefficients for this reaction, which are given as a
+list of (pressure, <a class="reference internal" href="#cantera.Arrhenius" title="cantera.Arrhenius"><tt class="xref py py-obj docutils literal"><span class="pre">Arrhenius</span></tt></a>) tuples.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ChebyshevReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ChebyshevReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.ChebyshevReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Reaction</span></tt></p>
+<p>A pressure-dependent reaction parameterized by a bivariate Chebyshev
+polynomial in temperature and pressure.</p>
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.Pmax">
+<tt class="descname">Pmax</tt><a class="headerlink" href="#cantera.ChebyshevReaction.Pmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum pressure [Pa] for the Chebyshev fit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.Pmin">
+<tt class="descname">Pmin</tt><a class="headerlink" href="#cantera.ChebyshevReaction.Pmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum pressure [Pa] for the Chebyshev fit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.Tmax">
+<tt class="descname">Tmax</tt><a class="headerlink" href="#cantera.ChebyshevReaction.Tmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum temperature [K] for the Chebyshev fit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.Tmin">
+<tt class="descname">Tmin</tt><a class="headerlink" href="#cantera.ChebyshevReaction.Tmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum temperature [K] for the Chebyshev fit</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.coeffs">
+<tt class="descname">coeffs</tt><a class="headerlink" href="#cantera.ChebyshevReaction.coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>2D array of Chebyshev coefficients of size <tt class="xref py py-obj docutils literal"><span class="pre">(nTemperature,</span> <span class="pre">nPressure)</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.nPressure">
+<tt class="descname">nPressure</tt><a class="headerlink" href="#cantera.ChebyshevReaction.nPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of pressures over which the Chebyshev fit is computed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ChebyshevReaction.nTemperature">
+<tt class="descname">nTemperature</tt><a class="headerlink" href="#cantera.ChebyshevReaction.nTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of temperatures over which the Chebyshev fit is computed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.ChebyshevReaction.set_parameters">
+<tt class="descname">set_parameters</tt><big>(</big><em>self</em>, <em>Tmin</em>, <em>Tmax</em>, <em>Pmin</em>, <em>Pmax</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ChebyshevReaction.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simultaneously set values for <a class="reference internal" href="#cantera.ChebyshevReaction.Tmin" title="cantera.ChebyshevReaction.Tmin"><tt class="xref py py-obj docutils literal"><span class="pre">Tmin</span></tt></a>, <a class="reference internal" href="#cantera.ChebyshevReaction.Tmax" title="cantera.ChebyshevReaction.Tmax"><tt class="xref py py-obj docutils literal"><span class="pre">Tmax</span></tt></a>, <a class="reference internal" href="#cantera.ChebyshevReaction.Pmin" title="cantera.ChebyshevReaction.Pmin"><tt class="xref py py-obj docutils literal"><span class="pre">Pmin</span></tt></a>, <a class="reference internal" href="#cantera.ChebyshevReaction.Pmax" title="cantera.ChebyshevReaction.Pmax"><tt class="xref py py-obj docutils literal"><span class="pre">Pmax</span></tt></a>, and
+<a class="reference internal" href="#cantera.ChebyshevReaction.coeffs" title="cantera.ChebyshevReaction.coeffs"><tt class="xref py py-obj docutils literal"><span class="pre">coeffs</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.InterfaceReaction">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">InterfaceReaction</tt><big>(</big><em>reactants=''</em>, <em>products=''</em><big>)</big><a class="headerlink" href="#cantera.InterfaceReaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ElementaryReaction</span></tt></p>
+<p>A reaction occurring on an <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a> (i.e. a surface or an edge)</p>
+<dl class="attribute">
+<dt id="cantera.InterfaceReaction.coverage_deps">
+<tt class="descname">coverage_deps</tt><a class="headerlink" href="#cantera.InterfaceReaction.coverage_deps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a dict containing adjustments to the Arrhenius rate expression
+dependent on surface species coverages. The keys of the dict are species
+names, and the values are tuples specifying the three coverage
+parameters <tt class="docutils literal"><span class="pre">(a,</span> <span class="pre">m,</span> <span class="pre">E)</span></tt> which are the modifiers for the pre-exponential
+factor [m, kmol, s units], the temperature exponent [nondimensional],
+and the activation energy [J/kmol], respectively.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.InterfaceReaction.is_sticking_coefficient">
+<tt class="descname">is_sticking_coefficient</tt><a class="headerlink" href="#cantera.InterfaceReaction.is_sticking_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set a boolean indicating if the rate coefficient for this reaction
+is expressed as a sticking coefficient rather than the forward rate
+constant.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.InterfaceReaction.sticking_species">
+<tt class="descname">sticking_species</tt><a class="headerlink" href="#cantera.InterfaceReaction.sticking_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the sticking species. Needed only for reactions with
+multiple non-surface reactant species, where the sticking species is
+ambiguous.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="auxilliary-reaction-data">
+<h2>Auxilliary Reaction Data<a class="headerlink" href="#auxilliary-reaction-data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cantera.Arrhenius">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Arrhenius</tt><big>(</big><em>A</em>, <em>b</em>, <em>E</em><big>)</big><a class="headerlink" href="#cantera.Arrhenius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A reaction rate coefficient which depends on temperature only and follows
+the modified Arrhenius form:</p>
+<div class="math">
+\[k_f = A T^b \exp{-\tfrac{E}{RT}}\]</div>
+<p>where <em>A</em> is the <a class="reference internal" href="#cantera.Arrhenius.preexponential_factor" title="cantera.Arrhenius.preexponential_factor"><tt class="xref py py-obj docutils literal"><span class="pre">preexponential_factor</span></tt></a>, <em>b</em> is the <a class="reference internal" href="#cantera.Arrhenius.temperature_exponent" title="cantera.Arrhenius.temperature_exponent"><tt class="xref py py-obj docutils literal"><span class="pre">temperature_exponent</span></tt></a>,
+and <em>E</em> is the <a class="reference internal" href="#cantera.Arrhenius.activation_energy" title="cantera.Arrhenius.activation_energy"><tt class="xref py py-obj docutils literal"><span class="pre">activation_energy</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="cantera.Arrhenius.activation_energy">
+<tt class="descname">activation_energy</tt><a class="headerlink" href="#cantera.Arrhenius.activation_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The activation energy <em>E</em> [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Arrhenius.preexponential_factor">
+<tt class="descname">preexponential_factor</tt><a class="headerlink" href="#cantera.Arrhenius.preexponential_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The pre-exponential factor <em>A</em> in units of m, kmol, and s raised to
+powers depending on the reaction order.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Arrhenius.temperature_exponent">
+<tt class="descname">temperature_exponent</tt><a class="headerlink" href="#cantera.Arrhenius.temperature_exponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The temperature exponent <em>b</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.Falloff">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Falloff</tt><big>(</big><em>coeffs=()</em>, <em>init=True</em><big>)</big><a class="headerlink" href="#cantera.Falloff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A parameterization used to describe the fall-off in reaction rate constants
+due to intermolecular energy transfer. These functions are used by reactions
+defined using the <a class="reference internal" href="#cantera.FalloffReaction" title="cantera.FalloffReaction"><tt class="xref py py-obj docutils literal"><span class="pre">FalloffReaction</span></tt></a> and <a class="reference internal" href="#cantera.ChemicallyActivatedReaction" title="cantera.ChemicallyActivatedReaction"><tt class="xref py py-obj docutils literal"><span class="pre">ChemicallyActivatedReaction</span></tt></a>
+classes.</p>
+<p>This base class implements the simple falloff function
+<span class="math">\(F(T,P_r) = 1.0\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coeffs</strong> &#8211; Not used for the &#8220;simple&#8221; falloff parameterization.</li>
+<li><strong>init</strong> &#8211; Used internally when wrapping <a class="reference external" href="doc/sphinx/../../doxygen/html/classCantera_1_1Falloff.html">Falloff</a> objects returned from C++.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="cantera.Falloff.parameters">
+<tt class="descname">parameters</tt><a class="headerlink" href="#cantera.Falloff.parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>The array of parameters used to define this falloff function.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Falloff.type">
+<tt class="descname">type</tt><a class="headerlink" href="#cantera.Falloff.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string defining the type of the falloff parameterization</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.TroeFalloff">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">TroeFalloff</tt><big>(</big><em>coeffs=()</em>, <em>init=True</em><big>)</big><a class="headerlink" href="#cantera.TroeFalloff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Falloff</span></tt></p>
+<p>The 3- or 4-parameter Troe falloff function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coeffs</strong> &#8211; An array of 3 or 4 parameters: <span class="math">\([a, T^{***}, T^*, T^{**}]\)</span> where
+the final parameter is optional (with a default value of 0).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.SriFalloff">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">SriFalloff</tt><big>(</big><em>coeffs=()</em>, <em>init=True</em><big>)</big><a class="headerlink" href="#cantera.SriFalloff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Falloff</span></tt></p>
+<p>The 3- or 5-parameter SRI falloff function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coeffs</strong> &#8211; An array of 3 or 5 parameters: <span class="math">\([a, b, c, d, e]\)</span> where the last
+two parameters are optional (with default values of 1 and 0,
+respectively).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="reaction-path-analysis">
+<h2>Reaction Path Analysis<a class="headerlink" href="#reaction-path-analysis" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.ReactionPathDiagram">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ReactionPathDiagram</tt><big>(</big><em>Kinetics kin</em>, <em>str element</em><big>)</big><a class="headerlink" href="#cantera.ReactionPathDiagram" title="Permalink to this definition">¶</a></dt>
@@ -465,6 +964,7 @@ program to the file named <em>filename</em>.</p>
 
 </dd></dl>
 
+</div>
 </div>
 
 

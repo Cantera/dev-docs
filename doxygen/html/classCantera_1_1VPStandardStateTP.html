@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -420,9 +420,6 @@ virtual const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1
 <tr class="memitem:ac64e4d2b3f76fce1990a147ede393761 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#ac64e4d2b3f76fce1990a147ede393761">setState_Psat</a> (doublereal p, doublereal x)</td></tr>
 <tr class="memdesc:ac64e4d2b3f76fce1990a147ede393761 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the state to a saturated system at a particular pressure.  <a href="#ac64e4d2b3f76fce1990a147ede393761">More...</a><br/></td></tr>
 <tr class="separator:ac64e4d2b3f76fce1990a147ede393761 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb23bdfdf87b3ae2fd56693f44b4781 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a8fb23bdfdf87b3ae2fd56693f44b4781">addSpecies</a> (shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt; &amp;spec)</td></tr>
-<tr class="memdesc:a8fb23bdfdf87b3ae2fd56693f44b4781 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> to this <a class="el" href="classCantera_1_1Phase.html" title="Class Phase is the base class for phases of matter, managing the species and elements in a phase...">Phase</a>.  <a href="#a8fb23bdfdf87b3ae2fd56693f44b4781">More...</a><br/></td></tr>
-<tr class="separator:a8fb23bdfdf87b3ae2fd56693f44b4781 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dce160f1dc3530d425e13160dc288f3 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a8dce160f1dc3530d425e13160dc288f3">saveSpeciesData</a> (const size_t k, const <a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> *const data)</td></tr>
 <tr class="memdesc:a8dce160f1dc3530d425e13160dc288f3 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store a reference pointer to the XML tree containing the species data for this phase.  <a href="#a8dce160f1dc3530d425e13160dc288f3">More...</a><br/></td></tr>
 <tr class="separator:a8dce160f1dc3530d425e13160dc288f3 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -772,8 +769,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>getdlnActCoef
 <tr class="memitem:a085f7fcece05e55f83aff7a3bdb69fc6 inherit pub_methods_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Phase.html#a085f7fcece05e55f83aff7a3bdb69fc6">addUniqueElementAfterFreeze</a> (const std::string &amp;symbol, doublereal weight, int <a class="el" href="classCantera_1_1Phase.html#a463384ca541ba91974c4d398b0b10e0c">atomicNumber</a>, doublereal entropy298=<a class="el" href="Elements_8h.html#aec5d0ac3c2fb7a23fa8a18ad259d7d37">ENTROPY298_UNKNOWN</a>, int elem_type=<a class="el" href="Elements_8h.html#a870596f658e6c437ed17bbf91e4913d0">CT_ELEM_TYPE_ABSPOS</a>)</td></tr>
 <tr class="memdesc:a085f7fcece05e55f83aff7a3bdb69fc6 inherit pub_methods_classCantera_1_1Phase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an element after elements have been frozen, checking for uniqueness The uniqueness is checked by comparing the string symbol.  <a href="#a085f7fcece05e55f83aff7a3bdb69fc6">More...</a><br/></td></tr>
 <tr class="separator:a085f7fcece05e55f83aff7a3bdb69fc6 inherit pub_methods_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c8df19a898585f353ec8c45425136a4 inherit pub_methods_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c8df19a898585f353ec8c45425136a4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addSpecies</b> (const std::string &amp;<a class="el" href="classCantera_1_1Phase.html#a37627d5d5bba7f4a8690c71c2ab3cb07">name</a>, const doublereal *comp, doublereal <a class="el" href="classCantera_1_1Phase.html#a15c0f768cc17c5777bc11fc6f24ca875">charge</a>=0.0, doublereal <a class="el" href="classCantera_1_1Phase.html#adfff1f6845b0d7673645f049c719f070">size</a>=1.0)</td></tr>
+<tr class="memitem:a4c8df19a898585f353ec8c45425136a4 inherit pub_methods_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Phase.html#a4c8df19a898585f353ec8c45425136a4">addSpecies</a> (const std::string &amp;<a class="el" href="classCantera_1_1Phase.html#a37627d5d5bba7f4a8690c71c2ab3cb07">name</a>, const doublereal *comp, doublereal <a class="el" href="classCantera_1_1Phase.html#a15c0f768cc17c5777bc11fc6f24ca875">charge</a>=0.0, doublereal <a class="el" href="classCantera_1_1Phase.html#adfff1f6845b0d7673645f049c719f070">size</a>=1.0)</td></tr>
 <tr class="separator:a4c8df19a898585f353ec8c45425136a4 inherit pub_methods_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49f519fdf33647c5c1a5f4a742693122 inherit pub_methods_classCantera_1_1Phase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Phase.html#a49f519fdf33647c5c1a5f4a742693122">addUniqueSpecies</a> (const std::string &amp;<a class="el" href="classCantera_1_1Phase.html#a37627d5d5bba7f4a8690c71c2ab3cb07">name</a>, const doublereal *comp, doublereal <a class="el" href="classCantera_1_1Phase.html#a15c0f768cc17c5777bc11fc6f24ca875">charge</a>=0.0, doublereal <a class="el" href="classCantera_1_1Phase.html#adfff1f6845b0d7673645f049c719f070">size</a>=1.0)</td></tr>
 <tr class="memdesc:a49f519fdf33647c5c1a5f4a742693122 inherit pub_methods_classCantera_1_1Phase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a species to the phase, checking for uniqueness of the name This routine checks for uniqueness of the string name.  <a href="#a49f519fdf33647c5c1a5f4a742693122">More...</a><br/></td></tr>
@@ -859,6 +855,9 @@ Initialization Methods - For Internal use (VPStandardState)</h2></td></tr>
 <tr class="memitem:a42dab55c3f7b95e3fc87507816541e87"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a42dab55c3f7b95e3fc87507816541e87">initThermoXML</a> (<a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> &amp;phaseNode, const std::string &amp;<a class="el" href="classCantera_1_1Phase.html#aae9016a4b54d24cae86174baa6a38342">id</a>)</td></tr>
 <tr class="memdesc:a42dab55c3f7b95e3fc87507816541e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object, potentially reading activity coefficient information from an XML database.  <a href="#a42dab55c3f7b95e3fc87507816541e87">More...</a><br/></td></tr>
 <tr class="separator:a42dab55c3f7b95e3fc87507816541e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1345257537abafa7ccde0fe431abae62"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a1345257537abafa7ccde0fe431abae62">addSpecies</a> (shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt; spec)</td></tr>
+<tr class="memdesc:a1345257537abafa7ccde0fe431abae62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a <a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> to this <a class="el" href="classCantera_1_1Phase.html" title="Class Phase is the base class for phases of matter, managing the species and elements in a phase...">Phase</a>.  <a href="#a1345257537abafa7ccde0fe431abae62">More...</a><br/></td></tr>
+<tr class="separator:a1345257537abafa7ccde0fe431abae62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ec5a2e02644e7378689fee4e256b016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPStandardStateTP.html#a2ec5a2e02644e7378689fee4e256b016">setVPSSMgr</a> (<a class="el" href="classCantera_1_1VPSSMgr.html">VPSSMgr</a> *vp_ptr)</td></tr>
 <tr class="memdesc:a2ec5a2e02644e7378689fee4e256b016"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the VPSS Mgr  <a href="#a2ec5a2e02644e7378689fee4e256b016">More...</a><br/></td></tr>
 <tr class="separator:a2ec5a2e02644e7378689fee4e256b016"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1019,7 +1018,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00105">105</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00549">VPStandardStateTP::m_PDSS_storage</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00551">VPStandardStateTP::m_PDSS_storage</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>.</p>
 
 </div>
 </div>
@@ -1048,9 +1047,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">45</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00119">VPSSMgr::initAllPtrs()</a>, <a class="el" href="Phase_8h_source.html#l00832">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00534">VPStandardStateTP::m_P0</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00521">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00549">VPStandardStateTP::m_PDSS_storage</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00528">VPStandardStateTP::m_Plast_ss</a>, <a class="el" href="ThermoPhase_8h_source.html#l01606">ThermoPhase::m_spthermo</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00524">VPStandardStateTP::m_Tlast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00061">ThermoPhase::operator=()</a>, and <a class="el" href="VPSSMgr_8cpp_source.html#l00304">VPSSMgr::setState_TP()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00119">VPSSMgr::initAllPtrs()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00536">VPStandardStateTP::m_P0</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00523">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00551">VPStandardStateTP::m_PDSS_storage</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00530">VPStandardStateTP::m_Plast_ss</a>, <a class="el" href="ThermoPhase_8h_source.html#l01607">ThermoPhase::m_spthermo</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00526">VPStandardStateTP::m_Tlast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00061">ThermoPhase::operator=()</a>, and <a class="el" href="VPSSMgr_8cpp_source.html#l00304">VPSSMgr::setState_TP()</a>.</p>
 
-<p>Referenced by <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00050">MaskellSolidSolnPhase::operator=()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00055">IdealSolnGasVPSS::operator=()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00058">MolalityVPSSTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00034">VPStandardStateTP::VPStandardStateTP()</a>.</p>
+<p>Referenced by <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00048">MaskellSolidSolnPhase::operator=()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00055">IdealSolnGasVPSS::operator=()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00058">MolalityVPSSTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00034">VPStandardStateTP::VPStandardStateTP()</a>.</p>
 
 </div>
 </div>
@@ -1201,7 +1200,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00123">123</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00935">ThermoPhase::_RT()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00553">ThermoPhase::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00832">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00936">ThermoPhase::_RT()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00554">ThermoPhase::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>.</p>
 
 </div>
 </div>
@@ -1242,9 +1241,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00135">135</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00935">ThermoPhase::_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">VPStandardStateTP::getGibbs_RT()</a>, and <a class="el" href="Phase_8h_source.html#l00832">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00936">ThermoPhase::_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">VPStandardStateTP::getGibbs_RT()</a>, and <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>.</p>
 
-<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00111">MolarityIonicVPSSTP::getChemPotentials()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00248">IdealSolnGasVPSS::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00155">RedlichKisterVPSSTP::getChemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00178">MixedSolventElectrolyte::getChemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00175">MargulesVPSSTP::getChemPotentials()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00358">IdealMolalSoln::getChemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00185">PhaseCombo_Interaction::getChemPotentials()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00380">DebyeHuckel::getChemPotentials()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00687">HMWSoln::getChemPotentials()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00630">MolalityVPSSTP::getCsvReportData()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00174">PseudoBinaryVPSSTP::report()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, and <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00498">MolalityVPSSTP::report()</a>.</p>
+<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00111">MolarityIonicVPSSTP::getChemPotentials()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00251">IdealSolnGasVPSS::getChemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00158">RedlichKisterVPSSTP::getChemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00181">MixedSolventElectrolyte::getChemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00177">MargulesVPSSTP::getChemPotentials()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00361">IdealMolalSoln::getChemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00186">PhaseCombo_Interaction::getChemPotentials()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00382">DebyeHuckel::getChemPotentials()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00689">HMWSoln::getChemPotentials()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00633">MolalityVPSSTP::getCsvReportData()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00174">PseudoBinaryVPSSTP::report()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, and <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00501">MolalityVPSSTP::report()</a>.</p>
 
 </div>
 </div>
@@ -1282,9 +1281,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00145">145</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00166">VPSSMgr::getEnthalpy_RT()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00166">VPSSMgr::getEnthalpy_RT()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00140">MolarityIonicVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00258">IdealSolnGasVPSS::getPartialMolarEnthalpies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00382">IonsFromNeutralVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00214">RedlichKisterVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00236">MixedSolventElectrolyte::getPartialMolarEnthalpies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00236">MargulesVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00414">IdealMolalSoln::getPartialMolarEnthalpies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00244">PhaseCombo_Interaction::getPartialMolarEnthalpies()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00408">DebyeHuckel::getPartialMolarEnthalpies()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00715">HMWSoln::getPartialMolarEnthalpies()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00432">HMWSoln::relative_enthalpy()</a>.</p>
+<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00140">MolarityIonicVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00261">IdealSolnGasVPSS::getPartialMolarEnthalpies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00382">IonsFromNeutralVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00217">RedlichKisterVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00239">MixedSolventElectrolyte::getPartialMolarEnthalpies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00238">MargulesVPSSTP::getPartialMolarEnthalpies()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00417">IdealMolalSoln::getPartialMolarEnthalpies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00245">PhaseCombo_Interaction::getPartialMolarEnthalpies()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00410">DebyeHuckel::getPartialMolarEnthalpies()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00717">HMWSoln::getPartialMolarEnthalpies()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00432">HMWSoln::relative_enthalpy()</a>.</p>
 
 </div>
 </div>
@@ -1322,9 +1321,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00157">157</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00176">VPSSMgr::getEntropy_R()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00176">VPSSMgr::getEntropy_R()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00189">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00264">IdealSolnGasVPSS::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00408">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00263">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00287">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00287">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00293">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00423">IdealMolalSoln::getPartialMolarEntropies()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00442">DebyeHuckel::getPartialMolarEntropies()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00741">HMWSoln::getPartialMolarEntropies()</a>.</p>
+<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00189">MolarityIonicVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00267">IdealSolnGasVPSS::getPartialMolarEntropies()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00408">IonsFromNeutralVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00266">RedlichKisterVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00290">MixedSolventElectrolyte::getPartialMolarEntropies()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00289">MargulesVPSSTP::getPartialMolarEntropies()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00294">PhaseCombo_Interaction::getPartialMolarEntropies()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00426">IdealMolalSoln::getPartialMolarEntropies()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00444">DebyeHuckel::getPartialMolarEntropies()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00743">HMWSoln::getPartialMolarEntropies()</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1361,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">164</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00156">VPSSMgr::getGibbs_RT()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00156">VPSSMgr::getGibbs_RT()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 <p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00135">VPStandardStateTP::getStandardChemPotentials()</a>.</p>
 
@@ -1403,7 +1402,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00171">171</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00145">VPSSMgr::getStandardChemPotentials()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00145">VPSSMgr::getStandardChemPotentials()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -1444,9 +1443,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00177">177</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00186">VPSSMgr::getIntEnergy_RT()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00186">VPSSMgr::getIntEnergy_RT()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00274">IdealSolnGasVPSS::getPartialMolarIntEnergies()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00277">IdealSolnGasVPSS::getPartialMolarIntEnergies()</a>.</p>
 
 </div>
 </div>
@@ -1485,9 +1484,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00183">183</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00199">VPSSMgr::getCp_R()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00199">VPSSMgr::getCp_R()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00164">MolarityIonicVPSSTP::getPartialMolarCp()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00280">IdealSolnGasVPSS::getPartialMolarCp()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00238">RedlichKisterVPSSTP::getPartialMolarCp()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00262">MixedSolventElectrolyte::getPartialMolarCp()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00262">MargulesVPSSTP::getPartialMolarCp()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00268">PhaseCombo_Interaction::getPartialMolarCp()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00465">IdealMolalSoln::getPartialMolarCp()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00505">DebyeHuckel::getPartialMolarCp()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00804">HMWSoln::getPartialMolarCp()</a>.</p>
+<p>Referenced by <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00164">MolarityIonicVPSSTP::getPartialMolarCp()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00283">IdealSolnGasVPSS::getPartialMolarCp()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00241">RedlichKisterVPSSTP::getPartialMolarCp()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00265">MixedSolventElectrolyte::getPartialMolarCp()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00264">MargulesVPSSTP::getPartialMolarCp()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00269">PhaseCombo_Interaction::getPartialMolarCp()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00468">IdealMolalSoln::getPartialMolarCp()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00507">DebyeHuckel::getPartialMolarCp()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00806">HMWSoln::getPartialMolarCp()</a>.</p>
 
 </div>
 </div>
@@ -1527,9 +1526,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00189">189</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00209">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00209">VPSSMgr::getStandardVolumes()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00117">MaskellSolidSolnPhase::calcDensity()</a>, <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00208">MaskellSolidSolnPhase::getPartialMolarVolumes()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00215">MolarityIonicVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00286">IdealSolnGasVPSS::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00289">RedlichKisterVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00313">MixedSolventElectrolyte::getPartialMolarVolumes()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00313">MargulesVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00460">IdealMolalSoln::getPartialMolarVolumes()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00319">PhaseCombo_Interaction::getPartialMolarVolumes()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00490">DebyeHuckel::getPartialMolarVolumes()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00786">HMWSoln::getPartialMolarVolumes()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00617">HMWSoln::standardConcentration()</a>.</p>
+<p>Referenced by <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00115">MaskellSolidSolnPhase::calcDensity()</a>, <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00206">MaskellSolidSolnPhase::getPartialMolarVolumes()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00215">MolarityIonicVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00289">IdealSolnGasVPSS::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00292">RedlichKisterVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00316">MixedSolventElectrolyte::getPartialMolarVolumes()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00315">MargulesVPSSTP::getPartialMolarVolumes()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00463">IdealMolalSoln::getPartialMolarVolumes()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00320">PhaseCombo_Interaction::getPartialMolarVolumes()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00492">DebyeHuckel::getPartialMolarVolumes()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00788">HMWSoln::getPartialMolarVolumes()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l00617">HMWSoln::standardConcentration()</a>.</p>
 
 </div>
 </div>
@@ -1568,9 +1567,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#aaefc9c80c1f44914510e3e9918162af8">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#aaefc9c80c1f44914510e3e9918162af8">DebyeHuckel</a>, and <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a5e133e4d4010365e47df4c40a7f7c17b">IonsFromNeutralVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00263">263</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00270">270</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00521">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">VPStandardStateTP::setState_TP()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00523">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00289">VPStandardStateTP::setState_TP()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -1609,11 +1608,11 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">DebyeHuckel</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1IdealMolalSoln.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">IdealMolalSoln</a>, <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">GibbsExcessVPSSTP</a>, <a class="el" href="classCantera_1_1MaskellSolidSolnPhase.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">MaskellSolidSolnPhase</a>, and <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">IdealSolnGasVPSS</a>.</p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00269">269</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00276">276</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">VPStandardStateTP::setState_TP()</a>, <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00289">VPStandardStateTP::setState_TP()</a>, <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00362">MolalityVPSSTP::setStateFromXML()</a>.</p>
+<p>Referenced by <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00365">MolalityVPSSTP::setStateFromXML()</a>.</p>
 
 </div>
 </div>
@@ -1663,11 +1662,11 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#a1a5bebf3c4bd81782b54a3761f82215e">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#a1a5bebf3c4bd81782b54a3761f82215e">DebyeHuckel</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a1a5bebf3c4bd81782b54a3761f82215e">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a1a5bebf3c4bd81782b54a3761f82215e">GibbsExcessVPSSTP</a>, and <a class="el" href="classCantera_1_1IdealMolalSoln.html#a1a5bebf3c4bd81782b54a3761f82215e">IdealMolalSoln</a>.</p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">282</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00289">289</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00275">VPStandardStateTP::calcDensity()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00521">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="Phase_8h_source.html#l00632">Phase::setTemperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">VPStandardStateTP::calcDensity()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00523">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="Phase_8h_source.html#l00632">Phase::setTemperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00269">VPStandardStateTP::setPressure()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00476">IonsFromNeutralVPSSTP::setState_TP()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00375">MolalityVPSSTP::setState_TPM()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00263">VPStandardStateTP::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00276">VPStandardStateTP::setPressure()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00476">IonsFromNeutralVPSSTP::setState_TP()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00378">MolalityVPSSTP::setState_TPM()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00270">VPStandardStateTP::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -1700,9 +1699,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00281">281</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00521">VPStandardStateTP::m_Pcurrent</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00523">VPStandardStateTP::m_Pcurrent</a>.</p>
 
-<p>Referenced by <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00174">PseudoBinaryVPSSTP::report()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00498">MolalityVPSSTP::report()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00466">IonsFromNeutralVPSSTP::setTemperature()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00178">IdealSolnGasVPSS::standardConcentration()</a>.</p>
+<p>Referenced by <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00174">PseudoBinaryVPSSTP::report()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00501">MolalityVPSSTP::report()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00466">IonsFromNeutralVPSSTP::setTemperature()</a>, and <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00178">IdealSolnGasVPSS::standardConcentration()</a>.</p>
 
 </div>
 </div>
@@ -1739,11 +1738,11 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </ul>
 <p>If m_useTmpStandardStateStorage is not true, this function may be required to be called by child classes to update internal member data. </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">363</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">370</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00353">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00521">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00528">VPStandardStateTP::m_Plast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00524">VPStandardStateTP::m_Tlast_ss</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00523">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00530">VPStandardStateTP::m_Plast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00526">VPStandardStateTP::m_Tlast_ss</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00102">IdealSolnGasVPSS::cp_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00089">IdealSolnGasVPSS::enthalpy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00095">IdealSolnGasVPSS::entropy_mole()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00651">HMWSoln::getActivities()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00183">VPStandardStateTP::getCp_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00234">VPStandardStateTP::getCp_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00145">VPStandardStateTP::getEnthalpy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00204">VPStandardStateTP::getEnthalpy_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00157">VPStandardStateTP::getEntropy_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00228">VPStandardStateTP::getEntropy_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00216">VPStandardStateTP::getGibbs_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">VPStandardStateTP::getGibbs_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00210">VPStandardStateTP::getGibbs_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00177">VPStandardStateTP::getIntEnergy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00171">VPStandardStateTP::getPureGibbs()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00189">VPStandardStateTP::getStandardVolumes()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00240">VPStandardStateTP::getStandardVolumes_ref()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00672">HMWSoln::getUnscaledMolalityActivityCoefficients()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00113">IdealSolnGasVPSS::setPressure()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00269">VPStandardStateTP::setPressure()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">VPStandardStateTP::setState_TP()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00223">IdealMolalSoln::setState_TP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00573">HMWSoln::setState_TP()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00263">VPStandardStateTP::setTemperature()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00297">IdealSolnGasVPSS::setToEquilState()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00356">MolalityVPSSTP::setToEquilState()</a>, and <a class="el" href="HMWSoln_8h_source.html#l01822">HMWSoln::setToEquilState()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00102">IdealSolnGasVPSS::cp_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00089">IdealSolnGasVPSS::enthalpy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00095">IdealSolnGasVPSS::entropy_mole()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00653">HMWSoln::getActivities()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00183">VPStandardStateTP::getCp_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00234">VPStandardStateTP::getCp_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00145">VPStandardStateTP::getEnthalpy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00204">VPStandardStateTP::getEnthalpy_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00157">VPStandardStateTP::getEntropy_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00228">VPStandardStateTP::getEntropy_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00216">VPStandardStateTP::getGibbs_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">VPStandardStateTP::getGibbs_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00210">VPStandardStateTP::getGibbs_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00177">VPStandardStateTP::getIntEnergy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00171">VPStandardStateTP::getPureGibbs()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00189">VPStandardStateTP::getStandardVolumes()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00240">VPStandardStateTP::getStandardVolumes_ref()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00674">HMWSoln::getUnscaledMolalityActivityCoefficients()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00113">IdealSolnGasVPSS::setPressure()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00276">VPStandardStateTP::setPressure()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00289">VPStandardStateTP::setState_TP()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00223">IdealMolalSoln::setState_TP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00573">HMWSoln::setState_TP()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00270">VPStandardStateTP::setTemperature()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00300">IdealSolnGasVPSS::setToEquilState()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00359">MolalityVPSSTP::setToEquilState()</a>, and <a class="el" href="HMWSoln_8h_source.html#l01823">HMWSoln::setToEquilState()</a>.</p>
 
 </div>
 </div>
@@ -1779,9 +1778,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#afac1b45437d49cc161e7ca2d5c00906a">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#afac1b45437d49cc161e7ca2d5c00906a">DebyeHuckel</a>, <a class="el" href="classCantera_1_1IdealMolalSoln.html#afac1b45437d49cc161e7ca2d5c00906a">IdealMolalSoln</a>, <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#afac1b45437d49cc161e7ca2d5c00906a">GibbsExcessVPSSTP</a>, <a class="el" href="classCantera_1_1MaskellSolidSolnPhase.html#afac1b45437d49cc161e7ca2d5c00906a">MaskellSolidSolnPhase</a>, and <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#afac1b45437d49cc161e7ca2d5c00906a">IdealSolnGasVPSS</a>.</p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00275">275</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">282</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">VPStandardStateTP::setState_TP()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00289">VPStandardStateTP::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -1818,11 +1817,11 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </ul>
 <p>This function doesn't check to see if the temperature or pressure has changed. It automatically assumes that it has changed. If m_useTmpStandardStateStorage is not true, this function may be required to be called by child classes to update internal member data.. </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00353">353</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">360</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00301">AssertThrowMsg</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00521">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00528">VPStandardStateTP::m_Plast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00524">VPStandardStateTP::m_Tlast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00304">VPSSMgr::setState_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00301">AssertThrowMsg</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00523">VPStandardStateTP::m_Pcurrent</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00530">VPStandardStateTP::m_Plast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00526">VPStandardStateTP::m_Tlast_ss</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00304">VPSSMgr::setState_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealMolalSoln_8cpp_source.html#l00299">IdealMolalSoln::getActivities()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00348">DebyeHuckel::getActivities()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00366">DebyeHuckel::getMolalityActivityCoefficients()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00237">DebyeHuckel::setState_TP()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>Referenced by <a class="el" href="IdealMolalSoln_8cpp_source.html#l00302">IdealMolalSoln::getActivities()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00350">DebyeHuckel::getActivities()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00368">DebyeHuckel::getMolalityActivityCoefficients()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00237">DebyeHuckel::setState_TP()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -1861,7 +1860,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00204">204</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00228">VPSSMgr::getEnthalpy_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00228">VPSSMgr::getEnthalpy_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -1911,7 +1910,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00151">151</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l01606">ThermoPhase::m_spthermo</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00524">VPStandardStateTP::m_Tlast_ss</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">SpeciesThermo::modifyOneHf298()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l01607">ThermoPhase::m_spthermo</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00526">VPStandardStateTP::m_Tlast_ss</a>, and <a class="el" href="classCantera_1_1SpeciesThermo.html#aaaaea4ab32fd0d45250a1444d2442bec">SpeciesThermo::modifyOneHf298()</a>.</p>
 
 </div>
 </div>
@@ -1949,7 +1948,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00210">210</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00238">VPSSMgr::getGibbs_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00238">VPSSMgr::getGibbs_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -1986,7 +1985,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00216">216</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00248">VPSSMgr::getGibbs_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00248">VPSSMgr::getGibbs_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2023,7 +2022,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00228">228</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00259">VPSSMgr::getEntropy_R_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00259">VPSSMgr::getEntropy_R_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2060,7 +2059,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00234">234</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00269">VPSSMgr::getCp_R_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00269">VPSSMgr::getCp_R_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2099,7 +2098,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00240">240</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00279">VPSSMgr::getStandardVolumes_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00279">VPSSMgr::getStandardVolumes_ref()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2131,9 +2130,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00246">246</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00173">PDSS::initThermo()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00350">VPSSMgr::initThermo()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00677">ThermoPhase::initThermo()</a>, <a class="el" href="Phase_8h_source.html#l00832">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00549">VPStandardStateTP::m_PDSS_storage</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00173">PDSS::initThermo()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00350">VPSSMgr::initThermo()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00679">ThermoPhase::initThermo()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00551">VPStandardStateTP::m_PDSS_storage</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>.</p>
 
-<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00291">IdealSolnGasVPSS::initThermo()</a>, and <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00395">MolalityVPSSTP::initThermo()</a>.</p>
+<p>Referenced by <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00294">IdealSolnGasVPSS::initThermo()</a>, and <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00398">MolalityVPSSTP::initThermo()</a>.</p>
 
 </div>
 </div>
@@ -2183,11 +2182,45 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#a42dab55c3f7b95e3fc87507816541e87">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#a42dab55c3f7b95e3fc87507816541e87">DebyeHuckel</a>, <a class="el" href="classCantera_1_1MolalityVPSSTP.html#a42dab55c3f7b95e3fc87507816541e87">MolalityVPSSTP</a>, <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a42dab55c3f7b95e3fc87507816541e87">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1IdealMolalSoln.html#ae83c4d4384c39c81c39b4f3d6dd5f841">IdealMolalSoln</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a42dab55c3f7b95e3fc87507816541e87">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a42dab55c3f7b95e3fc87507816541e87">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a42dab55c3f7b95e3fc87507816541e87">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a42dab55c3f7b95e3fc87507816541e87">RedlichKisterVPSSTP</a>, <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a42dab55c3f7b95e3fc87507816541e87">IdealSolnGasVPSS</a>, <a class="el" href="classCantera_1_1MaskellSolidSolnPhase.html#a42dab55c3f7b95e3fc87507816541e87">MaskellSolidSolnPhase</a>, <a class="el" href="classCantera_1_1MolarityIonicVPSSTP.html#a42dab55c3f7b95e3fc87507816541e87">MolarityIonicVPSSTP</a>, and <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#a42dab55c3f7b95e3fc87507816541e87">PseudoBinaryVPSSTP</a>.</p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00334">334</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00341">341</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00270">AssertTrace</a>, <a class="el" href="PDSS_8cpp_source.html#l00165">PDSS::initThermoXML()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00383">VPSSMgr::initThermoXML()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00649">ThermoPhase::initThermoXML()</a>, <a class="el" href="Phase_8h_source.html#l00832">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00549">VPStandardStateTP::m_PDSS_storage</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00270">AssertTrace</a>, <a class="el" href="PDSS_8cpp_source.html#l00165">PDSS::initThermoXML()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00383">VPSSMgr::initThermoXML()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00651">ThermoPhase::initThermoXML()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00551">VPStandardStateTP::m_PDSS_storage</a>, and <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>.</p>
 
-<p>Referenced by <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00169">PseudoBinaryVPSSTP::initThermoXML()</a>, <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00231">MaskellSolidSolnPhase::initThermoXML()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00353">MolarityIonicVPSSTP::initThermoXML()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00334">IdealSolnGasVPSS::initThermoXML()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00312">RedlichKisterVPSSTP::initThermoXML()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00351">MargulesVPSSTP::initThermoXML()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00837">IonsFromNeutralVPSSTP::initThermoXML()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00364">PhaseCombo_Interaction::initThermoXML()</a>, and <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00483">MolalityVPSSTP::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00169">PseudoBinaryVPSSTP::initThermoXML()</a>, <a class="el" href="MaskellSolidSolnPhase_8cpp_source.html#l00229">MaskellSolidSolnPhase::initThermoXML()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00353">MolarityIonicVPSSTP::initThermoXML()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00337">IdealSolnGasVPSS::initThermoXML()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00315">RedlichKisterVPSSTP::initThermoXML()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00353">MargulesVPSSTP::initThermoXML()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00837">IonsFromNeutralVPSSTP::initThermoXML()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00365">PhaseCombo_Interaction::initThermoXML()</a>, and <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00486">MolalityVPSSTP::initThermoXML()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1345257537abafa7ccde0fe431abae62"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool addSpecies </td>
+          <td>(</td>
+          <td class="paramtype">shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt;&#160;</td>
+          <td class="paramname"><em>spec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add a <a class="el" href="classCantera_1_1Species.html" title="Contains data about a single chemical species. ">Species</a> to this <a class="el" href="classCantera_1_1Phase.html" title="Class Phase is the base class for phases of matter, managing the species and elements in a phase...">Phase</a>. </p>
+<p>Returns <code>true</code> if the species was successfully added, or <code>false</code> if the species was ignored. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classCantera_1_1Phase.html#a343289d424e5d1ee83731516e7942e7b" title="Set behavior when adding a species containing undefined elements to just skip the species...">ignoreUndefinedElements</a> <a class="el" href="classCantera_1_1Phase.html#a3e418353aca9dfd7a39b7e693ccf8352" title="Set behavior when adding a species containing undefined elements to add those elements to the phase...">addUndefinedElements</a> <a class="el" href="classCantera_1_1Phase.html#aef0c2b45c33433c80588f5efcdf431a5" title="Set the behavior when adding a species containing undefined elements to throw an exception. ">throwUndefinedElements</a> </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a1345257537abafa7ccde0fe431abae62">ThermoPhase</a>.</p>
+
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00263">263</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+
+<p>References <a class="el" href="Phase_8cpp_source.html#l00840">Phase::addSpecies()</a>.</p>
 
 </div>
 </div>
@@ -2215,9 +2248,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00258">258</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoFactory_8cpp_source.html#l00318">Cantera::importPhase()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoFactory_8cpp_source.html#l00317">Cantera::importPhase()</a>.</p>
 
 </div>
 </div>
@@ -2237,9 +2270,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 <p>Return a pointer to the <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> for this phase. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to the <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> for this phase </dd></dl>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00348">348</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8cpp_source.html#l00355">355</a> of file <a class="el" href="VPStandardStateTP_8cpp_source.html">VPStandardStateTP.cpp</a>.</p>
 
-<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00541">VPStandardStateTP::m_VPSS_ptr</a>.</p>
+<p>References <a class="el" href="VPStandardStateTP_8h_source.html#l00543">VPStandardStateTP::m_VPSS_ptr</a>.</p>
 
 <p>Referenced by <a class="el" href="PDSS_8cpp_source.html#l00173">PDSS::initThermo()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00043">PDSS::PDSS()</a>.</p>
 
@@ -2268,9 +2301,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 <p>Because we are now using the pressure as a state variable, we need to carry it along within this object</p>
 <p>units = Pascals </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00521">521</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00523">523</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00353">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00120">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00141">IdealSolnGasVPSS::isothermalCompressibility()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00281">VPStandardStateTP::pressure()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00227">DebyeHuckel::pressure()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00517">HMWSoln::pressure()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00113">IdealSolnGasVPSS::setPressure()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00282">VPStandardStateTP::setState_TP()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00223">IdealMolalSoln::setState_TP()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00237">DebyeHuckel::setState_TP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00573">HMWSoln::setState_TP()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00263">VPStandardStateTP::setTemperature()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00300">DebyeHuckel::setTemperature()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00568">HMWSoln::setTemperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00120">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00141">IdealSolnGasVPSS::isothermalCompressibility()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, <a class="el" href="VPStandardStateTP_8h_source.html#l00281">VPStandardStateTP::pressure()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00227">DebyeHuckel::pressure()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00517">HMWSoln::pressure()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00113">IdealSolnGasVPSS::setPressure()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00289">VPStandardStateTP::setState_TP()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00223">IdealMolalSoln::setState_TP()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00237">DebyeHuckel::setState_TP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00573">HMWSoln::setState_TP()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00270">VPStandardStateTP::setTemperature()</a>, <a class="el" href="DebyeHuckel_8cpp_source.html#l00300">DebyeHuckel::setTemperature()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l00568">HMWSoln::setTemperature()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2294,9 +2327,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>The last temperature at which the standard statethermodynamic properties were calculated at. </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00524">524</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00526">526</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00353">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00151">VPStandardStateTP::modifyOneHf298SS()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00151">VPStandardStateTP::modifyOneHf298SS()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2320,9 +2353,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>The last pressure at which the Standard State thermodynamic properties were calculated at. </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00528">528</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00530">530</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00353">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00363">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00370">VPStandardStateTP::updateStandardStateThermo()</a>.</p>
 
 </div>
 </div>
@@ -2348,7 +2381,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 <li>defaults to OneAtm </li>
 </ul>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00534">534</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00536">536</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
 <p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>.</p>
 
@@ -2374,9 +2407,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 
 <p>Pointer to the VPSS manager that calculates all of the standard state info efficiently. </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00541">541</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00543">543</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00353">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00120">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00102">IdealSolnGasVPSS::cp_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00089">IdealSolnGasVPSS::enthalpy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00095">IdealSolnGasVPSS::entropy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00152">IdealSolnGasVPSS::getActivityConcentrations()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00183">VPStandardStateTP::getCp_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00234">VPStandardStateTP::getCp_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00145">VPStandardStateTP::getEnthalpy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00204">VPStandardStateTP::getEnthalpy_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00157">VPStandardStateTP::getEntropy_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00228">VPStandardStateTP::getEntropy_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00216">VPStandardStateTP::getGibbs_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">VPStandardStateTP::getGibbs_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00210">VPStandardStateTP::getGibbs_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00177">VPStandardStateTP::getIntEnergy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00171">VPStandardStateTP::getPureGibbs()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00189">VPStandardStateTP::getStandardVolumes()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00240">VPStandardStateTP::getStandardVolumes_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00246">VPStandardStateTP::initThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00334">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00348">VPStandardStateTP::provideVPSSMgr()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00297">IdealSolnGasVPSS::setToEquilState()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00258">VPStandardStateTP::setVPSSMgr()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00178">IdealSolnGasVPSS::standardConcentration()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00105">VPStandardStateTP::~VPStandardStateTP()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00120">IdealSolnGasVPSS::calcDensity()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00102">IdealSolnGasVPSS::cp_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00089">IdealSolnGasVPSS::enthalpy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00095">IdealSolnGasVPSS::entropy_mole()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00152">IdealSolnGasVPSS::getActivityConcentrations()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00183">VPStandardStateTP::getCp_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00234">VPStandardStateTP::getCp_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00145">VPStandardStateTP::getEnthalpy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00204">VPStandardStateTP::getEnthalpy_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00157">VPStandardStateTP::getEntropy_R()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00228">VPStandardStateTP::getEntropy_R_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00216">VPStandardStateTP::getGibbs_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00164">VPStandardStateTP::getGibbs_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00210">VPStandardStateTP::getGibbs_RT_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00177">VPStandardStateTP::getIntEnergy_RT()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00171">VPStandardStateTP::getPureGibbs()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00189">VPStandardStateTP::getStandardVolumes()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00240">VPStandardStateTP::getStandardVolumes_ref()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00246">VPStandardStateTP::initThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00341">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00355">VPStandardStateTP::provideVPSSMgr()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00300">IdealSolnGasVPSS::setToEquilState()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00258">VPStandardStateTP::setVPSSMgr()</a>, <a class="el" href="IdealSolnGasVPSS_8cpp_source.html#l00178">IdealSolnGasVPSS::standardConcentration()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00105">VPStandardStateTP::~VPStandardStateTP()</a>.</p>
 
 </div>
 </div>
@@ -2401,9 +2434,9 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 <p>Storage for the <a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a> objects for the species. </p>
 <p>Storage is in species index order. VPStandardStateTp owns each of the objects. Copy operations are deep. </p>
 
-<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00549">549</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
+<p>Definition at line <a class="el" href="VPStandardStateTP_8h_source.html#l00551">551</a> of file <a class="el" href="VPStandardStateTP_8h_source.html">VPStandardStateTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00246">VPStandardStateTP::initThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00334">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00105">VPStandardStateTP::~VPStandardStateTP()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00246">VPStandardStateTP::initThermo()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00341">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00045">VPStandardStateTP::operator=()</a>, and <a class="el" href="VPStandardStateTP_8cpp_source.html#l00105">VPStandardStateTP::~VPStandardStateTP()</a>.</p>
 
 </div>
 </div>

@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
@@ -92,7 +92,7 @@
           <div class="body">
             
   <div class="section" id="adiabatic-flame-py">
-<h1>adiabatic_flame.py<a class="headerlink" href="#adiabatic-flame-py" title="Permalink to this headline">¶</a></h1>
+<span id="py-example-adiabatic-flame-py"></span><h1>adiabatic_flame.py<a class="headerlink" href="#adiabatic-flame-py" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">A freely-propagating, premixed hydrogen flat flame with multicomponent</span>
 <span class="sd">transport properties.</span>
@@ -112,7 +112,8 @@
 <span class="n">loglevel</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c"># amount of diagnostic output (0 to 8)</span>
 <span class="n">refine_grid</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c"># &#39;True&#39; to enable refinement, &#39;False&#39; to disable</span>
 
-<span class="c"># IdealGasMix object used to compute mixture properties</span>
+<span class="c"># IdealGasMix object used to compute mixture properties, set to the state of the</span>
+<span class="c"># upstream fuel-air mixture</span>
 <span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;h2o2.xml&#39;</span><span class="p">)</span>
 <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">Tin</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reactants</span>
 
@@ -120,10 +121,6 @@
 <span class="n">f</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">FreeFlame</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">initial_grid</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_steady_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">tol_ss</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_transient_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">tol_ts</span><span class="p">)</span>
-
-<span class="c"># Set properties of the upstream fuel-air mixture</span>
-<span class="n">f</span><span class="o">.</span><span class="n">inlet</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">Tin</span>
-<span class="n">f</span><span class="o">.</span><span class="n">inlet</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">reactants</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">show_solution</span><span class="p">()</span>
 

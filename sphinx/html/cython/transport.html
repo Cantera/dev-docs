@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
@@ -58,6 +58,14 @@
 
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Transport Properties</a><ul>
+<li><a class="reference internal" href="#species-transport-properties">Species Transport Properties</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="kinetics.html"
                         title="previous chapter">Chemical Kinetics</a></p>
@@ -233,6 +241,73 @@ two nearby points.</p>
 
 </dd></dl>
 
+<div class="section" id="species-transport-properties">
+<h2>Species Transport Properties<a class="headerlink" href="#species-transport-properties" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cantera.GasTransportData">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">GasTransportData</tt><big>(</big><em>geometry=''</em>, <em>diameter=-1</em>, <em>well_depth=-1</em>, <em>dipole=0.0</em>, <em>polarizability=0.0</em>, <em>rotational_relaxation=0.0</em>, <em>acentric_factor=0.0</em><big>)</big><a class="headerlink" href="#cantera.GasTransportData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Transport data for a single gas-phase species which can be used in
+mixture-averaged or multicomponent transport models.</p>
+<p>The arguments passed to the constructor are equivalent to the properties of
+the object, with values in MKS units. To set properties in non-MKS units,
+use the <a class="reference internal" href="#cantera.GasTransportData.set_customary_units" title="cantera.GasTransportData.set_customary_units"><tt class="xref py py-obj docutils literal"><span class="pre">set_customary_units</span></tt></a> method.</p>
+<dl class="attribute">
+<dt id="cantera.GasTransportData.acentric_factor">
+<tt class="descname">acentric_factor</tt><a class="headerlink" href="#cantera.GasTransportData.acentric_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set Pitzer&#8217;s acentric factor. [dimensionless]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.GasTransportData.diameter">
+<tt class="descname">diameter</tt><a class="headerlink" href="#cantera.GasTransportData.diameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the Lennard-Jones collision diameter [m]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.GasTransportData.dipole">
+<tt class="descname">dipole</tt><a class="headerlink" href="#cantera.GasTransportData.dipole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the permanent dipole moment of the molecule [Coulomb-m].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.GasTransportData.geometry">
+<tt class="descname">geometry</tt><a class="headerlink" href="#cantera.GasTransportData.geometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the string specifying the molecular geometry. One of <tt class="xref py py-obj docutils literal"><span class="pre">atom</span></tt>,
+<tt class="xref py py-obj docutils literal"><span class="pre">linear</span></tt>, or <tt class="xref py py-obj docutils literal"><span class="pre">nonlinear</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.GasTransportData.polarizability">
+<tt class="descname">polarizability</tt><a class="headerlink" href="#cantera.GasTransportData.polarizability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the polarizability of the molecule [m^3].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.GasTransportData.rotational_relaxation">
+<tt class="descname">rotational_relaxation</tt><a class="headerlink" href="#cantera.GasTransportData.rotational_relaxation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the rotational relaxation number (the number of collisions it
+takes to equilibrate the rotational degrees of freedom with the
+temperature).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.GasTransportData.set_customary_units">
+<tt class="descname">set_customary_units</tt><big>(</big><em>self</em>, <em>geometry</em>, <em>diameter</em>, <em>well_depth</em>, <em>dipole=0.0</em>, <em>polarizability=0.0</em>, <em>rotational_relaxation=0.0</em>, <em>acentric_factor=0.0</em><big>)</big><a class="headerlink" href="#cantera.GasTransportData.set_customary_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters using &#8220;customary&#8221; units: diameter in Angstroms, well
+depth in Kelvin, dipole in Debye, and polarizability in Angstroms^3.
+These are the units used in in CK-style input files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.GasTransportData.well_depth">
+<tt class="descname">well_depth</tt><a class="headerlink" href="#cantera.GasTransportData.well_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the Lennard-Jones well depth [J]</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 

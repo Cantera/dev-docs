@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -564,16 +564,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    N_VDestroy(errs);</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    N_VDestroy(errw);</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    sort(weightedErrors.begin(), weightedErrors.end());</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    stringstream s;</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;N; i++) {</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        s &lt;&lt; weightedErrors[i].second &lt;&lt; <span class="stringliteral">&quot;: &quot;</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;          &lt;&lt; weightedErrors[i].first.second &lt;&lt; endl;</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    }</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    <span class="keywordflow">return</span> s.str();</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;}</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;}</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    N = std::min(N, static_cast&lt;int&gt;(m_neq));</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    sort(weightedErrors.begin(), weightedErrors.end());</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    stringstream s;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;N; i++) {</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        s &lt;&lt; weightedErrors[i].second &lt;&lt; <span class="stringliteral">&quot;: &quot;</span></div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;          &lt;&lt; weightedErrors[i].first.second &lt;&lt; endl;</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    }</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordflow">return</span> s.str();</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;}</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;}</div>
 <div class="ttc" id="namespaceCantera_html_a3006a5b9309b36eaa1cf179f1478b0cda4dc224281882265419659bf9d90f15b3"><div class="ttname"><a href="namespaceCantera.html#a3006a5b9309b36eaa1cf179f1478b0cda4dc224281882265419659bf9d90f15b3">Cantera::BDF_Method</a></div><div class="ttdoc">Backward Differentiation. </div><div class="ttdef"><b>Definition:</b> <a href="Integrator_8h_source.html#l00032">Integrator.h:32</a></div></div>
 <div class="ttc" id="classCantera_1_1CVodesIntegrator_html_adae37f82145ca3c253c9e0d588241f09"><div class="ttname"><a href="classCantera_1_1CVodesIntegrator.html#adae37f82145ca3c253c9e0d588241f09">Cantera::CVodesIntegrator::setProblemType</a></div><div class="ttdeci">virtual void setProblemType(int probtype)</div><div class="ttdoc">Set the problem type. </div><div class="ttdef"><b>Definition:</b> <a href="CVodesIntegrator_8cpp_source.html#l00176">CVodesIntegrator.cpp:176</a></div></div>
 <div class="ttc" id="classCantera_1_1CVodesIntegrator_html_aa2e91deeafb2a335905517594bc82303"><div class="ttname"><a href="classCantera_1_1CVodesIntegrator.html#aa2e91deeafb2a335905517594bc82303">Cantera::CVodesIntegrator::applyOptions</a></div><div class="ttdeci">void applyOptions()</div><div class="ttdoc">Applies user-specified options to the underlying CVODES solver. </div><div class="ttdef"><b>Definition:</b> <a href="CVodesIntegrator_8cpp_source.html#l00358">CVodesIntegrator.cpp:358</a></div></div>

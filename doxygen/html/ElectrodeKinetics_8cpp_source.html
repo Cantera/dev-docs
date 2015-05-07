@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -625,441 +625,435 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;{ </div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    <span class="keywordtype">double</span> ropf;</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    doublereal rt = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * <a class="code" href="classCantera_1_1Kinetics.html#a42d67e39dbc5f2af13a96f702f5a74f2">thermo</a>(0).<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    doublereal rrt = 1.0/rt;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="comment">//    Calculate gather the exchange current reaction rate constant (where does n_s appear?)</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="keywordtype">double</span> iorc = <a class="code" href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">m_rfn</a>[irxn] * <a class="code" href="classCantera_1_1Kinetics.html#a5beb0a30f678e8bb451038e2fb2d3ebe">m_perturb</a>[irxn];</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    doublereal beta =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta];</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="preprocessor"></span>    <span class="comment">//</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="comment">//    Determine whether the reaction rate constant is in an exchange current density formulation format.</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordtype">int</span> iECDFormulation = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a84c443efecc2bf73b8dedb6a0b76a6a5">m_ctrxn_ecdf</a>[iBeta];</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="keywordflow">if</span> (!iECDFormulation) {</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;not handled yet&quot;</span>);</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    }</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    <span class="comment">//  Calculate the forward chemical and modify the forward reaction rate coefficient </span></div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="comment">//  </span></div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keyword">const</span> RxnOrders* ro_fwd = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a45f44d6428f267b9ea863a6b3cb4bafc">m_ctrxn_FwdOrdersList_</a>[iBeta];</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keywordflow">if</span> (ro_fwd == 0) {</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;</span>, <span class="stringliteral">&quot;forward orders pointer is zero ?!?&quot;</span>);</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    }</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordtype">double</span> tmp = exp(- <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta] * <a class="code" href="classCantera_1_1InterfaceKinetics.html#a2483d75538c79c9d78a01fbb804e7091">m_deltaG0</a>[irxn] * rrt);</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordtype">double</span> tmp2 = 1.0;</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        <span class="keywordtype">size_t</span> k = kinSpeciesIDs[j];</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        tmp2 *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[k], oo);</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    }</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="comment">//double tmp2 = m_ProdStanConcReac[irxn];</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    tmp *= 1.0  / tmp2 / Faraday;</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">//    Calculate gather the exchange current reaction rate constant (where does n_s appear?)</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    doublereal beta =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta];</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="preprocessor"></span>    <span class="comment">//</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="comment">//    Determine whether the reaction rate constant is in an exchange current density formulation format.</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    <span class="keywordtype">int</span> iECDFormulation = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a84c443efecc2bf73b8dedb6a0b76a6a5">m_ctrxn_ecdf</a>[iBeta];</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordflow">if</span> (!iECDFormulation) {</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;not handled yet&quot;</span>);</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    }</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="comment">//  Calculate the forward chemical and modify the forward reaction rate coefficient </span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="comment">//  </span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    <span class="keyword">const</span> RxnOrders* ro_fwd = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a45f44d6428f267b9ea863a6b3cb4bafc">m_ctrxn_FwdOrdersList_</a>[iBeta];</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">if</span> (ro_fwd == 0) {</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;</span>, <span class="stringliteral">&quot;forward orders pointer is zero ?!?&quot;</span>);</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    }</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    <span class="keywordtype">double</span> tmp = exp(- <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta] * <a class="code" href="classCantera_1_1InterfaceKinetics.html#a2483d75538c79c9d78a01fbb804e7091">m_deltaG0</a>[irxn] * rrt);</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;    <span class="keywordtype">double</span> tmp2 = 1.0;</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keywordtype">size_t</span> k = kinSpeciesIDs[j];</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        tmp2 *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[k], oo);</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    }</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    <span class="comment">//double tmp2 = m_ProdStanConcReac[irxn];</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    tmp *= 1.0  / tmp2 / Faraday;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="comment">//  Calculate the chemical reaction rate constant</span></div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="comment">//  Calculate the chemical reaction rate constant</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keywordtype">double</span> kf = iorc * tmp;</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keywordtype">double</span> kf = iorc * tmp;</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="comment">//  Calculate the electrochemical factor</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="comment">// </span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keywordtype">double</span> eamod = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta] * <a class="code" href="classCantera_1_1InterfaceKinetics.html#aab34b4519834a2541fdb85a9259e58ce">deltaElectricEnergy_</a>[irxn];</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    kf *= exp(- eamod * rrt);</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="comment">// Calculate the forward rate of progress</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="comment">//   -&gt; get the pointer for the orders</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    tmp = 1.0;</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordtype">size_t</span> k = kinSpeciesIDs[j];</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        tmp *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[k], oo);</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    }</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    ropf = kf * tmp;</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="preprocessor"></span>    <span class="comment">//</span></div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="comment">//  Now calculate ropf in a separate but equivalent way.</span></div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="comment">//  totally equivalent way if resistivity is zero, should be equal (HKM -&gt; Proved exactly in one case)</span></div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordtype">double</span> iof = ioc;</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    <span class="keywordtype">double</span> resistivity = m_ctrxn_resistivity_[iBeta];</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * ioNet) &gt; fabs(nu)) {</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        ioNet = nu / resistivity;</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    }</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    <span class="keywordflow">if</span> (nStoich &gt; 0.0) {</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="keywordtype">double</span> exp1 = nStoich * Faraday * beta * (nu - resistivity * ioNet)/ (rt);</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        iof *= exp(exp1);</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (ioc &gt; 0) {</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;ioc should be less than zero here&quot;</span>);</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        }</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">double</span> exp2 = -nu * nStoich * Faraday * (1.0 - beta) / (rt);</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        iof = ioc * ( - exp(exp2));</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    }</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    ropf = iof / ( Faraday * nStoich);</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keywordflow">return</span> ropf;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;}</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment">//==================================================================================================================</span></div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="comment">//  When the BV form is used we still need to go backwards to calculate the forward rate of progress.</span></div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="comment">//  This routine does that</span></div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;<span class="keywordtype">double</span> ElectrodeKinetics::calcForwardROP_BV_NoAct(<span class="keywordtype">size_t</span> irxn, <span class="keywordtype">size_t</span> iBeta, <span class="keywordtype">double</span> ioc, <span class="keywordtype">double</span> nStoich, <span class="keywordtype">double</span> nu,</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                                                  doublereal ioNet)</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;{</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    doublereal TT = <a class="code" href="classCantera_1_1Kinetics.html#a42d67e39dbc5f2af13a96f702f5a74f2">thermo</a>(0).<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    doublereal rt = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * TT;</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    <span class="comment">//doublereal rrt = 1.0/rt;</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    doublereal beta =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta];</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="comment">//  Calculate the electrochemical factor</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="comment">// </span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keywordtype">double</span> eamod = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta] * <a class="code" href="classCantera_1_1InterfaceKinetics.html#aab34b4519834a2541fdb85a9259e58ce">deltaElectricEnergy_</a>[irxn];</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    kf *= exp(- eamod * rrt);</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="comment">// Calculate the forward rate of progress</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="comment">//   -&gt; get the pointer for the orders</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    tmp = 1.0;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keywordtype">size_t</span> k = kinSpeciesIDs[j];</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        tmp *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[k], oo);</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    }</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    ropf = kf * tmp;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="preprocessor"></span>    <span class="comment">//</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="comment">//  Now calculate ropf in a separate but equivalent way.</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="comment">//  totally equivalent way if resistivity is zero, should be equal (HKM -&gt; Proved exactly in one case)</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="keywordtype">double</span> iof = ioc;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordtype">double</span> resistivity = m_ctrxn_resistivity_[iBeta];</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * ioNet) &gt; fabs(nu)) {</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        ioNet = nu / resistivity;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    }</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keywordflow">if</span> (nStoich &gt; 0.0) {</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="keywordtype">double</span> exp1 = nStoich * Faraday * beta * (nu - resistivity * ioNet)/ (rt);</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        iof *= exp(exp1);</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (ioc &gt; 0) {</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;ioc should be less than zero here&quot;</span>);</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        }</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">double</span> exp2 = -nu * nStoich * Faraday * (1.0 - beta) / (rt);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        iof = ioc * ( - exp(exp2));</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    }</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    ropf = iof / ( Faraday * nStoich);</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <span class="keywordflow">return</span> ropf;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;}</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment">//==================================================================================================================</span></div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment">//  When the BV form is used we still need to go backwards to calculate the forward rate of progress.</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">//  This routine does that</span></div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="keywordtype">double</span> ElectrodeKinetics::calcForwardROP_BV_NoAct(<span class="keywordtype">size_t</span> irxn, <span class="keywordtype">size_t</span> iBeta, <span class="keywordtype">double</span> ioc, <span class="keywordtype">double</span> nStoich, <span class="keywordtype">double</span> nu,</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                                                  doublereal ioNet)</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;{</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    doublereal TT = <a class="code" href="classCantera_1_1Kinetics.html#a42d67e39dbc5f2af13a96f702f5a74f2">thermo</a>(0).<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    doublereal rt = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * TT;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <span class="comment">//doublereal rrt = 1.0/rt;</span></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    doublereal beta =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta];</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="comment">    //</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="comment">    //    Calculate gather the exchange current reaction rate constant (where does n_s appear?)</span></div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment">    //    Calculate gather the exchange current reaction rate constant (where does n_s appear?)</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment">    double iorc = m_rfn[irxn] * m_perturb[irxn];</span></div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment">    double iorc = m_rfn[irxn] * m_perturb[irxn];</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment">    //    Determine whether the reaction rate constant is in an exchange current density formulation format.</span></div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">    //    Determine whether the reaction rate constant is in an exchange current density formulation format.</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">    int iECDFormulation = m_ctrxn_ecdf[iBeta];</span></div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">    if (!iECDFormulation) {</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">        throw CanteraError(&quot;&quot;, &quot;not handled yet&quot;);</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">    //  Calculate the forward chemical and modify the forward reaction rate coefficient </span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">    //   (we don&#39;t use standard concentrations at all here);</span></div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment">    double tmp = exp(- m_beta[iBeta] * m_deltaG0[irxn] * rrt);</span></div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">    double tmp2 = 1.0;</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">    tmp *= 1.0  / tmp2 / Faraday;</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">    int iECDFormulation = m_ctrxn_ecdf[iBeta];</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">    if (!iECDFormulation) {</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">        throw CanteraError(&quot;&quot;, &quot;not handled yet&quot;);</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">    //</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">    //  Calculate the forward chemical and modify the forward reaction rate coefficient </span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">    //   (we don&#39;t use standard concentrations at all here);</span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="comment">    //</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="comment">    double tmp = exp(- m_beta[iBeta] * m_deltaG0[irxn] * rrt);</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="comment">    double tmp2 = 1.0;</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment">    tmp *= 1.0  / tmp2 / Faraday;</span></div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">    //</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">    //  Calculate the chemical reaction rate constant</span></div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">    //  Calculate the chemical reaction rate constant</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">    double kf = iorc * tmp;</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">    double kf = iorc * tmp;</span></div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">    //  Calculate the electrochemical factor</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">    // </span></div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="comment">    double eamod = m_beta[iBeta] * deltaElectricEnergy_[irxn];</span></div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment">    kf *= exp(- eamod * rrt);</span></div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="comment">    // Calculate the forward rate of progress</span></div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment">    //   -&gt; get the pointer for the orders</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">    //</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment">    const RxnOrders* ro_fwd = m_ctrxn_FwdOrdersList_[iBeta];</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">    if (ro_fwd == 0) {</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">        throw CanteraError(&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;, &quot;forward orders pointer is zero ?!?&quot;);</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment">    tmp = 1.0;</span></div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="comment">    const std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment">    const std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</span></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment">    for (size_t j = 0; j &lt; kinSpeciesIDs.size(); j++) {</span></div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">        size_t ks = kinSpeciesIDs[j];</span></div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">        thermo_t&amp; th = speciesPhase(ks);</span></div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">        size_t n = speciesPhaseIndex(ks);</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">        size_t klocal = ks - m_start[n];</span></div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment">        double mfS = th.moleFraction(klocal);</span></div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment">        double oo = kinSpeciesOrders[j];</span></div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">        tmp *= pow(mfS, oo);</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment">    double ropf = kf * tmp;</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment">    if (nStoich &gt; 0) {</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">        double ropf = ioc / ( Faraday * nStoich);</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">        double exp1 = nu * nStoich * Faraday * beta / (rt);</span></div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">        ropf *= exp(exp1);</span></div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">    } else {</span></div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">        double ropf = ioc / ( Faraday * nStoich);</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">        double exp1 = nu * nStoich * Faraday * beta / (rt);</span></div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">        ropf *= exp(exp1);</span></div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment">    }</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="comment">//  With all of the thermo issues, I&#39;m thinking this is the best we can do</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="comment">//   (it certainly maintains the forward and reverse rates of progress as being positive)</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordtype">double</span> iof = ioc;</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordtype">double</span> resistivity = m_ctrxn_resistivity_[iBeta];</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * ioNet) &gt; fabs(nu)) {</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        ioNet = nu / resistivity;</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    }</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordflow">if</span> (nStoich &gt; 0) {</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        <span class="keywordtype">double</span> exp1 = nStoich * Faraday * beta * (nu - resistivity * ioNet)/ (rt);</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        iof *= exp(exp1);</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (ioc &gt; 0) {</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;ioc should be less than zero here&quot;</span>);</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        }</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">double</span> exp2 = -nu * nStoich * Faraday * (1.0 - beta) / (rt);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        iof = ioc * ( - exp(exp2));</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    }</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordtype">double</span> ropf = iof / ( Faraday * nStoich);</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="keywordflow">return</span> ropf;</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;}</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="comment">//==================================================================================================================</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno"><a class="line" href="classCantera_1_1ElectrodeKinetics.html#a37a6ddf2c4cbe15563b6f0d080b22b00">  712</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1ElectrodeKinetics.html#a37a6ddf2c4cbe15563b6f0d080b22b00">ElectrodeKinetics::openCircuitVoltage</a>(<span class="keywordtype">size_t</span> irxn)</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;{</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">    //  Calculate the electrochemical factor</span></div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">    // </span></div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">    double eamod = m_beta[iBeta] * deltaElectricEnergy_[irxn];</span></div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">    kf *= exp(- eamod * rrt);</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="comment">    //</span></div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment">    // Calculate the forward rate of progress</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment">    //   -&gt; get the pointer for the orders</span></div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;<span class="comment">    //</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="comment">    const RxnOrders* ro_fwd = m_ctrxn_FwdOrdersList_[iBeta];</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="comment">    if (ro_fwd == 0) {</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment">        throw CanteraError(&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;, &quot;forward orders pointer is zero ?!?&quot;);</span></div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">    tmp = 1.0;</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="comment">    const std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="comment">    const std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="comment">    for (size_t j = 0; j &lt; kinSpeciesIDs.size(); j++) {</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment">        size_t ks = kinSpeciesIDs[j];</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment">        thermo_t&amp; th = speciesPhase(ks);</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">        size_t n = speciesPhaseIndex(ks);</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">        size_t klocal = ks - m_start[n];</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="comment">        double mfS = th.moleFraction(klocal);</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="comment">        double oo = kinSpeciesOrders[j];</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment">        tmp *= pow(mfS, oo);</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">    double ropf = kf * tmp;</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment">    if (nStoich &gt; 0) {</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment">        double ropf = ioc / ( Faraday * nStoich);</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment">        double exp1 = nu * nStoich * Faraday * beta / (rt);</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">        ropf *= exp(exp1);</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">    } else {</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">        double ropf = ioc / ( Faraday * nStoich);</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;<span class="comment">        double exp1 = nu * nStoich * Faraday * beta / (rt);</span></div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">        ropf *= exp(exp1);</span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="comment">    }</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="comment">//  With all of the thermo issues, I&#39;m thinking this is the best we can do</span></div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="comment">//   (it certainly maintains the forward and reverse rates of progress as being positive)</span></div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">double</span> iof = ioc;</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordtype">double</span> resistivity = m_ctrxn_resistivity_[iBeta];</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * ioNet) &gt; fabs(nu)) {</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        ioNet = nu / resistivity;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    }</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keywordflow">if</span> (nStoich &gt; 0) {</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="keywordtype">double</span> exp1 = nStoich * Faraday * beta * (nu - resistivity * ioNet)/ (rt);</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        iof *= exp(exp1);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="preprocessor">#ifdef DEBUG_MODE</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="preprocessor"></span>        <span class="keywordflow">if</span> (ioc &gt; 0) {</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot; &quot;</span>, <span class="stringliteral">&quot;ioc should be less than zero here&quot;</span>);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        }</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">double</span> exp2 = -nu * nStoich * Faraday * (1.0 - beta) / (rt);</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        iof = ioc * ( - exp(exp2));</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    }</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    <span class="keywordtype">double</span> ropf = iof / ( Faraday * nStoich);</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <span class="keywordflow">return</span> ropf;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;}</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;<span class="comment">//==================================================================================================================</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno"><a class="line" href="classCantera_1_1ElectrodeKinetics.html#a37a6ddf2c4cbe15563b6f0d080b22b00">  710</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="classCantera_1_1ElectrodeKinetics.html#a37a6ddf2c4cbe15563b6f0d080b22b00">ElectrodeKinetics::openCircuitVoltage</a>(<span class="keywordtype">size_t</span> irxn)</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;{</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="comment">//    Calculate deltaG for all reactions</span></div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="comment">//    Calculate deltaG for all reactions</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#ad69631cac287378c283168df8dafef0d">getDeltaGibbs</a>(0);</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#ad69631cac287378c283168df8dafef0d">getDeltaGibbs</a>(0);</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    <span class="comment">//    Look up the net number of electrons that are products.</span></div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="comment">//    Look up the net number of electrons that are products.</span></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <a class="code" href="classCantera_1_1RxnMolChange.html">RxnMolChange</a>*  rmc = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a36f75cd598bed3ad87a3561c61192bd9">rmcVector</a>[irxn];</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <span class="keywordtype">double</span> nStoichElectrons = - rmc-&gt;<a class="code" href="classCantera_1_1RxnMolChange.html#a205bd32284f19d2bc0175116eb3e83e0">m_phaseChargeChange</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a>];</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="keywordtype">double</span> OCV = 0.0;</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keywordflow">if</span> (nStoichElectrons != 0.0) {</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        OCV = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a34f6b5575caa2a5da19c4aba3813146c">m_deltaG</a>[irxn] / Faraday / nStoichElectrons;</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    }</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    <span class="keywordflow">return</span> OCV;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;}</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment">//==================================================================================================================</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <a class="code" href="classCantera_1_1RxnMolChange.html">RxnMolChange</a>*  rmc = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a36f75cd598bed3ad87a3561c61192bd9">rmcVector</a>[irxn];</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keywordtype">double</span> nStoichElectrons = - rmc-&gt;<a class="code" href="classCantera_1_1RxnMolChange.html#a205bd32284f19d2bc0175116eb3e83e0">m_phaseChargeChange</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a>];</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="keywordtype">double</span> OCV = 0.0;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <span class="keywordflow">if</span> (nStoichElectrons != 0.0) {</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;        OCV = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a34f6b5575caa2a5da19c4aba3813146c">m_deltaG</a>[irxn] / Faraday / nStoichElectrons;</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    }</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <span class="keywordflow">return</span> OCV;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;}</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">//==================================================================================================================</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;<span class="comment">//  Returns the local exchange current density formulation parameters</span></div>
 <div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="comment">//  Returns the local exchange current density formulation parameters</span></div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="keywordtype">bool</span> ElectrodeKinetics::</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;getExchangeCurrentDensityFormulation(<span class="keywordtype">size_t</span> irxn,</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                                     doublereal&amp; nStoichElectrons, doublereal&amp; OCV, doublereal&amp; io,</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                                     doublereal&amp; overPotential, doublereal&amp; beta,</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                                     doublereal&amp; resistivity)</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;{</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    <span class="keywordtype">size_t</span> iBeta = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>;</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    beta = 0.0;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="keywordtype">bool</span> ElectrodeKinetics::</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;getExchangeCurrentDensityFormulation(<span class="keywordtype">size_t</span> irxn,</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;                                     doublereal&amp; nStoichElectrons, doublereal&amp; OCV, doublereal&amp; io,</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                                     doublereal&amp; overPotential, doublereal&amp; beta,</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                                     doublereal&amp; resistivity)</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;{</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    <span class="keywordtype">size_t</span> iBeta = <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>;</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    beta = 0.0;</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <span class="comment">//  Add logic to handle other reaction types -&gt; return 0 if formulation isn&#39;t compatible</span></div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="comment">//  Add logic to handle other reaction types -&gt; return 0 if formulation isn&#39;t compatible</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="comment">// evaluate rate constants and equilibrium constants at temperature and phi (electric potential)</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#abe95ef0be10a79e36d8ec231d9c73835">_update_rates_T</a>();</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="comment">// get updated activities (rates updated below)</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#a9aa3a6a8a02deda0179d2f2d8335dd34">_update_rates_C</a>();</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;    <span class="comment">// evaluate rate constants and equilibrium constants at temperature and phi (electric potential)</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#abe95ef0be10a79e36d8ec231d9c73835">_update_rates_T</a>();</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    <span class="comment">// get updated activities (rates updated below)</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#a9aa3a6a8a02deda0179d2f2d8335dd34">_update_rates_C</a>();</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#ad2ba0fb22c7f856392077d7c56af57c5">updateExchangeCurrentQuantities</a>();</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#ad2ba0fb22c7f856392077d7c56af57c5">updateExchangeCurrentQuantities</a>();</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <a class="code" href="classCantera_1_1RxnMolChange.html">RxnMolChange</a>*   rmc = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a36f75cd598bed3ad87a3561c61192bd9">rmcVector</a>[irxn];</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    <span class="comment">// could also get this from reactant and product stoichiometry, maybe</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a> == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>) {</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        nStoichElectrons = 0;</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        OCV = 0.0;</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        nStoichElectrons = - rmc-&gt;<a class="code" href="classCantera_1_1RxnMolChange.html#a205bd32284f19d2bc0175116eb3e83e0">m_phaseChargeChange</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a>];</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    }</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160; </div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <a class="code" href="classCantera_1_1RxnMolChange.html">RxnMolChange</a>*   rmc = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a36f75cd598bed3ad87a3561c61192bd9">rmcVector</a>[irxn];</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    <span class="comment">// could also get this from reactant and product stoichiometry, maybe</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a> == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>) {</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;        nStoichElectrons = 0;</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        OCV = 0.0;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        nStoichElectrons = - rmc-&gt;<a class="code" href="classCantera_1_1RxnMolChange.html#a205bd32284f19d2bc0175116eb3e83e0">m_phaseChargeChange</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a>];</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    }</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160; </div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#ad69631cac287378c283168df8dafef0d">getDeltaGibbs</a>(0);</div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <a class="code" href="classCantera_1_1InterfaceKinetics.html#ad69631cac287378c283168df8dafef0d">getDeltaGibbs</a>(0);</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keywordflow">if</span> (nStoichElectrons != 0.0) {</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        OCV = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a34f6b5575caa2a5da19c4aba3813146c">m_deltaG</a>[irxn] / Faraday / nStoichElectrons;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    }</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1InterfaceKinetics.html#a6a56df4f62e68de8fab902f0cd5b0f46">m_ctrxn</a>.size(); i++) {</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1InterfaceKinetics.html#a6a56df4f62e68de8fab902f0cd5b0f46">m_ctrxn</a>[i] == irxn) {</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;            iBeta = i;</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        }</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    }</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    beta = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta];</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    doublereal rt = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>*<a class="code" href="classCantera_1_1Kinetics.html#a42d67e39dbc5f2af13a96f702f5a74f2">thermo</a>(0).<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;  </div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    <span class="keywordtype">double</span> mG0 =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a2483d75538c79c9d78a01fbb804e7091">m_deltaG0</a>[irxn];</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1Kinetics.html#a62b04ae5c2cafea010625512517bc999">reactionType</a> = m_rxntype[irxn];</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keywordflow">if</span> (nStoichElectrons != 0.0) {</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        OCV = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a34f6b5575caa2a5da19c4aba3813146c">m_deltaG</a>[irxn] / Faraday / nStoichElectrons;</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    }</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="classCantera_1_1InterfaceKinetics.html#a6a56df4f62e68de8fab902f0cd5b0f46">m_ctrxn</a>.size(); i++) {</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1InterfaceKinetics.html#a6a56df4f62e68de8fab902f0cd5b0f46">m_ctrxn</a>[i] == irxn) {</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;            iBeta = i;</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        }</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    }</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    beta = <a class="code" href="classCantera_1_1InterfaceKinetics.html#a0bcb7573ce7c700a247dde1a1d7c023d">m_beta</a>[iBeta];</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    doublereal rt = <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>*<a class="code" href="classCantera_1_1Kinetics.html#a42d67e39dbc5f2af13a96f702f5a74f2">thermo</a>(0).<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;  </div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    <span class="keywordtype">double</span> mG0 =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a2483d75538c79c9d78a01fbb804e7091">m_deltaG0</a>[irxn];</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCantera_1_1Kinetics.html#a62b04ae5c2cafea010625512517bc999">reactionType</a> = m_rxntype[irxn];</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    <span class="comment">// Start with the forward reaction rate</span></div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="comment">// Start with the forward reaction rate</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    <span class="keywordtype">double</span> iO = <a class="code" href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">m_rfn</a>[irxn] * m_perturb[irxn];</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;    <span class="keywordtype">int</span> iECDFormulation =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a84c443efecc2bf73b8dedb6a0b76a6a5">m_ctrxn_ecdf</a>[iBeta];</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;    <span class="keywordflow">if</span> (! iECDFormulation) {</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        iO = <a class="code" href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">m_rfn</a>[irxn] * Faraday * nStoichElectrons;</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        <span class="keywordflow">if</span> (beta &gt; 0.0) {</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;            <span class="keywordtype">double</span> fac = exp(mG0 / (rt));</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;            iO *= pow(fac, beta);</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;            <span class="comment">//  Need this step because m_rfn includes the inverse of this term, while the formulas</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;            <span class="comment">//  only use the chemical reaction rate constant.</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;            fac = exp( beta * deltaElectricEnergy_[irxn] / (rt));</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;            iO *= fac;</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        }</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;        iO *= nStoichElectrons;</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    }</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;   </div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    <span class="keywordtype">double</span> omb = 1.0 - beta;</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    <span class="keywordflow">if</span> (reactionType == <a class="code" href="namespaceCantera.html#a07fc1991fc34316430113d5d7252e4a3">BUTLERVOLMER_NOACTIVITYCOEFFS_RXN</a>) {  </div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;        <span class="keyword">const</span> RxnOrders* ro_fwd = <a class="code" href="classCantera_1_1InterfaceKinetics.html#ae0f5b8efdbb690e7f56ab03cee46a6f4">m_ctrxn_ROPOrdersList_</a>[iBeta];</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;        <span class="keywordflow">if</span> (ro_fwd == 0) {</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;</span>, <span class="stringliteral">&quot;forward orders pointer is zero ?!?&quot;</span>);</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;        }</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;        <span class="keywordtype">double</span> tmp = 1.0;</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;        <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;        <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;            <span class="keywordtype">size_t</span> ks = kinSpeciesIDs[j];</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;            <a class="code" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a>&amp; th = <a class="code" href="classCantera_1_1Kinetics.html#aa793a0e2039bc9434396160c27804798">speciesPhase</a>(ks);</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;            <span class="keywordtype">size_t</span> n = <a class="code" href="classCantera_1_1Kinetics.html#aa98e53c788bb6d34fdff287987a723e9">speciesPhaseIndex</a>(ks);</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;            <span class="keywordtype">size_t</span> klocal = ks - <a class="code" href="classCantera_1_1Kinetics.html#a1983dc08525faaaa783e9e4c916157ae">m_start</a>[n];</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;            <span class="keywordtype">double</span> mfS = th.moleFraction(klocal);</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;        </div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;            <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;            tmp *= pow(mfS, oo);</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;        }</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;        iO *= tmp;</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (reactionType == <a class="code" href="namespaceCantera.html#a3d519251ddea4ca8492ece66d6026ff5">BUTLERVOLMER_RXN</a>) {  </div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;        <span class="keyword">const</span> RxnOrders* ro_fwd = <a class="code" href="classCantera_1_1InterfaceKinetics.html#ae0f5b8efdbb690e7f56ab03cee46a6f4">m_ctrxn_ROPOrdersList_</a>[iBeta];</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;        <span class="keywordflow">if</span> (ro_fwd == 0) {</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;</span>, <span class="stringliteral">&quot;forward orders pointer is zero ?!?&quot;</span>);</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;        }</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;        <span class="keywordtype">double</span> tmp = 1.0;</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;        <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;        <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;            <span class="keywordtype">size_t</span> ks = kinSpeciesIDs[j];</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;            <a class="code" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a>&amp; th = <a class="code" href="classCantera_1_1Kinetics.html#aa793a0e2039bc9434396160c27804798">speciesPhase</a>(ks);</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;            <span class="keywordtype">size_t</span> n = <a class="code" href="classCantera_1_1Kinetics.html#aa98e53c788bb6d34fdff287987a723e9">speciesPhaseIndex</a>(ks);</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;            <span class="keywordtype">size_t</span> klocal = ks - <a class="code" href="classCantera_1_1Kinetics.html#a1983dc08525faaaa783e9e4c916157ae">m_start</a>[n];</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;            <span class="keywordtype">double</span> mfS = th.moleFraction(klocal);</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        </div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;            <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;            tmp *= pow((<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[ks]/<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[ks]), oo);</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        }</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        iO *= tmp;</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; <a class="code" href="classCantera_1_1Kinetics.html#a44776286c3ba788047554eef4620e6de">m_kk</a>; k++) {</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;            doublereal reactCoeff = <a class="code" href="classCantera_1_1Kinetics.html#ac8b1b3dfcfbc4cc116137d27d74d67db">reactantStoichCoeff</a>(k, irxn);</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;            doublereal prodCoeff =  <a class="code" href="classCantera_1_1Kinetics.html#aa078e6d2778d097fcd69fddea04cb334">productStoichCoeff</a>(k, irxn);</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;            <span class="keywordflow">if</span> (reactCoeff != 0.0) {</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                iO *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[k], reactCoeff*omb);</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;                iO *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[k], reactCoeff*beta);</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;            }</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;            <span class="keywordflow">if</span> (prodCoeff != 0.0) {</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;                iO *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[k], prodCoeff*beta);</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;                iO /= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[k], prodCoeff*omb);</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;            }</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;        }</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    }</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    io = iO;</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    resistivity = m_ctrxn_resistivity_[iBeta];</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    <span class="keywordtype">double</span> phiMetal = <a class="code" href="classCantera_1_1Kinetics.html#a98d9ac0d95b6ee467fdddd2b318f16a5">m_thermo</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a>]-&gt;electricPotential();</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    <span class="keywordtype">double</span> phiSoln = <a class="code" href="classCantera_1_1Kinetics.html#a98d9ac0d95b6ee467fdddd2b318f16a5">m_thermo</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#ab9cee1faa5d9378f5cea53e3f7e86b3e">solnPhaseIndex_</a>]-&gt;electricPotential();</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    <span class="keywordtype">double</span> E = phiMetal - phiSoln;</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    overPotential = E - OCV;</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;}</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;<span class="comment">//====================================================================================================================</span></div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="keywordtype">double</span> ElectrodeKinetics::calcCurrentDensity(<span class="keywordtype">double</span> nu, <span class="keywordtype">double</span> nStoich, <span class="keywordtype">double</span> ioc, <span class="keywordtype">double</span> beta, <span class="keywordtype">double</span> temp, </div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                                             doublereal resistivity)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;     <span class="keywordtype">double</span> exp1 = nu * nStoich * Faraday * beta / (<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * temp);</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;     <span class="keywordtype">double</span> exp2 = -nu * nStoich * Faraday * (1.0 - beta) / (<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * temp);</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;     <span class="keywordtype">double</span> val = ioc * (exp(exp1) - exp(exp2));</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;     <span class="keywordflow">if</span> (resistivity &gt; 0.0) {</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;         val = solveCurrentRes(nu, nStoich, ioc, beta, temp, resistivity, 0);</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;     }</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;     <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="keywordtype">double</span> iO = <a class="code" href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">m_rfn</a>[irxn] * <a class="code" href="classCantera_1_1Kinetics.html#a5beb0a30f678e8bb451038e2fb2d3ebe">m_perturb</a>[irxn];</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    <span class="keywordtype">int</span> iECDFormulation =  <a class="code" href="classCantera_1_1InterfaceKinetics.html#a84c443efecc2bf73b8dedb6a0b76a6a5">m_ctrxn_ecdf</a>[iBeta];</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    <span class="keywordflow">if</span> (! iECDFormulation) {</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;        iO = <a class="code" href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">m_rfn</a>[irxn] * Faraday * nStoichElectrons;</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;        <span class="keywordflow">if</span> (beta &gt; 0.0) {</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;            <span class="keywordtype">double</span> fac = exp(mG0 / (rt));</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;            iO *= pow(fac, beta);</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;            <span class="comment">//  Need this step because m_rfn includes the inverse of this term, while the formulas</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;            <span class="comment">//  only use the chemical reaction rate constant.</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;            fac = exp( beta * deltaElectricEnergy_[irxn] / (rt));</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;            iO *= fac;</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        }</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;        iO *= nStoichElectrons;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    }</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;   </div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keywordtype">double</span> omb = 1.0 - beta;</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    <span class="keywordflow">if</span> (reactionType == <a class="code" href="namespaceCantera.html#a07fc1991fc34316430113d5d7252e4a3">BUTLERVOLMER_NOACTIVITYCOEFFS_RXN</a>) {  </div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;        <span class="keyword">const</span> RxnOrders* ro_fwd = <a class="code" href="classCantera_1_1InterfaceKinetics.html#ae0f5b8efdbb690e7f56ab03cee46a6f4">m_ctrxn_ROPOrdersList_</a>[iBeta];</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        <span class="keywordflow">if</span> (ro_fwd == 0) {</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;</span>, <span class="stringliteral">&quot;forward orders pointer is zero ?!?&quot;</span>);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;        }</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;        <span class="keywordtype">double</span> tmp = 1.0;</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;        <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;        <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;            <span class="keywordtype">size_t</span> ks = kinSpeciesIDs[j];</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;            <a class="code" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a>&amp; th = <a class="code" href="classCantera_1_1Kinetics.html#aa793a0e2039bc9434396160c27804798">speciesPhase</a>(ks);</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;            <span class="keywordtype">size_t</span> n = <a class="code" href="classCantera_1_1Kinetics.html#aa98e53c788bb6d34fdff287987a723e9">speciesPhaseIndex</a>(ks);</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;            <span class="keywordtype">size_t</span> klocal = ks - <a class="code" href="classCantera_1_1Kinetics.html#a1983dc08525faaaa783e9e4c916157ae">m_start</a>[n];</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;            <span class="keywordtype">double</span> mfS = th.moleFraction(klocal);</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;        </div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;            <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;            tmp *= pow(mfS, oo);</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;        }</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;        iO *= tmp;</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (reactionType == <a class="code" href="namespaceCantera.html#a3d519251ddea4ca8492ece66d6026ff5">BUTLERVOLMER_RXN</a>) {  </div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;        <span class="keyword">const</span> RxnOrders* ro_fwd = <a class="code" href="classCantera_1_1InterfaceKinetics.html#ae0f5b8efdbb690e7f56ab03cee46a6f4">m_ctrxn_ROPOrdersList_</a>[iBeta];</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;        <span class="keywordflow">if</span> (ro_fwd == 0) {</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;            <span class="keywordflow">throw</span> CanteraError(<span class="stringliteral">&quot;ElectrodeKinetics::calcForwardROP_BV()&quot;</span>, <span class="stringliteral">&quot;forward orders pointer is zero ?!?&quot;</span>);</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;        }</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;        <span class="keywordtype">double</span> tmp = 1.0;</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;        <span class="keyword">const</span> std::vector&lt;size_t&gt;&amp; kinSpeciesIDs = ro_fwd-&gt;kinSpeciesIDs_;</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;        <span class="keyword">const</span> std::vector&lt;doublereal&gt;&amp; kinSpeciesOrders = ro_fwd-&gt;kinSpeciesOrders_;</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; kinSpeciesIDs.size(); j++) {</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;            <span class="keywordtype">size_t</span> ks = kinSpeciesIDs[j];</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;        </div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;            <span class="keywordtype">double</span> oo = kinSpeciesOrders[j];</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;            tmp *= pow((<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[ks]/<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[ks]), oo);</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;        }</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;        iO *= tmp;</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; <a class="code" href="classCantera_1_1Kinetics.html#a44776286c3ba788047554eef4620e6de">m_kk</a>; k++) {</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;            doublereal reactCoeff = <a class="code" href="classCantera_1_1Kinetics.html#ac8b1b3dfcfbc4cc116137d27d74d67db">reactantStoichCoeff</a>(k, irxn);</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;            doublereal prodCoeff =  <a class="code" href="classCantera_1_1Kinetics.html#aa078e6d2778d097fcd69fddea04cb334">productStoichCoeff</a>(k, irxn);</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;            <span class="keywordflow">if</span> (reactCoeff != 0.0) {</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                iO *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[k], reactCoeff*omb);</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                iO *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[k], reactCoeff*beta);</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;            }</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;            <span class="keywordflow">if</span> (prodCoeff != 0.0) {</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                iO *= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">m_actConc</a>[k], prodCoeff*beta);</div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                iO /= pow(<a class="code" href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">m_StandardConc</a>[k], prodCoeff*omb);</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;            }</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;        }</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    }</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    io = iO;</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;    resistivity = m_ctrxn_resistivity_[iBeta];</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="keywordtype">double</span> phiMetal = <a class="code" href="classCantera_1_1Kinetics.html#a98d9ac0d95b6ee467fdddd2b318f16a5">m_thermo</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">metalPhaseIndex_</a>]-&gt;electricPotential();</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="keywordtype">double</span> phiSoln = <a class="code" href="classCantera_1_1Kinetics.html#a98d9ac0d95b6ee467fdddd2b318f16a5">m_thermo</a>[<a class="code" href="classCantera_1_1ElectrodeKinetics.html#ab9cee1faa5d9378f5cea53e3f7e86b3e">solnPhaseIndex_</a>]-&gt;electricPotential();</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    <span class="keywordtype">double</span> E = phiMetal - phiSoln;</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    overPotential = E - OCV;</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;}</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;<span class="comment">//====================================================================================================================</span></div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;<span class="keywordtype">double</span> ElectrodeKinetics::calcCurrentDensity(<span class="keywordtype">double</span> nu, <span class="keywordtype">double</span> nStoich, <span class="keywordtype">double</span> ioc, <span class="keywordtype">double</span> beta, <span class="keywordtype">double</span> temp, </div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;                                             doublereal resistivity)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;     <span class="keywordtype">double</span> exp1 = nu * nStoich * Faraday * beta / (<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * temp);</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;     <span class="keywordtype">double</span> exp2 = -nu * nStoich * Faraday * (1.0 - beta) / (<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * temp);</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;     <span class="keywordtype">double</span> val = ioc * (exp(exp1) - exp(exp2));</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;     <span class="keywordflow">if</span> (resistivity &gt; 0.0) {</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;         val = solveCurrentRes(nu, nStoich, ioc, beta, temp, resistivity, 0);</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;     }</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;     <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;}</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;<span class="comment">//==================================================================================================================</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno"><a class="line" href="classCantera_1_1ElectrodeKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">  873</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ElectrodeKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">ElectrodeKinetics::init</a>()</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;{</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;     <a class="code" href="classCantera_1_1InterfaceKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">InterfaceKinetics::init</a>();</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;     <a class="code" href="classCantera_1_1ElectrodeKinetics.html#ab8c0b605e3018589a21dc1ed8d43a45e">identifyMetalPhase</a>();</div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;}</div>
 <div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;<span class="comment">//==================================================================================================================</span></div>
-<div class="line"><a name="l00879"></a><span class="lineno"><a class="line" href="classCantera_1_1ElectrodeKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">  879</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1ElectrodeKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">ElectrodeKinetics::init</a>()</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;{</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;     <a class="code" href="classCantera_1_1InterfaceKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">InterfaceKinetics::init</a>();</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;     <a class="code" href="classCantera_1_1ElectrodeKinetics.html#ab8c0b605e3018589a21dc1ed8d43a45e">identifyMetalPhase</a>();</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;}</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;<span class="comment">//==================================================================================================================</span></div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;<span class="keywordtype">double</span> ElectrodeKinetics::solveCurrentRes(<span class="keywordtype">double</span> nu, <span class="keywordtype">double</span> nStoich, doublereal ioc, doublereal beta, doublereal temp,</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;                                          doublereal resistivity, <span class="keywordtype">int</span> iprob)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    <span class="comment">// int nits = 0;</span></div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    doublereal f, dfdi, deltai, eexp1, eexp2, exp1, exp2, icurr, deltai_damp;</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;    doublereal nFRT = nStoich * Faraday /  (<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * temp);</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;    <span class="keywordflow">if</span> (iprob == 0) {</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;        eexp1 = exp(nu * nFRT * beta);</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        eexp2 = exp(-nu * nFRT * (1.0 - beta)) ;</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        eexp1 = exp(nu * nFRT * beta);</div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;        eexp2 = 0.0;</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    }</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    icurr = ioc * (eexp1 - eexp2);</div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    <span class="keywordtype">double</span> icurrDamp = icurr;</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * icurr) &gt; 0.9 * fabs(nu)) {</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;        icurrDamp = 0.9 * nu / resistivity;</div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;    }</div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    <span class="keywordflow">if</span> (iprob == 0) {</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;        eexp1 = exp(  nFRT * beta         * (nu - resistivity * icurrDamp));</div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;        eexp2 = exp(- nFRT * (1.0 - beta) * (nu - resistivity * icurrDamp));</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;        eexp1 = exp(  nFRT * beta         * (nu - resistivity * icurrDamp));</div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;        eexp2 = 0.0;</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    }</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    icurr = ioc * (eexp1 - eexp2);</div>
-<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * icurr) &gt; 0.99 * fabs(nu)) {</div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;        icurr = 0.99 * nu / resistivity;</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;    } </div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    <span class="keywordflow">do</span> {</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;        <span class="comment">// nits++;</span></div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;        <span class="keywordflow">if</span> (iprob == 0) {</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;            exp1 =   nFRT * beta         * (nu - resistivity * icurr);</div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;            exp2 = - nFRT * (1.0 - beta) * (nu - resistivity * icurr);</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;            eexp1 = exp(exp1);</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;            eexp2 = exp(exp2);</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;            f = icurr - ioc * (eexp1 - eexp2);</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;            dfdi = 1.0 - ioc * eexp1 * ( - beta * nFRT * resistivity ) + </div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;                   ioc * eexp2 * ( (1.0 - beta) * nFRT * resistivity );</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;            exp1 =   nFRT * beta         * (nu - resistivity * icurr);</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;            eexp1 =  exp(exp1);</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;            f = icurr - ioc * (eexp1);</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;            dfdi = 1.0 - ioc * eexp1 * ( - beta * nFRT * resistivity );</div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;        }</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        deltai = - f / dfdi;</div>
-<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;        <span class="keywordflow">if</span> (fabs(deltai) &gt; 0.1 * fabs(icurr)) {</div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;            deltai_damp = 0.1 * deltai;</div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;            <span class="keywordflow">if</span> (fabs(deltai_damp) &gt; 0.1 * fabs(icurr)) {</div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;                deltai_damp = 0.1 * icurr * (deltai_damp / fabs(deltai_damp)); </div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;            }</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(deltai) &gt; 0.01 * fabs(icurr))  {</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;            deltai_damp = 0.3 * deltai;</div>
-<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(deltai) &gt; 0.001 * fabs(icurr))  {</div>
-<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;            deltai_damp = 0.5 * deltai;</div>
-<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;            deltai_damp = deltai;</div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;        }</div>
-<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;        icurr += deltai_damp;</div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;        <span class="keywordflow">if</span> (fabs(resistivity * icurr) &gt; fabs(nu)) {</div>
-<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;            icurr = 0.999 * nu / resistivity;</div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;        }</div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;    } <span class="keywordflow">while</span>((fabs(deltai/icurr)&gt; 1.0E-14) &amp;&amp; (fabs(deltai) &gt; 1.0E-20));</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;</div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;    <span class="comment">// printf(&quot;   its = %d\n&quot;, nits);</span></div>
-<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;</div>
-<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;    <span class="keywordflow">return</span> icurr;</div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;}</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;<span class="comment">//==================================================================================================================</span></div>
-<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;}</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;<span class="keywordtype">double</span> ElectrodeKinetics::solveCurrentRes(<span class="keywordtype">double</span> nu, <span class="keywordtype">double</span> nStoich, doublereal ioc, doublereal beta, doublereal temp,</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                                          doublereal resistivity, <span class="keywordtype">int</span> iprob)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;    <span class="comment">// int nits = 0;</span></div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;    doublereal f, dfdi, deltai, eexp1, eexp2, exp1, exp2, icurr, deltai_damp;</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;    doublereal nFRT = nStoich * Faraday /  (<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> * temp);</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;    <span class="keywordflow">if</span> (iprob == 0) {</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        eexp1 = exp(nu * nFRT * beta);</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        eexp2 = exp(-nu * nFRT * (1.0 - beta)) ;</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;        eexp1 = exp(nu * nFRT * beta);</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        eexp2 = 0.0;</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    }</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;    icurr = ioc * (eexp1 - eexp2);</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;    <span class="keywordtype">double</span> icurrDamp = icurr;</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * icurr) &gt; 0.9 * fabs(nu)) {</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;        icurrDamp = 0.9 * nu / resistivity;</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    }</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    <span class="keywordflow">if</span> (iprob == 0) {</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;        eexp1 = exp(  nFRT * beta         * (nu - resistivity * icurrDamp));</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;        eexp2 = exp(- nFRT * (1.0 - beta) * (nu - resistivity * icurrDamp));</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;        eexp1 = exp(  nFRT * beta         * (nu - resistivity * icurrDamp));</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;        eexp2 = 0.0;</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    }</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;    icurr = ioc * (eexp1 - eexp2);</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    <span class="keywordflow">if</span> (fabs(resistivity * icurr) &gt; 0.99 * fabs(nu)) {</div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;        icurr = 0.99 * nu / resistivity;</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;    } </div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;        <span class="comment">// nits++;</span></div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;        <span class="keywordflow">if</span> (iprob == 0) {</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;            exp1 =   nFRT * beta         * (nu - resistivity * icurr);</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;            exp2 = - nFRT * (1.0 - beta) * (nu - resistivity * icurr);</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;            eexp1 = exp(exp1);</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;            eexp2 = exp(exp2);</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;            f = icurr - ioc * (eexp1 - eexp2);</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;            dfdi = 1.0 - ioc * eexp1 * ( - beta * nFRT * resistivity ) + </div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                   ioc * eexp2 * ( (1.0 - beta) * nFRT * resistivity );</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;            exp1 =   nFRT * beta         * (nu - resistivity * icurr);</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;            eexp1 =  exp(exp1);</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;            f = icurr - ioc * (eexp1);</div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;            dfdi = 1.0 - ioc * eexp1 * ( - beta * nFRT * resistivity );</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;        }</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;        deltai = - f / dfdi;</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;        <span class="keywordflow">if</span> (fabs(deltai) &gt; 0.1 * fabs(icurr)) {</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;            deltai_damp = 0.1 * deltai;</div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;            <span class="keywordflow">if</span> (fabs(deltai_damp) &gt; 0.1 * fabs(icurr)) {</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;                deltai_damp = 0.1 * icurr * (deltai_damp / fabs(deltai_damp)); </div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;            }</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(deltai) &gt; 0.01 * fabs(icurr))  {</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;            deltai_damp = 0.3 * deltai;</div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(deltai) &gt; 0.001 * fabs(icurr))  {</div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;            deltai_damp = 0.5 * deltai;</div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;            deltai_damp = deltai;</div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;        }</div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;        icurr += deltai_damp;</div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;        <span class="keywordflow">if</span> (fabs(resistivity * icurr) &gt; fabs(nu)) {</div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;            icurr = 0.999 * nu / resistivity;</div>
+<div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;        }</div>
+<div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;    } <span class="keywordflow">while</span>((fabs(deltai/icurr)&gt; 1.0E-14) &amp;&amp; (fabs(deltai) &gt; 1.0E-20));</div>
+<div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;    <span class="comment">// printf(&quot;   its = %d\n&quot;, nits);</span></div>
+<div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;    <span class="keywordflow">return</span> icurr;</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;}</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;<span class="comment">//==================================================================================================================</span></div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;}</div>
 <div class="ttc" id="classCantera_1_1Phase_html_ac6606d18168973c0102d5992ade068bd"><div class="ttname"><a href="classCantera_1_1Phase.html#ac6606d18168973c0102d5992ade068bd">Cantera::Phase::nAtoms</a></div><div class="ttdeci">doublereal nAtoms(size_t k, size_t m) const </div><div class="ttdoc">Number of atoms of element m in species k. </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8cpp_source.html#l00243">Phase.cpp:243</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_aafc60ed3c96afed5ea6c6dd4f786be8c"><div class="ttname"><a href="classCantera_1_1Kinetics.html#aafc60ed3c96afed5ea6c6dd4f786be8c">Cantera::Kinetics::m_revProductStoich</a></div><div class="ttdeci">StoichManagerN m_revProductStoich</div><div class="ttdoc">Stoichiometry manager for the products of reversible reactions. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00952">Kinetics.h:952</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_aafc60ed3c96afed5ea6c6dd4f786be8c"><div class="ttname"><a href="classCantera_1_1Kinetics.html#aafc60ed3c96afed5ea6c6dd4f786be8c">Cantera::Kinetics::m_revProductStoich</a></div><div class="ttdeci">StoichManagerN m_revProductStoich</div><div class="ttdoc">Stoichiometry manager for the products of reversible reactions. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00961">Kinetics.h:961</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a2483d75538c79c9d78a01fbb804e7091"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a2483d75538c79c9d78a01fbb804e7091">Cantera::InterfaceKinetics::m_deltaG0</a></div><div class="ttdeci">vector_fp m_deltaG0</div><div class="ttdoc">Vector of delta G^0, the standard state gibbs free energies for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00617">InterfaceKinetics.h:617</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a7499ff39594cfdf8dd6085e1ab485c37"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a7499ff39594cfdf8dd6085e1ab485c37">Cantera::Kinetics::m_ropr</a></div><div class="ttdeci">vector_fp m_ropr</div><div class="ttdoc">Reverse rate-of-progress for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01088">Kinetics.h:1088</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a98d9ac0d95b6ee467fdddd2b318f16a5"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a98d9ac0d95b6ee467fdddd2b318f16a5">Cantera::Kinetics::m_thermo</a></div><div class="ttdeci">std::vector&lt; thermo_t * &gt; m_thermo</div><div class="ttdoc">m_thermo is a vector of pointers to ThermoPhase objects that are involved with this kinetics operator...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01037">Kinetics.h:1037</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a7499ff39594cfdf8dd6085e1ab485c37"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a7499ff39594cfdf8dd6085e1ab485c37">Cantera::Kinetics::m_ropr</a></div><div class="ttdeci">vector_fp m_ropr</div><div class="ttdoc">Reverse rate-of-progress for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01097">Kinetics.h:1097</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a98d9ac0d95b6ee467fdddd2b318f16a5"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a98d9ac0d95b6ee467fdddd2b318f16a5">Cantera::Kinetics::m_thermo</a></div><div class="ttdeci">std::vector&lt; thermo_t * &gt; m_thermo</div><div class="ttdoc">m_thermo is a vector of pointers to ThermoPhase objects that are involved with this kinetics operator...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01046">Kinetics.h:1046</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a5863a068319c717f1a1eae364eaf1345"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a5863a068319c717f1a1eae364eaf1345">Cantera::ElectrodeKinetics::metalPhaseIndex_</a></div><div class="ttdeci">size_t metalPhaseIndex_</div><div class="ttdoc">Index of the metal phase in the list of phases for this kinetics object. This is the electron phase...</div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8h_source.html#l00111">ElectrodeKinetics.h:111</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html">Cantera::ElectrodeKinetics</a></div><div class="ttdoc">A kinetics manager for heterogeneous reaction mechanisms. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8h_source.html#l00031">ElectrodeKinetics.h:31</a></div></div>
 <div class="ttc" id="SurfPhase_8h_html"><div class="ttname"><a href="SurfPhase_8h.html">SurfPhase.h</a></div><div class="ttdoc">Header for a simple thermodynamics model of a surface phase derived from ThermoPhase, assuming an ideal solution model (see Thermodynamic Properties and class SurfPhase). </div></div>
@@ -1068,9 +1062,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="utilities_8h_html"><div class="ttname"><a href="utilities_8h.html">utilities.h</a></div><div class="ttdoc">Various templated functions that carry out common vector operations (see Templated Utility Functions)...</div></div>
 <div class="ttc" id="classCantera_1_1Kinetics_html_a42d67e39dbc5f2af13a96f702f5a74f2"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a42d67e39dbc5f2af13a96f702f5a74f2">Cantera::Kinetics::thermo</a></div><div class="ttdeci">thermo_t &amp; thermo(size_t n=0)</div><div class="ttdoc">This method returns a reference to the nth ThermoPhase object defined in this kinetics mechanism...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00285">Kinetics.h:285</a></div></div>
 <div class="ttc" id="classCantera_1_1ReactionData_html_a06f33eb290b823bda1052f03977b012b"><div class="ttname"><a href="classCantera_1_1ReactionData.html#a06f33eb290b823bda1052f03977b012b">Cantera::ReactionData::forwardFullOrder_</a></div><div class="ttdeci">vector_fp forwardFullOrder_</div><div class="ttdoc">Reaction order for the forward direction of the reaction. </div><div class="ttdef"><b>Definition:</b> <a href="ReactionData_8h_source.html#l00087">ReactionData.h:87</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a44776286c3ba788047554eef4620e6de"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a44776286c3ba788047554eef4620e6de">Cantera::Kinetics::m_kk</a></div><div class="ttdeci">size_t m_kk</div><div class="ttdoc">The number of species in all of the phases that participate in this kinetics mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00963">Kinetics.h:963</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a44776286c3ba788047554eef4620e6de"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a44776286c3ba788047554eef4620e6de">Cantera::Kinetics::m_kk</a></div><div class="ttdeci">size_t m_kk</div><div class="ttdoc">The number of species in all of the phases that participate in this kinetics mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00972">Kinetics.h:972</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a0bafe9ab95a6bd0a3db5599bed4ce0cc"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a0bafe9ab95a6bd0a3db5599bed4ce0cc">Cantera::InterfaceKinetics::m_surf</a></div><div class="ttdeci">SurfPhase * m_surf</div><div class="ttdoc">Pointer to the single surface phase. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00533">InterfaceKinetics.h:533</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a1983dc08525faaaa783e9e4c916157ae"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a1983dc08525faaaa783e9e4c916157ae">Cantera::Kinetics::m_start</a></div><div class="ttdeci">std::vector&lt; size_t &gt; m_start</div><div class="ttdoc">m_start is a vector of integers specifying the beginning position for the species vector for the n&#39;th...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01044">Kinetics.h:1044</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a1983dc08525faaaa783e9e4c916157ae"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a1983dc08525faaaa783e9e4c916157ae">Cantera::Kinetics::m_start</a></div><div class="ttdeci">std::vector&lt; size_t &gt; m_start</div><div class="ttdoc">m_start is a vector of integers specifying the beginning position for the species vector for the n&#39;th...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01053">Kinetics.h:1053</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a03aff983f503a71029aecb707175b2ed"><div class="ttname"><a href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">Cantera::npos</a></div><div class="ttdeci">const size_t npos</div><div class="ttdoc">index returned by functions to indicate &quot;no position&quot; </div><div class="ttdef"><b>Definition:</b> <a href="ct__defs_8h_source.html#l00165">ct_defs.h:165</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a381624bdbc575bc6fa35da47f430817e"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a381624bdbc575bc6fa35da47f430817e">Cantera::InterfaceKinetics::m_phi</a></div><div class="ttdeci">vector_fp m_phi</div><div class="ttdoc">Vector of phase electric potentials. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00507">InterfaceKinetics.h:507</a></div></div>
 <div class="ttc" id="classCantera_1_1ReactionData_html_a0f4d8a67bb39acc583704de120c23b36"><div class="ttname"><a href="classCantera_1_1ReactionData.html#a0f4d8a67bb39acc583704de120c23b36">Cantera::ReactionData::beta</a></div><div class="ttdeci">doublereal beta</div><div class="ttdoc">Forward value of the apparent Electrochemical transfer coefficient. </div><div class="ttdef"><b>Definition:</b> <a href="ReactionData_8h_source.html#l00201">ReactionData.h:201</a></div></div>
@@ -1082,58 +1076,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad043650f8480ca37c389f3d3c2b4a29e"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad043650f8480ca37c389f3d3c2b4a29e">Cantera::InterfaceKinetics::m_rxnPhaseIsProduct</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; bool &gt; &gt; m_rxnPhaseIsProduct</div><div class="ttdoc">Vector of vector of booleans indicating whether a phase participates in a reaction as a product...</div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00720">InterfaceKinetics.h:720</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a312d5210e9d77613bc00a139a5bbdf88"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a312d5210e9d77613bc00a139a5bbdf88">Cantera::InterfaceKinetics::m_StandardConc</a></div><div class="ttdeci">vector_fp m_StandardConc</div><div class="ttdoc">Vector of standard concentrations. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00610">InterfaceKinetics.h:610</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_ab8c0b605e3018589a21dc1ed8d43a45e"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#ab8c0b605e3018589a21dc1ed8d43a45e">Cantera::ElectrodeKinetics::identifyMetalPhase</a></div><div class="ttdeci">void identifyMetalPhase()</div><div class="ttdoc">Identify the metal phase and the electrons species. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00071">ElectrodeKinetics.cpp:71</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a3a86abb7a57066cd6e465887d22e5dd4"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a3a86abb7a57066cd6e465887d22e5dd4">Cantera::Kinetics::m_ropnet</a></div><div class="ttdeci">vector_fp m_ropnet</div><div class="ttdoc">Net rate-of-progress for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01091">Kinetics.h:1091</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a3a86abb7a57066cd6e465887d22e5dd4"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a3a86abb7a57066cd6e465887d22e5dd4">Cantera::Kinetics::m_ropnet</a></div><div class="ttdeci">vector_fp m_ropnet</div><div class="ttdoc">Net rate-of-progress for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01100">Kinetics.h:1100</a></div></div>
 <div class="ttc" id="classCantera_1_1RxnOrders_html"><div class="ttname"><a href="classCantera_1_1RxnOrders.html">Cantera::RxnOrders</a></div><div class="ttdoc">forward orders </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00027">InterfaceKinetics.h:27</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_a37627d5d5bba7f4a8690c71c2ab3cb07"><div class="ttname"><a href="classCantera_1_1Phase.html#a37627d5d5bba7f4a8690c71c2ab3cb07">Cantera::Phase::name</a></div><div class="ttdeci">std::string name() const </div><div class="ttdoc">Return the name of the phase. </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8cpp_source.html#l00157">Phase.cpp:157</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a5c292cbe14b78329ec021bb1627946fb"><div class="ttname"><a href="namespaceCantera.html#a5c292cbe14b78329ec021bb1627946fb">Cantera::multiply_each</a></div><div class="ttdeci">void multiply_each(OutputIter x_begin, OutputIter x_end, InputIter y_begin)</div><div class="ttdoc">Multiply each entry in x by the corresponding entry in y. </div><div class="ttdef"><b>Definition:</b> <a href="utilities_8h_source.html#l00234">utilities.h:234</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad892875947c0fa3b589acd1a7c56dc1c"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad892875947c0fa3b589acd1a7c56dc1c">Cantera::InterfaceKinetics::m_phaseExistsCheck</a></div><div class="ttdeci">int m_phaseExistsCheck</div><div class="ttdoc">Int flag to indicate that some phases in the kinetics mechanism are non-existent. ...</div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00681">InterfaceKinetics.h:681</a></div></div>
 <div class="ttc" id="classCantera_1_1RxnMolChange_html_a205bd32284f19d2bc0175116eb3e83e0"><div class="ttname"><a href="classCantera_1_1RxnMolChange.html#a205bd32284f19d2bc0175116eb3e83e0">Cantera::RxnMolChange::m_phaseChargeChange</a></div><div class="ttdeci">std::vector&lt; double &gt; m_phaseChargeChange</div><div class="ttdoc">Vector of mass changes for each phase in the Kinetics object due to the current reaction. </div><div class="ttdef"><b>Definition:</b> <a href="RxnMolChange_8h_source.html#l00074">RxnMolChange.h:74</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_aab34b4519834a2541fdb85a9259e58ce"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#aab34b4519834a2541fdb85a9259e58ce">Cantera::InterfaceKinetics::deltaElectricEnergy_</a></div><div class="ttdeci">vector_fp deltaElectricEnergy_</div><div class="ttdoc">Storage for the net electric energy change due to reaction. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00523">InterfaceKinetics.h:523</a></div></div>
-<div class="ttc" id="namespaceCantera_html_a8236f718220883b27d0dcb93d3b0f328"><div class="ttname"><a href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">Cantera::thermo_t</a></div><div class="ttdeci">ThermoPhase thermo_t</div><div class="ttdoc">typedef for the ThermoPhase class </div><div class="ttdef"><b>Definition:</b> <a href="ThermoPhase_8h_source.html#l01659">ThermoPhase.h:1659</a></div></div>
+<div class="ttc" id="namespaceCantera_html_a8236f718220883b27d0dcb93d3b0f328"><div class="ttname"><a href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">Cantera::thermo_t</a></div><div class="ttdeci">ThermoPhase thermo_t</div><div class="ttdoc">typedef for the ThermoPhase class </div><div class="ttdef"><b>Definition:</b> <a href="ThermoPhase_8h_source.html#l01660">ThermoPhase.h:1660</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a36f75cd598bed3ad87a3561c61192bd9"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a36f75cd598bed3ad87a3561c61192bd9">Cantera::InterfaceKinetics::rmcVector</a></div><div class="ttdeci">std::vector&lt; RxnMolChange * &gt; rmcVector</div><div class="ttdoc">Vector of additional information about each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00436">InterfaceKinetics.h:436</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a724943939554e5fef60980254a6283dc"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a724943939554e5fef60980254a6283dc">Cantera::Kinetics::m_ropf</a></div><div class="ttdeci">vector_fp m_ropf</div><div class="ttdoc">Forward rate-of-progress for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01085">Kinetics.h:1085</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a724943939554e5fef60980254a6283dc"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a724943939554e5fef60980254a6283dc">Cantera::Kinetics::m_ropf</a></div><div class="ttdeci">vector_fp m_ropf</div><div class="ttdoc">Forward rate-of-progress for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01094">Kinetics.h:1094</a></div></div>
 <div class="ttc" id="classCantera_1_1ThermoPhase_html"><div class="ttname"><a href="classCantera_1_1ThermoPhase.html">Cantera::ThermoPhase</a></div><div class="ttdoc">Base class for a phase with thermodynamic properties. </div><div class="ttdef"><b>Definition:</b> <a href="ThermoPhase_8h_source.html#l00097">ThermoPhase.h:97</a></div></div>
 <div class="ttc" id="ElectrodeKinetics_8h_html"><div class="ttname"><a href="ElectrodeKinetics_8h.html">ElectrodeKinetics.h</a></div></div>
 <div class="ttc" id="classCantera_1_1ReactionData_html_a1f3ad104e4750ecda4ddaf73f1c6abf7"><div class="ttname"><a href="classCantera_1_1ReactionData.html#a1f3ad104e4750ecda4ddaf73f1c6abf7">Cantera::ReactionData::products</a></div><div class="ttdeci">std::vector&lt; size_t &gt; products</div><div class="ttdoc">Indices of product species. </div><div class="ttdef"><b>Definition:</b> <a href="ReactionData_8h_source.html#l00064">ReactionData.h:64</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_af6db3fd832c5b3e3f99a4eb2d24063d8"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#af6db3fd832c5b3e3f99a4eb2d24063d8">Cantera::ElectrodeKinetics::duplMyselfAsKinetics</a></div><div class="ttdeci">virtual Kinetics * duplMyselfAsKinetics(const std::vector&lt; thermo_t * &gt; &amp;tpVector) const </div><div class="ttdoc">Duplication function. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00063">ElectrodeKinetics.cpp:63</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a84c443efecc2bf73b8dedb6a0b76a6a5"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a84c443efecc2bf73b8dedb6a0b76a6a5">Cantera::InterfaceKinetics::m_ctrxn_ecdf</a></div><div class="ttdeci">vector_int m_ctrxn_ecdf</div><div class="ttdoc">Vector of booleans indicating whether the charge transfer reaction rate constant is described by an e...</div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00584">InterfaceKinetics.h:584</a></div></div>
-<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad69631cac287378c283168df8dafef0d"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad69631cac287378c283168df8dafef0d">Cantera::InterfaceKinetics::getDeltaGibbs</a></div><div class="ttdeci">virtual void getDeltaGibbs(doublereal *deltaG)</div><div class="ttdoc">Return the vector of values for the reaction gibbs free energy change. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00655">InterfaceKinetics.cpp:655</a></div></div>
+<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad69631cac287378c283168df8dafef0d"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad69631cac287378c283168df8dafef0d">Cantera::InterfaceKinetics::getDeltaGibbs</a></div><div class="ttdeci">virtual void getDeltaGibbs(doublereal *deltaG)</div><div class="ttdoc">Return the vector of values for the reaction gibbs free energy change. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00653">InterfaceKinetics.cpp:653</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ae0f5b8efdbb690e7f56ab03cee46a6f4"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ae0f5b8efdbb690e7f56ab03cee46a6f4">Cantera::InterfaceKinetics::m_ctrxn_ROPOrdersList_</a></div><div class="ttdeci">std::vector&lt; RxnOrders * &gt; m_ctrxn_ROPOrdersList_</div><div class="ttdoc">Vector of booleans indicating whether the charge transfer reaction rate constant is described by an e...</div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00593">InterfaceKinetics.h:593</a></div></div>
-<div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a02fd73d861ef2e4aabb38c0c9ff82947"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">Cantera::ElectrodeKinetics::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdoc">Prepare the class for the addition of reactions. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00879">ElectrodeKinetics.cpp:879</a></div></div>
+<div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a02fd73d861ef2e4aabb38c0c9ff82947"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">Cantera::ElectrodeKinetics::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdoc">Prepare the class for the addition of reactions. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00873">ElectrodeKinetics.cpp:873</a></div></div>
 <div class="ttc" id="classCantera_1_1RxnOrders_html_ab69d263bfdd5e74205f4a5a22147e3ec"><div class="ttname"><a href="classCantera_1_1RxnOrders.html#ab69d263bfdd5e74205f4a5a22147e3ec">Cantera::RxnOrders::kinSpeciesOrders_</a></div><div class="ttdeci">vector_fp kinSpeciesOrders_</div><div class="ttdoc">Orders of the kinetic species. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00049">InterfaceKinetics.h:49</a></div></div>
 <div class="ttc" id="classCantera_1_1Kinetics_html_a390d47fad38bd309589968dbca660abd"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a390d47fad38bd309589968dbca660abd">Cantera::Kinetics::nPhases</a></div><div class="ttdeci">size_t nPhases() const </div><div class="ttdoc">The number of phases participating in the reaction mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00225">Kinetics.h:225</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html">Cantera::InterfaceKinetics</a></div><div class="ttdoc">A kinetics manager for heterogeneous reaction mechanisms. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00088">InterfaceKinetics.h:88</a></div></div>
-<div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a37a6ddf2c4cbe15563b6f0d080b22b00"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a37a6ddf2c4cbe15563b6f0d080b22b00">Cantera::ElectrodeKinetics::openCircuitVoltage</a></div><div class="ttdeci">double openCircuitVoltage(size_t irxn)</div><div class="ttdoc">Calculate the open circuit voltage of a given reaction. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00712">ElectrodeKinetics.cpp:712</a></div></div>
+<div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a37a6ddf2c4cbe15563b6f0d080b22b00"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a37a6ddf2c4cbe15563b6f0d080b22b00">Cantera::ElectrodeKinetics::openCircuitVoltage</a></div><div class="ttdeci">double openCircuitVoltage(size_t irxn)</div><div class="ttdoc">Calculate the open circuit voltage of a given reaction. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00710">ElectrodeKinetics.cpp:710</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a1fcfc4a99e008671095d77ee2987b18b"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a1fcfc4a99e008671095d77ee2987b18b">Cantera::ElectrodeKinetics::ElectrodeKinetics</a></div><div class="ttdeci">ElectrodeKinetics(thermo_t *thermo=0)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00016">ElectrodeKinetics.cpp:16</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad42de44edcbd9f9c2cfe0630ce71f68e"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad42de44edcbd9f9c2cfe0630ce71f68e">Cantera::InterfaceKinetics::m_phaseExists</a></div><div class="ttdeci">std::vector&lt; bool &gt; m_phaseExists</div><div class="ttdoc">Vector of booleans indicating whether phases exist or not. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00694">InterfaceKinetics.h:694</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_ad6ff1e5c3282de5da775ea5ecd07a4a7"><div class="ttname"><a href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">Cantera::Kinetics::m_rfn</a></div><div class="ttdeci">vector_fp m_rfn</div><div class="ttdoc">Forward rate constant for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01079">Kinetics.h:1079</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_ae08b534ed952283901d1907cc7dc5930"><div class="ttname"><a href="classCantera_1_1Kinetics.html#ae08b534ed952283901d1907cc7dc5930">Cantera::Kinetics::m_reactantStoich</a></div><div class="ttdeci">StoichManagerN m_reactantStoich</div><div class="ttdoc">Stoichiometry manager for the reactants for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00949">Kinetics.h:949</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_ad6ff1e5c3282de5da775ea5ecd07a4a7"><div class="ttname"><a href="classCantera_1_1Kinetics.html#ad6ff1e5c3282de5da775ea5ecd07a4a7">Cantera::Kinetics::m_rfn</a></div><div class="ttdeci">vector_fp m_rfn</div><div class="ttdoc">Forward rate constant for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01088">Kinetics.h:1088</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_ae08b534ed952283901d1907cc7dc5930"><div class="ttname"><a href="classCantera_1_1Kinetics.html#ae08b534ed952283901d1907cc7dc5930">Cantera::Kinetics::m_reactantStoich</a></div><div class="ttdeci">StoichManagerN m_reactantStoich</div><div class="ttdoc">Stoichiometry manager for the reactants for each reaction. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00958">Kinetics.h:958</a></div></div>
 <div class="ttc" id="classCantera_1_1Kinetics_html_aa793a0e2039bc9434396160c27804798"><div class="ttname"><a href="classCantera_1_1Kinetics.html#aa793a0e2039bc9434396160c27804798">Cantera::Kinetics::speciesPhase</a></div><div class="ttdeci">thermo_t &amp; speciesPhase(const std::string &amp;nm)</div><div class="ttdoc">This function looks up the name of a species and returns a reference to the ThermoPhase object of the...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8cpp_source.html#l00402">Kinetics.cpp:402</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_abe95ef0be10a79e36d8ec231d9c73835"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#abe95ef0be10a79e36d8ec231d9c73835">Cantera::InterfaceKinetics::_update_rates_T</a></div><div class="ttdeci">void _update_rates_T()</div><div class="ttdoc">Update properties that depend on temperature. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00169">InterfaceKinetics.cpp:169</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a808fa98adc46de3914b64beabb053ba7"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a808fa98adc46de3914b64beabb053ba7">Cantera::InterfaceKinetics::m_actConc</a></div><div class="ttdeci">vector_fp m_actConc</div><div class="ttdoc">Array of activity concentrations for each species in the kinetics object. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00465">InterfaceKinetics.h:465</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a5beb0a30f678e8bb451038e2fb2d3ebe"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a5beb0a30f678e8bb451038e2fb2d3ebe">Cantera::Kinetics::m_perturb</a></div><div class="ttdeci">vector_fp m_perturb</div><div class="ttdoc">Vector of perturbation factors for each reaction&#39;s rate of progress vector. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00967">Kinetics.h:967</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a5beb0a30f678e8bb451038e2fb2d3ebe"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a5beb0a30f678e8bb451038e2fb2d3ebe">Cantera::Kinetics::m_perturb</a></div><div class="ttdeci">vector_fp m_perturb</div><div class="ttdoc">Vector of perturbation factors for each reaction&#39;s rate of progress vector. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00976">Kinetics.h:976</a></div></div>
 <div class="ttc" id="classCantera_1_1Kinetics_html"><div class="ttname"><a href="classCantera_1_1Kinetics.html">Cantera::Kinetics</a></div><div class="ttdoc">Public interface for kinetics managers. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00128">Kinetics.h:128</a></div></div>
-<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a9aa3a6a8a02deda0179d2f2d8335dd34"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a9aa3a6a8a02deda0179d2f2d8335dd34">Cantera::InterfaceKinetics::_update_rates_C</a></div><div class="ttdeci">void _update_rates_C()</div><div class="ttdoc">Update properties that depend on the species mole fractions and/or concentration,. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00215">InterfaceKinetics.cpp:215</a></div></div>
+<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a9aa3a6a8a02deda0179d2f2d8335dd34"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a9aa3a6a8a02deda0179d2f2d8335dd34">Cantera::InterfaceKinetics::_update_rates_C</a></div><div class="ttdeci">void _update_rates_C()</div><div class="ttdoc">Update properties that depend on the species mole fractions and/or concentration,. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00216">InterfaceKinetics.cpp:216</a></div></div>
 <div class="ttc" id="classCantera_1_1ReactionData_html"><div class="ttname"><a href="classCantera_1_1ReactionData.html">Cantera::ReactionData</a></div><div class="ttdoc">Intermediate class which stores data about a reaction and its rate parameterization before adding the...</div><div class="ttdef"><b>Definition:</b> <a href="ReactionData_8h_source.html#l00022">ReactionData.h:22</a></div></div>
 <div class="ttc" id="group__errorhandling_html_ga41a50aa300b18c3bf4c4417332207bb6"><div class="ttname"><a href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">AssertThrow</a></div><div class="ttdeci">#define AssertThrow(expr, procedure)</div><div class="ttdoc">Assertion must be true or an error is thrown. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00283">ctexceptions.h:283</a></div></div>
 <div class="ttc" id="classCantera_1_1CanteraError_html"><div class="ttname"><a href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a></div><div class="ttdoc">Base class for exceptions thrown by Cantera classes. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00099">ctexceptions.h:99</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a2084037c2c343c37e1b012a0e5df975e"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a2084037c2c343c37e1b012a0e5df975e">Cantera::ElectrodeKinetics::~ElectrodeKinetics</a></div><div class="ttdeci">virtual ~ElectrodeKinetics()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00025">ElectrodeKinetics.cpp:25</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a5626460425d345ea493afcbe65fc78b2"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a5626460425d345ea493afcbe65fc78b2">Cantera::InterfaceKinetics::m_rxnPhaseIsReactant</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; bool &gt; &gt; m_rxnPhaseIsReactant</div><div class="ttdoc">Vector of vector of booleans indicating whether a phase participates in a reaction as a reactant...</div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00712">InterfaceKinetics.h:712</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_a6ba05c2ea049296595516641fc28ed09"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a6ba05c2ea049296595516641fc28ed09">Cantera::Kinetics::m_rkcn</a></div><div class="ttdeci">vector_fp m_rkcn</div><div class="ttdoc">Reciprocal of the equilibrium constant in concentration units. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01082">Kinetics.h:1082</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_a6ba05c2ea049296595516641fc28ed09"><div class="ttname"><a href="classCantera_1_1Kinetics.html#a6ba05c2ea049296595516641fc28ed09">Cantera::Kinetics::m_rkcn</a></div><div class="ttdeci">vector_fp m_rkcn</div><div class="ttdoc">Reciprocal of the equilibrium constant in concentration units. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l01091">Kinetics.h:1091</a></div></div>
 <div class="ttc" id="classCantera_1_1ReactionData_html_a9b8550b12bd3e7c4024ab7e37809d8ea"><div class="ttname"><a href="classCantera_1_1ReactionData.html#a9b8550b12bd3e7c4024ab7e37809d8ea">Cantera::ReactionData::reactants</a></div><div class="ttdeci">std::vector&lt; size_t &gt; reactants</div><div class="ttdoc">Indices of reactant species. </div><div class="ttdef"><b>Definition:</b> <a href="ReactionData_8h_source.html#l00063">ReactionData.h:63</a></div></div>
 <div class="ttc" id="classCantera_1_1ReactionData_html_a0974d004ea5f1002a661b5f664654731"><div class="ttname"><a href="classCantera_1_1ReactionData.html#a0974d004ea5f1002a661b5f664654731">Cantera::ReactionData::rstoich</a></div><div class="ttdeci">vector_fp rstoich</div><div class="ttdoc">Reactant stoichiometric coefficients, in the order given by reactants. </div><div class="ttdef"><b>Definition:</b> <a href="ReactionData_8h_source.html#l00094">ReactionData.h:94</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_a69be7029b0c010f3f913538893921caa"><div class="ttname"><a href="classCantera_1_1Phase.html#a69be7029b0c010f3f913538893921caa">Cantera::Phase::nSpecies</a></div><div class="ttdeci">size_t nSpecies() const </div><div class="ttdoc">Returns the number of species in the phase. </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8h_source.html#l00265">Phase.h:265</a></div></div>
 <div class="ttc" id="classCantera_1_1ElectrodeKinetics_html_a97819ef21e50c4d4a77d64857ea0ce44"><div class="ttname"><a href="classCantera_1_1ElectrodeKinetics.html#a97819ef21e50c4d4a77d64857ea0ce44">Cantera::ElectrodeKinetics::operator=</a></div><div class="ttdeci">ElectrodeKinetics &amp; operator=(const ElectrodeKinetics &amp;right)</div><div class="ttdoc">Assignment operator. </div><div class="ttdef"><b>Definition:</b> <a href="ElectrodeKinetics_8cpp_source.html#l00040">ElectrodeKinetics.cpp:40</a></div></div>
-<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a02fd73d861ef2e4aabb38c0c9ff82947"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">Cantera::InterfaceKinetics::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdoc">Prepare the class for the addition of reactions. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l01089">InterfaceKinetics.cpp:1089</a></div></div>
+<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a02fd73d861ef2e4aabb38c0c9ff82947"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a02fd73d861ef2e4aabb38c0c9ff82947">Cantera::InterfaceKinetics::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdoc">Prepare the class for the addition of reactions. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l01103">InterfaceKinetics.cpp:1103</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_a8e91ffa732f8d71a51ddb2b83770cd37"><div class="ttname"><a href="classCantera_1_1Phase.html#a8e91ffa732f8d71a51ddb2b83770cd37">Cantera::Phase::moleFraction</a></div><div class="ttdeci">doublereal moleFraction(size_t k) const </div><div class="ttdoc">Return the mole fraction of a single species. </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8cpp_source.html#l00561">Phase.cpp:561</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_aa9eb6250e94840da359e9e3182271291"><div class="ttname"><a href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">Cantera::Phase::temperature</a></div><div class="ttdeci">doublereal temperature() const </div><div class="ttdoc">Temperature (K). </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8h_source.html#l00598">Phase.h:598</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_a827bb7a28a62e1770801b702207ef480"><div class="ttname"><a href="classCantera_1_1Phase.html#a827bb7a28a62e1770801b702207ef480">Cantera::Phase::nDim</a></div><div class="ttdeci">size_t nDim() const </div><div class="ttdoc">Returns the number of spatial dimensions (1, 2, or 3) </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8h_source.html#l00582">Phase.h:582</a></div></div>
-<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad2ba0fb22c7f856392077d7c56af57c5"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad2ba0fb22c7f856392077d7c56af57c5">Cantera::InterfaceKinetics::updateExchangeCurrentQuantities</a></div><div class="ttdeci">void updateExchangeCurrentQuantities()</div><div class="ttdoc">values needed to convert from exchange current density to surface reaction rate. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00344">InterfaceKinetics.cpp:344</a></div></div>
+<div class="ttc" id="classCantera_1_1InterfaceKinetics_html_ad2ba0fb22c7f856392077d7c56af57c5"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#ad2ba0fb22c7f856392077d7c56af57c5">Cantera::InterfaceKinetics::updateExchangeCurrentQuantities</a></div><div class="ttdeci">void updateExchangeCurrentQuantities()</div><div class="ttdoc">values needed to convert from exchange current density to surface reaction rate. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8cpp_source.html#l00345">InterfaceKinetics.cpp:345</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_a32f9032bffe06db2a4ff6937b29173ab"><div class="ttname"><a href="classCantera_1_1Phase.html#a32f9032bffe06db2a4ff6937b29173ab">Cantera::Phase::elementIndex</a></div><div class="ttdeci">size_t elementIndex(const std::string &amp;name) const </div><div class="ttdoc">Return the index of element named &#39;name&#39;. </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8cpp_source.html#l00192">Phase.cpp:192</a></div></div>
 <div class="ttc" id="classCantera_1_1Kinetics_html_aa98e53c788bb6d34fdff287987a723e9"><div class="ttname"><a href="classCantera_1_1Kinetics.html#aa98e53c788bb6d34fdff287987a723e9">Cantera::Kinetics::speciesPhaseIndex</a></div><div class="ttdeci">size_t speciesPhaseIndex(size_t k)</div><div class="ttdoc">This function takes as an argument the kineticsSpecies index (i.e., the list index in the list of spe...</div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8cpp_source.html#l00417">Kinetics.cpp:417</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_af36e61d11f9afad26add2d4689d0fd57"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#af36e61d11f9afad26add2d4689d0fd57">Cantera::InterfaceKinetics::m_phaseIsStable</a></div><div class="ttdeci">std::vector&lt; int &gt; m_phaseIsStable</div><div class="ttdoc">Vector of int indicating whether phases are stable or not. </div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00704">InterfaceKinetics.h:704</a></div></div>
 <div class="ttc" id="group__physConstants_html_ga44a56836574d1fc6fd84c967db70b7b0"><div class="ttname"><a href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">Cantera::GasConstant</a></div><div class="ttdeci">const doublereal GasConstant</div><div class="ttdoc">Universal Gas Constant. [J/kmol/K]. </div><div class="ttdef"><b>Definition:</b> <a href="ct__defs_8h_source.html#l00064">ct_defs.h:64</a></div></div>
-<div class="ttc" id="classCantera_1_1Kinetics_html_ab8d423af8063cb414e148f016bc671f5"><div class="ttname"><a href="classCantera_1_1Kinetics.html#ab8d423af8063cb414e148f016bc671f5">Cantera::Kinetics::m_ii</a></div><div class="ttdeci">size_t m_ii</div><div class="ttdoc">Number of reactions in the mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00959">Kinetics.h:959</a></div></div>
+<div class="ttc" id="classCantera_1_1Kinetics_html_ab8d423af8063cb414e148f016bc671f5"><div class="ttname"><a href="classCantera_1_1Kinetics.html#ab8d423af8063cb414e148f016bc671f5">Cantera::Kinetics::m_ii</a></div><div class="ttdeci">size_t m_ii</div><div class="ttdoc">Number of reactions in the mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="Kinetics_8h_source.html#l00968">Kinetics.h:968</a></div></div>
 <div class="ttc" id="classCantera_1_1InterfaceKinetics_html_a6a56df4f62e68de8fab902f0cd5b0f46"><div class="ttname"><a href="classCantera_1_1InterfaceKinetics.html#a6a56df4f62e68de8fab902f0cd5b0f46">Cantera::InterfaceKinetics::m_ctrxn</a></div><div class="ttdeci">std::vector&lt; size_t &gt; m_ctrxn</div><div class="ttdoc">Vector of reaction indexes specifying the id of the current transfer reactions in the mechanism...</div><div class="ttdef"><b>Definition:</b> <a href="InterfaceKinetics_8h_source.html#l00558">InterfaceKinetics.h:558</a></div></div>
 <div class="ttc" id="ct__defs_8h_html_aa437a1e93b3af491d2c7eeabf6e8e337"><div class="ttname"><a href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337">DATA_PTR</a></div><div class="ttdeci">#define DATA_PTR(vec)</div><div class="ttdoc">Creates a pointer to the start of the raw data for a vector. </div><div class="ttdef"><b>Definition:</b> <a href="ct__defs_8h_source.html#l00036">ct_defs.h:36</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a07fc1991fc34316430113d5d7252e4a3"><div class="ttname"><a href="namespaceCantera.html#a07fc1991fc34316430113d5d7252e4a3">Cantera::BUTLERVOLMER_NOACTIVITYCOEFFS_RXN</a></div><div class="ttdeci">const int BUTLERVOLMER_NOACTIVITYCOEFFS_RXN</div><div class="ttdoc">This is a surface reaction that is formulated using the Butler-Volmer formulation and using concentra...</div><div class="ttdef"><b>Definition:</b> <a href="reaction__defs_8h_source.html#l00080">reaction_defs.h:80</a></div></div>

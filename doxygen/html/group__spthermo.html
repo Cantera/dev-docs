@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -141,9 +141,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f"><td class="memItemLeft" align="right" valign="top">Mu0Poly *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__spthermo.html#ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f">newMu0ThermoFromXML</a> (const std::string &amp;speciesName, const XML_Node &amp;Mu0Node)</td></tr>
-<tr class="memdesc:ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a Mu0 polynomial thermodynamic reference state.  <a href="#ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f">More...</a><br/></td></tr>
-<tr class="separator:ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4959cf373636daf31768b7ba9cf2e593"><td class="memItemLeft" align="right" valign="top">Mu0Poly *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__spthermo.html#ga4959cf373636daf31768b7ba9cf2e593">newMu0ThermoFromXML</a> (const XML_Node &amp;Mu0Node)</td></tr>
+<tr class="memdesc:ga4959cf373636daf31768b7ba9cf2e593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a Mu0 polynomial thermodynamic reference state.  <a href="#ga4959cf373636daf31768b7ba9cf2e593">More...</a><br/></td></tr>
+<tr class="separator:ga4959cf373636daf31768b7ba9cf2e593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object relies on classes to calculate the thermodynamic properties of the reference state for all of the species in the phase. </p>
@@ -192,26 +192,16 @@ The most important member function for the <a class="el" href="classCantera_1_1S
 </ul>
 <p>A key concept for reference states is that there is a maximum and a minimum temperature beyond which the thermodynamic formulation isn't valid. Calls for temperatures outside this range will cause the object to throw a <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a>. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga8f4a4a3c6b76ac7fd31aeaa491a5ac7f"></a>
+<a class="anchor" id="ga4959cf373636daf31768b7ba9cf2e593"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Mu0Poly * newMu0ThermoFromXML </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>speciesName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">const XML_Node &amp;&#160;</td>
-          <td class="paramname"><em>Mu0Node</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>Mu0Node</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -220,7 +210,6 @@ The most important member function for the <a class="el" href="classCantera_1_1S
 <p>Install a Mu0 polynomial thermodynamic reference state property parameterization for species k into a <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> instance, getting the information from an XML database.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">speciesName</td><td>Name of the species </td></tr>
     <tr><td class="paramname">Mu0Node</td><td>Pointer to the XML element containing the Mu0 information. </td></tr>
   </table>
   </dd>
@@ -228,9 +217,9 @@ The most important member function for the <a class="el" href="classCantera_1_1S
 
 <p>Definition at line <a class="el" href="Mu0Poly_8cpp_source.html#l00126">126</a> of file <a class="el" href="Mu0Poly_8cpp_source.html">Mu0Poly.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00517">XML_Node::attrib()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00235">Cantera::fpValue()</a>, <a class="el" href="ctml_8cpp_source.html#l00134">ctml::getByTitle()</a>, <a class="el" href="ctml_8cpp_source.html#l00195">ctml::getFloat()</a>, <a class="el" href="ctml_8cpp_source.html#l00325">ctml::getFloatArray()</a>, <a class="el" href="ctml_8cpp_source.html#l00303">ctml::getInteger()</a>, and <a class="el" href="xml_8cpp_source.html#l00553">XML_Node::hasChild()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00235">Cantera::fpValue()</a>, <a class="el" href="ctml_8cpp_source.html#l00134">ctml::getByTitle()</a>, <a class="el" href="ctml_8cpp_source.html#l00195">ctml::getFloat()</a>, <a class="el" href="ctml_8cpp_source.html#l00325">ctml::getFloatArray()</a>, <a class="el" href="ctml_8cpp_source.html#l00303">ctml::getInteger()</a>, and <a class="el" href="xml_8cpp_source.html#l00563">XML_Node::hasChild()</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00610">Cantera::newSpeciesThermoInterpType()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00599">Cantera::newSpeciesThermoInterpType()</a>.</p>
 
 </div>
 </div>

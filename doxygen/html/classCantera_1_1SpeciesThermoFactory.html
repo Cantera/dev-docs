@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -183,7 +183,7 @@ Additional Inherited Members</h2></td></tr>
 <p>This class is responsible for making the decision concerning which derivative of <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> object to use. The <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> object is used to calculate thermodynamic functions for the reference state. It queries the database of species to understand what the requirements are for the submodels for all of the species in the phase. Then, it picks the <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> object to use, and passes it back to the calling routine. It doesn't load any of the data into the derived <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> object.</p>
 <p>Making the choice of <a class="el" href="classCantera_1_1SpeciesThermo.html" title="Pure Virtual base class for the species thermo manager classes. ">SpeciesThermo</a> types is the only thing this class does.</p>
 <p>This class is implemented as a singleton &ndash; one in which only one instance is needed. The recommended way to access the factory is to call this static method, which instantiates the class if it is the first call, but otherwise simply returns the pointer to the existing instance.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000146">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use class <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html" title="A species thermodynamic property manager for a phase. ">GeneralSpeciesThermo</a> directly</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000164">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use class <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html" title="A species thermodynamic property manager for a phase. ">GeneralSpeciesThermo</a> directly</dd></dl>
 
 <p>Definition at line <a class="el" href="SpeciesThermoFactory_8h_source.html#l00075">75</a> of file <a class="el" href="SpeciesThermoFactory_8h_source.html">SpeciesThermoFactory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -298,13 +298,13 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the pointer to the newly allocated species property manager for the reference state </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000150">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html" title="A species thermodynamic property manager for a phase. ">GeneralSpeciesThermo</a> directly. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000168">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html" title="A species thermodynamic property manager for a phase. ">GeneralSpeciesThermo</a> directly. </dd></dl>
 
 <p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00136">136</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
 
 <p>References <a class="el" href="speciesThermoTypes_8h_source.html#l00019">NASA</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00026">SHOMATE</a>, <a class="el" href="speciesThermoTypes_8h_source.html#l00038">SIMPLE</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00678">Cantera::newSpeciesThermoMgr()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00660">Cantera::newSpeciesThermoMgr()</a>.</p>
 
 </div>
 </div>
@@ -330,13 +330,13 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the pointer to the newly malloced species property manager for the reference state </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000151">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html" title="A species thermodynamic property manager for a phase. ">GeneralSpeciesThermo</a> directly. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000169">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html" title="A species thermodynamic property manager for a phase. ">GeneralSpeciesThermo</a> directly. </dd></dl>
 
 <p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00160">160</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
 
 <p>References <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00688">Cantera::newSpeciesThermoMgr()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00670">Cantera::newSpeciesThermoMgr()</a>.</p>
 
 </div>
 </div>
@@ -363,7 +363,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the pointer to the newly malloced species property manager for the reference state </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000152">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000170">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00118">118</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
 
@@ -425,9 +425,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00582">582</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00570">570</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="classCantera_1_1SpeciesThermo.html#ad03a052cbe2ef9a5eeb9236d32ec9c39">SpeciesThermo::install_STIT()</a>, and <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00610">Cantera::newSpeciesThermoInterpType()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#ad03a052cbe2ef9a5eeb9236d32ec9c39">SpeciesThermo::install_STIT()</a>, and <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00599">Cantera::newSpeciesThermoInterpType()</a>.</p>
 
 </div>
 </div>
@@ -493,9 +493,9 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000153">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Call VPStandardStateTP::createInstallVPSS directly instead. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000171">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Call VPStandardStateTP::createInstallVPSS directly instead. </dd></dl>
 
-<p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00590">590</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="SpeciesThermoFactory_8cpp_source.html#l00579">579</a> of file <a class="el" href="SpeciesThermoFactory_8cpp_source.html">SpeciesThermoFactory.cpp</a>.</p>
 
 <p>References <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 

@@ -18,7 +18,7 @@
     extensions: ["tex2jax.js"],
     jax: ["input/TeX","output/HTML-CSS"],
 });
-</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -92,6 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>Use the constructor which does not require the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000001"></a>Member <a class="el" href="classCantera_1_1Application_1_1Messages.html#a36ae9fcde72080e21fcc9dd05c03edc1">Application::Messages::logerror</a>  (const std::string &amp;msg)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
+<dt><a class="anchor" id="_deprecated000186"></a>Class <a class="el" href="classCantera_1_1AqueousTransport.html">AqueousTransport</a>  </dt>
+<dd>Non-functional. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000011"></a>Member <a class="el" href="classCantera_1_1Array2D.html#af9d83de1f7e77b04f375ffed40abda71">Array2D::copyData</a>  (const Array2D &amp;y)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000071"></a>Member <a class="el" href="classCantera_1_1Arrhenius.html#a0260b13df92bd19b464c84920d7c3806">Arrhenius::alwaysComputeRate</a>  ()</dt>
@@ -202,15 +204,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd></dd>
 <dt><a class="anchor" id="_deprecated000003"></a>Member <a class="el" href="namespaceCantera.html#aff20f1fc100141a2a78a68a871fe496e">Cantera::getStick</a>  (const XML_Node &amp;node, Kinetics &amp;kin, ReactionData &amp;r, doublereal &amp;A, doublereal &amp;b, doublereal &amp;E)</dt>
 <dd>to be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000162"></a>Member <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">Cantera::importPhase</a>  (XML_Node &amp;phase, ThermoPhase *th, SpeciesThermoFactory *spfactory=0)</dt>
+<dt><a class="anchor" id="_deprecated000182"></a>Member <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">Cantera::importPhase</a>  (XML_Node &amp;phase, ThermoPhase *th, SpeciesThermoFactory *spfactory=0)</dt>
 <dd><p class="startdd">the 'spfactory' argument is unused and will be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.</p>
 <p></p>
 <p class="enddd">: The return value of this function is always 'true'. After <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2, this function will return 'void'.  </p>
 </dd>
 <dt><a class="anchor" id="_deprecated000020"></a>Member <a class="el" href="namespaceCantera.html#a0f72f0efbe14494b8126e8a97b49ade4">Cantera::increment_scale</a>  (InputIter begin, InputIter end, OutputIter out, S scale_factor)</dt>
 <dd>Unused. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000163"></a>Member <a class="el" href="group__thermoprops.html#ga6d805e908a9dc0e76c79a4d220873199">Cantera::installSpecies</a>  (size_t k, const XML_Node &amp;s, thermo_t &amp;p, SpeciesThermo *spthermo_ptr, int rule, XML_Node *phaseNode_ptr=0, VPSSMgr *vpss_ptr=0, SpeciesThermoFactory *factory=0)</dt>
-<dd>The 'factory' argument is unused and will be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. <dl class="section return"><dt>Returns</dt><dd>Returns true if everything is ok, false otherwise.  </dd></dl>
+<dt><a class="anchor" id="_deprecated000183"></a>Member <a class="el" href="group__thermoprops.html#ga6d805e908a9dc0e76c79a4d220873199">Cantera::installSpecies</a>  (size_t k, const XML_Node &amp;s, thermo_t &amp;p, SpeciesThermo *spthermo_ptr, int rule, XML_Node *phaseNode_ptr=0, VPSSMgr *vpss_ptr=0, SpeciesThermoFactory *factory=0)</dt>
+<dd>Use newSpecies and addSpecies. For VPStandardStateTP phases, call createInstallPDSS as well. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. <dl class="section return"><dt>Returns</dt><dd>Returns true if everything is ok, false otherwise.  </dd></dl>
 </dd>
 <dt><a class="anchor" id="_deprecated000048"></a>Member <a class="el" href="group__kineticsmgr.html#ga98ee373f694c7f3f112bb7376d88eb0d">Cantera::isDuplicateReaction</a>  (std::map&lt; int, doublereal &gt; &amp;r1, std::map&lt; int, doublereal &gt; &amp;r2)</dt>
 <dd>Now handled by Kinetics::checkDuplicateStoich. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
@@ -218,13 +220,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>Unused function to be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000027"></a>Member <a class="el" href="namespaceCantera.html#a1829b4736cffcff0a9dc151d889064dc">Cantera::multiply_each</a>  (T &amp;x, const T &amp;y)</dt>
 <dd>Unused. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000147"></a>Member <a class="el" href="namespaceCantera.html#a4fb3fa84a319568eb15d25073f55f149">Cantera::newSpeciesThermoMgr</a>  (int type, SpeciesThermoFactory *f=0)</dt>
+<dt><a class="anchor" id="_deprecated000165"></a>Member <a class="el" href="namespaceCantera.html#a4fb3fa84a319568eb15d25073f55f149">Cantera::newSpeciesThermoMgr</a>  (int type, SpeciesThermoFactory *f=0)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo directly.  </dd>
-<dt><a class="anchor" id="_deprecated000148"></a>Member <a class="el" href="namespaceCantera.html#ae2f8c33e9069f21fc0a27dd425d36136">Cantera::newSpeciesThermoMgr</a>  (const std::string &amp;stype, SpeciesThermoFactory *f=0)</dt>
-<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo directly.  </dd>
-<dt><a class="anchor" id="_deprecated000149"></a>Member <a class="el" href="namespaceCantera.html#a549a3e0e382a31432f249682c924627e">Cantera::newSpeciesThermoMgr</a>  (std::vector&lt; XML_Node * &gt; spDataNodeList, SpeciesThermoFactory *f=0)</dt>
+<dt><a class="anchor" id="_deprecated000167"></a>Member <a class="el" href="namespaceCantera.html#a549a3e0e382a31432f249682c924627e">Cantera::newSpeciesThermoMgr</a>  (std::vector&lt; XML_Node * &gt; spDataNodeList, SpeciesThermoFactory *f=0)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000010"></a>Member <a class="el" href="namespaceCantera.html#a8fd7342dd3e88f0de55fca1ffd2321ab">Cantera::newStatMechThermoFromXML</a>  (const std::string &amp;speciesName, XML_Node &amp;f)</dt>
+<dt><a class="anchor" id="_deprecated000166"></a>Member <a class="el" href="namespaceCantera.html#ae2f8c33e9069f21fc0a27dd425d36136">Cantera::newSpeciesThermoMgr</a>  (const std::string &amp;stype, SpeciesThermoFactory *f=0)</dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo directly.  </dd>
+<dt><a class="anchor" id="_deprecated000010"></a>Member <a class="el" href="namespaceCantera.html#aa716c2270c1491c229ebc268dced7eb1">Cantera::newStatMechThermoFromXML</a>  (XML_Node &amp;f)</dt>
 <dd></dd>
 <dt><a class="anchor" id="_deprecated000024"></a>Member <a class="el" href="namespaceCantera.html#a5182ea1c3d71391dd068065bff536e9d">Cantera::poly10</a>  (D x, R *c)</dt>
 <dd>Unused. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
@@ -250,6 +252,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd><p class="startdd">Use MultiPhase::equilibrate instead. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.</p>
 <p class="enddd"></p>
 </dd>
+<dt><a class="anchor" id="_deprecated000082"></a>Member <a class="el" href="classCantera_1_1ChebyshevRate.html#a95afa7f3889451f6deaee4f9bb71ddd0">ChebyshevRate::activationEnergy_R</a>  () const </dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
+<dt><a class="anchor" id="_deprecated000083"></a>Member <a class="el" href="classCantera_1_1ChebyshevRate.html#a0260b13df92bd19b464c84920d7c3806">ChebyshevRate::alwaysComputeRate</a>  ()</dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
+<dt><a class="anchor" id="_deprecated000081"></a>Member <a class="el" href="classCantera_1_1ChebyshevRate.html#ae24cd084de63f6b9eb3b6d68e61608ba">ChebyshevRate::update</a>  (doublereal logT, doublereal recipT) const </dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
 <dt><a class="anchor" id="_deprecated000120"></a>Member <a class="el" href="classCantera_1_1ConstCpPoly.html#a1454f0114339b29644d9a541cc95231a">ConstCpPoly::ConstCpPoly</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use the constructor which does not take the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000013"></a>Member <a class="el" href="namespacectml.html#aa1ebdcc6cf8ff3cdc2dfcbd063b2260d">ctml::get_CTML_Tree</a>  (<a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a> *node, const std::string &amp;file, const int debug=0)</dt>
@@ -258,11 +266,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use <a class="el" href="namespaceCantera.html#a235b0367c7f1d78a08cf52c4a8c5448c" title="Return a pointer to the XML tree for a Cantera input file. ">get_XML_File()</a> instead.  </dd>
 <dt><a class="anchor" id="_deprecated000012"></a>Member <a class="el" href="namespacectml.html#a004e2c8753c727571bdbe263e6dd07ef">ctml::getNamedStringValue</a>  (const <a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a> &amp;node, const std::string &amp;nameString, std::string &amp;valueString, std::string &amp;typeString)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000165"></a>Member <a class="el" href="classCantera_1_1DustyGasTransport.html#ab4803f8e733e93a8532effff50d8a274">DustyGasTransport::setParameters</a>  (const int type, const int k, const doublereal *const p)</dt>
+<dt><a class="anchor" id="_deprecated000121"></a>Member <a class="el" href="classCantera_1_1DebyeHuckel.html#abbf7704c3f9ae6f3374ad82de5f7e325">DebyeHuckel::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000187"></a>Member <a class="el" href="classCantera_1_1DustyGasTransport.html#ab4803f8e733e93a8532effff50d8a274">DustyGasTransport::setParameters</a>  (const int type, const int k, const doublereal *const p)</dt>
 <dd>Use the individual methods setPorosity(), setTortuosity(), setMeanPoreRadius(), setMeanParticleDiameter(), and setPermeability()  </dd>
-<dt><a class="anchor" id="_deprecated000161"></a>Class <a class="el" href="classCantera_1_1electrodeElectron.html">electrodeElectron</a>  </dt>
+<dt><a class="anchor" id="_deprecated000180"></a>Class <a class="el" href="classCantera_1_1electrodeElectron.html">electrodeElectron</a>  </dt>
 <dd>Deprecated in favor of class MetalSHEelectrons. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000121"></a>Class <a class="el" href="classCantera_1_1Elements.html">Elements</a>  </dt>
+<dt><a class="anchor" id="_deprecated000122"></a>Class <a class="el" href="classCantera_1_1Elements.html">Elements</a>  </dt>
 <dd>. Functionality is now part of class Phase. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000046"></a>Class <a class="el" href="classCantera_1_1Enhanced3BConc.html">Enhanced3BConc</a>  </dt>
 <dd>Replaced by ThirdBodyCalc. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. <dl class="section see"><dt>See Also</dt><dd>GasKinetics  </dd></dl>
@@ -281,19 +291,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
 <dt><a class="anchor" id="_deprecated000075"></a>Member <a class="el" href="classCantera_1_1ExchangeCurrent.html#abc13383f40ab8587ce349a838c4d28c3">ExchangeCurrent::writeUpdateRHS</a>  (std::ostream &amp;s) const </dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
-<dt><a class="anchor" id="_deprecated000170"></a>Class <a class="el" href="classCantera_1_1GasTransportParams.html">GasTransportParams</a>  </dt>
+<dt><a class="anchor" id="_deprecated000123"></a>Member <a class="el" href="classCantera_1_1FixedChemPotSSTP.html#a783b7d2320df4247828d678b7b0bbb46">FixedChemPotSSTP::getUnitsStandardConc</a>  (doublereal *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000192"></a>Class <a class="el" href="classCantera_1_1GasTransportParams.html">GasTransportParams</a>  </dt>
 <dd>Unused. Mostly merged into class GasTransport. This class will be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000117"></a>Member <a class="el" href="classCantera_1_1GeneralMatrix.html#ae4c9f9bdba7bee38a492685dc13f13c9">GeneralMatrix::copyData</a>  (const GeneralMatrix &amp;y)=0</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000122"></a>Member <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a4a0c5ebf1004308dee4aae0962f4ebfe">GeneralSpeciesThermo::install</a>  (const std::string &amp;name, size_t index, int type, const doublereal *c, doublereal minTemp, doublereal maxTemp, doublereal refPressure)</dt>
+<dt><a class="anchor" id="_deprecated000124"></a>Member <a class="el" href="classCantera_1_1GeneralSpeciesThermo.html#a4a0c5ebf1004308dee4aae0962f4ebfe">GeneralSpeciesThermo::install</a>  (const std::string &amp;name, size_t index, int type, const doublereal *c, doublereal minTemp, doublereal maxTemp, doublereal refPressure)</dt>
 <dd>Use newSpeciesThermoInterpType and GeneralSpeciesThermo::install_STIT. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000125"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#ab259e0d0e595f856549e63f7b557e245">IdealGasPhase::cv_rot</a>  (double atomicity) const </dt>
+<dt><a class="anchor" id="_deprecated000125"></a>Member <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">GibbsExcessVPSSTP::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000123"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#a51b46d122a1fd99237b4277294659858">IdealGasPhase::cv_tr</a>  (doublereal) const </dt>
+<dt><a class="anchor" id="_deprecated000126"></a>Member <a class="el" href="classCantera_1_1HMWSoln.html#abbf7704c3f9ae6f3374ad82de5f7e325">HMWSoln::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000124"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#ac23c85738d3066e379a8a1b5aa00d00c">IdealGasPhase::cv_trans</a>  () const </dt>
+<dt><a class="anchor" id="_deprecated000129"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#ab259e0d0e595f856549e63f7b557e245">IdealGasPhase::cv_rot</a>  (double atomicity) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000126"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#ab614aae7bfa471162bc45549a40be44f">IdealGasPhase::cv_vib</a>  (int k, doublereal T) const </dt>
+<dt><a class="anchor" id="_deprecated000127"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#a51b46d122a1fd99237b4277294659858">IdealGasPhase::cv_tr</a>  (doublereal) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000128"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#ac23c85738d3066e379a8a1b5aa00d00c">IdealGasPhase::cv_trans</a>  () const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000130"></a>Member <a class="el" href="classCantera_1_1IdealGasPhase.html#ab614aae7bfa471162bc45549a40be44f">IdealGasPhase::cv_vib</a>  (int k, doublereal T) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000131"></a>Member <a class="el" href="classCantera_1_1IdealMolalSoln.html#abbf7704c3f9ae6f3374ad82de5f7e325">IdealMolalSoln::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000132"></a>Member <a class="el" href="classCantera_1_1IdealSolidSolnPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">IdealSolidSolnPhase::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000133"></a>Member <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#abbf7704c3f9ae6f3374ad82de5f7e325">IdealSolnGasVPSS::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000052"></a>Member <a class="el" href="classCantera_1_1InterfaceKinetics.html#a1aa890fb629d1d859a543707ea3adea3">InterfaceKinetics::reactionNumber</a>  () const </dt>
 <dd>This is a duplicate of Kinetics::nReactions()  </dd>
@@ -307,39 +329,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000053"></a>Member <a class="el" href="classCantera_1_1Kinetics.html#a410dac559808e64001a4c7efabee52a8">Kinetics::reactants</a>  (size_t i) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000127"></a>Member <a class="el" href="classCantera_1_1Mu0Poly.html#a1dbd8ce76b1b30c7a98e2de1f8e022d1">Mu0Poly::Mu0Poly</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
+<dt><a class="anchor" id="_deprecated000134"></a>Member <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a04f2164a540e42cdbf137ca413bc0996">MargulesVPSSTP::MargulesVPSSTP</a>  (int testProb)</dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000135"></a>Member <a class="el" href="classCantera_1_1MetalSHEelectrons.html#a783b7d2320df4247828d678b7b0bbb46">MetalSHEelectrons::getUnitsStandardConc</a>  (doublereal *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000136"></a>Member <a class="el" href="classCantera_1_1MineralEQ3.html#a783b7d2320df4247828d678b7b0bbb46">MineralEQ3::getUnitsStandardConc</a>  (doublereal *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000137"></a>Member <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#acb6996e5f2b36ad5c64b2ae572aaed41">MixedSolventElectrolyte::MixedSolventElectrolyte</a>  (int testProb)</dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000138"></a>Member <a class="el" href="classCantera_1_1MolalityVPSSTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">MolalityVPSSTP::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000139"></a>Member <a class="el" href="classCantera_1_1Mu0Poly.html#a1dbd8ce76b1b30c7a98e2de1f8e022d1">Mu0Poly::Mu0Poly</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use the constructor which does not require the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000128"></a>Member <a class="el" href="classCantera_1_1Nasa9Poly1.html#a8e996ca88920caa9e459486a944ea60a">Nasa9Poly1::Nasa9Poly1</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
+<dt><a class="anchor" id="_deprecated000140"></a>Member <a class="el" href="classCantera_1_1Nasa9Poly1.html#a8e996ca88920caa9e459486a944ea60a">Nasa9Poly1::Nasa9Poly1</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use the constructor whic hdoes not require the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000129"></a>Member <a class="el" href="classCantera_1_1NasaPoly1.html#a2d57ef9fa4e608d9b55a03d146581bea">NasaPoly1::NasaPoly1</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
+<dt><a class="anchor" id="_deprecated000141"></a>Member <a class="el" href="classCantera_1_1NasaPoly1.html#a2d57ef9fa4e608d9b55a03d146581bea">NasaPoly1::NasaPoly1</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use the constructor which does not take species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000130"></a>Member <a class="el" href="classCantera_1_1NasaPoly2.html#ab82e90a42e432d17b97c656b1f126e19">NasaPoly2::NasaPoly2</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
+<dt><a class="anchor" id="_deprecated000142"></a>Member <a class="el" href="classCantera_1_1NasaPoly2.html#ab82e90a42e432d17b97c656b1f126e19">NasaPoly2::NasaPoly2</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use constructor without species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000007"></a>Class <a class="el" href="classCantera_1_1NasaThermo.html">NasaThermo</a>  </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo instead.  </dd>
-<dt><a class="anchor" id="_deprecated000166"></a>Class <a class="el" href="classCantera_1_1PecosTransport.html">PecosTransport</a>  </dt>
+<dt><a class="anchor" id="_deprecated000188"></a>Class <a class="el" href="classCantera_1_1PecosTransport.html">PecosTransport</a>  </dt>
 <dd>Incomplete stub class, to be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000134"></a>Member <a class="el" href="classCantera_1_1Phase.html#af5010b31e02241b0f970e65dcb29c8b2">Phase::addElement</a>  (const XML_Node &amp;e)</dt>
+<dt><a class="anchor" id="_deprecated000146"></a>Member <a class="el" href="classCantera_1_1Phase.html#af5010b31e02241b0f970e65dcb29c8b2">Phase::addElement</a>  (const XML_Node &amp;e)</dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000137"></a>Member <a class="el" href="classCantera_1_1Phase.html#adf76049c9feb643c1b366a8d6088ba12">Phase::addElementsFromXML</a>  (const XML_Node &amp;phase)</dt>
+<dt><a class="anchor" id="_deprecated000149"></a>Member <a class="el" href="classCantera_1_1Phase.html#adf76049c9feb643c1b366a8d6088ba12">Phase::addElementsFromXML</a>  (const XML_Node &amp;phase)</dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000135"></a>Member <a class="el" href="classCantera_1_1Phase.html#a3467f0c873b97a94d073474498ffd4de">Phase::addUniqueElement</a>  (const std::string &amp;symbol, doublereal weight=-12345.0, int atomicNumber=0, doublereal entropy298=ENTROPY298_UNKNOWN, int elem_type=CT_ELEM_TYPE_ABSPOS)</dt>
+<dt><a class="anchor" id="_deprecated000153"></a>Member <a class="el" href="classCantera_1_1Phase.html#a4c8df19a898585f353ec8c45425136a4">Phase::addSpecies</a>  (const std::string &amp;name, const doublereal *comp, doublereal charge=0.0, doublereal size=1.0)</dt>
+<dd>Use AddSpecies(shared_ptr&lt;Species&gt; spec) instead. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000148"></a>Member <a class="el" href="classCantera_1_1Phase.html#a7de31a503f0c5e0dd36eca642232fc7a">Phase::addUniqueElement</a>  (const XML_Node &amp;e)</dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000147"></a>Member <a class="el" href="classCantera_1_1Phase.html#a3467f0c873b97a94d073474498ffd4de">Phase::addUniqueElement</a>  (const std::string &amp;symbol, doublereal weight=-12345.0, int atomicNumber=0, doublereal entropy298=ENTROPY298_UNKNOWN, int elem_type=CT_ELEM_TYPE_ABSPOS)</dt>
 <dd>. Equivalent to addElement. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000136"></a>Member <a class="el" href="classCantera_1_1Phase.html#a7de31a503f0c5e0dd36eca642232fc7a">Phase::addUniqueElement</a>  (const XML_Node &amp;e)</dt>
-<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000140"></a>Member <a class="el" href="classCantera_1_1Phase.html#a085f7fcece05e55f83aff7a3bdb69fc6">Phase::addUniqueElementAfterFreeze</a>  (const std::string &amp;symbol, doublereal weight, int atomicNumber, doublereal entropy298=ENTROPY298_UNKNOWN, int elem_type=CT_ELEM_TYPE_ABSPOS)</dt>
+<dt><a class="anchor" id="_deprecated000152"></a>Member <a class="el" href="classCantera_1_1Phase.html#a085f7fcece05e55f83aff7a3bdb69fc6">Phase::addUniqueElementAfterFreeze</a>  (const std::string &amp;symbol, doublereal weight, int atomicNumber, doublereal entropy298=ENTROPY298_UNKNOWN, int elem_type=CT_ELEM_TYPE_ABSPOS)</dt>
 <dd>. Equivalent to addElement. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000139"></a>Member <a class="el" href="classCantera_1_1Phase.html#a97442598c72b76f5f44f0350d070bfee">Phase::elementsFrozen</a>  ()</dt>
+<dt><a class="anchor" id="_deprecated000154"></a>Member <a class="el" href="classCantera_1_1Phase.html#a49f519fdf33647c5c1a5f4a742693122">Phase::addUniqueSpecies</a>  (const std::string &amp;name, const doublereal *comp, doublereal charge=0.0, doublereal size=1.0)</dt>
+<dd>Use addSpecies(shared_ptr&lt;Species&gt; spec) instead. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000151"></a>Member <a class="el" href="classCantera_1_1Phase.html#a97442598c72b76f5f44f0350d070bfee">Phase::elementsFrozen</a>  ()</dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000138"></a>Member <a class="el" href="classCantera_1_1Phase.html#a60db8369fd011cc775fc1fae7a242b78">Phase::freezeElements</a>  ()</dt>
+<dt><a class="anchor" id="_deprecated000150"></a>Member <a class="el" href="classCantera_1_1Phase.html#a60db8369fd011cc775fc1fae7a242b78">Phase::freezeElements</a>  ()</dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000131"></a>Member <a class="el" href="classCantera_1_1Phase.html#a4397c056c70b6e8f4edf6bd90dd70f8d">Phase::getMoleFractionsByName</a>  (compositionMap &amp;x) const </dt>
+<dt><a class="anchor" id="_deprecated000143"></a>Member <a class="el" href="classCantera_1_1Phase.html#a4397c056c70b6e8f4edf6bd90dd70f8d">Phase::getMoleFractionsByName</a>  (compositionMap &amp;x) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. use <code>compositionMap getMoleFractionsByName(double threshold)</code> instead.  </dd>
-<dt><a class="anchor" id="_deprecated000132"></a>Member <a class="el" href="classCantera_1_1Phase.html#a8a5c85daa07a8d89592646339af0b9ba">Phase::mean_Y</a>  (const doublereal *const Q) const </dt>
+<dt><a class="anchor" id="_deprecated000144"></a>Member <a class="el" href="classCantera_1_1Phase.html#a8a5c85daa07a8d89592646339af0b9ba">Phase::mean_Y</a>  (const doublereal *const Q) const </dt>
 <dd>Unused. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000133"></a>Member <a class="el" href="classCantera_1_1Phase.html#a5d4fddf5f99e3cb1e51971d44d096ec1">Phase::sum_xlogQ</a>  (doublereal *const Q) const </dt>
+<dt><a class="anchor" id="_deprecated000145"></a>Member <a class="el" href="classCantera_1_1Phase.html#a5d4fddf5f99e3cb1e51971d44d096ec1">Phase::sum_xlogQ</a>  (doublereal *const Q) const </dt>
 <dd>Unused. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000141"></a>Class <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html">PseudoBinaryVPSSTP</a>  </dt>
+<dt><a class="anchor" id="_deprecated000155"></a>Member <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#af7da13968a1a8cd8f916ddb6504a2514">PhaseCombo_Interaction::PhaseCombo_Interaction</a>  (int testProb)</dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000079"></a>Member <a class="el" href="classCantera_1_1Plog.html#a95afa7f3889451f6deaee4f9bb71ddd0">Plog::activationEnergy_R</a>  () const </dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
+<dt><a class="anchor" id="_deprecated000080"></a>Member <a class="el" href="classCantera_1_1Plog.html#a0260b13df92bd19b464c84920d7c3806">Plog::alwaysComputeRate</a>  ()</dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
+<dt><a class="anchor" id="_deprecated000078"></a>Member <a class="el" href="classCantera_1_1Plog.html#ae24cd084de63f6b9eb3b6d68e61608ba">Plog::update</a>  (doublereal logT, doublereal recipT) const </dt>
+<dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
+<dt><a class="anchor" id="_deprecated000156"></a>Class <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html">PseudoBinaryVPSSTP</a>  </dt>
 <dd>Incomplete and untested. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000058"></a>Class <a class="el" href="classCantera_1_1ReactionData.html">ReactionData</a>  </dt>
 <dd>Use class Reaction and its children. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
@@ -363,63 +407,75 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
 <dt><a class="anchor" id="_deprecated000065"></a>Member <a class="el" href="classCantera_1_1ReactionStoichMgr.html#a253f5983d718beba020a3a95d3ce6101">ReactionStoichMgr::writeNetProductionRates</a>  (std::ostream &amp;f)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
-<dt><a class="anchor" id="_deprecated000171"></a>Member <a class="el" href="classCantera_1_1ReactorNet.html#a86e59ed5e751630db5d2b3098a8136e3">ReactorNet::addReactor</a>  (Reactor *r, bool iown=false)</dt>
+<dt><a class="anchor" id="_deprecated000193"></a>Member <a class="el" href="classCantera_1_1ReactorNet.html#a86e59ed5e751630db5d2b3098a8136e3">ReactorNet::addReactor</a>  (Reactor *r, bool iown=false)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use addReactor(Reactor&amp;) instead.  </dd>
-<dt><a class="anchor" id="_deprecated000143"></a>Member <a class="el" href="classCantera_1_1ShomatePoly2.html#af2e1d67ff634a59260e073a315383ebe">ShomatePoly2::ShomatePoly2</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
+<dt><a class="anchor" id="_deprecated000157"></a>Member <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a88e3aeb17511751cf3fc4ebd757bdd83">RedlichKisterVPSSTP::RedlichKisterVPSSTP</a>  (int testProb)</dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000159"></a>Member <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">RedlichKwongMFTP::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000158"></a>Member <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a26105f3369cb8e2b4effab7e2ce8cfa6">RedlichKwongMFTP::RedlichKwongMFTP</a>  (int testProb)</dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000161"></a>Member <a class="el" href="classCantera_1_1ShomatePoly2.html#af2e1d67ff634a59260e073a315383ebe">ShomatePoly2::ShomatePoly2</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use the constructor that does not require the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000142"></a>Member <a class="el" href="classCantera_1_1ShomatePoly.html#a2bc662c6f03a582d99e44ca3577a083c">ShomatePoly::ShomatePoly</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
+<dt><a class="anchor" id="_deprecated000160"></a>Member <a class="el" href="classCantera_1_1ShomatePoly.html#a2bc662c6f03a582d99e44ca3577a083c">ShomatePoly::ShomatePoly</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref, const doublereal *coeffs)</dt>
 <dd>Use the alternate constructor which does not take the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000008"></a>Class <a class="el" href="classCantera_1_1ShomateThermo.html">ShomateThermo</a>  </dt>
 <dd><p class="startdd">To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo instead.</p>
 <p class="enddd"></p>
 </dd>
-<dt><a class="anchor" id="_deprecated000144"></a>Class <a class="el" href="classCantera_1_1SimpleThermo.html">SimpleThermo</a>  </dt>
+<dt><a class="anchor" id="_deprecated000162"></a>Class <a class="el" href="classCantera_1_1SimpleThermo.html">SimpleThermo</a>  </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo instead.  </dd>
-<dt><a class="anchor" id="_deprecated000167"></a>Member <a class="el" href="classCantera_1_1SolidTransport.html#abf0ee8d141c0c6b2152a393f700a01c4">SolidTransport::setParameters</a>  (const int n, const int k, const doublereal *const p)</dt>
+<dt><a class="anchor" id="_deprecated000189"></a>Member <a class="el" href="classCantera_1_1SolidTransport.html#abf0ee8d141c0c6b2152a393f700a01c4">SolidTransport::setParameters</a>  (const int n, const int k, const doublereal *const p)</dt>
 <dd></dd>
-<dt><a class="anchor" id="_deprecated000145"></a>Member <a class="el" href="classCantera_1_1SpeciesThermo.html#ae77a3800ecfa867e203b21cea453c071">SpeciesThermo::install</a>  (const std::string &amp;name, size_t index, int type, const doublereal *c, doublereal minTemp, doublereal maxTemp, doublereal refPressure)=0</dt>
+<dt><a class="anchor" id="_deprecated000163"></a>Member <a class="el" href="classCantera_1_1SpeciesThermo.html#ae77a3800ecfa867e203b21cea453c071">SpeciesThermo::install</a>  (const std::string &amp;name, size_t index, int type, const doublereal *c, doublereal minTemp, doublereal maxTemp, doublereal refPressure)=0</dt>
 <dd>Use newSpeciesThermoInterpType and GeneralSpeciesThermo::install_STIT. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000159"></a>Class <a class="el" href="classCantera_1_1SpeciesThermoDuo.html">SpeciesThermoDuo&lt; T1, T2 &gt;</a>  </dt>
+<dt><a class="anchor" id="_deprecated000177"></a>Class <a class="el" href="classCantera_1_1SpeciesThermoDuo.html">SpeciesThermoDuo&lt; T1, T2 &gt;</a>  </dt>
 <dd><p class="startdd">To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo instead.</p>
 <p class="enddd"></p>
 </dd>
-<dt><a class="anchor" id="_deprecated000146"></a>Class <a class="el" href="classCantera_1_1SpeciesThermoFactory.html">SpeciesThermoFactory</a>  </dt>
+<dt><a class="anchor" id="_deprecated000164"></a>Class <a class="el" href="classCantera_1_1SpeciesThermoFactory.html">SpeciesThermoFactory</a>  </dt>
 <dd><p class="startdd">To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use class GeneralSpeciesThermo directly</p>
 <p class="enddd"></p>
 </dd>
-<dt><a class="anchor" id="_deprecated000153"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#add00caf42f74ba626a0b423ebffca371">SpeciesThermoFactory::installVPThermoForSpecies</a>  (size_t k, const XML_Node &amp;speciesNode, VPStandardStateTP *vp_ptr, VPSSMgr *vpss_ptr, SpeciesThermo *spthermo_ptr, const XML_Node *phaseNode_ptr) const </dt>
+<dt><a class="anchor" id="_deprecated000171"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#add00caf42f74ba626a0b423ebffca371">SpeciesThermoFactory::installVPThermoForSpecies</a>  (size_t k, const XML_Node &amp;speciesNode, VPStandardStateTP *vp_ptr, VPSSMgr *vpss_ptr, SpeciesThermo *spthermo_ptr, const XML_Node *phaseNode_ptr) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Call VPStandardStateTP::createInstallVPSS directly instead.  </dd>
-<dt><a class="anchor" id="_deprecated000152"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#adc6d4ccda4681bc9fe09a859cfcc0e29">SpeciesThermoFactory::newSpeciesThermo</a>  (std::vector&lt; XML_Node * &gt; &amp;spDataNodeList) const </dt>
+<dt><a class="anchor" id="_deprecated000168"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#a08c55f6435086bead56e9fed2eb0acd8">SpeciesThermoFactory::newSpeciesThermo</a>  (int type) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo directly.  </dd>
+<dt><a class="anchor" id="_deprecated000170"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#adc6d4ccda4681bc9fe09a859cfcc0e29">SpeciesThermoFactory::newSpeciesThermo</a>  (std::vector&lt; XML_Node * &gt; &amp;spDataNodeList) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000150"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#a08c55f6435086bead56e9fed2eb0acd8">SpeciesThermoFactory::newSpeciesThermo</a>  (int type) const </dt>
+<dt><a class="anchor" id="_deprecated000169"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#a7e1fb343ddff0ccba9dd7451a7890898">SpeciesThermoFactory::newSpeciesThermoManager</a>  (const std::string &amp;stype) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo directly.  </dd>
-<dt><a class="anchor" id="_deprecated000151"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoFactory.html#a7e1fb343ddff0ccba9dd7451a7890898">SpeciesThermoFactory::newSpeciesThermoManager</a>  (const std::string &amp;stype) const </dt>
-<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. Use GeneralSpeciesThermo directly.  </dd>
-<dt><a class="anchor" id="_deprecated000157"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df">SpeciesThermoInterpType::m_index</a>  </dt>
+<dt><a class="anchor" id="_deprecated000175"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a3e5eff44a53aa531d0a0dbfc0de296df">SpeciesThermoInterpType::m_index</a>  </dt>
 <dd></dd>
-<dt><a class="anchor" id="_deprecated000156"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ad4eccbfc83c14edbc0854daa7a0120bb">SpeciesThermoInterpType::setIndex</a>  (size_t index)</dt>
+<dt><a class="anchor" id="_deprecated000174"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ad4eccbfc83c14edbc0854daa7a0120bb">SpeciesThermoInterpType::setIndex</a>  (size_t index)</dt>
 <dd></dd>
-<dt><a class="anchor" id="_deprecated000155"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e">SpeciesThermoInterpType::speciesIndex</a>  () const </dt>
+<dt><a class="anchor" id="_deprecated000173"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a8783991dce8724223a1203dad597482e">SpeciesThermoInterpType::speciesIndex</a>  () const </dt>
 <dd></dd>
-<dt><a class="anchor" id="_deprecated000154"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ab705acdf87c81f64fbd1752c17a11c97">SpeciesThermoInterpType::SpeciesThermoInterpType</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref)</dt>
+<dt><a class="anchor" id="_deprecated000172"></a>Member <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ab705acdf87c81f64fbd1752c17a11c97">SpeciesThermoInterpType::SpeciesThermoInterpType</a>  (size_t n, doublereal tlow, doublereal thigh, doublereal pref)</dt>
 <dd>Use the constructor without the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000118"></a>Member <a class="el" href="classCantera_1_1SquareMatrix.html#a0cf4267353b62989517490c13f97979d">SquareMatrix::copyData</a>  (const GeneralMatrix &amp;y)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000160"></a>Class <a class="el" href="classCantera_1_1StatMech.html">StatMech</a>  </dt>
+<dt><a class="anchor" id="_deprecated000178"></a>Class <a class="el" href="classCantera_1_1StatMech.html">StatMech</a>  </dt>
 <dd>Incomplete stub class, to be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000158"></a>Member <a class="el" href="classCantera_1_1STITbyPDSS.html#a47b659fef111c766895e090595126ee3">STITbyPDSS::STITbyPDSS</a>  (size_t speciesIndex, VPSSMgr *vpssmgr_ptr, PDSS *PDSS_ptr)</dt>
+<dt><a class="anchor" id="_deprecated000176"></a>Member <a class="el" href="classCantera_1_1STITbyPDSS.html#a47b659fef111c766895e090595126ee3">STITbyPDSS::STITbyPDSS</a>  (size_t speciesIndex, VPSSMgr *vpssmgr_ptr, PDSS *PDSS_ptr)</dt>
 <dd>Use the constructor which does not require the species index. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000179"></a>Member <a class="el" href="classCantera_1_1StoichSubstance.html#abbf7704c3f9ae6f3374ad82de5f7e325">StoichSubstance::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000181"></a>Member <a class="el" href="classCantera_1_1StoichSubstanceSSTP.html#a783b7d2320df4247828d678b7b0bbb46">StoichSubstanceSSTP::getUnitsStandardConc</a>  (doublereal *uA, int k=0, int sizeUA=6) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000073"></a>Member <a class="el" href="classCantera_1_1SurfaceArrhenius.html#a0260b13df92bd19b464c84920d7c3806">SurfaceArrhenius::alwaysComputeRate</a>  ()</dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
 <dt><a class="anchor" id="_deprecated000072"></a>Member <a class="el" href="classCantera_1_1SurfaceArrhenius.html#ae24cd084de63f6b9eb3b6d68e61608ba">SurfaceArrhenius::update</a>  (doublereal logT, doublereal recipT) const </dt>
 <dd>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>
-<dt><a class="anchor" id="_deprecated000164"></a>Member <a class="el" href="classCantera_1_1ThermoPhase.html#adcf3fc629f43d1e2a1601238114dd73c">ThermoPhase::cv_vib</a>  (int, double) const </dt>
+<dt><a class="anchor" id="_deprecated000184"></a>Member <a class="el" href="classCantera_1_1ThermoPhase.html#adcf3fc629f43d1e2a1601238114dd73c">ThermoPhase::cv_vib</a>  (int, double) const </dt>
+<dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
+<dt><a class="anchor" id="_deprecated000185"></a>Member <a class="el" href="classCantera_1_1ThermoPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">ThermoPhase::getUnitsStandardConc</a>  (double *uA, int k=0, int sizeUA=6) const </dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
 <dt><a class="anchor" id="_deprecated000115"></a>Class <a class="el" href="classCantera_1_1ThirdBodyMgr.html">ThirdBodyMgr&lt; _E &gt;</a>  </dt>
 <dd>Replaced by ThirdBodyCalc. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.  </dd>
-<dt><a class="anchor" id="_deprecated000168"></a>Member <a class="el" href="classCantera_1_1Transport.html#ab4803f8e733e93a8532effff50d8a274">Transport::setParameters</a>  (const int type, const int k, const doublereal *const p)</dt>
+<dt><a class="anchor" id="_deprecated000190"></a>Member <a class="el" href="classCantera_1_1Transport.html#ab4803f8e733e93a8532effff50d8a274">Transport::setParameters</a>  (const int type, const int k, const doublereal *const p)</dt>
 <dd></dd>
-<dt><a class="anchor" id="_deprecated000169"></a>Member <a class="el" href="classCantera_1_1TransportFactory.html#afcf9efed91f9f7adf29a5d55a8e82f49">TransportFactory::initTransport</a>  (Transport *tr, thermo_t *thermo, int mode=0, int log_level=0)</dt>
+<dt><a class="anchor" id="_deprecated000191"></a>Member <a class="el" href="classCantera_1_1TransportFactory.html#afcf9efed91f9f7adf29a5d55a8e82f49">TransportFactory::initTransport</a>  (Transport *tr, thermo_t *thermo, int mode=0, int log_level=0)</dt>
 <dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. This initialization is now handled directly by GasTransport::init.  </dd>
 <dt><a class="anchor" id="_deprecated000043"></a>Member <a class="el" href="classVCSnonideal_1_1VCS__SPECIES__THERMO.html#ab37e70c714f657c7a535283e57fd66c4">VCS_SPECIES_THERMO::UseCanteraCalls</a>  </dt>
 <dd>Will always behave as if 'true' after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2  </dd>

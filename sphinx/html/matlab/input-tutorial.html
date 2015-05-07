@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Matlab Interface User’s Guide" href="index.html" />
@@ -64,7 +64,6 @@
 <li><a class="reference internal" href="#cti-files">CTI files</a></li>
 <li><a class="reference internal" href="#cti-files-distributed-with-cantera">CTI files distributed with Cantera</a></li>
 <li><a class="reference internal" href="#importing-multiple-phases-or-interfaces">Importing multiple phases or interfaces</a></li>
-<li><a class="reference internal" href="#ctml-files">CTML files</a></li>
 <li><a class="reference internal" href="#converting-ck-format-files">Converting CK-format files</a></li>
 </ul>
 </li>
@@ -150,22 +149,6 @@ two bulk phases and the interface between them from file <tt class="docutils lit
 </div>
 <p>Note that the bulk (i.e., 3D) phases that participate in the surface reactions
 must also be passed as arguments to importInterface.</p>
-</div>
-<div class="section" id="ctml-files">
-<h2>CTML files<a class="headerlink" href="#ctml-files" title="Permalink to this headline">¶</a></h2>
-<p>Note that when Cantera reads a <tt class="docutils literal"><span class="pre">.cti</span></tt> input file, wherever it is located, it
-always writes a file of the same name but with extension <tt class="docutils literal"><span class="pre">.xml</span></tt> <em>in the local
-directory</em>. If you happen to have some other file by that name, it will be
-overwritten. Once the XML file is created, you can use it instead of the
-<tt class="docutils literal"><span class="pre">.cti</span></tt> file, which will result in somewhat faster startup:</p>
-<div class="highlight-matlab"><div class="highlight"><pre><span class="n">gas4</span> <span class="p">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span><span class="s">&#39;gri30&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Interfaces can be imported from XML files too:</p>
-<div class="highlight-matlab"><div class="highlight"><pre><span class="n">diamonnd_surf2</span> <span class="p">=</span> <span class="n">importInterface</span><span class="p">(</span><span class="s">&#39;diamond.xml&#39;</span><span class="p">,</span><span class="s">&#39;diamond_100&#39;</span><span class="p">,</span><span class="c">...</span>
-                                 <span class="n">gas2</span><span class="p">,</span> <span class="n">diamond</span><span class="p">);</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="converting-ck-format-files">
 <h2>Converting CK-format files<a class="headerlink" href="#converting-ck-format-files" title="Permalink to this headline">¶</a></h2>

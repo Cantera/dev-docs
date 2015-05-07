@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
@@ -92,7 +92,7 @@
           <div class="body">
             
   <div class="section" id="burner-flame-py">
-<h1>burner_flame.py<a class="headerlink" href="#burner-flame-py" title="Permalink to this headline">¶</a></h1>
+<span id="py-example-burner-flame-py"></span><h1>burner_flame.py<a class="headerlink" href="#burner-flame-py" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">A burner-stabilized lean premixed hydrogen-oxygen flame at low pressure.</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -115,9 +115,6 @@
 <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">tburner</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reactants</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">BurnerFlame</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">initial_grid</span><span class="p">)</span>
-
-<span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">tburner</span>
-<span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">reactants</span>
 <span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">mdot</span> <span class="o">=</span> <span class="n">mdot</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">set_initial_guess</span><span class="p">()</span>

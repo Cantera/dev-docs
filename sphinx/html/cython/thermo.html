@@ -23,12 +23,12 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Chemical Kinetics" href="kinetics.html" />
-    <link rel="prev" title="Importing Phase Objects" href="importing.html" /> 
+    <link rel="prev" title="Creating Phase Objects" href="importing.html" /> 
   </head>
   <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
@@ -49,7 +49,7 @@
           <a href="kinetics.html" title="Chemical Kinetics"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="importing.html" title="Importing Phase Objects"
+          <a href="importing.html" title="Creating Phase Objects"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Cantera</a> &raquo;</li>
           <li><a href="index.html" accesskey="U">Python Module Documentation</a> &raquo;</li> 
@@ -58,9 +58,20 @@
 
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Thermodynamic Properties</a><ul>
+<li><a class="reference internal" href="#phases">Phases</a></li>
+<li><a class="reference internal" href="#mixture">Mixture</a></li>
+<li><a class="reference internal" href="#species">Species</a></li>
+<li><a class="reference internal" href="#species-thermodynamic-properties">Species Thermodynamic Properties</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="importing.html"
-                        title="previous chapter">Importing Phase Objects</a></p>
+                        title="previous chapter">Creating Phase Objects</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="kinetics.html"
                         title="next chapter">Chemical Kinetics</a></p>
@@ -92,6 +103,8 @@
             
   <div class="section" id="thermodynamic-properties">
 <h1>Thermodynamic Properties<a class="headerlink" href="#thermodynamic-properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="phases">
+<h2>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
 <p>These classes are used to describe the thermodynamic state of a system.</p>
 <dl class="class">
 <dt id="cantera.ThermoPhase">
@@ -724,6 +737,11 @@ by finite difference.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="cantera.ThermoPhase.species">
+<tt class="descname">species</tt><big>(</big><em>self</em>, <em>k</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.species" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="cantera.ThermoPhase.species_index">
 <tt class="descname">species_index</tt><big>(</big><em>self</em>, <em>species</em><big>)</big> &rarr; int<a class="headerlink" href="#cantera.ThermoPhase.species_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>The index of species <em>species</em>, which may be specified as a string or
@@ -856,6 +874,9 @@ or a fluid beyond its critical point.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="mixture">
+<h2>Mixture<a class="headerlink" href="#mixture" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.Mixture">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Mixture</tt><a class="headerlink" href="#cantera.Mixture" title="Permalink to this definition">¶</a></dt>
@@ -1114,6 +1135,270 @@ are assigned in order as phases are added.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="species">
+<h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cantera.Species">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Species</tt><a class="headerlink" href="#cantera.Species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Species(name=None, composition=None, charge=None, size=None, init=True, <a href="#id5"><span class="problematic" id="id6">*</span></a>args, <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs)</p>
+<p>A class which stores data about a single chemical species that may be
+needed to add it to a <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> or <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a> object (and to the
+underlying <a class="reference internal" href="#cantera.ThermoPhase" title="cantera.ThermoPhase"><tt class="xref py py-obj docutils literal"><span class="pre">ThermoPhase</span></tt></a> and <a class="reference internal" href="transport.html#cantera.Transport" title="cantera.Transport"><tt class="xref py py-obj docutils literal"><span class="pre">Transport</span></tt></a> objects).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; A string giving the name of the species, e.g. <tt class="docutils literal"><span class="pre">'CH4'</span></tt></li>
+<li><strong>composition</strong> &#8211; The elemental composition of the species, given either as a dict or a
+composition string, e.g. <tt class="docutils literal"><span class="pre">{'C':1,</span> <span class="pre">'H':4}</span></tt> or <tt class="docutils literal"><span class="pre">'C:1,</span> <span class="pre">H:4'</span></tt>.</li>
+<li><strong>charge</strong> &#8211; The electrical charge, in units of the elementary charge. Default 0.0.</li>
+<li><strong>size</strong> &#8211; The effective size [m] of the species. Default 1.0.</li>
+<li><strong>init</strong> &#8211; Used internally when wrapping <a class="reference external" href="doc/sphinx/../../doxygen/html/classCantera_1_1Species.html">Species</a> objects returned from C++</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example: creating an ideal gas phase with a single species:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ch4</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Species</span><span class="p">(</span><span class="s">&#39;CH4&#39;</span><span class="p">,</span> <span class="s">&#39;C:1, H:4&#39;</span><span class="p">)</span>
+<span class="n">ch4</span><span class="o">.</span><span class="n">thermo</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ConstantCp</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span>
+                           <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.453347e7</span><span class="p">,</span> <span class="mf">1.865912e5</span><span class="p">,</span> <span class="mf">3.576053e4</span><span class="p">))</span>
+<span class="n">tran</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">GasTransportData</span><span class="p">()</span>
+<span class="n">tran</span><span class="o">.</span><span class="n">set_customary_units</span><span class="p">(</span><span class="s">&#39;nonlinear&#39;</span><span class="p">,</span> <span class="mf">3.75</span><span class="p">,</span> <span class="mf">141.40</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.60</span><span class="p">,</span> <span class="mf">13.00</span><span class="p">)</span>
+<span class="n">ch4</span><span class="o">.</span><span class="n">transport</span> <span class="o">=</span> <span class="n">tran</span>
+<span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="n">thermo</span><span class="o">=</span><span class="s">&#39;IdealGas&#39;</span><span class="p">,</span> <span class="n">species</span><span class="o">=</span><span class="p">[</span><span class="n">ch4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The static methods <a class="reference internal" href="#cantera.Species.fromCti" title="cantera.Species.fromCti"><tt class="xref py py-obj docutils literal"><span class="pre">fromCti</span></tt></a>, <a class="reference internal" href="#cantera.Species.fromXml" title="cantera.Species.fromXml"><tt class="xref py py-obj docutils literal"><span class="pre">fromXml</span></tt></a>, <a class="reference internal" href="#cantera.Species.listFromFile" title="cantera.Species.listFromFile"><tt class="xref py py-obj docutils literal"><span class="pre">listFromFile</span></tt></a>, <a class="reference internal" href="#cantera.Species.listFromCti" title="cantera.Species.listFromCti"><tt class="xref py py-obj docutils literal"><span class="pre">listFromCti</span></tt></a>, and
+<a class="reference internal" href="#cantera.Species.listFromXml" title="cantera.Species.listFromXml"><tt class="xref py py-obj docutils literal"><span class="pre">listFromXml</span></tt></a> can be used to create <a class="reference internal" href="#cantera.Species" title="cantera.Species"><tt class="xref py py-obj docutils literal"><span class="pre">Species</span></tt></a> objects from existing
+definitions in the CTI or XML formats. All of the following will produce a
+list of 53 <a class="reference internal" href="#cantera.Species" title="cantera.Species"><tt class="xref py py-obj docutils literal"><span class="pre">Species</span></tt></a> objects containing the species defined in the GRI 3.0
+mechanism:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">S</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Species</span><span class="o">.</span><span class="n">listFromFile</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Species</span><span class="o">.</span><span class="n">listFromCti</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;path/to/gri30.cti&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Species</span><span class="o">.</span><span class="n">listFromXml</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;path/to/gri30.xml&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="cantera.Species.charge">
+<tt class="descname">charge</tt><a class="headerlink" href="#cantera.Species.charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>The electrical charge on the species, in units of the elementary charge.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Species.composition">
+<tt class="descname">composition</tt><a class="headerlink" href="#cantera.Species.composition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dict containing the elemental composition of the species. Keys are
+element names; values are the corresponding atomicities.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Species.fromCti">
+<tt class="descname">fromCti</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Species.fromCti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Species object from its CTI string representation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Species.fromXml">
+<tt class="descname">fromXml</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Species.fromXml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Species object from its XML string representation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Species.listFromCti">
+<tt class="descname">listFromCti</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Species.listFromCti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of Species objects from all the species defined in a CTI
+string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Species.listFromFile">
+<tt class="descname">listFromFile</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#cantera.Species.listFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of Species objects from all of the species defined in a
+CTI or XML file.</p>
+<p>Directories on Cantera&#8217;s input file path will be searched for the
+specified file.</p>
+<p>In the case of an XML file, the <tt class="docutils literal"><span class="pre">&lt;species&gt;</span></tt> nodes are assumed to be
+children of the <tt class="docutils literal"><span class="pre">&lt;speciesData&gt;</span></tt> node in a document with a <tt class="docutils literal"><span class="pre">&lt;ctml&gt;</span></tt>
+root node, as in the XML files produced by conversion from CTI files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Species.listFromXml">
+<tt class="descname">listFromXml</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#cantera.Species.listFromXml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a list of Species objects from all the species defined in an XML
+string. The <tt class="docutils literal"><span class="pre">&lt;species&gt;</span></tt> nodes are assumed to be children of the
+<tt class="docutils literal"><span class="pre">&lt;speciesData&gt;</span></tt> node in a document with a <tt class="docutils literal"><span class="pre">&lt;ctml&gt;</span></tt> root node, as in
+the XML files produced by conversion from CTI files.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Species.name">
+<tt class="descname">name</tt><a class="headerlink" href="#cantera.Species.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Species.size">
+<tt class="descname">size</tt><a class="headerlink" href="#cantera.Species.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The effective size [m] of the species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Species.thermo">
+<tt class="descname">thermo</tt><a class="headerlink" href="#cantera.Species.thermo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the species reference-state thermodynamic data, as an instance
+of class <a class="reference internal" href="#cantera.SpeciesThermo" title="cantera.SpeciesThermo"><tt class="xref py py-obj docutils literal"><span class="pre">SpeciesThermo</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Species.transport">
+<tt class="descname">transport</tt><a class="headerlink" href="#cantera.Species.transport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the species transport parameters, as an instance of class
+<a class="reference internal" href="transport.html#cantera.GasTransportData" title="cantera.GasTransportData"><tt class="xref py py-obj docutils literal"><span class="pre">GasTransportData</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="species-thermodynamic-properties">
+<h2>Species Thermodynamic Properties<a class="headerlink" href="#species-thermodynamic-properties" title="Permalink to this headline">¶</a></h2>
+<p>These classes are used to describe the reference-state thermodynamic properties
+of a pure species.</p>
+<dl class="class">
+<dt id="cantera.SpeciesThermo">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">SpeciesThermo</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for representing the reference-state thermodynamic properties of
+a pure species. These properties are a function of temperature. Derived
+classes implement a parameterization of this temperature dependence. This is
+a wrapper for the C++ class <a class="reference external" href="doc/sphinx/../../doxygen/html/classCantera_1_1SpeciesThermoInterpType.html">SpeciesThermoInterpType</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>T_low</strong> &#8211; The minimum temperature [K] at which the parameterization is valid</li>
+<li><strong>T_high</strong> &#8211; The maximum temperature [K] at which the parameterization is valid</li>
+<li><strong>P_ref</strong> &#8211; The reference pressure [Pa] for the parameterization</li>
+<li><strong>coeffs</strong> &#8211; An array of coefficients for the parameterization. The length of this
+array and the meaning of each element depends on the specific
+parameterization.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cantera.SpeciesThermo.cp">
+<tt class="descname">cp</tt><big>(</big><em>self</em>, <em>T</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo.cp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar heat capacity at constant pressure [J/kmol/K] at temperature <em>T</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.SpeciesThermo.h">
+<tt class="descname">h</tt><big>(</big><em>self</em>, <em>T</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar enthalpy [J/kmol] at temperature <em>T</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.SpeciesThermo.s">
+<tt class="descname">s</tt><big>(</big><em>self</em>, <em>T</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar entropy [J/kmol/K] at temperature <em>T</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ConstantCp">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ConstantCp</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ConstantCp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.SpeciesThermo</span></tt></p>
+<p>Thermodynamic properties for a species that has a constant specific heat
+capacity. This is a wrapper for the C++ class <a class="reference external" href="doc/sphinx/../../doxygen/html/classCantera_1_1ConstCpPoly.html">ConstCpPoly</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coeffs</strong> &#8211; <p>An array of 4 elements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[0]</span></tt> = <span class="math">\(T_0\)</span> [K]</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[1]</span></tt> = <span class="math">\(H^o(T_0, p_{ref})\)</span> [J/kmol]</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[2]</span></tt> = <span class="math">\(S^o(T_0, p_{ref})\)</span> [J/kmol-K]</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[3]</span></tt> = <span class="math">\(c_p^o(T_0, p_{ref})\)</span> [J/kmol-K]</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.NasaPoly2">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">NasaPoly2</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.NasaPoly2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.SpeciesThermo</span></tt></p>
+<p>Thermodynamic properties for a species which is parameterized using the
+7-coefficient NASA polynomial form in two temperature ranges. This is a
+wrapper for the C++ class <a class="reference external" href="doc/sphinx/../../doxygen/html/classCantera_1_1NasaPoly2.html">NasaPoly2</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coeffs</strong> &#8211; <p>An array of 15 elements, in the following order:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[0]</span></tt>: The mid-point temperature [K] between the two
+parameterizations</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[1:8]</span></tt>: The 7 coefficients of the high-temperature
+parameterization</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[8:15]</span></tt>: The 7 coefficients of the low-temperature
+parameterization</li>
+</ul>
+</div></blockquote>
+<p>This is the coefficient order used in the standard fixed-format NASA
+input files.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="cantera.ShomatePoly2">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ShomatePoly2</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ShomatePoly2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera._cantera.SpeciesThermo</span></tt></p>
+<p>Thermodynamic properties for a species which is parameterized using the
+Shomate equation in two temperature ranges. This is a wrapper for the C++
+class <a class="reference external" href="doc/sphinx/../../doxygen/html/classCantera_1_1ShomatePoly2.html">ShomatePoly2</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coeffs</strong> &#8211; <p>An array of 15 elements, in the following order:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[0]</span></tt>: The mid-point temperature [K] between the two
+parameterizations</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[1:8]</span></tt>: The 7 coefficients of the low-temperature
+parameterization</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">coeffs[8:15]</span></tt>: The 7 coefficients of the high-temperature
+parameterization</li>
+</ul>
+</div></blockquote>
+<p>These coefficients should be provided in their customary units (i.e.
+such that <span class="math">\(c_p^o\)</span> is in J/gmol-K and <span class="math">\(H^o\)</span> is in kJ/gmol,
+as in the NIST Chemistry WebBook).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
 
 
           </div>
@@ -1134,7 +1419,7 @@ are assigned in order as phases are added.</p>
           <a href="kinetics.html" title="Chemical Kinetics"
              >next</a> |</li>
         <li class="right" >
-          <a href="importing.html" title="Importing Phase Objects"
+          <a href="importing.html" title="Creating Phase Objects"
              >previous</a> |</li>
         <li><a href="../index.html">Cantera</a> &raquo;</li>
           <li><a href="index.html" >Python Module Documentation</a> &raquo;</li> 
