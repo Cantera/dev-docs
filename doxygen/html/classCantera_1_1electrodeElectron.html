@@ -927,7 +927,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class electrodeElectron represents an electron in a metal using the Standard hydrogen reference electrode. </p>
 <p>The class is based on the electron have a chemical potential equal to one-half of the entropy of the H2 gas at 1 bar.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000180">Deprecated:</a></b></dt><dd>Deprecated in favor of class <a class="el" href="classCantera_1_1MetalSHEelectrons.html" title="Class MetalSHEelectrons represents electrons within a metal, adjacent to an aqueous electrolyte...">MetalSHEelectrons</a>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000192">Deprecated:</a></b></dt><dd>Deprecated in favor of class <a class="el" href="classCantera_1_1MetalSHEelectrons.html" title="Class MetalSHEelectrons represents electrons within a metal, adjacent to an aqueous electrolyte...">MetalSHEelectrons</a>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="StoichSubstanceSSTP_8h_source.html#l00489">489</a> of file <a class="el" href="StoichSubstanceSSTP_8h_source.html">StoichSubstanceSSTP.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -1135,7 +1135,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><div class="memdoc">
 
 <p>Set equation of state parameter values from XML entries. </p>
-<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
+<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
 <p>For this phase, the density of the phase is specified in this block.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1189,7 +1189,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><div class="memdoc">
 
 <p>Import and initialize a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object using an XML tree. </p>
-<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
+<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
 <p>The default implementation in <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> calls the virtual function <a class="el" href="classCantera_1_1StoichSubstanceSSTP.html#a8a12209d08a5c4876d9894d619368a79">initThermo()</a> and then sets the "state" of the phase by looking for an XML element named "state", and then interpreting its contents by calling the virtual function <a class="el" href="classCantera_1_1ThermoPhase.html#a01e155d014f6e4b4fd3121fda565fc7d" title="Set the initial state of the phase to the conditions specified in the state XML element. ">setStateFromXML()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

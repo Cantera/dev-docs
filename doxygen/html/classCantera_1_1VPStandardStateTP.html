@@ -1973,7 +1973,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the vector of the gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. units = J/kmol</p>
+<p>Returns the vector of the Gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. units = J/kmol</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>Output vector contain the Gibbs free energies of the reference state of the species length = m_kk, units = J/kmol. </td></tr>
@@ -2122,7 +2122,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file. They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file. They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a8a12209d08a5c4876d9894d619368a79">ThermoPhase</a>.</p>
 
@@ -2169,7 +2169,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><div class="memdoc">
 
 <p>Initialize a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object, potentially reading activity coefficient information from an XML database. </p>
-<p>This routine initializes the lengths in the current object and then calls the parent routine. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>.</p>
+<p>This routine initializes the lengths in the current object and then calls the parent routine. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phaseNode</td><td>This object must be the phase node of a complete XML tree description of the phase, including all of the species data. In other words while "phase" must point to an XML phase object, it must have sibling nodes "speciesData" that describe the species in the phase. </td></tr>

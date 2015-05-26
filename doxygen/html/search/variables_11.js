@@ -25,7 +25,7 @@ var searchData=
   ['rho_5fc',['Rho_c',['../namespaceCantera.html#a520cf97721bce15bab3be4746f595804',1,'Cantera']]],
   ['rhovc',['rhoVc',['../classCantera_1_1SimpleTransport.html#aa5ac46781a7da19ab8d6762f0576a265',1,'Cantera::SimpleTransport']]],
   ['rjd_5fnorm_5f',['RJd_norm_',['../classCantera_1_1NonlinearSolver.html#a123bd3c34ec86a165cd49eeb2a8991a5',1,'Cantera::NonlinearSolver']]],
-  ['rmcvector',['rmcVector',['../classCantera_1_1InterfaceKinetics.html#a36f75cd598bed3ad87a3561c61192bd9',1,'Cantera::InterfaceKinetics']]],
+  ['rmcvector',['rmcVector',['../classCantera_1_1ElectrodeKinetics.html#a36f75cd598bed3ad87a3561c61192bd9',1,'Cantera::ElectrodeKinetics']]],
   ['rorder',['rorder',['../classCantera_1_1ReactionData.html#a87e76ddccb58b3594200c0187911fba5',1,'Cantera::ReactionData']]],
   ['rotational_5frelaxation',['rotational_relaxation',['../classCantera_1_1GasTransportData.html#a52df1275c6ac17e2aac4a32fc797855c',1,'Cantera::GasTransportData']]],
   ['rstoich',['rstoich',['../classCantera_1_1ReactionData.html#a0974d004ea5f1002a661b5f664654731',1,'Cantera::ReactionData']]],

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Migrating from the Old Python Module &mdash; Cantera 2.2a documentation</title>
+    <title>Migrating from the Old Python Module &mdash; Cantera 2.2.0b1 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.2a',
+        VERSION:     '2.2.0b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Tutorial" href="tutorial.html" />
     <link rel="prev" title="Python Module Documentation" href="index.html" /> 
@@ -65,7 +65,7 @@
 <li><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
 <li><a class="reference internal" href="#importing-phases">Importing Phases</a></li>
 <li><a class="reference internal" href="#accessing-properties">Accessing Properties</a></li>
-<li><a class="reference internal" href="#setting-thermodyamic-state">Setting Thermodyamic State</a></li>
+<li><a class="reference internal" href="#setting-thermodynamic-state">Setting Thermodynamic State</a></li>
 <li><a class="reference internal" href="#printing-phase-summaries">Printing Phase Summaries</a></li>
 <li><a class="reference internal" href="#getting-properties-for-a-subset-of-species">Getting Properties for a Subset of Species</a></li>
 <li><a class="reference internal" href="#transport-models">Transport Models</a></li>
@@ -220,8 +220,8 @@ typically used to represent them:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="setting-thermodyamic-state">
-<h2>Setting Thermodyamic State<a class="headerlink" href="#setting-thermodyamic-state" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-thermodynamic-state">
+<h2>Setting Thermodynamic State<a class="headerlink" href="#setting-thermodynamic-state" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">set</span></tt> method has been removed in favor of property pairs or triplets. The
 following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">setMoleFractions</span><span class="p">(</span><span class="s">&#39;CH4:1.0, O2:0.1&#39;</span><span class="p">)</span>
@@ -365,7 +365,7 @@ retained in slightly modified forms. The following:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To change the transport model and enbale calculation of the Soret diffusion
+<p>To change the transport model and enable calculation of the Soret diffusion
 term, the following:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">addTransportModel</span><span class="p">(</span><span class="s">&#39;Multi&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">switchTransportModel</span><span class="p">(</span><span class="s">&#39;Multi&#39;</span><span class="p">)</span>

@@ -730,142 +730,141 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    <span class="keywordflow">for</span> (k = 0; k &lt; nsp; k++) {</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        m_selfDiffMix[k] = m_selfDiffMixModel[k]-&gt;getMixTransProp(m_selfDiffSpecies[k]);</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    }</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">    //! @todo Suspicious implicit conversion from double to int.</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> vP = max(viS[cation[0]],viS[cation[1]]);</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordtype">int</span> vM = viS[anion[0]];</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordtype">int</span> zP = charges[cation[0]];</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordtype">int</span> zM = charges[anion[0]];</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    doublereal xA, xB, eps;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    doublereal inv_vP_vM_MutualDiff;</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> dlnActCoeffdlnN_diag;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    dlnActCoeffdlnN_diag.resize(neut_molefracs.size(),0.0);</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    marg_thermo-&gt;<a class="code" href="classCantera_1_1MargulesVPSSTP.html#a192354d4b6b0f5b194655fb7de6b5b73">getdlnActCoeffdlnN_diag</a>(&amp;dlnActCoeffdlnN_diag[0]);</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    xA = neut_molefracs[neutMolIndex[cation[0]]];</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    xB = neut_molefracs[neutMolIndex[cation[1]]];</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    eps = (1-m_mobRatMix(cation[1],cation[0]))/(xA+xB*m_mobRatMix(cation[1],cation[0]));</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    inv_vP_vM_MutualDiff = (xA*(1-xB+dlnActCoeffdlnN_diag[neutMolIndex[cation[1]]])/m_selfDiffMix[cation[1]]+xB*(1-xA+dlnActCoeffdlnN_diag[neutMolIndex[cation[0]]])/m_selfDiffMix[cation[0]]);</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    mat.<a class="code" href="classCantera_1_1DenseMatrix.html#a0722dec1df1abd8f6526070749a23fd7">resize</a>(nsp, nsp, 0.0);</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    mat(cation[0],cation[1]) = mat(cation[1],cation[0]) = (1+vM/vP)*(1+eps*xB)*(1-eps*xA)*inv_vP_vM_MutualDiff-zP*zP*Faraday*Faraday/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>/temp/m_ionCondMix/vol;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    mat(cation[0],anion[0]) = mat(anion[0],cation[0]) = (1+vP/vM)*(-eps*xB*(1-eps*xA)*inv_vP_vM_MutualDiff)-zP*zM*Faraday*Faraday/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>/temp/m_ionCondMix/vol;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    mat(cation[1],anion[0]) = mat(anion[0],cation[1]) = (1+vP/vM)*(eps*xA*(1+eps*xB)*inv_vP_vM_MutualDiff)-zP*zM*Faraday*Faraday/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>/temp/m_ionCondMix/vol;</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;}</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;doublereal LTI_StokesEinstein::getMixTransProp(doublereal* speciesValues, doublereal* speciesWeight)</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;{</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    m_thermo-&gt;getMoleFractions(&amp;molefracs[0]);</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    doublereal value = 0;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1LTPmodelError.html">LTPmodelError</a>(<span class="stringliteral">&quot;Calling LTI_StokesEinstein::getMixTransProp does not make sense.&quot;</span>);</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;}</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;doublereal LTI_StokesEinstein::getMixTransProp(std::vector&lt;LTPspecies*&gt; LTPptrs)</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;{</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    m_thermo-&gt;getMoleFractions(&amp;molefracs[0]);</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    doublereal value = 0;</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    <span class="keywordflow">throw</span> LTPmodelError(<span class="stringliteral">&quot;Calling LTI_StokesEinstein::getMixTransProp does not make sense.&quot;</span>);</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;}</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="keywordtype">void</span> LTI_StokesEinstein::setParameters(LiquidTransportParams&amp; trParam)</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;{</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    m_viscosity.resize(nsp, 0);</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    m_hydroRadius.resize(nsp, 0);</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        <a class="code" href="classCantera_1_1LiquidTransportData.html">Cantera::LiquidTransportData</a>&amp; ltd = trParam.LTData[k];</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        m_viscosity[k]   =  ltd.<a class="code" href="classCantera_1_1LiquidTransportData.html#a6f6382b74ddbd3005e5e25e6c06d9718">viscosity</a>;</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        m_hydroRadius[k] =  ltd.<a class="code" href="classCantera_1_1LiquidTransportData.html#a5e25256fe4a874b7df4e35beb6f1c94e">hydroRadius</a>;</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    }</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;}</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="keywordtype">void</span> LTI_StokesEinstein::getMatrixTransProp(DenseMatrix&amp; mat, doublereal* speciesValues)</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;{</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    doublereal temp = m_thermo-&gt;temperature();</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> viscSpec(nsp);</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> radiusSpec(nsp);</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        viscSpec[k] = m_viscosity[k]-&gt;getSpeciesTransProp() ;</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        radiusSpec[k] = m_hydroRadius[k]-&gt;getSpeciesTransProp() ;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    }</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    mat.resize(nsp,nsp, 0.0);</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nsp; i++)</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; nsp; j++) {</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            mat(i,j) = (6.0 * <a class="code" href="group__physConstants.html#ga6395b4dda659056caf8bea67cee91ed6">Pi</a> * radiusSpec[i] * viscSpec[j]) / <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> / temp;</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        }</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;}</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;</div>
-<div class="line"><a name="l00715"></a><span class="lineno"><a class="line" href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">  715</a></span>&#160;doublereal <a class="code" href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">LTI_MoleFracs_ExpT::getMixTransProp</a>(doublereal* speciesValues, doublereal* speciesWeight)</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;{</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    <span class="keywordtype">size_t</span> nsp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#a69be7029b0c010f3f913538893921caa">nSpecies</a>();</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    doublereal temp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#ac6dbb2f1585f01ff055fb4974cdc6eaa">getMoleFractions</a>(&amp;molefracs[0]);</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    doublereal value = 0;</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="comment">//if weightings are specified, use those</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    <span class="keywordflow">if</span> (speciesWeight) {</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;            molefracs[k] = molefracs[k]*speciesWeight[k];</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        }</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>(<span class="stringliteral">&quot;LTI_MoleFracs_ExpT::getMixTransProp&quot;</span>,<span class="stringliteral">&quot;You should be specifying the speciesWeight&quot;</span>);</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    }</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nsp; i++) {</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        value += speciesValues[i] * molefracs[i];</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; nsp; j++) {</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>.size(); k++) {</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                value += molefracs[i]*molefracs[j]*(*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>[k])(i,j)*pow(molefracs[i], (<span class="keywordtype">int</span>) k)*exp((*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#ae3e4d0ea9f5b2c7e7037300a716f000e">m_Bij</a>[k])(i,j)*temp);</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;            }</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;        }</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    }</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;}</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;doublereal <a class="code" href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">LTI_MoleFracs_ExpT::getMixTransProp</a>(std::vector&lt;LTPspecies*&gt; LTPptrs)</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;{</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keywordtype">size_t</span> nsp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#a69be7029b0c010f3f913538893921caa">nSpecies</a>();</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    doublereal temp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#ac6dbb2f1585f01ff055fb4974cdc6eaa">getMoleFractions</a>(&amp;molefracs[0]);</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    doublereal value = 0;</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        molefracs[k] = molefracs[k]*LTPptrs[k]-&gt;getMixWeight();</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    }</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nsp; i++) {</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        value += LTPptrs[i]-&gt;getSpeciesTransProp() * molefracs[i];</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; nsp; j++) {</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>.size(); k++) {</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                value += molefracs[i]*molefracs[j]*(*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>[k])(i,j)*pow(molefracs[i], (<span class="keywordtype">int</span>) k)*exp((*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#ae3e4d0ea9f5b2c7e7037300a716f000e">m_Bij</a>[k])(i,j)*temp);</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            }</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;        }</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    }</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    <span class="keywordflow">return</span> value;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;}</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;} <span class="comment">//namespace Cantera</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keywordtype">double</span> vP = max(viS[cation[0]],viS[cation[1]]);</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keywordtype">double</span> vM = viS[anion[0]];</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordtype">double</span> zP = charges[cation[0]];</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <span class="keywordtype">double</span> zM = charges[anion[0]];</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    doublereal xA, xB, eps;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    doublereal inv_vP_vM_MutualDiff;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> dlnActCoeffdlnN_diag;</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    dlnActCoeffdlnN_diag.resize(neut_molefracs.size(),0.0);</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    marg_thermo-&gt;<a class="code" href="classCantera_1_1MargulesVPSSTP.html#a192354d4b6b0f5b194655fb7de6b5b73">getdlnActCoeffdlnN_diag</a>(&amp;dlnActCoeffdlnN_diag[0]);</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    xA = neut_molefracs[neutMolIndex[cation[0]]];</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    xB = neut_molefracs[neutMolIndex[cation[1]]];</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    eps = (1-m_mobRatMix(cation[1],cation[0]))/(xA+xB*m_mobRatMix(cation[1],cation[0]));</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    inv_vP_vM_MutualDiff = (xA*(1-xB+dlnActCoeffdlnN_diag[neutMolIndex[cation[1]]])/m_selfDiffMix[cation[1]]+xB*(1-xA+dlnActCoeffdlnN_diag[neutMolIndex[cation[0]]])/m_selfDiffMix[cation[0]]);</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    mat.<a class="code" href="classCantera_1_1DenseMatrix.html#a0722dec1df1abd8f6526070749a23fd7">resize</a>(nsp, nsp, 0.0);</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    mat(cation[0],cation[1]) = mat(cation[1],cation[0]) = (1+vM/vP)*(1+eps*xB)*(1-eps*xA)*inv_vP_vM_MutualDiff-zP*zP*Faraday*Faraday/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>/temp/m_ionCondMix/vol;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    mat(cation[0],anion[0]) = mat(anion[0],cation[0]) = (1+vP/vM)*(-eps*xB*(1-eps*xA)*inv_vP_vM_MutualDiff)-zP*zM*Faraday*Faraday/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>/temp/m_ionCondMix/vol;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    mat(cation[1],anion[0]) = mat(anion[0],cation[1]) = (1+vP/vM)*(eps*xA*(1+eps*xB)*inv_vP_vM_MutualDiff)-zP*zM*Faraday*Faraday/<a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a>/temp/m_ionCondMix/vol;</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;}</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;doublereal LTI_StokesEinstein::getMixTransProp(doublereal* speciesValues, doublereal* speciesWeight)</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;{</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    m_thermo-&gt;getMoleFractions(&amp;molefracs[0]);</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    doublereal value = 0;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1LTPmodelError.html">LTPmodelError</a>(<span class="stringliteral">&quot;Calling LTI_StokesEinstein::getMixTransProp does not make sense.&quot;</span>);</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;}</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;doublereal LTI_StokesEinstein::getMixTransProp(std::vector&lt;LTPspecies*&gt; LTPptrs)</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;{</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    m_thermo-&gt;getMoleFractions(&amp;molefracs[0]);</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    doublereal value = 0;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="keywordflow">throw</span> LTPmodelError(<span class="stringliteral">&quot;Calling LTI_StokesEinstein::getMixTransProp does not make sense.&quot;</span>);</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;}</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="keywordtype">void</span> LTI_StokesEinstein::setParameters(LiquidTransportParams&amp; trParam)</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;{</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    m_viscosity.resize(nsp, 0);</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    m_hydroRadius.resize(nsp, 0);</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        <a class="code" href="classCantera_1_1LiquidTransportData.html">Cantera::LiquidTransportData</a>&amp; ltd = trParam.LTData[k];</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        m_viscosity[k]   =  ltd.<a class="code" href="classCantera_1_1LiquidTransportData.html#a6f6382b74ddbd3005e5e25e6c06d9718">viscosity</a>;</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        m_hydroRadius[k] =  ltd.<a class="code" href="classCantera_1_1LiquidTransportData.html#a5e25256fe4a874b7df4e35beb6f1c94e">hydroRadius</a>;</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    }</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;}</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="keywordtype">void</span> LTI_StokesEinstein::getMatrixTransProp(DenseMatrix&amp; mat, doublereal* speciesValues)</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;{</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordtype">size_t</span> nsp = m_thermo-&gt;nSpecies();</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    doublereal temp = m_thermo-&gt;temperature();</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> viscSpec(nsp);</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> radiusSpec(nsp);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        viscSpec[k] = m_viscosity[k]-&gt;getSpeciesTransProp() ;</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        radiusSpec[k] = m_hydroRadius[k]-&gt;getSpeciesTransProp() ;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    }</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    mat.resize(nsp,nsp, 0.0);</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nsp; i++)</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; nsp; j++) {</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;            mat(i,j) = (6.0 * <a class="code" href="group__physConstants.html#ga6395b4dda659056caf8bea67cee91ed6">Pi</a> * radiusSpec[i] * viscSpec[j]) / <a class="code" href="group__physConstants.html#ga44a56836574d1fc6fd84c967db70b7b0">GasConstant</a> / temp;</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        }</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;}</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;</div>
+<div class="line"><a name="l00714"></a><span class="lineno"><a class="line" href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">  714</a></span>&#160;doublereal <a class="code" href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">LTI_MoleFracs_ExpT::getMixTransProp</a>(doublereal* speciesValues, doublereal* speciesWeight)</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;{</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="keywordtype">size_t</span> nsp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#a69be7029b0c010f3f913538893921caa">nSpecies</a>();</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    doublereal temp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#ac6dbb2f1585f01ff055fb4974cdc6eaa">getMoleFractions</a>(&amp;molefracs[0]);</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    doublereal value = 0;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="comment">//if weightings are specified, use those</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keywordflow">if</span> (speciesWeight) {</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;            molefracs[k] = molefracs[k]*speciesWeight[k];</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;        }</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>(<span class="stringliteral">&quot;LTI_MoleFracs_ExpT::getMixTransProp&quot;</span>,<span class="stringliteral">&quot;You should be specifying the speciesWeight&quot;</span>);</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    }</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nsp; i++) {</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;        value += speciesValues[i] * molefracs[i];</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; nsp; j++) {</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>.size(); k++) {</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                value += molefracs[i]*molefracs[j]*(*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>[k])(i,j)*pow(molefracs[i], (<span class="keywordtype">int</span>) k)*exp((*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#ae3e4d0ea9f5b2c7e7037300a716f000e">m_Bij</a>[k])(i,j)*temp);</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;            }</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        }</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    }</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;}</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;doublereal <a class="code" href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">LTI_MoleFracs_ExpT::getMixTransProp</a>(std::vector&lt;LTPspecies*&gt; LTPptrs)</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;{</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;    <span class="keywordtype">size_t</span> nsp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#a69be7029b0c010f3f913538893921caa">nSpecies</a>();</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    doublereal temp = <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#aa9eb6250e94840da359e9e3182271291">temperature</a>();</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <a class="code" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> molefracs(nsp);</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">m_thermo</a>-&gt;<a class="code" href="classCantera_1_1Phase.html#ac6dbb2f1585f01ff055fb4974cdc6eaa">getMoleFractions</a>(&amp;molefracs[0]);</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    doublereal value = 0;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; nsp; k++) {</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        molefracs[k] = molefracs[k]*LTPptrs[k]-&gt;getMixWeight();</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    }</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nsp; i++) {</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;        value += LTPptrs[i]-&gt;getSpeciesTransProp() * molefracs[i];</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; nsp; j++) {</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; <a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>.size(); k++) {</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;                value += molefracs[i]*molefracs[j]*(*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#a5914f596e0ed54241819eb207763ecbb">m_Aij</a>[k])(i,j)*pow(molefracs[i], (<span class="keywordtype">int</span>) k)*exp((*<a class="code" href="classCantera_1_1LiquidTranInteraction.html#ae3e4d0ea9f5b2c7e7037300a716f000e">m_Bij</a>[k])(i,j)*temp);</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            }</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;        }</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    }</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;}</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;} <span class="comment">//namespace Cantera</span></div>
 <div class="ttc" id="classCantera_1_1LiquidTranInteraction_html_a97f743952571f2de68e94e2803f1f84a"><div class="ttname"><a href="classCantera_1_1LiquidTranInteraction.html#a97f743952571f2de68e94e2803f1f84a">Cantera::LiquidTranInteraction::m_thermo</a></div><div class="ttdeci">thermo_t * m_thermo</div><div class="ttdoc">pointer to thermo object to get current temperature </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8h_source.html#l00152">LiquidTranInteraction.h:152</a></div></div>
 <div class="ttc" id="classCantera_1_1LTI__Log__MoleFracs_html_a5e882dfa180ad1bde896a594727f5137"><div class="ttname"><a href="classCantera_1_1LTI__Log__MoleFracs.html#a5e882dfa180ad1bde896a594727f5137">Cantera::LTI_Log_MoleFracs::getMixTransProp</a></div><div class="ttdeci">doublereal getMixTransProp(doublereal *valueSpecies, doublereal *weightSpecies=0)</div><div class="ttdoc">Copy constructor. </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8cpp_source.html#l00392">LiquidTranInteraction.cpp:392</a></div></div>
 <div class="ttc" id="namespaceCantera_html_ae666ac4d7c9e4a438b38567fb2286d76"><div class="ttname"><a href="namespaceCantera.html#ae666ac4d7c9e4a438b38567fb2286d76">Cantera::TransportPropertyType</a></div><div class="ttdeci">TransportPropertyType</div><div class="ttdoc">Enumeration of the types of transport properties that can be handled by the variables in the various ...</div><div class="ttdef"><b>Definition:</b> <a href="LTPspecies_8h_source.html#l00031">LTPspecies.h:31</a></div></div>
@@ -873,7 +872,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="ctml_8h_html"><div class="ttname"><a href="ctml_8h.html">ctml.h</a></div><div class="ttdoc">CTML (&quot;Cantera Markup Language&quot;) is the variant of XML that Cantera uses to store data...</div></div>
 <div class="ttc" id="classCantera_1_1LiquidTransportParams_html_a7627a95b541ff5e7790e2f2e85b59a15"><div class="ttname"><a href="classCantera_1_1LiquidTransportParams.html#a7627a95b541ff5e7790e2f2e85b59a15">Cantera::LiquidTransportParams::mobilityRatio</a></div><div class="ttdeci">std::vector&lt; LiquidTranInteraction * &gt; mobilityRatio</div><div class="ttdoc">Vector of pointer to the LiquidTranInteraction object which handles the calculation of the mobility r...</div><div class="ttdef"><b>Definition:</b> <a href="LiquidTransportParams_8h_source.html#l00050">LiquidTransportParams.h:50</a></div></div>
 <div class="ttc" id="classCantera_1_1IonsFromNeutralVPSSTP_html_abd90fc8e9dc17d9eaa5d87aa97080e1a"><div class="ttname"><a href="classCantera_1_1IonsFromNeutralVPSSTP.html#abd90fc8e9dc17d9eaa5d87aa97080e1a">Cantera::IonsFromNeutralVPSSTP::getNeutralMolecMoleFractions</a></div><div class="ttdeci">void getNeutralMolecMoleFractions(vector_fp &amp;neutralMoleculeMoleFractions) const </div><div class="ttdoc">Return the current value of the neutral mole fraction vector. </div><div class="ttdef"><b>Definition:</b> <a href="IonsFromNeutralVPSSTP_8h_source.html#l00390">IonsFromNeutralVPSSTP.h:390</a></div></div>
-<div class="ttc" id="MargulesVPSSTP_8h_html"><div class="ttname"><a href="MargulesVPSSTP_8h.html">MargulesVPSSTP.h</a></div><div class="ttdoc">Header for intermediate ThermoPhase object for phases which employ gibbs excess free energy based for...</div></div>
+<div class="ttc" id="MargulesVPSSTP_8h_html"><div class="ttname"><a href="MargulesVPSSTP_8h.html">MargulesVPSSTP.h</a></div><div class="ttdoc">Header for intermediate ThermoPhase object for phases which employ Gibbs excess free energy based for...</div></div>
 <div class="ttc" id="classCantera_1_1LiquidTranInteraction_html_a056312fab8b290f39c699841fc65dafa"><div class="ttname"><a href="classCantera_1_1LiquidTranInteraction.html#a056312fab8b290f39c699841fc65dafa">Cantera::LiquidTranInteraction::m_Hij</a></div><div class="ttdeci">std::vector&lt; DenseMatrix * &gt; m_Hij</div><div class="ttdoc">Matrix of interaction coefficients for polynomial in molefraction*weight of speciesA (in energy units...</div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8h_source.html#l00169">LiquidTranInteraction.h:169</a></div></div>
 <div class="ttc" id="classCantera_1_1XML__Node_html_a805e5d1e67a7e25ce4b3b699cca1680d"><div class="ttname"><a href="classCantera_1_1XML__Node.html#a805e5d1e67a7e25ce4b3b699cca1680d">Cantera::XML_Node::attrib</a></div><div class="ttdeci">std::string attrib(const std::string &amp;attr) const </div><div class="ttdoc">Function returns the value of an attribute. </div><div class="ttdef"><b>Definition:</b> <a href="xml_8cpp_source.html#l00527">xml.cpp:527</a></div></div>
 <div class="ttc" id="classCantera_1_1Phase_html_a1363094ff2ae0fc9b0d967c146efbdfe"><div class="ttname"><a href="classCantera_1_1Phase.html#a1363094ff2ae0fc9b0d967c146efbdfe">Cantera::Phase::getMassFractions</a></div><div class="ttdeci">void getMassFractions(doublereal *const y) const </div><div class="ttdoc">Get the species mass fractions. </div><div class="ttdef"><b>Definition:</b> <a href="Phase_8cpp_source.html#l00598">Phase.cpp:598</a></div></div>
@@ -932,7 +931,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classCantera_1_1LTI__MoleFracs_html_a5e882dfa180ad1bde896a594727f5137"><div class="ttname"><a href="classCantera_1_1LTI__MoleFracs.html#a5e882dfa180ad1bde896a594727f5137">Cantera::LTI_MoleFracs::getMixTransProp</a></div><div class="ttdeci">doublereal getMixTransProp(doublereal *valueSpecies, doublereal *weightSpecies=0)</div><div class="ttdoc">Copy constructor. </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8cpp_source.html#l00271">LiquidTranInteraction.cpp:271</a></div></div>
 <div class="ttc" id="classCantera_1_1LiquidTranInteraction_html_a756e3ce0dc521bb41fc5cc76a4c699d8"><div class="ttname"><a href="classCantera_1_1LiquidTranInteraction.html#a756e3ce0dc521bb41fc5cc76a4c699d8">Cantera::LiquidTranInteraction::init</a></div><div class="ttdeci">virtual void init(const XML_Node &amp;compModelNode=XML_Node(), thermo_t *thermo=0)</div><div class="ttdoc">initialize LiquidTranInteraction objects with thermo and XML node </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8cpp_source.html#l00070">LiquidTranInteraction.cpp:70</a></div></div>
 <div class="ttc" id="classCantera_1_1LiquidTransportData_html_a5da125afadd0ff6ddf1812dd719d8d5d"><div class="ttname"><a href="classCantera_1_1LiquidTransportData.html#a5da125afadd0ff6ddf1812dd719d8d5d">Cantera::LiquidTransportData::ionConductivity</a></div><div class="ttdeci">LTPspecies * ionConductivity</div><div class="ttdoc">Model type for the ionic conductivity. </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTransportData_8h_source.html#l00057">LiquidTransportData.h:57</a></div></div>
-<div class="ttc" id="classCantera_1_1LTI__MoleFracs__ExpT_html_a5e882dfa180ad1bde896a594727f5137"><div class="ttname"><a href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">Cantera::LTI_MoleFracs_ExpT::getMixTransProp</a></div><div class="ttdeci">doublereal getMixTransProp(doublereal *valueSpecies, doublereal *weightSpecies=0)</div><div class="ttdoc">Copy constructor. </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8cpp_source.html#l00715">LiquidTranInteraction.cpp:715</a></div></div>
+<div class="ttc" id="classCantera_1_1LTI__MoleFracs__ExpT_html_a5e882dfa180ad1bde896a594727f5137"><div class="ttname"><a href="classCantera_1_1LTI__MoleFracs__ExpT.html#a5e882dfa180ad1bde896a594727f5137">Cantera::LTI_MoleFracs_ExpT::getMixTransProp</a></div><div class="ttdeci">doublereal getMixTransProp(doublereal *valueSpecies, doublereal *weightSpecies=0)</div><div class="ttdoc">Copy constructor. </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8cpp_source.html#l00714">LiquidTranInteraction.cpp:714</a></div></div>
 <div class="ttc" id="classCantera_1_1IonsFromNeutralVPSSTP_html_a0a8bb2177b13896d5f661b472ef96aca"><div class="ttname"><a href="classCantera_1_1IonsFromNeutralVPSSTP.html#a0a8bb2177b13896d5f661b472ef96aca">Cantera::IonsFromNeutralVPSSTP::neutralMoleculePhase_</a></div><div class="ttdeci">ThermoPhase * neutralMoleculePhase_</div><div class="ttdoc">This is a pointer to the neutral Molecule Phase. </div><div class="ttdef"><b>Definition:</b> <a href="IonsFromNeutralVPSSTP_8h_source.html#l00699">IonsFromNeutralVPSSTP.h:699</a></div></div>
 <div class="ttc" id="classCantera_1_1LiquidTranInteraction_html_af814415fbe7bdb087ade2c24c753d120"><div class="ttname"><a href="classCantera_1_1LiquidTranInteraction.html#af814415fbe7bdb087ade2c24c753d120">Cantera::LiquidTranInteraction::m_Eij</a></div><div class="ttdeci">DenseMatrix m_Eij</div><div class="ttdoc">Matrix of interactions (in energy units, 1/RT temperature dependence) </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8h_source.html#l00165">LiquidTranInteraction.h:165</a></div></div>
 <div class="ttc" id="classCantera_1_1LiquidTranInteraction_html"><div class="ttname"><a href="classCantera_1_1LiquidTranInteraction.html">Cantera::LiquidTranInteraction</a></div><div class="ttdoc">Base class to handle transport property evaluation in a mixture. </div><div class="ttdef"><b>Definition:</b> <a href="LiquidTranInteraction_8h_source.html#l00103">LiquidTranInteraction.h:103</a></div></div>

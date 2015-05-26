@@ -171,7 +171,7 @@ Models and Managers</h1>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 0.0 if the reactions are not the same. If the reactions are the same, it returns the ratio of the stoichiometric coefficients.</dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000048">Deprecated:</a></b></dt><dd>Now handled by <a class="el" href="group__kineticsmgr.html#gaed8b1f2c5e17e1e8d6a82c6760035992" title="Check whether r1 and r2 represent duplicate stoichiometries This function returns a ratio if two reac...">Kinetics::checkDuplicateStoich</a>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000052">Deprecated:</a></b></dt><dd>Now handled by <a class="el" href="group__kineticsmgr.html#gaed8b1f2c5e17e1e8d6a82c6760035992" title="Check whether r1 and r2 represent duplicate stoichiometries This function returns a ratio if two reac...">Kinetics::checkDuplicateStoich</a>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="importKinetics_8cpp_source.html#l00520">520</a> of file <a class="el" href="importKinetics_8cpp_source.html">importKinetics.cpp</a>.</p>
 
@@ -218,7 +218,7 @@ Models and Managers</h1>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000049">Deprecated:</a></b></dt><dd>Now handled by <a class="el" href="classCantera_1_1Kinetics.html#ad91d18a3991901b15555ac2e5d0a8f12" title="Check that the specified reaction is balanced (same number of atoms for each element in the reactants...">Kinetics::checkReactionBalance</a>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000053">Deprecated:</a></b></dt><dd>Now handled by <a class="el" href="classCantera_1_1Kinetics.html#ad91d18a3991901b15555ac2e5d0a8f12" title="Check that the specified reaction is balanced (same number of atoms for each element in the reactants...">Kinetics::checkReactionBalance</a>. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="importKinetics_8cpp_source.html#l00036">36</a> of file <a class="el" href="importKinetics_8cpp_source.html">importKinetics.cpp</a>.</p>
 
@@ -263,7 +263,7 @@ Models and Managers</h1>
 </div><div class="memdoc">
 
 <p>Read the rate coefficient data from the XML file. </p>
-<p>Extract the rate coefficient for a reaction from the xml node, kf. kf should point to a XML element named "rateCoeff". rdata is the partially filled <a class="el" href="classCantera_1_1ReactionData.html" title="Intermediate class which stores data about a reaction and its rate parameterization before adding the...">ReactionData</a> object for the reaction. This function will fill in more fields in the <a class="el" href="classCantera_1_1ReactionData.html" title="Intermediate class which stores data about a reaction and its rate parameterization before adding the...">ReactionData</a> object.</p>
+<p>Extract the rate coefficient for a reaction from the XML node, kf. kf should point to a XML element named "rateCoeff". rdata is the partially filled <a class="el" href="classCantera_1_1ReactionData.html" title="Intermediate class which stores data about a reaction and its rate parameterization before adding the...">ReactionData</a> object for the reaction. This function will fill in more fields in the <a class="el" href="classCantera_1_1ReactionData.html" title="Intermediate class which stores data about a reaction and its rate parameterization before adding the...">ReactionData</a> object.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">kf</td><td><a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a> containing information about the rate coefficients. </td></tr>
@@ -274,7 +274,7 @@ Models and Managers</h1>
   </dd>
 </dl>
 <p>Trigger an exception for negative A unless specifically authorized.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000051">Deprecated:</a></b></dt><dd>Now handled through <a class="el" href="namespaceCantera.html#a3f427a93eb078fb84df1395d14f78242" title="Create a new Reaction object for the reaction defined in rxn_node ">newReaction()</a> and its support functions. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000055">Deprecated:</a></b></dt><dd>Now handled through <a class="el" href="namespaceCantera.html#a3f427a93eb078fb84df1395d14f78242" title="Create a new Reaction object for the reaction defined in rxn_node ">newReaction()</a> and its support functions. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2.</dd></dl>
 
 <p>Definition at line <a class="el" href="importKinetics_8cpp_source.html#l00417">417</a> of file <a class="el" href="importKinetics_8cpp_source.html">importKinetics.cpp</a>.</p>
 
@@ -319,7 +319,7 @@ Models and Managers</h1>
 </div><div class="memdoc">
 
 <p>Install information about reactions into the kinetics object, kin. </p>
-<p>At this point, parent usually refers to the phase xml element. One of the children of this element is reactionArray, the element which determines where in the xml file to look up the reaction rate data.</p>
+<p>At this point, parent usually refers to the phase XML element. One of the children of this element is reactionArray, the element which determines where in the XML file to look up the reaction rate data.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>parent XML phase element </td></tr>
@@ -333,7 +333,7 @@ Models and Managers</h1>
 
 <p>Definition at line <a class="el" href="importKinetics_8cpp_source.html#l00562">562</a> of file <a class="el" href="importKinetics_8cpp_source.html">importKinetics.cpp</a>.</p>
 
-<p>References <a class="el" href="Kinetics_8cpp_source.html#l00557">Kinetics::addReaction()</a>, <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00168">Kinetics::checkDuplicates()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00548">Kinetics::finalize()</a>, <a class="el" href="global_8cpp_source.html#l00222">Cantera::get_XML_Node()</a>, <a class="el" href="xml_8cpp_source.html#l00915">XML_Node::getChildren()</a>, <a class="el" href="xml_8cpp_source.html#l00563">XML_Node::hasChild()</a>, <a class="el" href="Reaction_8cpp_source.html#l00615">Cantera::newReaction()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="xml_8cpp_source.html#l01095">XML_Node::root()</a>, <a class="el" href="Kinetics_8h_source.html#l00819">Kinetics::skipUndeclaredSpecies()</a>, and <a class="el" href="Kinetics_8h_source.html#l00828">Kinetics::skipUndeclaredThirdBodies()</a>.</p>
+<p>References <a class="el" href="Kinetics_8cpp_source.html#l00557">Kinetics::addReaction()</a>, <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00168">Kinetics::checkDuplicates()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00548">Kinetics::finalize()</a>, <a class="el" href="global_8cpp_source.html#l00222">Cantera::get_XML_Node()</a>, <a class="el" href="xml_8cpp_source.html#l00915">XML_Node::getChildren()</a>, <a class="el" href="xml_8cpp_source.html#l00563">XML_Node::hasChild()</a>, <a class="el" href="Reaction_8cpp_source.html#l00609">Cantera::newReaction()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="xml_8cpp_source.html#l01095">XML_Node::root()</a>, <a class="el" href="Kinetics_8h_source.html#l00829">Kinetics::skipUndeclaredSpecies()</a>, and <a class="el" href="Kinetics_8h_source.html#l00838">Kinetics::skipUndeclaredThirdBodies()</a>.</p>
 
 <p>Referenced by <a class="el" href="importKinetics_8cpp_source.html#l00678">Cantera::importKinetics()</a>.</p>
 
@@ -373,7 +373,7 @@ Models and Managers</h1>
 <p>This routine will import a reaction mechanism into a kinetics object. The reaction mechanism may either be homogeneous or heterogeneous, involving multiple <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> objects. The hosting phase should be included as the first argument. For example, if phase I is an interface phase between bulk phases A and B. Then, the <a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a> for phase I should be the first argument. The vector of <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> objects should consist of pointers to phases I, A, and B.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">phase</td><td>This is an xml node containing a description of the owning phase for the kinetics object. Within the phase is a XML element called reactionArray containing the location of the description of the reactions that make up the kinetics object. Also within the phase is an XML element called phaseArray containing a listing of other phases that participate in the kinetics mechanism.</td></tr>
+    <tr><td class="paramname">phase</td><td>This is an XML node containing a description of the owning phase for the kinetics object. Within the phase is a XML element called reactionArray containing the location of the description of the reactions that make up the kinetics object. Also within the phase is an XML element called phaseArray containing a listing of other phases that participate in the kinetics mechanism.</td></tr>
     <tr><td class="paramname">th</td><td>This is a list of <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> pointers which must include all of the phases that participate in the kinetics operator. All of the phases must have already been initialized and formed within <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a>. However, their pointers should not have been added to the <a class="el" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a> object; this addition is carried out here. Additional phases may be include in the list; these have no effect.</td></tr>
     <tr><td class="paramname">kin</td><td>This is a pointer to a kinetics manager class that will be initialized with the kinetics mechanism. Inherited <a class="el" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a> classes should be used here. </td></tr>
   </table>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>One-dimensional Reacting Flows &mdash; Cantera 2.2a documentation</title>
+    <title>One-dimensional Reacting Flows &mdash; Cantera 2.2.0b1 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.2a',
+        VERSION:     '2.2.0b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Physical Constants" href="constants.html" />
     <link rel="prev" title="Zero-Dimensional Reactor Networks" href="zerodim.html" /> 
@@ -65,6 +65,8 @@
 <li><a class="reference internal" href="#freeflame">FreeFlame</a></li>
 <li><a class="reference internal" href="#burnerflame">BurnerFlame</a></li>
 <li><a class="reference internal" href="#counterflowdiffusionflame">CounterflowDiffusionFlame</a></li>
+<li><a class="reference internal" href="#counterflowpremixedflame">CounterflowPremixedFlame</a></li>
+<li><a class="reference internal" href="#impingingjet">ImpingingJet</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#flow-domains">Flow Domains</a><ul>
@@ -132,27 +134,29 @@
 <li><a class="reference internal" href="#freeflame" id="id14">FreeFlame</a></li>
 <li><a class="reference internal" href="#burnerflame" id="id15">BurnerFlame</a></li>
 <li><a class="reference internal" href="#counterflowdiffusionflame" id="id16">CounterflowDiffusionFlame</a></li>
+<li><a class="reference internal" href="#counterflowpremixedflame" id="id17">CounterflowPremixedFlame</a></li>
+<li><a class="reference internal" href="#impingingjet" id="id18">ImpingingJet</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#flow-domains" id="id17">Flow Domains</a><ul>
-<li><a class="reference internal" href="#freeflow" id="id18">FreeFlow</a></li>
-<li><a class="reference internal" href="#axisymmetricstagnationflow" id="id19">AxisymmetricStagnationFlow</a></li>
+<li><a class="reference internal" href="#flow-domains" id="id19">Flow Domains</a><ul>
+<li><a class="reference internal" href="#freeflow" id="id20">FreeFlow</a></li>
+<li><a class="reference internal" href="#axisymmetricstagnationflow" id="id21">AxisymmetricStagnationFlow</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#boundaries" id="id20">Boundaries</a><ul>
-<li><a class="reference internal" href="#inlet1d" id="id21">Inlet1D</a></li>
-<li><a class="reference internal" href="#outlet1d" id="id22">Outlet1D</a></li>
-<li><a class="reference internal" href="#outletreservoir1d" id="id23">OutletReservoir1D</a></li>
-<li><a class="reference internal" href="#symmetryplane1d" id="id24">SymmetryPlane1D</a></li>
-<li><a class="reference internal" href="#surface1d" id="id25">Surface1D</a></li>
-<li><a class="reference internal" href="#reactingsurface1d" id="id26">ReactingSurface1D</a></li>
+<li><a class="reference internal" href="#boundaries" id="id22">Boundaries</a><ul>
+<li><a class="reference internal" href="#inlet1d" id="id23">Inlet1D</a></li>
+<li><a class="reference internal" href="#outlet1d" id="id24">Outlet1D</a></li>
+<li><a class="reference internal" href="#outletreservoir1d" id="id25">OutletReservoir1D</a></li>
+<li><a class="reference internal" href="#symmetryplane1d" id="id26">SymmetryPlane1D</a></li>
+<li><a class="reference internal" href="#surface1d" id="id27">Surface1D</a></li>
+<li><a class="reference internal" href="#reactingsurface1d" id="id28">ReactingSurface1D</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#base-classes" id="id27">Base Classes</a><ul>
-<li><a class="reference internal" href="#domain1d" id="id28">Domain1D</a></li>
-<li><a class="reference internal" href="#boundary1d" id="id29">Boundary1D</a></li>
-<li><a class="reference internal" href="#sim1d" id="id30">Sim1D</a></li>
-<li><a class="reference internal" href="#flamebase" id="id31">FlameBase</a></li>
+<li><a class="reference internal" href="#base-classes" id="id29">Base Classes</a><ul>
+<li><a class="reference internal" href="#domain1d" id="id30">Domain1D</a></li>
+<li><a class="reference internal" href="#boundary1d" id="id31">Boundary1D</a></li>
+<li><a class="reference internal" href="#sim1d" id="id32">Sim1D</a></li>
+<li><a class="reference internal" href="#flamebase" id="id33">FlameBase</a></li>
 </ul>
 </li>
 </ul>
@@ -414,11 +418,112 @@ condition at the oxidizer inlet.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="counterflowpremixedflame">
+<h3><a class="toc-backref" href="#id17">CounterflowPremixedFlame</a><a class="headerlink" href="#counterflowpremixedflame" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="cantera.CounterflowPremixedFlame">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">CounterflowPremixedFlame</tt><big>(</big><em>gas</em>, <em>grid=None</em><big>)</big><a class="headerlink" href="#cantera.CounterflowPremixedFlame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.onedim.FlameBase</span></tt></p>
+<p>A premixed counterflow flame</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gas</strong> &#8211; <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> (using the IdealGas thermodynamic model) used to
+evaluate all gas properties and reaction rates.</li>
+<li><strong>grid</strong> &#8211; Array of initial grid points</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A domain of class <a class="reference internal" href="#cantera.AxisymmetricStagnationFlow" title="cantera.AxisymmetricStagnationFlow"><tt class="xref py py-obj docutils literal"><span class="pre">AxisymmetricStagnationFlow</span></tt></a> named <tt class="docutils literal"><span class="pre">flame</span></tt> will
+be created to represent the flame. The three domains comprising the
+stack are stored as <tt class="docutils literal"><span class="pre">self.reactants</span></tt>, <tt class="docutils literal"><span class="pre">self.flame</span></tt>, and
+<tt class="docutils literal"><span class="pre">self.products</span></tt>.</p>
+<dl class="attribute">
+<dt id="cantera.CounterflowPremixedFlame.flame">
+<tt class="descname">flame</tt><a class="headerlink" href="#cantera.CounterflowPremixedFlame.flame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.CounterflowPremixedFlame.products">
+<tt class="descname">products</tt><a class="headerlink" href="#cantera.CounterflowPremixedFlame.products" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.CounterflowPremixedFlame.reactants">
+<tt class="descname">reactants</tt><a class="headerlink" href="#cantera.CounterflowPremixedFlame.reactants" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.CounterflowPremixedFlame.set_initial_guess">
+<tt class="descname">set_initial_guess</tt><big>(</big><em>equilibrate=True</em><big>)</big><a class="headerlink" href="#cantera.CounterflowPremixedFlame.set_initial_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial guess for the solution.</p>
+<p>If <tt class="xref py py-obj docutils literal"><span class="pre">equilibrate</span></tt> is True, then the products composition and temperature
+will be set to the equilibrium state of the reactants mixture.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="impingingjet">
+<h3><a class="toc-backref" href="#id18">ImpingingJet</a><a class="headerlink" href="#impingingjet" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="cantera.ImpingingJet">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ImpingingJet</tt><big>(</big><em>gas</em>, <em>grid=None</em><big>)</big><a class="headerlink" href="#cantera.ImpingingJet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">cantera.onedim.FlameBase</span></tt></p>
+<p>An axisymmetric flow impinging on a surface at normal incidence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gas</strong> &#8211; <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> (using the IdealGas thermodynamic model) used to
+evaluate all gas properties and reaction rates.</li>
+<li><strong>grid</strong> &#8211; Array of initial grid points</li>
+<li><strong>surface</strong> &#8211; A Kinetics object used to compute any surface reactions.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A domain of class <a class="reference internal" href="#cantera.AxisymmetricStagnationFlow" title="cantera.AxisymmetricStagnationFlow"><tt class="xref py py-obj docutils literal"><span class="pre">AxisymmetricStagnationFlow</span></tt></a> named <tt class="docutils literal"><span class="pre">flame</span></tt> will be
+created to represent the flow. The three domains comprising the stack
+are stored as <tt class="docutils literal"><span class="pre">self.inlet</span></tt>, <tt class="docutils literal"><span class="pre">self.flame</span></tt>, and <tt class="docutils literal"><span class="pre">self.surface</span></tt>.</p>
+<dl class="attribute">
+<dt id="cantera.ImpingingJet.flame">
+<tt class="descname">flame</tt><a class="headerlink" href="#cantera.ImpingingJet.flame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ImpingingJet.inlet">
+<tt class="descname">inlet</tt><a class="headerlink" href="#cantera.ImpingingJet.inlet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.ImpingingJet.set_initial_guess">
+<tt class="descname">set_initial_guess</tt><big>(</big><em>products='inlet'</em><big>)</big><a class="headerlink" href="#cantera.ImpingingJet.set_initial_guess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial guess for the solution. If products = &#8216;equil&#8217;, then
+the equilibrium composition at the adiabatic flame temperature will be
+used to form the initial guess. Otherwise the inlet composition will
+be used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ImpingingJet.surface">
+<tt class="descname">surface</tt><a class="headerlink" href="#cantera.ImpingingJet.surface" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="flow-domains">
-<h2><a class="toc-backref" href="#id17">Flow Domains</a><a class="headerlink" href="#flow-domains" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Flow Domains</a><a class="headerlink" href="#flow-domains" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="freeflow">
-<h3><a class="toc-backref" href="#id18">FreeFlow</a><a class="headerlink" href="#freeflow" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">FreeFlow</a><a class="headerlink" href="#freeflow" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.FreeFlow">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">FreeFlow</tt><big>(</big><em>thermo</em><big>)</big><a class="headerlink" href="#cantera.FreeFlow" title="Permalink to this definition">¶</a></dt>
@@ -598,7 +703,7 @@ component.</p>
 
 </div>
 <div class="section" id="axisymmetricstagnationflow">
-<h3><a class="toc-backref" href="#id19">AxisymmetricStagnationFlow</a><a class="headerlink" href="#axisymmetricstagnationflow" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">AxisymmetricStagnationFlow</a><a class="headerlink" href="#axisymmetricstagnationflow" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.AxisymmetricStagnationFlow">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">AxisymmetricStagnationFlow</tt><big>(</big><em>thermo</em><big>)</big><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow" title="Permalink to this definition">¶</a></dt>
@@ -804,9 +909,9 @@ component.</p>
 </div>
 </div>
 <div class="section" id="boundaries">
-<h2><a class="toc-backref" href="#id20">Boundaries</a><a class="headerlink" href="#boundaries" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Boundaries</a><a class="headerlink" href="#boundaries" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="inlet1d">
-<h3><a class="toc-backref" href="#id21">Inlet1D</a><a class="headerlink" href="#inlet1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Inlet1D</a><a class="headerlink" href="#inlet1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.Inlet1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Inlet1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.Inlet1D" title="Permalink to this definition">¶</a></dt>
@@ -824,7 +929,7 @@ stack.</p>
 
 </div>
 <div class="section" id="outlet1d">
-<h3><a class="toc-backref" href="#id22">Outlet1D</a><a class="headerlink" href="#outlet1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Outlet1D</a><a class="headerlink" href="#outlet1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.Outlet1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Outlet1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.Outlet1D" title="Permalink to this definition">¶</a></dt>
@@ -835,7 +940,7 @@ condition on the flow.</p>
 
 </div>
 <div class="section" id="outletreservoir1d">
-<h3><a class="toc-backref" href="#id23">OutletReservoir1D</a><a class="headerlink" href="#outletreservoir1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">OutletReservoir1D</a><a class="headerlink" href="#outletreservoir1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.OutletReservoir1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">OutletReservoir1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.OutletReservoir1D" title="Permalink to this definition">¶</a></dt>
@@ -845,7 +950,7 @@ condition on the flow.</p>
 
 </div>
 <div class="section" id="symmetryplane1d">
-<h3><a class="toc-backref" href="#id24">SymmetryPlane1D</a><a class="headerlink" href="#symmetryplane1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">SymmetryPlane1D</a><a class="headerlink" href="#symmetryplane1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.SymmetryPlane1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">SymmetryPlane1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.SymmetryPlane1D" title="Permalink to this definition">¶</a></dt>
@@ -855,7 +960,7 @@ condition on the flow.</p>
 
 </div>
 <div class="section" id="surface1d">
-<h3><a class="toc-backref" href="#id25">Surface1D</a><a class="headerlink" href="#surface1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Surface1D</a><a class="headerlink" href="#surface1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.Surface1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Surface1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.Surface1D" title="Permalink to this definition">¶</a></dt>
@@ -865,7 +970,7 @@ condition on the flow.</p>
 
 </div>
 <div class="section" id="reactingsurface1d">
-<h3><a class="toc-backref" href="#id26">ReactingSurface1D</a><a class="headerlink" href="#reactingsurface1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id28">ReactingSurface1D</a><a class="headerlink" href="#reactingsurface1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.ReactingSurface1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ReactingSurface1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.ReactingSurface1D" title="Permalink to this definition">¶</a></dt>
@@ -888,9 +993,9 @@ condition on the flow.</p>
 </div>
 </div>
 <div class="section" id="base-classes">
-<h2><a class="toc-backref" href="#id27">Base Classes</a><a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Base Classes</a><a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="domain1d">
-<h3><a class="toc-backref" href="#id28">Domain1D</a><a class="headerlink" href="#domain1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">Domain1D</a><a class="headerlink" href="#domain1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.Domain1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Domain1D</tt><big>(</big><em>name=None</em><big>)</big><a class="headerlink" href="#cantera.Domain1D" title="Permalink to this definition">¶</a></dt>
@@ -1011,7 +1116,7 @@ component.</p>
 
 </div>
 <div class="section" id="boundary1d">
-<h3><a class="toc-backref" href="#id29">Boundary1D</a><a class="headerlink" href="#boundary1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">Boundary1D</a><a class="headerlink" href="#boundary1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.Boundary1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Boundary1D</tt><big>(</big><em>phase</em>, <em>name=None</em><big>)</big><a class="headerlink" href="#cantera.Boundary1D" title="Permalink to this definition">¶</a></dt>
@@ -1056,7 +1161,7 @@ or as an array.</p>
 
 </div>
 <div class="section" id="sim1d">
-<h3><a class="toc-backref" href="#id30">Sim1D</a><a class="headerlink" href="#sim1d" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id32">Sim1D</a><a class="headerlink" href="#sim1d" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.Sim1D">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Sim1D</tt><big>(</big><em>domains</em><big>)</big><a class="headerlink" href="#cantera.Sim1D" title="Permalink to this definition">¶</a></dt>
@@ -1432,7 +1537,7 @@ contains the values of the residual function.</p>
 
 </div>
 <div class="section" id="flamebase">
-<h3><a class="toc-backref" href="#id31">FlameBase</a><a class="headerlink" href="#flamebase" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">FlameBase</a><a class="headerlink" href="#flamebase" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.FlameBase">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">FlameBase</tt><big>(</big><em>domains</em>, <em>gas</em>, <em>grid=None</em><big>)</big><a class="headerlink" href="#cantera.FlameBase" title="Permalink to this definition">¶</a></dt>
@@ -2019,7 +2124,7 @@ zero to disable pruning the grid.</li>
 <dt id="cantera.FlameBase.solution">
 <tt class="descname">solution</tt><big>(</big><em>component</em>, <em>point=None</em><big>)</big><a class="headerlink" href="#cantera.FlameBase.solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the solution at one point or for the full flame domain (if
-<tt class="xref py py-obj docutils literal"><span class="pre">point=None</span></tt>) for the specified <em>component</em>. The <em>compnent</em> can be
+<tt class="xref py py-obj docutils literal"><span class="pre">point=None</span></tt>) for the specified <em>component</em>. The <em>component</em> can be
 specified by name or index.</p>
 </dd></dl>
 

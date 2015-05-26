@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>diffusion_flame_batch.py &mdash; Cantera 2.2a documentation</title>
+    <title>diffusion_flame_batch.py &mdash; Cantera 2.2.0b1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.2a',
+        VERSION:     '2.2.0b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2a documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="diffusion_flame_extinction.py" href="onedim_diffusion_flame_extinction.html" />
     <link rel="prev" title="diffusion_flame.py" href="onedim_diffusion_flame.html" /> 
@@ -225,7 +225,7 @@
                <span class="s">&#39;, reaction mechanism &#39;</span> <span class="o">+</span> <span class="n">reaction_mechanism</span><span class="p">)</span>
         <span class="n">p_previous</span> <span class="o">=</span> <span class="n">p</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error occured while solving:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">&#39;Try next pressure level&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Error occurred while solving:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s">&#39;Try next pressure level&#39;</span><span class="p">)</span>
         <span class="c"># If solution failed: Restore the last successful solution and continue</span>
         <span class="n">f</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">data_directory</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;solution&#39;</span><span class="p">,</span>
                   <span class="n">loglevel</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>

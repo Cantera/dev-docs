@@ -34,6 +34,7 @@ var searchData=
   ['build',['build',['../classCantera_1_1XML__Node.html#a02fe6456bc9aef3250b1f2cdde3a2780',1,'Cantera::XML_Node']]],
   ['buildmap',['buildmap',['../classCantera_1_1StatMech.html#a8218621a7a8e97775656c7ebe6956242',1,'Cantera::StatMech']]],
   ['buildsolutionfromxml',['buildSolutionFromXML',['../group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588',1,'Cantera']]],
+  ['buildsurfacearrhenius',['buildSurfaceArrhenius',['../classCantera_1_1InterfaceKinetics.html#a37734c49a5ce10c7b8b5a843483d48ad',1,'Cantera::InterfaceKinetics']]],
   ['bulk_5fdeposition',['BULK_DEPOSITION',['../group__solvesp__bulkFunc.html#gaa7b207ea4b9b00fe897eb275ace8afbb',1,'solveSP.h']]],
   ['bulk_5fetch',['BULK_ETCH',['../group__solvesp__bulkFunc.html#ga92b5e73562d02f6ccb5ae3d6182938b8',1,'solveSP.h']]],
   ['bulkkinetics',['BulkKinetics',['../classCantera_1_1BulkKinetics.html',1,'Cantera']]],

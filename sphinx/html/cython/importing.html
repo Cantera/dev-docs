@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Creating Phase Objects &mdash; Cantera 2.2a documentation</title>
+    <title>Creating Phase Objects &mdash; Cantera 2.2.0b1 documentation</title>
     
     <link rel="stylesheet" href="../_static/site.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.2a',
+        VERSION:     '2.2.0b1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2a documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Thermodynamic Properties" href="thermo.html" />
     <link rel="prev" title="Tutorial" href="tutorial.html" /> 
@@ -61,6 +61,7 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Creating Phase Objects</a><ul>
+<li><a class="reference internal" href="#pure-fluid-phases">Pure Fluid Phases</a></li>
 <li><a class="reference internal" href="#utility-functions">Utility Functions</a></li>
 </ul>
 </li>
@@ -163,7 +164,7 @@ argument:</p>
 <p>Two-dimensional interfaces.</p>
 <p>Instances of class <a class="reference internal" href="#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a> represent reacting 2D interfaces between bulk
 3D phases. Class <a class="reference internal" href="#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a> defines no methods of its own. All of its
-methods derive from either <a class="reference internal" href="thermo.html#cantera.InterfacePhase" title="cantera.InterfacePhase"><tt class="xref py py-obj docutils literal"><span class="pre">InterfacePhase</span></tt></a> or <tt class="xref py py-obj docutils literal"><span class="pre">InterfaceKinetics</span></tt>.</p>
+methods derive from either <a class="reference internal" href="thermo.html#cantera.InterfacePhase" title="cantera.InterfacePhase"><tt class="xref py py-obj docutils literal"><span class="pre">InterfacePhase</span></tt></a> or <a class="reference internal" href="kinetics.html#cantera.InterfaceKinetics" title="cantera.InterfaceKinetics"><tt class="xref py py-obj docutils literal"><span class="pre">InterfaceKinetics</span></tt></a>.</p>
 <p>To construct an <a class="reference internal" href="#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a> object, adjacent bulk phases which participate
 in reactions need to be created and then passed in as a list in the
 <tt class="docutils literal"><span class="pre">phases</span></tt> argument to the constructor:</p>
@@ -183,6 +184,59 @@ in reactions need to be created and then passed in as a list in the
 coefficients. The model does not compute viscosity or thermal conductivity.</p>
 </dd></dl>
 
+<div class="section" id="pure-fluid-phases">
+<h2>Pure Fluid Phases<a class="headerlink" href="#pure-fluid-phases" title="Permalink to this headline">¶</a></h2>
+<p>The following convenience functions can be used to create <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> objects
+with the indicated equation of state:</p>
+<dl class="function">
+<dt id="cantera.CarbonDioxide">
+<tt class="descclassname">cantera.</tt><tt class="descname">CarbonDioxide</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.CarbonDioxide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for carbon dioxide.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Heptane">
+<tt class="descclassname">cantera.</tt><tt class="descname">Heptane</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Heptane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for heptane.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Hfc134a">
+<tt class="descclassname">cantera.</tt><tt class="descname">Hfc134a</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Hfc134a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for HFC-134a.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Hydrogen">
+<tt class="descclassname">cantera.</tt><tt class="descname">Hydrogen</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Hydrogen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for hydrogen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Methane">
+<tt class="descclassname">cantera.</tt><tt class="descname">Methane</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Methane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for methane.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Nitrogen">
+<tt class="descclassname">cantera.</tt><tt class="descname">Nitrogen</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Nitrogen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for nitrogen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Oxygen">
+<tt class="descclassname">cantera.</tt><tt class="descname">Oxygen</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Oxygen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for oxygen.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cantera.Water">
+<tt class="descclassname">cantera.</tt><tt class="descname">Water</tt><big>(</big><big>)</big><a class="headerlink" href="#cantera.Water" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="thermo.html#cantera.PureFluid" title="cantera.PureFluid"><tt class="xref py py-obj docutils literal"><span class="pre">PureFluid</span></tt></a> object using the equation of state for water.</p>
+</dd></dl>
+
+</div>
 <div class="section" id="utility-functions">
 <h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">

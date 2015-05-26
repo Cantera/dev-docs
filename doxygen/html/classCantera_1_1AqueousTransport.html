@@ -362,10 +362,10 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a29d28ae59386a30f3011a966ca751b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix of the ratios of the species molecular weights.  <a href="#a29d28ae59386a30f3011a966ca751b41">More...</a><br/></td></tr>
 <tr class="separator:a29d28ae59386a30f3011a966ca751b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf56c8aaa87895de95c267144ac9b835"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCantera_1_1Array2D.html">Array2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1AqueousTransport.html#adf56c8aaa87895de95c267144ac9b835">m_B</a></td></tr>
-<tr class="memdesc:adf56c8aaa87895de95c267144ac9b835"><td class="mdescLeft">&#160;</td><td class="mdescRight">RHS to the stefan-maxwell equation.  <a href="#adf56c8aaa87895de95c267144ac9b835">More...</a><br/></td></tr>
+<tr class="memdesc:adf56c8aaa87895de95c267144ac9b835"><td class="mdescLeft">&#160;</td><td class="mdescRight">RHS to the Stefan-Maxwell equation.  <a href="#adf56c8aaa87895de95c267144ac9b835">More...</a><br/></td></tr>
 <tr class="separator:adf56c8aaa87895de95c267144ac9b835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f60adb6a83fd9b598474f009964584d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCantera_1_1DenseMatrix.html">DenseMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1AqueousTransport.html#a5f60adb6a83fd9b598474f009964584d">m_A</a></td></tr>
-<tr class="memdesc:a5f60adb6a83fd9b598474f009964584d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix for the stefan maxwell equation.  <a href="#a5f60adb6a83fd9b598474f009964584d">More...</a><br/></td></tr>
+<tr class="memdesc:a5f60adb6a83fd9b598474f009964584d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix for the Stefan-Maxwell equation.  <a href="#a5f60adb6a83fd9b598474f009964584d">More...</a><br/></td></tr>
 <tr class="separator:a5f60adb6a83fd9b598474f009964584d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa14a6057c726f67d664ae84c9b22b41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1AqueousTransport.html#aaa14a6057c726f67d664ae84c9b22b41">m_eps</a></td></tr>
 <tr class="memdesc:aaa14a6057c726f67d664ae84c9b22b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal storage for the species LJ well depth.  <a href="#aaa14a6057c726f67d664ae84c9b22b41">More...</a><br/></td></tr>
@@ -507,14 +507,14 @@ Additional Inherited Members</h2></td></tr>
 <p class="formulaDsp">
 \[ \sum_i \mathbf{j}_i = 0 \]
 </p>
-<p>When there are charged species, we replace the rhs with the gradient of the electrochemical potential to obtain the modified equation</p>
+<p>When there are charged species, we replace the RHS with the gradient of the electrochemical potential to obtain the modified equation</p>
 <p class="formulaDsp">
 \[ c_i \nabla \mu_i + c_i F z_i \nabla \Phi = R T \sum_j \frac{1}{D_{ij}} (\frac{x_i \mathbf{j}_j}{M_j} - \frac{x_j \mathbf{j}_i}{M_i}) \]
 </p>
 <p>With this formulation we may solve for the diffusion velocities, without having to worry about what the mass averaged velocity is.</p>
 <h2>Viscosity Calculation </h2>
 <p>The viscosity calculation may be broken down into two parts. In the first part, the viscosity of the pure species are calculated In the second part, a mixing rule is applied, based on the Wilkes correlation, to yield the mixture viscosity.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000186">Deprecated:</a></b></dt><dd>Non-functional. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000198">Deprecated:</a></b></dt><dd>Non-functional. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="AqueousTransport_8h_source.html#l00102">102</a> of file <a class="el" href="AqueousTransport_8h_source.html">AqueousTransport.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -821,7 +821,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the Electrical mobilities (m^2/V/s). </p>
-<p>This function returns the mobilities. In some formulations this is equal to the normal mobility multiplied by faraday's constant.</p>
+<p>This function returns the mobilities. In some formulations this is equal to the normal mobility multiplied by Faraday's constant.</p>
 <p>Frequently, but not always, the mobility is calculated from the diffusion coefficient using the Einstein relation</p>
 <p class="formulaDsp">
 \[ \mu^e_k = \frac{F D_k}{R T} \]
@@ -2008,7 +2008,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>RHS to the stefan-maxwell equation. </p>
+<p>RHS to the Stefan-Maxwell equation. </p>
 
 <p>Definition at line <a class="el" href="AqueousTransport_8h_source.html#l00439">439</a> of file <a class="el" href="AqueousTransport_8h_source.html">AqueousTransport.h</a>.</p>
 
@@ -2034,7 +2034,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Matrix for the stefan maxwell equation. </p>
+<p>Matrix for the Stefan-Maxwell equation. </p>
 
 <p>Definition at line <a class="el" href="AqueousTransport_8h_source.html#l00442">442</a> of file <a class="el" href="AqueousTransport_8h_source.html">AqueousTransport.h</a>.</p>
 

@@ -176,10 +176,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1eb0811ff5571ee2b5cb0648c2028063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply the matrix by another matrix that leads to better conditioning.  <a href="#a1eb0811ff5571ee2b5cb0648c2028063">More...</a><br/></td></tr>
 <tr class="separator:a1eb0811ff5571ee2b5cb0648c2028063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41d7851c76c9319d9c971ac0ba9f76be"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ResidJacEval.html#a41d7851c76c9319d9c971ac0ba9f76be">evalJacobian</a> (const doublereal t, const doublereal delta_t, doublereal cj, const doublereal *const y, const doublereal *const ydot, <a class="el" href="classCantera_1_1GeneralMatrix.html">GeneralMatrix</a> &amp;J, doublereal *const resid)</td></tr>
-<tr class="memdesc:a41d7851c76c9319d9c971ac0ba9f76be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate an analytical jacobian and the residual at the current time and values.  <a href="#a41d7851c76c9319d9c971ac0ba9f76be">More...</a><br/></td></tr>
+<tr class="memdesc:a41d7851c76c9319d9c971ac0ba9f76be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate an analytical Jacobian and the residual at the current time and values.  <a href="#a41d7851c76c9319d9c971ac0ba9f76be">More...</a><br/></td></tr>
 <tr class="separator:a41d7851c76c9319d9c971ac0ba9f76be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f22a03f521fceae49989b0b1879e23d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ResidJacEval.html#a2f22a03f521fceae49989b0b1879e23d">evalJacobianDP</a> (const doublereal t, const doublereal delta_t, doublereal cj, const doublereal *const y, const doublereal *const ydot, doublereal *const *jacobianColPts, doublereal *const resid)</td></tr>
-<tr class="memdesc:a2f22a03f521fceae49989b0b1879e23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate an analytical jacobian and the residual at the current time and values.  <a href="#a2f22a03f521fceae49989b0b1879e23d">More...</a><br/></td></tr>
+<tr class="memdesc:a2f22a03f521fceae49989b0b1879e23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate an analytical Jacobian and the residual at the current time and values.  <a href="#a2f22a03f521fceae49989b0b1879e23d">More...</a><br/></td></tr>
 <tr class="separator:a2f22a03f521fceae49989b0b1879e23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCantera_1_1ResidEval"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCantera_1_1ResidEval')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCantera_1_1ResidEval.html">ResidEval</a></td></tr>
 <tr class="memitem:ae4bc126cc623e7583c462e09f109cc2c inherit pub_methods_classCantera_1_1ResidEval"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ResidEval.html#ae4bc126cc623e7583c462e09f109cc2c">constrain</a> (const int k, const int flag)</td></tr>
@@ -332,7 +332,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>References <a class="el" href="ResidJacEval_8cpp_source.html#l00019">ResidJacEval::ResidJacEval()</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00229">NonlinearSolver::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00230">NonlinearSolver::operator=()</a>.</p>
 
 </div>
 </div>
@@ -365,7 +365,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>References <a class="el" href="ResidJacEval_8h_source.html#l00317">ResidJacEval::neq_</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l01348">BEulerInt::doNewtonSolve()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l00164">BEulerInt::initializeRJE()</a>, <a class="el" href="DAE__Solver_8h_source.html#l00196">DAE_Solver::nEquations()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00058">NonlinearSolver::NonlinearSolver()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l01349">BEulerInt::doNewtonSolve()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l00165">BEulerInt::initializeRJE()</a>, <a class="el" href="DAE__Solver_8h_source.html#l00196">DAE_Solver::nEquations()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l00058">NonlinearSolver::NonlinearSolver()</a>.</p>
 
 </div>
 </div>
@@ -446,7 +446,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
     <tr><td class="paramname">ydot</td><td>Rate of change of solution vector. (input, do not modify) </td></tr>
     <tr><td class="paramname">resid</td><td>Value of the residual that is computed (output) </td></tr>
     <tr><td class="paramname">evalType</td><td>Type of the residual being computed (defaults to Base_ResidEval) </td></tr>
-    <tr><td class="paramname">id_x</td><td>Index of the variable that is being numerically differenced to find the jacobian (defaults to -1, which indicates that no variable is being differenced or that the residual doesn't take this issue into account) </td></tr>
+    <tr><td class="paramname">id_x</td><td>Index of the variable that is being numerically differenced to find the Jacobian (defaults to -1, which indicates that no variable is being differenced or that the residual doesn't take this issue into account) </td></tr>
     <tr><td class="paramname">delta_x</td><td>Value of the delta used in the numerical differencing</td></tr>
   </table>
   </dd>
@@ -455,7 +455,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>Definition at line <a class="el" href="ResidJacEval_8cpp_source.html#l00152">152</a> of file <a class="el" href="ResidJacEval_8cpp_source.html">ResidJacEval.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00482">BEulerInt::beuler_jac()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l03198">NonlinearSolver::beuler_jac()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01348">BEulerInt::doNewtonSolve()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00563">NonlinearSolver::doResidualCalc()</a>, <a class="el" href="ResidJacEval_8cpp_source.html#l00162">ResidJacEval::eval()</a>, and <a class="el" href="IDA__Solver_8cpp_source.html#l00068">ida_resid()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00483">BEulerInt::beuler_jac()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l03199">NonlinearSolver::beuler_jac()</a>, <a class="el" href="BEulerInt_8cpp_source.html#l01349">BEulerInt::doNewtonSolve()</a>, <a class="el" href="NonlinearSolver_8cpp_source.html#l00564">NonlinearSolver::doResidualCalc()</a>, <a class="el" href="ResidJacEval_8cpp_source.html#l00162">ResidJacEval::eval()</a>, and <a class="el" href="IDA__Solver_8cpp_source.html#l00068">ida_resid()</a>.</p>
 
 </div>
 </div>
@@ -579,7 +579,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>References <a class="el" href="ResidJacEval_8h_source.html#l00317">ResidJacEval::neq_</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00164">BEulerInt::initializeRJE()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00165">BEulerInt::initializeRJE()</a>.</p>
 
 </div>
 </div>
@@ -635,7 +635,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>Definition at line <a class="el" href="ResidJacEval_8cpp_source.html#l00128">128</a> of file <a class="el" href="ResidJacEval_8cpp_source.html">ResidJacEval.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03498">NonlinearSolver::filterNewStep()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l03499">NonlinearSolver::filterNewStep()</a>.</p>
 
 </div>
 </div>
@@ -684,7 +684,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>Definition at line <a class="el" href="ResidJacEval_8cpp_source.html#l00133">133</a> of file <a class="el" href="ResidJacEval_8cpp_source.html">ResidJacEval.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00589">BEulerInt::calc_y_pred()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03504">NonlinearSolver::filterNewSolution()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00590">BEulerInt::calc_y_pred()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03505">NonlinearSolver::filterNewSolution()</a>.</p>
 
 </div>
 </div>
@@ -897,7 +897,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
     <tr><td class="paramname">t</td><td>Time (input) </td></tr>
     <tr><td class="paramname">y</td><td>Solution vector (input, do not modify) </td></tr>
     <tr><td class="paramname">ydot</td><td>Rate of change of solution vector. (input, do not modify) </td></tr>
-    <tr><td class="paramname">delta_y</td><td>Value of the delta to be used in calculating the numerical jacobian </td></tr>
+    <tr><td class="paramname">delta_y</td><td>Value of the delta to be used in calculating the numerical Jacobian </td></tr>
     <tr><td class="paramname">solnWeights</td><td>Value of the solution weights that are used in determining convergence (default = 0)</td></tr>
   </table>
   </dd>
@@ -908,7 +908,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>References <a class="el" href="ResidJacEval_8h_source.html#l00314">ResidJacEval::m_atol</a>, and <a class="el" href="ResidJacEval_8h_source.html#l00317">ResidJacEval::neq_</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00482">BEulerInt::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03198">NonlinearSolver::beuler_jac()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00483">BEulerInt::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03199">NonlinearSolver::beuler_jac()</a>.</p>
 
 </div>
 </div>
@@ -972,7 +972,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>References <a class="el" href="ResidJacEval_8h_source.html#l00317">ResidJacEval::neq_</a>.</p>
 
-<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00547">NonlinearSolver::calcColumnScales()</a>, and <a class="el" href="BEulerInt_8cpp_source.html#l00265">BEulerInt::setColumnScales()</a>.</p>
+<p>Referenced by <a class="el" href="NonlinearSolver_8cpp_source.html#l00548">NonlinearSolver::calcColumnScales()</a>, and <a class="el" href="BEulerInt_8cpp_source.html#l00266">BEulerInt::setColumnScales()</a>.</p>
 
 </div>
 </div>
@@ -1145,14 +1145,14 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </div><div class="memdoc">
 
 <p>Multiply the matrix by another matrix that leads to better conditioning. </p>
-<p>Provide a left sided matrix that will multiply the current jacobian, after scaling and lead to a better conditioned system. This routine is called just before the matrix is factored.</p>
+<p>Provide a left sided matrix that will multiply the current Jacobian, after scaling and lead to a better conditioned system. This routine is called just before the matrix is factored.</p>
 <p>Original Problem: J delta_x = - Resid</p>
 <p>New problem: M (J delta_x) = - M Resid</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">matrix</td><td>Pointer to the current jacobian (if zero, it's already been factored) </td></tr>
+    <tr><td class="paramname">matrix</td><td>Pointer to the current Jacobian (if zero, it's already been factored) </td></tr>
     <tr><td class="paramname">nrows</td><td>offsets for the matrix </td></tr>
-    <tr><td class="paramname">rhs</td><td>residual vector. This also needs to be lhs multiplied by M</td></tr>
+    <tr><td class="paramname">rhs</td><td>residual vector. This also needs to be LHS multiplied by M</td></tr>
   </table>
   </dd>
 </dl>
@@ -1160,7 +1160,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>Definition at line <a class="el" href="ResidJacEval_8cpp_source.html#l00146">146</a> of file <a class="el" href="ResidJacEval_8cpp_source.html">ResidJacEval.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l01348">BEulerInt::doNewtonSolve()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l01349">BEulerInt::doNewtonSolve()</a>.</p>
 
 </div>
 </div>
@@ -1226,13 +1226,13 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </table>
 </div><div class="memdoc">
 
-<p>Calculate an analytical jacobian and the residual at the current time and values. </p>
+<p>Calculate an analytical Jacobian and the residual at the current time and values. </p>
 <p>Only called if the jacFormation method is set to analytical</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Time (input) </td></tr>
     <tr><td class="paramname">delta_t</td><td>The current value of the time step (input) </td></tr>
-    <tr><td class="paramname">cj</td><td>Coefficient of yprime used in the evaluation of the jacobian </td></tr>
+    <tr><td class="paramname">cj</td><td>Coefficient of yprime used in the evaluation of the Jacobian </td></tr>
     <tr><td class="paramname">y</td><td>Solution vector (input, do not modify) </td></tr>
     <tr><td class="paramname">ydot</td><td>Rate of change of solution vector. (input, do not modify) </td></tr>
     <tr><td class="paramname">J</td><td>Reference to the <a class="el" href="classCantera_1_1SquareMatrix.html" title="A class for full (non-sparse) matrices with Fortran-compatible data storage. ">SquareMatrix</a> object to be calculated (output) </td></tr>
@@ -1246,7 +1246,7 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 <p>References <a class="el" href="classCantera_1_1GeneralMatrix.html#adf8b3a593751faf5aaa0f35d46f7be11">GeneralMatrix::colPts()</a>, and <a class="el" href="ResidJacEval_8cpp_source.html#l00178">ResidJacEval::evalJacobianDP()</a>.</p>
 
-<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00482">BEulerInt::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03198">NonlinearSolver::beuler_jac()</a>.</p>
+<p>Referenced by <a class="el" href="BEulerInt_8cpp_source.html#l00483">BEulerInt::beuler_jac()</a>, and <a class="el" href="NonlinearSolver_8cpp_source.html#l03199">NonlinearSolver::beuler_jac()</a>.</p>
 
 </div>
 </div>
@@ -1312,13 +1312,13 @@ std::map&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </table>
 </div><div class="memdoc">
 
-<p>Calculate an analytical jacobian and the residual at the current time and values. </p>
+<p>Calculate an analytical Jacobian and the residual at the current time and values. </p>
 <p>Only called if the jacFormation method is set to analytical</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Time (input) </td></tr>
     <tr><td class="paramname">delta_t</td><td>The current value of the time step (input) </td></tr>
-    <tr><td class="paramname">cj</td><td>Coefficient of yprime used in the evaluation of the jacobian </td></tr>
+    <tr><td class="paramname">cj</td><td>Coefficient of yprime used in the evaluation of the Jacobian </td></tr>
     <tr><td class="paramname">y</td><td>Solution vector (input, do not modify) </td></tr>
     <tr><td class="paramname">ydot</td><td>Rate of change of solution vector. (input, do not modify) </td></tr>
     <tr><td class="paramname">jacobianColPts</td><td>Pointer to the vector of pts to columns of the <a class="el" href="classCantera_1_1SquareMatrix.html" title="A class for full (non-sparse) matrices with Fortran-compatible data storage. ">SquareMatrix</a> object to be calculated (output) </td></tr>

@@ -201,10 +201,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76c220f297212424cf3403c1dca3f19f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Properties of the Standard State of the Species in the Solution</div></td></tr>
 <tr class="memitem:a77dc389824f582351ac27bfeea7ee40a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1WaterSSTP.html#a77dc389824f582351ac27bfeea7ee40a">getStandardChemPotentials</a> (doublereal *gss) const </td></tr>
-<tr class="memdesc:a77dc389824f582351ac27bfeea7ee40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the gibbs function for the species standard states at the current T and P of the solution.  <a href="#a77dc389824f582351ac27bfeea7ee40a">More...</a><br/></td></tr>
+<tr class="memdesc:a77dc389824f582351ac27bfeea7ee40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Gibbs function for the species standard states at the current T and P of the solution.  <a href="#a77dc389824f582351ac27bfeea7ee40a">More...</a><br/></td></tr>
 <tr class="separator:a77dc389824f582351ac27bfeea7ee40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66114a278f844f030e7106b81c64ab63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1WaterSSTP.html#a66114a278f844f030e7106b81c64ab63">getGibbs_RT</a> (doublereal *grt) const </td></tr>
-<tr class="memdesc:a66114a278f844f030e7106b81c64ab63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the nondimensional gibbs function for the species standard states at the current T and P of the solution.  <a href="#a66114a278f844f030e7106b81c64ab63">More...</a><br/></td></tr>
+<tr class="memdesc:a66114a278f844f030e7106b81c64ab63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the nondimensional Gibbs function for the species standard states at the current T and P of the solution.  <a href="#a66114a278f844f030e7106b81c64ab63">More...</a><br/></td></tr>
 <tr class="separator:a66114a278f844f030e7106b81c64ab63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae94cb960fdd69ee8cc9ca6ff0ea631d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1WaterSSTP.html#ae94cb960fdd69ee8cc9ca6ff0ea631d7">getEnthalpy_RT</a> (doublereal *hrt) const </td></tr>
 <tr class="memdesc:ae94cb960fdd69ee8cc9ca6ff0ea631d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the array of nondimensional Enthalpy functions for the standard state species at the current <em>T</em> and <em>P</em> of the solution.  <a href="#ae94cb960fdd69ee8cc9ca6ff0ea631d7">More...</a><br/></td></tr>
@@ -990,7 +990,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><!-- fragment --><p>or</p>
 <div class="fragment"><div class="line">XML_Node *xm = <a class="code" href="namespaceCantera.html#addf5bf4ba81ede1e1c4799e39de9e337">get_XML_NameID</a>(<span class="stringliteral">&quot;phase&quot;</span>, <span class="stringliteral">&quot;waterSSTPphase.xml#water&quot;</span>, 0);</div>
 <div class="line"><a class="code" href="classCantera_1_1WaterSSTP.html#a15224711f84e4f6b3509d8e61e0c479c">WaterSSTP</a> *w = <span class="keyword">new</span> <a class="code" href="classCantera_1_1WaterSSTP.html#a15224711f84e4f6b3509d8e61e0c479c">WaterSSTP</a>(*xm);</div>
-</div><!-- fragment --><p>or by the following call to <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>:</p>
+</div><!-- fragment --><p>or by the following call to <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>:</p>
 <div class="fragment"><div class="line">XML_Node *xm = <a class="code" href="namespaceCantera.html#addf5bf4ba81ede1e1c4799e39de9e337">get_XML_NameID</a>(<span class="stringliteral">&quot;phase&quot;</span>, <span class="stringliteral">&quot;waterSSTPphase.xml#water&quot;</span>, 0);</div>
 <div class="line"><a class="code" href="classCantera_1_1WaterSSTP.html#a15224711f84e4f6b3509d8e61e0c479c">WaterSSTP</a> water;</div>
 <div class="line"><a class="code" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">importPhase</a>(*xm, &amp;water);</div>
@@ -1498,10 +1498,10 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </table>
 </div><div class="memdoc">
 
-<p>Get the gibbs function for the species standard states at the current T and P of the solution. </p>
+<p>Get the Gibbs function for the species standard states at the current T and P of the solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gss</td><td>Vector of length m_kk, which on return will contain the standard state gibbs function for species <em>k</em>. </td></tr>
+    <tr><td class="paramname">gss</td><td>Vector of length m_kk, which on return will contain the standard state Gibbs function for species <em>k</em>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1536,10 +1536,10 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </table>
 </div><div class="memdoc">
 
-<p>Get the nondimensional gibbs function for the species standard states at the current T and P of the solution. </p>
+<p>Get the nondimensional Gibbs function for the species standard states at the current T and P of the solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grt</td><td>Vector of length m_kk, which on return will contain the nondimensional standard state gibbs function for species <em>k</em> </td></tr>
+    <tr><td class="paramname">grt</td><td>Vector of length m_kk, which on return will contain the nondimensional standard state Gibbs function for species <em>k</em> </td></tr>
   </table>
   </dd>
 </dl>
@@ -1803,7 +1803,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the vector of the gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. units = J/kmol</p>
+<p>Returns the vector of the Gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. units = J/kmol</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td>Output vector containing the reference state Gibbs Free energies. Length: m_kk. Units: J/kmol. </td></tr>
@@ -2210,7 +2210,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><div class="memdoc">
 
 <p>Import and initialize a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object using an XML tree. </p>
-<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
+<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
 <p>The default implementation in <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> calls the virtual function <a class="el" href="classCantera_1_1SingleSpeciesTP.html#a8a12209d08a5c4876d9894d619368a79">initThermo()</a> and then sets the "state" of the phase by looking for an XML element named "state", and then interpreting its contents by calling the virtual function <a class="el" href="classCantera_1_1ThermoPhase.html#a01e155d014f6e4b4fd3121fda565fc7d" title="Set the initial state of the phase to the conditions specified in the state XML element. ">setStateFromXML()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2251,7 +2251,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><div class="memdoc">
 
 <p>Set equation of state parameter values from XML entries. </p>
-<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
+<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">eosdata</td><td>An <a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a> object corresponding to the "thermo" entry for this phase in the input file. </td></tr>

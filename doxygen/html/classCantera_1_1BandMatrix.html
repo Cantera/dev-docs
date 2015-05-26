@@ -230,10 +230,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0cf4267353b62989517490c13f97979d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the data from one array into another without doing any checking.  <a href="#a0cf4267353b62989517490c13f97979d">More...</a><br/></td></tr>
 <tr class="separator:a0cf4267353b62989517490c13f97979d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#ac9ed5808b2437d9f0c871d1ebece7e30">checkRows</a> (doublereal &amp;valueSmall) const </td></tr>
-<tr class="memdesc:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if we have any zero rows in the jacobian.  <a href="#ac9ed5808b2437d9f0c871d1ebece7e30">More...</a><br/></td></tr>
+<tr class="memdesc:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if we have any zero rows in the Jacobian.  <a href="#ac9ed5808b2437d9f0c871d1ebece7e30">More...</a><br/></td></tr>
 <tr class="separator:ac9ed5808b2437d9f0c871d1ebece7e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7759bbca975b38f8e76a4b659ca1efa1"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#a7759bbca975b38f8e76a4b659ca1efa1">checkColumns</a> (doublereal &amp;valueSmall) const </td></tr>
-<tr class="memdesc:a7759bbca975b38f8e76a4b659ca1efa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if we have any zero columns in the jacobian.  <a href="#a7759bbca975b38f8e76a4b659ca1efa1">More...</a><br/></td></tr>
+<tr class="memdesc:a7759bbca975b38f8e76a4b659ca1efa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if we have any zero columns in the Jacobian.  <a href="#a7759bbca975b38f8e76a4b659ca1efa1">More...</a><br/></td></tr>
 <tr class="separator:a7759bbca975b38f8e76a4b659ca1efa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab6f7789babde1fa77ee93d54fd3e55a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1BandMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a">useFactorAlgorithm</a> (int fAlgorithm)</td></tr>
 <tr class="memdesc:aab6f7789babde1fa77ee93d54fd3e55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the way the matrix is factored.  <a href="#aab6f7789babde1fa77ee93d54fd3e55a">More...</a><br/></td></tr>
@@ -1145,7 +1145,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Solve the matrix problem Ax = b. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">b</td><td>INPUT rhs of the problem </td></tr>
+    <tr><td class="paramname">b</td><td>INPUT RHS of the problem </td></tr>
     <tr><td class="paramname">x</td><td>OUTPUT solution to the problem</td></tr>
   </table>
   </dd>
@@ -1201,7 +1201,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Solve the matrix problem Ax = b. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">b</td><td>INPUT rhs of the problem OUTPUT solution to the problem </td></tr>
+    <tr><td class="paramname">b</td><td>INPUT RHS of the problem OUTPUT solution to the problem </td></tr>
     <tr><td class="paramname">nrhs</td><td>Number of right hand sides to solve </td></tr>
     <tr><td class="paramname">ldb</td><td>Leading dimension of <code>b</code>. Default is <a class="el" href="classCantera_1_1BandMatrix.html#a478db41c986e36a2c8608f14df103f0a" title="Number of columns. ">nColumns()</a></td></tr>
   </table>
@@ -1597,7 +1597,7 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000116">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000124">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Implements <a class="el" href="classCantera_1_1GeneralMatrix.html#ae4c9f9bdba7bee38a492685dc13f13c9">GeneralMatrix</a>.</p>
 
@@ -1629,7 +1629,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check to see if we have any zero rows in the jacobian. </p>
+<p>Check to see if we have any zero rows in the Jacobian. </p>
 <p>This utility routine checks to see if any rows are zero. The smallest row is returned along with the largest coefficient in that row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1669,7 +1669,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check to see if we have any zero columns in the jacobian. </p>
+<p>Check to see if we have any zero columns in the Jacobian. </p>
 <p>This utility routine checks to see if any columns are zero. The smallest column is returned along with the largest coefficient in that column</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

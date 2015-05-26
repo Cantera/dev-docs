@@ -312,7 +312,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad746e85d2e4eee75b1a965e321f97f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional Gibbs Free Energies of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#ad746e85d2e4eee75b1a965e321f97f01">More...</a><br/></td></tr>
 <tr class="separator:ad746e85d2e4eee75b1a965e321f97f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42ab44735c97d8f993d1b8af88cea04a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a42ab44735c97d8f993d1b8af88cea04a">getGibbs_ref</a> (doublereal *g) const </td></tr>
-<tr class="memdesc:a42ab44735c97d8f993d1b8af88cea04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of the gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a42ab44735c97d8f993d1b8af88cea04a">More...</a><br/></td></tr>
+<tr class="memdesc:a42ab44735c97d8f993d1b8af88cea04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of the Gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a42ab44735c97d8f993d1b8af88cea04a">More...</a><br/></td></tr>
 <tr class="separator:a42ab44735c97d8f993d1b8af88cea04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b45e9eed24c08624109dd9c8a32c88"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#aa3b45e9eed24c08624109dd9c8a32c88">getEntropy_R_ref</a> (doublereal *er) const </td></tr>
 <tr class="memdesc:aa3b45e9eed24c08624109dd9c8a32c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional entropies of the reference state at the current temperature of the solution and the reference pressure for each species.  <a href="#aa3b45e9eed24c08624109dd9c8a32c88">More...</a><br/></td></tr>
@@ -928,7 +928,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Describe activity coefficients.</p>
 <p>Describe K_a, K_p, and K_c, These are three different equilibrium constants.</p>
 <p>K_a is the calculation of the equilibrium constant from the standard state Gibbs free energy values. It is by definition dimensionless.</p>
-<p>K_p is the calculation of the equilibrium constant from the reference state gibbs free energy values. It is by definition dimensionless. The pressure dependence is handled entirely on the rhs of the equilibrium expression.</p>
+<p>K_p is the calculation of the equilibrium constant from the reference state Gibbs free energy values. It is by definition dimensionless. The pressure dependence is handled entirely on the RHS of the equilibrium expression.</p>
 <p>K_c is the equilibrium constant calculated from the activity concentrations. The dimensions depend on the number of products and reactants.</p>
 <p>The kinetics manager requires the calculation of K_c for the calculation of the reverse rate constant </p>
 
@@ -1565,7 +1565,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>species vibrational specific heat at constant volume. </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000184">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000196">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 <p>Molar heat capacity at constant volume. Units: J/kmol/K. </p>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IdealGasPhase.html#ab614aae7bfa471162bc45549a40be44f">IdealGasPhase</a>.</p>
@@ -1758,7 +1758,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l01623">ThermoPhase::m_phi</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00163">InterfaceKinetics::setElectricPotential()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00150">InterfaceKinetics::setElectricPotential()</a>.</p>
 
 </div>
 </div>
@@ -1790,7 +1790,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l01623">ThermoPhase::m_phi</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00204">InterfaceKinetics::_update_rates_phi()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00092">PseudoBinaryVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00131">MolarityIonicVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00149">RedlichKisterVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00172">MixedSolventElectrolyte::getElectrochemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00168">MargulesVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00177">PhaseCombo_Interaction::getElectrochemPotentials()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00323">MolalityVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00573">ThermoPhase::getElectrochemPotentials()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00174">PseudoBinaryVPSSTP::report()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00351">PureFluidPhase::report()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00501">MolalityVPSSTP::report()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00900">ThermoPhase::report()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00754">VCSnonideal::vcs_Cantera_to_vprob()</a>, and <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l01144">VCSnonideal::vcs_Cantera_update_vprob()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00191">InterfaceKinetics::_update_rates_phi()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00092">PseudoBinaryVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00131">MolarityIonicVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="RedlichKisterVPSSTP_8cpp_source.html#l00149">RedlichKisterVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="MixedSolventElectrolyte_8cpp_source.html#l00172">MixedSolventElectrolyte::getElectrochemPotentials()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00168">MargulesVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="PhaseCombo__Interaction_8cpp_source.html#l00177">PhaseCombo_Interaction::getElectrochemPotentials()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00323">MolalityVPSSTP::getElectrochemPotentials()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00573">ThermoPhase::getElectrochemPotentials()</a>, <a class="el" href="PseudoBinaryVPSSTP_8cpp_source.html#l00174">PseudoBinaryVPSSTP::report()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00351">PureFluidPhase::report()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00501">MolalityVPSSTP::report()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00900">ThermoPhase::report()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00754">VCSnonideal::vcs_Cantera_to_vprob()</a>, and <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l01144">VCSnonideal::vcs_Cantera_update_vprob()</a>.</p>
 
 </div>
 </div>
@@ -1912,7 +1912,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00425">425</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="AqueousKinetics_8cpp_source.html#l00044">AqueousKinetics::_update_rates_C()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00216">InterfaceKinetics::_update_rates_C()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00126">ThermoPhase::getActivities()</a>, and <a class="el" href="GasKinetics_8cpp_source.html#l00070">GasKinetics::update_rates_C()</a>.</p>
+<p>Referenced by <a class="el" href="AqueousKinetics_8cpp_source.html#l00044">AqueousKinetics::_update_rates_C()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00203">InterfaceKinetics::_update_rates_C()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00126">ThermoPhase::getActivities()</a>, and <a class="el" href="GasKinetics_8cpp_source.html#l00070">GasKinetics::update_rates_C()</a>.</p>
 
 </div>
 </div>
@@ -1952,7 +1952,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00447">447</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00897">InterfaceKinetics::addReaction()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00126">ThermoPhase::getActivities()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00241">Cantera::getStick()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00121">ThermoPhase::logStandardConc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00345">InterfaceKinetics::updateExchangeCurrentQuantities()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l01007">InterfaceKinetics::buildSurfaceArrhenius()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00126">ThermoPhase::getActivities()</a>, <a class="el" href="importKinetics_8cpp_source.html#l00241">Cantera::getStick()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00121">ThermoPhase::logStandardConc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00332">InterfaceKinetics::updateExchangeCurrentQuantities()</a>.</p>
 
 </div>
 </div>
@@ -1992,7 +1992,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>References <a class="el" href="ThermoPhase_8h_source.html#l00447">ThermoPhase::standardConcentration()</a>.</p>
 
-<p>Referenced by <a class="el" href="AqueousKinetics_8cpp_source.html#l00075">AqueousKinetics::getEquilibriumConstants()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00050">AqueousKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00271">InterfaceKinetics::updateMu0()</a>.</p>
+<p>Referenced by <a class="el" href="AqueousKinetics_8cpp_source.html#l00075">AqueousKinetics::getEquilibriumConstants()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00050">AqueousKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00258">InterfaceKinetics::updateMu0()</a>.</p>
 
 </div>
 </div>
@@ -2047,7 +2047,7 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000185">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000197">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#abbf7704c3f9ae6f3374ad82de5f7e325">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#abbf7704c3f9ae6f3374ad82de5f7e325">DebyeHuckel</a>, <a class="el" href="classCantera_1_1MolalityVPSSTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">MolalityVPSSTP</a>, <a class="el" href="classCantera_1_1IdealSolidSolnPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">IdealSolidSolnPhase</a>, <a class="el" href="classCantera_1_1IdealMolalSoln.html#abbf7704c3f9ae6f3374ad82de5f7e325">IdealMolalSoln</a>, <a class="el" href="classCantera_1_1MetalSHEelectrons.html#a783b7d2320df4247828d678b7b0bbb46">MetalSHEelectrons</a>, <a class="el" href="classCantera_1_1FixedChemPotSSTP.html#a783b7d2320df4247828d678b7b0bbb46">FixedChemPotSSTP</a>, <a class="el" href="classCantera_1_1StoichSubstanceSSTP.html#a783b7d2320df4247828d678b7b0bbb46">StoichSubstanceSSTP</a>, <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">RedlichKwongMFTP</a>, <a class="el" href="classCantera_1_1MineralEQ3.html#a783b7d2320df4247828d678b7b0bbb46">MineralEQ3</a>, <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">GibbsExcessVPSSTP</a>, <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#abbf7704c3f9ae6f3374ad82de5f7e325">IdealSolnGasVPSS</a>, and <a class="el" href="classCantera_1_1StoichSubstance.html#abbf7704c3f9ae6f3374ad82de5f7e325">StoichSubstance</a>.</p>
 
@@ -2293,7 +2293,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>References <a class="el" href="Phase_8h_source.html#l00574">Phase::charge()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00352">ThermoPhase::electricPotential()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00554">ThermoPhase::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>.</p>
 
-<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00672">InterfaceKinetics::getDeltaElectrochemPotentials()</a>.</p>
+<p>Referenced by <a class="el" href="InterfaceKinetics_8cpp_source.html#l00659">InterfaceKinetics::getDeltaElectrochemPotentials()</a>.</p>
 
 </div>
 </div>
@@ -2332,7 +2332,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00587">587</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00633">MolalityVPSSTP::getCsvReportData()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l01055">ThermoPhase::getCsvReportData()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00043">BulkKinetics::getDeltaEnthalpy()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00688">InterfaceKinetics::getDeltaEnthalpy()</a>.</p>
+<p>Referenced by <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00633">MolalityVPSSTP::getCsvReportData()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l01055">ThermoPhase::getCsvReportData()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00043">BulkKinetics::getDeltaEnthalpy()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00675">InterfaceKinetics::getDeltaEnthalpy()</a>.</p>
 
 </div>
 </div>
@@ -2371,7 +2371,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00597">597</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00633">MolalityVPSSTP::getCsvReportData()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l01055">ThermoPhase::getCsvReportData()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00051">BulkKinetics::getDeltaEntropy()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00703">InterfaceKinetics::getDeltaEntropy()</a>.</p>
+<p>Referenced by <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00633">MolalityVPSSTP::getCsvReportData()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l01055">ThermoPhase::getCsvReportData()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00051">BulkKinetics::getDeltaEntropy()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00690">InterfaceKinetics::getDeltaEntropy()</a>.</p>
 
 </div>
 </div>
@@ -2599,7 +2599,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00670">670</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00133">SingleSpeciesTP::getChemPotentials()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00325">IonsFromNeutralVPSSTP::getChemPotentials()</a>, <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00138">SingleSpeciesTP::getChemPotentials_RT()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00059">BulkKinetics::getDeltaSSGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00719">InterfaceKinetics::getDeltaSSGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00075">AqueousKinetics::getEquilibriumConstants()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00120">GasKinetics::getEquilibriumConstants()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00600">vcs_MultiPhaseEquil::reportCSV()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00345">InterfaceKinetics::updateExchangeCurrentQuantities()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00050">AqueousKinetics::updateKc()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00100">GasKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00271">InterfaceKinetics::updateMu0()</a>.</p>
+<p>Referenced by <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00133">SingleSpeciesTP::getChemPotentials()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00325">IonsFromNeutralVPSSTP::getChemPotentials()</a>, <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00138">SingleSpeciesTP::getChemPotentials_RT()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00059">BulkKinetics::getDeltaSSGibbs()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00706">InterfaceKinetics::getDeltaSSGibbs()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00075">AqueousKinetics::getEquilibriumConstants()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00120">GasKinetics::getEquilibriumConstants()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00600">vcs_MultiPhaseEquil::reportCSV()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00332">InterfaceKinetics::updateExchangeCurrentQuantities()</a>, <a class="el" href="AqueousKinetics_8cpp_source.html#l00050">AqueousKinetics::updateKc()</a>, <a class="el" href="GasKinetics_8cpp_source.html#l00100">GasKinetics::updateKc()</a>, and <a class="el" href="InterfaceKinetics_8cpp_source.html#l00258">InterfaceKinetics::updateMu0()</a>.</p>
 
 </div>
 </div>
@@ -2637,7 +2637,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00680">680</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00210">PDSS_IonsFromNeutral::enthalpy_RT()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00070">BulkKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00737">InterfaceKinetics::getDeltaSSEnthalpy()</a>, and <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00149">SingleSpeciesTP::getPartialMolarEnthalpies()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00210">PDSS_IonsFromNeutral::enthalpy_RT()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00070">BulkKinetics::getDeltaSSEnthalpy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00724">InterfaceKinetics::getDeltaSSEnthalpy()</a>, and <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00149">SingleSpeciesTP::getPartialMolarEnthalpies()</a>.</p>
 
 </div>
 </div>
@@ -2675,7 +2675,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l00690">690</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
-<p>Referenced by <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00228">PDSS_IonsFromNeutral::entropy_R()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00082">BulkKinetics::getDeltaSSEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00759">InterfaceKinetics::getDeltaSSEntropy()</a>, and <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00161">SingleSpeciesTP::getPartialMolarEntropies()</a>.</p>
+<p>Referenced by <a class="el" href="PDSS__IonsFromNeutral_8cpp_source.html#l00228">PDSS_IonsFromNeutral::entropy_R()</a>, <a class="el" href="BulkKinetics_8cpp_source.html#l00082">BulkKinetics::getDeltaSSEntropy()</a>, <a class="el" href="InterfaceKinetics_8cpp_source.html#l00746">InterfaceKinetics::getDeltaSSEntropy()</a>, and <a class="el" href="SingleSpeciesTP_8cpp_source.html#l00161">SingleSpeciesTP::getPartialMolarEntropies()</a>.</p>
 
 </div>
 </div>
@@ -2704,7 +2704,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the nondimensional Gibbs functions for the species in their standard states at the current <em>T</em> and <em>P</em> of the solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state gibbs free energies Length: m_kk. </td></tr>
+    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state Gibbs free energies Length: m_kk. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2743,7 +2743,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Units are Joules/kmol </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpure</td><td>Output vector of standard state gibbs free energies Length: m_kk. </td></tr>
+    <tr><td class="paramname">gpure</td><td>Output vector of standard state Gibbs free energies Length: m_kk. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3038,7 +3038,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the vector of the gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. </p>
+<p>Returns the vector of the Gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. </p>
 <p>units = J/kmol</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4273,7 +4273,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00215">215</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8h_source.html#l00279">Cantera::clip()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00920">ThermoPhase::cp_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00927">ThermoPhase::cv_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00892">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00899">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>, <a class="el" href="Phase_8h_source.html#l00619">Phase::setDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00295">ThermoPhase::setPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00207">ThermoPhase::setState_conditional_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="global_8h_source.html#l00278">Cantera::clip()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00920">ThermoPhase::cp_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00927">ThermoPhase::cv_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00892">ThermoPhase::enthalpy_mass()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00899">ThermoPhase::intEnergy_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>, <a class="el" href="Phase_8h_source.html#l00619">Phase::setDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00295">ThermoPhase::setPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00207">ThermoPhase::setState_conditional_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 <p>Referenced by <a class="el" href="ThermoPhase_8cpp_source.html#l00196">ThermoPhase::setState_HP()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00202">ThermoPhase::setState_UV()</a>.</p>
 
@@ -4336,7 +4336,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00416">416</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8h_source.html#l00279">Cantera::clip()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00920">ThermoPhase::cp_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00927">ThermoPhase::cv_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00906">ThermoPhase::entropy_mass()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>, <a class="el" href="Phase_8h_source.html#l00619">Phase::setDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00295">ThermoPhase::setPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00207">ThermoPhase::setState_conditional_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="global_8h_source.html#l00278">Cantera::clip()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00920">ThermoPhase::cp_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00927">ThermoPhase::cv_mass()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00906">ThermoPhase::entropy_mass()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>, <a class="el" href="Phase_8h_source.html#l00619">Phase::setDensity()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00295">ThermoPhase::setPressure()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00207">ThermoPhase::setState_conditional_TP()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 <p>Referenced by <a class="el" href="ThermoPhase_8cpp_source.html#l00404">ThermoPhase::setState_SP()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00410">ThermoPhase::setState_SV()</a>.</p>
 
@@ -4857,7 +4857,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Install a species thermodynamic property manager. </p>
-<p>The species thermodynamic property manager computes properties of the pure species for use in constructing solution properties. It is meant for internal use, and some classes derived from <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> may not use any species thermodynamic property manager. This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>.</p>
+<p>The species thermodynamic property manager computes properties of the pure species for use in constructing solution properties. It is meant for internal use, and some classes derived from <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> may not use any species thermodynamic property manager. This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">spthermo</td><td>input pointer to the species thermodynamic property manager.</td></tr>
@@ -4993,7 +4993,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Import and initialize a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object using an XML tree. </p>
-<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
+<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
 <p>The default implementation in <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> calls the virtual function <a class="el" href="classCantera_1_1ThermoPhase.html#a8a12209d08a5c4876d9894d619368a79" title="Initialize the ThermoPhase object after all species have been set up. ">initThermo()</a> and then sets the "state" of the phase by looking for an XML element named "state", and then interpreting its contents by calling the virtual function <a class="el" href="classCantera_1_1ThermoPhase.html#a01e155d014f6e4b4fd3121fda565fc7d" title="Set the initial state of the phase to the conditions specified in the state XML element. ">setStateFromXML()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5036,7 +5036,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Initialize the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object after all species have been set up. </p>
 <p>Initialize.</p>
-<p>This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called from <a class="el" href="classCantera_1_1ThermoPhase.html#a42dab55c3f7b95e3fc87507816541e87" title="Import and initialize a ThermoPhase object using an XML tree. ">ThermoPhase::initThermoXML()</a>, which is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>, just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called from <a class="el" href="classCantera_1_1ThermoPhase.html#a42dab55c3f7b95e3fc87507816541e87" title="Import and initialize a ThermoPhase object using an XML tree. ">ThermoPhase::initThermoXML()</a>, which is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>, just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#a8a12209d08a5c4876d9894d619368a79">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#a8a12209d08a5c4876d9894d619368a79">DebyeHuckel</a>, <a class="el" href="classCantera_1_1IdealGasPhase.html#a8a12209d08a5c4876d9894d619368a79">IdealGasPhase</a>, <a class="el" href="classCantera_1_1LatticePhase.html#a8a12209d08a5c4876d9894d619368a79">LatticePhase</a>, <a class="el" href="classCantera_1_1MolalityVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">MolalityVPSSTP</a>, <a class="el" href="classCantera_1_1PhaseCombo__Interaction.html#a8a12209d08a5c4876d9894d619368a79">PhaseCombo_Interaction</a>, <a class="el" href="classCantera_1_1LatticeSolidPhase.html#a8a12209d08a5c4876d9894d619368a79">LatticeSolidPhase</a>, <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a8a12209d08a5c4876d9894d619368a79">MixtureFugacityTP</a>, <a class="el" href="classCantera_1_1IdealMolalSoln.html#a8a12209d08a5c4876d9894d619368a79">IdealMolalSoln</a>, <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">IonsFromNeutralVPSSTP</a>, <a class="el" href="classCantera_1_1MargulesVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">MargulesVPSSTP</a>, <a class="el" href="classCantera_1_1MixedSolventElectrolyte.html#a8a12209d08a5c4876d9894d619368a79">MixedSolventElectrolyte</a>, <a class="el" href="classCantera_1_1RedlichKisterVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">RedlichKisterVPSSTP</a>, <a class="el" href="classCantera_1_1SingleSpeciesTP.html#a8a12209d08a5c4876d9894d619368a79">SingleSpeciesTP</a>, <a class="el" href="classCantera_1_1VPStandardStateTP.html#a8a12209d08a5c4876d9894d619368a79">VPStandardStateTP</a>, <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">GibbsExcessVPSSTP</a>, <a class="el" href="classCantera_1_1PureFluidPhase.html#a8a12209d08a5c4876d9894d619368a79">PureFluidPhase</a>, <a class="el" href="classCantera_1_1StoichSubstanceSSTP.html#a8a12209d08a5c4876d9894d619368a79">StoichSubstanceSSTP</a>, <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a8a12209d08a5c4876d9894d619368a79">RedlichKwongMFTP</a>, <a class="el" href="classCantera_1_1SurfPhase.html#a8a12209d08a5c4876d9894d619368a79">SurfPhase</a>, <a class="el" href="classCantera_1_1StoichSubstance.html#a8a12209d08a5c4876d9894d619368a79">StoichSubstance</a>, <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a8a12209d08a5c4876d9894d619368a79">IdealSolnGasVPSS</a>, <a class="el" href="classCantera_1_1MolarityIonicVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">MolarityIonicVPSSTP</a>, <a class="el" href="classCantera_1_1ConstDensityThermo.html#a8a12209d08a5c4876d9894d619368a79">ConstDensityThermo</a>, and <a class="el" href="classCantera_1_1PseudoBinaryVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">PseudoBinaryVPSSTP</a>.</p>
 
@@ -5208,7 +5208,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set equation of state parameter values from XML entries. </p>
-<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
+<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">eosdata</td><td>An <a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a> object corresponding to the "thermo" entry for this phase in the input file. </td></tr>
@@ -5793,7 +5793,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reference Mole Fraction Composition. </p>
-<p>Occasionally, the need arises to find a safe mole fraction vector to initialize the object to. This contains such a vector. The algorithm will pick up the mole fraction vector that is applied from the state xml file in the input file </p>
+<p>Occasionally, the need arises to find a safe mole fraction vector to initialize the object to. This contains such a vector. The algorithm will pick up the mole fraction vector that is applied from the state XML file in the input file </p>
 
 <p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l01653">1653</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 

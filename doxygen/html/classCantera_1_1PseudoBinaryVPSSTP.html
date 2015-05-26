@@ -862,7 +862,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>getdlnActCoef
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Initialization</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp61bcd96a2c1f8026527cbf2019d6e9a4"></a>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file.</p>
-<p>They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 </td></tr>
 <tr class="memitem:a559808c22eee146bb2ceeaab3f82d6ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a559808c22eee146bb2ceeaab3f82d6ed"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>PBType_</b></td></tr>
@@ -1058,7 +1058,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 <p>All of the Excess Gibbs free energy formulations in this area employ symmetrical formulations.</p>
 <p>This layer will massage the mole fraction vector to implement cation and anion based mole numbers in an optional manner</p>
 <p>The way that it collects the cation and anion based mole numbers is via holding two extra <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> objects. These can include standard states for salts.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000156">Deprecated:</a></b></dt><dd>Incomplete and untested. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000168">Deprecated:</a></b></dt><dd>Incomplete and untested. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="PseudoBinaryVPSSTP_8h_source.html#l00067">67</a> of file <a class="el" href="PseudoBinaryVPSSTP_8h_source.html">PseudoBinaryVPSSTP.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -1163,7 +1163,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
 </div><div class="memdoc">
 
 <p>Duplication routine for objects which inherit from <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a>. </p>
-<p>This virtual routine can be used to duplicate thermophase objects inherited from <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> even if the application only has a pointer to <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> to work with. </p>
+<p>This virtual routine can be used to duplicate <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> objects inherited from <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> even if the application only has a pointer to <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> to work with. </p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#ada5dc6bcebfe0f6e38b664e204013159">GibbsExcessVPSSTP</a>.</p>
 
@@ -1289,7 +1289,7 @@ shared_ptr&lt; <a class="el" href="classCantera_1_1Species.html">Species</a> &gt
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Initialize. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>Initialize. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">GibbsExcessVPSSTP</a>.</p>
 

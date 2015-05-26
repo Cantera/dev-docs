@@ -228,9 +228,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class describing an extra global reaction, which is defined as a linear combination of actuals reactions, global or mass-action, creating a global stoichiometric result. </p>
 <p>This is useful for defining thermodynamics of global processes that occur on a surface or in a homogeneous phase.</p>
-<p>The class is set up via the function setupElemRxnVector(RxnVector, specialSpecies) which defines the vector of stoichiometric coefficients representing the base reaction to combine in order to achieve the global result that's to be calculated. specialSpecies is the index of the species within the kinetics object that is used to identify the global reaction. Rates of progress are defined in terms of the production rate of the special species. </p>
+<p>The class is set up via the function setupElemRxnVector(RxnVector, specialSpecies) which defines the vector of stoichiometric coefficients representing the base reaction to combine in order to achieve the global result that's to be calculated. specialSpecies is the index of the species within the kinetics object that is used to identify the global reaction. Rates of progress are defined in terms of the production rate of the special species.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000050">Deprecated:</a></b></dt><dd>Unfinished implementation to be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00034">34</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00035">35</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab132dc59aec64b23bd9f605362dca00e"></a>
 <div class="memitem">
@@ -256,7 +257,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 
 <p>Definition at line <a class="el" href="ExtraGlobalRxn_8cpp_source.html#l00086">86</a> of file <a class="el" href="ExtraGlobalRxn_8cpp_source.html">ExtraGlobalRxn.cpp</a>.</p>
 
-<p>References <a class="el" href="ExtraGlobalRxn_8h_source.html#l00078">ExtraGlobalRxn::m_InterfaceKinetics</a>, <a class="el" href="ExtraGlobalRxn_8h_source.html#l00071">ExtraGlobalRxn::m_kinetics</a>, <a class="el" href="Kinetics_8h_source.html#l00193">Kinetics::nReactions()</a>, and <a class="el" href="Kinetics_8h_source.html#l00297">Kinetics::nTotalSpecies()</a>.</p>
+<p>References <a class="el" href="ExtraGlobalRxn_8h_source.html#l00079">ExtraGlobalRxn::m_InterfaceKinetics</a>, <a class="el" href="ExtraGlobalRxn_8h_source.html#l00072">ExtraGlobalRxn::m_kinetics</a>, <a class="el" href="Kinetics_8h_source.html#l00193">Kinetics::nReactions()</a>, <a class="el" href="Kinetics_8h_source.html#l00297">Kinetics::nTotalSpecies()</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
 </div>
 </div>
@@ -283,7 +284,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00046">46</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00047">47</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +302,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 <p>This kinetics operator is associated with just one homogeneous phase, associated with tpList[0] phase. </p>
 <p><a class="el" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a> object pointer </p>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00071">71</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00072">72</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ExtraGlobalRxn_8cpp_source.html#l00086">ExtraGlobalRxn::ExtraGlobalRxn()</a>.</p>
 
@@ -320,7 +321,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 <p>This kinetics operator is associated with multiple homogeneous and surface phases. </p>
 <p>This object owns the <a class="el" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a> object </p>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00078">78</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00079">79</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ExtraGlobalRxn_8cpp_source.html#l00086">ExtraGlobalRxn::ExtraGlobalRxn()</a>.</p>
 
@@ -338,7 +339,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 
 <p>Number of reactants in the global reaction. </p>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00083">83</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00084">84</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 
 </div>
 </div>
@@ -355,7 +356,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 <p>Vector of reactants that make up the global reaction. </p>
 <p>This is a list of reactants using the kinetic species index </p>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00089">89</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00090">90</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 
 </div>
 </div>
@@ -372,7 +373,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_reversible</b></td>
 <p>Vector of reactant stoichiometries that make up the global reaction. </p>
 <p>This is a list of reactant stoichiometries. The species index is given in the member m_Reactants using the kinetic species index. </p>
 
-<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00096">96</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
+<p>Definition at line <a class="el" href="ExtraGlobalRxn_8h_source.html#l00097">97</a> of file <a class="el" href="ExtraGlobalRxn_8h_source.html">ExtraGlobalRxn.h</a>.</p>
 
 </div>
 </div>

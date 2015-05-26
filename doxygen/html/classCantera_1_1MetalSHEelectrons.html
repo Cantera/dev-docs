@@ -949,7 +949,7 @@ Additional Inherited Members</h2></td></tr>
 <p class="formulaDsp">
 \[ S^o_k(T,P) = S^{ref}_k(T) - R \ln(\frac{P}{P_{ref}}) \]
 </p>
-<p>The standard state gibbs free energy is obtained from the enthalpy and entropy functions:</p>
+<p>The standard state Gibbs free energy is obtained from the enthalpy and entropy functions:</p>
 <p class="formulaDsp">
 \[ \mu^o_k(T,P) = h^o_k(T,P) - S^o_k(T,P) T \]
 </p>
@@ -972,13 +972,13 @@ Additional Inherited Members</h2></td></tr>
 <p><b> Instantiation of the Class </b></p>
 <p>The constructor for this phase is located in the default <a class="el" href="classCantera_1_1ThermoFactory.html" title="Factory class for thermodynamic property managers. ">ThermoFactory</a> for Cantera. A new <a class="el" href="classCantera_1_1MetalSHEelectrons.html" title="Class MetalSHEelectrons represents electrons within a metal, adjacent to an aqueous electrolyte...">MetalSHEelectrons</a> object may be created by the following code snippets, where the file metalSHEelectrons.xml exists in a local directory:</p>
 <div class="fragment"><div class="line"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#ad3b0d2478250fd0f452b385ce5b5cb36">MetalSHEelectrons</a> *eMetal = <span class="keyword">new</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#ad3b0d2478250fd0f452b385ce5b5cb36">MetalSHEelectrons</a>(<span class="stringliteral">&quot;metalSHEelectrons.xml&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
-</div><!-- fragment --><p>or by the following call to <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>:</p>
+</div><!-- fragment --><p>or by the following call to <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>:</p>
 <div class="fragment"><div class="line">sprintf(file_ID,<span class="stringliteral">&quot;%s#MetalSHEelectrons&quot;</span>, iFile);</div>
 <div class="line">XML_Node *xm = <a class="code" href="namespaceCantera.html#addf5bf4ba81ede1e1c4799e39de9e337">get_XML_NameID</a>(<span class="stringliteral">&quot;phase&quot;</span>, file_ID, 0);</div>
 <div class="line"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#ad3b0d2478250fd0f452b385ce5b5cb36">MetalSHEelectrons</a> eMetal;</div>
 <div class="line"><a class="code" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">importPhase</a>(*xm, &amp;eMetal);</div>
 </div><!-- fragment --><div class="fragment"><div class="line"><a class="code" href="classCantera_1_1ThermoPhase.html#a7d672ec916b300be0faff59396d1d32a">ThermoPhase</a> *eMetal = <a class="code" href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">newPhase</a>(<span class="stringliteral">&quot;MetalSHEelectrons.xml&quot;</span>, <span class="stringliteral">&quot;MetalSHEelectrons&quot;</span>);</div>
-</div><!-- fragment --><p>Additionally, this phase may be created without including an xml file with the special command, where the default file is embedded into this object.</p>
+</div><!-- fragment --><p>Additionally, this phase may be created without including an XML file with the special command, where the default file is embedded into this object.</p>
 <div class="fragment"><div class="line"><a class="code" href="classCantera_1_1MetalSHEelectrons.html#ad3b0d2478250fd0f452b385ce5b5cb36">MetalSHEelectrons</a> *eMetal = <span class="keyword">new</span> <a class="code" href="classCantera_1_1MetalSHEelectrons.html#ad3b0d2478250fd0f452b385ce5b5cb36">MetalSHEelectrons</a>(<span class="stringliteral">&quot;MetalSHEelectrons_default.xml&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
 </div><!-- fragment --><p><b> XML Example </b></p>
 <p>The phase model name for this is called <a class="el" href="classCantera_1_1MetalSHEelectrons.html" title="Class MetalSHEelectrons represents electrons within a metal, adjacent to an aqueous electrolyte...">MetalSHEelectrons</a>. It must be supplied as the model attribute of the thermo XML element entry. Within the phase XML block, the density of the phase must be specified though it's not used. An example of an XML file this phase is given below.</p>
@@ -1618,7 +1618,7 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000135">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000146">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">ThermoPhase</a>.</p>
 
@@ -1731,7 +1731,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the nondimensional Gibbs functions for the species in their standard states at the current <em>T</em> and <em>P</em> of the solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state gibbs free energies Length: m_kk. </td></tr>
+    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state Gibbs free energies Length: m_kk. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1894,7 +1894,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Import and initialize a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object using an XML tree. </p>
-<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
+<p>Here we read extra information about the XML description of a phase. Regular information about elements and species and their reference state thermodynamic information have already been read at this point. For example, we do not need to call this function for ideal gas equations of state. This function is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> after the elements and the species are initialized with default ideal solution level data.</p>
 <p>The default implementation in <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> calls the virtual function <a class="el" href="classCantera_1_1SingleSpeciesTP.html#a8a12209d08a5c4876d9894d619368a79">initThermo()</a> and then sets the "state" of the phase by looking for an XML element named "state", and then interpreting its contents by calling the virtual function <a class="el" href="classCantera_1_1ThermoPhase.html#a01e155d014f6e4b4fd3121fda565fc7d" title="Set the initial state of the phase to the conditions specified in the state XML element. ">setStateFromXML()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2070,7 +2070,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set equation of state parameter values from XML entries. </p>
-<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
+<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
 <p>For this phase, the density of the phase is specified in this block.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

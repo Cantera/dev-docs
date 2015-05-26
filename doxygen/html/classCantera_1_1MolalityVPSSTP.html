@@ -228,7 +228,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a02da43a545df400427d067e2b07b8a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Initialization</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file.</p>
-<p>They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 </div></td></tr>
 <tr class="memitem:a8a12209d08a5c4876d9894d619368a79"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1MolalityVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">initThermo</a> ()</td></tr>
 <tr class="separator:a8a12209d08a5c4876d9894d619368a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1735,7 +1735,7 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000138">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000149">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">ThermoPhase</a>.</p>
 
@@ -2022,7 +2022,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set equation of state parameter values from XML entries. </p>
-<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model.</p>
+<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model.</p>
 <p>The <a class="el" href="classCantera_1_1MolalityVPSSTP.html">MolalityVPSSTP</a> object defines a new method for setting the concentrations of a phase. The new method is defined by a block called "soluteMolalities". If this block is found, the concentrations within that phase are set to the "name":"molalities pairs found within that XML block. The solvent concentration is then set to everything else.</p>
 <p>The function first calls the overloaded function, <a class="el" href="classCantera_1_1ThermoPhase.html#a01e155d014f6e4b4fd3121fda565fc7d" title="Set the initial state of the phase to the conditions specified in the state XML element. ">VPStandardStateTP::setStateFromXML()</a>, to pick up the parent class behavior.</p>
 <p>usage: Overloaded functions should call this function before carrying out their own behavior.</p>
@@ -2063,7 +2063,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file. They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file. They are not normally used in application programs. To see how they are used, see <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPStandardStateTP.html#a8a12209d08a5c4876d9894d619368a79">VPStandardStateTP</a>.</p>
 

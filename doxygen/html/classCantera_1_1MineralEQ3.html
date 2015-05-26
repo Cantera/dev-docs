@@ -979,7 +979,7 @@ Additional Inherited Members</h2></td></tr>
 <p class="formulaDsp">
 \[ u^o_k(T,P) = h^{ref}_k(T) - P_{ref} \tilde v \]
 </p>
-<p>The standard state heat capacity and entropy are independent of pressure. The standard state gibbs free energy is obtained from the enthalpy and entropy functions.</p>
+<p>The standard state heat capacity and entropy are independent of pressure. The standard state Gibbs free energy is obtained from the enthalpy and entropy functions.</p>
 <p><b> Specification of Solution Thermodynamic Properties </b></p>
 <p>All solution properties are obtained from the standard state species functions, since there is only one species in the phase.</p>
 <p><b> Application within <a class="el" href="classCantera_1_1Kinetics.html" title="Public interface for kinetics managers. ">Kinetics</a> Managers </b></p>
@@ -1553,7 +1553,7 @@ uA[5] = time units - default = 0
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000136">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000147">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1StoichSubstanceSSTP.html#a783b7d2320df4247828d678b7b0bbb46">StoichSubstanceSSTP</a>.</p>
 
@@ -1660,7 +1660,7 @@ uA[5] = time units - default = 0
 <p>Get the nondimensional Gibbs functions for the species in their standard states at the current <em>T</em> and <em>P</em> of the solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state gibbs free energies Length: m_kk. </td></tr>
+    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state Gibbs free energies Length: m_kk. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1814,7 +1814,7 @@ uA[5] = time units - default = 0
 
 <p>Initialize the phase parameters from an XML file. </p>
 <p><a class="el" href="classCantera_1_1MineralEQ3.html#a42dab55c3f7b95e3fc87507816541e87" title="Initialize the phase parameters from an XML file. ">initThermoXML()</a> (virtual from <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a>)</p>
-<p>This gets called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. It processes the XML file after the species are set up. This is the main routine for reading in activity coefficient parameters.</p>
+<p>This gets called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. It processes the XML file after the species are set up. This is the main routine for reading in activity coefficient parameters.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phaseNode</td><td>This object must be the phase node of a complete XML tree description of the phase, including all of the species data. In other words while "phase" must point to an XML phase object, it must have sibling nodes "speciesData" that describe the species in the phase. </td></tr>
@@ -1953,7 +1953,7 @@ uA[5] = time units - default = 0
 </div><div class="memdoc">
 
 <p>Set equation of state parameter values from XML entries. </p>
-<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
+<p>This method is called by function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a> when processing a phase definition in an input file. It should be overloaded in subclasses to set any parameters that are specific to that particular phase model. Note, this method is called before the phase is initialized with elements and/or species.</p>
 <p>For this phase, the density of the phase is specified in this block.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

@@ -234,12 +234,12 @@ std::vector&lt; LTPvector &gt;&#160;</td><td class="memItemRight" valign="bottom
  <p class="formulaDsp">
 \[ \frac{1}{D_{23}} = \epsilon X_A(1+\epsilon X_B) \frac{\nu_- + \nu_+}{\nu_-^2\nu_+D} - \frac{z_-z_+ F^2}{\kappa V R T} \]
 </p>
-<p> where F is Faraday's constant, RT is the gas constant times the tempurature, and V is the molar volume (basis is moles of ions) that is calculated by the thermophase member. X_A and X_B are the mole fractions of the salts composed of cation(1) and cation(2), respectively, that share a common anion(3). \(\nu_{+,-}\) are the stoichiometric coefficients in the dissociation reaction of the salts to the ions with charges of \(z_{+,-}\). Assuming that the cations have equal charge, the "mutual
+<p> where F is Faraday's constant, RT is the gas constant times the tempurature, and V is the molar volume (basis is moles of ions) that is calculated by the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> member. X_A and X_B are the mole fractions of the salts composed of cation(1) and cation(2), respectively, that share a common anion(3). \(\nu_{+,-}\) are the stoichiometric coefficients in the dissociation reaction of the salts to the ions with charges of \(z_{+,-}\). Assuming that the cations have equal charge, the "mutual
   diffusion coefficient" is calculated using the cation self diffusion coefficients. </p>
 <p class="formulaDsp">
 \[ \frac{1}{\nu_-\nu_+D} = \left(1+\frac{\partial \gamma_B}{\partial N_B} \right)\frac{X_A}{D_2^*}+\left(1+\frac{\partial \gamma_A}{\partial N_A} \right)\frac{X_B}{D_1^*} \]
 </p>
-<p> where the self diffusion coefficients, \(D_i^*\), are temperature and composition parameterized inputs and the derivative of the activity coefficient, \(\frac{\partial \gamma_B}{\partial N_B}\), is calculated by the thermophase member using the excess enthalpy and entropy upon mixing.</p>
+<p> where the self diffusion coefficients, \(D_i^*\), are temperature and composition parameterized inputs and the derivative of the activity coefficient, \(\frac{\partial \gamma_B}{\partial N_B}\), is calculated by the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> member using the excess enthalpy and entropy upon mixing.</p>
 <p>Finally, the deviation of the transferrence numbers from ideality, \(\epsilon\), is calculated from the mobility ratio of the cations. </p>
 <p class="formulaDsp">
 \[ \epsilon = \frac{1-b_2/b_1}{X_A+X_Bb_2/b_1} \]

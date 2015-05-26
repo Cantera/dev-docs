@@ -1205,7 +1205,7 @@ For an incompressible,
 <p class="formulaDsp">
 \[ u^\triangle_k(T,P) = h^{\triangle,ref}_k(T) - P_{ref} \tilde v \]
 </p>
-<p>The standard state heat capacity and entropy are independent of pressure. The standard state gibbs free energy is obtained from the enthalpy and entropy functions.</p>
+<p>The standard state heat capacity and entropy are independent of pressure. The standard state Gibbs free energy is obtained from the enthalpy and entropy functions.</p>
 <p>The vector <a class="el" href="classCantera_1_1Phase.html#a3ceab9093095848092b191dcc9d45ce0" title="Vector of species sizes. ">Phase::m_speciesSize</a>[] is used to hold the base values of species sizes. These are defined as the molar volumes of species at infinite dilution at 300 K and 1 atm of water. m_speciesSize are calculated during the initialization of the <a class="el" href="classCantera_1_1DebyeHuckel.html" title="Class DebyeHuckel represents a dilute liquid electrolyte phase which obeys the Debye Huckel formulati...">DebyeHuckel</a> object and are then not touched.</p>
 <p>The current model assumes that an incompressible molar volume for all solutes. The molar volume for the water solvent, however, is obtained from a pure water equation of state, waterSS. Therefore, the water standard state varies with both T and P. It is an error to request standard state water properties at a T and P where the water phase is not a stable phase, i.e., beyond its spinodal curve.</p>
 <hr/>
@@ -1437,7 +1437,7 @@ fom Pitzer and from Harvey, Moller, and Weire.
 </div><!-- fragment --><p>or</p>
 <div class="fragment"><div class="line">XML_Node *xm = <a class="code" href="namespaceCantera.html#addf5bf4ba81ede1e1c4799e39de9e337">get_XML_NameID</a>(<span class="stringliteral">&quot;phase&quot;</span>, <span class="stringliteral">&quot;DH_NaCl.xml#NaCl_electrolyte&quot;</span>, 0);</div>
 <div class="line"><a class="code" href="classCantera_1_1DebyeHuckel.html#a2c3c9b0008eb4a0f640270f79c3b6ad9">DebyeHuckel</a> *dh = <span class="keyword">new</span> <a class="code" href="classCantera_1_1DebyeHuckel.html#a2c3c9b0008eb4a0f640270f79c3b6ad9">DebyeHuckel</a>(*xm);</div>
-</div><!-- fragment --><p>or by the following call to <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>:</p>
+</div><!-- fragment --><p>or by the following call to <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>:</p>
 <div class="fragment"><div class="line">XML_Node *xm = <a class="code" href="namespaceCantera.html#addf5bf4ba81ede1e1c4799e39de9e337">get_XML_NameID</a>(<span class="stringliteral">&quot;phase&quot;</span>, <span class="stringliteral">&quot;DH_NaCl.xml#NaCl_electrolyte&quot;</span>, 0);</div>
 <div class="line"><a class="code" href="classCantera_1_1DebyeHuckel.html#a2c3c9b0008eb4a0f640270f79c3b6ad9">DebyeHuckel</a> dhphase;</div>
 <div class="line"><a class="code" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0">importPhase</a>(*xm, &amp;dhphase);</div>
@@ -2310,7 +2310,7 @@ fom Pitzer and from Harvey, Moller, and Weire.
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000121">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000132">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MolalityVPSSTP.html#abbf7704c3f9ae6f3374ad82de5f7e325">MolalityVPSSTP</a>.</p>
 
@@ -2699,7 +2699,7 @@ fom Pitzer and from Harvey, Moller, and Weire.
 </div><div class="memdoc">
 
 <p>Initialize the object's internal lengths after species are set. </p>
-<p>Initialize. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>.</p>
+<p>Initialize. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>.</p>
 <p>Cascading call sequence downwards starting with Parent.</p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MolalityVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">MolalityVPSSTP</a>.</p>
@@ -2745,7 +2745,7 @@ fom Pitzer and from Harvey, Moller, and Weire.
 </div><div class="memdoc">
 
 <p>Process the XML file after species are set up. </p>
-<p>This gets called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. It processes the XML file after the species are set up. This is the main routine for reading in activity coefficient parameters.</p>
+<p>This gets called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. It processes the XML file after the species are set up. This is the main routine for reading in activity coefficient parameters.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phaseNode</td><td>This object must be the phase node of a complete XML tree description of the phase, including all of the species data. In other words while "phase" must point to an XML phase object, it must have sibling nodes "speciesData" that describe the species in the phase. </td></tr>

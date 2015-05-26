@@ -14,7 +14,6 @@ var searchData=
   ['epsilon',['epsilon',['../classCantera_1_1GasTransportParams.html#a8d2e680e7b6ca615d51130403bc9ad3e',1,'Cantera::GasTransportParams']]],
   ['epsilon_5f0',['epsilon_0',['../group__physConstants.html#ga620b239773cfc5db63210835e09daaea',1,'Cantera']]],
   ['equation',['equation',['../classCantera_1_1ReactionData.html#a9effb785c6d4a00b0cc23b50e4f96eb1',1,'Cantera::ReactionData']]],
-  ['equilibrium_5fconstant_5fpower',['equilibrium_constant_power',['../classCantera_1_1ElectrochemicalReaction.html#af7f2b5592f5891ba9a116903ce6104c8',1,'Cantera::ElectrochemicalReaction']]],
   ['equilibriumconstantpower',['equilibriumConstantPower',['../classCantera_1_1ReactionData.html#ac6f0316a38dcbc2d52bb165ab45b8e3d',1,'Cantera::ReactionData']]],
   ['error',['error',['../classCantera_1_1ReactionData.html#a11614f44ef4d939bdd984953346a7572',1,'Cantera::ReactionData']]],
   ['errormessage',['errorMessage',['../classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57',1,'Cantera::Application::Messages']]],

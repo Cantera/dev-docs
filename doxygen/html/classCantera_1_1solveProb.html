@@ -224,7 +224,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a738256a57014ad91e64eb5ca1a1690df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Residual for the surface problem.  <a href="#a738256a57014ad91e64eb5ca1a1690df">More...</a><br/></td></tr>
 <tr class="separator:a738256a57014ad91e64eb5ca1a1690df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51bf45bf47bfc5be38d687a61ca9fd79"><td class="memItemLeft" align="right" valign="top">std::vector&lt; doublereal * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1solveProb.html#a51bf45bf47bfc5be38d687a61ca9fd79">m_JacCol</a></td></tr>
-<tr class="memdesc:a51bf45bf47bfc5be38d687a61ca9fd79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to the top of the columns of the jacobians.  <a href="#a51bf45bf47bfc5be38d687a61ca9fd79">More...</a><br/></td></tr>
+<tr class="memdesc:a51bf45bf47bfc5be38d687a61ca9fd79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of pointers to the top of the columns of the Jacobians.  <a href="#a51bf45bf47bfc5be38d687a61ca9fd79">More...</a><br/></td></tr>
 <tr class="separator:a51bf45bf47bfc5be38d687a61ca9fd79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae815334c63997cf0ab831dca83b02cf6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCantera_1_1SquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1solveProb.html#ae815334c63997cf0ab831dca83b02cf6">m_Jac</a></td></tr>
 <tr class="memdesc:ae815334c63997cf0ab831dca83b02cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jacobian.  <a href="#ae815334c63997cf0ab831dca83b02cf6">More...</a><br/></td></tr>
@@ -248,7 +248,7 @@ Private Attributes</h2></td></tr>
 <p>The solution methodology is largely determined by the <code>ifunc</code> parameter, that is input to the solution object. This parameter may have the following 4 values:</p>
 <p>1: SOLVEPROB_INITIALIZE = This assumes that the initial guess supplied to the routine is far from the correct one. Substantial work plus transient time-stepping is to be expected to find a solution.</p>
 <p>2: SOLVEPROB_RESIDUAL = Need to solve the nonlinear problem in order to calculate quantities for a residual calculation (Can expect a moderate change in the solution vector -&gt; try to solve the system by direct methods with no damping first -&gt; then, try time-stepping if the first method fails) A "time_scale" supplied here is used in the algorithm to determine when to shut off time-stepping.</p>
-<p>3: SOLVEPROB_JACOBIAN = Calculation of the surface problem is due to the need for a numerical jacobian for the gas-problem. The solution is expected to be very close to the initial guess, and extra accuracy is needed because solution variables have been delta'd from nominal values to create jacobian entries.</p>
+<p>3: SOLVEPROB_JACOBIAN = Calculation of the surface problem is due to the need for a numerical Jacobian for the gas-problem. The solution is expected to be very close to the initial guess, and extra accuracy is needed because solution variables have been delta'd from nominal values to create Jacobian entries.</p>
 <p>4: SOLVEPROB_TRANSIENT = The transient calculation is performed here for an amount of time specified by "time_scale". It is not guaranteed to be time-accurate - just stable and fairly fast. The solution after del_t time is returned, whether it's converged to a steady state or not. This is a poor man's time stepping algorithm.</p>
 <p>Pseudo time stepping algorithm: The time step is determined from sdot[], so that the time step doesn't ever change the value of a variable by more than 100%.</p>
 <p>This algorithm does use a damped Newton's method to relax the equations. Damping is based on a "delta damping" technique. The solution unknowns are not allowed to vary too much between iterations.</p>
@@ -257,8 +257,9 @@ Private Attributes</h2></td></tr>
 <p>ct_dgetrf &ndash; First half of LAPACK direct solve of a full Matrix</p>
 <p>ct_dgetrs &ndash; Second half of LAPACK direct solve of a full matrix. Returns solution vector in the right-hand-side vector, resid. </p>
 <hr/>
- 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00138">138</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000128">Deprecated:</a></b></dt><dd>Unused. To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00139">139</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a85fe48d12920d4126b6c2b3eb53fab20"></a>
 <div class="memitem">
@@ -276,9 +277,9 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor for the object. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00026">26</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00027">27</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00352">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00441">solveProb::m_botBounds</a>, <a class="el" href="solveProb_8h_source.html#l00373">solveProb::m_CSolnSave</a>, <a class="el" href="solveProb_8h_source.html#l00379">solveProb::m_CSolnSP</a>, <a class="el" href="solveProb_8h_source.html#l00385">solveProb::m_CSolnSPInit</a>, <a class="el" href="solveProb_8h_source.html#l00391">solveProb::m_CSolnSPOld</a>, <a class="el" href="solveProb_8h_source.html#l00429">solveProb::m_Jac</a>, <a class="el" href="solveProb_8h_source.html#l00423">solveProb::m_JacCol</a>, <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>, <a class="el" href="solveProb_8h_source.html#l00364">solveProb::m_netProductionRatesSave</a>, <a class="el" href="solveProb_8h_source.html#l00367">solveProb::m_numEqn1</a>, <a class="el" href="solveProb_8h_source.html#l00370">solveProb::m_numEqn2</a>, <a class="el" href="solveProb_8h_source.html#l00416">solveProb::m_resid</a>, <a class="el" href="solveProb_8h_source.html#l00343">solveProb::m_residFunc</a>, <a class="el" href="solveProb_8h_source.html#l00435">solveProb::m_topBounds</a>, <a class="el" href="solveProb_8h_source.html#l00397">solveProb::m_wtResid</a>, <a class="el" href="solveProb_8h_source.html#l00403">solveProb::m_wtSpecies</a>, <a class="el" href="classCantera_1_1ResidEval.html#aae6378ca6ad0e18b4f7a5dc380497fd4">ResidEval::nEquations()</a>, and <a class="el" href="SquareMatrix_8cpp_source.html#l00304">SquareMatrix::ptrColumn()</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00353">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00442">solveProb::m_botBounds</a>, <a class="el" href="solveProb_8h_source.html#l00374">solveProb::m_CSolnSave</a>, <a class="el" href="solveProb_8h_source.html#l00380">solveProb::m_CSolnSP</a>, <a class="el" href="solveProb_8h_source.html#l00386">solveProb::m_CSolnSPInit</a>, <a class="el" href="solveProb_8h_source.html#l00392">solveProb::m_CSolnSPOld</a>, <a class="el" href="solveProb_8h_source.html#l00430">solveProb::m_Jac</a>, <a class="el" href="solveProb_8h_source.html#l00424">solveProb::m_JacCol</a>, <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>, <a class="el" href="solveProb_8h_source.html#l00365">solveProb::m_netProductionRatesSave</a>, <a class="el" href="solveProb_8h_source.html#l00368">solveProb::m_numEqn1</a>, <a class="el" href="solveProb_8h_source.html#l00371">solveProb::m_numEqn2</a>, <a class="el" href="solveProb_8h_source.html#l00417">solveProb::m_resid</a>, <a class="el" href="solveProb_8h_source.html#l00344">solveProb::m_residFunc</a>, <a class="el" href="solveProb_8h_source.html#l00436">solveProb::m_topBounds</a>, <a class="el" href="solveProb_8h_source.html#l00398">solveProb::m_wtResid</a>, <a class="el" href="solveProb_8h_source.html#l00404">solveProb::m_wtSpecies</a>, <a class="el" href="classCantera_1_1ResidEval.html#aae6378ca6ad0e18b4f7a5dc380497fd4">ResidEval::nEquations()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00304">SquareMatrix::ptrColumn()</a>, and <a class="el" href="global_8cpp_source.html#l00086">Cantera::warn_deprecated()</a>.</p>
 
 </div>
 </div>
@@ -377,9 +378,9 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 1 if the surface problem is successfully solved. Returns -1 if the surface problem wasn't solved successfully. Note the actual converged solution is returned as part of the internal state of the <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> objects. </dd></dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00061">61</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00063">63</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8cpp_source.html#l00422">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00534">solveProb::calc_t()</a>, <a class="el" href="solveProb_8cpp_source.html#l00510">solveProb::calcWeights()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00126">SquareMatrix::factor()</a>, <a class="el" href="solveProb_8cpp_source.html#l00373">solveProb::fun_eval()</a>, <a class="el" href="ResidEval_8h_source.html#l00119">ResidEval::getInitialConditions()</a>, <a class="el" href="solveProb_8h_source.html#l00379">solveProb::m_CSolnSP</a>, <a class="el" href="solveProb_8h_source.html#l00385">solveProb::m_CSolnSPInit</a>, <a class="el" href="solveProb_8h_source.html#l00391">solveProb::m_CSolnSPOld</a>, <a class="el" href="solveProb_8h_source.html#l00429">solveProb::m_Jac</a>, <a class="el" href="solveProb_8h_source.html#l00423">solveProb::m_JacCol</a>, <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>, <a class="el" href="solveProb_8h_source.html#l00364">solveProb::m_netProductionRatesSave</a>, <a class="el" href="solveProb_8h_source.html#l00367">solveProb::m_numEqn1</a>, <a class="el" href="solveProb_8h_source.html#l00416">solveProb::m_resid</a>, <a class="el" href="solveProb_8h_source.html#l00343">solveProb::m_residFunc</a>, <a class="el" href="solveProb_8h_source.html#l00397">solveProb::m_wtResid</a>, <a class="el" href="solveProb_8h_source.html#l00403">solveProb::m_wtSpecies</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="solveProb_8cpp_source.html#l00604">solveProb::print_header()</a>, <a class="el" href="solveProb_8cpp_source.html#l00789">solveProb::printFinal()</a>, <a class="el" href="solveProb_8cpp_source.html#l00701">solveProb::printIteration()</a>, <a class="el" href="solveProb_8cpp_source.html#l00388">solveProb::resjac_eval()</a>, <a class="el" href="clockWC_8cpp_source.html#l00035">clockWC::secondsWC()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00057">SquareMatrix::solve()</a>, and <a class="el" href="solveProb_8h_source.html#l00052">SOLVEPROB_INITIALIZE</a>.</p>
+<p>References <a class="el" href="solveProb_8cpp_source.html#l00424">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00536">solveProb::calc_t()</a>, <a class="el" href="solveProb_8cpp_source.html#l00512">solveProb::calcWeights()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00126">SquareMatrix::factor()</a>, <a class="el" href="solveProb_8cpp_source.html#l00375">solveProb::fun_eval()</a>, <a class="el" href="ResidEval_8h_source.html#l00119">ResidEval::getInitialConditions()</a>, <a class="el" href="solveProb_8h_source.html#l00380">solveProb::m_CSolnSP</a>, <a class="el" href="solveProb_8h_source.html#l00386">solveProb::m_CSolnSPInit</a>, <a class="el" href="solveProb_8h_source.html#l00392">solveProb::m_CSolnSPOld</a>, <a class="el" href="solveProb_8h_source.html#l00430">solveProb::m_Jac</a>, <a class="el" href="solveProb_8h_source.html#l00424">solveProb::m_JacCol</a>, <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>, <a class="el" href="solveProb_8h_source.html#l00365">solveProb::m_netProductionRatesSave</a>, <a class="el" href="solveProb_8h_source.html#l00368">solveProb::m_numEqn1</a>, <a class="el" href="solveProb_8h_source.html#l00417">solveProb::m_resid</a>, <a class="el" href="solveProb_8h_source.html#l00344">solveProb::m_residFunc</a>, <a class="el" href="solveProb_8h_source.html#l00398">solveProb::m_wtResid</a>, <a class="el" href="solveProb_8h_source.html#l00404">solveProb::m_wtSpecies</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="solveProb_8cpp_source.html#l00606">solveProb::print_header()</a>, <a class="el" href="solveProb_8cpp_source.html#l00791">solveProb::printFinal()</a>, <a class="el" href="solveProb_8cpp_source.html#l00703">solveProb::printIteration()</a>, <a class="el" href="solveProb_8cpp_source.html#l00390">solveProb::resjac_eval()</a>, <a class="el" href="clockWC_8cpp_source.html#l00035">clockWC::secondsWC()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00057">SquareMatrix::solve()</a>, and <a class="el" href="solveProb_8h_source.html#l00052">SOLVEPROB_INITIALIZE</a>.</p>
 
 </div>
 </div>
@@ -413,9 +414,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00368">368</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00370">370</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00379">solveProb::m_CSolnSP</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00380">solveProb::m_CSolnSP</a>.</p>
 
 </div>
 </div>
@@ -461,9 +462,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00587">587</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00589">589</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00441">solveProb::m_botBounds</a>, <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>, and <a class="el" href="solveProb_8h_source.html#l00435">solveProb::m_topBounds</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00442">solveProb::m_botBounds</a>, <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>, and <a class="el" href="solveProb_8h_source.html#l00436">solveProb::m_topBounds</a>.</p>
 
 </div>
 </div>
@@ -519,11 +520,11 @@ Private Attributes</h2></td></tr>
 
 <p>Printing routine that gets called at the start of every invocation. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00604">604</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00606">606</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="Kinetics_8cpp_source.html#l00501">Kinetics::getNetProductionRates()</a>, <a class="el" href="Phase_8cpp_source.html#l00147">Phase::id()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="solveProb_8h_source.html#l00352">solveProb::m_atol</a>, <a class="el" href="Kinetics_8h_source.html#l00225">Kinetics::nPhases()</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="solveProb_8h_source.html#l00052">SOLVEPROB_INITIALIZE</a>, <a class="el" href="Phase_8cpp_source.html#l00272">Phase::speciesName()</a>, <a class="el" href="Kinetics_8h_source.html#l00260">Kinetics::surfacePhaseIndex()</a>, and <a class="el" href="Kinetics_8h_source.html#l00285">Kinetics::thermo()</a>.</p>
+<p>References <a class="el" href="Kinetics_8cpp_source.html#l00501">Kinetics::getNetProductionRates()</a>, <a class="el" href="Phase_8cpp_source.html#l00147">Phase::id()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="solveProb_8h_source.html#l00353">solveProb::m_atol</a>, <a class="el" href="Kinetics_8h_source.html#l00225">Kinetics::nPhases()</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="solveProb_8h_source.html#l00052">SOLVEPROB_INITIALIZE</a>, <a class="el" href="Phase_8cpp_source.html#l00272">Phase::speciesName()</a>, <a class="el" href="Kinetics_8h_source.html#l00260">Kinetics::surfacePhaseIndex()</a>, and <a class="el" href="Kinetics_8h_source.html#l00285">Kinetics::thermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -639,11 +640,11 @@ Private Attributes</h2></td></tr>
 
 <p>Printing routine that gets called after every iteration. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00701">701</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00703">703</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Kinetics_8cpp_source.html#l00501">Kinetics::getNetProductionRates()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00359">Kinetics::kineticsSpeciesName()</a>, <a class="el" href="solveProb_8h_source.html#l00367">solveProb::m_numEqn1</a>, and <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Kinetics_8cpp_source.html#l00501">Kinetics::getNetProductionRates()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00359">Kinetics::kineticsSpeciesName()</a>, <a class="el" href="solveProb_8h_source.html#l00368">solveProb::m_numEqn1</a>, and <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -765,11 +766,11 @@ Private Attributes</h2></td></tr>
 
 <p>Print a summary of the solution. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00789">789</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00791">791</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>, <a class="el" href="solveProb_8h_source.html#l00367">solveProb::m_numEqn1</a>, and <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>, <a class="el" href="solveProb_8h_source.html#l00368">solveProb::m_numEqn1</a>, and <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -846,11 +847,11 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the 1. / delta T to be used on the next step </dd></dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00534">534</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00536">536</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -903,11 +904,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00510">510</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00512">512</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00352">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00429">solveProb::m_Jac</a>, <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>, and <a class="el" href="solveProb_8h_source.html#l00355">solveProb::m_rtol</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00353">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00430">solveProb::m_Jac</a>, <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>, and <a class="el" href="solveProb_8h_source.html#l00356">solveProb::m_rtol</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -974,11 +975,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00373">373</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00375">375</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00343">solveProb::m_residFunc</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00344">solveProb::m_residFunc</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00388">solveProb::resjac_eval()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00390">solveProb::resjac_eval()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -1043,7 +1044,7 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">JacCol</td><td>Vector of pointers to the tops of columns of the Jacobian to be evaluated. </td></tr>
     <tr><td class="paramname">resid</td><td>output Vector of residuals, length = m_neq </td></tr>
-    <tr><td class="paramname">CSolnSP</td><td>Vector of species concentrations, unknowns in the problem, length = m_neq. These are tweaked in order to derive the columns of the jacobian. </td></tr>
+    <tr><td class="paramname">CSolnSP</td><td>Vector of species concentrations, unknowns in the problem, length = m_neq. These are tweaked in order to derive the columns of the Jacobian. </td></tr>
     <tr><td class="paramname">CSolnSPOld</td><td>Old Vector of species concentrations, unknowns in the problem, length = m_neq </td></tr>
     <tr><td class="paramname">do_time</td><td>Calculate a time dependent residual </td></tr>
     <tr><td class="paramname">deltaT</td><td>Delta time for time dependent problem. </td></tr>
@@ -1051,11 +1052,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00388">388</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00390">390</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="solveProb_8cpp_source.html#l00373">solveProb::fun_eval()</a>, <a class="el" href="solveProb_8h_source.html#l00352">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00349">solveProb::m_neq</a>, and <a class="el" href="solveProb_8h_source.html#l00370">solveProb::m_numEqn2</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="solveProb_8cpp_source.html#l00375">solveProb::fun_eval()</a>, <a class="el" href="solveProb_8h_source.html#l00353">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00350">solveProb::m_neq</a>, and <a class="el" href="solveProb_8h_source.html#l00371">solveProb::m_numEqn2</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -1117,11 +1118,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00422">422</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8cpp_source.html#l00424">424</a> of file <a class="el" href="solveProb_8cpp_source.html">solveProb.cpp</a>.</p>
 
-<p>References <a class="el" href="solveProb_8h_source.html#l00352">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00441">solveProb::m_botBounds</a>, <a class="el" href="solveProb_8h_source.html#l00435">solveProb::m_topBounds</a>, and <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>.</p>
+<p>References <a class="el" href="solveProb_8h_source.html#l00353">solveProb::m_atol</a>, <a class="el" href="solveProb_8h_source.html#l00442">solveProb::m_botBounds</a>, <a class="el" href="solveProb_8h_source.html#l00436">solveProb::m_topBounds</a>, and <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>.</p>
 
 </div>
 </div>
@@ -1146,9 +1147,9 @@ Private Attributes</h2></td></tr>
 
 <p>residual function pointer to be solved. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00343">343</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00344">344</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00373">solveProb::fun_eval()</a>, <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00375">solveProb::fun_eval()</a>, <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1173,9 +1174,9 @@ Private Attributes</h2></td></tr>
 <p>Total number of equations to solve in the implicit problem. </p>
 <p>Note, this can be zero, and frequently is </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00349">349</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00350">350</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00534">solveProb::calc_t()</a>, <a class="el" href="solveProb_8cpp_source.html#l00510">solveProb::calcWeights()</a>, <a class="el" href="solveProb_8cpp_source.html#l00789">solveProb::printFinal()</a>, <a class="el" href="solveProb_8cpp_source.html#l00388">solveProb::resjac_eval()</a>, <a class="el" href="solveProb_8cpp_source.html#l00587">solveProb::setBounds()</a>, <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00536">solveProb::calc_t()</a>, <a class="el" href="solveProb_8cpp_source.html#l00512">solveProb::calcWeights()</a>, <a class="el" href="solveProb_8cpp_source.html#l00791">solveProb::printFinal()</a>, <a class="el" href="solveProb_8cpp_source.html#l00390">solveProb::resjac_eval()</a>, <a class="el" href="solveProb_8cpp_source.html#l00589">solveProb::setBounds()</a>, <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1199,9 +1200,9 @@ Private Attributes</h2></td></tr>
 
 <p>m_atol is the absolute tolerance in real units. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00352">352</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00353">353</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00422">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00510">solveProb::calcWeights()</a>, <a class="el" href="solveProb_8cpp_source.html#l00604">solveProb::print_header()</a>, <a class="el" href="solveProb_8cpp_source.html#l00388">solveProb::resjac_eval()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00424">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00512">solveProb::calcWeights()</a>, <a class="el" href="solveProb_8cpp_source.html#l00606">solveProb::print_header()</a>, <a class="el" href="solveProb_8cpp_source.html#l00390">solveProb::resjac_eval()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1225,9 +1226,9 @@ Private Attributes</h2></td></tr>
 
 <p>m_rtol is the relative error tolerance. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00355">355</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00356">356</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00510">solveProb::calcWeights()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00512">solveProb::calcWeights()</a>.</p>
 
 </div>
 </div>
@@ -1252,7 +1253,7 @@ Private Attributes</h2></td></tr>
 <p>maximum value of the time step </p>
 <p>units = seconds </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00361">361</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00362">362</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
 </div>
 </div>
@@ -1276,9 +1277,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00364">364</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00365">365</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1302,9 +1303,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00367">367</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00368">368</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00789">solveProb::printFinal()</a>, <a class="el" href="solveProb_8cpp_source.html#l00701">solveProb::printIteration()</a>, <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00791">solveProb::printFinal()</a>, <a class="el" href="solveProb_8cpp_source.html#l00703">solveProb::printIteration()</a>, <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1328,9 +1329,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00370">370</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00371">371</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00388">solveProb::resjac_eval()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00390">solveProb::resjac_eval()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1354,9 +1355,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00373">373</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00374">374</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1381,9 +1382,9 @@ Private Attributes</h2></td></tr>
 <p>Solution vector. </p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00379">379</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00380">380</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00368">solveProb::reportState()</a>, <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00370">solveProb::reportState()</a>, <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1408,9 +1409,9 @@ Private Attributes</h2></td></tr>
 <p>Saved initial solution vector. </p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00385">385</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00386">386</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1435,9 +1436,9 @@ Private Attributes</h2></td></tr>
 <p>Saved solution vector at the old time step. </p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00391">391</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00392">392</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1462,9 +1463,9 @@ Private Attributes</h2></td></tr>
 <p>Weights for the residual norm calculation. </p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00397">397</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00398">398</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1489,9 +1490,9 @@ Private Attributes</h2></td></tr>
 <p>Weights for the species concentrations norm calculation. </p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00403">403</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00404">404</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1517,9 +1518,9 @@ Private Attributes</h2></td></tr>
 <p>The residual vector of length "dim" that, that has the value of "sdot" for surface species. The residuals for the bulk species are a function of the sdots for all species in the bulk phase. The last residual of each phase enforces {Sum(fractions) = 1}. After linear solve (dgetrf_ &amp; dgetrs_), resid holds the update vector.</p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00416">416</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00417">417</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1541,12 +1542,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Vector of pointers to the top of the columns of the jacobians. </p>
+<p>Vector of pointers to the top of the columns of the Jacobians. </p>
 <p>The "dim" by "dim" computed Jacobian matrix for the local Newton's method. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00423">423</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00424">424</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1571,9 +1572,9 @@ Private Attributes</h2></td></tr>
 <p>Jacobian. </p>
 <p>m_neq by m_neq computed Jacobian matrix for the local Newton's method. </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00429">429</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00430">430</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00510">solveProb::calcWeights()</a>, <a class="el" href="solveProb_8cpp_source.html#l00061">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00512">solveProb::calcWeights()</a>, <a class="el" href="solveProb_8cpp_source.html#l00063">solveProb::solve()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1598,9 +1599,9 @@ Private Attributes</h2></td></tr>
 <p>Top bounds for the solution vector. </p>
 <p>This defaults to 1.0 </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00435">435</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00436">436</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00422">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00587">solveProb::setBounds()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00424">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00589">solveProb::setBounds()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>
@@ -1625,9 +1626,9 @@ Private Attributes</h2></td></tr>
 <p>Bottom bounds for the solution vector. </p>
 <p>This defaults to 0.0 </p>
 
-<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00441">441</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
+<p>Definition at line <a class="el" href="solveProb_8h_source.html#l00442">442</a> of file <a class="el" href="solveProb_8h_source.html">solveProb.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00422">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00587">solveProb::setBounds()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00026">solveProb::solveProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveProb_8cpp_source.html#l00424">solveProb::calc_damping()</a>, <a class="el" href="solveProb_8cpp_source.html#l00589">solveProb::setBounds()</a>, and <a class="el" href="solveProb_8cpp_source.html#l00027">solveProb::solveProb()</a>.</p>
 
 </div>
 </div>

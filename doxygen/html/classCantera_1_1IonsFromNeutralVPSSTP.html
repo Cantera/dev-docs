@@ -1135,7 +1135,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 <tr class="separator:ad16a5f2c9daea753ec321499d9a80f2e inherit pro_methods_classCantera_1_1Phase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html">IonsFromNeutralVPSSTP</a> is a derived class of <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> that handles the specification of the chemical potentials for ionic species, given a specification of the chemical potentials for the same phase expressed in terms of combinations of the ionic species that represent neutral molecules. It's expected that the neutral molecules will be represented in terms of an excess gibbs free energy approximation that is a derivative of the GbbsExcessVPSSTP object. All of the e Excess Gibbs free energy formulations in this area employ symmetrical formulations.</p>
+<div class="textblock"><p>The <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html">IonsFromNeutralVPSSTP</a> is a derived class of <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> that handles the specification of the chemical potentials for ionic species, given a specification of the chemical potentials for the same phase expressed in terms of combinations of the ionic species that represent neutral molecules. It's expected that the neutral molecules will be represented in terms of an excess Gibbs free energy approximation that is a derivative of the GbbsExcessVPSSTP object. All of the e Excess Gibbs free energy formulations in this area employ symmetrical formulations.</p>
 <p>This class is used for molten salts.</p>
 <p>This object actually employs 4 different mole fraction types.</p>
 <ol type="1">
@@ -1408,7 +1408,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 </div><div class="memdoc">
 
 <p>The following methods are used in the process of constructing the phase and setting its parameters from a specification in an input file. </p>
-<p>Initialization of an <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html">IonsFromNeutralVPSSTP</a> phase using an xml file</p>
+<p>Initialization of an <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html">IonsFromNeutralVPSSTP</a> phase using an XML file</p>
 <p>This routine is a precursor to initThermo(XML_Node*) routine, which does most of the work.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1452,7 +1452,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
 
 <p>Import and initialize an <a class="el" href="classCantera_1_1IonsFromNeutralVPSSTP.html">IonsFromNeutralVPSSTP</a> phase specification in an XML tree into the current object. </p>
 <p>Here we read an XML description of the phase. We import descriptions of the elements that make up the species in a phase. We import information about the species, including their reference state thermodynamic polynomials. We then freeze the state of the species.</p>
-<p>Then, we read the species molar volumes from the xml tree to finish the initialization.</p>
+<p>Then, we read the species molar volumes from the XML tree to finish the initialization.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phaseNode</td><td>This object must be the phase node of a complete XML tree description of the phase, including all of the species data. In other words while "phase" must point to an XML phase object, it must have sibling nodes "speciesData" that describe the species in the phase.</td></tr>
@@ -2635,7 +2635,7 @@ const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e642
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Initialize. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>Initialize. This method is provided to allow subclasses to perform any initialization required after all species have been added. For example, it might be used to resize internal work arrays that must have an entry for each species. The base class implementation does nothing, and subclasses that do not require initialization do not need to overload this method. When importing a CTML phase description, this method is called just prior to returning from function <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1GibbsExcessVPSSTP.html#a8a12209d08a5c4876d9894d619368a79">GibbsExcessVPSSTP</a>.</p>
 

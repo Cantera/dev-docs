@@ -117,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af81bc0dd28bd940c3d6f6291c0e5bab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Rate1.html#af81bc0dd28bd940c3d6f6291c0e5bab6">install</a> (size_t rxnNumber, const R &amp;rate)</td></tr>
 <tr class="memdesc:af81bc0dd28bd940c3d6f6291c0e5bab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a rate coefficient calculator.  <a href="#af81bc0dd28bd940c3d6f6291c0e5bab6">More...</a><br/></td></tr>
 <tr class="separator:af81bc0dd28bd940c3d6f6291c0e5bab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998297d0d63db051793d7b7e62d9bee7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Rate1.html#a998297d0d63db051793d7b7e62d9bee7">replace</a> (size_t rxnNumber, const R &amp;rate)</td></tr>
+<tr class="memdesc:a998297d0d63db051793d7b7e62d9bee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace an existing rate coefficient calculator.  <a href="#a998297d0d63db051793d7b7e62d9bee7">More...</a><br/></td></tr>
+<tr class="separator:a998297d0d63db051793d7b7e62d9bee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34f4a70d7ddceff8933b2355763ed69f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Rate1.html#a34f4a70d7ddceff8933b2355763ed69f">update_C</a> (const doublereal *c)</td></tr>
 <tr class="memdesc:a34f4a70d7ddceff8933b2355763ed69f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the concentration-dependent parts of the rate coefficient, if any.  <a href="#a34f4a70d7ddceff8933b2355763ed69f">More...</a><br/></td></tr>
 <tr class="separator:a34f4a70d7ddceff8933b2355763ed69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,6 +138,9 @@ std::vector&lt; R &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_r
 <tr class="memitem:a183afeaa85ebc049c297c523cfd07dac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a183afeaa85ebc049c297c523cfd07dac"></a>
 std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_rxn</b></td></tr>
 <tr class="separator:a183afeaa85ebc049c297c523cfd07dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623c3ac2ad3e16e78ddfc91de68ff2a2"><td class="memItemLeft" align="right" valign="top">std::map&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Rate1.html#a623c3ac2ad3e16e78ddfc91de68ff2a2">m_indices</a></td></tr>
+<tr class="memdesc:a623c3ac2ad3e16e78ddfc91de68ff2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">map reaction number to index in m_rxn / m_rates  <a href="#a623c3ac2ad3e16e78ddfc91de68ff2a2">More...</a><br/></td></tr>
+<tr class="separator:a623c3ac2ad3e16e78ddfc91de68ff2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class R&gt;<br/>
@@ -230,7 +236,45 @@ class Cantera::Rate1&lt; R &gt;</h3>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00053">53</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00054">54</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a998297d0d63db051793d7b7e62d9bee7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void replace </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>rxnNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const R &amp;&#160;</td>
+          <td class="paramname"><em>rate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replace an existing rate coefficient calculator. </p>
+
+<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00061">61</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
 
 </div>
 </div>
@@ -259,7 +303,7 @@ class Cantera::Rate1&lt; R &gt;</h3>
 <p>Update the concentration-dependent parts of the rate coefficient, if any. </p>
 <p>Used by class <a class="el" href="classCantera_1_1SurfaceArrhenius.html" title="An Arrhenius rate with coverage-dependent terms. ">SurfaceArrhenius</a> to compute coverage-dependent * modifications to the <a class="el" href="classCantera_1_1Arrhenius.html" title="Arrhenius reaction rate type depends only on temperature. ">Arrhenius</a> parameters. The array c should contain whatever data the particular rate coefficient class needs to update its rates. Note that this method does not return anything. To get the updated rates, method update must be called after the call to update_C. </p>
 
-<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00069">69</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00076">76</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +348,34 @@ class Cantera::Rate1&lt; R &gt;</h3>
 <p>Write the rate coefficients into array values. </p>
 <p>Each calculator writes one entry in values, at the location specified by the reaction number when it was installed. Note that nothing will be done for reactions that have constant rates. The array values should be preloaded with the constant rate coefficients. </p>
 
-<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00083">83</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
+<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00090">90</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a623c3ac2ad3e16e78ddfc91de68ff2a2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;size_t, size_t&gt; m_indices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>map reaction number to index in m_rxn / m_rates </p>
+
+<p>Definition at line <a class="el" href="RateCoeffMgr_8h_source.html#l00106">106</a> of file <a class="el" href="RateCoeffMgr_8h_source.html">RateCoeffMgr.h</a>.</p>
+
+<p>Referenced by <a class="el" href="RateCoeffMgr_8h_source.html#l00033">Rate1&lt; Cantera::Plog &gt;::install()</a>, and <a class="el" href="RateCoeffMgr_8h_source.html#l00061">Rate1&lt; Cantera::Plog &gt;::replace()</a>.</p>
 
 </div>
 </div>

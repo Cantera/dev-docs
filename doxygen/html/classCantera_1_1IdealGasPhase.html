@@ -257,7 +257,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4352f7e28912366fe049ec6b77ba01a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional Gibbs Free Energies of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a4352f7e28912366fe049ec6b77ba01a9">More...</a><br/></td></tr>
 <tr class="separator:a4352f7e28912366fe049ec6b77ba01a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a483e295e73c01fe2a2bb4f1f2ad8c791"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealGasPhase.html#a483e295e73c01fe2a2bb4f1f2ad8c791">getGibbs_ref</a> (doublereal *g) const </td></tr>
-<tr class="memdesc:a483e295e73c01fe2a2bb4f1f2ad8c791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of the gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a483e295e73c01fe2a2bb4f1f2ad8c791">More...</a><br/></td></tr>
+<tr class="memdesc:a483e295e73c01fe2a2bb4f1f2ad8c791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of the Gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species.  <a href="#a483e295e73c01fe2a2bb4f1f2ad8c791">More...</a><br/></td></tr>
 <tr class="separator:a483e295e73c01fe2a2bb4f1f2ad8c791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5cb9f1731795833a42b5b5746faeaea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealGasPhase.html#af5cb9f1731795833a42b5b5746faeaea">getEntropy_R_ref</a> (doublereal *er) const </td></tr>
 <tr class="memdesc:af5cb9f1731795833a42b5b5746faeaea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the vector of nondimensional entropies of the reference state at the current temperature of the solution and the reference pressure for each species.  <a href="#af5cb9f1731795833a42b5b5746faeaea">More...</a><br/></td></tr>
@@ -865,7 +865,7 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:a0f99f8895cc2109fd4dcebb729d615fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage for dimensionless reference state heat capacities.  <a href="#a0f99f8895cc2109fd4dcebb729d615fb">More...</a><br/></td></tr>
 <tr class="separator:a0f99f8895cc2109fd4dcebb729d615fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b34289ccbc27c3af431627fd7a3a4fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealGasPhase.html#a0b34289ccbc27c3af431627fd7a3a4fe">m_g0_RT</a></td></tr>
-<tr class="memdesc:a0b34289ccbc27c3af431627fd7a3a4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage for dimensionless reference state gibbs energies.  <a href="#a0b34289ccbc27c3af431627fd7a3a4fe">More...</a><br/></td></tr>
+<tr class="memdesc:a0b34289ccbc27c3af431627fd7a3a4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage for dimensionless reference state Gibbs energies.  <a href="#a0b34289ccbc27c3af431627fd7a3a4fe">More...</a><br/></td></tr>
 <tr class="separator:a0b34289ccbc27c3af431627fd7a3a4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56e8ca74ece671716ff2cb73967e1576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1IdealGasPhase.html#a56e8ca74ece671716ff2cb73967e1576">m_s0_R</a></td></tr>
 <tr class="memdesc:a56e8ca74ece671716ff2cb73967e1576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary storage for dimensionless reference state entropies.  <a href="#a56e8ca74ece671716ff2cb73967e1576">More...</a><br/></td></tr>
@@ -974,7 +974,7 @@ Additional Inherited Members</h2></td></tr>
 <p class="formulaDsp">
 \[ S^o_k(T,P) = S^{ref}_k(T) - R \ln(\frac{P}{P_{ref}}) \]
 </p>
-<p> The standard state gibbs free energy is obtained from the enthalpy and entropy functions:</p>
+<p> The standard state Gibbs free energy is obtained from the enthalpy and entropy functions:</p>
 <p class="formulaDsp">
 \[ \mu^o_k(T,P) = h^o_k(T,P) - S^o_k(T,P) T \]
 </p>
@@ -1505,7 +1505,7 @@ Additional Inherited Members</h2></td></tr>
 \[ C^{tr}_{v,s} \equiv \frac{\partial e^{tr}_s}{\partial T} = \frac{3}{2} R_s \]
 </p>
  for atoms. </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000127">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000138">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="IdealGasPhase_8cpp_source.html#l00085">85</a> of file <a class="el" href="IdealGasPhase_8cpp_source.html">IdealGasPhase.cpp</a>.</p>
 
@@ -1539,7 +1539,7 @@ Additional Inherited Members</h2></td></tr>
 \[ C^{trans}_{v,s} \equiv \frac{\partial e^{trans}_s}{\partial T} = \frac{3}{2} R_s \]
 </p>
  </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000128">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000139">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="IdealGasPhase_8cpp_source.html#l00106">106</a> of file <a class="el" href="IdealGasPhase_8cpp_source.html">IdealGasPhase.cpp</a>.</p>
 
@@ -1577,7 +1577,7 @@ Additional Inherited Members</h2></td></tr>
 \[ C^{rot}_{v,s} \equiv C^{tr}_{v,s} - C^{trans}_{v,s} \]
 </p>
  </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000129">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000140">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Definition at line <a class="el" href="IdealGasPhase_8cpp_source.html#l00112">112</a> of file <a class="el" href="IdealGasPhase_8cpp_source.html">IdealGasPhase.cpp</a>.</p>
 
@@ -1631,7 +1631,7 @@ Additional Inherited Members</h2></td></tr>
  </li>
 </ul>
 </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000130">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000141">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#adcf3fc629f43d1e2a1601238114dd73c">ThermoPhase</a>.</p>
 
@@ -2283,7 +2283,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the nondimensional Gibbs functions for the species standard states at the current <em>T</em> and <em>P</em> of the solution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state gibbs free energies Length: m_kk. </td></tr>
+    <tr><td class="paramname">grt</td><td>Output vector of nondimensional standard state Gibbs free energies Length: m_kk. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2322,7 +2322,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Units are Joules/kmol </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gpure</td><td>Output vector of standard state gibbs free energies Length: m_kk. </td></tr>
+    <tr><td class="paramname">gpure</td><td>Output vector of standard state Gibbs free energies Length: m_kk. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2548,7 +2548,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the vector of the gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. </p>
+<p>Returns the vector of the Gibbs function of the reference state at the current temperature of the solution and the reference pressure for the species. </p>
 <p>units = J/kmol</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2869,7 +2869,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Initialize the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object after all species have been set up. </p>
 <p>Initialize.</p>
-<p>This method performs any initialization required after all species have been added. For example, it is used to resize internal work arrays that must have an entry for each species. This method is called from <a class="el" href="classCantera_1_1ThermoPhase.html#a42dab55c3f7b95e3fc87507816541e87" title="Import and initialize a ThermoPhase object using an XML tree. ">ThermoPhase::initThermoXML()</a>, which is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>, just prior to returning from the function, <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty thermophase object. ">importPhase()</a>. </p>
+<p>This method performs any initialization required after all species have been added. For example, it is used to resize internal work arrays that must have an entry for each species. This method is called from <a class="el" href="classCantera_1_1ThermoPhase.html#a42dab55c3f7b95e3fc87507816541e87" title="Import and initialize a ThermoPhase object using an XML tree. ">ThermoPhase::initThermoXML()</a>, which is called from <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>, just prior to returning from the function, <a class="el" href="group__thermoprops.html#ga4ef7f7632b3f3932f3ada7c75aa980b0" title="Import a phase information into an empty ThermoPhase object. ">importPhase()</a>. </p>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a8a12209d08a5c4876d9894d619368a79">ThermoPhase</a>.</p>
 
@@ -3081,7 +3081,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Temporary storage for dimensionless reference state gibbs energies. </p>
+<p>Temporary storage for dimensionless reference state Gibbs energies. </p>
 
 <p>Definition at line <a class="el" href="IdealGasPhase_8h_source.html#l00903">903</a> of file <a class="el" href="IdealGasPhase_8h_source.html">IdealGasPhase.h</a>.</p>
 

@@ -72,7 +72,6 @@ var searchData=
   ['vcs_5freport',['vcs_report',['../classVCSnonideal_1_1VCS__SOLVE.html#aa70c330ed5ba6796ce958d1c401206ee',1,'VCSnonideal::VCS_SOLVE']]],
   ['vcs_5frxn_5fadj_5fcg',['vcs_rxn_adj_cg',['../classVCSnonideal_1_1VCS__SOLVE.html#a8d791286817046ca3595d77a399d5eef',1,'VCSnonideal::VCS_SOLVE']]],
   ['vcs_5frxnstepsizes',['vcs_RxnStepSizes',['../classVCSnonideal_1_1VCS__SOLVE.html#ac71a98ad714494c8c8d073ec91ec321d',1,'VCSnonideal::VCS_SOLVE']]],
-  ['vcs_5fsecond',['vcs_second',['../namespaceVCSnonideal.html#a6e38f2bac81bc7461c342825e43e5ac9',1,'VCSnonideal']]],
   ['vcs_5fsetmoleslinprog',['vcs_setMolesLinProg',['../classVCSnonideal_1_1VCS__SOLVE.html#a6ebd5abfd3ce0784f4ea112e178e91bb',1,'VCSnonideal::VCS_SOLVE']]],
   ['vcs_5fsolve_5fphasestability',['vcs_solve_phaseStability',['../classVCSnonideal_1_1VCS__SOLVE.html#aea634c6f6b8b33db57fdf9f7aa0869da',1,'VCSnonideal::VCS_SOLVE']]],
   ['vcs_5fsolve_5ftp',['vcs_solve_TP',['../classVCSnonideal_1_1VCS__SOLVE.html#a94ea9b63a9361a418108074fea171160',1,'VCSnonideal::VCS_SOLVE']]],
