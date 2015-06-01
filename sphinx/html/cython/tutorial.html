@@ -71,6 +71,7 @@
 </li>
 <li><a class="reference internal" href="#getting-help">Getting Help</a></li>
 <li><a class="reference internal" href="#chemical-equilibrium">Chemical Equilibrium</a></li>
+<li><a class="reference internal" href="#chemical-kinetics">Chemical Kinetics</a></li>
 </ul>
 </li>
 </ul>
@@ -429,6 +430,90 @@ information on the various algorithms and their characteristics.</p>
 other things to generate a good starting guess and to produce a reasonably
 robust algorithm. If you want to know more about the details, look at the on-
 line documented source code of Cantera C++ class &#8216;ChemEquil.h&#8217;.</p>
+</div>
+<div class="section" id="chemical-kinetics">
+<h2>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> objects are also <a class="reference internal" href="kinetics.html#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a> objects, and provide all of the methods
+necessary to compute the thermodynamic quantities associated with each reaction,
+reaction rates, and species creation and destruction rates. They also provide
+methods to inspect the quantities that define each reaction such as the rate
+constants and the stoichiometric coefficients. The rate calculation functions
+are used extensively within Cantera&#8217;s <em class="xref std std-ref">reactor network model</em> and <a class="reference internal" href="onedim.html#sec-cython-onedim"><em>1D flame model</em></a>.</p>
+<p>Information about individual reactions that is independent of the thermodynamic
+state can be obtained by accessing <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> objects with the
+<a class="reference internal" href="kinetics.html#cantera.Kinetics.reaction" title="cantera.Kinetics.reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics.reaction</span></tt></a> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">reaction</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># get a Reaction object</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
+<span class="go">&lt;ElementaryReaction: H2 + O &lt;=&gt; H + OH&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">reactants</span>
+<span class="go">{&#39;H2&#39;: 1.0, &#39;O&#39;: 1.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">products</span>
+<span class="go">{&#39;H&#39;: 1.0, &#39;OH&#39;: 1.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">rate</span>
+<span class="go">Arrhenius(A=38.7, b=2.7, E=2.61918e+07)</span>
+</pre></div>
+</div>
+<p>If we are interested in only certain types of reactions, we can use this
+information to filter the full list of reactions to find the just the ones of
+interest. For example, here we find the indices of just those reactions which
+convert <tt class="xref py py-obj docutils literal"><span class="pre">CO</span></tt> into <tt class="xref py py-obj docutils literal"><span class="pre">CO2</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">II</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">reactions</span><span class="p">())</span>
+<span class="go">          if &#39;CO&#39; in r.reactants and &#39;CO2&#39; in r.products]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">II</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">reaction</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">equation</span><span class="p">)</span>
+<span class="go">CO + O (+M) &lt;=&gt; CO2 (+M)</span>
+<span class="go">CO + O2 &lt;=&gt; CO2 + O</span>
+<span class="go">CO + OH &lt;=&gt; CO2 + H</span>
+<span class="go">CO + HO2 &lt;=&gt; CO2 + OH</span>
+</pre></div>
+</div>
+<p>(Actually, we should also include reactions where the reaction is written such
+that <tt class="docutils literal"><span class="pre">CO2</span></tt> is a reactant and <tt class="docutils literal"><span class="pre">CO</span></tt> is a product, but for this example, we&#8217;ll
+just stick to this smaller set of reactions.) Now, let&#8217;s set the composition to
+an interesting equilibrium state:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;CH4&#39;</span><span class="p">:</span><span class="mf">0.6</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;N2&#39;</span><span class="p">:</span><span class="mf">3.76</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&#39;HP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can verify that this is an equilibrium state by seeing that the net reaction
+rates are essentially zero:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">net_rates_of_progress</span><span class="p">[</span><span class="n">II</span><span class="p">]</span>
+<span class="go">array([  4.06576e-20,  -5.50571e-21,   0.00000e+00,  -4.91279e-20])</span>
+</pre></div>
+</div>
+<p>Now, let&#8217;s see what happens if we decrease the temperature of the mixture:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="bp">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">net_rates_of_progress</span><span class="p">[</span><span class="n">II</span><span class="p">]</span>
+<span class="go">array([  3.18645e-05,   5.00490e-08,   1.05965e-01,   2.89503e-06])</span>
+</pre></div>
+</div>
+<p>All of the reaction rates are positive, favoring the formation of <tt class="docutils literal"><span class="pre">CO2</span></tt> from
+<tt class="docutils literal"><span class="pre">CO</span></tt>, with the third reaction, <tt class="docutils literal"><span class="pre">CO</span> <span class="pre">+</span> <span class="pre">OH</span> <span class="pre">&lt;=&gt;</span> <span class="pre">CO2</span> <span class="pre">+</span> <span class="pre">H</span></tt> proceeding the fastest.
+If we look at the enthalpy change associated with each of these reactions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">delta_enthalpy</span><span class="p">[</span><span class="n">II</span><span class="p">]</span>
+<span class="go">array([ -5.33035e+08,  -2.23249e+07,  -8.76650e+07,  -2.49170e+08])</span>
+</pre></div>
+</div>
+<p>we see that the change is negative in each case, indicating a net release of
+thermal energy. The total heat release rate can be computed either from the
+reaction rates:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">net_rates_of_progress</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">delta_enthalpy</span><span class="p">)</span>
+<span class="go">-58013370.720881931</span>
+</pre></div>
+</div>
+<p>or from the species production rates:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">net_production_rates</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">partial_molar_enthalpies</span><span class="p">)</span>
+<span class="go">-58013370.720881805</span>
+</pre></div>
+</div>
+<p>The contribution from just the selected reactions is:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">net_rates_of_progress</span><span class="p">[</span><span class="n">II</span><span class="p">],</span> <span class="n">g</span><span class="o">.</span><span class="n">delta_enthalpy</span><span class="p">[</span><span class="n">II</span><span class="p">])</span>
+<span class="go">-9307123.2625651453</span>
+</pre></div>
+</div>
+<p>Or about 16% of the total heat release rate.</p>
 </div>
 </div>
 

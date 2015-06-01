@@ -18,7 +18,7 @@ var searchData=
   ['xml_5ftagmismatch',['XML_TagMismatch',['../classCantera_1_1XML__TagMismatch.html#a0029cb45d39a9d72178f64d6eaddc846',1,'Cantera::XML_TagMismatch']]],
   ['xml_5ftagmismatch',['XML_TagMismatch',['../classCantera_1_1XML__TagMismatch.html',1,'Cantera']]],
   ['xmlfiles',['xmlfiles',['../classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f',1,'Cantera::Application']]],
-  ['xmol_5f',['Xmol_',['../classVCSnonideal_1_1vcs__VolPhase.html#a4d52f4b9258669aa46ada1da51d446ff',1,'VCSnonideal::vcs_VolPhase']]],
+  ['xmol_5f',['Xmol_',['../classCantera_1_1vcs__VolPhase.html#a4d52f4b9258669aa46ada1da51d446ff',1,'Cantera::vcs_VolPhase']]],
   ['xmol_5fref',['xMol_Ref',['../classCantera_1_1ThermoPhase.html#a9a66f5fb7265fe164b88cd7c2c488fcc',1,'Cantera::ThermoPhase']]],
   ['xstr_5ftrace_5fline',['XSTR_TRACE_LINE',['../ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354',1,'ctexceptions.h']]]
 ];

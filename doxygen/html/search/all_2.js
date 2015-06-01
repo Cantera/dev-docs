@@ -8,7 +8,7 @@ var searchData=
   ['base_5flaggedsolutioncomponents',['Base_LaggedSolutionComponents',['../namespaceCantera.html#a929b71317e0aa7f81336a73311423c14aa5361e66d7f032bd558f11b7478aefc0',1,'Cantera']]],
   ['base_5fresideval',['Base_ResidEval',['../namespaceCantera.html#a929b71317e0aa7f81336a73311423c14aa2c7a3e5e067f69fb2a99054cc956741',1,'Cantera']]],
   ['base_5fshowsolution',['Base_ShowSolution',['../namespaceCantera.html#a929b71317e0aa7f81336a73311423c14a71ca89d30f5bf39b5f3191a08fa0d128',1,'Cantera']]],
-  ['basis_5fopts',['Basis_Opts',['../classVCSnonideal_1_1VCS__COUNTERS.html#aa2479cd1087a02ab9ec3217e769d5666',1,'VCSnonideal::VCS_COUNTERS']]],
+  ['basis_5fopts',['Basis_Opts',['../classCantera_1_1VCS__COUNTERS.html#aa2479cd1087a02ab9ec3217e769d5666',1,'Cantera::VCS_COUNTERS']]],
   ['basisoptimize',['BasisOptimize',['../group__equilfunctions.html#ga736bfa5922a7dc8d12498e37b14652f5',1,'Cantera']]],
   ['basisoptimize_2ecpp',['BasisOptimize.cpp',['../BasisOptimize_8cpp.html',1,'']]],
   ['basisoptimize_5fprint_5flvl',['BasisOptimize_print_lvl',['../namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a',1,'Cantera']]],

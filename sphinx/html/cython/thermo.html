@@ -61,10 +61,21 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Thermodynamic Properties</a><ul>
-<li><a class="reference internal" href="#phases">Phases</a></li>
+<li><a class="reference internal" href="#phases">Phases</a><ul>
+<li><a class="reference internal" href="#thermophase">ThermoPhase</a></li>
+<li><a class="reference internal" href="#interfacephase">InterfacePhase</a></li>
+<li><a class="reference internal" href="#purefluid">PureFluid</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#mixture">Mixture</a></li>
 <li><a class="reference internal" href="#species">Species</a></li>
-<li><a class="reference internal" href="#species-thermodynamic-properties">Species Thermodynamic Properties</a></li>
+<li><a class="reference internal" href="#species-thermodynamic-properties">Species Thermodynamic Properties</a><ul>
+<li><a class="reference internal" href="#speciesthermo">SpeciesThermo</a></li>
+<li><a class="reference internal" href="#constantcp">ConstantCp</a></li>
+<li><a class="reference internal" href="#nasapoly2">NasaPoly2</a></li>
+<li><a class="reference internal" href="#shomatepoly2">ShomatePoly2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -103,9 +114,30 @@
             
   <div class="section" id="thermodynamic-properties">
 <h1>Thermodynamic Properties<a class="headerlink" href="#thermodynamic-properties" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#phases" id="id9">Phases</a><ul>
+<li><a class="reference internal" href="#thermophase" id="id10">ThermoPhase</a></li>
+<li><a class="reference internal" href="#interfacephase" id="id11">InterfacePhase</a></li>
+<li><a class="reference internal" href="#purefluid" id="id12">PureFluid</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mixture" id="id13">Mixture</a></li>
+<li><a class="reference internal" href="#species" id="id14">Species</a></li>
+<li><a class="reference internal" href="#species-thermodynamic-properties" id="id15">Species Thermodynamic Properties</a><ul>
+<li><a class="reference internal" href="#speciesthermo" id="id16">SpeciesThermo</a></li>
+<li><a class="reference internal" href="#constantcp" id="id17">ConstantCp</a></li>
+<li><a class="reference internal" href="#nasapoly2" id="id18">NasaPoly2</a></li>
+<li><a class="reference internal" href="#shomatepoly2" id="id19">ShomatePoly2</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="phases">
-<h2>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Phases</a><a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
 <p>These classes are used to describe the thermodynamic state of a system.</p>
+<div class="section" id="thermophase">
+<h3><a class="toc-backref" href="#id10">ThermoPhase</a><a class="headerlink" href="#thermophase" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.ThermoPhase">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ThermoPhase</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase" title="Permalink to this definition">¶</a></dt>
@@ -738,8 +770,11 @@ by finite difference.</p>
 
 <dl class="method">
 <dt id="cantera.ThermoPhase.species">
-<tt class="descname">species</tt><big>(</big><em>self</em>, <em>k</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.species" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">species</tt><big>(</big><em>self</em>, <em>k=None</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <a class="reference internal" href="#cantera.Species" title="cantera.Species"><tt class="xref py py-obj docutils literal"><span class="pre">Species</span></tt></a> object for species <em>k</em>, where <em>k</em> is either the
+species index or the species name. If <em>k</em> is not specified, a list of
+all species objects is returned.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="cantera.ThermoPhase.species_index">
@@ -828,6 +863,9 @@ current temperature and pressure.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="interfacephase">
+<h3><a class="toc-backref" href="#id11">InterfacePhase</a><a class="headerlink" href="#interfacephase" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.InterfacePhase">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">InterfacePhase</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.InterfacePhase" title="Permalink to this definition">¶</a></dt>
@@ -848,6 +886,9 @@ edge phases.</p>
 
 </dd></dl>
 
+</div>
+<div class="section" id="purefluid">
+<h3><a class="toc-backref" href="#id12">PureFluid</a><a class="headerlink" href="#purefluid" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.PureFluid">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">PureFluid</tt><big>(</big><em>infile=''</em>, <em>phaseid=''</em><big>)</big><a class="headerlink" href="#cantera.PureFluid" title="Permalink to this definition">¶</a></dt>
@@ -869,14 +910,16 @@ or a fluid beyond its critical point.</p>
 <dl class="attribute">
 <dt id="cantera.PureFluid.X">
 <tt class="descname">X</tt><a class="headerlink" href="#cantera.PureFluid.X" title="Permalink to this definition">¶</a></dt>
-<dd><p>Vapor fraction (quality).</p>
+<dd><p>Get/Set vapor fraction (quality). Can be set only when in the two-phase
+region.</p>
 </dd></dl>
 
 </dd></dl>
 
 </div>
+</div>
 <div class="section" id="mixture">
-<h2>Mixture<a class="headerlink" href="#mixture" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Mixture</a><a class="headerlink" href="#mixture" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.Mixture">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Mixture</tt><a class="headerlink" href="#cantera.Mixture" title="Permalink to this definition">¶</a></dt>
@@ -1136,7 +1179,7 @@ are assigned in order as phases are added.</p>
 
 </div>
 <div class="section" id="species">
-<h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Species</a><a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.Species">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Species</tt><a class="headerlink" href="#cantera.Species" title="Permalink to this definition">¶</a></dt>
@@ -1264,9 +1307,11 @@ of class <a class="reference internal" href="#cantera.SpeciesThermo" title="cant
 
 </div>
 <div class="section" id="species-thermodynamic-properties">
-<h2>Species Thermodynamic Properties<a class="headerlink" href="#species-thermodynamic-properties" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Species Thermodynamic Properties</a><a class="headerlink" href="#species-thermodynamic-properties" title="Permalink to this headline">¶</a></h2>
 <p>These classes are used to describe the reference-state thermodynamic properties
 of a pure species.</p>
+<div class="section" id="speciesthermo">
+<h3><a class="toc-backref" href="#id16">SpeciesThermo</a><a class="headerlink" href="#speciesthermo" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.SpeciesThermo">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">SpeciesThermo</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo" title="Permalink to this definition">¶</a></dt>
@@ -1311,6 +1356,9 @@ parameterization.</li>
 
 </dd></dl>
 
+</div>
+<div class="section" id="constantcp">
+<h3><a class="toc-backref" href="#id17">ConstantCp</a><a class="headerlink" href="#constantcp" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.ConstantCp">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ConstantCp</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ConstantCp" title="Permalink to this definition">¶</a></dt>
@@ -1336,6 +1384,9 @@ capacity. This is a wrapper for the C++ class <a class="reference external" href
 </table>
 </dd></dl>
 
+</div>
+<div class="section" id="nasapoly2">
+<h3><a class="toc-backref" href="#id18">NasaPoly2</a><a class="headerlink" href="#nasapoly2" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.NasaPoly2">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">NasaPoly2</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.NasaPoly2" title="Permalink to this definition">¶</a></dt>
@@ -1366,6 +1417,9 @@ input files.</p>
 </table>
 </dd></dl>
 
+</div>
+<div class="section" id="shomatepoly2">
+<h3><a class="toc-backref" href="#id19">ShomatePoly2</a><a class="headerlink" href="#shomatepoly2" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.ShomatePoly2">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ShomatePoly2</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ShomatePoly2" title="Permalink to this definition">¶</a></dt>
@@ -1397,6 +1451,7 @@ as in the NIST Chemistry WebBook).</p>
 </table>
 </dd></dl>
 
+</div>
 </div>
 </div>
 

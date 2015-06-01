@@ -3,7 +3,7 @@ var searchData=
   ['h',['h',['../classtpx_1_1Substance.html#a39d6d8ad0a51a776083a8d10d4dba5e5',1,'tpx::Substance::h()'],['../classtpx_1_1CarbonDioxide.html#ac4d9e8cde43646415e3b6cef79d54437',1,'tpx::CarbonDioxide::H()'],['../classtpx_1_1Heptane.html#ac4d9e8cde43646415e3b6cef79d54437',1,'tpx::Heptane::H()']]],
   ['h_5fmixing',['h_mixing',['../classCantera_1_1MaskellSolidSolnPhase.html#a159bae19d2beda2a6e62eb518f4d8778',1,'Cantera::MaskellSolidSolnPhase']]],
   ['hasattrib',['hasAttrib',['../classCantera_1_1XML__Node.html#a812e694afa41bef6f1dc85134f6acce9',1,'Cantera::XML_Node']]],
-  ['haschargedspecies',['hasChargedSpecies',['../namespaceVCSnonideal.html#a67602154eddd5bcce359d40ed10dc6e2',1,'VCSnonideal']]],
+  ['haschargedspecies',['hasChargedSpecies',['../namespaceCantera.html#a70c91230cd190d46397c55a29d946471',1,'Cantera']]],
   ['haschild',['hasChild',['../classCantera_1_1XML__Node.html#a03ff3c03e552014211325a2d57852727',1,'Cantera::XML_Node']]],
   ['hasnode',['hasNode',['../classCantera_1_1ReactionPathDiagram.html#a6b9edd1f330a3b2d52e85ba57e55a8e8',1,'Cantera::ReactionPathDiagram']]],
   ['helmholtzfe',['helmholtzFE',['../classCantera_1_1WaterPropsIAPWS.html#acbf983ebbf7aa459173f7a3cb09af1c6',1,'Cantera::WaterPropsIAPWS']]],

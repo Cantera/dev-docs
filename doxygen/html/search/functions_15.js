@@ -25,7 +25,7 @@ var searchData=
   ['updatediff_5ft',['updateDiff_T',['../classCantera_1_1AqueousTransport.html#a413dd59dcbc0b8d0a0b4b87424bac936',1,'Cantera::AqueousTransport::updateDiff_T()'],['../classCantera_1_1GasTransport.html#a413dd59dcbc0b8d0a0b4b87424bac936',1,'Cantera::GasTransport::updateDiff_T()'],['../classCantera_1_1LiquidTransport.html#a413dd59dcbc0b8d0a0b4b87424bac936',1,'Cantera::LiquidTransport::updateDiff_T()'],['../classCantera_1_1PecosTransport.html#a413dd59dcbc0b8d0a0b4b87424bac936',1,'Cantera::PecosTransport::updateDiff_T()'],['../classCantera_1_1SimpleTransport.html#a413dd59dcbc0b8d0a0b4b87424bac936',1,'Cantera::SimpleTransport::updateDiff_T()']]],
   ['updatedifffluxes',['updateDiffFluxes',['../classCantera_1_1StFlow.html#a8ca815c2fe260079e4477724c8f0f3ae',1,'Cantera::StFlow']]],
   ['updateexchangecurrentquantities',['updateExchangeCurrentQuantities',['../classCantera_1_1InterfaceKinetics.html#ad2ba0fb22c7f856392077d7c56af57c5',1,'Cantera::InterfaceKinetics']]],
-  ['updatefromvcs_5fmolenumbers',['updateFromVCS_MoleNumbers',['../classVCSnonideal_1_1vcs__VolPhase.html#a47a823a0701ddeff027a6caf4a88fb43',1,'VCSnonideal::vcs_VolPhase']]],
+  ['updatefromvcs_5fmolenumbers',['updateFromVCS_MoleNumbers',['../classCantera_1_1vcs__VolPhase.html#a47a823a0701ddeff027a6caf4a88fb43',1,'Cantera::vcs_VolPhase']]],
   ['updatehydrodynamicradius_5fc',['updateHydrodynamicRadius_C',['../classCantera_1_1LiquidTransport.html#a71cc0266e89c692b12b6414d5fe6b241',1,'Cantera::LiquidTransport']]],
   ['updatehydrodynamicradius_5ft',['updateHydrodynamicRadius_T',['../classCantera_1_1LiquidTransport.html#a53b5fac138c7ad672b016cf8479f6749',1,'Cantera::LiquidTransport']]],
   ['updateionconductivity_5fc',['updateIonConductivity_C',['../classCantera_1_1LiquidTransport.html#ae024169e5988279d6092cb6fb6d43769',1,'Cantera::LiquidTransport']]],
@@ -66,5 +66,5 @@ var searchData=
   ['usefactoralgorithm',['useFactorAlgorithm',['../classCantera_1_1BandMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a',1,'Cantera::BandMatrix::useFactorAlgorithm()'],['../classCantera_1_1GeneralMatrix.html#ae3b4f049253093c36b74fe8d7166ecd3',1,'Cantera::GeneralMatrix::useFactorAlgorithm()'],['../classCantera_1_1SquareMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a',1,'Cantera::SquareMatrix::useFactorAlgorithm()']]],
   ['user_5fout',['user_out',['../classCantera_1_1ResidJacEval.html#a31b79a61922a7e0b2544b03e93540328',1,'Cantera::ResidJacEval']]],
   ['user_5fout2',['user_out2',['../classCantera_1_1ResidJacEval.html#a523c8ac193bcbbf254bbc030743b9fb6',1,'Cantera::ResidJacEval']]],
-  ['usingcanteracalls',['usingCanteraCalls',['../classVCSnonideal_1_1vcs__VolPhase.html#a8b5b9f892372076abe1405ebb3773905',1,'VCSnonideal::vcs_VolPhase']]]
+  ['usingcanteracalls',['usingCanteraCalls',['../classCantera_1_1vcs__VolPhase.html#a8b5b9f892372076abe1405ebb3773905',1,'Cantera::vcs_VolPhase']]]
 ];

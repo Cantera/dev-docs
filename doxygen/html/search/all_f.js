@@ -34,7 +34,7 @@ var searchData=
   ['outletspeciesmassflowrate',['outletSpeciesMassFlowRate',['../classCantera_1_1FlowDevice.html#a1f00faa40d74eda98656082f40a77db3',1,'Cantera::FlowDevice']]],
   ['outputexcel',['outputExcel',['../namespaceCantera.html#aee6059b70728e56f33b9a6a4b2e731e2',1,'Cantera']]],
   ['outputtec',['outputTEC',['../namespaceCantera.html#a48ec450fc41980730468311dd3d05053',1,'Cantera']]],
-  ['owningphase',['OwningPhase',['../classVCSnonideal_1_1VCS__SPECIES__THERMO.html#af9f3db04ac7446afa05bbe91c158f62e',1,'VCSnonideal::VCS_SPECIES_THERMO']]],
+  ['owningphase',['OwningPhase',['../classCantera_1_1VCS__SPECIES__THERMO.html#af9f3db04ac7446afa05bbe91c158f62e',1,'Cantera::VCS_SPECIES_THERMO']]],
   ['oxygen',['oxygen',['../classtpx_1_1oxygen.html',1,'tpx']]],
   ['oxygen_2ecpp',['Oxygen.cpp',['../Oxygen_8cpp.html',1,'']]],
   ['oxygen_2eh',['Oxygen.h',['../Oxygen_8h.html',1,'']]]

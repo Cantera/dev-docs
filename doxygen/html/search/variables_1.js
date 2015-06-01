@@ -4,7 +4,7 @@ var searchData=
   ['a1norm_5f',['a1norm_',['../classCantera_1_1SquareMatrix.html#ad3641793e0b43a83fd6839f399ccc77e',1,'Cantera::SquareMatrix']]],
   ['abselemtol',['absElemTol',['../classCantera_1_1EquilOpt.html#adf838190d03789a01f3afc2b2b5ab85c',1,'Cantera::EquilOpt']]],
   ['acentric_5ffactor',['acentric_factor',['../classCantera_1_1GasTransportData.html#a4d68ee0d00664a58e6ccaa7cadfc5307',1,'Cantera::GasTransportData']]],
-  ['actcoeff',['ActCoeff',['../classVCSnonideal_1_1vcs__VolPhase.html#a107b8c1bad5897d935f3b7b188776277',1,'VCSnonideal::vcs_VolPhase']]],
+  ['actcoeff',['ActCoeff',['../classCantera_1_1vcs__VolPhase.html#a107b8c1bad5897d935f3b7b188776277',1,'Cantera::vcs_VolPhase']]],
   ['add2rtln2_5f',['add2RTln2_',['../classCantera_1_1PDSS__IonsFromNeutral.html#ad397a89e9bd979b48c159e8e2891710e',1,'Cantera::PDSS_IonsFromNeutral']]],
   ['affinitypower',['affinityPower',['../classCantera_1_1ReactionData.html#a10e5356e5c3d1ce89bc7391453997841',1,'Cantera::ReactionData']]],
   ['allow_5fnegative_5forders',['allow_negative_orders',['../classCantera_1_1Reaction.html#ac5a6d942058de3ec422d01d0540ecf6e',1,'Cantera::Reaction']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['basis_5fopts',['Basis_Opts',['../classVCSnonideal_1_1VCS__COUNTERS.html#aa2479cd1087a02ab9ec3217e769d5666',1,'VCSnonideal::VCS_COUNTERS']]],
+  ['basis_5fopts',['Basis_Opts',['../classCantera_1_1VCS__COUNTERS.html#aa2479cd1087a02ab9ec3217e769d5666',1,'Cantera::VCS_COUNTERS']]],
   ['basisoptimize_5fprint_5flvl',['BasisOptimize_print_lvl',['../namespaceCantera.html#a971f6a305da78e68f47975d0bb15078a',1,'Cantera']]],
   ['beta',['beta',['../classCantera_1_1ElectrochemicalReaction.html#a0f4d8a67bb39acc583704de120c23b36',1,'Cantera::ElectrochemicalReaction::beta()'],['../classCantera_1_1ReactionData.html#a0f4d8a67bb39acc583704de120c23b36',1,'Cantera::ReactionData::beta()']]],
   ['bignumber',['BigNumber',['../namespaceCantera.html#acb8c7090811b6c23e8c5bba31777293c',1,'Cantera']]],

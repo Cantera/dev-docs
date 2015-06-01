@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['l2normdg',['l2normdg',['../classVCSnonideal_1_1VCS__SOLVE.html#a47ca0b0a4d5869c17eaa7d902d90319e',1,'VCSnonideal::VCS_SOLVE']]],
+  ['l2normdg',['l2normdg',['../classCantera_1_1VCS__SOLVE.html#a47ca0b0a4d5869c17eaa7d902d90319e',1,'Cantera::VCS_SOLVE']]],
   ['lambdatoleg',['lambdaToLeg',['../classCantera_1_1NonlinearSolver.html#abecbece01e7805bf103d263dc0faabd4',1,'Cantera::NonlinearSolver']]],
   ['lastchar',['lastChar',['../namespaceCantera.html#a77e7197baf64099fdd6ffc3da72b9dd5',1,'Cantera']]],
   ['lasterrormessage',['lastErrorMessage',['../group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::Application::Messages::lastErrorMessage()'],['../classCantera_1_1Application.html#a7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::Application::lastErrorMessage()'],['../namespaceCantera.html#a7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::lastErrorMessage()']]],

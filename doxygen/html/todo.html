@@ -88,14 +88,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="namespaceCantera.html#aec7e58bef1bf97c7143c2fce3de0dd14">Cantera::addInteger</a>  (XML_Node &amp;node, const std::string &amp;titleString, const int value, const std::string &amp;unitsString="", const std::string &amp;typeString="")</dt>
+<dd>I don't think this is used. Figure out what is used for writing integers, and codify that. unitsString shouldn't be here, since it's an int. typeString should be codified as to its usage.  </dd>
+<dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="namespaceCantera.html#adf11e90282d5d60b62491ed1413d2846">Cantera::CTML_Version</a>  </dt>
+<dd>Codify what the CTML_Version number means.  </dd>
 <dt><a class="anchor" id="_todo000001"></a>Member <a class="el" href="namespaceCantera.html#acf8da16843fcda8cd5f7c5567c466059">Cantera::getSpeciesThermoTypes</a>  (std::vector&lt; XML_Node * &gt; &amp;spDataNodeList, int &amp;has_nasa, int &amp;has_shomate, int &amp;has_simple, int &amp;has_other)</dt>
 <dd>Make sure that spDadta_node is species Data XML node by checking its name is speciesData  </dd>
 <dt><a class="anchor" id="_todo000002"></a>Member <a class="el" href="namespaceCantera.html#a5f8b628cad0fa4690743a2ba8df71d50">Cantera::getVPSSMgrTypes</a>  (std::vector&lt; XML_Node * &gt; &amp;spDataNodeList, int &amp;has_nasa_idealGas, int &amp;has_nasa_constVol, int &amp;has_shomate_idealGas, int &amp;has_shomate_constVol, int &amp;has_simple_idealGas, int &amp;has_simple_constVol, int &amp;has_water, int &amp;has_tpx, int &amp;has_hptx, int &amp;has_other)</dt>
 <dd>Make sure that spDadta_node is species Data XML node by checking its name is speciesData  </dd>
-<dt><a class="anchor" id="_todo000004"></a>Member <a class="el" href="namespacectml.html#a167cd9789b5570d51227d507a99ea697">ctml::addInteger</a>  (<a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">Cantera::XML_Node</a> &amp;node, const std::string &amp;titleString, const int value, const std::string &amp;unitsString="", const std::string &amp;typeString="")</dt>
-<dd>I don't think this is used. Figure out what is used for writing integers, and codify that. unitsString shouldn't be here, since it's an int. typeString should be codified as to its usage.  </dd>
-<dt><a class="anchor" id="_todo000003"></a>Member <a class="el" href="namespacectml.html#adf11e90282d5d60b62491ed1413d2846">ctml::CTML_Version</a>  </dt>
-<dd>Codify what the CTML_Version number means.  </dd>
 <dt><a class="anchor" id="_todo000011"></a>Member <a class="el" href="classCantera_1_1DebyeHuckel.html#a7eb43922f97cdfb4e0df8e9710353770">DebyeHuckel::setDensity</a>  (const doublereal rho)</dt>
 <dd>Now have a compressible ss equation for liquid water. Therefore, this phase is compressible. May still want to change the independent variable however. </dd>
 <dt><a class="anchor" id="_todo000010"></a>Member <a class="el" href="classCantera_1_1DebyeHuckel.html#a7b8fd9d05cfac4203a9fc3cf0db011e6">DebyeHuckel::setPressure</a>  (doublereal p)</dt>
@@ -130,9 +130,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </dd>
 <dt><a class="anchor" id="_todo000021"></a>Class <a class="el" href="classCantera_1_1Transport.html">Transport</a>  </dt>
 <dd>Provide a general mechanism to store the gradients of state variables within the system. </dd>
-<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="classVCSnonideal_1_1VCS__SOLVE.html#acecb29ba84a31969b7f99d28e45f2338">VCS_SOLVE::vcs_nondim_TP</a>  ()</dt>
+<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="classCantera_1_1VCS__SOLVE.html#acecb29ba84a31969b7f99d28e45f2338">VCS_SOLVE::vcs_nondim_TP</a>  ()</dt>
 <dd>Add a scale factor based on the total mole numbers. The algorithm contains hard coded numbers based on the total mole number. If we ever were faced with a problem with significantly different total kmol numbers than one the algorithm would have problems.  </dd>
-<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="classVCSnonideal_1_1vcs__VolPhase.html#a1ff44429c25b15723958b9f0004e6da8">vcs_VolPhase::sendToVCS_GStar</a>  (double *const gstar) const </dt>
+<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="classCantera_1_1vcs__VolPhase.html#a1ff44429c25b15723958b9f0004e6da8">vcs_VolPhase::sendToVCS_GStar</a>  (double *const gstar) const </dt>
 <dd>This function's documentation is incorrect.  </dd>
 <dt><a class="anchor" id="_todo000019"></a>Class <a class="el" href="classCantera_1_1VPStandardStateTP.html">VPStandardStateTP</a>  </dt>
 <dd>Put some teeth into this level by overloading the setDensity() function. It should now throw an exception. Instead, setPressure routines should calculate the solution density and then call State:setDensity() directly. </dd>
