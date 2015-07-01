@@ -18,7 +18,6 @@ var searchData=
   ['plog_5frxn',['PLOG_RXN',['../namespaceCantera.html#a36559219afd4abf2b6248f749d26edc6',1,'Cantera']]],
   ['plogparameters',['plogParameters',['../classCantera_1_1ReactionData.html#af6a472a33dc9a63166c522eeed5ef619',1,'Cantera::ReactionData']]],
   ['pmax_5f',['Pmax_',['../classCantera_1_1ChebyshevRate.html#aa9263c0c60febedf816cd4736a051a49',1,'Cantera::ChebyshevRate']]],
-  ['pmessenger',['pMessenger',['../classCantera_1_1Application.html#aee3a1baeb535d6562ca1eaff34edc0f5',1,'Cantera::Application']]],
   ['polar',['polar',['../classCantera_1_1GasTransportParams.html#ab8bc5808b0d4eec4767b561b3d973d9d',1,'Cantera::GasTransportParams']]],
   ['polarizability',['polarizability',['../classCantera_1_1GasTransportData.html#a037666c1c45976cf0fc8f9a07e2225e6',1,'Cantera::GasTransportData']]],
   ['poly',['poly',['../classCantera_1_1GasTransportParams.html#a9a01cefadf6d9948be45e011782cdaf6',1,'Cantera::GasTransportParams']]],

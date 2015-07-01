@@ -170,7 +170,7 @@ var searchData=
   ['rtol_5f',['rtol_',['../classCantera_1_1NonlinearSolver.html#a921b2b375689d767112cd7fc1563c7e8',1,'Cantera::NonlinearSolver']]],
   ['rtolsensitivity',['rtolSensitivity',['../classCantera_1_1ReactorNet.html#a59330bc7226ab0cd4f18bf45766808b0',1,'Cantera::ReactorNet']]],
   ['rxn_5fnumber',['rxn_number',['../classCantera_1_1ReactionData.html#af00b8f275de96e84f0ce6c5e6bb905be',1,'Cantera::ReactionData']]],
-  ['rxnmolchange',['RxnMolChange',['../classCantera_1_1RxnMolChange.html#ab1fc0904cea143220489873d773798dc',1,'Cantera::RxnMolChange::RxnMolChange(Cantera::Kinetics *kinPtr, int irxn)'],['../classCantera_1_1RxnMolChange.html#a6290370a88297b829089f7dc0d6fa8f9',1,'Cantera::RxnMolChange::RxnMolChange(Cantera::Kinetics *kinPtr, Cantera::ExtraGlobalRxn *egr)']]],
+  ['rxnmolchange',['RxnMolChange',['../classCantera_1_1RxnMolChange.html#a669ffdc6837a490bc27d7510825c2960',1,'Cantera::RxnMolChange::RxnMolChange(Kinetics *kinPtr, int irxn)'],['../classCantera_1_1RxnMolChange.html#a21c5f8f010ed00ab2ff3e6519c60b352',1,'Cantera::RxnMolChange::RxnMolChange(Kinetics *kinPtr, ExtraGlobalRxn *egr)']]],
   ['rxnmolchange',['RxnMolChange',['../classCantera_1_1RxnMolChange.html',1,'Cantera']]],
   ['rxnmolchange_2ecpp',['RxnMolChange.cpp',['../RxnMolChange_8cpp.html',1,'']]],
   ['rxnorders',['RxnOrders',['../classCantera_1_1RxnOrders.html',1,'Cantera']]],

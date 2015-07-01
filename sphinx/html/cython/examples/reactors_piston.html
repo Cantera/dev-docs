@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>piston.py &mdash; Cantera 2.2.0b1 documentation</title>
+    <title>piston.py &mdash; Cantera 2.2.0 documentation</title>
     
-    <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.2.0b1',
+        VERSION:     '2.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2.0 documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="reactor1.py" href="reactors_reactor1.html" />
     <link rel="prev" title="periodic_cstr.py" href="reactors_periodic_cstr.html" /> 
@@ -130,7 +130,16 @@
 <span class="n">r1</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">r2</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">IdealGasReactor</span><span class="p">(</span><span class="n">gas2</span><span class="p">)</span>
 <span class="n">r2</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Wall</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mf">1.0e3</span><span class="p">)</span>
+
+<span class="c"># The wall is held fixed until t = 0.1 s, then released to allow the pressure to</span>
+<span class="c"># equilibrate.</span>
+<span class="k">def</span> <span class="nf">v</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">P</span> <span class="o">-</span> <span class="n">r2</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">P</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-4</span>
+
+<span class="n">w</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Wall</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">velocity</span><span class="o">=</span><span class="n">v</span><span class="p">)</span>
 
 <span class="n">net</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">])</span>
 
@@ -143,11 +152,12 @@
 <span class="n">xco</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">xh2</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
-    <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.002</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">0.001</span>
     <span class="n">net</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">fmt</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">volume</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">volume</span><span class="p">,</span>
-                 <span class="n">r1</span><span class="o">.</span><span class="n">volume</span> <span class="o">+</span> <span class="n">r2</span><span class="o">.</span><span class="n">volume</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">thermo</span><span class="p">[</span><span class="s">&#39;CO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">fmt</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">volume</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">volume</span><span class="p">,</span>
+                     <span class="n">r1</span><span class="o">.</span><span class="n">volume</span> <span class="o">+</span> <span class="n">r2</span><span class="o">.</span><span class="n">volume</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">thermo</span><span class="p">[</span><span class="s">&#39;CO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
     <span class="n">tim</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="n">t1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>

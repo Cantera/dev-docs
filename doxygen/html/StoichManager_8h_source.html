@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -870,7 +870,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        }</div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        <span class="keywordtype">bool</span> frac = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> n = 0; n &lt; stoich.size(); n++) {</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            <span class="keywordflow">if</span> (fmod(stoich[n], 1.0) || fmod(order[n], 1.0)) {</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            <span class="keywordflow">if</span> (fmod(stoich[n], 1.0) || stoich[n] != order[n]) {</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;                frac = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;            }</div>

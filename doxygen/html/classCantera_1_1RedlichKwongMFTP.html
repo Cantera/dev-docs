@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -113,12 +113,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Inheritance diagram for RedlichKwongMFTP:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1RedlichKwongMFTP__inherit__graph.svg" width="150" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1RedlichKwongMFTP__inherit__graph.svg" width="150" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for RedlichKwongMFTP:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1RedlichKwongMFTP__coll__graph.svg" width="462" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1RedlichKwongMFTP__coll__graph.svg" width="462" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -239,8 +241,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calcCriticalCondition
 <tr class="memdesc:a24b1f84a3214bbe1dab107d0ffe6fc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the species partial molar volumes. Units: m^3/kmol.  <a href="#a24b1f84a3214bbe1dab107d0ffe6fc13">More...</a><br/></td></tr>
 <tr class="separator:a24b1f84a3214bbe1dab107d0ffe6fc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Critical State Properties.</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>These methods are only implemented by some subclasses, and may be moved out of <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> at a later date.</p>
-</div></td></tr>
 <tr class="memitem:a995ee50f10e33ee3186809ab6444b364"><td class="memItemLeft" align="right" valign="top">virtual doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a995ee50f10e33ee3186809ab6444b364">critTemperature</a> () const </td></tr>
 <tr class="memdesc:a995ee50f10e33ee3186809ab6444b364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Critical temperature (K).  <a href="#a995ee50f10e33ee3186809ab6444b364">More...</a><br/></td></tr>
 <tr class="separator:a995ee50f10e33ee3186809ab6444b364"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -485,6 +485,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calcCriticalCondition
 <tr class="memitem:a0998a951d0f2a252d2ac6700c48bebca inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a0998a951d0f2a252d2ac6700c48bebca">setState_SV</a> (doublereal s, doublereal v, doublereal tol=1.e-4)</td></tr>
 <tr class="memdesc:a0998a951d0f2a252d2ac6700c48bebca inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the specific entropy (J/kg/K) and specific volume (m^3/kg).  <a href="#a0998a951d0f2a252d2ac6700c48bebca">More...</a><br/></td></tr>
 <tr class="separator:a0998a951d0f2a252d2ac6700c48bebca inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacc071b92537ab52a0fbd3d4cb7aaa6e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#aacc071b92537ab52a0fbd3d4cb7aaa6e">setState_RP</a> (doublereal rho, doublereal p)</td></tr>
+<tr class="memdesc:aacc071b92537ab52a0fbd3d4cb7aaa6e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3) and pressure (Pa) at constant composition.  <a href="#aacc071b92537ab52a0fbd3d4cb7aaa6e">More...</a><br/></td></tr>
+<tr class="separator:aacc071b92537ab52a0fbd3d4cb7aaa6e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bb1e011bb540ff358215b094218e61 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#ac9bb1e011bb540ff358215b094218e61">setState_RPX</a> (doublereal rho, doublereal p, const doublereal *x)</td></tr>
+<tr class="memdesc:ac9bb1e011bb540ff358215b094218e61 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3), pressure (Pa) and mole fractions.  <a href="#ac9bb1e011bb540ff358215b094218e61">More...</a><br/></td></tr>
+<tr class="separator:ac9bb1e011bb540ff358215b094218e61 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7223be54d767ac5adc8e0967236206c7 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a7223be54d767ac5adc8e0967236206c7">setState_RPX</a> (doublereal rho, doublereal p, const <a class="el" href="namespaceCantera.html#af8df6ec5637fd288b82a7704a3b3a9af">compositionMap</a> &amp;x)</td></tr>
+<tr class="memdesc:a7223be54d767ac5adc8e0967236206c7 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3), pressure (Pa) and mole fractions.  <a href="#a7223be54d767ac5adc8e0967236206c7">More...</a><br/></td></tr>
+<tr class="separator:a7223be54d767ac5adc8e0967236206c7 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeea00211b80fc92ff8fd693a635bf6a inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#afeea00211b80fc92ff8fd693a635bf6a">setState_RPX</a> (doublereal rho, doublereal p, const std::string &amp;x)</td></tr>
+<tr class="memdesc:afeea00211b80fc92ff8fd693a635bf6a inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3), pressure (Pa) and mole fractions.  <a href="#afeea00211b80fc92ff8fd693a635bf6a">More...</a><br/></td></tr>
+<tr class="separator:afeea00211b80fc92ff8fd693a635bf6a inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b44518d63769b9d1b3707648c05306 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a53b44518d63769b9d1b3707648c05306">setState_RPY</a> (doublereal rho, doublereal p, const doublereal *y)</td></tr>
+<tr class="memdesc:a53b44518d63769b9d1b3707648c05306 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3), pressure (Pa) and mass fractions.  <a href="#a53b44518d63769b9d1b3707648c05306">More...</a><br/></td></tr>
+<tr class="separator:a53b44518d63769b9d1b3707648c05306 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f5242d4139c48039554b5a39a542a8 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a85f5242d4139c48039554b5a39a542a8">setState_RPY</a> (doublereal rho, doublereal p, const <a class="el" href="namespaceCantera.html#af8df6ec5637fd288b82a7704a3b3a9af">compositionMap</a> &amp;y)</td></tr>
+<tr class="memdesc:a85f5242d4139c48039554b5a39a542a8 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3), pressure (Pa) and mass fractions.  <a href="#a85f5242d4139c48039554b5a39a542a8">More...</a><br/></td></tr>
+<tr class="separator:a85f5242d4139c48039554b5a39a542a8 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f541724edb5b60236db2474a68d8176 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a2f541724edb5b60236db2474a68d8176">setState_RPY</a> (doublereal rho, doublereal p, const std::string &amp;y)</td></tr>
+<tr class="memdesc:a2f541724edb5b60236db2474a68d8176 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the density (kg/m**3), pressure (Pa) and mass fractions.  <a href="#a2f541724edb5b60236db2474a68d8176">More...</a><br/></td></tr>
+<tr class="separator:a2f541724edb5b60236db2474a68d8176 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf658f6d2afb439d254b43166f270861e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#gaf658f6d2afb439d254b43166f270861e">equilibrate</a> (const std::string &amp;XY, const std::string &amp;solver=&quot;auto&quot;, double rtol=1e-9, int max_steps=50000, int max_iter=100, int estimate_equil=0, int log_level=0)</td></tr>
 <tr class="memdesc:gaf658f6d2afb439d254b43166f270861e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equilibrate a <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object.  <a href="group__equilfunctions.html#gaf658f6d2afb439d254b43166f270861e">More...</a><br/></td></tr>
 <tr class="separator:gaf658f6d2afb439d254b43166f270861e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -524,9 +545,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calcCriticalCondition
 <tr class="separator:a1a2cac6aad6c57f66167696e4392fb6e inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40289530956dbcfe789a5b60ac3fa950 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a40289530956dbcfe789a5b60ac3fa950">initThermoFile</a> (const std::string &amp;inputFile, const std::string &amp;<a class="el" href="classCantera_1_1Phase.html#aae9016a4b54d24cae86174baa6a38342">id</a>)</td></tr>
 <tr class="separator:a40289530956dbcfe789a5b60ac3fa950 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a057c0594cc6ecaa15d86f962235b6775 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a057c0594cc6ecaa15d86f962235b6775">installSlavePhases</a> (<a class="el" href="classCantera_1_1XML__Node.html">Cantera::XML_Node</a> *phaseNode)</td></tr>
-<tr class="memdesc:a057c0594cc6ecaa15d86f962235b6775 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add in species from Slave phases.  <a href="#a057c0594cc6ecaa15d86f962235b6775">More...</a><br/></td></tr>
-<tr class="separator:a057c0594cc6ecaa15d86f962235b6775 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a89055fc6c5344bf5c4c730b1d4f85 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#a80a89055fc6c5344bf5c4c730b1d4f85">installSlavePhases</a> (<a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> *phaseNode)</td></tr>
+<tr class="memdesc:a80a89055fc6c5344bf5c4c730b1d4f85 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add in species from Slave phases.  <a href="#a80a89055fc6c5344bf5c4c730b1d4f85">More...</a><br/></td></tr>
+<tr class="separator:a80a89055fc6c5344bf5c4c730b1d4f85 inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4ac746210fdc6259486bf5f62b5558f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoPhase.html#ad4ac746210fdc6259486bf5f62b5558f">setParameters</a> (int n, doublereal *const c)</td></tr>
 <tr class="memdesc:ad4ac746210fdc6259486bf5f62b5558f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the equation of state parameters.  <a href="#ad4ac746210fdc6259486bf5f62b5558f">More...</a><br/></td></tr>
 <tr class="separator:ad4ac746210fdc6259486bf5f62b5558f inherit pub_methods_classCantera_1_1ThermoPhase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1126,7 +1147,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00032">32</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00167">RedlichKwongMFTP::duplMyselfAsThermoPhase()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00168">RedlichKwongMFTP::duplMyselfAsThermoPhase()</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1282,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00119">119</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00120">120</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -1289,9 +1310,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">131</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">132</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00705">RedlichKwongMFTP::dpdni_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00698">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00691">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00648">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00641">RedlichKwongMFTP::m_standardMixingRules</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00043">MixtureFugacityTP::operator=()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00703">RedlichKwongMFTP::dpdni_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00696">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00689">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00646">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00639">RedlichKwongMFTP::m_standardMixingRules</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00043">MixtureFugacityTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -1322,7 +1343,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#ada5dc6bcebfe0f6e38b664e204013159">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00167">167</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00168">168</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 <p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00032">RedlichKwongMFTP::RedlichKwongMFTP()</a>.</p>
 
@@ -1354,7 +1375,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a49fb2c3b20bb862fc595b4525dd05069">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00172">172</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00173">173</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 </div>
 </div>
@@ -1383,9 +1404,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a6dd87c68aea566830f1e6af8b2412d63">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00181">181</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00182">182</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00936">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00984">RedlichKwongMFTP::hresid()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00828">MixtureFugacityTP::m_h0_RT</a>, and <a class="el" href="Phase_8cpp_source.html#l00683">Phase::mean_X()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00919">ThermoPhase::_RT()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00993">RedlichKwongMFTP::hresid()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00828">MixtureFugacityTP::m_h0_RT</a>, and <a class="el" href="Phase_8cpp_source.html#l00697">Phase::mean_X()</a>.</p>
 
 </div>
 </div>
@@ -1414,9 +1435,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a0aaface72ff4183cc80062cac9a5ceb0">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00189">189</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00190">190</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00837">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="ThermoPhase_8h_source.html#l01607">ThermoPhase::m_spthermo</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::mean_X()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00220">RedlichKwongMFTP::pressure()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00968">RedlichKwongMFTP::sresid()</a>, and <a class="el" href="Phase_8cpp_source.html#l00699">Phase::sum_xlogx()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00837">MixtureFugacityTP::m_s0_R</a>, <a class="el" href="ThermoPhase_8h_source.html#l01693">ThermoPhase::m_spthermo</a>, <a class="el" href="Phase_8cpp_source.html#l00697">Phase::mean_X()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00229">RedlichKwongMFTP::pressure()</a>, <a class="el" href="classCantera_1_1SpeciesThermo.html#a6c6b86bd78cd6547d77a1a3cf73da79c">SpeciesThermo::refPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00977">RedlichKwongMFTP::sresid()</a>, and <a class="el" href="Phase_8cpp_source.html#l00713">Phase::sum_xlogx()</a>.</p>
 
 </div>
 </div>
@@ -1445,11 +1466,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a2ff807189e615cec31440ca4388853c1">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">198</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00199">199</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00698">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00691">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::mean_X()</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
-
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00214">RedlichKwongMFTP::cv_mole()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00696">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00689">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="Phase_8cpp_source.html#l00697">Phase::mean_X()</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -1478,9 +1497,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#acf4e2659dbe9417665362cf64543e826">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00214">214</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00215">215</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">RedlichKwongMFTP::cp_mole()</a>, and <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00831">MixtureFugacityTP::m_cp0_R</a>, <a class="el" href="Phase_8cpp_source.html#l00697">Phase::mean_X()</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -1513,11 +1532,11 @@ Additional Inherited Members</h2></td></tr>
  
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#aff3d64e82bac7f64af3338c9af715a35">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00220">220</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00229">229</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00604">Phase::density()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00801">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00604">Phase::density()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00801">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00189">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00335">RedlichKwongMFTP::getActivityCoefficients()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">RedlichKwongMFTP::getChemPotentials()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00190">RedlichKwongMFTP::entropy_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00344">RedlichKwongMFTP::getActivityCoefficients()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00389">RedlichKwongMFTP::getChemPotentials()</a>.</p>
 
 </div>
 </div>
@@ -1552,9 +1571,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#afac1b45437d49cc161e7ca2d5c00906a">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00238">238</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00247">247</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="utilities_8h_source.html#l00135">Cantera::dot()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00577">Phase::moleFractdivMMW()</a>, and <a class="el" href="Phase_8h_source.html#l00619">Phase::setDensity()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="utilities_8h_source.html#l00135">Cantera::dot()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00591">Phase::moleFractdivMMW()</a>, and <a class="el" href="Phase_8h_source.html#l00619">Phase::setDensity()</a>.</p>
 
 </div>
 </div>
@@ -1591,11 +1610,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#aaefc9c80c1f44914510e3e9918162af8">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00254">254</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00263">263</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00632">Phase::setTemperature()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="Phase_8h_source.html#l00632">Phase::setTemperature()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">RedlichKwongMFTP::densityCalc()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">RedlichKwongMFTP::densityCalc()</a>.</p>
 
 </div>
 </div>
@@ -1631,9 +1650,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a7aed419246e2ec528d92aadb299369ee">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00261">261</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00270">270</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00296">MixtureFugacityTP::setMassFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00296">MixtureFugacityTP::setMassFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -1670,9 +1689,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#abf3f7be7d56c2e1832869479c99cf97c">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00267">267</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00276">276</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00302">MixtureFugacityTP::setMassFractions_NoNorm()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00302">MixtureFugacityTP::setMassFractions_NoNorm()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -1708,9 +1727,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a9021a59aefd96f389045818f8513abb3">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00273">273</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00282">282</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00308">MixtureFugacityTP::setMoleFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00308">MixtureFugacityTP::setMoleFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -1747,9 +1766,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#aa64f4b501431fbeedcc035b6a94d705c">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00279">279</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00288">288</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00308">MixtureFugacityTP::setMoleFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00308">MixtureFugacityTP::setMoleFractions()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -1785,9 +1804,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a51ba2bc35caa0ec446e308d7ea6349ca">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00285">285</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00294">294</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00320">MixtureFugacityTP::setConcentrations()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00320">MixtureFugacityTP::setConcentrations()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -1824,9 +1843,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ad2bfee0d6025dc22f2713a9d94285fa9">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00291">291</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00300">300</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="Phase_8cpp_source.html#l00561">Phase::moleFraction()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="Phase_8cpp_source.html#l00575">Phase::moleFraction()</a>.</p>
 
 </div>
 </div>
@@ -1864,9 +1883,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#af80ce4b0c20042cc93d607bbcf59ba09">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00299">299</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00308">308</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00177">MixtureFugacityTP::getStandardVolumes()</a>, and <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00177">MixtureFugacityTP::getStandardVolumes()</a>, and <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>.</p>
 
 </div>
 </div>
@@ -1931,7 +1950,7 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#abbf7704c3f9ae6f3374ad82de5f7e325">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00305">305</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00314">314</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 <p>References <a class="el" href="Phase_8h_source.html#l00582">Phase::nDim()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
 
@@ -1970,9 +1989,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#adaf2f2e222725e863f8da82c91732a13">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00335">335</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00344">344</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00220">RedlichKwongMFTP::pressure()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00229">RedlichKwongMFTP::pressure()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -2011,9 +2030,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#afd1362c30dc157ab59cf9728fc936064">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00371">371</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">380</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l00936">ThermoPhase::_RT()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">RedlichKwongMFTP::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00919">ThermoPhase::_RT()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00389">RedlichKwongMFTP::getChemPotentials()</a>, and <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>.</p>
 
 </div>
 </div>
@@ -2050,11 +2069,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a04733b99f18bae806e25ff9d2d2b0046">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">380</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00389">389</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00203">MixtureFugacityTP::getGibbs_ref()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, <a class="el" href="Phase_8cpp_source.html#l00561">Phase::moleFraction()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00220">RedlichKwongMFTP::pressure()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, <a class="el" href="ct__defs_8h_source.html#l00126">Cantera::SmallNumber</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00203">MixtureFugacityTP::getGibbs_ref()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, <a class="el" href="Phase_8cpp_source.html#l00575">Phase::moleFraction()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00229">RedlichKwongMFTP::pressure()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, <a class="el" href="ct__defs_8h_source.html#l00126">Cantera::SmallNumber</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00371">RedlichKwongMFTP::getChemPotentials_RT()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">RedlichKwongMFTP::getChemPotentials_RT()</a>.</p>
 
 </div>
 </div>
@@ -2090,9 +2109,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a86a2afc6ed698459e8379e18ba67cef1">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">416</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">425</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00705">RedlichKwongMFTP::dpdni_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00698">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00691">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00191">MixtureFugacityTP::getEnthalpy_RT_ref()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00703">RedlichKwongMFTP::dpdni_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00696">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00689">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00191">MixtureFugacityTP::getEnthalpy_RT_ref()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -2128,9 +2147,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a6fe5f92ea93a26c6e8e70b96bf1d6e42">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">475</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">484</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00698">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00215">MixtureFugacityTP::getEntropy_R_ref()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, <a class="el" href="Phase_8cpp_source.html#l00561">Phase::moleFraction()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, <a class="el" href="ct__defs_8h_source.html#l00126">Cantera::SmallNumber</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00696">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00215">MixtureFugacityTP::getEntropy_R_ref()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, <a class="el" href="Phase_8cpp_source.html#l00575">Phase::moleFraction()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, <a class="el" href="ct__defs_8h_source.html#l00126">Cantera::SmallNumber</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 </div>
 </div>
@@ -2166,7 +2185,7 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a555fe615abfe4413595ca7d1895862d7">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00532">532</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00541">541</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 <p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00162">MixtureFugacityTP::getIntEnergy_RT()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
@@ -2204,7 +2223,7 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#ac6451d96eccd894479fdf635964d7727">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00539">539</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00548">548</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 <p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00171">MixtureFugacityTP::getCp_R()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>.</p>
 
@@ -2242,11 +2261,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aad8205cf1022182c8fc3260d46f75c09">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">546</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">555</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00801">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00801">MixtureFugacityTP::m_Pcurrent</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00238">RedlichKwongMFTP::calcDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00291">RedlichKwongMFTP::getActivityConcentrations()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00247">RedlichKwongMFTP::calcDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00300">RedlichKwongMFTP::getActivityConcentrations()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>.</p>
 
 </div>
 </div>
@@ -2275,11 +2294,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#aedd77ca69e8622379ae9d6bd8694a419">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00589">589</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00598">598</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">RedlichKwongMFTP::densityCalc()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">RedlichKwongMFTP::densityCalc()</a>.</p>
 
 </div>
 </div>
@@ -2308,11 +2327,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a6a14266df7a455510eba4123f45908f1">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00605">605</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00614">614</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00999">RedlichKwongMFTP::liquidVolEst()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01008">RedlichKwongMFTP::liquidVolEst()</a>.</p>
 
 </div>
 </div>
@@ -2341,9 +2360,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a391292fe85463a8d785ec4c338702b92">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00622">622</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00631">631</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
 
 </div>
 </div>
@@ -2372,9 +2391,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a5fd0c28d4216e6cfd2bec9f4372a1615">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00638">638</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00647">647</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
 
 </div>
 </div>
@@ -2403,11 +2422,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#a2822b1ecbfa225344fc28df8a7c1ef6b">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00654">654</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00663">663</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01127">RedlichKwongMFTP::densSpinodalGas()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01104">RedlichKwongMFTP::densSpinodalLiquid()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01136">RedlichKwongMFTP::densSpinodalGas()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01113">RedlichKwongMFTP::densSpinodalLiquid()</a>.</p>
 
 </div>
 </div>
@@ -2445,9 +2464,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1ThermoPhase.html#af03a726f2f5d141fc1ec3c6a9aed03a7">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00962">962</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00971">971</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoPhase_8h_source.html#l01470">ThermoPhase::setParametersFromXML()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l01556">ThermoPhase::setParametersFromXML()</a>.</p>
 
 </div>
 </div>
@@ -2476,9 +2495,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a8a12209d08a5c4876d9894d619368a79">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00672">672</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00681">681</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00713">RedlichKwongMFTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00269">MixtureFugacityTP::initThermo()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00722">RedlichKwongMFTP::initLengths()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00269">MixtureFugacityTP::initThermo()</a>.</p>
 
 </div>
 </div>
@@ -2519,9 +2538,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="group__equilfunctions.html#gabff9a8a035d3a59f00458ff8fca4f8c9">ThermoPhase</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00678">678</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00687">687</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00197">MixtureFugacityTP::getGibbs_RT_ref()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00183">ThermoPhase::setState_PX()</a>.</p>
+<p>References <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00976">MixtureFugacityTP::_updateReferenceStateThermo()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00197">MixtureFugacityTP::getGibbs_RT_ref()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00219">ThermoPhase::setState_PX()</a>.</p>
 
 </div>
 </div>
@@ -2569,9 +2588,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a42dab55c3f7b95e3fc87507816541e87">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00730">730</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00739">739</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00878">RedlichKwongMFTP::applyStandardMixingRules()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="xml_8cpp_source.html#l00563">XML_Node::hasChild()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00713">RedlichKwongMFTP::initLengths()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00441">MixtureFugacityTP::initThermoXML()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00641">RedlichKwongMFTP::m_standardMixingRules</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00583">XML_Node::nChildren()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00895">RedlichKwongMFTP::readXMLCrossFluid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00814">RedlichKwongMFTP::readXMLPureFluid()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00887">RedlichKwongMFTP::applyStandardMixingRules()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="xml_8cpp_source.html#l00563">XML_Node::hasChild()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00722">RedlichKwongMFTP::initLengths()</a>, <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00441">MixtureFugacityTP::initThermoXML()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00639">RedlichKwongMFTP::m_standardMixingRules</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00583">XML_Node::nChildren()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00904">RedlichKwongMFTP::readXMLCrossFluid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00823">RedlichKwongMFTP::readXMLPureFluid()</a>.</p>
 
 </div>
 </div>
@@ -2605,11 +2624,11 @@ uA[5] = time units - default = 0
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00814">814</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00823">823</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00323">Cantera::getFloatArray()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00648">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00583">XML_Node::nChildren()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, and <a class="el" href="Phase_8cpp_source.html#l00257">Phase::speciesIndex()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00323">Cantera::getFloatArray()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00646">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00583">XML_Node::nChildren()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, and <a class="el" href="Phase_8cpp_source.html#l00257">Phase::speciesIndex()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00730">RedlichKwongMFTP::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00739">RedlichKwongMFTP::initThermoXML()</a>.</p>
 
 </div>
 </div>
@@ -2636,11 +2655,11 @@ uA[5] = time units - default = 0
 
 <p>Apply mixing rules for a coefficients. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00878">878</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00887">887</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
 <p>References <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00730">RedlichKwongMFTP::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00739">RedlichKwongMFTP::initThermoXML()</a>.</p>
 
 </div>
 </div>
@@ -2674,11 +2693,11 @@ uA[5] = time units - default = 0
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00895">895</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00904">904</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00323">Cantera::getFloatArray()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00648">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00583">XML_Node::nChildren()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, and <a class="el" href="Phase_8cpp_source.html#l00257">Phase::speciesIndex()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00527">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00573">XML_Node::child()</a>, <a class="el" href="ctml_8cpp_source.html#l00323">Cantera::getFloatArray()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00646">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="xml_8h_source.html#l00394">XML_Node::name()</a>, <a class="el" href="xml_8cpp_source.html#l00583">XML_Node::nChildren()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, and <a class="el" href="Phase_8cpp_source.html#l00257">Phase::speciesIndex()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00730">RedlichKwongMFTP::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00739">RedlichKwongMFTP::initThermoXML()</a>.</p>
 
 </div>
 </div>
@@ -2705,11 +2724,11 @@ uA[5] = time units - default = 0
 <p>Initialize the internal lengths in this object.</p>
 <p>Note this is not a virtual function and only handles this object </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00713">713</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00722">722</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00705">RedlichKwongMFTP::dpdni_</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">RedlichKwongMFTP::m_tmpV</a>, and <a class="el" href="Array_8h_source.html#l00121">Array2D::resize()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00703">RedlichKwongMFTP::dpdni_</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">RedlichKwongMFTP::m_pp</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">RedlichKwongMFTP::m_tmpV</a>, and <a class="el" href="Array_8h_source.html#l00121">Array2D::resize()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00672">RedlichKwongMFTP::initThermo()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00730">RedlichKwongMFTP::initThermoXML()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00681">RedlichKwongMFTP::initThermo()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00739">RedlichKwongMFTP::initThermoXML()</a>.</p>
 
 </div>
 </div>
@@ -2740,11 +2759,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#ad344792674072436da9e2cca1d3ecd97">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00968">968</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00977">977</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00604">Phase::density()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00447">MixtureFugacityTP::z()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00604">Phase::density()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00447">MixtureFugacityTP::z()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00189">RedlichKwongMFTP::entropy_mole()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00190">RedlichKwongMFTP::entropy_mole()</a>.</p>
 
 </div>
 </div>
@@ -2773,11 +2792,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00984">984</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00993">993</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8h_source.html#l00604">Phase::density()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00447">MixtureFugacityTP::z()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00604">Phase::density()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00447">MixtureFugacityTP::z()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00181">RedlichKwongMFTP::enthalpy_mole()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00182">RedlichKwongMFTP::enthalpy_mole()</a>.</p>
 
 </div>
 </div>
@@ -2826,11 +2845,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#ad9907bac64d82302c4f1086f898f91d0">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00999">999</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01008">1008</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01215">RedlichKwongMFTP::calculateAB()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00605">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01297">RedlichKwongMFTP::NicholsSolve()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00462">MixtureFugacityTP::psatEst()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01224">RedlichKwongMFTP::calculateAB()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00614">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01306">RedlichKwongMFTP::NicholsSolve()</a>, and <a class="el" href="MixtureFugacityTP_8cpp_source.html#l00462">MixtureFugacityTP::psatEst()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">RedlichKwongMFTP::densityCalc()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">RedlichKwongMFTP::densityCalc()</a>.</p>
 
 </div>
 </div>
@@ -2895,9 +2914,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a81861a3c323d48d70dbe5e7b0ab4285c">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">1036</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">1045</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00589">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00999">RedlichKwongMFTP::liquidVolEst()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01297">RedlichKwongMFTP::NicholsSolve()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00254">RedlichKwongMFTP::setTemperature()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00598">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01008">RedlichKwongMFTP::liquidVolEst()</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01306">RedlichKwongMFTP::NicholsSolve()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00263">RedlichKwongMFTP::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -2927,9 +2946,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#ad82d29104ace5e3bfc2e963589c42a8a">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01104">1104</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01113">1113</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00654">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="RootFind_8h_source.html#l00029">ROOTFIND_SUCCESS</a>, <a class="el" href="RootFind_8cpp_source.html#l01114">RootFind::setFuncIsGenerallyDecreasing()</a>, <a class="el" href="RootFind_8cpp_source.html#l01101">RootFind::setPrintLvl()</a>, <a class="el" href="RootFind_8cpp_source.html#l01085">RootFind::setTol()</a>, and <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00663">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="RootFind_8h_source.html#l00029">ROOTFIND_SUCCESS</a>, <a class="el" href="RootFind_8cpp_source.html#l01114">RootFind::setFuncIsGenerallyDecreasing()</a>, <a class="el" href="RootFind_8cpp_source.html#l01101">RootFind::setPrintLvl()</a>, <a class="el" href="RootFind_8cpp_source.html#l01085">RootFind::setTol()</a>, and <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>.</p>
 
 </div>
 </div>
@@ -2959,9 +2978,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a5521baf540c85f53494464a8a909aa7c">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01127">1127</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01136">1136</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00654">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="RootFind_8h_source.html#l00029">ROOTFIND_SUCCESS</a>, <a class="el" href="RootFind_8cpp_source.html#l01106">RootFind::setFuncIsGenerallyIncreasing()</a>, <a class="el" href="RootFind_8cpp_source.html#l01101">RootFind::setPrintLvl()</a>, <a class="el" href="RootFind_8cpp_source.html#l01085">RootFind::setTol()</a>, and <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00663">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="Phase_8h_source.html#l00662">Phase::meanMolecularWeight()</a>, <a class="el" href="RootFind_8h_source.html#l00029">ROOTFIND_SUCCESS</a>, <a class="el" href="RootFind_8cpp_source.html#l01106">RootFind::setFuncIsGenerallyIncreasing()</a>, <a class="el" href="RootFind_8cpp_source.html#l01101">RootFind::setPrintLvl()</a>, <a class="el" href="RootFind_8cpp_source.html#l01085">RootFind::setTol()</a>, and <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>.</p>
 
 </div>
 </div>
@@ -3010,9 +3029,9 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a72654d742045fb8a4adb188a0855b4a7">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01150">1150</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01159">1159</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, and <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, and <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>.</p>
 
 </div>
 </div>
@@ -3068,11 +3087,11 @@ uA[5] = time units - default = 0
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1MixtureFugacityTP.html#a6de773b29e858c29bb1d282199cfb60c">MixtureFugacityTP</a>.</p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01158">1158</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01167">1167</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, and <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, and <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>.</p>
 
 </div>
 </div>
@@ -3092,11 +3111,11 @@ uA[5] = time units - default = 0
 <p>Calculate dpdV and dpdT at the current conditions. </p>
 <p>These are stored internally. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">1171</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">1180</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00698">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00691">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01158">RedlichKwongMFTP::dpdVCalc()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8cpp_source.html#l00669">Phase::molarVolume()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00696">RedlichKwongMFTP::dpdT_</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00689">RedlichKwongMFTP::dpdV_</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01167">RedlichKwongMFTP::dpdVCalc()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="Phase_8cpp_source.html#l00683">Phase::molarVolume()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00199">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>.</p>
 
 </div>
 </div>
@@ -3116,11 +3135,11 @@ uA[5] = time units - default = 0
 <p>Update the a and b parameters. </p>
 <p>The a and the b parameters depend on the mole fraction and the temperature. This function updates the internal numbers based on the state of the object. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">1193</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">1202</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00648">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">RedlichKwongMFTP::m_a_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">RedlichKwongMFTP::m_b_current</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00646">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00285">RedlichKwongMFTP::setConcentrations()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00261">RedlichKwongMFTP::setMassFractions()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00267">RedlichKwongMFTP::setMassFractions_NoNorm()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00273">RedlichKwongMFTP::setMoleFractions()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00279">RedlichKwongMFTP::setMoleFractions_NoNorm()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00254">RedlichKwongMFTP::setTemperature()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00294">RedlichKwongMFTP::setConcentrations()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00270">RedlichKwongMFTP::setMassFractions()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00276">RedlichKwongMFTP::setMassFractions_NoNorm()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00282">RedlichKwongMFTP::setMoleFractions()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00288">RedlichKwongMFTP::setMoleFractions_NoNorm()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00263">RedlichKwongMFTP::setTemperature()</a>.</p>
 
 </div>
 </div>
@@ -3165,11 +3184,11 @@ uA[5] = time units - default = 0
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01215">1215</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01224">1224</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00648">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
+<p>References <a class="el" href="RedlichKwongMFTP_8h_source.html#l00646">RedlichKwongMFTP::m_formTempParam</a>, <a class="el" href="Phase_8h_source.html#l00836">Phase::m_kk</a>, and <a class="el" href="MixtureFugacityTP_8h_source.html#l00807">MixtureFugacityTP::moleFractions_</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00999">RedlichKwongMFTP::liquidVolEst()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01008">RedlichKwongMFTP::liquidVolEst()</a>.</p>
 
 </div>
 </div>
@@ -3220,11 +3239,11 @@ uA[5] = time units - default = 0
 <pre class="fragment">V**3 - V**2(RT/P)  - V(RTb/P - a/(P T**.5) + b*b) - (a b / (P T**.5)) = 0
 </pre><p>Returns the number of solutions found. If it only finds the liquid branch solution, it will return a -1 or a -2 instead of 1 or 2. If it returns 0, then there is an error. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01297">1297</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01306">1306</a> of file <a class="el" href="RedlichKwongMFTP_8cpp_source.html">RedlichKwongMFTP.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00712">RedlichKwongMFTP::omega_a</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00715">RedlichKwongMFTP::omega_b</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00718">RedlichKwongMFTP::omega_vc</a>, <a class="el" href="ct__defs_8h_source.html#l00051">Cantera::Pi</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00056">Cantera::writelogendl()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00710">RedlichKwongMFTP::omega_a</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00713">RedlichKwongMFTP::omega_b</a>, <a class="el" href="RedlichKwongMFTP_8h_source.html#l00716">RedlichKwongMFTP::omega_vc</a>, <a class="el" href="ct__defs_8h_source.html#l00051">Cantera::Pi</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00056">Cantera::writelogendl()</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">RedlichKwongMFTP::densityCalc()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00999">RedlichKwongMFTP::liquidVolEst()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">RedlichKwongMFTP::densityCalc()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01008">RedlichKwongMFTP::liquidVolEst()</a>.</p>
 
 </div>
 </div>
@@ -3253,9 +3272,9 @@ uA[5] = time units - default = 0
 <li>0 = No, there are nonstandard cross terms in the a coefficient matrices. </li>
 </ul>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00641">641</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00639">639</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00730">RedlichKwongMFTP::initThermoXML()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00739">RedlichKwongMFTP::initThermoXML()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3283,9 +3302,9 @@ uA[5] = time units - default = 0
 <li>1 = The a_ij parameter is a linear function of the temperature </li>
 </ul>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00648">648</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00646">646</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01215">RedlichKwongMFTP::calculateAB()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00895">RedlichKwongMFTP::readXMLCrossFluid()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00814">RedlichKwongMFTP::readXMLPureFluid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01224">RedlichKwongMFTP::calculateAB()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00904">RedlichKwongMFTP::readXMLCrossFluid()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00823">RedlichKwongMFTP::readXMLPureFluid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -3310,9 +3329,9 @@ uA[5] = time units - default = 0
 <p>Value of b in the equation of state. </p>
 <p>m_b is a function of the temperature and the mole fraction. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00654">654</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00652">652</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00638">RedlichKwongMFTP::critCompressibility()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00654">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00605">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00589">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00622">RedlichKwongMFTP::critVolume()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">RedlichKwongMFTP::densityCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01158">RedlichKwongMFTP::dpdVCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00335">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00984">RedlichKwongMFTP::hresid()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00999">RedlichKwongMFTP::liquidVolEst()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00220">RedlichKwongMFTP::pressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01150">RedlichKwongMFTP::pressureCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00968">RedlichKwongMFTP::sresid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00199">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00647">RedlichKwongMFTP::critCompressibility()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00663">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00614">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00598">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00631">RedlichKwongMFTP::critVolume()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00215">RedlichKwongMFTP::cv_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">RedlichKwongMFTP::densityCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01167">RedlichKwongMFTP::dpdVCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00344">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00389">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00993">RedlichKwongMFTP::hresid()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01008">RedlichKwongMFTP::liquidVolEst()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00229">RedlichKwongMFTP::pressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01159">RedlichKwongMFTP::pressureCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00977">RedlichKwongMFTP::sresid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -3337,9 +3356,9 @@ uA[5] = time units - default = 0
 <p>Value of a in the equation of state. </p>
 <p>a_b is a function of the temperature and the mole fraction. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00660">660</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00658">658</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00638">RedlichKwongMFTP::critCompressibility()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00654">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00605">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00589">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00622">RedlichKwongMFTP::critVolume()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01036">RedlichKwongMFTP::densityCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01158">RedlichKwongMFTP::dpdVCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00335">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00984">RedlichKwongMFTP::hresid()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00220">RedlichKwongMFTP::pressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01150">RedlichKwongMFTP::pressureCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00968">RedlichKwongMFTP::sresid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01193">RedlichKwongMFTP::updateAB()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00199">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00647">RedlichKwongMFTP::critCompressibility()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00663">RedlichKwongMFTP::critDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00614">RedlichKwongMFTP::critPressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00598">RedlichKwongMFTP::critTemperature()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00631">RedlichKwongMFTP::critVolume()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00215">RedlichKwongMFTP::cv_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01045">RedlichKwongMFTP::densityCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01167">RedlichKwongMFTP::dpdVCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00344">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00389">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00993">RedlichKwongMFTP::hresid()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00229">RedlichKwongMFTP::pressure()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01159">RedlichKwongMFTP::pressureCalc()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00977">RedlichKwongMFTP::sresid()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01202">RedlichKwongMFTP::updateAB()</a>.</p>
 
 </div>
 </div>
@@ -3363,9 +3382,9 @@ uA[5] = time units - default = 0
 
 <p>Temporary storage - length = m_kk. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00676">676</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00674">674</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00335">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00380">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00713">RedlichKwongMFTP::initLengths()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00678">RedlichKwongMFTP::setToEquilState()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00344">RedlichKwongMFTP::getActivityCoefficients()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00389">RedlichKwongMFTP::getChemPotentials()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00722">RedlichKwongMFTP::initLengths()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00687">RedlichKwongMFTP::setToEquilState()</a>.</p>
 
 </div>
 </div>
@@ -3389,9 +3408,9 @@ uA[5] = time units - default = 0
 
 <p>Temporary storage - length = m_kk. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00679">679</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00677">677</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00238">RedlichKwongMFTP::calcDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00546">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00713">RedlichKwongMFTP::initLengths()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00678">RedlichKwongMFTP::setToEquilState()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00299">RedlichKwongMFTP::standardConcentration()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00247">RedlichKwongMFTP::calcDensity()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00555">RedlichKwongMFTP::getPartialMolarVolumes()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00722">RedlichKwongMFTP::initLengths()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00687">RedlichKwongMFTP::setToEquilState()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00308">RedlichKwongMFTP::standardConcentration()</a>.</p>
 
 </div>
 </div>
@@ -3416,9 +3435,9 @@ uA[5] = time units - default = 0
 <p>The derivative of the pressure wrt the volume. </p>
 <p>Calculated at the current conditions temperature and mole number kept constant </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00691">691</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00689">689</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00199">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>.</p>
 
 </div>
 </div>
@@ -3443,9 +3462,9 @@ uA[5] = time units - default = 0
 <p>The derivative of the pressure wrt the temperature. </p>
 <p>Calculated at the current conditions Total volume and mole number kept constant </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00698">698</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00696">696</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00198">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00475">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01171">RedlichKwongMFTP::pressureDerivatives()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00199">RedlichKwongMFTP::cp_mole()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00484">RedlichKwongMFTP::getPartialMolarEntropies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01180">RedlichKwongMFTP::pressureDerivatives()</a>.</p>
 
 </div>
 </div>
@@ -3470,9 +3489,9 @@ uA[5] = time units - default = 0
 <p>Vector of derivatives of pressure wrt mole number. </p>
 <p>Calculated at the current conditions Total volume, temperature and other mole number kept constant </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00705">705</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00703">703</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00416">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00713">RedlichKwongMFTP::initLengths()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00131">RedlichKwongMFTP::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00425">RedlichKwongMFTP::getPartialMolarEnthalpies()</a>, <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00722">RedlichKwongMFTP::initLengths()</a>, and <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l00132">RedlichKwongMFTP::operator=()</a>.</p>
 
 </div>
 </div>
@@ -3497,9 +3516,9 @@ uA[5] = time units - default = 0
 <p>Omega constant for a -&gt; value of a in terms of critical properties. </p>
 <p>this was calculated from a small nonlinear solve </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00712">712</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00710">710</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01297">RedlichKwongMFTP::NicholsSolve()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01306">RedlichKwongMFTP::NicholsSolve()</a>.</p>
 
 </div>
 </div>
@@ -3523,9 +3542,9 @@ uA[5] = time units - default = 0
 
 <p>Omega constant for b. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00715">715</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00713">713</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01297">RedlichKwongMFTP::NicholsSolve()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01306">RedlichKwongMFTP::NicholsSolve()</a>.</p>
 
 </div>
 </div>
@@ -3549,9 +3568,9 @@ uA[5] = time units - default = 0
 
 <p>Omega constant for the critical molar volume. </p>
 
-<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00718">718</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
+<p>Definition at line <a class="el" href="RedlichKwongMFTP_8h_source.html#l00716">716</a> of file <a class="el" href="RedlichKwongMFTP_8h_source.html">RedlichKwongMFTP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01297">RedlichKwongMFTP::NicholsSolve()</a>.</p>
+<p>Referenced by <a class="el" href="RedlichKwongMFTP_8cpp_source.html#l01306">RedlichKwongMFTP::NicholsSolve()</a>.</p>
 
 </div>
 </div>

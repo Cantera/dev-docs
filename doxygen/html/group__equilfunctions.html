@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -111,10 +111,10 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf658f6d2afb439d254b43166f270861e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#gaf658f6d2afb439d254b43166f270861e">equilibrate</a> (const std::string &amp;XY, const std::string &amp;solver=&quot;auto&quot;, double rtol=1e-9, int max_steps=50000, int max_iter=100, int estimate_equil=0, int log_level=0)</td></tr>
 <tr class="memdesc:gaf658f6d2afb439d254b43166f270861e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equilibrate a <a class="el" href="classCantera_1_1MultiPhase.html" title="A class for multiphase mixtures. ">MultiPhase</a> object.  <a href="#gaf658f6d2afb439d254b43166f270861e">More...</a><br/></td></tr>
 <tr class="separator:gaf658f6d2afb439d254b43166f270861e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga736bfa5922a7dc8d12498e37b14652f5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga736bfa5922a7dc8d12498e37b14652f5">BasisOptimize</a> (int *usedZeroedSpecies, bool doFormRxn, <a class="el" href="classCantera_1_1MultiPhase.html">MultiPhase</a> *mphase, std::vector&lt; size_t &gt; &amp;orderVectorSpecies, std::vector&lt; size_t &gt; &amp;orderVectorElements, <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;formRxnMatrix)</td></tr>
+<tr class="memitem:ga736bfa5922a7dc8d12498e37b14652f5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga736bfa5922a7dc8d12498e37b14652f5">BasisOptimize</a> (int *usedZeroedSpecies, bool doFormRxn, MultiPhase *mphase, std::vector&lt; size_t &gt; &amp;orderVectorSpecies, std::vector&lt; size_t &gt; &amp;orderVectorElements, vector_fp &amp;formRxnMatrix)</td></tr>
 <tr class="memdesc:ga736bfa5922a7dc8d12498e37b14652f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose the optimum basis of species for the equilibrium calculations.  <a href="#ga736bfa5922a7dc8d12498e37b14652f5">More...</a><br/></td></tr>
 <tr class="separator:ga736bfa5922a7dc8d12498e37b14652f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga5f825bc22fa904b6b8ddbee365f3721a">ElemRearrange</a> (size_t nComponents, const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;elementAbundances, <a class="el" href="classCantera_1_1MultiPhase.html">MultiPhase</a> *mphase, std::vector&lt; size_t &gt; &amp;orderVectorSpecies, std::vector&lt; size_t &gt; &amp;orderVectorElements)</td></tr>
+<tr class="memitem:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga5f825bc22fa904b6b8ddbee365f3721a">ElemRearrange</a> (size_t nComponents, const vector_fp &amp;elementAbundances, MultiPhase *mphase, std::vector&lt; size_t &gt; &amp;orderVectorSpecies, std::vector&lt; size_t &gt; &amp;orderVectorElements)</td></tr>
 <tr class="memdesc:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the potential rearrangement of the constraint equations represented by the Formula Matrix.  <a href="#ga5f825bc22fa904b6b8ddbee365f3721a">More...</a><br/></td></tr>
 <tr class="separator:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2a76e36f860300d83133ec58ae4536ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga2a76e36f860300d83133ec58ae4536ad">vcs_equilibrate</a> (thermo_t &amp;s, const char *XY, int estimateEquil=0, int printLvl=0, int solver=-1, doublereal rtol=1.0e-9, int maxsteps=VCS_MAXSTEPS, int maxiter=100, int loglevel=-99)</td></tr>
@@ -220,7 +220,7 @@ Chemical Equilibrium</h2></td></tr>
 
 <p>Definition at line <a class="el" href="equilibrate_8cpp_source.html#l00034">34</a> of file <a class="el" href="equilibrate_8cpp_source.html">equilibrate.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="equilibrate_8cpp_source.html#l00011">Cantera::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00034">CanteraError::save()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00796">ThermoPhase::setElementPotentials()</a>, <a class="el" href="vcs__equilibrate_8cpp_source.html#l00020">Cantera::vcs_equilibrate()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
+<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="equilibrate_8cpp_source.html#l00011">Cantera::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00034">CanteraError::save()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00832">ThermoPhase::setElementPotentials()</a>, <a class="el" href="vcs__equilibrate_8cpp_source.html#l00020">Cantera::vcs_equilibrate()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
 
 </div>
 </div>
@@ -368,7 +368,7 @@ Chemical Equilibrium</h2></td></tr>
 
 <p>Definition at line <a class="el" href="MultiPhase_8cpp_source.html#l00757">757</a> of file <a class="el" href="MultiPhase_8cpp_source.html">MultiPhase.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00024">Cantera::_equilflag()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00411">vcs_MultiPhaseEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00570">MultiPhase::equilibrate_MultiPhaseEquil()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="MultiPhase_8h_source.html#l00609">MultiPhase::m_moleFractions</a>, <a class="el" href="MultiPhase_8h_source.html#l00592">MultiPhase::m_moles</a>, <a class="el" href="MultiPhase_8h_source.html#l00658">MultiPhase::m_press</a>, <a class="el" href="MultiPhase_8h_source.html#l00655">MultiPhase::m_temp</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00974">MultiPhase::updatePhases()</a>, and <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00024">Cantera::_equilflag()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00413">vcs_MultiPhaseEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00570">MultiPhase::equilibrate_MultiPhaseEquil()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="MultiPhase_8h_source.html#l00609">MultiPhase::m_moleFractions</a>, <a class="el" href="MultiPhase_8h_source.html#l00592">MultiPhase::m_moles</a>, <a class="el" href="MultiPhase_8h_source.html#l00658">MultiPhase::m_press</a>, <a class="el" href="MultiPhase_8h_source.html#l00655">MultiPhase::m_temp</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00974">MultiPhase::updatePhases()</a>, and <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>.</p>
 
 </div>
 </div>
@@ -391,7 +391,7 @@ Chemical Equilibrium</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classCantera_1_1MultiPhase.html">MultiPhase</a> *&#160;</td>
+          <td class="paramtype">MultiPhase *&#160;</td>
           <td class="paramname"><em>mphase</em>, </td>
         </tr>
         <tr>
@@ -409,7 +409,7 @@ Chemical Equilibrium</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;&#160;</td>
+          <td class="paramtype">vector_fp &amp;&#160;</td>
           <td class="paramname"><em>formRxnMatrix</em>&#160;</td>
         </tr>
         <tr>
@@ -437,9 +437,9 @@ Chemical Equilibrium</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of components. </dd></dl>
 
-<p>Definition at line <a class="el" href="BasisOptimize_8cpp_source.html#l00028">28</a> of file <a class="el" href="BasisOptimize_8cpp_source.html">BasisOptimize.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BasisOptimize_8cpp_source.html#l00026">26</a> of file <a class="el" href="BasisOptimize_8cpp_source.html">BasisOptimize.cpp</a>.</p>
 
-<p>References <a class="el" href="BasisOptimize_8cpp_source.html#l00013">Cantera::BasisOptimize_print_lvl</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00875">MultiPhase::elementName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00441">MultiPhase::getMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00909">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhase_8h_source.html#l00098">MultiPhase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="MultiPhase_8h_source.html#l00124">MultiPhase::nSpecies()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00379">print_stringTrunc()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00904">MultiPhase::speciesName()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="BasisOptimize_8cpp_source.html#l00012">Cantera::BasisOptimize_print_lvl</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00875">MultiPhase::elementName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00441">MultiPhase::getMoles()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00909">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhase_8h_source.html#l00098">MultiPhase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="MultiPhase_8h_source.html#l00124">MultiPhase::nSpecies()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00377">Cantera::print_stringTrunc()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00904">MultiPhase::speciesName()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
 
 <p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>.</p>
 
@@ -458,13 +458,13 @@ Chemical Equilibrium</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a> &amp;&#160;</td>
+          <td class="paramtype">const vector_fp &amp;&#160;</td>
           <td class="paramname"><em>elementAbundances</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classCantera_1_1MultiPhase.html">MultiPhase</a> *&#160;</td>
+          <td class="paramtype">MultiPhase *&#160;</td>
           <td class="paramname"><em>mphase</em>, </td>
         </tr>
         <tr>
@@ -507,9 +507,9 @@ Chemical Equilibrium</h2></td></tr>
 </ul>
 </dd></dl>
 
-<p>Definition at line <a class="el" href="BasisOptimize_8cpp_source.html#l00424">424</a> of file <a class="el" href="BasisOptimize_8cpp_source.html">BasisOptimize.cpp</a>.</p>
+<p>Definition at line <a class="el" href="BasisOptimize_8cpp_source.html#l00422">422</a> of file <a class="el" href="BasisOptimize_8cpp_source.html">BasisOptimize.cpp</a>.</p>
 
-<p>References <a class="el" href="BasisOptimize_8cpp_source.html#l00013">Cantera::BasisOptimize_print_lvl</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00875">MultiPhase::elementName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00909">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhase_8h_source.html#l00098">MultiPhase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="MultiPhase_8h_source.html#l00124">MultiPhase::nSpecies()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="BasisOptimize_8cpp_source.html#l00012">Cantera::BasisOptimize_print_lvl</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00875">MultiPhase::elementName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00909">MultiPhase::nAtoms()</a>, <a class="el" href="MultiPhase_8h_source.html#l00098">MultiPhase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="MultiPhase_8h_source.html#l00124">MultiPhase::nSpecies()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
 
 <p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>.</p>
 
@@ -606,7 +606,7 @@ Chemical Equilibrium</h2></td></tr>
 
 <p>Definition at line <a class="el" href="vcs__equilibrate_8cpp_source.html#l00020">20</a> of file <a class="el" href="vcs__equilibrate_8cpp_source.html">vcs_equilibrate.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="equilibrate_8cpp_source.html#l00011">Cantera::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00034">CanteraError::save()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00796">ThermoPhase::setElementPotentials()</a>, <a class="el" href="vcs__equilibrate_8cpp_source.html#l00097">Cantera::vcs_equilibrate()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
+<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="equilibrate_8cpp_source.html#l00011">Cantera::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00034">CanteraError::save()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00832">ThermoPhase::setElementPotentials()</a>, <a class="el" href="vcs__equilibrate_8cpp_source.html#l00097">Cantera::vcs_equilibrate()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
 
 <p>Referenced by <a class="el" href="equilibrate_8cpp_source.html#l00034">Cantera::equilibrate()</a>.</p>
 
@@ -808,7 +808,7 @@ Chemical Equilibrium</h2></td></tr>
 
 <p>Definition at line <a class="el" href="vcs__equilibrate_8cpp_source.html#l00108">108</a> of file <a class="el" href="vcs__equilibrate_8cpp_source.html">vcs_equilibrate.cpp</a>.</p>
 
-<p>References <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00411">vcs_MultiPhaseEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00561">MultiPhase::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00599">vcs_MultiPhaseEquil::reportCSV()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00034">CanteraError::save()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
+<p>References <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00413">vcs_MultiPhaseEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00561">MultiPhase::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="vcs__MultiPhaseEquil_8cpp_source.html#l00601">vcs_MultiPhaseEquil::reportCSV()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00034">CanteraError::save()</a>, and <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
 
 <p>Referenced by <a class="el" href="vcs__equilibrate_8cpp_source.html#l00097">Cantera::vcs_equilibrate()</a>.</p>
 
@@ -883,9 +883,9 @@ Chemical Equilibrium</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00748">748</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00784">784</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00561">MultiPhase::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="Phase_8cpp_source.html#l00314">Phase::restoreState()</a>, <a class="el" href="Phase_8cpp_source.html#l00302">Phase::saveState()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00796">ThermoPhase::setElementPotentials()</a>, and <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00561">MultiPhase::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="Phase_8cpp_source.html#l00314">Phase::restoreState()</a>, <a class="el" href="Phase_8cpp_source.html#l00302">Phase::saveState()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00832">ThermoPhase::setElementPotentials()</a>, and <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>.</p>
 
 </div>
 </div>
@@ -926,7 +926,7 @@ Chemical Equilibrium</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1HMWSoln.html#abff9a8a035d3a59f00458ff8fca4f8c9">HMWSoln</a>, <a class="el" href="classCantera_1_1DebyeHuckel.html#abff9a8a035d3a59f00458ff8fca4f8c9">DebyeHuckel</a>, <a class="el" href="classCantera_1_1IdealGasPhase.html#a02da43a545df400427d067e2b07b8a08">IdealGasPhase</a>, <a class="el" href="classCantera_1_1IdealSolidSolnPhase.html#a02da43a545df400427d067e2b07b8a08">IdealSolidSolnPhase</a>, <a class="el" href="classCantera_1_1MolalityVPSSTP.html#a02da43a545df400427d067e2b07b8a08">MolalityVPSSTP</a>, <a class="el" href="classCantera_1_1IdealMolalSoln.html#abff9a8a035d3a59f00458ff8fca4f8c9">IdealMolalSoln</a>, <a class="el" href="classCantera_1_1RedlichKwongMFTP.html#a02da43a545df400427d067e2b07b8a08">RedlichKwongMFTP</a>, <a class="el" href="classCantera_1_1IdealSolnGasVPSS.html#a02da43a545df400427d067e2b07b8a08">IdealSolnGasVPSS</a>, and <a class="el" href="classCantera_1_1ConstDensityThermo.html#a02da43a545df400427d067e2b07b8a08">ConstDensityThermo</a>.</p>
 
-<p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l01186">1186</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoPhase_8h_source.html#l01277">1277</a> of file <a class="el" href="ThermoPhase_8h_source.html">ThermoPhase.h</a>.</p>
 
 <p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>.</p>
 
@@ -955,11 +955,11 @@ Chemical Equilibrium</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00796">796</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00832">832</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8h_source.html#l01631">ThermoPhase::m_hasElementPotentials</a>, <a class="el" href="ThermoPhase_8h_source.html#l01627">ThermoPhase::m_lambdaRRT</a>, <a class="el" href="Phase_8cpp_source.html#l00167">Phase::nElements()</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8h_source.html#l01717">ThermoPhase::m_hasElementPotentials</a>, <a class="el" href="ThermoPhase_8h_source.html#l01713">ThermoPhase::m_lambdaRRT</a>, <a class="el" href="Phase_8cpp_source.html#l00167">Phase::nElements()</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="equilibrate_8cpp_source.html#l00034">Cantera::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00748">ThermoPhase::equilibrate()</a>, and <a class="el" href="vcs__equilibrate_8cpp_source.html#l00020">Cantera::vcs_equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="equilibrate_8cpp_source.html#l00034">Cantera::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00784">ThermoPhase::equilibrate()</a>, and <a class="el" href="vcs__equilibrate_8cpp_source.html#l00020">Cantera::vcs_equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -987,9 +987,9 @@ Chemical Equilibrium</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool indicating whether there are any valid stored element potentials. The calling routine should check this bool. In the case that there aren't any, lambda is not touched. </dd></dl>
 
-<p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00809">809</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ThermoPhase_8cpp_source.html#l00845">845</a> of file <a class="el" href="ThermoPhase_8cpp_source.html">ThermoPhase.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8h_source.html#l01631">ThermoPhase::m_hasElementPotentials</a>, <a class="el" href="ThermoPhase_8h_source.html#l01627">ThermoPhase::m_lambdaRRT</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8h_source.html#l01717">ThermoPhase::m_hasElementPotentials</a>, <a class="el" href="ThermoPhase_8h_source.html#l01713">ThermoPhase::m_lambdaRRT</a>, <a class="el" href="utilities_8h_source.html#l00158">Cantera::scale()</a>, and <a class="el" href="Phase_8h_source.html#l00598">Phase::temperature()</a>.</p>
 
 <p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>.</p>
 

@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -166,14 +166,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">try</span> {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordtype">double</span>* ydata = NV_DATA_S(y); <span class="comment">//N_VDATA(y);</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordtype">double</span>* ydotdata = NV_DATA_S(ydot); <span class="comment">//N_VDATA(ydot);</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            Cantera::FuncData* d = (Cantera::FuncData*)f_data;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="classCantera_1_1FuncEval.html">Cantera::FuncEval</a>* f = d-&gt;m_func;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            FuncData* d = (FuncData*)f_data;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="classCantera_1_1FuncEval.html">FuncEval</a>* f = d-&gt;m_func;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">if</span> (d-&gt;m_pars.size() == 0) {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                f-&gt;<a class="code" href="classCantera_1_1FuncEval.html#a0ae9e2ce5488d3af0a53b9706081578d">eval</a>(t, ydata, ydotdata, NULL);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                f-&gt;<a class="code" href="classCantera_1_1FuncEval.html#a0ae9e2ce5488d3af0a53b9706081578d">eval</a>(t, ydata, ydotdata, <a class="code" href="ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337">DATA_PTR</a>(d-&gt;m_pars));</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        } <span class="keywordflow">catch</span> (<a class="code" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>&amp; err) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        } <span class="keywordflow">catch</span> (<a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>&amp; err) {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            std::cerr &lt;&lt; err.<a class="code" href="classCantera_1_1CanteraError.html#a61cc171fda3d2f63d82fa5b8bb947333">what</a>() &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> 1; <span class="comment">// possibly recoverable error</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        } <span class="keywordflow">catch</span> (...) {</div>

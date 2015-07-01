@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing Cantera &mdash; Cantera 2.2.0b1 documentation</title>
+    <title>Installing Cantera &mdash; Cantera 2.2.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.2.0b1',
+        VERSION:     '2.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0b1 documentation" href="index.html" />
+    <link rel="top" title="Cantera 2.2.0 documentation" href="index.html" />
     <link rel="next" title="Cantera Compilation Guide" href="compiling.html" />
     <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
   </head>
@@ -118,13 +118,14 @@
 <div class="section" id="windows">
 <span id="sec-install-win"></span><h2><a class="toc-backref" href="#id2">Windows</a><a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
 <p>Windows installers are provided for stable versions of Cantera. These
-installation instructions are for Cantera 2.1.1.</p>
+installation instructions are for Cantera 2.2.0.</p>
 <ol class="arabic">
 <li><p class="first"><strong>Choose your Python version and architecture</strong></p>
 <ul class="simple">
-<li>On Windows, Cantera supports Python 2.7 and Python 3.3. Python 3.3 is
-recommended unless you need to use legacy code that does not work with
-Python 3. You can install both Cantera Python modules simultaneously.</li>
+<li>On Windows, Cantera supports Python 2.7 and Python 3.3, and Python 3.4.
+Python 3.4 is recommended unless you need to use legacy code that does not
+work with Python 3. You can install multiple Cantera Python modules
+simultaneously.</li>
 <li>Cantera supports both 32- and 64- bit Python installations.</li>
 <li>You need choose the matching Cantera installer for your Python version and
 machine architecture.</li>
@@ -139,7 +140,7 @@ system.</li>
 <ul class="simple">
 <li>Go to <a class="reference external" href="https://www.python.org/">python.org</a>.<ul>
 <li><em>64-bit</em>: Download the most recent &#8220;Windows X86-64 MSI Installer&#8221; for
-Python <em>X.Y</em> (i.e. prefer 3.3.5 to 3.3.4, but not 3.4.1).</li>
+Python <em>X.Y</em> (i.e. prefer 3.4.3 to 3.4.2, but not 3.5.0).</li>
 <li><em>32-bit</em>: Download the most recent &#8220;Windows x86 MSI Installer&#8221; for
 Python <em>X.Y</em>.</li>
 </ul>
@@ -163,7 +164,7 @@ as...</em>).</p>
 </li>
 <li><p class="first">From a administrative command prompt, run <tt class="xref py py-obj docutils literal"><span class="pre">get-pip.py</span></tt> with the copy of
 Python you plan on use with Cantera, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>c:\python33\python.exe &quot;%USERPROFILE%\Downloads\get-pip.py&quot;
+<div class="highlight-python"><div class="highlight"><pre>c:\python34\python.exe &quot;%USERPROFILE%\Downloads\get-pip.py&quot;
 </pre></div>
 </div>
 </li>
@@ -175,14 +176,14 @@ Python you plan on use with Cantera, e.g.:</p>
 </li>
 <li><p class="first">Download the most recent release (distributed as a &#8220;wheel&#8221; archive) of the
 1.x series for Python <em>X.Y</em> that matches your Python architecture. The
-binaries for Cantera 2.1.1 require Numpy 1.8.0 or newer, e.g. In the
+binaries for Cantera 2.2.0 require Numpy 1.8.0 or newer, e.g. In the
 filename, the digits after &#8220;cp&#8221; indicate the Python version, e.g.
-<tt class="docutils literal"><span class="pre">numpy‑1.8.2+mkl‑cp33‑none‑win_amd64.whl</span></tt> is the installer for 64-bit
-Python 3.3.</p>
+<tt class="docutils literal"><span class="pre">numpy‑1.8.2+mkl‑cp34‑none‑win_amd64.whl</span></tt> is the installer for 64-bit
+Python 3.4.</p>
 </li>
 <li><p class="first">From an administrative command prompt, install the downloaded wheel using
 pip, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>c:\python33\scripts\pip.exe install &quot;%USERPROFILE%\Downloads\numpy‑1.8.2+mkl‑cp33‑none‑win_amd64.whl&quot;
+<div class="highlight-python"><div class="highlight"><pre>c:\python34\scripts\pip.exe install &quot;%USERPROFILE%\Downloads\numpy‑1.8.2+mkl‑cp34‑none‑win_amd64.whl&quot;
 </pre></div>
 </div>
 </li>
@@ -197,11 +198,12 @@ pip, e.g.:</p>
 </li>
 <li><p class="first"><strong>Install Cantera</strong></p>
 <ul class="simple">
-<li>Go to the <a class="reference external" href="https://sourceforge.net/projects/cantera/files/cantera/2.1.1/">Cantera Downloads</a> page.<ul>
-<li><em>64-bit</em>: Download <strong>Cantera-2.1.1-x64.msi</strong> and
-<strong>Cantera-Python-2.1.1-x64-pyX.Y.msi</strong>.</li>
-<li><em>32-bit</em>: Download <strong>Cantera-2.1.1-x86.msi</strong> and
-<strong>Cantera-Python-2.1.1-x86-pyX.Y.msi</strong>.</li>
+<li>Go to the <a class="reference external" href="https://github.com/Cantera/cantera/releases">Cantera Releases</a>
+page.<ul>
+<li><em>64-bit</em>: Download <strong>Cantera-2.2.0-x64.msi</strong> and
+<strong>Cantera-Python-2.2.0-x64-pyX.Y.msi</strong>.</li>
+<li><em>32-bit</em>: Download <strong>Cantera-2.2.0-x86.msi</strong> and
+<strong>Cantera-Python-2.2.0-x86-pyX.Y.msi</strong>.</li>
 </ul>
 </li>
 <li>If you are only using the Python module, you do not need to download and
@@ -329,10 +331,6 @@ pip3 install numpy cython
 </li>
 <li><p class="first">The following options are supported:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">--devel</span></tt></dt>
-<dd><p class="first last">Installs Cantera with additional patches that will be included in the
-next maintenance release.</p>
-</dd>
 <dt><tt class="docutils literal"><span class="pre">--HEAD</span></tt></dt>
 <dd><p class="first last">Installs the current development version of Cantera.</p>
 </dd>
@@ -344,7 +342,7 @@ installed Matlab version)</p>
 </li>
 <li><p class="first">These options are specified as additional arguments to the <tt class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span></tt>
 command, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>brew install cantera --devel --with-matlab=/Applications/MATLAB_R2014a.app/
+<div class="highlight-python"><div class="highlight"><pre>brew install cantera --HEAD --with-matlab=/Applications/MATLAB_R2014a.app/
 </pre></div>
 </div>
 </li>
@@ -432,17 +430,14 @@ checking:</p>
 <div class="section" id="ubuntu">
 <span id="sec-install-ubuntu"></span><h2><a class="toc-backref" href="#id6">Ubuntu</a><a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
 <p>Ubuntu packages are provided for recent versions of Ubuntu using a Personal
-Package Archive (PPA). As of Cantera 2.1.2, packages are available for Ubuntu
-12.04 LTS (Precise Pangolin), Ubuntu 14.04 LTS (Trusty Tahr), and Ubuntu 14.10
-(Utopic Unicorn). To see which Ubuntu releases and Cantera versions are
-currently available, visit <a class="reference external" href="https://launchpad.net/~speth/+archive/ubuntu/cantera">https://launchpad.net/~speth/+archive/ubuntu/cantera</a></p>
+Package Archive (PPA). As of Cantera 2.2.0, packages are available for Ubuntu
+Ubuntu 14.04 LTS (Trusty Tahr), Ubuntu 14.10 (Utopic Unicorn), and Ubuntu 15.04
+(Vivid Vervet). To see which Ubuntu releases and Cantera versions are currently
+available, visit <a class="reference external" href="https://launchpad.net/~speth/+archive/ubuntu/cantera">https://launchpad.net/~speth/+archive/ubuntu/cantera</a></p>
 <p>The available packages are:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">cantera-python</span></tt> - The Cantera Python module for Python 2. For Ubuntu 12.04,
-this is the &#8220;legacy&#8221; Python module. For Ubuntu 14.04 and newer, this is the
-&#8220;new&#8221; Python module.</li>
-<li><tt class="docutils literal"><span class="pre">cantera-python3</span></tt> - The Cantera Python module for Python 3. Only available
-for Ubuntu 14.04 and newer.</li>
+<li><tt class="docutils literal"><span class="pre">cantera-python</span></tt> - The Cantera Python module for Python 2.</li>
+<li><tt class="docutils literal"><span class="pre">cantera-python3</span></tt> - The Cantera Python module for Python 3.</li>
 <li><tt class="docutils literal"><span class="pre">cantera-dev</span></tt> - Libraries and header files for compiling your own C++ and
 Fortran 90 programs that use Cantera.</li>
 </ul>

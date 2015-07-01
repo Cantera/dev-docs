@@ -82,6 +82,6 @@ var searchData=
   ['rootfind',['RootFind',['../group__solverGroup.html#gabaa08b72f187b7067b6ae660478a3a8c',1,'Cantera::RootFind::RootFind(ResidEval *resid)'],['../group__solverGroup.html#ga345a6d0276b904d7b8362b5561cf0578',1,'Cantera::RootFind::RootFind(const RootFind &amp;r)']]],
   ['rtol',['rtol',['../classCantera_1_1Domain1D.html#ae6b7bdc196ddca3878073dfd5d9554d2',1,'Cantera::Domain1D::rtol()'],['../classCantera_1_1ReactorNet.html#a4d7bd81259e8942445eab714e947490b',1,'Cantera::ReactorNet::rtol()']]],
   ['rtolsensitivity',['rtolSensitivity',['../classCantera_1_1ReactorNet.html#a59330bc7226ab0cd4f18bf45766808b0',1,'Cantera::ReactorNet']]],
-  ['rxnmolchange',['RxnMolChange',['../classCantera_1_1RxnMolChange.html#ab1fc0904cea143220489873d773798dc',1,'Cantera::RxnMolChange::RxnMolChange(Cantera::Kinetics *kinPtr, int irxn)'],['../classCantera_1_1RxnMolChange.html#a6290370a88297b829089f7dc0d6fa8f9',1,'Cantera::RxnMolChange::RxnMolChange(Cantera::Kinetics *kinPtr, Cantera::ExtraGlobalRxn *egr)']]],
+  ['rxnmolchange',['RxnMolChange',['../classCantera_1_1RxnMolChange.html#a669ffdc6837a490bc27d7510825c2960',1,'Cantera::RxnMolChange::RxnMolChange(Kinetics *kinPtr, int irxn)'],['../classCantera_1_1RxnMolChange.html#a21c5f8f010ed00ab2ff3e6519c60b352',1,'Cantera::RxnMolChange::RxnMolChange(Kinetics *kinPtr, ExtraGlobalRxn *egr)']]],
   ['rxnorders',['RxnOrders',['../classCantera_1_1RxnOrders.html#a15fef2c6f350f3e57e0bd308c57fa18d',1,'Cantera::RxnOrders']]]
 ];

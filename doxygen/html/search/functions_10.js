@@ -67,7 +67,7 @@ var searchData=
   ['print_5ffunceval',['print_funcEval',['../namespaceCantera.html#a8bf27af56a077467a22f8010b89b12a4',1,'Cantera']]],
   ['print_5fheader',['print_header',['../classCantera_1_1solveSP.html#a06ac7258c879047289e00d016d479a24',1,'Cantera::solveSP::print_header()'],['../classCantera_1_1solveProb.html#a12c7bb6f12ea0c5563d981b02ce5e141',1,'Cantera::solveProb::print_header()']]],
   ['print_5fsolndelta_5fnorm_5fcontrib',['print_solnDelta_norm_contrib',['../classCantera_1_1NonlinearSolver.html#a7475348f8c6b800e9f9db8a3e21e3eab',1,'Cantera::NonlinearSolver']]],
-  ['print_5fstringtrunc',['print_stringTrunc',['../BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429',1,'BasisOptimize.cpp']]],
+  ['print_5fstringtrunc',['print_stringTrunc',['../namespaceCantera.html#acee4c14170d189388e14606e37143429',1,'Cantera']]],
   ['printcoeffs',['printCoeffs',['../classCantera_1_1HMWSoln.html#a9ad833b12bb467ea30cbc57305c60754',1,'Cantera::HMWSoln']]],
   ['printfinal',['printFinal',['../classCantera_1_1solveProb.html#a761c698411ba4bd096ba80988b133e82',1,'Cantera::solveProb']]],
   ['printiteration',['printIteration',['../classCantera_1_1solveSP.html#a52719bc5898d2e9887c6f1e2992a2319',1,'Cantera::solveSP::printIteration()'],['../classCantera_1_1solveProb.html#a7254b53dd420f28c82237ddc06b7b05a',1,'Cantera::solveProb::printIteration()']]],

@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Thermodynamic Properties &mdash; Cantera 2.2.0b1 documentation</title>
+    <title>Thermodynamic Properties &mdash; Cantera 2.2.0 documentation</title>
     
-    <link rel="stylesheet" href="../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.2.0b1',
+        VERSION:     '2.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.2.0 documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Chemical Kinetics" href="kinetics.html" />
     <link rel="prev" title="Creating Phase Objects" href="importing.html" /> 
@@ -148,6 +148,21 @@
 state of a phase of matter, which might be a gas, liquid, or solid.</p>
 <p>Class <a class="reference internal" href="#cantera.ThermoPhase" title="cantera.ThermoPhase"><tt class="xref py py-obj docutils literal"><span class="pre">ThermoPhase</span></tt></a> is not usually instantiated directly. It is used
 as a base class for classes <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> and <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a>.</p>
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.DP">
+<tt class="descname">DP</tt><a class="headerlink" href="#cantera.ThermoPhase.DP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.DPX">
+<tt class="descname">DPX</tt><a class="headerlink" href="#cantera.ThermoPhase.DPX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.ThermoPhase.DPY">
+<tt class="descname">DPY</tt><a class="headerlink" href="#cantera.ThermoPhase.DPY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.ThermoPhase.HP">
 <tt class="descname">HP</tt><a class="headerlink" href="#cantera.ThermoPhase.HP" title="Permalink to this definition">¶</a></dt>
@@ -1336,6 +1351,14 @@ parameterization.</li>
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="cantera.SpeciesThermo.coeffs">
+<tt class="descname">coeffs</tt><a class="headerlink" href="#cantera.SpeciesThermo.coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of coefficients for the parameterization. The length of this
+array and the meaning of each element depends on the specific
+parameterization.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cantera.SpeciesThermo.cp">
 <tt class="descname">cp</tt><big>(</big><em>self</em>, <em>T</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo.cp" title="Permalink to this definition">¶</a></dt>
@@ -1346,6 +1369,24 @@ parameterization.</li>
 <dt id="cantera.SpeciesThermo.h">
 <tt class="descname">h</tt><big>(</big><em>self</em>, <em>T</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo.h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Molar enthalpy [J/kmol] at temperature <em>T</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.SpeciesThermo.max_temp">
+<tt class="descname">max_temp</tt><a class="headerlink" href="#cantera.SpeciesThermo.max_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum temperature [K] at which the parameterization is valid.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.SpeciesThermo.min_temp">
+<tt class="descname">min_temp</tt><a class="headerlink" href="#cantera.SpeciesThermo.min_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum temperature [K] at which the parameterization is valid.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.SpeciesThermo.reference_pressure">
+<tt class="descname">reference_pressure</tt><a class="headerlink" href="#cantera.SpeciesThermo.reference_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference pressure [Pa] for the parameterization.</p>
 </dd></dl>
 
 <dl class="method">

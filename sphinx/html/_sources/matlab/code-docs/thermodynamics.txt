@@ -840,6 +840,22 @@ ThermoPhase
             Pressure. Units: Pa
         
 
+    .. mat:function:: setState_RP(tp, rp)
+
+        Set the density and pressure.
+
+        The density is set first, then the pressure is set by
+        changing the temperature holding the density and
+        chemical composition fixed.
+        
+        :param tp:
+            Instance of class :mat:func:`ThermoPhase` (or another
+            class derived from ThermoPhase)
+        :param rp:
+            Vector of length 2 containing the desired values for the density (kg/m^3)
+            and pressure (Pa)
+        
+
     .. mat:function:: setState_SP(tp, sp)
 
         Set the specific entropy and pressure.

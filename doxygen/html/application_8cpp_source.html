@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -268,440 +268,437 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#endif // THREAD_SAFE_CANTERA</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#aec7d6461aa7be31d98eff24b9d69ae3d">  171</a></span>&#160;<a class="code" href="classCantera_1_1Application.html#aec7d6461aa7be31d98eff24b9d69ae3d">Application::Application</a>() :</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a2265ac6004de4a42914e3044662fae28">stop_on_error</a>(false),</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    m_suppress_deprecation_warnings(false)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#if !defined( THREAD_SAFE_CANTERA )</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classCantera_1_1Application.html#aee3a1baeb535d6562ca1eaff34edc0f5">pMessenger</a> = std::auto_ptr&lt;Messages&gt;(<span class="keyword">new</span> <a class="code" href="classCantera_1_1Application_1_1Messages.html">Messages</a>());</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">// install a default logwriter that writes to standard</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="comment">// output / standard error</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <a class="code" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">setDefaultDirectories</a>();</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#if defined(THREAD_SAFE_CANTERA)</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classCantera_1_1Unit.html#a0b07ae0475ecccad1200bb510fcdf7fc">Unit::units</a>() ;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a5fbe5364ed1f350b9ca5303987423ca7">  187</a></span>&#160;<a class="code" href="classCantera_1_1Application.html">Application</a>* <a class="code" href="classCantera_1_1Application.html#a5fbe5364ed1f350b9ca5303987423ca7">Application::Instance</a>()</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;{</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    ScopedLock appLock(<a class="code" href="namespaceCantera.html#a4c1423550f6bb67be6f2d0067b15ddf4">app_mutex</a>);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> == 0) {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Application.html#aec7d6461aa7be31d98eff24b9d69ae3d">Application</a>();</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">s_app</a>;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a713b51c450f3ae9db74cd857c2419173">  196</a></span>&#160;<a class="code" href="classCantera_1_1Application.html#a713b51c450f3ae9db74cd857c2419173">Application::~Application</a>()</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    std::map&lt;std::string, std::pair&lt;XML_Node*, int&gt; &gt;::iterator pos;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">for</span> (pos = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.begin(); pos != <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end(); ++pos) {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        pos-&gt;second.first-&gt;unlock();</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keyword">delete</span> pos-&gt;second.first;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        pos-&gt;second.first = 0;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#aed47b1658779659c45b1237602c4237a">  206</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#aed47b1658779659c45b1237602c4237a">Application::ApplicationDestroy</a>()</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;{</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    ScopedLock appLock(<a class="code" href="namespaceCantera.html#a4c1423550f6bb67be6f2d0067b15ddf4">app_mutex</a>);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> != 0) {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a>;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> = 0;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
-<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#ad5d610e093906d9c26b279745352299e">  215</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#ad5d610e093906d9c26b279745352299e">Application::warn_deprecated</a>(<span class="keyword">const</span> std::string&amp; method,</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                                  <span class="keyword">const</span> std::string&amp; extra)</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">if</span> (m_suppress_deprecation_warnings || <a class="code" href="classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243">warnings</a>.count(method)) {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243">warnings</a>.insert(method);</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;WARNING: &#39;&quot;</span> + method + <span class="stringliteral">&quot;&#39; is deprecated. &quot;</span> + extra);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <a class="code" href="classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148">writelogendl</a>();</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#aa6775f4e79890dac1c4e5eea51c57a1c">  226</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#aa6775f4e79890dac1c4e5eea51c57a1c">Application::thread_complete</a>()</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;{</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#if defined(THREAD_SAFE_CANTERA)</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classCantera_1_1Application.html#aee3a1baeb535d6562ca1eaff34edc0f5">pMessenger</a>.<a class="code" href="classCantera_1_1Application_1_1ThreadMessages.html#adcae248ce9d90c401db67b14388c9e36">removeThreadMessages</a>() ;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a235b0367c7f1d78a08cf52c4a8c5448c">  233</a></span>&#160;<a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>* <a class="code" href="classCantera_1_1Application.html#a235b0367c7f1d78a08cf52c4a8c5448c">Application::get_XML_File</a>(<span class="keyword">const</span> std::string&amp; file, <span class="keywordtype">int</span> debug)</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;{</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    ScopedLock xmlLock(<a class="code" href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">xml_mutex</a>);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    std::string path = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    path = <a class="code" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">findInputFile</a>(file);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">int</span> mtime = get_modified_time(path);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.find(path) != <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end()) {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="comment">// Already have a parsed XML tree for this file cached. Check the</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="comment">// last-modified time.</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        std::pair&lt;XML_Node*, int&gt; cache = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[path];</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordflow">if</span> (cache.second == mtime) {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            <span class="keywordflow">return</span> cache.first;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">     * Check whether or not the file is XML (based on the file extension). If</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">     * not, it will be first processed with the preprocessor.</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    string::size_type idot = path.rfind(<span class="charliteral">&#39;.&#39;</span>);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">string</span> ext;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">if</span> (idot != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">string::npos</a>) {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        ext = path.substr(idot, path.size());</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        ext = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>* x = <span class="keyword">new</span> <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>(<span class="stringliteral">&quot;doc&quot;</span>);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">if</span> (ext != <span class="stringliteral">&quot;.xml&quot;</span> &amp;&amp; ext != <span class="stringliteral">&quot;.ctml&quot;</span>) {</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="comment">// Assume that we are trying to open a cti file. Do the conversion to XML.</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        std::stringstream phase_xml(<a class="code" href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3">ct2ctml_string</a>(path));</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        x-&gt;<a class="code" href="classCantera_1_1XML__Node.html#a02fe6456bc9aef3250b1f2cdde3a2780">build</a>(phase_xml);</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        std::ifstream s(path.c_str());</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">if</span> (s) {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            x-&gt;<a class="code" href="classCantera_1_1XML__Node.html#a02fe6456bc9aef3250b1f2cdde3a2780">build</a>(s);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>(<span class="stringliteral">&quot;get_XML_File&quot;</span>,</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                <span class="stringliteral">&quot;cannot open &quot;</span>+file+<span class="stringliteral">&quot; for reading.\n&quot;</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <span class="stringliteral">&quot;Note, this error indicates a possible configuration problem.&quot;</span>);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    x-&gt;<a class="code" href="classCantera_1_1XML__Node.html#aa81aed607133209dade63a226818224d">lock</a>();</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[path] = std::make_pair(x, mtime);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a72da66d231def86c76d798b44f35b93e">  279</a></span>&#160;<a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>* <a class="code" href="classCantera_1_1Application.html#a72da66d231def86c76d798b44f35b93e">Application::get_XML_from_string</a>(<span class="keyword">const</span> std::string&amp; text)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;{</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    ScopedLock xmlLock(<a class="code" href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">xml_mutex</a>);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    std::pair&lt;XML_Node*, int&gt;&amp; entry = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[text];</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">if</span> (entry.first) {</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="comment">// Return existing cached XML tree</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span> entry.first;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    std::stringstream s;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">size_t</span> start = text.find_first_not_of(<span class="stringliteral">&quot; \t\r\n&quot;</span>);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> (text.substr(start,1) == <span class="stringliteral">&quot;&lt;&quot;</span>) {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        s &lt;&lt; text;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        s &lt;&lt; <a class="code" href="group__inputfiles.html#ga8eae1f606cb70310c81d4514bca5a3ba">ct_string2ctml_string</a>(text.substr(start));</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    entry.first = <span class="keyword">new</span> <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>();</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    entry.first-&gt;build(s);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">return</span> entry.first;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a8ffba23a8e87a86a0398f8fe1c2fe350">  299</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#a8ffba23a8e87a86a0398f8fe1c2fe350">Application::close_XML_File</a>(<span class="keyword">const</span> std::string&amp; file)</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;{</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    ScopedLock xmlLock(<a class="code" href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">xml_mutex</a>);</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">if</span> (file == <span class="stringliteral">&quot;all&quot;</span>) {</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        std::map&lt;string, std::pair&lt;XML_Node*, int&gt; &gt;::iterator</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        b = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.begin(),</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        e = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end();</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">for</span> (; b != e; ++b) {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            b-&gt;second.first-&gt;unlock();</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            <span class="keyword">delete</span> b-&gt;second.first;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;            <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.erase(b-&gt;first);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.find(file) != <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end()) {</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[file].first-&gt;unlock();</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[file].first;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.erase(file);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;}</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="preprocessor"></span><span class="keywordtype">long</span> <span class="keywordtype">int</span> Application::readStringRegistryKey(<span class="keyword">const</span> std::string&amp; keyName, <span class="keyword">const</span> std::string&amp; valueName,</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        std::string&amp; value, <span class="keyword">const</span> std::string&amp; defaultValue)</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;{</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    HKEY key;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordtype">long</span> open_error = RegOpenKeyEx(HKEY_LOCAL_MACHINE, keyName.c_str(), 0, KEY_READ, &amp;key);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> (open_error != ERROR_SUCCESS) {</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">return</span> open_error;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    value = defaultValue;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    CHAR buffer[1024];</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    DWORD bufferSize = <span class="keyword">sizeof</span>(buffer);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    ULONG <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756">error</a>;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    error = RegQueryValueEx(key, valueName.c_str(), 0, NULL, (LPBYTE) buffer, &amp;bufferSize);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span> (ERROR_SUCCESS == error) {</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        value = buffer;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    RegCloseKey(key);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756">error</a>;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;}</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="group__errorhandling.html#gaff4eeaace2472342ffd4107048fc7f0e">  341</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__errorhandling.html#gaff4eeaace2472342ffd4107048fc7f0e">Application::Messages::popError</a>()</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;{</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57">errorMessage</a>.empty()) {</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <a class="code" href="classCantera_1_1Application_1_1Messages.html#a845f9353ed7f96ad7c5e37cabed26d2e">errorRoutine</a>.pop_back() ;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <a class="code" href="classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57">errorMessage</a>.pop_back() ;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    }</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8">  349</a></span>&#160;std::string <a class="code" href="group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8">Application::Messages::lastErrorMessage</a>()</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;{</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordflow">if</span> (!errorMessage.empty()) {</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordtype">string</span> head =</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="stringliteral">&quot;\n\n************************************************\n&quot;</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="stringliteral">&quot;                Cantera Error!                  \n&quot;</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            <span class="stringliteral">&quot;************************************************\n\n&quot;</span>;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">return</span> head+string(<span class="stringliteral">&quot;\nProcedure: &quot;</span>)+errorRoutine.back()</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;               +string(<span class="stringliteral">&quot;\nError:   &quot;</span>)+errorMessage.back();</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    } <span class="keywordflow">else</span>  {</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&lt;no Cantera error&gt;&quot;</span>;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    }</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;}</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
-<div class="line"><a name="l00363"></a><span class="lineno"><a class="line" href="group__errorhandling.html#gad1da9e20f047834165e4746fe1687136">  363</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__errorhandling.html#gad1da9e20f047834165e4746fe1687136">Application::Messages::getErrors</a>(std::ostream&amp; f)</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;{</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordtype">size_t</span> i = errorMessage.size();</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">if</span> (i == 0) {</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    }</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    f &lt;&lt; endl &lt;&lt; endl;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    f &lt;&lt; <span class="stringliteral">&quot;************************************************&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    f &lt;&lt; <span class="stringliteral">&quot;                   Cantera Error!                  &quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    f &lt;&lt; <span class="stringliteral">&quot;************************************************&quot;</span> &lt;&lt; endl</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      &lt;&lt; endl;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; i; j++) {</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        f &lt;&lt; endl;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        f &lt;&lt; <span class="stringliteral">&quot;Procedure: &quot;</span> &lt;&lt; errorRoutine[j] &lt;&lt; endl;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        f &lt;&lt; <span class="stringliteral">&quot;Error:     &quot;</span> &lt;&lt; errorMessage[j] &lt;&lt; endl;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    f &lt;&lt; endl &lt;&lt; endl;</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    errorMessage.clear();</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    errorRoutine.clear();</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;}</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno"><a class="line" href="group__errorhandling.html#ga66d925145e4fa099cda970c0c5d8bbcf">  384</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__errorhandling.html#ga66d925145e4fa099cda970c0c5d8bbcf">Application::Messages::logErrors</a>()</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;{</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordtype">size_t</span> i = errorMessage.size();</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordflow">if</span> (i == 0) {</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    }</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;************************************************\n&quot;</span>);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;                   Cantera Error!                  \n&quot;</span>);</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;************************************************\n\n&quot;</span>);</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; i; j++) {</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;Procedure: &quot;</span>)+ errorRoutine[j]+<span class="stringliteral">&quot; \n&quot;</span>);</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;Error:     &quot;</span>)+ errorMessage[j]+<span class="stringliteral">&quot; \n&quot;</span>);</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    }</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    errorMessage.clear();</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    errorRoutine.clear();</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;}</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
-<div class="line"><a name="l00404"></a><span class="lineno"><a class="line" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">  404</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">Application::setDefaultDirectories</a>()</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;{</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    std::vector&lt;string&gt;&amp; dirs = <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="comment">// always look in the local directory first</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    dirs.push_back(<span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="preprocessor"></span>    <span class="comment">// Under Windows, the Cantera setup utility records the installation</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="comment">// directory in the registry. Data files are stored in the &#39;data&#39;</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="comment">// subdirectory of the main installation directory.</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    std::string installDir;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    readStringRegistryKey(<span class="stringliteral">&quot;SOFTWARE\\Cantera\\Cantera 2.2&quot;</span>,</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                          <span class="stringliteral">&quot;InstallDir&quot;</span>, installDir, <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keywordflow">if</span> (installDir != <span class="stringliteral">&quot;&quot;</span>) {</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        dirs.push_back(installDir + <span class="stringliteral">&quot;data&quot;</span>);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="comment">// Scripts for converting mechanisms to CTI and CMTL are installed in</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="comment">// the &#39;bin&#39; subdirectory. Add that directory to the PYTHONPATH.</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* old_pythonpath = getenv(<span class="stringliteral">&quot;PYTHONPATH&quot;</span>);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        std::string pythonpath = <span class="stringliteral">&quot;PYTHONPATH=&quot;</span> + installDir + <span class="stringliteral">&quot;\\bin&quot;</span>;</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">if</span> (old_pythonpath) {</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            pythonpath += <span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            pythonpath.append(old_pythonpath);</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        }</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        putenv(pythonpath.c_str());</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    }</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="preprocessor">#ifdef DARWIN</span></div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="preprocessor"></span>    <span class="comment">//</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="comment">// add a default data location for Mac OS X</span></div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    dirs.push_back(<span class="stringliteral">&quot;/Applications/Cantera/data&quot;</span>);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="comment">// if environment variable CANTERA_DATA is defined, then add it to the</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="comment">// search path. CANTERA_DATA may include multiple directory, separated by</span></div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">// the OS-dependent path separator (in the same manner as the PATH</span></div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="comment">// environment variable).</span></div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="preprocessor"></span>    std::string pathsep = <span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="preprocessor"></span>    std::string pathsep = <span class="stringliteral">&quot;:&quot;</span>;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keywordflow">if</span> (getenv(<span class="stringliteral">&quot;CANTERA_DATA&quot;</span>) != 0) {</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keywordtype">string</span> s = string(getenv(<span class="stringliteral">&quot;CANTERA_DATA&quot;</span>));</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="keywordtype">size_t</span> start = 0;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="keywordtype">size_t</span> end = s.find(pathsep);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="keywordflow">while</span>(end != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>) {</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            dirs.push_back(s.substr(start, end-start));</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            start = end + 1;</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;            end = s.find(pathsep, start);</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        }</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        dirs.push_back(s.substr(start,end));</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    }</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="comment">// CANTERA_DATA is defined in file config.h. This file is written</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    <span class="comment">// during the build process (unix), and points to the directory</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="comment">// specified by the &#39;prefix&#39; option to &#39;configure&#39;, or else to</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="comment">// /usr/local/cantera.</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="preprocessor">#ifdef CANTERA_DATA</span></div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">string</span> datadir = string(CANTERA_DATA);</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    dirs.push_back(datadir);</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;</div>
-<div class="line"><a name="l00474"></a><span class="lineno"><a class="line" href="group__inputfiles.html#ga665c099aafbe6dc958c3497997d732ad">  474</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__inputfiles.html#ga665c099aafbe6dc958c3497997d732ad">Application::addDataDirectory</a>(<span class="keyword">const</span> std::string&amp; dir)</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;{</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    ScopedLock dirLock(<a class="code" href="namespaceCantera.html#a5d31b54141da18bb2304c44594b8acf6">dir_mutex</a>);</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.empty()) {</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <a class="code" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">setDefaultDirectories</a>();</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    }</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    <span class="keywordtype">string</span> d = <a class="code" href="namespaceCantera.html#ae2e25406ab30098069551a0b4c5d45de">stripnonprint</a>(dir);</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    <span class="comment">// Remove any existing entry for this directory</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    std::vector&lt;string&gt;::iterator iter = std::find(<a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.begin(),</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                                                   <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.end(), d);</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="keywordflow">if</span> (iter != <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.end()) {</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.erase(iter);</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    }</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="comment">// Insert this directory at the beginning of the search path</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.insert(<a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.begin(), d);</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;}</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;</div>
-<div class="line"><a name="l00493"></a><span class="lineno"><a class="line" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">  493</a></span>&#160;std::string <a class="code" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">Application::findInputFile</a>(<span class="keyword">const</span> std::string&amp; name)</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;{</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    ScopedLock dirLock(<a class="code" href="namespaceCantera.html#a5d31b54141da18bb2304c44594b8acf6">dir_mutex</a>);</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    string::size_type islash = name.find(<span class="charliteral">&#39;/&#39;</span>);</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    string::size_type ibslash = name.find(<span class="charliteral">&#39;\\&#39;</span>);</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keywordtype">string</span> inname;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    std::vector&lt;string&gt;&amp; dirs = <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>;</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="comment">// Expand &quot;~/&quot; to user&#39;s home directory, if possible</span></div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordflow">if</span> (name.find(<span class="stringliteral">&quot;~/&quot;</span>) == 0) {</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        <span class="keywordtype">char</span>* home = getenv(<span class="stringliteral">&quot;HOME&quot;</span>); <span class="comment">// POSIX systems</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        <span class="keywordflow">if</span> (!home) {</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;            home = getenv(<span class="stringliteral">&quot;USERPROFILE&quot;</span>); <span class="comment">// Windows systems</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        }</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordflow">if</span> (home) {</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            <span class="keywordflow">return</span> home + name.substr(1, <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        }</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    }</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordflow">if</span> (islash == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">string::npos</a> &amp;&amp; ibslash == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">string::npos</a>) {</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="keywordtype">size_t</span> nd = dirs.size();</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        inname = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nd; i++) {</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            inname = dirs[i] + <span class="stringliteral">&quot;/&quot;</span> + name;</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            std::ifstream fin(inname.c_str());</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            <span class="keywordflow">if</span> (fin) {</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                fin.close();</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                <span class="keywordflow">return</span> inname;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;            }</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        }</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="keywordtype">string</span> msg;</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        msg = <span class="stringliteral">&quot;\nInput file &quot;</span> + name</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;              + <span class="stringliteral">&quot; not found in director&quot;</span>;</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        msg += (nd == 1 ? <span class="stringliteral">&quot;y &quot;</span> : <span class="stringliteral">&quot;ies &quot;</span>);</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nd; i++) {</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            msg += <span class="stringliteral">&quot;\n&#39;&quot;</span> + dirs[i] + <span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            <span class="keywordflow">if</span> (i+1 &lt; nd) {</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                msg += <span class="stringliteral">&quot;, &quot;</span>;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;            }</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        }</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        msg += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        msg += <span class="stringliteral">&quot;To fix this problem, either:\n&quot;</span>;</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        msg += <span class="stringliteral">&quot;    a) move the missing files into the local directory;\n&quot;</span>;</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        msg += <span class="stringliteral">&quot;    b) define environment variable CANTERA_DATA to\n&quot;</span>;</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        msg += <span class="stringliteral">&quot;         point to the directory containing the file.&quot;</span>;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>(<span class="stringliteral">&quot;findInputFile&quot;</span>, msg);</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    }</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="keywordflow">return</span> name;</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;}</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<a class="code" href="classCantera_1_1Application.html">Application</a>* <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> = 0;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;} <span class="comment">// namespace Cantera</span></div>
-<div class="ttc" id="group__errorhandling_html_gaff4eeaace2472342ffd4107048fc7f0e"><div class="ttname"><a href="group__errorhandling.html#gaff4eeaace2472342ffd4107048fc7f0e">Cantera::Application::Messages::popError</a></div><div class="ttdeci">void popError()</div><div class="ttdoc">Discard the last error message. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00341">application.cpp:341</a></div></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    m_suppress_deprecation_warnings(false)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#if !defined( THREAD_SAFE_CANTERA )</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor"></span>    pMessenger = std::auto_ptr&lt;Messages&gt;(<span class="keyword">new</span> <a class="code" href="classCantera_1_1Application_1_1Messages.html">Messages</a>());</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">// install a default logwriter that writes to standard</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="comment">// output / standard error</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <a class="code" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">setDefaultDirectories</a>();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#if defined(THREAD_SAFE_CANTERA)</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor"></span>    <a class="code" href="classCantera_1_1Unit.html#a0b07ae0475ecccad1200bb510fcdf7fc">Unit::units</a>() ;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a5fbe5364ed1f350b9ca5303987423ca7">  186</a></span>&#160;<a class="code" href="classCantera_1_1Application.html">Application</a>* <a class="code" href="classCantera_1_1Application.html#a5fbe5364ed1f350b9ca5303987423ca7">Application::Instance</a>()</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;{</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    ScopedLock appLock(<a class="code" href="namespaceCantera.html#a4c1423550f6bb67be6f2d0067b15ddf4">app_mutex</a>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> == 0) {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> = <span class="keyword">new</span> <a class="code" href="classCantera_1_1Application.html#aec7d6461aa7be31d98eff24b9d69ae3d">Application</a>();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">s_app</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a713b51c450f3ae9db74cd857c2419173">  195</a></span>&#160;<a class="code" href="classCantera_1_1Application.html#a713b51c450f3ae9db74cd857c2419173">Application::~Application</a>()</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;{</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    std::map&lt;std::string, std::pair&lt;XML_Node*, int&gt; &gt;::iterator pos;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">for</span> (pos = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.begin(); pos != <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end(); ++pos) {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        pos-&gt;second.first-&gt;unlock();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keyword">delete</span> pos-&gt;second.first;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        pos-&gt;second.first = 0;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#aed47b1658779659c45b1237602c4237a">  205</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#aed47b1658779659c45b1237602c4237a">Application::ApplicationDestroy</a>()</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;{</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    ScopedLock appLock(<a class="code" href="namespaceCantera.html#a4c1423550f6bb67be6f2d0067b15ddf4">app_mutex</a>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> != 0) {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> = 0;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#ad5d610e093906d9c26b279745352299e">  214</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#ad5d610e093906d9c26b279745352299e">Application::warn_deprecated</a>(<span class="keyword">const</span> std::string&amp; method,</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                                  <span class="keyword">const</span> std::string&amp; extra)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">if</span> (m_suppress_deprecation_warnings || <a class="code" href="classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243">warnings</a>.count(method)) {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243">warnings</a>.insert(method);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;WARNING: &#39;&quot;</span> + method + <span class="stringliteral">&quot;&#39; is deprecated. &quot;</span> + extra);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148">writelogendl</a>();</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;}</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#aa6775f4e79890dac1c4e5eea51c57a1c">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#aa6775f4e79890dac1c4e5eea51c57a1c">Application::thread_complete</a>()</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;{</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor">#if defined(THREAD_SAFE_CANTERA)</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor"></span>    pMessenger.<a class="code" href="classCantera_1_1Application_1_1ThreadMessages.html#adcae248ce9d90c401db67b14388c9e36">removeThreadMessages</a>() ;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a235b0367c7f1d78a08cf52c4a8c5448c">  232</a></span>&#160;<a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>* <a class="code" href="classCantera_1_1Application.html#a235b0367c7f1d78a08cf52c4a8c5448c">Application::get_XML_File</a>(<span class="keyword">const</span> std::string&amp; file, <span class="keywordtype">int</span> debug)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    ScopedLock xmlLock(<a class="code" href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">xml_mutex</a>);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    std::string path = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    path = <a class="code" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">findInputFile</a>(file);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordtype">int</span> mtime = get_modified_time(path);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.find(path) != <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end()) {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="comment">// Already have a parsed XML tree for this file cached. Check the</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="comment">// last-modified time.</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        std::pair&lt;XML_Node*, int&gt; cache = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[path];</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">if</span> (cache.second == mtime) {</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keywordflow">return</span> cache.first;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">     * Check whether or not the file is XML (based on the file extension). If</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">     * not, it will be first processed with the preprocessor.</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    string::size_type idot = path.rfind(<span class="charliteral">&#39;.&#39;</span>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">string</span> ext;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">if</span> (idot != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">string::npos</a>) {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        ext = path.substr(idot, path.size());</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        ext = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>* x = <span class="keyword">new</span> <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>(<span class="stringliteral">&quot;doc&quot;</span>);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">if</span> (ext != <span class="stringliteral">&quot;.xml&quot;</span> &amp;&amp; ext != <span class="stringliteral">&quot;.ctml&quot;</span>) {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="comment">// Assume that we are trying to open a cti file. Do the conversion to XML.</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        std::stringstream phase_xml(<a class="code" href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3">ct2ctml_string</a>(path));</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        x-&gt;<a class="code" href="classCantera_1_1XML__Node.html#a02fe6456bc9aef3250b1f2cdde3a2780">build</a>(phase_xml);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        std::ifstream s(path.c_str());</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">if</span> (s) {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            x-&gt;<a class="code" href="classCantera_1_1XML__Node.html#a02fe6456bc9aef3250b1f2cdde3a2780">build</a>(s);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>(<span class="stringliteral">&quot;get_XML_File&quot;</span>,</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="stringliteral">&quot;cannot open &quot;</span>+file+<span class="stringliteral">&quot; for reading.\n&quot;</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                <span class="stringliteral">&quot;Note, this error indicates a possible configuration problem.&quot;</span>);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    }</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    x-&gt;<a class="code" href="classCantera_1_1XML__Node.html#aa81aed607133209dade63a226818224d">lock</a>();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[path] = std::make_pair(x, mtime);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;}</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a72da66d231def86c76d798b44f35b93e">  278</a></span>&#160;<a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>* <a class="code" href="classCantera_1_1Application.html#a72da66d231def86c76d798b44f35b93e">Application::get_XML_from_string</a>(<span class="keyword">const</span> std::string&amp; text)</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;{</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    ScopedLock xmlLock(<a class="code" href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">xml_mutex</a>);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    std::pair&lt;XML_Node*, int&gt;&amp; entry = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[text];</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">if</span> (entry.first) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="comment">// Return existing cached XML tree</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span> entry.first;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    std::stringstream s;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordtype">size_t</span> start = text.find_first_not_of(<span class="stringliteral">&quot; \t\r\n&quot;</span>);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (text.substr(start,1) == <span class="stringliteral">&quot;&lt;&quot;</span>) {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        s &lt;&lt; text;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        s &lt;&lt; <a class="code" href="group__inputfiles.html#ga8eae1f606cb70310c81d4514bca5a3ba">ct_string2ctml_string</a>(text.substr(start));</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    entry.first = <span class="keyword">new</span> <a class="code" href="classCantera_1_1XML__Node.html">XML_Node</a>();</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    entry.first-&gt;build(s);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordflow">return</span> entry.first;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;}</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="classCantera_1_1Application.html#a8ffba23a8e87a86a0398f8fe1c2fe350">  298</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Application.html#a8ffba23a8e87a86a0398f8fe1c2fe350">Application::close_XML_File</a>(<span class="keyword">const</span> std::string&amp; file)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;{</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    ScopedLock xmlLock(<a class="code" href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">xml_mutex</a>);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordflow">if</span> (file == <span class="stringliteral">&quot;all&quot;</span>) {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        std::map&lt;string, std::pair&lt;XML_Node*, int&gt; &gt;::iterator</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        b = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.begin(),</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        e = <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end();</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">for</span> (; b != e; ++b) {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            b-&gt;second.first-&gt;unlock();</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keyword">delete</span> b-&gt;second.first;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.clear();</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.find(file) != <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.end()) {</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[file].first-&gt;unlock();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keyword">delete</span> <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>[file].first;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <a class="code" href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">xmlfiles</a>.erase(file);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;}</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="preprocessor"></span><span class="keywordtype">long</span> <span class="keywordtype">int</span> Application::readStringRegistryKey(<span class="keyword">const</span> std::string&amp; keyName, <span class="keyword">const</span> std::string&amp; valueName,</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        std::string&amp; value, <span class="keyword">const</span> std::string&amp; defaultValue)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;{</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    HKEY key;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordtype">long</span> open_error = RegOpenKeyEx(HKEY_LOCAL_MACHINE, keyName.c_str(), 0, KEY_READ, &amp;key);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">if</span> (open_error != ERROR_SUCCESS) {</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordflow">return</span> open_error;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    value = defaultValue;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    CHAR buffer[1024];</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    DWORD bufferSize = <span class="keyword">sizeof</span>(buffer);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    ULONG <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756">error</a>;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    error = RegQueryValueEx(key, valueName.c_str(), 0, NULL, (LPBYTE) buffer, &amp;bufferSize);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span> (ERROR_SUCCESS == error) {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        value = buffer;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    RegCloseKey(key);</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756">error</a>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;}</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="group__errorhandling.html#gaff4eeaace2472342ffd4107048fc7f0e">  340</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__errorhandling.html#gaff4eeaace2472342ffd4107048fc7f0e">Application::Messages::popError</a>()</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;{</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57">errorMessage</a>.empty()) {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <a class="code" href="classCantera_1_1Application_1_1Messages.html#a845f9353ed7f96ad7c5e37cabed26d2e">errorRoutine</a>.pop_back() ;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <a class="code" href="classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57">errorMessage</a>.pop_back() ;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;}</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
+<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8">  348</a></span>&#160;std::string <a class="code" href="group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8">Application::Messages::lastErrorMessage</a>()</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;{</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">if</span> (!errorMessage.empty()) {</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordtype">string</span> head =</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <span class="stringliteral">&quot;\n\n************************************************\n&quot;</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="stringliteral">&quot;                Cantera Error!                  \n&quot;</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            <span class="stringliteral">&quot;************************************************\n\n&quot;</span>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">return</span> head+string(<span class="stringliteral">&quot;\nProcedure: &quot;</span>)+errorRoutine.back()</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;               +string(<span class="stringliteral">&quot;\nError:   &quot;</span>)+errorMessage.back();</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    } <span class="keywordflow">else</span>  {</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&lt;no Cantera error&gt;&quot;</span>;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;}</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;</div>
+<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="group__errorhandling.html#gad1da9e20f047834165e4746fe1687136">  362</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__errorhandling.html#gad1da9e20f047834165e4746fe1687136">Application::Messages::getErrors</a>(std::ostream&amp; f)</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;{</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordtype">size_t</span> i = errorMessage.size();</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">if</span> (i == 0) {</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    }</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    f &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    f &lt;&lt; <span class="stringliteral">&quot;************************************************&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    f &lt;&lt; <span class="stringliteral">&quot;                   Cantera Error!                  &quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    f &lt;&lt; <span class="stringliteral">&quot;************************************************&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      &lt;&lt; endl;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; i; j++) {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        f &lt;&lt; endl;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        f &lt;&lt; <span class="stringliteral">&quot;Procedure: &quot;</span> &lt;&lt; errorRoutine[j] &lt;&lt; endl;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        f &lt;&lt; <span class="stringliteral">&quot;Error:     &quot;</span> &lt;&lt; errorMessage[j] &lt;&lt; endl;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    f &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    errorMessage.clear();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    errorRoutine.clear();</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;}</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
+<div class="line"><a name="l00383"></a><span class="lineno"><a class="line" href="group__errorhandling.html#ga66d925145e4fa099cda970c0c5d8bbcf">  383</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__errorhandling.html#ga66d925145e4fa099cda970c0c5d8bbcf">Application::Messages::logErrors</a>()</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;{</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keywordtype">size_t</span> i = errorMessage.size();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordflow">if</span> (i == 0) {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    }</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;************************************************\n&quot;</span>);</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;                   Cantera Error!                  \n&quot;</span>);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;************************************************\n\n&quot;</span>);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; i; j++) {</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;Procedure: &quot;</span>)+ errorRoutine[j]+<span class="stringliteral">&quot; \n&quot;</span>);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;Error:     &quot;</span>)+ errorMessage[j]+<span class="stringliteral">&quot; \n&quot;</span>);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">writelog</a>(<span class="stringliteral">&quot;\n\n&quot;</span>);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    errorMessage.clear();</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    errorRoutine.clear();</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;}</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno"><a class="line" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">  403</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">Application::setDefaultDirectories</a>()</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;{</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    std::vector&lt;string&gt;&amp; dirs = <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="comment">// always look in the local directory first</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    dirs.push_back(<span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="preprocessor"></span>    <span class="comment">// Under Windows, the Cantera setup utility records the installation</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="comment">// directory in the registry. Data files are stored in the &#39;data&#39;</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="comment">// subdirectory of the main installation directory.</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    std::string installDir;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    readStringRegistryKey(<span class="stringliteral">&quot;SOFTWARE\\Cantera\\Cantera &quot;</span> CANTERA_SHORT_VERSION,</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                          <span class="stringliteral">&quot;InstallDir&quot;</span>, installDir, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">if</span> (installDir != <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        dirs.push_back(installDir + <span class="stringliteral">&quot;data&quot;</span>);</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="comment">// Scripts for converting mechanisms to CTI and CMTL are installed in</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="comment">// the &#39;bin&#39; subdirectory. Add that directory to the PYTHONPATH.</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* old_pythonpath = getenv(<span class="stringliteral">&quot;PYTHONPATH&quot;</span>);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        std::string pythonpath = <span class="stringliteral">&quot;PYTHONPATH=&quot;</span> + installDir + <span class="stringliteral">&quot;\\bin&quot;</span>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keywordflow">if</span> (old_pythonpath) {</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            pythonpath += <span class="stringliteral">&quot;;&quot;</span>;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            pythonpath.append(old_pythonpath);</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        }</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        putenv(pythonpath.c_str());</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    }</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="preprocessor">#ifdef DARWIN</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="preprocessor"></span>    <span class="comment">//</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    <span class="comment">// add a default data location for Mac OS X</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    dirs.push_back(<span class="stringliteral">&quot;/Applications/Cantera/data&quot;</span>);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <span class="comment">// if environment variable CANTERA_DATA is defined, then add it to the</span></div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="comment">// search path. CANTERA_DATA may include multiple directory, separated by</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="comment">// the OS-dependent path separator (in the same manner as the PATH</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="comment">// environment variable).</span></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="preprocessor"></span>    std::string pathsep = <span class="stringliteral">&quot;;&quot;</span>;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="preprocessor"></span>    std::string pathsep = <span class="stringliteral">&quot;:&quot;</span>;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">if</span> (getenv(<span class="stringliteral">&quot;CANTERA_DATA&quot;</span>) != 0) {</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keywordtype">string</span> s = string(getenv(<span class="stringliteral">&quot;CANTERA_DATA&quot;</span>));</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keywordtype">size_t</span> start = 0;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="keywordtype">size_t</span> end = s.find(pathsep);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="keywordflow">while</span>(end != <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>) {</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            dirs.push_back(s.substr(start, end-start));</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            start = end + 1;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            end = s.find(pathsep, start);</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        }</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        dirs.push_back(s.substr(start,end));</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    }</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="comment">// CANTERA_DATA is defined in file config.h. This file is written</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="comment">// during the build process (unix), and points to the directory</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    <span class="comment">// specified by the &#39;prefix&#39; option to &#39;configure&#39;, or else to</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="comment">// /usr/local/cantera.</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="preprocessor">#ifdef CANTERA_DATA</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="preprocessor"></span>    <span class="keywordtype">string</span> datadir = string(CANTERA_DATA);</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    dirs.push_back(datadir);</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;</div>
+<div class="line"><a name="l00473"></a><span class="lineno"><a class="line" href="group__inputfiles.html#ga665c099aafbe6dc958c3497997d732ad">  473</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__inputfiles.html#ga665c099aafbe6dc958c3497997d732ad">Application::addDataDirectory</a>(<span class="keyword">const</span> std::string&amp; dir)</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;{</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    ScopedLock dirLock(<a class="code" href="namespaceCantera.html#a5d31b54141da18bb2304c44594b8acf6">dir_mutex</a>);</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.empty()) {</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <a class="code" href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">setDefaultDirectories</a>();</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    }</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordtype">string</span> d = <a class="code" href="namespaceCantera.html#ae2e25406ab30098069551a0b4c5d45de">stripnonprint</a>(dir);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="comment">// Remove any existing entry for this directory</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    std::vector&lt;string&gt;::iterator iter = std::find(<a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.begin(),</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                                                   <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.end(), d);</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordflow">if</span> (iter != <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.end()) {</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.erase(iter);</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    }</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <span class="comment">// Insert this directory at the beginning of the search path</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.insert(<a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>.begin(), d);</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;}</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;</div>
+<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">  492</a></span>&#160;std::string <a class="code" href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">Application::findInputFile</a>(<span class="keyword">const</span> std::string&amp; name)</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;{</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    ScopedLock dirLock(<a class="code" href="namespaceCantera.html#a5d31b54141da18bb2304c44594b8acf6">dir_mutex</a>);</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    string::size_type islash = name.find(<span class="charliteral">&#39;/&#39;</span>);</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    string::size_type ibslash = name.find(<span class="charliteral">&#39;\\&#39;</span>);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordtype">string</span> inname;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    std::vector&lt;string&gt;&amp; dirs = <a class="code" href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">inputDirs</a>;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    <span class="comment">// Expand &quot;~/&quot; to user&#39;s home directory, if possible</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keywordflow">if</span> (name.find(<span class="stringliteral">&quot;~/&quot;</span>) == 0) {</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="keywordtype">char</span>* home = getenv(<span class="stringliteral">&quot;HOME&quot;</span>); <span class="comment">// POSIX systems</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        <span class="keywordflow">if</span> (!home) {</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            home = getenv(<span class="stringliteral">&quot;USERPROFILE&quot;</span>); <span class="comment">// Windows systems</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        }</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        <span class="keywordflow">if</span> (home) {</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            <span class="keywordflow">return</span> home + name.substr(1, <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">npos</a>);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        }</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    }</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="keywordflow">if</span> (islash == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">string::npos</a> &amp;&amp; ibslash == <a class="code" href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">string::npos</a>) {</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordtype">size_t</span> nd = dirs.size();</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        inname = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nd; i++) {</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            inname = dirs[i] + <span class="stringliteral">&quot;/&quot;</span> + name;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            std::ifstream fin(inname.c_str());</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            <span class="keywordflow">if</span> (fin) {</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                fin.close();</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                <span class="keywordflow">return</span> inname;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            }</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        }</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordtype">string</span> msg;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        msg = <span class="stringliteral">&quot;\nInput file &quot;</span> + name</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;              + <span class="stringliteral">&quot; not found in director&quot;</span>;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        msg += (nd == 1 ? <span class="stringliteral">&quot;y &quot;</span> : <span class="stringliteral">&quot;ies &quot;</span>);</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nd; i++) {</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            msg += <span class="stringliteral">&quot;\n&#39;&quot;</span> + dirs[i] + <span class="stringliteral">&quot;&#39;&quot;</span>;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            <span class="keywordflow">if</span> (i+1 &lt; nd) {</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                msg += <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            }</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        msg += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        msg += <span class="stringliteral">&quot;To fix this problem, either:\n&quot;</span>;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        msg += <span class="stringliteral">&quot;    a) move the missing files into the local directory;\n&quot;</span>;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        msg += <span class="stringliteral">&quot;    b) define environment variable CANTERA_DATA to\n&quot;</span>;</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        msg += <span class="stringliteral">&quot;         point to the directory containing the file.&quot;</span>;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>(<span class="stringliteral">&quot;findInputFile&quot;</span>, msg);</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    }</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordflow">return</span> name;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;}</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<a class="code" href="classCantera_1_1Application.html">Application</a>* <a class="code" href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Application::s_app</a> = 0;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;} <span class="comment">// namespace Cantera</span></div>
+<div class="ttc" id="group__errorhandling_html_gaff4eeaace2472342ffd4107048fc7f0e"><div class="ttname"><a href="group__errorhandling.html#gaff4eeaace2472342ffd4107048fc7f0e">Cantera::Application::Messages::popError</a></div><div class="ttdeci">void popError()</div><div class="ttdoc">Discard the last error message. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00340">application.cpp:340</a></div></div>
 <div class="ttc" id="group__inputfiles_html_ga3a8555f1c9005ce92613f4a0586942d3"><div class="ttname"><a href="group__inputfiles.html#ga3a8555f1c9005ce92613f4a0586942d3">Cantera::ct2ctml_string</a></div><div class="ttdeci">std::string ct2ctml_string(const std::string &amp;file)</div><div class="ttdoc">Get a string with the ctml representation of a cti file. </div><div class="ttdef"><b>Definition:</b> <a href="ct2ctml_8cpp_source.html#l00178">ct2ctml.cpp:178</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html_aed3c4e18a21f764dc088d5957bcef148"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html#aed3c4e18a21f764dc088d5957bcef148">Cantera::Application::Messages::writelogendl</a></div><div class="ttdeci">void writelogendl()</div><div class="ttdoc">Write an end of line character to the screen and flush output. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00137">application.cpp:137</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_aed3c4e18a21f764dc088d5957bcef148"><div class="ttname"><a href="classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148">Cantera::Application::writelogendl</a></div><div class="ttdeci">void writelogendl()</div><div class="ttdoc">Write an endl to the screen and flush output. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00333">application.h:333</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_aed3c4e18a21f764dc088d5957bcef148"><div class="ttname"><a href="classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148">Cantera::Application::writelogendl</a></div><div class="ttdeci">void writelogendl()</div><div class="ttdoc">Write an endl to the screen and flush output. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00332">application.h:332</a></div></div>
 <div class="ttc" id="classCantera_1_1Logger_html"><div class="ttname"><a href="classCantera_1_1Logger.html">Cantera::Logger</a></div><div class="ttdoc">Base class for &#39;loggers&#39; that write text messages to log files. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00039">logger.h:39</a></div></div>
 <div class="ttc" id="ctml_8h_html"><div class="ttname"><a href="ctml_8h.html">ctml.h</a></div><div class="ttdoc">CTML (&quot;Cantera Markup Language&quot;) is the variant of XML that Cantera uses to store data...</div></div>
 <div class="ttc" id="classCantera_1_1Application_html"><div class="ttname"><a href="classCantera_1_1Application.html">Cantera::Application</a></div><div class="ttdoc">Class to hold global data. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00040">application.h:40</a></div></div>
 <div class="ttc" id="group__errorhandling_html_gad5e9a9a276f1d98add727ea3eb6e2fdf"><div class="ttname"><a href="group__errorhandling.html#gad5e9a9a276f1d98add727ea3eb6e2fdf">Cantera::Application::Messages::getErrorCount</a></div><div class="ttdeci">int getErrorCount()</div><div class="ttdoc">Return the number of errors that have been encountered so far. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00109">application.cpp:109</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_aee3a1baeb535d6562ca1eaff34edc0f5"><div class="ttname"><a href="classCantera_1_1Application.html#aee3a1baeb535d6562ca1eaff34edc0f5">Cantera::Application::pMessenger</a></div><div class="ttdeci">ThreadMessages pMessenger</div><div class="ttdoc">Current pointer to the logwriter. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00428">application.h:428</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a713b51c450f3ae9db74cd857c2419173"><div class="ttname"><a href="classCantera_1_1Application.html#a713b51c450f3ae9db74cd857c2419173">Cantera::Application::~Application</a></div><div class="ttdeci">virtual ~Application()</div><div class="ttdoc">Destructor for class deletes global data. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00196">application.cpp:196</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a713b51c450f3ae9db74cd857c2419173"><div class="ttname"><a href="classCantera_1_1Application.html#a713b51c450f3ae9db74cd857c2419173">Cantera::Application::~Application</a></div><div class="ttdeci">virtual ~Application()</div><div class="ttdoc">Destructor for class deletes global data. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00195">application.cpp:195</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html_ac380ed12a19e44003f307b7582779fad"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html#ac380ed12a19e44003f307b7582779fad">Cantera::Application::Messages::Messages</a></div><div class="ttdeci">Messages()</div><div class="ttdoc">Constructor for the Messages class. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00069">application.cpp:69</a></div></div>
 <div class="ttc" id="application_8h_html"><div class="ttname"><a href="application_8h.html">application.h</a></div></div>
-<div class="ttc" id="group__inputfiles_html_ga144465952eb1270d254a049a31411540"><div class="ttname"><a href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">Cantera::Application::findInputFile</a></div><div class="ttdeci">std::string findInputFile(const std::string &amp;name)</div><div class="ttdoc">Find an input file. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00493">application.cpp:493</a></div></div>
+<div class="ttc" id="group__inputfiles_html_ga144465952eb1270d254a049a31411540"><div class="ttname"><a href="group__inputfiles.html#ga144465952eb1270d254a049a31411540">Cantera::Application::findInputFile</a></div><div class="ttdeci">std::string findInputFile(const std::string &amp;name)</div><div class="ttdoc">Find an input file. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00492">application.cpp:492</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a03aff983f503a71029aecb707175b2ed"><div class="ttname"><a href="namespaceCantera.html#a03aff983f503a71029aecb707175b2ed">Cantera::npos</a></div><div class="ttdeci">const size_t npos</div><div class="ttdoc">index returned by functions to indicate &quot;no position&quot; </div><div class="ttdef"><b>Definition:</b> <a href="ct__defs_8h_source.html#l00165">ct_defs.h:165</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a2778098f84e697b8c087057a561ff2c6"><div class="ttname"><a href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Cantera::Application::s_app</a></div><div class="ttdeci">static Application * s_app</div><div class="ttdoc">Pointer to the single Application instance. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00435">application.h:435</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a2778098f84e697b8c087057a561ff2c6"><div class="ttname"><a href="classCantera_1_1Application.html#a2778098f84e697b8c087057a561ff2c6">Cantera::Application::s_app</a></div><div class="ttdeci">static Application * s_app</div><div class="ttdoc">Pointer to the single Application instance. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00416">application.h:416</a></div></div>
 <div class="ttc" id="classCantera_1_1XML__Node_html"><div class="ttname"><a href="classCantera_1_1XML__Node.html">Cantera::XML_Node</a></div><div class="ttdoc">Class XML_Node is a tree-based representation of the contents of an XML file. </div><div class="ttdef"><b>Definition:</b> <a href="xml_8h_source.html#l00100">xml.h:100</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html_a36ae9fcde72080e21fcc9dd05c03edc1"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html#a36ae9fcde72080e21fcc9dd05c03edc1">Cantera::Application::Messages::logerror</a></div><div class="ttdeci">void logerror(const std::string &amp;msg)</div><div class="ttdoc">Write an error message and quit. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00126">application.cpp:126</a></div></div>
 <div class="ttc" id="namespaceCantera_html_ad5d610e093906d9c26b279745352299e"><div class="ttname"><a href="namespaceCantera.html#ad5d610e093906d9c26b279745352299e">Cantera::warn_deprecated</a></div><div class="ttdeci">void warn_deprecated(const std::string &amp;method, const std::string &amp;extra)</div><div class="ttdoc">Print a warning indicating that method is deprecated. </div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00078">global.cpp:78</a></div></div>
 <div class="ttc" id="group__errorhandling_html_gaaefe7f63b5f6df73d0ef019abe1f3c82"><div class="ttname"><a href="group__errorhandling.html#gaaefe7f63b5f6df73d0ef019abe1f3c82">Cantera::Application::Messages::addError</a></div><div class="ttdeci">void addError(const std::string &amp;r, const std::string &amp;msg)</div><div class="ttdoc">Set an error condition in the application class without throwing an exception. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00103">application.cpp:103</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a304c529581146b5b5eeb034aed77d449"><div class="ttname"><a href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">Cantera::Application::writelog</a></div><div class="ttdeci">void writelog(const std::string &amp;msg)</div><div class="ttdoc">Write a message to the screen. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00328">application.h:328</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a72da66d231def86c76d798b44f35b93e"><div class="ttname"><a href="classCantera_1_1Application.html#a72da66d231def86c76d798b44f35b93e">Cantera::Application::get_XML_from_string</a></div><div class="ttdeci">XML_Node * get_XML_from_string(const std::string &amp;text)</div><div class="ttdoc">Read a CTI or CTML string and fill up an XML tree. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00279">application.cpp:279</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a304c529581146b5b5eeb034aed77d449"><div class="ttname"><a href="classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449">Cantera::Application::writelog</a></div><div class="ttdeci">void writelog(const std::string &amp;msg)</div><div class="ttdoc">Write a message to the screen. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00327">application.h:327</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a72da66d231def86c76d798b44f35b93e"><div class="ttname"><a href="classCantera_1_1Application.html#a72da66d231def86c76d798b44f35b93e">Cantera::Application::get_XML_from_string</a></div><div class="ttdeci">XML_Node * get_XML_from_string(const std::string &amp;text)</div><div class="ttdoc">Read a CTI or CTML string and fill up an XML tree. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00278">application.cpp:278</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_html_aaa9f3299df1a2d15cd5724f0eeaf56f0"><div class="ttname"><a href="classCantera_1_1Application.html#aaa9f3299df1a2d15cd5724f0eeaf56f0">Cantera::Application::pMessages_t</a></div><div class="ttdeci">boost::shared_ptr&lt; Messages &gt; pMessages_t</div><div class="ttdoc">Typedef for thread specific messages. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00175">application.h:175</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a34edd651e94cfebd3f0f32d2277f71da"><div class="ttname"><a href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">Cantera::Application::inputDirs</a></div><div class="ttdeci">std::vector&lt; std::string &gt; inputDirs</div><div class="ttdoc">Current vector of input directories to search for input files. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00398">application.h:398</a></div></div>
-<div class="ttc" id="group__errorhandling_html_ga7785653a63fcc18c8c472b6e411eeca8"><div class="ttname"><a href="group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8">Cantera::Application::Messages::lastErrorMessage</a></div><div class="ttdeci">std::string lastErrorMessage()</div><div class="ttdoc">Retrieve the last error message in a string. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00349">application.cpp:349</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_ac366dec500f571a7f50ced52440aa65f"><div class="ttname"><a href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">Cantera::Application::xmlfiles</a></div><div class="ttdeci">std::map&lt; std::string, std::pair&lt; XML_Node *, int &gt; &gt; xmlfiles</div><div class="ttdoc">Current vector of XML file trees that have been previously parsed The second element of the value is ...</div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00418">application.h:418</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a34edd651e94cfebd3f0f32d2277f71da"><div class="ttname"><a href="classCantera_1_1Application.html#a34edd651e94cfebd3f0f32d2277f71da">Cantera::Application::inputDirs</a></div><div class="ttdeci">std::vector&lt; std::string &gt; inputDirs</div><div class="ttdoc">Current vector of input directories to search for input files. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00397">application.h:397</a></div></div>
+<div class="ttc" id="group__errorhandling_html_ga7785653a63fcc18c8c472b6e411eeca8"><div class="ttname"><a href="group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8">Cantera::Application::Messages::lastErrorMessage</a></div><div class="ttdeci">std::string lastErrorMessage()</div><div class="ttdoc">Retrieve the last error message in a string. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00348">application.cpp:348</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_ac366dec500f571a7f50ced52440aa65f"><div class="ttname"><a href="classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f">Cantera::Application::xmlfiles</a></div><div class="ttdeci">std::map&lt; std::string, std::pair&lt; XML_Node *, int &gt; &gt; xmlfiles</div><div class="ttdoc">Current vector of XML file trees that have been previously parsed The second element of the value is ...</div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00402">application.h:402</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a22f75246e0ce0145ae086ca55473e469"><div class="ttname"><a href="namespaceCantera.html#a22f75246e0ce0145ae086ca55473e469">Cantera::msg_mutex</a></div><div class="ttdeci">static mutex_t msg_mutex</div><div class="ttdoc">Mutex for access to string messages. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00145">application.cpp:145</a></div></div>
 <div class="ttc" id="classCantera_1_1XML__Node_html_aa81aed607133209dade63a226818224d"><div class="ttname"><a href="classCantera_1_1XML__Node.html#aa81aed607133209dade63a226818224d">Cantera::XML_Node::lock</a></div><div class="ttdeci">void lock()</div><div class="ttdoc">Set the lock for this node and all of its children. </div><div class="ttdef"><b>Definition:</b> <a href="xml_8cpp_source.html#l00899">xml.cpp:899</a></div></div>
 <div class="ttc" id="classCantera_1_1Unit_html_a0b07ae0475ecccad1200bb510fcdf7fc"><div class="ttname"><a href="classCantera_1_1Unit.html#a0b07ae0475ecccad1200bb510fcdf7fc">Cantera::Unit::units</a></div><div class="ttdeci">static Unit * units()</div><div class="ttdoc">Initialize the static Unit class. </div><div class="ttdef"><b>Definition:</b> <a href="units_8h_source.html#l00029">units.h:29</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a0f1ca88b38f4c58bea026e6a95262756"><div class="ttname"><a href="namespaceCantera.html#a0f1ca88b38f4c58bea026e6a95262756">Cantera::error</a></div><div class="ttdeci">void error(const std::string &amp;msg)</div><div class="ttdoc">Write an error message and quit. </div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00072">global.cpp:72</a></div></div>
-<div class="ttc" id="group__inputfiles_html_gac430b8358a27aea9d3c1908dea79538d"><div class="ttname"><a href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">Cantera::Application::setDefaultDirectories</a></div><div class="ttdeci">void setDefaultDirectories()</div><div class="ttdoc">Set the default directories for input files. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00404">application.cpp:404</a></div></div>
+<div class="ttc" id="group__inputfiles_html_gac430b8358a27aea9d3c1908dea79538d"><div class="ttname"><a href="group__inputfiles.html#gac430b8358a27aea9d3c1908dea79538d">Cantera::Application::setDefaultDirectories</a></div><div class="ttdeci">void setDefaultDirectories()</div><div class="ttdoc">Set the default directories for input files. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00403">application.cpp:403</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a4c1423550f6bb67be6f2d0067b15ddf4"><div class="ttname"><a href="namespaceCantera.html#a4c1423550f6bb67be6f2d0067b15ddf4">Cantera::app_mutex</a></div><div class="ttdeci">static mutex_t app_mutex</div><div class="ttdoc">Mutex for creating singletons within the application object. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00046">application.cpp:46</a></div></div>
 <div class="ttc" id="classCantera_1_1CanteraError_html"><div class="ttname"><a href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a></div><div class="ttdoc">Base class for exceptions thrown by Cantera classes. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00099">ctexceptions.h:99</a></div></div>
 <div class="ttc" id="group__textlogs_html_ga40134534f5b00a810ec7b6de60378b00"><div class="ttname"><a href="group__textlogs.html#ga40134534f5b00a810ec7b6de60378b00">Cantera::Application::Messages::setLogger</a></div><div class="ttdeci">void setLogger(Logger *logwriter)</div><div class="ttdoc">Install a logger. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00114">application.cpp:114</a></div></div>
 <div class="ttc" id="group__inputfiles_html_ga8eae1f606cb70310c81d4514bca5a3ba"><div class="ttname"><a href="group__inputfiles.html#ga8eae1f606cb70310c81d4514bca5a3ba">Cantera::ct_string2ctml_string</a></div><div class="ttdeci">std::string ct_string2ctml_string(const std::string &amp;cti)</div><div class="ttdoc">Get a string with the ctml representation of a cti input string. </div><div class="ttdef"><b>Definition:</b> <a href="ct2ctml_8cpp_source.html#l00183">ct2ctml.cpp:183</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_ad5d610e093906d9c26b279745352299e"><div class="ttname"><a href="classCantera_1_1Application.html#ad5d610e093906d9c26b279745352299e">Cantera::Application::warn_deprecated</a></div><div class="ttdeci">void warn_deprecated(const std::string &amp;method, const std::string &amp;extra=&quot;&quot;)</div><div class="ttdoc">Print a warning indicating that method is deprecated. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00215">application.cpp:215</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_ad5d610e093906d9c26b279745352299e"><div class="ttname"><a href="classCantera_1_1Application.html#ad5d610e093906d9c26b279745352299e">Cantera::Application::warn_deprecated</a></div><div class="ttdeci">void warn_deprecated(const std::string &amp;method, const std::string &amp;extra=&quot;&quot;)</div><div class="ttdoc">Print a warning indicating that method is deprecated. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00214">application.cpp:214</a></div></div>
 <div class="ttc" id="units_8h_html"><div class="ttname"><a href="units_8h.html">units.h</a></div><div class="ttdoc">Header for units conversion utilities, which are used to translate user input from input files (See I...</div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a15df8630cef9e5649c61a8ea47070243"><div class="ttname"><a href="classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243">Cantera::Application::warnings</a></div><div class="ttdeci">std::set&lt; std::string &gt; warnings</div><div class="ttdoc">Vector of deprecation warnings that have been emitted (to suppress duplicates) </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00420">application.h:420</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a235b0367c7f1d78a08cf52c4a8c5448c"><div class="ttname"><a href="classCantera_1_1Application.html#a235b0367c7f1d78a08cf52c4a8c5448c">Cantera::Application::get_XML_File</a></div><div class="ttdeci">XML_Node * get_XML_File(const std::string &amp;file, int debug=0)</div><div class="ttdoc">Return a pointer to the XML tree for a Cantera input file. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00233">application.cpp:233</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a15df8630cef9e5649c61a8ea47070243"><div class="ttname"><a href="classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243">Cantera::Application::warnings</a></div><div class="ttdeci">std::set&lt; std::string &gt; warnings</div><div class="ttdoc">Vector of deprecation warnings that have been emitted (to suppress duplicates) </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00404">application.h:404</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a235b0367c7f1d78a08cf52c4a8c5448c"><div class="ttname"><a href="classCantera_1_1Application.html#a235b0367c7f1d78a08cf52c4a8c5448c">Cantera::Application::get_XML_File</a></div><div class="ttdeci">XML_Node * get_XML_File(const std::string &amp;file, int debug=0)</div><div class="ttdoc">Return a pointer to the XML tree for a Cantera input file. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00232">application.cpp:232</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_html_aec7d6461aa7be31d98eff24b9d69ae3d"><div class="ttname"><a href="classCantera_1_1Application.html#aec7d6461aa7be31d98eff24b9d69ae3d">Cantera::Application::Application</a></div><div class="ttdeci">Application()</div><div class="ttdoc">Constructor for class sets up the initial conditions Protected ctor access thru static member functio...</div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00171">application.cpp:171</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_aa6775f4e79890dac1c4e5eea51c57a1c"><div class="ttname"><a href="classCantera_1_1Application.html#aa6775f4e79890dac1c4e5eea51c57a1c">Cantera::Application::thread_complete</a></div><div class="ttdeci">void thread_complete()</div><div class="ttdoc">Delete and free memory allocated per thread in multithreaded applications. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00226">application.cpp:226</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a5fbe5364ed1f350b9ca5303987423ca7"><div class="ttname"><a href="classCantera_1_1Application.html#a5fbe5364ed1f350b9ca5303987423ca7">Cantera::Application::Instance</a></div><div class="ttdeci">static Application * Instance()</div><div class="ttdoc">Return a pointer to the one and only instance of class Application. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00187">application.cpp:187</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_aa6775f4e79890dac1c4e5eea51c57a1c"><div class="ttname"><a href="classCantera_1_1Application.html#aa6775f4e79890dac1c4e5eea51c57a1c">Cantera::Application::thread_complete</a></div><div class="ttdeci">void thread_complete()</div><div class="ttdoc">Delete and free memory allocated per thread in multithreaded applications. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00225">application.cpp:225</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a5fbe5364ed1f350b9ca5303987423ca7"><div class="ttname"><a href="classCantera_1_1Application.html#a5fbe5364ed1f350b9ca5303987423ca7">Cantera::Application::Instance</a></div><div class="ttdeci">static Application * Instance()</div><div class="ttdoc">Return a pointer to the one and only instance of class Application. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00186">application.cpp:186</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1ThreadMessages_html_adcae248ce9d90c401db67b14388c9e36"><div class="ttname"><a href="classCantera_1_1Application_1_1ThreadMessages.html#adcae248ce9d90c401db67b14388c9e36">Cantera::Application::ThreadMessages::removeThreadMessages</a></div><div class="ttdeci">void removeThreadMessages()</div><div class="ttdoc">Remove a local thread message. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00160">application.cpp:160</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html">Cantera::Application::Messages</a></div><div class="ttdoc">Class to carry out messages. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00044">application.h:44</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html_a3dbe866f0eecc198d7e22e6f53dd5b57"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57">Cantera::Application::Messages::errorMessage</a></div><div class="ttdeci">std::vector&lt; std::string &gt; errorMessage</div><div class="ttdoc">Current list of error messages. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00164">application.h:164</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a2180b7a4853e98fb21b79506bbc35d6b"><div class="ttname"><a href="namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b">Cantera::xml_mutex</a></div><div class="ttdeci">static mutex_t xml_mutex</div><div class="ttdoc">Mutex for controlling access to XML file storage. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00049">application.cpp:49</a></div></div>
 <div class="ttc" id="stringUtils_8h_html"><div class="ttname"><a href="stringUtils_8h.html">stringUtils.h</a></div><div class="ttdoc">Contains declarations for string manipulation functions within Cantera. </div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html_a845f9353ed7f96ad7c5e37cabed26d2e"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html#a845f9353ed7f96ad7c5e37cabed26d2e">Cantera::Application::Messages::errorRoutine</a></div><div class="ttdeci">std::vector&lt; std::string &gt; errorRoutine</div><div class="ttdoc">Current error Routine. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00167">application.h:167</a></div></div>
-<div class="ttc" id="group__inputfiles_html_ga665c099aafbe6dc958c3497997d732ad"><div class="ttname"><a href="group__inputfiles.html#ga665c099aafbe6dc958c3497997d732ad">Cantera::Application::addDataDirectory</a></div><div class="ttdeci">void addDataDirectory(const std::string &amp;dir)</div><div class="ttdoc">Add a directory to the data file search path. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00474">application.cpp:474</a></div></div>
+<div class="ttc" id="group__inputfiles_html_ga665c099aafbe6dc958c3497997d732ad"><div class="ttname"><a href="group__inputfiles.html#ga665c099aafbe6dc958c3497997d732ad">Cantera::Application::addDataDirectory</a></div><div class="ttdeci">void addDataDirectory(const std::string &amp;dir)</div><div class="ttdoc">Add a directory to the data file search path. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00473">application.cpp:473</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a5d31b54141da18bb2304c44594b8acf6"><div class="ttname"><a href="namespaceCantera.html#a5d31b54141da18bb2304c44594b8acf6">Cantera::dir_mutex</a></div><div class="ttdeci">static mutex_t dir_mutex</div><div class="ttdoc">Mutex for input directory access. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00043">application.cpp:43</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_aed47b1658779659c45b1237602c4237a"><div class="ttname"><a href="classCantera_1_1Application.html#aed47b1658779659c45b1237602c4237a">Cantera::Application::ApplicationDestroy</a></div><div class="ttdeci">static void ApplicationDestroy()</div><div class="ttdoc">Static function that destroys the application class&#39;s data. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00206">application.cpp:206</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_aed47b1658779659c45b1237602c4237a"><div class="ttname"><a href="classCantera_1_1Application.html#aed47b1658779659c45b1237602c4237a">Cantera::Application::ApplicationDestroy</a></div><div class="ttdeci">static void ApplicationDestroy()</div><div class="ttdoc">Static function that destroys the application class&#39;s data. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00205">application.cpp:205</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1Messages_html_a544bb5c0a0ea84a84b8323489023318d"><div class="ttname"><a href="classCantera_1_1Application_1_1Messages.html#a544bb5c0a0ea84a84b8323489023318d">Cantera::Application::Messages::logwriter</a></div><div class="ttdeci">Logger * logwriter</div><div class="ttdoc">Current pointer to the logwriter. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00170">application.h:170</a></div></div>
 <div class="ttc" id="group__textlogs_html_ga304c529581146b5b5eeb034aed77d449"><div class="ttname"><a href="group__textlogs.html#ga304c529581146b5b5eeb034aed77d449">Cantera::Application::Messages::writelog</a></div><div class="ttdeci">void writelog(const std::string &amp;msg)</div><div class="ttdoc">Write a message to the screen. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00132">application.cpp:132</a></div></div>
 <div class="ttc" id="namespaceCantera_html_ae2e25406ab30098069551a0b4c5d45de"><div class="ttname"><a href="namespaceCantera.html#ae2e25406ab30098069551a0b4c5d45de">Cantera::stripnonprint</a></div><div class="ttdeci">std::string stripnonprint(const std::string &amp;s)</div><div class="ttdoc">Strip non-printing characters wherever they are. </div><div class="ttdef"><b>Definition:</b> <a href="stringUtils_8cpp_source.html#l00124">stringUtils.cpp:124</a></div></div>
 <div class="ttc" id="classCantera_1_1Application_1_1ThreadMessages_html_ac214ca4cc91e2af14d3bc9ddd8f0eef3"><div class="ttname"><a href="classCantera_1_1Application_1_1ThreadMessages.html#ac214ca4cc91e2af14d3bc9ddd8f0eef3">Cantera::Application::ThreadMessages::operator-&gt;</a></div><div class="ttdeci">Messages * operator-&gt;()</div><div class="ttdoc">Provide a pointer dereferencing overloaded operator. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00147">application.cpp:147</a></div></div>
 <div class="ttc" id="classCantera_1_1XML__Node_html_a02fe6456bc9aef3250b1f2cdde3a2780"><div class="ttname"><a href="classCantera_1_1XML__Node.html#a02fe6456bc9aef3250b1f2cdde3a2780">Cantera::XML_Node::build</a></div><div class="ttdeci">void build(std::istream &amp;f)</div><div class="ttdoc">Main routine to create an tree-like representation of an XML file. </div><div class="ttdef"><b>Definition:</b> <a href="xml_8cpp_source.html#l00764">xml.cpp:764</a></div></div>
-<div class="ttc" id="group__errorhandling_html_ga66d925145e4fa099cda970c0c5d8bbcf"><div class="ttname"><a href="group__errorhandling.html#ga66d925145e4fa099cda970c0c5d8bbcf">Cantera::Application::Messages::logErrors</a></div><div class="ttdeci">void logErrors()</div><div class="ttdoc">Prints all of the error messages using writelog. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00384">application.cpp:384</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a2265ac6004de4a42914e3044662fae28"><div class="ttname"><a href="classCantera_1_1Application.html#a2265ac6004de4a42914e3044662fae28">Cantera::Application::stop_on_error</a></div><div class="ttdeci">bool stop_on_error</div><div class="ttdoc">Current list of error messages. </div><div class="ttdef"><b>Definition:</b> <a href="application_8h_source.html#l00410">application.h:410</a></div></div>
-<div class="ttc" id="group__errorhandling_html_gad1da9e20f047834165e4746fe1687136"><div class="ttname"><a href="group__errorhandling.html#gad1da9e20f047834165e4746fe1687136">Cantera::Application::Messages::getErrors</a></div><div class="ttdeci">void getErrors(std::ostream &amp;f)</div><div class="ttdoc">Prints all of the error messages to an ostream. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00363">application.cpp:363</a></div></div>
-<div class="ttc" id="classCantera_1_1Application_html_a8ffba23a8e87a86a0398f8fe1c2fe350"><div class="ttname"><a href="classCantera_1_1Application.html#a8ffba23a8e87a86a0398f8fe1c2fe350">Cantera::Application::close_XML_File</a></div><div class="ttdeci">void close_XML_File(const std::string &amp;file)</div><div class="ttdoc">Close an XML File. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00299">application.cpp:299</a></div></div>
+<div class="ttc" id="group__errorhandling_html_ga66d925145e4fa099cda970c0c5d8bbcf"><div class="ttname"><a href="group__errorhandling.html#ga66d925145e4fa099cda970c0c5d8bbcf">Cantera::Application::Messages::logErrors</a></div><div class="ttdeci">void logErrors()</div><div class="ttdoc">Prints all of the error messages using writelog. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00383">application.cpp:383</a></div></div>
+<div class="ttc" id="group__errorhandling_html_gad1da9e20f047834165e4746fe1687136"><div class="ttname"><a href="group__errorhandling.html#gad1da9e20f047834165e4746fe1687136">Cantera::Application::Messages::getErrors</a></div><div class="ttdeci">void getErrors(std::ostream &amp;f)</div><div class="ttdoc">Prints all of the error messages to an ostream. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00362">application.cpp:362</a></div></div>
+<div class="ttc" id="classCantera_1_1Application_html_a8ffba23a8e87a86a0398f8fe1c2fe350"><div class="ttname"><a href="classCantera_1_1Application.html#a8ffba23a8e87a86a0398f8fe1c2fe350">Cantera::Application::close_XML_File</a></div><div class="ttdeci">void close_XML_File(const std::string &amp;file)</div><div class="ttdoc">Close an XML File. </div><div class="ttdef"><b>Definition:</b> <a href="application_8cpp_source.html#l00298">application.cpp:298</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -646,7 +646,7 @@ ReactorNet
             t = 0.0
             tout = 0.1
             while t < tout
-               t = step(r, tout)
+               t = step(r)
                ,,,
                <commands to save desired variables>
                ...
@@ -656,10 +656,6 @@ ReactorNet
         
         :param r:
             Instance of class :mat:func:`ReactorNet`
-        :param tout:
-            End time that the integrator should take one internal time
-            step towards. This end time may not be reached, or may be
-            exceeded by the internal time step.
         :return:
             Network time after the internal time step. Units: s
         

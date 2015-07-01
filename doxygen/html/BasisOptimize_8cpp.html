@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -109,7 +109,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BasisOptimize.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="BasisOptimize_8cpp__incl.svg" width="1327" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="BasisOptimize_8cpp__incl.svg" width="1327" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div>
 <p><a href="BasisOptimize_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -122,9 +123,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acee4c14170d189388e14606e37143429"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="BasisOptimize_8cpp.html#acee4c14170d189388e14606e37143429">print_stringTrunc</a> (const char *str, int space, int alignment)</td></tr>
+<tr class="memitem:acee4c14170d189388e14606e37143429"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#acee4c14170d189388e14606e37143429">print_stringTrunc</a> (const char *str, int space, int alignment)</td></tr>
 <tr class="memdesc:acee4c14170d189388e14606e37143429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a string within a given space limit.  <a href="#acee4c14170d189388e14606e37143429">More...</a><br/></td></tr>
 <tr class="separator:acee4c14170d189388e14606e37143429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga736bfa5922a7dc8d12498e37b14652f5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga736bfa5922a7dc8d12498e37b14652f5">BasisOptimize</a> (int *usedZeroedSpecies, bool doFormRxn, MultiPhase *mphase, std::vector&lt; size_t &gt; &amp;orderVectorSpecies, std::vector&lt; size_t &gt; &amp;orderVectorElements, vector_fp &amp;formRxnMatrix)</td></tr>
+<tr class="memdesc:ga736bfa5922a7dc8d12498e37b14652f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose the optimum basis of species for the equilibrium calculations.  <a href="group__equilfunctions.html#ga736bfa5922a7dc8d12498e37b14652f5">More...</a><br/></td></tr>
+<tr class="separator:ga736bfa5922a7dc8d12498e37b14652f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__equilfunctions.html#ga5f825bc22fa904b6b8ddbee365f3721a">ElemRearrange</a> (size_t nComponents, const vector_fp &amp;elementAbundances, MultiPhase *mphase, std::vector&lt; size_t &gt; &amp;orderVectorSpecies, std::vector&lt; size_t &gt; &amp;orderVectorElements)</td></tr>
+<tr class="memdesc:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the potential rearrangement of the constraint equations represented by the Formula Matrix.  <a href="group__equilfunctions.html#ga5f825bc22fa904b6b8ddbee365f3721a">More...</a><br/></td></tr>
+<tr class="separator:ga5f825bc22fa904b6b8ddbee365f3721a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -136,65 +143,7 @@ Variables</h2></td></tr>
 <div class="textblock"><p>Functions which calculation optimized basis of the stoichiometric coefficient matrix (see /ref equil functions) </p>
 
 <p>Definition in file <a class="el" href="BasisOptimize_8cpp_source.html">BasisOptimize.cpp</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="acee4c14170d189388e14606e37143429"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void print_stringTrunc </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>space</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>alignment</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Print a string within a given space limit. </p>
-<p>This routine limits the amount of the string that will be printed to a maximum of "space" characters. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>String -&gt; must be null terminated. </td></tr>
-    <tr><td class="paramname">space</td><td>space limit for the printing. </td></tr>
-    <tr><td class="paramname">alignment</td><td>0 centered 1 right aligned 2 left aligned </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="BasisOptimize_8cpp_source.html#l00379">379</a> of file <a class="el" href="BasisOptimize_8cpp_source.html">BasisOptimize.cpp</a>.</p>
-
-<p>References <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
-
-<p>Referenced by <a class="el" href="BasisOptimize_8cpp_source.html#l00028">Cantera::BasisOptimize()</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

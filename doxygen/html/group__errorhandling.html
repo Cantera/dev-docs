@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cantera
-   &#160;<span id="projectnumber">2.2a</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
   </td>
  </tr>
@@ -109,13 +109,13 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga8d9d847a6c88e2b3e4df673d100e4594"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594">AssertTrace</a>(expr)&#160;&#160;&#160;((expr) ? (void) 0 : throw <a class="el" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>(<a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
+<tr class="memitem:ga8d9d847a6c88e2b3e4df673d100e4594"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594">AssertTrace</a>(expr)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(<a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
 <tr class="memdesc:ga8d9d847a6c88e2b3e4df673d100e4594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="#ga8d9d847a6c88e2b3e4df673d100e4594">More...</a><br/></td></tr>
 <tr class="separator:ga8d9d847a6c88e2b3e4df673d100e4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">AssertThrow</a>(expr, procedure)&#160;&#160;&#160;((expr) ? (void) 0 : throw <a class="el" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>(procedure, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
+<tr class="memitem:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">AssertThrow</a>(expr, procedure)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
 <tr class="memdesc:ga41a50aa300b18c3bf4c4417332207bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="#ga41a50aa300b18c3bf4c4417332207bb6">More...</a><br/></td></tr>
 <tr class="separator:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr, procedure, message)&#160;&#160;&#160;((expr) ? (void) 0 : throw <a class="el" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td></tr>
+<tr class="memitem:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr, procedure, message)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td></tr>
 <tr class="memdesc:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="#ga53d47e483cf6bbd6ffcb7b042111a4fe">More...</a><br/></td></tr>
 <tr class="separator:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -203,7 +203,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">expr</td><td>)</td>
-          <td>&#160;&#160;&#160;((expr) ? (void) 0 : throw <a class="el" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>(<a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>, std::string(&quot;failed assert: &quot;) + #expr))</td>
+          <td>&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(<a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>, std::string(&quot;failed assert: &quot;) + #expr))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -219,7 +219,7 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00270">270</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="HMWSoln_8cpp_source.html#l05134">HMWSoln::applyphScale()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00527">IonsFromNeutralVPSSTP::calcNeutralMoleculeMoleFractions()</a>, <a class="el" href="Phase_8cpp_source.html#l00212">Phase::entropyElement298()</a>, <a class="el" href="Elements_8cpp_source.html#l00303">Elements::entropyElement298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00327">NasaThermo::fixDiscontinuities()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00634">IonsFromNeutralVPSSTP::getNeutralMoleculeMoleGrads()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00316">Cantera::importPhase()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00341">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="WaterTransport_8cpp_source.html#l00044">WaterTransport::initTP()</a>, <a class="el" href="RxnMolChange_8cpp_source.html#l00031">RxnMolChange::RxnMolChange()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05148">HMWSoln::s_updateScaling_pHScaling()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05193">HMWSoln::s_updateScaling_pHScaling_dP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05163">HMWSoln::s_updateScaling_pHScaling_dT()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l05178">HMWSoln::s_updateScaling_pHScaling_dT2()</a>.</p>
+<p>Referenced by <a class="el" href="HMWSoln_8cpp_source.html#l05134">HMWSoln::applyphScale()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00527">IonsFromNeutralVPSSTP::calcNeutralMoleculeMoleFractions()</a>, <a class="el" href="Phase_8cpp_source.html#l00212">Phase::entropyElement298()</a>, <a class="el" href="Elements_8cpp_source.html#l00303">Elements::entropyElement298()</a>, <a class="el" href="NasaThermo_8cpp_source.html#l00327">NasaThermo::fixDiscontinuities()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00636">IonsFromNeutralVPSSTP::getNeutralMoleculeMoleGrads()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00316">Cantera::importPhase()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00341">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="WaterTransport_8cpp_source.html#l00044">WaterTransport::initTP()</a>, <a class="el" href="RxnMolChange_8cpp_source.html#l00030">RxnMolChange::RxnMolChange()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05148">HMWSoln::s_updateScaling_pHScaling()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05193">HMWSoln::s_updateScaling_pHScaling_dP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05163">HMWSoln::s_updateScaling_pHScaling_dT()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l05178">HMWSoln::s_updateScaling_pHScaling_dT2()</a>.</p>
 
 </div>
 </div>
@@ -242,7 +242,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((expr) ? (void) 0 : throw <a class="el" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>(procedure, std::string(&quot;failed assert: &quot;) + #expr))</td>
+          <td></td><td>&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure, std::string(&quot;failed assert: &quot;) + #expr))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -288,7 +288,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((expr) ? (void) 0 : throw <a class="el" href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a>(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td>
+          <td></td><td>&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -347,7 +347,7 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="application_8cpp_source.html#l00103">103</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00227">Application::addError()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00226">Application::addError()</a>.</p>
 
 </div>
 </div>
@@ -368,7 +368,7 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="application_8cpp_source.html#l00109">109</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00232">Application::getErrorCount()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00231">Application::getErrorCount()</a>.</p>
 
 </div>
 </div>
@@ -388,11 +388,11 @@ Functions</h2></td></tr>
 <p>Discard the last error message. </p>
 <p>Cantera saves a stack of exceptions that it has caught in the <a class="el" href="classCantera_1_1Application.html" title="Class to hold global data. ">Application</a> class. This routine eliminates the last exception to be added to that stack. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00341">341</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00340">340</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
 <p>References <a class="el" href="application_8h_source.html#l00164">Application::Messages::errorMessage</a>, and <a class="el" href="application_8h_source.html#l00167">Application::Messages::errorRoutine</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00237">Application::popError()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00236">Application::popError()</a>.</p>
 
 </div>
 </div>
@@ -412,9 +412,9 @@ Functions</h2></td></tr>
 <p>Retrieve the last error message in a string. </p>
 <p>This routine will retrieve the last error message and return it in the return string. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00349">349</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00348">348</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00242">Application::lastErrorMessage()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00241">Application::lastErrorMessage()</a>.</p>
 
 </div>
 </div>
@@ -441,9 +441,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00363">363</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00362">362</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00247">Application::getErrors()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00246">Application::getErrors()</a>.</p>
 
 </div>
 </div>
@@ -463,11 +463,11 @@ Functions</h2></td></tr>
 <p>Prints all of the error messages using writelog. </p>
 <p>Print all of the error messages using function writelog. <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> saves a stack of exceptions that it has caught in the <a class="el" href="classCantera_1_1Application.html" title="Class to hold global data. ">Application</a> class. This routine writes out all of the error messages and then clears them from internal storage. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00384">384</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00383">383</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8h_source.html#l00328">Application::writelog()</a>.</p>
+<p>References <a class="el" href="application_8h_source.html#l00327">Application::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00252">Application::logErrors()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00251">Application::logErrors()</a>.</p>
 
 </div>
 </div>
@@ -488,7 +488,7 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="global_8cpp_source.html#l00121">121</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00017">Cantera::app()</a>, and <a class="el" href="application_8h_source.html#l00232">Application::getErrorCount()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00017">Cantera::app()</a>, and <a class="el" href="application_8h_source.html#l00231">Application::getErrorCount()</a>.</p>
 
 </div>
 </div>

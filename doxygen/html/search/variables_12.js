@@ -52,7 +52,6 @@ var searchData=
   ['statenum',['stateNum',['../structCantera_1_1CachedValue.html#a736f6a5a0ef7cbd8892110dc80ae7946',1,'Cantera::CachedValue']]],
   ['stefanboltz',['StefanBoltz',['../group__physConstants.html#gadb1075d73597bef95dc8145a547daae4',1,'Cantera']]],
   ['sticking_5fspecies',['sticking_species',['../classCantera_1_1InterfaceReaction.html#a91428ee0317a3a95c45cbf2ccb1a4f6b',1,'Cantera::InterfaceReaction']]],
-  ['stop_5fon_5ferror',['stop_on_error',['../classCantera_1_1Application.html#a2265ac6004de4a42914e3044662fae28',1,'Cantera::Application']]],
   ['surface_5frxn',['SURFACE_RXN',['../namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82',1,'Cantera']]],
   ['surfaceaffinity_5frxn',['SURFACEAFFINITY_RXN',['../namespaceCantera.html#aa57e828a72df53d5e15c386eb59636cd',1,'Cantera']]],
   ['sw_5foffset',['SW_Offset',['../classCantera_1_1PDSS__Water.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::PDSS_Water::SW_Offset()'],['../classCantera_1_1WaterSSTP.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::WaterSSTP::SW_Offset()']]]

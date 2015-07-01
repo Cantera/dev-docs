@@ -6,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Thermodynamic Properties &mdash; Cantera 2.2.0b1 documentation</title>
+    <title>Thermodynamic Properties &mdash; Cantera 2.2.0 documentation</title>
     
-    <link rel="stylesheet" href="../../_static/site.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.2.0b1',
+        VERSION:     '2.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0b1 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.2.0 documentation" href="../../index.html" />
     <link rel="up" title="Matlab Interface User’s Guide" href="../index.html" />
     <link rel="next" title="Chemical Kinetics" href="kinetics.html" />
     <link rel="prev" title="Interfaces" href="interface.html" /> 
@@ -1287,6 +1287,29 @@ enthalpy (J/kg) and pressure (Pa).</li>
 <li><strong>tp</strong> &#8211; Instance of class <a class="reference internal" href="#ThermoPhase" title="ThermoPhase"><tt class="xref mat mat-func docutils literal"><span class="pre">ThermoPhase()</span></tt></a> (or another
 class derived from ThermoPhase)</li>
 <li><strong>px</strong> &#8211; Pressure. Units: Pa</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ThermoPhase.setState_RP">
+<tt class="descname">setState_RP</tt><big>(</big><em>tp</em>, <em>rp</em><big>)</big><a class="headerlink" href="#ThermoPhase.setState_RP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the density and pressure.</p>
+<p>The density is set first, then the pressure is set by
+changing the temperature holding the density and
+chemical composition fixed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tp</strong> &#8211; Instance of class <a class="reference internal" href="#ThermoPhase" title="ThermoPhase"><tt class="xref mat mat-func docutils literal"><span class="pre">ThermoPhase()</span></tt></a> (or another
+class derived from ThermoPhase)</li>
+<li><strong>rp</strong> &#8211; Vector of length 2 containing the desired values for the density (kg/m^3)
+and pressure (Pa)</li>
 </ul>
 </td>
 </tr>
