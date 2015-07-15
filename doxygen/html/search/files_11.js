@@ -6,7 +6,6 @@ var searchData=
   ['thermophase_2ecpp',['ThermoPhase.cpp',['../ThermoPhase_8cpp.html',1,'']]],
   ['thermophase_2eh',['ThermoPhase.h',['../ThermoPhase_8h.html',1,'']]],
   ['thirdbodycalc_2eh',['ThirdBodyCalc.h',['../ThirdBodyCalc_8h.html',1,'']]],
-  ['thirdbodymgr_2eh',['ThirdBodyMgr.h',['../ThirdBodyMgr_8h.html',1,'']]],
   ['tortuosity_2eh',['Tortuosity.h',['../Tortuosity_8h.html',1,'']]],
   ['transport_2eh',['transport.h',['../transport_8h.html',1,'']]],
   ['transportbase_2ecpp',['TransportBase.cpp',['../TransportBase_8cpp.html',1,'']]],

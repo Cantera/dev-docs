@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['undef',['Undef',['../namespaceCantera.html#a87554f2f78829cfab3e24fd5b9d639f4',1,'Cantera']]],
-  ['units_5fmutex',['units_mutex',['../classCantera_1_1Unit.html#abf12320f8a685bcc189661b36255ad1f',1,'Cantera::Unit']]],
-  ['usecanteracalls',['UseCanteraCalls',['../classCantera_1_1VCS__SPECIES__THERMO.html#ab37e70c714f657c7a535283e57fd66c4',1,'Cantera::VCS_SPECIES_THERMO']]],
-  ['usehydroradius_5f',['useHydroRadius_',['../classCantera_1_1SimpleTransport.html#abdcaf3f11273a59ff2df85a17e7534b7',1,'Cantera::SimpleTransport']]],
-  ['useqr_5f',['useQR_',['../classCantera_1_1SquareMatrix.html#a4a97305f41328c0bfc0e1926f8150dab',1,'Cantera::SquareMatrix']]],
-  ['userresidatol_5f',['userResidAtol_',['../classCantera_1_1NonlinearSolver.html#a988b4452e1a9891b3d13398e87f5abde',1,'Cantera::NonlinearSolver']]],
-  ['userresidrtol_5f',['userResidRtol_',['../classCantera_1_1NonlinearSolver.html#a6439e5d747628ed2b3492092cd030c75',1,'Cantera::NonlinearSolver']]]
+  ['w',['w',['../classCantera_1_1VCS__PROB.html#a69f7cab8c3a43c085c3334b92c578503',1,'Cantera::VCS_PROB']]],
+  ['warnings',['warnings',['../classCantera_1_1Application.html#a15df8630cef9e5649c61a8ea47070243',1,'Cantera::Application']]],
+  ['well_5fdepth',['well_depth',['../classCantera_1_1GasTransportData.html#a8ea5de7008a6dfe3ac0d18e6e0f7cb75',1,'Cantera::GasTransportData']]],
+  ['work',['work',['../classCantera_1_1SquareMatrix.html#a4a54b2b761df896222487da2106a002e',1,'Cantera::SquareMatrix']]],
+  ['work_5f',['work_',['../classCantera_1_1BandMatrix.html#a9ee2cb99ac8920e655b20273ac12850f',1,'Cantera::BandMatrix']]],
+  ['writelogallowed_5f',['writeLogAllowed_',['../group__solverGroup.html#ga3478581bf2fb33558b4ec37c39f724ed',1,'Cantera::RootFind']]],
+  ['wtspecies',['WtSpecies',['../classCantera_1_1VCS__PROB.html#a77f8875a074044cfc4b6c3ccf7aa2a13',1,'Cantera::VCS_PROB']]]
 ];

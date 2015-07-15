@@ -8,10 +8,7 @@ var searchData=
   ['ratio1',['Ratio1',['../classCantera_1_1Ratio1.html',1,'Cantera']]],
   ['reactingsurf1d',['ReactingSurf1D',['../classCantera_1_1ReactingSurf1D.html',1,'Cantera']]],
   ['reaction',['Reaction',['../classCantera_1_1Reaction.html',1,'Cantera']]],
-  ['reactiondata',['ReactionData',['../classCantera_1_1ReactionData.html',1,'Cantera']]],
   ['reactionpathdiagram',['ReactionPathDiagram',['../classCantera_1_1ReactionPathDiagram.html',1,'Cantera']]],
-  ['reactionrules',['ReactionRules',['../structCantera_1_1ReactionRules.html',1,'Cantera']]],
-  ['reactionstoichmgr',['ReactionStoichMgr',['../classCantera_1_1ReactionStoichMgr.html',1,'Cantera']]],
   ['reactor',['Reactor',['../classCantera_1_1Reactor.html',1,'Cantera']]],
   ['reactorbase',['ReactorBase',['../classCantera_1_1ReactorBase.html',1,'Cantera']]],
   ['reactornet',['ReactorNet',['../classCantera_1_1ReactorNet.html',1,'Cantera']]],
@@ -22,7 +19,5 @@ var searchData=
   ['resideval',['ResidEval',['../classCantera_1_1ResidEval.html',1,'Cantera']]],
   ['residjaceval',['ResidJacEval',['../classCantera_1_1ResidJacEval.html',1,'Cantera']]],
   ['rftable',['rfTable',['../structCantera_1_1RootFind_1_1rfTable.html',1,'Cantera::RootFind']]],
-  ['rootfind',['RootFind',['../classCantera_1_1RootFind.html',1,'Cantera']]],
-  ['rxnmolchange',['RxnMolChange',['../classCantera_1_1RxnMolChange.html',1,'Cantera']]],
-  ['rxnorders',['RxnOrders',['../classCantera_1_1RxnOrders.html',1,'Cantera']]]
+  ['rootfind',['RootFind',['../classCantera_1_1RootFind.html',1,'Cantera']]]
 ];

@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_649caf90c05f06e5ae1a6896753aaf14.html">thermo</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_0382829f5e0f0bbd8667506e17eecd40.html">src</a></li><li class="navelem"><a class="el" href="dir_d1083bb1abe8ca47aaf20ebd3b78527c.html">thermo</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -249,7 +249,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">////////////////////// Convenience functions ////////////////////</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment"></span><span class="comment">//</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">//  These functions allow using a different factory class that</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">//  derives from SpeciesThermoFactory.</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">//  derives from VPSSMgrFactory.</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">//</span><span class="comment"></span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">//////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"></span></div>
@@ -262,12 +262,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment"> * and return the proper species property manager to use.</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment"> *  These functions allow using a different factory class that</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment"> *  derives from SpeciesThermoFactory.</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment"> *  derives from VPSSMgrFactory.</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment"> * @param type         Species thermo type.</span></div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment"> * @param vp_ptr       Variable pressure standard state ThermoPhase object</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment"> *                     that will be the owner.</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"> * @param f            Pointer to a SpeciesThermoFactory. optional parameter.</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment"> * @param f            Pointer to a VPSSMgrFactory. optional parameter.</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment"> *                     Defaults to NULL.</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;VPSSMgr* <a class="code" href="namespaceCantera.html#a05c7982ace4793e9a26dc6c43e5d0f09">newVPSSMgr</a>(<a class="code" href="namespaceCantera.html#a101a9261bb4a86cb2073ebf5912c1e3d">VPSSMgr_enumType</a> type,</div>
@@ -280,14 +280,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment"> * and return the proper species property manager to use.</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment"> *  These functions allow using a different factory class that</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"> *  derives from SpeciesThermoFactory.</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"> *  derives from VPSSMgrFactory.</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment"> * @param vp_ptr         Variable pressure standard state ThermoPhase object</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment"> *                       that will be the owner.</span></div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"> * @param phaseNode_ptr  Pointer to the ThermoPhase phase XML Node</span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment"> * @param spDataNodeList This vector contains a list</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment"> *                       of species XML nodes that will be in the phase</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment"> * @param f              Pointer to a SpeciesThermoFactory. optional</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment"> * @param f              Pointer to a VPSSMgrFactory. optional</span></div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment"> *                       parameter. Defaults to NULL.</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;VPSSMgr* <a class="code" href="namespaceCantera.html#a05c7982ace4793e9a26dc6c43e5d0f09">newVPSSMgr</a>(VPStandardStateTP* vp_ptr,</div>
@@ -310,7 +310,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classCantera_1_1UnknownVPSSMgrModel_html"><div class="ttname"><a href="classCantera_1_1UnknownVPSSMgrModel.html">Cantera::UnknownVPSSMgrModel</a></div><div class="ttdoc">Throw a named error for an unknown or missing vpss species thermo model. </div><div class="ttdef"><b>Definition:</b> <a href="VPSSMgrFactory_8h_source.html#l00027">VPSSMgrFactory.h:27</a></div></div>
 <div class="ttc" id="namespaceCantera_html_a05c7982ace4793e9a26dc6c43e5d0f09"><div class="ttname"><a href="namespaceCantera.html#a05c7982ace4793e9a26dc6c43e5d0f09">Cantera::newVPSSMgr</a></div><div class="ttdeci">VPSSMgr * newVPSSMgr(VPSSMgr_enumType type, VPStandardStateTP *vp_ptr, Cantera::VPSSMgrFactory *f)</div><div class="ttdoc">Create a new species thermo manager instance, by specifying the type and (optionally) a pointer to th...</div><div class="ttdef"><b>Definition:</b> <a href="VPSSMgrFactory_8cpp_source.html#l00314">VPSSMgrFactory.cpp:314</a></div></div>
 <div class="ttc" id="classCantera_1_1VPSSMgrFactory_html"><div class="ttname"><a href="classCantera_1_1VPSSMgrFactory.html">Cantera::VPSSMgrFactory</a></div><div class="ttdoc">Factory to build instances of classes that manage the standard-state thermodynamic properties of a se...</div><div class="ttdef"><b>Definition:</b> <a href="VPSSMgrFactory_8h_source.html#l00068">VPSSMgrFactory.h:68</a></div></div>
-<div class="ttc" id="classCantera_1_1CanteraError_html"><div class="ttname"><a href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a></div><div class="ttdoc">Base class for exceptions thrown by Cantera classes. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00099">ctexceptions.h:99</a></div></div>
+<div class="ttc" id="classCantera_1_1CanteraError_html"><div class="ttname"><a href="classCantera_1_1CanteraError.html">Cantera::CanteraError</a></div><div class="ttdoc">Base class for exceptions thrown by Cantera classes. </div><div class="ttdef"><b>Definition:</b> <a href="ctexceptions_8h_source.html#l00068">ctexceptions.h:68</a></div></div>
 <div class="ttc" id="classCantera_1_1VPStandardStateTP_html"><div class="ttname"><a href="classCantera_1_1VPStandardStateTP.html">Cantera::VPStandardStateTP</a></div><div class="ttdoc">This is a filter class for ThermoPhase that implements some prepatory steps for efficiently handling ...</div><div class="ttdef"><b>Definition:</b> <a href="VPStandardStateTP_8h_source.html#l00053">VPStandardStateTP.h:53</a></div></div>
 <div class="ttc" id="classCantera_1_1VPSSMgrFactory_html_acdc846d5572a5c63807df0d8f6215b6f"><div class="ttname"><a href="classCantera_1_1VPSSMgrFactory.html#acdc846d5572a5c63807df0d8f6215b6f">Cantera::VPSSMgrFactory::VPSSMgr_StringConversion</a></div><div class="ttdeci">virtual VPSSMgr_enumType VPSSMgr_StringConversion(const std::string &amp;ssModel) const </div><div class="ttdoc">String conversion to an enumType. </div><div class="ttdef"><b>Definition:</b> <a href="VPSSMgrFactory_8cpp_source.html#l00181">VPSSMgrFactory.cpp:181</a></div></div>
 <div class="ttc" id="ct__thread_8h_html"><div class="ttname"><a href="ct__thread_8h.html">ct_thread.h</a></div></div>

@@ -150,9 +150,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aed3c4e18a21f764dc088d5957bcef148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Application_1_1Messages.html#aed3c4e18a21f764dc088d5957bcef148">writelogendl</a> ()</td></tr>
 <tr class="memdesc:aed3c4e18a21f764dc088d5957bcef148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an end of line character to the screen and flush output.  <a href="#aed3c4e18a21f764dc088d5957bcef148">More...</a><br/></td></tr>
 <tr class="separator:aed3c4e18a21f764dc088d5957bcef148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36ae9fcde72080e21fcc9dd05c03edc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Application_1_1Messages.html#a36ae9fcde72080e21fcc9dd05c03edc1">logerror</a> (const std::string &amp;msg)</td></tr>
-<tr class="memdesc:a36ae9fcde72080e21fcc9dd05c03edc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an error message and quit.  <a href="#a36ae9fcde72080e21fcc9dd05c03edc1">More...</a><br/></td></tr>
-<tr class="separator:a36ae9fcde72080e21fcc9dd05c03edc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga40134534f5b00a810ec7b6de60378b00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__textlogs.html#ga40134534f5b00a810ec7b6de60378b00">setLogger</a> (<a class="el" href="classCantera_1_1Logger.html">Logger</a> *<a class="el" href="classCantera_1_1Application_1_1Messages.html#a544bb5c0a0ea84a84b8323489023318d">logwriter</a>)</td></tr>
 <tr class="memdesc:ga40134534f5b00a810ec7b6de60378b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a logger.  <a href="group__textlogs.html#ga40134534f5b00a810ec7b6de60378b00">More...</a><br/></td></tr>
 <tr class="separator:ga40134534f5b00a810ec7b6de60378b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +189,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="application_8cpp_source.html#l00069">69</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8h_source.html#l00170">Application::Messages::logwriter</a>.</p>
+<p>References <a class="el" href="application_8h_source.html#l00156">Application::Messages::logwriter</a>.</p>
 
 </div>
 </div>
@@ -212,41 +209,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Write an end of line character to the screen and flush output. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00137">137</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00131">131</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00332">Application::writelogendl()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36ae9fcde72080e21fcc9dd05c03edc1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void logerror </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write an error message and quit. </p>
-<p>The default behavior is to write to the standard error stream, and then call exit(). Note that no end-of-line character is appended to the message, and so if one is desired it must be included in the string. Note that this default behavior will terminate the application <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> is invoked from (MATLAB, Excel, etc.) If this is not desired, then derive a class and reimplement this method.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">msg</td><td>Error message to be written to cerr. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>To be removed after <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> 2.2 </dd></dl>
-
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00126">126</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
-
-<p>References <a class="el" href="global_8cpp_source.html#l00078">Cantera::warn_deprecated()</a>.</p>
-
-<p>Referenced by <a class="el" href="application_8h_source.html#l00337">Application::logerror()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00318">Application::writelogendl()</a>.</p>
 
 </div>
 </div>
@@ -271,9 +236,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Current list of error messages. </p>
 
-<p>Definition at line <a class="el" href="application_8h_source.html#l00164">164</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+<p>Definition at line <a class="el" href="application_8h_source.html#l00150">150</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8cpp_source.html#l00340">Application::Messages::popError()</a>.</p>
+<p>Referenced by <a class="el" href="application_8cpp_source.html#l00334">Application::Messages::popError()</a>.</p>
 
 </div>
 </div>
@@ -297,9 +262,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Current error Routine. </p>
 
-<p>Definition at line <a class="el" href="application_8h_source.html#l00167">167</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+<p>Definition at line <a class="el" href="application_8h_source.html#l00153">153</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8cpp_source.html#l00340">Application::Messages::popError()</a>.</p>
+<p>Referenced by <a class="el" href="application_8cpp_source.html#l00334">Application::Messages::popError()</a>.</p>
 
 </div>
 </div>
@@ -323,7 +288,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Current pointer to the logwriter. </p>
 
-<p>Definition at line <a class="el" href="application_8h_source.html#l00170">170</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
+<p>Definition at line <a class="el" href="application_8h_source.html#l00156">156</a> of file <a class="el" href="application_8h_source.html">application.h</a>.</p>
 
 <p>Referenced by <a class="el" href="application_8cpp_source.html#l00069">Application::Messages::Messages()</a>.</p>
 

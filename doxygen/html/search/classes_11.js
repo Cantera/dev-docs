@@ -4,7 +4,6 @@ var searchData=
   ['thermophase',['ThermoPhase',['../classCantera_1_1ThermoPhase.html',1,'Cantera']]],
   ['thirdbody',['ThirdBody',['../classCantera_1_1ThirdBody.html',1,'Cantera']]],
   ['thirdbodycalc',['ThirdBodyCalc',['../classCantera_1_1ThirdBodyCalc.html',1,'Cantera']]],
-  ['thirdbodymgr',['ThirdBodyMgr',['../classCantera_1_1ThirdBodyMgr.html',1,'Cantera']]],
   ['threadmessages',['ThreadMessages',['../classCantera_1_1Application_1_1ThreadMessages.html',1,'Cantera::Application']]],
   ['threebodyreaction',['ThreeBodyReaction',['../classCantera_1_1ThreeBodyReaction.html',1,'Cantera']]],
   ['timesconstant',['timesConstant',['../structCantera_1_1timesConstant.html',1,'Cantera']]],

@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['omega22_5fpoly',['omega22_poly',['../classCantera_1_1GasTransportParams.html#af1e4b031edde9e0ce4a8a639fab8ab14',1,'Cantera::GasTransportParams']]],
-  ['omega22_5ftable',['omega22_table',['../classCantera_1_1MMCollisionInt.html#ac4aad36793ea0ff8a17136219a31b9e3',1,'Cantera::MMCollisionInt']]],
-  ['omega_5fa',['omega_a',['../classCantera_1_1RedlichKwongMFTP.html#aef697910a3acf6fabd0fcbc6c9114102',1,'Cantera::RedlichKwongMFTP']]],
-  ['omega_5fb',['omega_b',['../classCantera_1_1RedlichKwongMFTP.html#a245dea156d9b0471288f8b5440cd9bd0',1,'Cantera::RedlichKwongMFTP']]],
-  ['omega_5fvc',['omega_vc',['../classCantera_1_1RedlichKwongMFTP.html#a85b8ce52991030d081b8a5b8408dd77a',1,'Cantera::RedlichKwongMFTP']]],
-  ['oneatm',['OneAtm',['../group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93',1,'Cantera']]],
-  ['options',['options',['../classCantera_1_1ChemEquil.html#a89f3cead2c8ae42002deb734fc2e50bd',1,'Cantera::ChemEquil']]],
-  ['orders',['orders',['../classCantera_1_1Reaction.html#a36f237860dcfe2063d12a269ac5fdba5',1,'Cantera::Reaction']]],
-  ['owningphase',['OwningPhase',['../classCantera_1_1VCS__SPECIES__THERMO.html#af9f3db04ac7446afa05bbe91c158f62e',1,'Cantera::VCS_SPECIES_THERMO']]]
+  ['radius_5faij',['radius_Aij',['../classCantera_1_1LiquidTransportParams.html#a83fb025b3d3c0d9ee24048cf56390c75',1,'Cantera::LiquidTransportParams']]],
+  ['rdeltap_5f',['rDeltaP_',['../classCantera_1_1Plog.html#a813594a9fb531a78f1a22511790b7265',1,'Cantera::Plog']]],
+  ['reactants',['reactants',['../classCantera_1_1Reaction.html#ad52a8bceda6b7c2911cae98f603751fc',1,'Cantera::Reaction']]],
+  ['reaction_5ftype',['reaction_type',['../classCantera_1_1Reaction.html#aed586962f458fa55dc9557e990d6ec98',1,'Cantera::Reaction']]],
+  ['relativeconductivites_5f',['relativeConductivites_',['../classCantera_1_1TortuosityMaxwell.html#ae73437e33a787372bdb54d859582f75f',1,'Cantera::TortuosityMaxwell']]],
+  ['reltolerance',['relTolerance',['../classCantera_1_1EquilOpt.html#a75c9c267339526b2c1eede3cdcc68ed9',1,'Cantera::EquilOpt']]],
+  ['reversible',['reversible',['../classCantera_1_1Reaction.html#a8f8edb8b3012f77dc8172037826df5d9',1,'Cantera::Reaction']]],
+  ['rfhistory_5f',['rfHistory_',['../group__solverGroup.html#ga14084e6379fd6ffd4e63aa114b38bb3a',1,'Cantera::RootFind']]],
+  ['rgas',['Rgas',['../namespaceCantera.html#ada9ffba95a8d4fb61fba366e7d6daea1',1,'Cantera']]],
+  ['rho_5fc',['Rho_c',['../namespaceCantera.html#a520cf97721bce15bab3be4746f595804',1,'Cantera']]],
+  ['rhovc',['rhoVc',['../classCantera_1_1SimpleTransport.html#aa5ac46781a7da19ab8d6762f0576a265',1,'Cantera::SimpleTransport']]],
+  ['rotational_5frelaxation',['rotational_relaxation',['../classCantera_1_1GasTransportData.html#a52df1275c6ac17e2aac4a32fc797855c',1,'Cantera::GasTransportData']]]
 ];
