@@ -68,6 +68,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#mixture">Mixture</a></li>
+<li><a class="reference internal" href="#quantity">Quantity</a></li>
 <li><a class="reference internal" href="#species">Species</a></li>
 <li><a class="reference internal" href="#species-thermodynamic-properties">Species Thermodynamic Properties</a><ul>
 <li><a class="reference internal" href="#speciesthermo">SpeciesThermo</a></li>
@@ -123,12 +124,13 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#mixture" id="id13">Mixture</a></li>
-<li><a class="reference internal" href="#species" id="id14">Species</a></li>
-<li><a class="reference internal" href="#species-thermodynamic-properties" id="id15">Species Thermodynamic Properties</a><ul>
-<li><a class="reference internal" href="#speciesthermo" id="id16">SpeciesThermo</a></li>
-<li><a class="reference internal" href="#constantcp" id="id17">ConstantCp</a></li>
-<li><a class="reference internal" href="#nasapoly2" id="id18">NasaPoly2</a></li>
-<li><a class="reference internal" href="#shomatepoly2" id="id19">ShomatePoly2</a></li>
+<li><a class="reference internal" href="#quantity" id="id14">Quantity</a></li>
+<li><a class="reference internal" href="#species" id="id15">Species</a></li>
+<li><a class="reference internal" href="#species-thermodynamic-properties" id="id16">Species Thermodynamic Properties</a><ul>
+<li><a class="reference internal" href="#speciesthermo" id="id17">SpeciesThermo</a></li>
+<li><a class="reference internal" href="#constantcp" id="id18">ConstantCp</a></li>
+<li><a class="reference internal" href="#nasapoly2" id="id19">NasaPoly2</a></li>
+<li><a class="reference internal" href="#shomatepoly2" id="id20">ShomatePoly2</a></li>
 </ul>
 </li>
 </ul>
@@ -518,12 +520,14 @@ the mass fraction of species <span class="math">\(k\)</span>.</p>
 <dt id="cantera.ThermoPhase.elemental_mole_fraction">
 <tt class="descname">elemental_mole_fraction</tt><big>(</big><em>self</em>, <em>m</em><big>)</big><a class="headerlink" href="#cantera.ThermoPhase.elemental_mole_fraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the elemental mole fraction <span class="math">\(Z_{\mathrm{mole},m}\)</span> of element
-<span class="math">\(m\)</span> as defined by:</p>
+<span class="math">\(m\)</span> (the number of atoms of element m divided by the total number
+of atoms) as defined by:</p>
 <div class="math">
-\[Z_{\mathrm{mole},m} = \sum_k \frac{a_{m,k}}{\sum_j a_{j,k}} X_k\]</div>
+\[Z_{\mathrm{mole},m} = \frac{\sum_k a_{m,k} X_k}
+{\sum_k \sum_j a_{j,k} X_k}\]</div>
 <p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
-species <span class="math">\(k\)</span> and <span class="math">\(X_k\)</span> the mole fraction of species
-<span class="math">\(k\)</span>.</p>
+species <span class="math">\(k\)</span>, <span class="math">\(\sum_j\)</span> being a sum over all elements, and
+<span class="math">\(X_k\)</span> being the mole fraction of species <span class="math">\(k\)</span>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1196,8 +1200,1199 @@ are assigned in order as phases are added.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="quantity">
+<h2><a class="toc-backref" href="#id14">Quantity</a><a class="headerlink" href="#quantity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cantera.Quantity">
+<em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Quantity</tt><big>(</big><em>phase</em>, <em>mass=None</em>, <em>moles=None</em>, <em>constant='UV'</em><big>)</big><a class="headerlink" href="#cantera.Quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>A class representing a specific quantity of a <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a>. In addition to the
+properties which can be computed for class <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a>, class <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>
+provides several additional capabilities. A <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a> object is created
+from a <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> with either the mass or number of moles specified:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">,</span> <span class="s">&#39;O2:1.0, N2:3.76&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c"># 5 kg of air</span>
+</pre></div>
+</div>
+<p>The state of a <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a> can be changed in the same way as a <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">101325</span>
+</pre></div>
+</div>
+<p>Quantities have properties which provide access to extensive properties:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">volume</span>
+<span class="go">7.1105094</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">enthalpy</span>
+<span class="go">1032237.84</span>
+</pre></div>
+</div>
+<p>The size of a <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a> can be changed by setting the mass or number of
+moles:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">moles</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">mass</span>
+<span class="go">86.552196</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">volume</span>
+<span class="go">123.086</span>
+</pre></div>
+</div>
+<p>or by multiplication:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">moles</span>
+<span class="go">6.0</span>
+</pre></div>
+</div>
+<p>Finally, Quantities can be added, providing an easy way of calculating the
+state resulting from mixing two substances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">mass</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="s">&#39;CH4:1.0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q2</span><span class="o">.</span><span class="n">mass</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">+</span> <span class="n">q2</span> <span class="c"># combine at constant UV</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span><span class="o">.</span><span class="n">T</span>
+<span class="go">432.31234</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span><span class="o">.</span><span class="n">P</span>
+<span class="go">97974.9871</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span><span class="o">.</span><span class="n">mole_fraction_dict</span><span class="p">()</span>
+<span class="go">{&#39;CH4&#39;: 0.26452900448117395,</span>
+<span class="go"> &#39;N2&#39;: 0.5809602821745349,</span>
+<span class="go"> &#39;O2&#39;: 0.1545107133442912}</span>
+</pre></div>
+</div>
+<p>If a different property pair should be held constant when combining, this
+can be specified as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="n">q2</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="s">&#39;HP&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">+</span> <span class="n">q2</span> <span class="c"># combine at constant HP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span><span class="o">.</span><span class="n">T</span>
+<span class="go">436.03320</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">q3</span><span class="o">.</span><span class="n">P</span>
+<span class="go">101325.0</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="cantera.Quantity.DP">
+<tt class="descname">DP</tt><a class="headerlink" href="#cantera.Quantity.DP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set density [kg/m^3] and pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.DPX">
+<tt class="descname">DPX</tt><a class="headerlink" href="#cantera.Quantity.DPX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set density [kg/m^3], pressure [Pa], and mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.DPY">
+<tt class="descname">DPY</tt><a class="headerlink" href="#cantera.Quantity.DPY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set density [kg/m^3], pressure [Pa], and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.G">
+<tt class="descname">G</tt><a class="headerlink" href="#cantera.Quantity.G" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total Gibbs free energy [J] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.H">
+<tt class="descname">H</tt><a class="headerlink" href="#cantera.Quantity.H" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total enthalpy [J] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.HP">
+<tt class="descname">HP</tt><a class="headerlink" href="#cantera.Quantity.HP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set enthalpy [J/kg or J/kmol] and pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.HPX">
+<tt class="descname">HPX</tt><a class="headerlink" href="#cantera.Quantity.HPX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set enthalpy [J/kg or J/kmol], pressure [Pa] and mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.HPY">
+<tt class="descname">HPY</tt><a class="headerlink" href="#cantera.Quantity.HPY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set enthalpy [J/kg or J/kmol], pressure [Pa] and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.ID">
+<tt class="descname">ID</tt><a class="headerlink" href="#cantera.Quantity.ID" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the phase. The default is taken from the CTI/XML input file.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.P">
+<tt class="descname">P</tt><a class="headerlink" href="#cantera.Quantity.P" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.P_sat">
+<tt class="descname">P_sat</tt><a class="headerlink" href="#cantera.Quantity.P_sat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation pressure [Pa] at the current temperature.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.S">
+<tt class="descname">S</tt><a class="headerlink" href="#cantera.Quantity.S" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total entropy [J/K] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.SP">
+<tt class="descname">SP</tt><a class="headerlink" href="#cantera.Quantity.SP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set entropy [J/kg/K or J/kmol/K] and pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.SPX">
+<tt class="descname">SPX</tt><a class="headerlink" href="#cantera.Quantity.SPX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set entropy [J/kg/K or J/kmol/K], pressure [Pa], and mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.SPY">
+<tt class="descname">SPY</tt><a class="headerlink" href="#cantera.Quantity.SPY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set entropy [J/kg/K or J/kmol/K], pressure [Pa], and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.SV">
+<tt class="descname">SV</tt><a class="headerlink" href="#cantera.Quantity.SV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set entropy [J/kg/K or J/kmol/K] and specific volume [m^3/kg or
+m^3/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.SVX">
+<tt class="descname">SVX</tt><a class="headerlink" href="#cantera.Quantity.SVX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set entropy [J/kg/K or J/kmol/K], specific volume [m^3/kg or
+m^3/kmol], and mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.SVY">
+<tt class="descname">SVY</tt><a class="headerlink" href="#cantera.Quantity.SVY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set entropy [J/kg/K or J/kmol/K], specific volume [m^3/kg or
+m^3/kmol], and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.T">
+<tt class="descname">T</tt><a class="headerlink" href="#cantera.Quantity.T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temperature [K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.TD">
+<tt class="descname">TD</tt><a class="headerlink" href="#cantera.Quantity.TD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set temperature [K] and density [kg/m^3 or kmol/m^3].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.TDX">
+<tt class="descname">TDX</tt><a class="headerlink" href="#cantera.Quantity.TDX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set temperature [K], density [kg/m^3 or kmol/m^3], and mole
+fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.TDY">
+<tt class="descname">TDY</tt><a class="headerlink" href="#cantera.Quantity.TDY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set temperature [K] and density [kg/m^3 or kmol/m^3], and mass
+fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.TP">
+<tt class="descname">TP</tt><a class="headerlink" href="#cantera.Quantity.TP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set temperature [K] and pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.TPX">
+<tt class="descname">TPX</tt><a class="headerlink" href="#cantera.Quantity.TPX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set temperature [K], pressure [Pa], and mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.TPY">
+<tt class="descname">TPY</tt><a class="headerlink" href="#cantera.Quantity.TPY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set temperature [K], pressure [Pa], and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.T_sat">
+<tt class="descname">T_sat</tt><a class="headerlink" href="#cantera.Quantity.T_sat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saturation temperature [K] at the current pressure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.U">
+<tt class="descname">U</tt><a class="headerlink" href="#cantera.Quantity.U" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total internal energy [J] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.UV">
+<tt class="descname">UV</tt><a class="headerlink" href="#cantera.Quantity.UV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set internal energy [J/kg or J/kmol] and specific volume
+[m^3/kg or m^3/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.UVX">
+<tt class="descname">UVX</tt><a class="headerlink" href="#cantera.Quantity.UVX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set internal energy [J/kg or J/kmol], specific volume
+[m^3/kg or m^3/kmol], and mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.UVY">
+<tt class="descname">UVY</tt><a class="headerlink" href="#cantera.Quantity.UVY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set internal energy [J/kg or J/kmol], specific volume
+[m^3/kg or m^3/kmol], and mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.V">
+<tt class="descname">V</tt><a class="headerlink" href="#cantera.Quantity.V" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total volume [m^3] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.X">
+<tt class="descname">X</tt><a class="headerlink" href="#cantera.Quantity.X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the species mole fractions. Can be set as an array, as a dictionary,
+or as a string. Always returns an array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;H2&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span> <span class="s">&#39;AR&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="s">&#39;H2:0.1, O2:0.4, AR:0.5&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">X</span>
+<span class="go">array([0.1, 0, 0, 0.4, 0, 0, 0, 0, 0.5])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.Y">
+<tt class="descname">Y</tt><a class="headerlink" href="#cantera.Quantity.Y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the species mass fractions. Can be set as an array, as a dictionary,
+or as a string. Always returns an array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;H2&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span> <span class="s">&#39;AR&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="s">&#39;H2:0.1, O2:0.4, AR:0.5&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">Y</span>
+<span class="go">array([0.1, 0, 0, 0.4, 0, 0, 0, 0, 0.5])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.atomic_weight">
+<tt class="descname">atomic_weight</tt><a class="headerlink" href="#cantera.Quantity.atomic_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.atomic_weight(self, m)
+Atomic weight [kg/kmol] of element <em>m</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.atomic_weights">
+<tt class="descname">atomic_weights</tt><a class="headerlink" href="#cantera.Quantity.atomic_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of atomic weight [kg/kmol] for each element in the mixture.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.basis">
+<tt class="descname">basis</tt><a class="headerlink" href="#cantera.Quantity.basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether intensive thermodynamic properties are treated on a
+<tt class="xref py py-obj docutils literal"><span class="pre">mass</span></tt> (per kg) or <tt class="xref py py-obj docutils literal"><span class="pre">molar</span></tt> (per kmol) basis. This affects the values
+returned by the properties <a class="reference internal" href="#cantera.Quantity.h" title="cantera.Quantity.h"><tt class="xref py py-obj docutils literal"><span class="pre">h</span></tt></a>, <a class="reference internal" href="#cantera.Quantity.u" title="cantera.Quantity.u"><tt class="xref py py-obj docutils literal"><span class="pre">u</span></tt></a>, <a class="reference internal" href="#cantera.Quantity.s" title="cantera.Quantity.s"><tt class="xref py py-obj docutils literal"><span class="pre">s</span></tt></a>, <a class="reference internal" href="#cantera.Quantity.g" title="cantera.Quantity.g"><tt class="xref py py-obj docutils literal"><span class="pre">g</span></tt></a>, <a class="reference internal" href="#cantera.Quantity.v" title="cantera.Quantity.v"><tt class="xref py py-obj docutils literal"><span class="pre">v</span></tt></a>, <a class="reference internal" href="#cantera.Quantity.density" title="cantera.Quantity.density"><tt class="xref py py-obj docutils literal"><span class="pre">density</span></tt></a>, <a class="reference internal" href="#cantera.Quantity.cv" title="cantera.Quantity.cv"><tt class="xref py py-obj docutils literal"><span class="pre">cv</span></tt></a>,
+and <a class="reference internal" href="#cantera.Quantity.cp" title="cantera.Quantity.cp"><tt class="xref py py-obj docutils literal"><span class="pre">cp</span></tt></a>, as well as the values used with the state-setting properties
+such as <a class="reference internal" href="#cantera.Quantity.HPX" title="cantera.Quantity.HPX"><tt class="xref py py-obj docutils literal"><span class="pre">HPX</span></tt></a> and <a class="reference internal" href="#cantera.Quantity.UV" title="cantera.Quantity.UV"><tt class="xref py py-obj docutils literal"><span class="pre">UV</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.binary_diff_coeffs">
+<tt class="descname">binary_diff_coeffs</tt><a class="headerlink" href="#cantera.Quantity.binary_diff_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Binary diffusion coefficients [m^2/s].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.chemical_potentials">
+<tt class="descname">chemical_potentials</tt><a class="headerlink" href="#cantera.Quantity.chemical_potentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species chemical potentials [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.concentrations">
+<tt class="descname">concentrations</tt><a class="headerlink" href="#cantera.Quantity.concentrations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the species concentrations [kmol/m^3].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.cp">
+<tt class="descname">cp</tt><a class="headerlink" href="#cantera.Quantity.cp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heat capacity at constant pressure [J/kg/K or J/kmol/K] depending
+on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.cp_mass">
+<tt class="descname">cp_mass</tt><a class="headerlink" href="#cantera.Quantity.cp_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific heat capacity at constant pressure [J/kg/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.cp_mole">
+<tt class="descname">cp_mole</tt><a class="headerlink" href="#cantera.Quantity.cp_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar heat capacity at constant pressure [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.creation_rates">
+<tt class="descname">creation_rates</tt><a class="headerlink" href="#cantera.Quantity.creation_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creation rates for each species. [kmol/m^3/s] for bulk phases or
+[kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.critical_density">
+<tt class="descname">critical_density</tt><a class="headerlink" href="#cantera.Quantity.critical_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Critical density [kg/m^3 or kmol/m^3] depending on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.critical_pressure">
+<tt class="descname">critical_pressure</tt><a class="headerlink" href="#cantera.Quantity.critical_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Critical pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.critical_temperature">
+<tt class="descname">critical_temperature</tt><a class="headerlink" href="#cantera.Quantity.critical_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Critical temperature [K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.cv">
+<tt class="descname">cv</tt><a class="headerlink" href="#cantera.Quantity.cv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heat capacity at constant volume [J/kg/K or J/kmol/K] depending on
+<a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.cv_mass">
+<tt class="descname">cv_mass</tt><a class="headerlink" href="#cantera.Quantity.cv_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific heat capacity at constant volume [J/kg/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.cv_mole">
+<tt class="descname">cv_mole</tt><a class="headerlink" href="#cantera.Quantity.cv_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar heat capacity at constant volume [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.delta_enthalpy">
+<tt class="descname">delta_enthalpy</tt><a class="headerlink" href="#cantera.Quantity.delta_enthalpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in enthalpy for each reaction [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.delta_entropy">
+<tt class="descname">delta_entropy</tt><a class="headerlink" href="#cantera.Quantity.delta_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in entropy for each reaction [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.delta_gibbs">
+<tt class="descname">delta_gibbs</tt><a class="headerlink" href="#cantera.Quantity.delta_gibbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in Gibbs free energy for each reaction [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.delta_standard_enthalpy">
+<tt class="descname">delta_standard_enthalpy</tt><a class="headerlink" href="#cantera.Quantity.delta_standard_enthalpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in standard-state enthalpy (independent of composition) for
+each reaction [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.delta_standard_entropy">
+<tt class="descname">delta_standard_entropy</tt><a class="headerlink" href="#cantera.Quantity.delta_standard_entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in standard-state entropy (independent of composition) for
+each reaction [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.delta_standard_gibbs">
+<tt class="descname">delta_standard_gibbs</tt><a class="headerlink" href="#cantera.Quantity.delta_standard_gibbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change in standard-state Gibbs free energy (independent of composition)
+for each reaction [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.density">
+<tt class="descname">density</tt><a class="headerlink" href="#cantera.Quantity.density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Density [kg/m^3 or kmol/m^3] depending on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.density_mass">
+<tt class="descname">density_mass</tt><a class="headerlink" href="#cantera.Quantity.density_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Mass) density [kg/m^3].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.density_mole">
+<tt class="descname">density_mole</tt><a class="headerlink" href="#cantera.Quantity.density_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar density [kmol/m^3].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.destruction_rates">
+<tt class="descname">destruction_rates</tt><a class="headerlink" href="#cantera.Quantity.destruction_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Destruction rates for each species. [kmol/m^3/s] for bulk phases or
+[kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.electric_potential">
+<tt class="descname">electric_potential</tt><a class="headerlink" href="#cantera.Quantity.electric_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the electric potential [V] for this phase.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.electrical_conductivity">
+<tt class="descname">electrical_conductivity</tt><a class="headerlink" href="#cantera.Quantity.electrical_conductivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Electrical conductivity. [S/m].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.electrochemical_potentials">
+<tt class="descname">electrochemical_potentials</tt><a class="headerlink" href="#cantera.Quantity.electrochemical_potentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species electrochemical potentials [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.element_index">
+<tt class="descname">element_index</tt><a class="headerlink" href="#cantera.Quantity.element_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.element_index(self, element) -&gt; int</p>
+<p>The index of element <em>element</em>, which may be specified as a string or
+an integer. In the latter case, the index is checked for validity and
+returned. If no such element is present, an exception is thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.element_name">
+<tt class="descname">element_name</tt><a class="headerlink" href="#cantera.Quantity.element_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.element_name(self, m)
+Name of the element with index <em>m</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.element_names">
+<tt class="descname">element_names</tt><a class="headerlink" href="#cantera.Quantity.element_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of all the element names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.element_potentials">
+<tt class="descname">element_potentials</tt><a class="headerlink" href="#cantera.Quantity.element_potentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.element_potentials(self)</p>
+<p>Get the array of element potentials. The element potentials are only
+defined for equilibrium states. This method first sets the composition
+to a state of equilibrium at constant T and P, then computes the
+element potentials for this equilibrium state.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.elemental_mass_fraction">
+<tt class="descname">elemental_mass_fraction</tt><a class="headerlink" href="#cantera.Quantity.elemental_mass_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.elemental_mass_fraction(self, m)</p>
+<p>Get the elemental mass fraction <span class="math">\(Z_{\mathrm{mass},m}\)</span> of element
+<span class="math">\(m\)</span> as defined by:</p>
+<div class="math">
+\[Z_{\mathrm{mass},m} = \sum_k \frac{a_{m,k} M_m}{M_k} Y_k\]</div>
+<p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
+species <span class="math">\(k\)</span>, <span class="math">\(M_m\)</span> the atomic weight of element <span class="math">\(m\)</span>,
+<span class="math">\(M_k\)</span> the molecular weight of species <span class="math">\(k\)</span>, and <span class="math">\(Y_k\)</span>
+the mass fraction of species <span class="math">\(k\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">elemental_mass_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.elemental_mole_fraction">
+<tt class="descname">elemental_mole_fraction</tt><a class="headerlink" href="#cantera.Quantity.elemental_mole_fraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.elemental_mole_fraction(self, m)</p>
+<p>Get the elemental mole fraction <span class="math">\(Z_{\mathrm{mole},m}\)</span> of element
+<span class="math">\(m\)</span> (the number of atoms of element m divided by the total number
+of atoms) as defined by:</p>
+<div class="math">
+\[Z_{\mathrm{mole},m} = \frac{\sum_k a_{m,k} X_k}
+{\sum_k \sum_j a_{j,k} X_k}\]</div>
+<p>with <span class="math">\(a_{m,k}\)</span> being the number of atoms of element <span class="math">\(m\)</span> in
+species <span class="math">\(k\)</span>, <span class="math">\(\sum_j\)</span> being a sum over all elements, and
+<span class="math">\(X_k\)</span> being the mole fraction of species <span class="math">\(k\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">elemental_mole_fraction</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.enthalpy">
+<tt class="descname">enthalpy</tt><a class="headerlink" href="#cantera.Quantity.enthalpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total enthalpy [J] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.enthalpy_mass">
+<tt class="descname">enthalpy_mass</tt><a class="headerlink" href="#cantera.Quantity.enthalpy_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific enthalpy [J/kg].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.enthalpy_mole">
+<tt class="descname">enthalpy_mole</tt><a class="headerlink" href="#cantera.Quantity.enthalpy_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar enthalpy [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.entropy">
+<tt class="descname">entropy</tt><a class="headerlink" href="#cantera.Quantity.entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total entropy [J/K] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.entropy_mass">
+<tt class="descname">entropy_mass</tt><a class="headerlink" href="#cantera.Quantity.entropy_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific entropy [J/kg].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.entropy_mole">
+<tt class="descname">entropy_mole</tt><a class="headerlink" href="#cantera.Quantity.entropy_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar entropy [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Quantity.equilibrate">
+<tt class="descname">equilibrate</tt><big>(</big><em>XY=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#cantera.Quantity.equilibrate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the state to equilibrium. By default, the property pair
+<tt class="xref py py-obj docutils literal"><span class="pre">self.constant</span></tt> is held constant. See <a class="reference internal" href="#cantera.ThermoPhase.equilibrate" title="cantera.ThermoPhase.equilibrate"><tt class="xref py py-obj docutils literal"><span class="pre">ThermoPhase.equilibrate</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.equilibrium_constants">
+<tt class="descname">equilibrium_constants</tt><a class="headerlink" href="#cantera.Quantity.equilibrium_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equilibrium constants in concentration units for all reactions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.forward_rate_constants">
+<tt class="descname">forward_rate_constants</tt><a class="headerlink" href="#cantera.Quantity.forward_rate_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward rate constants for all reactions. Units are a combination of
+kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.forward_rates_of_progress">
+<tt class="descname">forward_rates_of_progress</tt><a class="headerlink" href="#cantera.Quantity.forward_rates_of_progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward rates of progress for the reactions. [kmol/m^3/s] for bulk
+phases or [kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.g">
+<tt class="descname">g</tt><a class="headerlink" href="#cantera.Quantity.g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibbs free energy [J/kg or J/kmol] depending on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.gibbs">
+<tt class="descname">gibbs</tt><a class="headerlink" href="#cantera.Quantity.gibbs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total Gibbs free energy [J] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.gibbs_mass">
+<tt class="descname">gibbs_mass</tt><a class="headerlink" href="#cantera.Quantity.gibbs_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific Gibbs free energy [J/kg].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.gibbs_mole">
+<tt class="descname">gibbs_mole</tt><a class="headerlink" href="#cantera.Quantity.gibbs_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar Gibbs free energy [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.h">
+<tt class="descname">h</tt><a class="headerlink" href="#cantera.Quantity.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enthalpy [J/kg or J/kmol] depending on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.int_energy">
+<tt class="descname">int_energy</tt><a class="headerlink" href="#cantera.Quantity.int_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total internal energy [J] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.int_energy_mass">
+<tt class="descname">int_energy_mass</tt><a class="headerlink" href="#cantera.Quantity.int_energy_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific internal energy [J/kg].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.int_energy_mole">
+<tt class="descname">int_energy_mole</tt><a class="headerlink" href="#cantera.Quantity.int_energy_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar internal energy [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.is_reversible">
+<tt class="descname">is_reversible</tt><a class="headerlink" href="#cantera.Quantity.is_reversible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.is_reversible(self, int i_reaction)
+True if reaction <tt class="xref py py-obj docutils literal"><span class="pre">i_reaction</span></tt> is reversible.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.isothermal_compressibility">
+<tt class="descname">isothermal_compressibility</tt><a class="headerlink" href="#cantera.Quantity.isothermal_compressibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Isothermal compressibility [1/Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.kinetics_species_index">
+<tt class="descname">kinetics_species_index</tt><a class="headerlink" href="#cantera.Quantity.kinetics_species_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.kinetics_species_index(self, species, int phase=0)</p>
+<p>The index of species <em>species</em> of phase <em>phase</em> within arrays returned
+by methods of class <a class="reference internal" href="kinetics.html#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a>. If <em>species</em> is a string, the <em>phase</em>
+argument is unused.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.mass_fraction_dict">
+<tt class="descname">mass_fraction_dict</tt><a class="headerlink" href="#cantera.Quantity.mass_fraction_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.mass_fraction_dict(self, double threshold=0.0)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.max_temp">
+<tt class="descname">max_temp</tt><a class="headerlink" href="#cantera.Quantity.max_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum temperature for which the thermodynamic data for the phase are
+valid.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.mean_molecular_weight">
+<tt class="descname">mean_molecular_weight</tt><a class="headerlink" href="#cantera.Quantity.mean_molecular_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mean molecular weight (molar mass) [kg/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.min_temp">
+<tt class="descname">min_temp</tt><a class="headerlink" href="#cantera.Quantity.min_temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Minimum temperature for which the thermodynamic data for the phase are
+valid.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.mix_diff_coeffs">
+<tt class="descname">mix_diff_coeffs</tt><a class="headerlink" href="#cantera.Quantity.mix_diff_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture-averaged diffusion coefficients [m^2/s] relating the
+mass-averaged diffusive fluxes (with respect to the mass averaged
+velocity) to gradients in the species mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.mix_diff_coeffs_mass">
+<tt class="descname">mix_diff_coeffs_mass</tt><a class="headerlink" href="#cantera.Quantity.mix_diff_coeffs_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture-averaged diffusion coefficients [m^2/s] relating the
+diffusive mass fluxes to gradients in the species mass fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.mix_diff_coeffs_mole">
+<tt class="descname">mix_diff_coeffs_mole</tt><a class="headerlink" href="#cantera.Quantity.mix_diff_coeffs_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mixture-averaged diffusion coefficients [m^2/s] relating the
+molar diffusive fluxes to gradients in the species mole fractions.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.modify_reaction">
+<tt class="descname">modify_reaction</tt><a class="headerlink" href="#cantera.Quantity.modify_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.modify_reaction(self, int irxn, Reaction rxn)</p>
+<p>Modify the <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> with index <tt class="docutils literal"><span class="pre">irxn</span></tt> to have the same rate
+parameters as <tt class="docutils literal"><span class="pre">rxn</span></tt>. <tt class="docutils literal"><span class="pre">rxn</span></tt> must have the same reactants and products
+and be of the same type (i.e. <a class="reference internal" href="kinetics.html#cantera.ElementaryReaction" title="cantera.ElementaryReaction"><tt class="xref py py-obj docutils literal"><span class="pre">ElementaryReaction</span></tt></a>, <a class="reference internal" href="kinetics.html#cantera.FalloffReaction" title="cantera.FalloffReaction"><tt class="xref py py-obj docutils literal"><span class="pre">FalloffReaction</span></tt></a>,
+<a class="reference internal" href="kinetics.html#cantera.PlogReaction" title="cantera.PlogReaction"><tt class="xref py py-obj docutils literal"><span class="pre">PlogReaction</span></tt></a>, etc.) as the existing reaction. This method does not
+modify the third-body efficiencies, reaction orders, or reversibility of
+the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.mole_fraction_dict">
+<tt class="descname">mole_fraction_dict</tt><a class="headerlink" href="#cantera.Quantity.mole_fraction_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.mole_fraction_dict(self, double threshold=0.0)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.molecular_weights">
+<tt class="descname">molecular_weights</tt><a class="headerlink" href="#cantera.Quantity.molecular_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species molecular weights (molar masses) [kg/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.moles">
+<tt class="descname">moles</tt><a class="headerlink" href="#cantera.Quantity.moles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the number of moles [kmol] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.multi_diff_coeffs">
+<tt class="descname">multi_diff_coeffs</tt><a class="headerlink" href="#cantera.Quantity.multi_diff_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multicomponent diffusion coefficients [m^2/s].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.multiplier">
+<tt class="descname">multiplier</tt><a class="headerlink" href="#cantera.Quantity.multiplier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.multiplier(self, int i_reaction)</p>
+<p>A scaling factor applied to the rate coefficient for reaction
+<em>i_reaction</em>. Can be used to carry out sensitivity analysis or to
+selectively disable a particular reaction. See <a class="reference internal" href="#cantera.Quantity.set_multiplier" title="cantera.Quantity.set_multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">set_multiplier</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.n_atoms">
+<tt class="descname">n_atoms</tt><a class="headerlink" href="#cantera.Quantity.n_atoms" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.n_atoms(self, species, element)</p>
+<p>Number of atoms of element <em>element</em> in species <em>species</em>. The element
+and species may be specified by name or by index.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="s">&#39;CH4&#39;</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.n_elements">
+<tt class="descname">n_elements</tt><a class="headerlink" href="#cantera.Quantity.n_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of elements.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.n_phases">
+<tt class="descname">n_phases</tt><a class="headerlink" href="#cantera.Quantity.n_phases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of phases in the reaction mechanism.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.n_reactions">
+<tt class="descname">n_reactions</tt><a class="headerlink" href="#cantera.Quantity.n_reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of reactions in the reaction mechanism.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.n_species">
+<tt class="descname">n_species</tt><a class="headerlink" href="#cantera.Quantity.n_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.n_total_species">
+<tt class="descname">n_total_species</tt><a class="headerlink" href="#cantera.Quantity.n_total_species" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total number of species in all phases participating in the kinetics
+mechanism.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.name">
+<tt class="descname">name</tt><a class="headerlink" href="#cantera.Quantity.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name assigned to this phase. The default is taken from the CTI/XML
+input file.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.net_production_rates">
+<tt class="descname">net_production_rates</tt><a class="headerlink" href="#cantera.Quantity.net_production_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Net production rates for each species. [kmol/m^3/s] for bulk phases or
+[kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.net_rates_of_progress">
+<tt class="descname">net_rates_of_progress</tt><a class="headerlink" href="#cantera.Quantity.net_rates_of_progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Net rates of progress for the reactions. [kmol/m^3/s] for bulk phases
+or [kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.partial_molar_cp">
+<tt class="descname">partial_molar_cp</tt><a class="headerlink" href="#cantera.Quantity.partial_molar_cp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species partial molar specific heat capacities at constant
+pressure [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.partial_molar_enthalpies">
+<tt class="descname">partial_molar_enthalpies</tt><a class="headerlink" href="#cantera.Quantity.partial_molar_enthalpies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species partial molar enthalpies [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.partial_molar_entropies">
+<tt class="descname">partial_molar_entropies</tt><a class="headerlink" href="#cantera.Quantity.partial_molar_entropies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species partial molar entropies [J/kmol/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.partial_molar_int_energies">
+<tt class="descname">partial_molar_int_energies</tt><a class="headerlink" href="#cantera.Quantity.partial_molar_int_energies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species partial molar internal energies [J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.partial_molar_volumes">
+<tt class="descname">partial_molar_volumes</tt><a class="headerlink" href="#cantera.Quantity.partial_molar_volumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of species partial molar volumes [m^3/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.phase">
+<tt class="descname">phase</tt><a class="headerlink" href="#cantera.Quantity.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the underlying <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> object, with the state set to match the
+wrapping <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.product_stoich_coeff">
+<tt class="descname">product_stoich_coeff</tt><a class="headerlink" href="#cantera.Quantity.product_stoich_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.product_stoich_coeff(self, k_spec, int i_reaction)</p>
+<p>The stoichiometric coefficient of species <em>k_spec</em> as a product in
+reaction <em>i_reaction</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.product_stoich_coeffs">
+<tt class="descname">product_stoich_coeffs</tt><a class="headerlink" href="#cantera.Quantity.product_stoich_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.product_stoich_coeffs(self)</p>
+<p>The array of product stoichiometric coefficients. Element <em>[k,i]</em> of
+this array is the product stoichiometric coefficient of species <em>k</em> in
+reaction <em>i</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.products">
+<tt class="descname">products</tt><a class="headerlink" href="#cantera.Quantity.products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.products(self, int i_reaction)
+The products portion of the reaction equation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reactant_stoich_coeff">
+<tt class="descname">reactant_stoich_coeff</tt><a class="headerlink" href="#cantera.Quantity.reactant_stoich_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reactant_stoich_coeff(self, k_spec, int i_reaction)</p>
+<p>The stoichiometric coefficient of species <em>k_spec</em> as a reactant in
+reaction <em>i_reaction</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reactant_stoich_coeffs">
+<tt class="descname">reactant_stoich_coeffs</tt><a class="headerlink" href="#cantera.Quantity.reactant_stoich_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reactant_stoich_coeffs(self)</p>
+<p>The array of reactant stoichiometric coefficients. Element <em>[k,i]</em> of
+this array is the reactant stoichiometric coefficient of species <em>k</em> in
+reaction <em>i</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reactants">
+<tt class="descname">reactants</tt><a class="headerlink" href="#cantera.Quantity.reactants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reactants(self, int i_reaction)
+The reactants portion of the reaction equation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reaction">
+<tt class="descname">reaction</tt><a class="headerlink" href="#cantera.Quantity.reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reaction(self, int i_reaction)</p>
+<p>Return a <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> object representing the reaction with index
+<tt class="docutils literal"><span class="pre">i_reaction</span></tt>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reaction_equation">
+<tt class="descname">reaction_equation</tt><a class="headerlink" href="#cantera.Quantity.reaction_equation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reaction_equation(self, int i_reaction)
+The equation for the specified reaction. See also <a class="reference internal" href="#cantera.Quantity.reaction_equations" title="cantera.Quantity.reaction_equations"><tt class="xref py py-obj docutils literal"><span class="pre">reaction_equations</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reaction_equations">
+<tt class="descname">reaction_equations</tt><a class="headerlink" href="#cantera.Quantity.reaction_equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reaction_equations(self, indices=None)</p>
+<p>Returns a list containing the reaction equation for all reactions in the
+mechanism (if <em>indices</em> is unspecified) or the equations for each
+reaction in the sequence <em>indices</em>. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">reaction_equations</span><span class="p">()</span>
+<span class="go">[&#39;2 O + M &lt;=&gt; O2 + M&#39;, &#39;O + H + M &lt;=&gt; OH + M&#39;, &#39;O + H2 &lt;=&gt; H + OH&#39;, ...]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">reaction_equations</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="go">[&#39;O + H + M &lt;=&gt; OH + M&#39;, &#39;O + H2 &lt;=&gt; H + OH&#39;]</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="#cantera.Quantity.reaction_equation" title="cantera.Quantity.reaction_equation"><tt class="xref py py-obj docutils literal"><span class="pre">reaction_equation</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reaction_phase_index">
+<tt class="descname">reaction_phase_index</tt><a class="headerlink" href="#cantera.Quantity.reaction_phase_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of the phase where the reactions occur.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reaction_type">
+<tt class="descname">reaction_type</tt><a class="headerlink" href="#cantera.Quantity.reaction_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reaction_type(self, int i_reaction)
+Type of reaction <em>i_reaction</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reactions">
+<tt class="descname">reactions</tt><a class="headerlink" href="#cantera.Quantity.reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.reactions(self)</p>
+<p>Return a list of all <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> objects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reference_pressure">
+<tt class="descname">reference_pressure</tt><a class="headerlink" href="#cantera.Quantity.reference_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference state pressure [Pa].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.report">
+<tt class="descname">report</tt><a class="headerlink" href="#cantera.Quantity.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.report(self, show_thermo=True, float threshold=1e-14)</p>
+<p>Generate a report describing the thermodynamic state of this phase. To
+print the report to the terminal, simply call the phase object. The
+following two statements are equivalent:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">phase</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reverse_rate_constants">
+<tt class="descname">reverse_rate_constants</tt><a class="headerlink" href="#cantera.Quantity.reverse_rate_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse rate constants for all reactions. Units are a combination of
+kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.reverse_rates_of_progress">
+<tt class="descname">reverse_rates_of_progress</tt><a class="headerlink" href="#cantera.Quantity.reverse_rates_of_progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse rates of progress for the reactions. [kmol/m^3/s] for bulk
+phases or [kmol/m^2/s] for surface phases.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.s">
+<tt class="descname">s</tt><a class="headerlink" href="#cantera.Quantity.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entropy [J/kg/K or J/kmol/K] depending on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.selected_species">
+<tt class="descname">selected_species</tt><a class="headerlink" href="#cantera.Quantity.selected_species" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.set_multiplier">
+<tt class="descname">set_multiplier</tt><a class="headerlink" href="#cantera.Quantity.set_multiplier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetics.set_multiplier(self, double value, int i_reaction=-1)</p>
+<p>Set the multiplier for for reaction <em>i_reaction</em> to <em>value</em>.
+If <em>i_reaction</em> is not specified, then the multiplier for all reactions
+is set to <em>value</em>. See <a class="reference internal" href="#cantera.Quantity.multiplier" title="cantera.Quantity.multiplier"><tt class="xref py py-obj docutils literal"><span class="pre">multiplier</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.set_unnormalized_mass_fractions">
+<tt class="descname">set_unnormalized_mass_fractions</tt><a class="headerlink" href="#cantera.Quantity.set_unnormalized_mass_fractions" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.set_unnormalized_mass_fractions(self, Y)</p>
+<p>Set the mass fractions without normalizing to force sum(Y) == 1.0.
+Useful primarily when calculating derivatives with respect to Y[k] by
+finite difference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.set_unnormalized_mole_fractions">
+<tt class="descname">set_unnormalized_mole_fractions</tt><a class="headerlink" href="#cantera.Quantity.set_unnormalized_mole_fractions" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.set_unnormalized_mole_fractions(self, X)</p>
+<p>Set the mole fractions without normalizing to force sum(X) == 1.0.
+Useful primarily when calculating derivatives with respect to X[k]
+by finite difference.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.species">
+<tt class="descname">species</tt><a class="headerlink" href="#cantera.Quantity.species" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.species(self, k=None)</p>
+<p>Return the <a class="reference internal" href="#cantera.Species" title="cantera.Species"><tt class="xref py py-obj docutils literal"><span class="pre">Species</span></tt></a> object for species <em>k</em>, where <em>k</em> is either the
+species index or the species name. If <em>k</em> is not specified, a list of
+all species objects is returned.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.species_index">
+<tt class="descname">species_index</tt><a class="headerlink" href="#cantera.Quantity.species_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.species_index(self, species) -&gt; int</p>
+<p>The index of species <em>species</em>, which may be specified as a string or
+an integer. In the latter case, the index is checked for validity and
+returned. If no such species is present, an exception is thrown.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.species_name">
+<tt class="descname">species_name</tt><a class="headerlink" href="#cantera.Quantity.species_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>ThermoPhase.species_name(self, k)
+Name of the species with index <em>k</em>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.species_names">
+<tt class="descname">species_names</tt><a class="headerlink" href="#cantera.Quantity.species_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of all the species names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.standard_cp_R">
+<tt class="descname">standard_cp_R</tt><a class="headerlink" href="#cantera.Quantity.standard_cp_R" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional species standard-state specific heat capacities
+at constant pressure at the current temperature and pressure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.standard_enthalpies_RT">
+<tt class="descname">standard_enthalpies_RT</tt><a class="headerlink" href="#cantera.Quantity.standard_enthalpies_RT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional species standard-state enthalpies at the
+current temperature and pressure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.standard_entropies_R">
+<tt class="descname">standard_entropies_R</tt><a class="headerlink" href="#cantera.Quantity.standard_entropies_R" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional species standard-state entropies at the
+current temperature and pressure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.standard_gibbs_RT">
+<tt class="descname">standard_gibbs_RT</tt><a class="headerlink" href="#cantera.Quantity.standard_gibbs_RT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional species standard-state Gibbs free energies at
+the current temperature and pressure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.standard_int_energies_RT">
+<tt class="descname">standard_int_energies_RT</tt><a class="headerlink" href="#cantera.Quantity.standard_int_energies_RT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional species standard-state internal energies at the
+current temperature and pressure.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.thermal_conductivity">
+<tt class="descname">thermal_conductivity</tt><a class="headerlink" href="#cantera.Quantity.thermal_conductivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Thermal conductivity. [W/m/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.thermal_diff_coeffs">
+<tt class="descname">thermal_diff_coeffs</tt><a class="headerlink" href="#cantera.Quantity.thermal_diff_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a one-dimensional array of the species thermal diffusion
+coefficients [kg/m/s].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.thermal_expansion_coeff">
+<tt class="descname">thermal_expansion_coeff</tt><a class="headerlink" href="#cantera.Quantity.thermal_expansion_coeff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Thermal expansion coefficient [1/K].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.transport_model">
+<tt class="descname">transport_model</tt><a class="headerlink" href="#cantera.Quantity.transport_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/Set the transport model associated with this transport model.</p>
+<p>Setting a new transport model deletes the underlying C++ Transport
+object and replaces it with a new one implementing the specified model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.u">
+<tt class="descname">u</tt><a class="headerlink" href="#cantera.Quantity.u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal energy in [J/kg or J/kmol].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.v">
+<tt class="descname">v</tt><a class="headerlink" href="#cantera.Quantity.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific volume [m^3/kg or m^3/kmol] depending on <a class="reference internal" href="#cantera.Quantity.basis" title="cantera.Quantity.basis"><tt class="xref py py-obj docutils literal"><span class="pre">basis</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.viscosity">
+<tt class="descname">viscosity</tt><a class="headerlink" href="#cantera.Quantity.viscosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Viscosity [Pa-s].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.volume">
+<tt class="descname">volume</tt><a class="headerlink" href="#cantera.Quantity.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total volume [m^3] represented by the <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><tt class="xref py py-obj docutils literal"><span class="pre">Quantity</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.volume_mass">
+<tt class="descname">volume_mass</tt><a class="headerlink" href="#cantera.Quantity.volume_mass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific volume [m^3/kg].</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.volume_mole">
+<tt class="descname">volume_mole</tt><a class="headerlink" href="#cantera.Quantity.volume_mole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Molar volume [m^3/kmol].</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="species">
-<h2><a class="toc-backref" href="#id14">Species</a><a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Species</a><a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cantera.Species">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">Species</tt><a class="headerlink" href="#cantera.Species" title="Permalink to this definition">¶</a></dt>
@@ -1325,11 +2520,11 @@ of class <a class="reference internal" href="#cantera.SpeciesThermo" title="cant
 
 </div>
 <div class="section" id="species-thermodynamic-properties">
-<h2><a class="toc-backref" href="#id15">Species Thermodynamic Properties</a><a class="headerlink" href="#species-thermodynamic-properties" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Species Thermodynamic Properties</a><a class="headerlink" href="#species-thermodynamic-properties" title="Permalink to this headline">¶</a></h2>
 <p>These classes are used to describe the reference-state thermodynamic properties
 of a pure species.</p>
 <div class="section" id="speciesthermo">
-<h3><a class="toc-backref" href="#id16">SpeciesThermo</a><a class="headerlink" href="#speciesthermo" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">SpeciesThermo</a><a class="headerlink" href="#speciesthermo" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.SpeciesThermo">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">SpeciesThermo</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.SpeciesThermo" title="Permalink to this definition">¶</a></dt>
@@ -1402,7 +2597,7 @@ parameterization.</p>
 
 </div>
 <div class="section" id="constantcp">
-<h3><a class="toc-backref" href="#id17">ConstantCp</a><a class="headerlink" href="#constantcp" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">ConstantCp</a><a class="headerlink" href="#constantcp" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.ConstantCp">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ConstantCp</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ConstantCp" title="Permalink to this definition">¶</a></dt>
@@ -1430,7 +2625,7 @@ capacity. This is a wrapper for the C++ class <a class="reference external" href
 
 </div>
 <div class="section" id="nasapoly2">
-<h3><a class="toc-backref" href="#id18">NasaPoly2</a><a class="headerlink" href="#nasapoly2" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">NasaPoly2</a><a class="headerlink" href="#nasapoly2" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.NasaPoly2">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">NasaPoly2</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.NasaPoly2" title="Permalink to this definition">¶</a></dt>
@@ -1463,7 +2658,7 @@ input files.</p>
 
 </div>
 <div class="section" id="shomatepoly2">
-<h3><a class="toc-backref" href="#id19">ShomatePoly2</a><a class="headerlink" href="#shomatepoly2" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">ShomatePoly2</a><a class="headerlink" href="#shomatepoly2" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="cantera.ShomatePoly2">
 <em class="property">class </em><tt class="descclassname">cantera.</tt><tt class="descname">ShomatePoly2</tt><big>(</big><em>T_low</em>, <em>T_high</em>, <em>P_ref</em>, <em>coeffs</em><big>)</big><a class="headerlink" href="#cantera.ShomatePoly2" title="Permalink to this definition">¶</a></dt>

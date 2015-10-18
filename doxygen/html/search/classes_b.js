@@ -4,6 +4,7 @@ var searchData=
   ['maskellsolidsolnphase',['MaskellSolidSolnPhase',['../classCantera_1_1MaskellSolidSolnPhase.html',1,'Cantera']]],
   ['massflowcontroller',['MassFlowController',['../classCantera_1_1MassFlowController.html',1,'Cantera']]],
   ['messages',['Messages',['../classCantera_1_1Application_1_1Messages.html',1,'Cantera::Application']]],
+  ['metal',['Metal',['../classCantera_1_1Metal.html',1,'Cantera']]],
   ['metalphase',['MetalPhase',['../classCantera_1_1MetalPhase.html',1,'Cantera']]],
   ['metalsheelectrons',['MetalSHEelectrons',['../classCantera_1_1MetalSHEelectrons.html',1,'Cantera']]],
   ['methane',['methane',['../classtpx_1_1methane.html',1,'tpx']]],

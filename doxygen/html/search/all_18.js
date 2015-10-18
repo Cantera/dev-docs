@@ -8,7 +8,7 @@ var searchData=
   ['xml_2eh',['xml.h',['../xml_8h.html',1,'']]],
   ['xml_5ferror',['XML_Error',['../classCantera_1_1XML__Error.html#a8027624c1585ded5399f5e1068752d7a',1,'Cantera::XML_Error']]],
   ['xml_5ferror',['XML_Error',['../classCantera_1_1XML__Error.html',1,'Cantera']]],
-  ['xml_5fmutex',['xml_mutex',['../namespaceCantera.html#a2180b7a4853e98fb21b79506bbc35d6b',1,'Cantera']]],
+  ['xml_5fmutex',['xml_mutex',['../namespaceCantera.html#a78fbb2cbb6082f89a036a4dbcafd1de9',1,'Cantera']]],
   ['xml_5fnochild',['XML_NoChild',['../classCantera_1_1XML__NoChild.html',1,'Cantera']]],
   ['xml_5fnochild',['XML_NoChild',['../classCantera_1_1XML__NoChild.html#a815a2463f82da8e188980e6be1f8bc7d',1,'Cantera::XML_NoChild']]],
   ['xml_5fnode',['XML_Node',['../classCantera_1_1XML__Node.html',1,'Cantera']]],
@@ -18,7 +18,7 @@ var searchData=
   ['xml_5ftagmismatch',['XML_TagMismatch',['../classCantera_1_1XML__TagMismatch.html#a0029cb45d39a9d72178f64d6eaddc846',1,'Cantera::XML_TagMismatch']]],
   ['xml_5ftagmismatch',['XML_TagMismatch',['../classCantera_1_1XML__TagMismatch.html',1,'Cantera']]],
   ['xmlfiles',['xmlfiles',['../classCantera_1_1Application.html#ac366dec500f571a7f50ced52440aa65f',1,'Cantera::Application']]],
-  ['xmol_5f',['Xmol_',['../classCantera_1_1vcs__VolPhase.html#a4d52f4b9258669aa46ada1da51d446ff',1,'Cantera::vcs_VolPhase']]],
-  ['xmol_5fref',['xMol_Ref',['../classCantera_1_1ThermoPhase.html#a9a66f5fb7265fe164b88cd7c2c488fcc',1,'Cantera::ThermoPhase']]],
+  ['xmol_5f',['Xmol_',['../classCantera_1_1vcs__VolPhase.html#afdd04216f59390904ecb5ed0f9e8dece',1,'Cantera::vcs_VolPhase']]],
+  ['xmol_5fref',['xMol_Ref',['../classCantera_1_1ThermoPhase.html#aa64c679503b7512e621b4c5aa4b74245',1,'Cantera::ThermoPhase']]],
   ['xstr_5ftrace_5fline',['XSTR_TRACE_LINE',['../ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354',1,'ctexceptions.h']]]
 ];

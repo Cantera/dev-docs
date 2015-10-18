@@ -60,7 +60,7 @@ var searchData=
   ['updateviscosity_5ft',['updateViscosity_T',['../classCantera_1_1GasTransport.html#a63ac7f8d6ccfecb0a7aac8580e1640e1',1,'Cantera::GasTransport::updateViscosity_T()'],['../classCantera_1_1LiquidTransport.html#a63ac7f8d6ccfecb0a7aac8580e1640e1',1,'Cantera::LiquidTransport::updateViscosity_T()'],['../classCantera_1_1SimpleTransport.html#a63ac7f8d6ccfecb0a7aac8580e1640e1',1,'Cantera::SimpleTransport::updateViscosity_T()']]],
   ['uploadmolefractionsfromphases',['uploadMoleFractionsFromPhases',['../classCantera_1_1MultiPhase.html#abfb23dea4d983a9894a67b186509131d',1,'Cantera::MultiPhase']]],
   ['upperbound',['upperBound',['../classCantera_1_1Domain1D.html#abb792fa6bc512feab663738da5e665a0',1,'Cantera::Domain1D']]],
-  ['usefactoralgorithm',['useFactorAlgorithm',['../classCantera_1_1BandMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a',1,'Cantera::BandMatrix::useFactorAlgorithm()'],['../classCantera_1_1GeneralMatrix.html#ae3b4f049253093c36b74fe8d7166ecd3',1,'Cantera::GeneralMatrix::useFactorAlgorithm()'],['../classCantera_1_1SquareMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a',1,'Cantera::SquareMatrix::useFactorAlgorithm()']]],
+  ['usefactoralgorithm',['useFactorAlgorithm',['../classCantera_1_1GeneralMatrix.html#ae3b4f049253093c36b74fe8d7166ecd3',1,'Cantera::GeneralMatrix::useFactorAlgorithm()'],['../classCantera_1_1SquareMatrix.html#aab6f7789babde1fa77ee93d54fd3e55a',1,'Cantera::SquareMatrix::useFactorAlgorithm()']]],
   ['user_5fout',['user_out',['../classCantera_1_1ResidJacEval.html#a31b79a61922a7e0b2544b03e93540328',1,'Cantera::ResidJacEval']]],
   ['user_5fout2',['user_out2',['../classCantera_1_1ResidJacEval.html#a523c8ac193bcbbf254bbc030743b9fb6',1,'Cantera::ResidJacEval']]]
 ];

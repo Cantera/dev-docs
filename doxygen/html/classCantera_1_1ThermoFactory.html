@@ -157,9 +157,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:ae239e9c8d196674e6385354c18c284b9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCantera_1_1ThermoFactory.html">ThermoFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoFactory.html#ae239e9c8d196674e6385354c18c284b9">s_factory</a> = 0</td></tr>
 <tr class="memdesc:ae239e9c8d196674e6385354c18c284b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">static member of a single instance  <a href="#ae239e9c8d196674e6385354c18c284b9">More...</a><br/></td></tr>
 <tr class="separator:ae239e9c8d196674e6385354c18c284b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a926cc3de2bceb9444a0309b2452e679a"><td class="memItemLeft" align="right" valign="top">static mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoFactory.html#a926cc3de2bceb9444a0309b2452e679a">thermo_mutex</a></td></tr>
-<tr class="memdesc:a926cc3de2bceb9444a0309b2452e679a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decl for locking mutex for thermo factory singleton.  <a href="#a926cc3de2bceb9444a0309b2452e679a">More...</a><br/></td></tr>
-<tr class="separator:a926cc3de2bceb9444a0309b2452e679a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f114967b588841e02627f3bf479d6ea"><td class="memItemLeft" align="right" valign="top">static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ThermoFactory.html#a9f114967b588841e02627f3bf479d6ea">thermo_mutex</a></td></tr>
+<tr class="memdesc:a9f114967b588841e02627f3bf479d6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decl for locking mutex for thermo factory singleton.  <a href="#a9f114967b588841e02627f3bf479d6ea">More...</a><br/></td></tr>
+<tr class="separator:a9f114967b588841e02627f3bf479d6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -172,7 +172,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Factory class for thermodynamic property managers. </p>
 <p>This class keeps a list of the known <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> classes, and is used to create new instances of these classes. </p>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00055">55</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00052">52</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5383746d195a492f63fe0bb072787990"></a>
 <div class="memitem">
@@ -197,9 +197,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Private constructors prevents usage. </p>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00093">93</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00087">87</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00061">ThermoFactory::factory()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00056">ThermoFactory::factory()</a>.</p>
 
 </div>
 </div>
@@ -227,11 +227,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Static function that creates a static instance of the factory. </p>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00061">61</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00056">56</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
 
-<p>References <a class="el" href="ThermoFactory_8h_source.html#l00090">ThermoFactory::s_factory</a>, <a class="el" href="ThermoFactory_8h_source.html#l00093">ThermoFactory::thermo_mutex</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00093">ThermoFactory::ThermoFactory()</a>.</p>
+<p>References <a class="el" href="ThermoFactory_8h_source.html#l00084">ThermoFactory::s_factory</a>, <a class="el" href="ThermoFactory_8h_source.html#l00087">ThermoFactory::thermo_mutex</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00087">ThermoFactory::ThermoFactory()</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00110">Cantera::newThermoPhase()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00103">Cantera::newThermoPhase()</a>.</p>
 
 </div>
 </div>
@@ -260,9 +260,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1FactoryBase.html#a15663fcccb836c3ab790211d63aa2917">FactoryBase</a>.</p>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00070">70</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00065">65</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
 
-<p>References <a class="el" href="ThermoFactory_8h_source.html#l00090">ThermoFactory::s_factory</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00093">ThermoFactory::thermo_mutex</a>.</p>
+<p>References <a class="el" href="ThermoFactory_8h_source.html#l00084">ThermoFactory::s_factory</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00087">ThermoFactory::thermo_mutex</a>.</p>
 
 </div>
 </div>
@@ -291,15 +291,15 @@ Additional Inherited Members</h2></td></tr>
 <p>Create a new thermodynamic property manager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">model</td><td>String to look up the model against</td></tr>
+    <tr><td class="paramname">model</td><td>String to look up the model against </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to a new <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> instance matching the model string. Returns NULL if something went wrong. Throws an exception <a class="el" href="classCantera_1_1UnknownThermoPhaseModel.html" title="Specific error to be thrown if the type of Thermo manager is unrecognized. ">UnknownThermoPhaseModel</a> if the string wasn't matched. </dd></dl>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8cpp_source.html#l00093">93</a> of file <a class="el" href="ThermoFactory_8cpp_source.html">ThermoFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8cpp_source.html#l00087">87</a> of file <a class="el" href="ThermoFactory_8cpp_source.html">ThermoFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="ThermoFactory_8cpp_source.html#l00082">Cantera::_itypes</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00070">Cantera::_types</a>, <a class="el" href="mix__defs_8h_source.html#l00072">Cantera::cDebyeHuckel</a>, <a class="el" href="mix__defs_8h_source.html#l00058">Cantera::cEdge</a>, <a class="el" href="mix__defs_8h_source.html#l00061">Cantera::cFixedChemPot</a>, <a class="el" href="mix__defs_8h_source.html#l00069">Cantera::cHMW</a>, <a class="el" href="mix__defs_8h_source.html#l00037">Cantera::cIdealGas</a>, <a class="el" href="mix__defs_8h_source.html#l00075">Cantera::cIdealMolalSoln</a>, <a class="el" href="mix__defs_8h_source.html#l00064">Cantera::cIdealSolidSolnPhase</a>, <a class="el" href="mix__defs_8h_source.html#l00043">Cantera::cMetal</a>, <a class="el" href="mix__defs_8h_source.html#l00040">Cantera::cSurf</a>, <a class="el" href="mix__defs_8h_source.html#l00096">Cantera::cVPSS_IdealGas</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00067">Cantera::ntypes</a>.</p>
+<p>References <a class="el" href="ThermoFactory_8cpp_source.html#l00076">Cantera::_itypes</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00064">Cantera::_types</a>, <a class="el" href="mix__defs_8h_source.html#l00071">Cantera::cDebyeHuckel</a>, <a class="el" href="mix__defs_8h_source.html#l00057">Cantera::cEdge</a>, <a class="el" href="mix__defs_8h_source.html#l00060">Cantera::cFixedChemPot</a>, <a class="el" href="mix__defs_8h_source.html#l00068">Cantera::cHMW</a>, <a class="el" href="mix__defs_8h_source.html#l00037">Cantera::cIdealGas</a>, <a class="el" href="mix__defs_8h_source.html#l00074">Cantera::cIdealMolalSoln</a>, <a class="el" href="mix__defs_8h_source.html#l00063">Cantera::cIdealSolidSolnPhase</a>, <a class="el" href="mix__defs_8h_source.html#l00043">Cantera::cMetal</a>, <a class="el" href="mix__defs_8h_source.html#l00040">Cantera::cSurf</a>, <a class="el" href="mix__defs_8h_source.html#l00095">Cantera::cVPSS_IdealGas</a>, and <a class="el" href="ThermoFactory_8cpp_source.html#l00061">Cantera::ntypes</a>.</p>
 
 </div>
 </div>
@@ -324,13 +324,13 @@ Additional Inherited Members</h2></td></tr>
 
 <p>static member of a single instance </p>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00090">90</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00084">84</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00070">ThermoFactory::deleteFactory()</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00061">ThermoFactory::factory()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00065">ThermoFactory::deleteFactory()</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00056">ThermoFactory::factory()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a926cc3de2bceb9444a0309b2452e679a"></a>
+<a class="anchor" id="a9f114967b588841e02627f3bf479d6ea"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -338,7 +338,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">mutex_t thermo_mutex</td>
+          <td class="memname">std::mutex thermo_mutex</td>
         </tr>
       </table>
   </td>
@@ -350,9 +350,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Decl for locking mutex for thermo factory singleton. </p>
 
-<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00093">93</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="ThermoFactory_8h_source.html#l00087">87</a> of file <a class="el" href="ThermoFactory_8h_source.html">ThermoFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00070">ThermoFactory::deleteFactory()</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00061">ThermoFactory::factory()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoFactory_8h_source.html#l00065">ThermoFactory::deleteFactory()</a>, and <a class="el" href="ThermoFactory_8h_source.html#l00056">ThermoFactory::factory()</a>.</p>
 
 </div>
 </div>

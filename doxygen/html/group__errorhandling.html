@@ -115,9 +115,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">AssertThrow</a>(expr, procedure)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
 <tr class="memdesc:ga41a50aa300b18c3bf4c4417332207bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="#ga41a50aa300b18c3bf4c4417332207bb6">More...</a><br/></td></tr>
 <tr class="separator:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr, procedure, message)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td></tr>
-<tr class="memdesc:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="#ga53d47e483cf6bbd6ffcb7b042111a4fe">More...</a><br/></td></tr>
-<tr class="separator:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac25777fefb20a8d33b073aa7cb7a5811"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811">AssertThrowMsg</a>(expr, procedure,...)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;:\nfailed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), __VA_ARGS__))</td></tr>
+<tr class="memdesc:gac25777fefb20a8d33b073aa7cb7a5811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="#gac25777fefb20a8d33b073aa7cb7a5811">More...</a><br/></td></tr>
+<tr class="separator:gac25777fefb20a8d33b073aa7cb7a5811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -156,21 +156,17 @@ Functions</h2></td></tr>
 <div class="line"><span class="comment">// can be called from the main program.</span></div>
 <div class="line"><span class="keywordtype">void</span> simple_demo()</div>
 <div class="line">{</div>
-<div class="line"></div>
 <div class="line">    <span class="comment">// Create a new phase</span></div>
-<div class="line">    <a class="code" href="classCantera_1_1ThermoPhase.html">ThermoPhase</a>* gas = <a class="code" href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">newPhase</a>(<span class="stringliteral">&quot;h2o2.cti&quot;</span>,<span class="stringliteral">&quot;ohmech&quot;</span>);</div>
+<div class="line">    std::unique_ptr&lt;ThermoPhase&gt; gas(<a class="code" href="group__inputfiles.html#gae7ab44a3276a87e4e3408c91c9167f4a">newPhase</a>(<span class="stringliteral">&quot;h2o2.cti&quot;</span>,<span class="stringliteral">&quot;ohmech&quot;</span>));</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Set its state by specifying T (500 K) P (2 atm) and the mole</span></div>
 <div class="line">    <span class="comment">// fractions. Note that the mole fractions do not need to sum to</span></div>
 <div class="line">    <span class="comment">// 1.0 - they will be normalized internally. Also, the values for</span></div>
 <div class="line">    <span class="comment">// any unspecified species will be set to zero.</span></div>
-<div class="line">    gas-&gt;<a class="code" href="classCantera_1_1ThermoPhase.html#a5a95360d8ebf90e0c5cda5edd578cdf6">setState_TPX</a>(500.0, 2.0*<a class="code" href="group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93">OneAtm</a>, <span class="stringliteral">&quot;H2O:1.0, H2:8.0, AR:1.0&quot;</span>);</div>
+<div class="line">    gas-&gt;setState_TPX(500.0, 2.0*<a class="code" href="group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93">OneAtm</a>, <span class="stringliteral">&quot;H2O:1.0, H2:8.0, AR:1.0&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Print a summary report of the state of the gas</span></div>
-<div class="line">    std::cout &lt;&lt; gas-&gt;<a class="code" href="classCantera_1_1ThermoPhase.html#a326ab14d25279fa59116b92a3e94d644">report</a>() &lt;&lt; std::endl;</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">//  Clean up</span></div>
-<div class="line">    <span class="keyword">delete</span> gas;</div>
+<div class="line">    std::cout &lt;&lt; gas-&gt;report() &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// the main program just calls function simple_demo within</span></div>
@@ -178,7 +174,6 @@ Functions</h2></td></tr>
 <div class="line"><span class="comment">// might be thrown</span></div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
-<div class="line"></div>
 <div class="line">    <span class="keywordflow">try</span> {</div>
 <div class="line">        simple_demo();</div>
 <div class="line">    } <span class="keywordflow">catch</span> (<a class="code" href="classCantera_1_1CanteraError.html">CanteraError</a>&amp; err) {</div>
@@ -187,10 +182,10 @@ Functions</h2></td></tr>
 <div class="line">}</div>
 <div class="line"></div>
 </div><!-- fragment --><p>The function <a class="el" href="namespaceCantera.html#a0a45aae524295a5236caf3d9bff37420" title="Prints all of the error messages to an ostream. ">showErrors()</a> will print out the fatal error condition to standard output.</p>
-<p>A group of defines may be used during debugging to assert conditions which should be true. These are named <a class="el" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594" title="Assertion must be true or an error is thrown. ">AssertTrace()</a>, <a class="el" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6" title="Assertion must be true or an error is thrown. ">AssertThrow()</a>, and <a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe" title="Assertion must be true or an error is thrown. ">AssertThrowMsg()</a>. Examples of their usage is given below.</p>
+<p>A group of defines may be used during debugging to assert conditions which should be true. These are named <a class="el" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594" title="Assertion must be true or an error is thrown. ">AssertTrace()</a>, <a class="el" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6" title="Assertion must be true or an error is thrown. ">AssertThrow()</a>, and <a class="el" href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811" title="Assertion must be true or an error is thrown. ">AssertThrowMsg()</a>. Examples of their usage is given below.</p>
 <div class="fragment"><div class="line"><a class="code" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594">AssertTrace</a>(p == <a class="code" href="group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93">OneAtm</a>);</div>
 <div class="line"><a class="code" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">AssertThrow</a>(p == <a class="code" href="group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93">OneAtm</a>, <span class="stringliteral">&quot;Kinetics::update&quot;</span>);</div>
-<div class="line"><a class="code" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(p == <a class="code" href="group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93">OneAtm</a>, <span class="stringliteral">&quot;Kinetics::update&quot;</span>,</div>
+<div class="line"><a class="code" href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811">AssertThrowMsg</a>(p == <a class="code" href="group__physConstants.html#ga9da8bef82ee3cb7c2dbc24db228dfe93">OneAtm</a>, <span class="stringliteral">&quot;Kinetics::update&quot;</span>,</div>
 <div class="line">             <span class="stringliteral">&quot;Algorithm limited to atmospheric pressure&quot;</span>);</div>
 </div><!-- fragment --><p>Their first argument is a boolean. If the boolean is not true, a <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a> is thrown, with descriptive information indicating where the error occurred. The Assert* checks are skipped if the NDEBUG preprocessor symbol is defined, e.g. with the compiler option -DNDEBUG. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -217,9 +212,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00228">228</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00243">243</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="HMWSoln_8cpp_source.html#l05108">HMWSoln::applyphScale()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00527">IonsFromNeutralVPSSTP::calcNeutralMoleculeMoleFractions()</a>, <a class="el" href="Phase_8cpp_source.html#l00208">Phase::entropyElement298()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00636">IonsFromNeutralVPSSTP::getNeutralMoleculeMoleGrads()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00316">Cantera::importPhase()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00341">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="WaterTransport_8cpp_source.html#l00044">WaterTransport::initTP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05122">HMWSoln::s_updateScaling_pHScaling()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05167">HMWSoln::s_updateScaling_pHScaling_dP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l05137">HMWSoln::s_updateScaling_pHScaling_dT()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l05152">HMWSoln::s_updateScaling_pHScaling_dT2()</a>.</p>
+<p>Referenced by <a class="el" href="HMWSoln_8cpp_source.html#l04745">HMWSoln::applyphScale()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00505">IonsFromNeutralVPSSTP::calcNeutralMoleculeMoleFractions()</a>, <a class="el" href="Phase_8cpp_source.html#l00207">Phase::entropyElement298()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00605">IonsFromNeutralVPSSTP::getNeutralMoleculeMoleGrads()</a>, <a class="el" href="ThermoFactory_8cpp_source.html#l00309">Cantera::importPhase()</a>, <a class="el" href="VPStandardStateTP_8cpp_source.html#l00330">VPStandardStateTP::initThermoXML()</a>, <a class="el" href="WaterTransport_8cpp_source.html#l00043">WaterTransport::initTP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04759">HMWSoln::s_updateScaling_pHScaling()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04804">HMWSoln::s_updateScaling_pHScaling_dP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04774">HMWSoln::s_updateScaling_pHScaling_dT()</a>, and <a class="el" href="HMWSoln_8cpp_source.html#l04789">HMWSoln::s_updateScaling_pHScaling_dT2()</a>.</p>
 
 </div>
 </div>
@@ -257,13 +252,13 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00241">241</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00256">256</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="vcs__VolPhase_8cpp_source.html#l01010">vcs_VolPhase::elemGlobalIndex()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00286">MolalityVPSSTP::getActivityCoefficients()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00325">IdealMolalSoln::getChemPotentials()</a>, <a class="el" href="SimpleTransport_8cpp_source.html#l00458">SimpleTransport::getSpeciesFluxesExt()</a>, <a class="el" href="PDSS_8cpp_source.html#l00191">PDSS::initPtrs()</a>, <a class="el" href="PDSS_8cpp_source.html#l00173">PDSS::initThermo()</a>, <a class="el" href="PDSS_8cpp_source.html#l00165">PDSS::initThermoXML()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00082">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l01016">vcs_VolPhase::setElemGlobalIndex()</a>, and <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>.</p>
+<p>Referenced by <a class="el" href="vcs__VolPhase_8cpp_source.html#l00984">vcs_VolPhase::elemGlobalIndex()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00281">MolalityVPSSTP::getActivityCoefficients()</a>, <a class="el" href="IdealMolalSoln_8cpp_source.html#l00324">IdealMolalSoln::getChemPotentials()</a>, <a class="el" href="SimpleTransport_8cpp_source.html#l00440">SimpleTransport::getSpeciesFluxesExt()</a>, <a class="el" href="PDSS_8cpp_source.html#l00191">PDSS::initPtrs()</a>, <a class="el" href="PDSS_8cpp_source.html#l00173">PDSS::initThermo()</a>, <a class="el" href="PDSS_8cpp_source.html#l00165">PDSS::initThermoXML()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00990">vcs_VolPhase::setElemGlobalIndex()</a>, and <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ga53d47e483cf6bbd6ffcb7b042111a4fe"></a>
+<a class="anchor" id="gac25777fefb20a8d33b073aa7cb7a5811"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -283,12 +278,12 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">message&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td>
+          <td></td><td>&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;:\nfailed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), __VA_ARGS__))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -304,9 +299,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00259">259</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00274">274</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00360">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="vcs__prob_8cpp_source.html#l00330">VCS_PROB::addOnePhaseSpecies()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04908">HMWSoln::calc_thetas()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l01805">VCS_SOLVE::delta_species()</a>, <a class="el" href="Phase_8cpp_source.html#l00208">Phase::entropyElement298()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00190">vcs_VolPhase::resize()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00432">vcs_VolPhase::setMolesFromVCS()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00096">MolalityVPSSTP::setSolvent()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00835">vcs_VolPhase::setTotalMoles()</a>, <a class="el" href="Sim1D_8cpp_source.html#l00051">Sim1D::setValue()</a>, <a class="el" href="RxnRates_8h_source.html#l00193">Plog::update_C()</a>, <a class="el" href="Sim1D_8cpp_source.html#l00060">Sim1D::value()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l04423">VCS_SOLVE::vcs_birthGuess()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l03315">VCS_SOLVE::vcs_chemPotPhase()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l04206">VCS_SOLVE::vcs_deltag_Phase()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l03366">VCS_SOLVE::vcs_dfe()</a>, <a class="el" href="vcs__phaseStability_8cpp_source.html#l00228">VCS_SOLVE::vcs_popPhaseID()</a>, <a class="el" href="vcs__phaseStability_8cpp_source.html#l00016">VCS_SOLVE::vcs_popPhasePossible()</a>, <a class="el" href="vcs__phaseStability_8cpp_source.html#l00341">VCS_SOLVE::vcs_popPhaseRxnStepSizes()</a>, <a class="el" href="vcs__elem__rearrange_8cpp_source.html#l00174">VCS_SOLVE::vcs_switch_elem_pos()</a>, and <a class="el" href="vcs__solve__TP_8cpp_source.html#l04335">VCS_SOLVE::vcs_switch_pos()</a>.</p>
+<p>Referenced by <a class="el" href="VPStandardStateTP_8cpp_source.html#l00348">VPStandardStateTP::_updateStandardStateThermo()</a>, <a class="el" href="vcs__prob_8cpp_source.html#l00328">VCS_PROB::addOnePhaseSpecies()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04559">HMWSoln::calc_thetas()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l01744">VCS_SOLVE::delta_species()</a>, <a class="el" href="Phase_8cpp_source.html#l00207">Phase::entropyElement298()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00076">GeneralSpeciesThermo::install_STIT()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00190">vcs_VolPhase::resize()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00422">vcs_VolPhase::setMolesFromVCS()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00096">MolalityVPSSTP::setSolvent()</a>, <a class="el" href="vcs__VolPhase_8cpp_source.html#l00817">vcs_VolPhase::setTotalMoles()</a>, <a class="el" href="Sim1D_8cpp_source.html#l00047">Sim1D::setValue()</a>, <a class="el" href="RxnRates_8h_source.html#l00187">Plog::update_C()</a>, <a class="el" href="Sim1D_8cpp_source.html#l00055">Sim1D::value()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l04279">VCS_SOLVE::vcs_birthGuess()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l03203">VCS_SOLVE::vcs_chemPotPhase()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l04073">VCS_SOLVE::vcs_deltag_Phase()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l03254">VCS_SOLVE::vcs_dfe()</a>, <a class="el" href="vcs__phaseStability_8cpp_source.html#l00207">VCS_SOLVE::vcs_popPhaseID()</a>, <a class="el" href="vcs__phaseStability_8cpp_source.html#l00016">VCS_SOLVE::vcs_popPhasePossible()</a>, <a class="el" href="vcs__phaseStability_8cpp_source.html#l00310">VCS_SOLVE::vcs_popPhaseRxnStepSizes()</a>, <a class="el" href="vcs__elem__rearrange_8cpp_source.html#l00166">VCS_SOLVE::vcs_switch_elem_pos()</a>, and <a class="el" href="vcs__solve__TP_8cpp_source.html#l04194">VCS_SOLVE::vcs_switch_pos()</a>.</p>
 
 </div>
 </div>
@@ -345,9 +340,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00103">103</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00082">82</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00212">Application::addError()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00207">Application::addError()</a>.</p>
 
 </div>
 </div>
@@ -366,9 +361,9 @@ Functions</h2></td></tr>
 
 <p>Return the number of errors that have been encountered so far. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00109">109</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00088">88</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00217">Application::getErrorCount()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00212">Application::getErrorCount()</a>.</p>
 
 </div>
 </div>
@@ -388,11 +383,11 @@ Functions</h2></td></tr>
 <p>Discard the last error message. </p>
 <p>Cantera saves a stack of exceptions that it has caught in the <a class="el" href="classCantera_1_1Application.html" title="Class to hold global data. ">Application</a> class. This routine eliminates the last exception to be added to that stack. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00334">334</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00290">290</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8h_source.html#l00150">Application::Messages::errorMessage</a>, and <a class="el" href="application_8h_source.html#l00153">Application::Messages::errorRoutine</a>.</p>
+<p>References <a class="el" href="application_8h_source.html#l00148">Application::Messages::errorMessage</a>, and <a class="el" href="application_8h_source.html#l00151">Application::Messages::errorRoutine</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00222">Application::popError()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00217">Application::popError()</a>.</p>
 
 </div>
 </div>
@@ -412,9 +407,9 @@ Functions</h2></td></tr>
 <p>Retrieve the last error message in a string. </p>
 <p>This routine will retrieve the last error message and return it in the return string. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00342">342</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00298">298</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00227">Application::lastErrorMessage()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00222">Application::lastErrorMessage()</a>.</p>
 
 </div>
 </div>
@@ -441,9 +436,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00356">356</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00312">312</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00232">Application::getErrors()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00227">Application::getErrors()</a>.</p>
 
 </div>
 </div>
@@ -463,11 +458,11 @@ Functions</h2></td></tr>
 <p>Prints all of the error messages using writelog. </p>
 <p>Print all of the error messages using function writelog. <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> saves a stack of exceptions that it has caught in the <a class="el" href="classCantera_1_1Application.html" title="Class to hold global data. ">Application</a> class. This routine writes out all of the error messages and then clears them from internal storage. </p>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00377">377</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00333">333</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8h_source.html#l00313">Application::writelog()</a>.</p>
+<p>References <a class="el" href="application_8h_source.html#l00308">Application::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00237">Application::logErrors()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00232">Application::logErrors()</a>.</p>
 
 </div>
 </div>
@@ -486,9 +481,9 @@ Functions</h2></td></tr>
 
 <p>Return the number of errors that have been encountered so far. </p>
 
-<p>Definition at line <a class="el" href="global_8cpp_source.html#l00115">115</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
+<p>Definition at line <a class="el" href="global_8cpp_source.html#l00094">94</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00017">Cantera::app()</a>, and <a class="el" href="application_8h_source.html#l00217">Application::getErrorCount()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00014">Cantera::app()</a>, and <a class="el" href="application_8h_source.html#l00212">Application::getErrorCount()</a>.</p>
 
 </div>
 </div>

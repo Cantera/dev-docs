@@ -102,11 +102,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ValueCache_8h.html">cantera/base/ValueCache.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ct__thread_8h.html">cantera/base/ct_thread.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;Cantera::mutex_t id_mutex;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;std::mutex id_mutex;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>Cantera</div>
@@ -116,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classCantera_1_1ValueCache.html#a67283be3f45257d1e0c474c563ebb6b6">   18</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classCantera_1_1ValueCache.html#a67283be3f45257d1e0c474c563ebb6b6">ValueCache::getId</a>()</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ScopedLock lock(id_mutex);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::unique_lock&lt;std::mutex&gt; lock(id_mutex);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">return</span> ++<a class="code" href="classCantera_1_1ValueCache.html#af68db4dd1fb00cceb4cda083f53c480a">m_last_id</a>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
@@ -132,7 +132,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classCantera_1_1ValueCache_html_a8647774ae3293164326a2cfc253b9fd6"><div class="ttname"><a href="classCantera_1_1ValueCache.html#a8647774ae3293164326a2cfc253b9fd6">Cantera::ValueCache::m_arrayCache</a></div><div class="ttdeci">std::map&lt; int, CachedValue&lt; vector_fp &gt; &gt; m_arrayCache</div><div class="ttdoc">Cached array values. </div><div class="ttdef"><b>Definition:</b> <a href="ValueCache_8h_source.html#l00183">ValueCache.h:183</a></div></div>
 <div class="ttc" id="classCantera_1_1ValueCache_html_a84dd295bf74e18dac4557f1c34265be4"><div class="ttname"><a href="classCantera_1_1ValueCache.html#a84dd295bf74e18dac4557f1c34265be4">Cantera::ValueCache::m_scalarCache</a></div><div class="ttdeci">std::map&lt; int, CachedValue&lt; double &gt; &gt; m_scalarCache</div><div class="ttdoc">Cached scalar values. </div><div class="ttdef"><b>Definition:</b> <a href="ValueCache_8h_source.html#l00180">ValueCache.h:180</a></div></div>
 <div class="ttc" id="classCantera_1_1ValueCache_html_ac8bb3912a3ce86b15842e79d0b421204"><div class="ttname"><a href="classCantera_1_1ValueCache.html#ac8bb3912a3ce86b15842e79d0b421204">Cantera::ValueCache::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear all cached values. </div><div class="ttdef"><b>Definition:</b> <a href="ValueCache_8cpp_source.html#l00024">ValueCache.cpp:24</a></div></div>
-<div class="ttc" id="ct__thread_8h_html"><div class="ttname"><a href="ct__thread_8h.html">ct_thread.h</a></div></div>
 <div class="ttc" id="ValueCache_8h_html"><div class="ttname"><a href="ValueCache_8h.html">ValueCache.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

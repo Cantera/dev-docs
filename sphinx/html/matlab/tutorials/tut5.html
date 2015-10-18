@@ -114,10 +114,10 @@
 
 <span class="c">% 1) Stoichiometric coefficients</span>
 
-<span class="n">nu_r</span>   <span class="p">=</span> <span class="n">stoich_r</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>    <span class="c">% reactant stoichiometric coefficient mstix </span>
-<span class="n">nu_p</span>   <span class="p">=</span> <span class="n">stoich_p</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>    <span class="c">% product stoichiometric coefficient mstix </span>
+<span class="n">nu_r</span>   <span class="p">=</span> <span class="n">stoich_r</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>    <span class="c">% reactant stoichiometric coefficient mstix</span>
+<span class="n">nu_p</span>   <span class="p">=</span> <span class="n">stoich_p</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>    <span class="c">% product stoichiometric coefficient mstix</span>
 <span class="n">nu_net</span> <span class="p">=</span> <span class="n">stoich_net</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c">% net (product - reactant) stoichiometric</span>
-                        <span class="c">% coefficient mstix </span>
+                        <span class="c">% coefficient mstix</span>
 
 <span class="c">% For any of these, the (k,i) matrix element is the stoichiometric</span>
 <span class="c">% coefficient of species k in reaction i. Since these coefficient</span>
@@ -159,7 +159,7 @@
 
 <span class="c">% For comparison, the production rates may also be computed</span>
 <span class="c">% directly from the rates of progress and stoichiometric</span>
-<span class="c">% coefficients. </span>
+<span class="c">% coefficients.</span>
 
 <span class="n">cdot2</span> <span class="p">=</span> <span class="n">nu_p</span><span class="o">*</span><span class="n">qf</span> <span class="o">+</span> <span class="n">nu_r</span><span class="o">*</span><span class="n">qr</span><span class="p">;</span>
 <span class="n">creation</span> <span class="p">=</span> <span class="p">[</span><span class="n">cdot</span><span class="p">,</span> <span class="n">cdot2</span><span class="p">,</span> <span class="n">cdot</span> <span class="o">-</span> <span class="n">cdot2</span><span class="p">]</span>
@@ -170,14 +170,11 @@
 <span class="n">wdot2</span> <span class="p">=</span> <span class="n">nu_net</span> <span class="o">*</span> <span class="n">qn</span><span class="p">;</span>
 <span class="n">net</span> <span class="p">=</span> <span class="p">[</span><span class="n">wdot</span><span class="p">,</span> <span class="n">wdot2</span><span class="p">,</span> <span class="n">wdot</span> <span class="o">-</span> <span class="n">wdot2</span><span class="p">]</span>
 
-
 <span class="c">% 4) Reaction equations</span>
 
 <span class="n">e8</span>    <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>             <span class="c">% equation for reaction 8</span>
 <span class="n">e1_10</span> <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span>          <span class="c">% equation for rxns 1 - 10</span>
 <span class="n">eqs</span>   <span class="p">=</span> <span class="n">reactionEqn</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>               <span class="c">% all equations</span>
-
-
 
 <span class="c">% 5) Equilibrium constants</span>
 
@@ -189,10 +186,8 @@
    <span class="nb">disp</span><span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;%50s  %13.5g&#39;</span><span class="p">,</span> <span class="n">eqs</span><span class="p">{</span><span class="nb">i</span><span class="p">},</span> <span class="n">kc</span><span class="p">(</span><span class="nb">i</span><span class="p">)))</span>
 <span class="k">end</span>
 
-
-
 <span class="c">% 6) Multipliers</span>
- 
+
 <span class="c">% For each reaction, a multiplier may be specified that is applied</span>
 <span class="c">% to the forward rate coefficient. By default, the multiplier is</span>
 <span class="c">% 1.0 for all reactions.</span>

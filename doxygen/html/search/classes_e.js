@@ -20,5 +20,6 @@ var searchData=
   ['pressurecontroller',['PressureController',['../classCantera_1_1PressureController.html',1,'Cantera']]],
   ['product1',['Product1',['../classCantera_1_1Product1.html',1,'Cantera']]],
   ['propertycalculator',['PropertyCalculator',['../classCantera_1_1PropertyCalculator.html',1,'Cantera']]],
+  ['purefluid',['PureFluid',['../classCantera_1_1PureFluid.html',1,'Cantera']]],
   ['purefluidphase',['PureFluidPhase',['../classCantera_1_1PureFluidPhase.html',1,'Cantera']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['edge',['Edge',['../classCantera_1_1Edge.html',1,'Cantera']]],
   ['edgekinetics',['EdgeKinetics',['../classCantera_1_1EdgeKinetics.html',1,'Cantera']]],
   ['edgephase',['EdgePhase',['../classCantera_1_1EdgePhase.html',1,'Cantera']]],
   ['electrochemicalreaction',['ElectrochemicalReaction',['../classCantera_1_1ElectrochemicalReaction.html',1,'Cantera']]],

@@ -94,7 +94,7 @@
   <div class="section" id="catcomb-m">
 <span id="matlab-example-catcomb-m"></span><h1>catcomb.m<a class="headerlink" href="#catcomb-m" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="c">% CATCOMB  -- Catalytic combustion on platinum.</span>
-<span class="c">% </span>
+<span class="c">%</span>
 <span class="c">% This script solves a catalytic combustion problem. A stagnation flow</span>
 <span class="c">% is set up, with a gas inlet 10 cm from a platinum surface at 900</span>
 <span class="c">% K. The lean, premixed methane/air mixture enters at ~ 6 cm/s (0.06</span>
@@ -122,15 +122,13 @@
 <span class="n">tinlet</span>     <span class="p">=</span>   <span class="mf">300.0</span><span class="p">;</span>               <span class="c">% inlet temperature</span>
 <span class="n">tsurf</span>      <span class="p">=</span>   <span class="mf">900.0</span><span class="p">;</span>               <span class="c">% surface temperature</span>
 <span class="n">mdot</span>       <span class="p">=</span>   <span class="mf">0.06</span><span class="p">;</span>                <span class="c">% kg/m^2/s</span>
-
 <span class="n">transport</span>  <span class="p">=</span>  <span class="s">&#39;Mix&#39;</span><span class="p">;</span>                <span class="c">% transport model</span>
-
 
 <span class="c">% We will solve first for a hydrogen/air case to</span>
 <span class="c">% use as the initial estimate for the methane/air case</span>
 
 <span class="c">% composition of the inlet premixed gas for the hydrogen/air case</span>
-<span class="n">comp1</span>       <span class="p">=</span>  <span class="s">&#39;H2:0.05, O2:0.21, N2:0.78, AR:0.01&#39;</span><span class="p">;</span> 
+<span class="n">comp1</span>       <span class="p">=</span>  <span class="s">&#39;H2:0.05, O2:0.21, N2:0.78, AR:0.01&#39;</span><span class="p">;</span>
 
 <span class="c">% composition of the inlet premixed gas for the methane/air case</span>
 <span class="n">comp2</span>       <span class="p">=</span>  <span class="s">&#39;CH4:0.095, O2:0.21, N2:0.78, AR:0.01&#39;</span><span class="p">;</span>
@@ -138,22 +136,18 @@
 <span class="c">% the initial grid, in meters. The inlet/surface separation is 10 cm.</span>
 <span class="n">initial_grid</span> <span class="p">=</span> <span class="p">[</span><span class="mf">0.0</span> <span class="mf">0.02</span> <span class="mf">0.04</span> <span class="mf">0.06</span> <span class="mf">0.08</span> <span class="mf">0.1</span><span class="p">];</span>  <span class="c">% m</span>
 
-
 <span class="c">% numerical parameters</span>
 <span class="n">tol_ss</span>    <span class="p">=</span> <span class="p">[</span><span class="mf">1.0e-8</span> <span class="mf">1.0e-14</span><span class="p">];</span>       <span class="c">% [rtol atol] for steady-state problem</span>
 <span class="n">tol_ts</span>    <span class="p">=</span> <span class="p">[</span><span class="mf">1.0e-4</span> <span class="mf">1.0e-9</span><span class="p">];</span>       <span class="c">% [rtol atol] for time stepping</span>
 
 <span class="n">loglevel</span>  <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="c">% amount of diagnostic output</span>
                                     <span class="c">% (0 to 5)</span>
-				    
+
 <span class="n">refine_grid</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                    <span class="c">% 1 to enable refinement, 0 to</span>
                                     <span class="c">% disable</span>
-                                     
-				    
-<span class="c">%%%%%%%%%%%%%%%  end of parameter list  %%%%%%%%%%%%%%%%%%%%%%				    </span>
-				    
 
-				   
+<span class="c">%%%%%%%%%%%%%%%  end of parameter list  %%%%%%%%%%%%%%%%%%%%%%</span>
+
 <span class="c">%%%%%%%%%%%%%%%% create the gas object %%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
 <span class="c">% This object will be used to evaluate all thermodynamic, kinetic,</span>
@@ -161,10 +155,9 @@
 <span class="c">%</span>
 <span class="c">% The gas phase will be taken from the definition of phase &#39;gas&#39; in</span>
 <span class="c">% input file &#39;ptcombust.cti,&#39; which is a stripped-down version of</span>
-<span class="c">% GRI-Mech 3.0. </span>
+<span class="c">% GRI-Mech 3.0.</span>
 <span class="n">gas</span> <span class="p">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s">&#39;ptcombust.cti&#39;</span><span class="p">,</span><span class="s">&#39;gas&#39;</span><span class="p">);</span>
 <span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="n">tinlet</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;X&#39;</span><span class="p">,</span><span class="n">comp1</span><span class="p">);</span>
-
 
 <span class="c">%%%%%%%%%%%%%%%% create the interface object %%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
@@ -172,24 +165,21 @@
 <span class="c">% rates. It will be created from the interface definition &#39;Pt_surf&#39;</span>
 <span class="c">% in input file &#39;ptcombust.cti,&#39; which implements the reaction</span>
 <span class="c">% mechanism of Deutschmann et al., 1995 for catalytic combustion on</span>
-<span class="c">% platinum. </span>
+<span class="c">% platinum.</span>
 <span class="c">%</span>
 <span class="n">surf_phase</span> <span class="p">=</span> <span class="n">importInterface</span><span class="p">(</span><span class="s">&#39;ptcombust.cti&#39;</span><span class="p">,</span><span class="s">&#39;Pt_surf&#39;</span><span class="p">,</span><span class="n">gas</span><span class="p">);</span>
 <span class="n">setTemperature</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> <span class="n">tsurf</span><span class="p">);</span>
 
 <span class="c">% integrate the coverage equations in time for 1 s, holding the gas</span>
 <span class="c">% composition fixed to generate a good starting estimate for the</span>
-<span class="c">% coverages. </span>
+<span class="c">% coverages.</span>
 <span class="n">advanceCoverages</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
-
 
 <span class="c">% The two objects we just created are independent of the problem</span>
 <span class="c">% type -- they are useful in zero-D simulations, 1-D simulations,</span>
 <span class="c">% etc. Now we turn to creating the objects that are specifically</span>
 <span class="c">% for 1-D simulations. These will be &#39;stacked&#39; together to create</span>
 <span class="c">% the complete simulation.</span>
-
-
 
 <span class="c">%%%%%%%%%%%%%%%% create the flow object %%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
@@ -202,8 +192,6 @@
 <span class="c">% set some parameters for the flow</span>
 <span class="n">set</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s">&#39;grid&#39;</span><span class="p">,</span> <span class="n">initial_grid</span><span class="p">,</span> <span class="s">&#39;tol&#39;</span><span class="p">,</span> <span class="n">tol_ss</span><span class="p">,</span> <span class="s">&#39;tol-time&#39;</span><span class="p">,</span> <span class="n">tol_ts</span><span class="p">);</span>
 
-
-
 <span class="c">%%%%%%%%%%%%%%% create the inlet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
 <span class="c">%  The temperature, mass flux, and composition (relative molar) may be</span>
@@ -215,10 +203,8 @@
 <span class="c">% set the inlet parameters. Start with comp1 (hydrogen/air)</span>
 <span class="n">set</span><span class="p">(</span><span class="n">inlt</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="n">tinlet</span><span class="p">,</span> <span class="s">&#39;MassFlux&#39;</span><span class="p">,</span> <span class="n">mdot</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="n">comp1</span><span class="p">);</span>
 
-
-
 <span class="c">%%%%%%%%%%%%%% create the surface %%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% </span>
+<span class="c">%</span>
 <span class="c">% This object provides the surface boundary conditions for the flow</span>
 <span class="c">% equations. By supplying object surface_phase as an argument, the</span>
 <span class="c">% coverage equations for its surface species will be added to the</span>
@@ -227,7 +213,6 @@
 <span class="c">%</span>
 <span class="n">surf</span> <span class="p">=</span> <span class="n">Surface</span><span class="p">(</span><span class="s">&#39;surface&#39;</span><span class="p">,</span> <span class="n">surf_phase</span><span class="p">);</span>
 <span class="n">setTemperature</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span><span class="n">tsurf</span><span class="p">);</span>
-
 
 <span class="c">%%%%%%%%%%%%% create the stack  %%%%%%%%%%%%</span>
 <span class="c">%</span>
@@ -238,9 +223,9 @@
 
 <span class="c">% set the initial profiles.</span>
 <span class="n">setProfile</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">},</span> <span class="p">[</span><span class="mf">0.0</span>            <span class="mf">1.0</span>       <span class="c">% z/zmax</span>
-	 	                       <span class="mf">0.06</span>           <span class="mf">0.0</span>       <span class="c">% u</span>
-  		                       <span class="mf">0.0</span>            <span class="mf">0.0</span>       <span class="c">% V</span>
-		                       <span class="n">tinlet</span>         <span class="n">tsurf</span><span class="p">]);</span>  <span class="c">% T</span>
+                                       <span class="mf">0.06</span>           <span class="mf">0.0</span>       <span class="c">% u</span>
+                                       <span class="mf">0.0</span>            <span class="mf">0.0</span>       <span class="c">% V</span>
+                                       <span class="n">tinlet</span>         <span class="n">tsurf</span><span class="p">]);</span>  <span class="c">% T</span>
 <span class="n">names</span> <span class="p">=</span> <span class="n">speciesNames</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
 <span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
   <span class="n">y</span> <span class="p">=</span> <span class="n">massFraction</span><span class="p">(</span><span class="n">inlt</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
@@ -250,7 +235,6 @@
 
 <span class="c">%setTimeStep(fl, 1.0e-5, [1, 3, 6, 12]);</span>
 <span class="c">%setMaxJacAge(fl, 4, 5);</span>
-
 
 <span class="c">%%%%%%%%%%%%% solution %%%%%%%%%%%%%%%%%%%%</span>
 
@@ -272,7 +256,7 @@
 <span class="k">for</span> <span class="n">iter</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span>
   <span class="n">mult</span> <span class="p">=</span> <span class="mf">10.0</span>^<span class="p">(</span><span class="n">iter</span> <span class="o">-</span> <span class="mi">6</span><span class="p">);</span>
   <span class="n">setMultiplier</span><span class="p">(</span><span class="n">surf_phase</span><span class="p">,</span> <span class="n">mult</span><span class="p">);</span>
-  <span class="n">setMultiplier</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">mult</span><span class="p">);</span>  
+  <span class="n">setMultiplier</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">mult</span><span class="p">);</span>
   <span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
 <span class="k">end</span>
 
@@ -284,21 +268,19 @@
 <span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
 
 <span class="c">% solve the problem for the final time</span>
-<span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span> 
+<span class="n">solve</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
 
 <span class="c">% show the solution</span>
 <span class="n">sim1D</span>
 
 <span class="c">% save the solution</span>
-<span class="n">saveSoln</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span><span class="s">&#39;catcomb.xml&#39;</span><span class="p">,</span><span class="s">&#39;energy&#39;</span><span class="p">,[</span><span class="s">&#39;solution with energy&#39;</span> <span class="c">...</span>
-		    <span class="s">&#39; equation&#39;</span><span class="p">]);</span>
+<span class="n">saveSoln</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span><span class="s">&#39;catcomb.xml&#39;</span><span class="p">,</span><span class="s">&#39;energy&#39;</span><span class="p">,[</span><span class="s">&#39;solution with energy equation&#39;</span><span class="p">]);</span>
 
 <span class="c">%%%%%%%%%% show statistics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="n">writeStats</span><span class="p">(</span><span class="n">sim1D</span><span class="p">);</span>
 <span class="n">elapsed</span> <span class="p">=</span> <span class="n">cputime</span> <span class="o">-</span> <span class="n">t0</span><span class="p">;</span>
 <span class="n">e</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;Elapsed CPU time: %10.4g&#39;</span><span class="p">,</span><span class="n">elapsed</span><span class="p">);</span>
 <span class="nb">disp</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-
 
 <span class="c">%%%%%%%%%% make plots %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 
@@ -317,19 +299,19 @@
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;CH4 Mass Fraction&#39;</span><span class="p">);</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;O2 Mass Fraction&#39;</span><span class="p">);</span>  
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;O2 Mass Fraction&#39;</span><span class="p">);</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;CO&#39;</span><span class="p">);</span>
 <span class="n">title</span><span class="p">(</span><span class="s">&#39;CO Mass Fraction&#39;</span><span class="p">);</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;CO2&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;CO2 Mass Fraction&#39;</span><span class="p">);</span>  
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;CO2 Mass Fraction&#39;</span><span class="p">);</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;H2O&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;H2O Mass Fraction&#39;</span><span class="p">);</span>  
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;H2O Mass Fraction&#39;</span><span class="p">);</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span>
 <span class="n">plotSolution</span><span class="p">(</span><span class="n">sim1D</span><span class="p">,</span> <span class="s">&#39;flow&#39;</span><span class="p">,</span> <span class="s">&#39;H2&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s">&#39;H2 Mass Fraction&#39;</span><span class="p">);</span>  
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;H2 Mass Fraction&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

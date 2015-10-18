@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="dynheader">
 Collaboration diagram for solveSP:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1solveSP__coll__graph.svg" width="408" height="374"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classCantera_1_1solveSP__coll__graph.svg" width="378" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -321,7 +321,7 @@ Private Attributes</h2></td></tr>
 <p>This routine is typically used within a residual calculation in a large code. It's typically invoked millions of times for large calculations, and it must work every time. Therefore, requirements demand that it be robust but also efficient.</p>
 <p>The solution methodology is largely determined by the <code>ifunc</code> parameter, that is input to the solution object. This parameter may have one of the values defined in <a class="el" href="group__solvesp__methods.html">Surface Problem Solver Methods</a>.</p>
 <h3>Pseudo time stepping algorithm:</h3>
-<p>The time step is determined from sdot[], so so that the time step doesn't ever change the value of a variable by more than 100%.</p>
+<p>The time step is determined from sdot[], so that the time step doesn't ever change the value of a variable by more than 100%.</p>
 <p>This algorithm does use a damped Newton's method to relax the equations. Damping is based on a "delta damping" technique. The solution unknowns are not allowed to vary too much between iterations.</p>
 <p><code>EXTRA_ACCURACY</code>: A constant that is the ratio of the required update norm in this Newton iteration compared to that in the nonlinear solver. A value of 0.1 is used so surface species are safely overconverged.</p>
 <p>Functions called:</p>
@@ -359,15 +359,15 @@ Private Attributes</h2></td></tr>
 <p>Constructor for the object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">surfChemPtr</td><td>Pointer to the <a class="el" href="classCantera_1_1ImplicitSurfChem.html" title="Advances the surface coverages of the associated set of SurfacePhase objects in time. ">ImplicitSurfChem</a> object that defines the surface problem to be solved.</td></tr>
+    <tr><td class="paramname">surfChemPtr</td><td>Pointer to the <a class="el" href="classCantera_1_1ImplicitSurfChem.html" title="Advances the surface coverages of the associated set of SurfacePhase objects in time. ">ImplicitSurfChem</a> object that defines the surface problem to be solved. </td></tr>
     <tr><td class="paramname">bulkFunc</td><td>Integer representing how the bulk phases should be handled. See <a class="el" href="group__solvesp__bulkFunc.html">Surface Problem Bulk Phase Mode</a>. Currently, only the default value of BULK_ETCH is supported. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00032">32</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00030">30</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="Kinetics_8h_source.html#l00321">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00482">solveSP::m_CSolnSave</a>, <a class="el" href="solveSP_8h_source.html#l00485">solveSP::m_CSolnSP</a>, <a class="el" href="solveSP_8h_source.html#l00488">solveSP::m_CSolnSPInit</a>, <a class="el" href="solveSP_8h_source.html#l00491">solveSP::m_CSolnSPOld</a>, <a class="el" href="solveSP_8h_source.html#l00389">solveSP::m_eqnIndexStartSolnPhase</a>, <a class="el" href="solveSP_8h_source.html#l00363">solveSP::m_indexKinObjSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00520">solveSP::m_Jac</a>, <a class="el" href="solveSP_8h_source.html#l00448">solveSP::m_kinObjIndex</a>, <a class="el" href="solveSP_8h_source.html#l00398">solveSP::m_kinObjPhaseIDSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00441">solveSP::m_kinSpecIndex</a>, <a class="el" href="solveSP_8h_source.html#l00470">solveSP::m_maxTotSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00473">solveSP::m_netProductionRatesSave</a>, <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00411">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00476">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00479">solveSP::m_numEqn2</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00428">solveSP::m_numTotBulkSpeciesSS</a>, <a class="el" href="solveSP_8h_source.html#l00355">solveSP::m_numTotSurfSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_objects</a>, <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00513">solveSP::m_resid</a>, <a class="el" href="solveSP_8h_source.html#l00457">solveSP::m_spSurfLarge</a>, <a class="el" href="solveSP_8h_source.html#l00494">solveSP::m_wtResid</a>, <a class="el" href="solveSP_8h_source.html#l00500">solveSP::m_wtSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00516">solveSP::m_XMolKinSpecies</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="Kinetics_8h_source.html#l00258">Kinetics::surfacePhaseIndex()</a>, and <a class="el" href="Kinetics_8h_source.html#l00283">Kinetics::thermo()</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="Kinetics_8h_source.html#l00318">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00472">solveSP::m_CSolnSave</a>, <a class="el" href="solveSP_8h_source.html#l00475">solveSP::m_CSolnSP</a>, <a class="el" href="solveSP_8h_source.html#l00478">solveSP::m_CSolnSPInit</a>, <a class="el" href="solveSP_8h_source.html#l00481">solveSP::m_CSolnSPOld</a>, <a class="el" href="solveSP_8h_source.html#l00383">solveSP::m_eqnIndexStartSolnPhase</a>, <a class="el" href="solveSP_8h_source.html#l00357">solveSP::m_indexKinObjSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00510">solveSP::m_Jac</a>, <a class="el" href="solveSP_8h_source.html#l00438">solveSP::m_kinObjIndex</a>, <a class="el" href="solveSP_8h_source.html#l00392">solveSP::m_kinObjPhaseIDSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00431">solveSP::m_kinSpecIndex</a>, <a class="el" href="solveSP_8h_source.html#l00460">solveSP::m_maxTotSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00463">solveSP::m_netProductionRatesSave</a>, <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00405">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00466">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00469">solveSP::m_numEqn2</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00418">solveSP::m_numTotBulkSpeciesSS</a>, <a class="el" href="solveSP_8h_source.html#l00349">solveSP::m_numTotSurfSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00322">solveSP::m_objects</a>, <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00503">solveSP::m_resid</a>, <a class="el" href="solveSP_8h_source.html#l00447">solveSP::m_spSurfLarge</a>, <a class="el" href="solveSP_8h_source.html#l00484">solveSP::m_wtResid</a>, <a class="el" href="solveSP_8h_source.html#l00490">solveSP::m_wtSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00506">solveSP::m_XMolKinSpecies</a>, <a class="el" href="ct__defs_8h_source.html#l00164">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00264">Phase::nSpecies()</a>, <a class="el" href="Kinetics_8h_source.html#l00255">Kinetics::surfacePhaseIndex()</a>, and <a class="el" href="Kinetics_8h_source.html#l00280">Kinetics::thermo()</a>.</p>
 
 </div>
 </div>
@@ -394,7 +394,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor. Deletes the integrator. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00157">157</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00156">156</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
 </div>
 </div>
@@ -504,22 +504,20 @@ Private Attributes</h2></td></tr>
 <p>Uses Newton's method to get the surface fractions of the surface and bulk species by requiring that the surface species production rate = 0 and that the bulk fractions are proportional to their production rates.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ifunc</td><td>Determines the type of solution algorithm to be used. See <a class="el" href="group__solvesp__methods.html">Surface Problem Solver Methods</a> for possible values.</td></tr>
-    <tr><td class="paramname">time_scale</td><td>Time over which to integrate the surface equations, where applicable</td></tr>
-    <tr><td class="paramname">TKelvin</td><td>Temperature (kelvin)</td></tr>
-    <tr><td class="paramname">PGas</td><td>Pressure (pascals)</td></tr>
+    <tr><td class="paramname">ifunc</td><td>Determines the type of solution algorithm to be used. See <a class="el" href="group__solvesp__methods.html">Surface Problem Solver Methods</a> for possible values. </td></tr>
+    <tr><td class="paramname">time_scale</td><td>Time over which to integrate the surface equations, where applicable </td></tr>
+    <tr><td class="paramname">TKelvin</td><td>Temperature (kelvin) </td></tr>
+    <tr><td class="paramname">PGas</td><td>Pressure (pascals) </td></tr>
     <tr><td class="paramname">reltol</td><td>Relative tolerance to use </td></tr>
-    <tr><td class="paramname">abstol</td><td>absolute tolerance.</td></tr>
+    <tr><td class="paramname">abstol</td><td>absolute tolerance. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 1 if the surface problem is successfully solved. Returns -1 if the surface problem wasn't solved successfully. Note the actual converged solution is returned as part of the internal state of the <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> objects. </dd></dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00131">131</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00125">125</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8cpp_source.html#l00732">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="solveSP_8cpp_source.html#l00428">solveSP::evalSurfLarge()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00126">SquareMatrix::factor()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="Phase_8cpp_source.html#l00607">Phase::getConcentrations()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="solveSP_8h_source.html#l00485">solveSP::m_CSolnSP</a>, <a class="el" href="solveSP_8h_source.html#l00488">solveSP::m_CSolnSPInit</a>, <a class="el" href="solveSP_8h_source.html#l00491">solveSP::m_CSolnSPOld</a>, <a class="el" href="solveSP_8h_source.html#l00520">solveSP::m_Jac</a>, <a class="el" href="solveSP_8h_source.html#l00441">solveSP::m_kinSpecIndex</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00473">solveSP::m_netProductionRatesSave</a>, <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00476">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00513">solveSP::m_resid</a>, <a class="el" href="solveSP_8h_source.html#l00494">solveSP::m_wtResid</a>, <a class="el" href="solveSP_8h_source.html#l00500">solveSP::m_wtSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00516">solveSP::m_XMolKinSpecies</a>, <a class="el" href="solveSP_8cpp_source.html#l00791">solveSP::print_header()</a>, <a class="el" href="solveSP_8cpp_source.html#l00840">solveSP::printIteration()</a>, <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8h_source.html#l00024">SFLUX_INITIALIZE</a>, <a class="el" href="solveSP_8h_source.html#l00037">SFLUX_JACOBIAN</a>, <a class="el" href="solveSP_8h_source.html#l00044">SFLUX_TRANSIENT</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00057">SquareMatrix::solve()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00400">solveSP::updateState()</a>.</p>
-
-<p>Referenced by <a class="el" href="ImplicitSurfChem_8cpp_source.html#l00174">ImplicitSurfChem::solvePseudoSteadyStateProblem()</a>.</p>
+<p>References <a class="el" href="solveSP_8cpp_source.html#l00711">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00414">solveSP::evalSurfLarge()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00116">SquareMatrix::factor()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="Phase_8cpp_source.html#l00602">Phase::getConcentrations()</a>, <a class="el" href="solveSP_8h_source.html#l00475">solveSP::m_CSolnSP</a>, <a class="el" href="solveSP_8h_source.html#l00478">solveSP::m_CSolnSPInit</a>, <a class="el" href="solveSP_8h_source.html#l00481">solveSP::m_CSolnSPOld</a>, <a class="el" href="solveSP_8h_source.html#l00510">solveSP::m_Jac</a>, <a class="el" href="solveSP_8h_source.html#l00431">solveSP::m_kinSpecIndex</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00463">solveSP::m_netProductionRatesSave</a>, <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00466">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00503">solveSP::m_resid</a>, <a class="el" href="solveSP_8h_source.html#l00484">solveSP::m_wtResid</a>, <a class="el" href="solveSP_8h_source.html#l00490">solveSP::m_wtSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00506">solveSP::m_XMolKinSpecies</a>, <a class="el" href="solveSP_8cpp_source.html#l00768">solveSP::print_header()</a>, <a class="el" href="solveSP_8cpp_source.html#l00817">solveSP::printIteration()</a>, <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8h_source.html#l00024">SFLUX_INITIALIZE</a>, <a class="el" href="solveSP_8h_source.html#l00037">SFLUX_JACOBIAN</a>, <a class="el" href="solveSP_8h_source.html#l00044">SFLUX_TRANSIENT</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00056">SquareMatrix::solve()</a>, <a class="el" href="solveSP_8cpp_source.html#l00386">solveSP::updateState()</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
 </div>
 </div>
@@ -581,11 +579,11 @@ Private Attributes</h2></td></tr>
 
 <p>Printing routine that optionally gets called at the start of every invocation. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00791">791</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00768">768</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="solveSP_8h_source.html#l00059">BULK_ETCH</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="solveSP_8h_source.html#l00340">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00024">SFLUX_INITIALIZE</a>, <a class="el" href="solveSP_8h_source.html#l00037">SFLUX_JACOBIAN</a>, <a class="el" href="solveSP_8h_source.html#l00031">SFLUX_RESIDUAL</a>, and <a class="el" href="solveSP_8h_source.html#l00044">SFLUX_TRANSIENT</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="solveSP_8h_source.html#l00059">BULK_ETCH</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00024">SFLUX_INITIALIZE</a>, <a class="el" href="solveSP_8h_source.html#l00037">SFLUX_JACOBIAN</a>, <a class="el" href="solveSP_8h_source.html#l00031">SFLUX_RESIDUAL</a>, <a class="el" href="solveSP_8h_source.html#l00044">SFLUX_TRANSIENT</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -677,11 +675,11 @@ Private Attributes</h2></td></tr>
 
 <p>Printing routine that gets called after every iteration. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00840">840</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00817">817</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="Kinetics_8cpp_source.html#l00356">Kinetics::kineticsSpeciesName()</a>, <a class="el" href="solveSP_8h_source.html#l00448">solveSP::m_kinObjIndex</a>, <a class="el" href="solveSP_8h_source.html#l00441">solveSP::m_kinSpecIndex</a>, and <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_objects</a>.</p>
+<p>References <a class="el" href="Kinetics_8cpp_source.html#l00332">Kinetics::kineticsSpeciesName()</a>, <a class="el" href="solveSP_8h_source.html#l00438">solveSP::m_kinObjIndex</a>, <a class="el" href="solveSP_8h_source.html#l00431">solveSP::m_kinSpecIndex</a>, <a class="el" href="solveSP_8h_source.html#l00322">solveSP::m_objects</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -758,11 +756,11 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the 1. / delta T to be used on the next step </dd></dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00732">732</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00711">711</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Kinetics_8cpp_source.html#l00498">Kinetics::getNetProductionRates()</a>, <a class="el" href="Kinetics_8h_source.html#l00321">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00476">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_objects</a>, <a class="el" href="Phase_8cpp_source.html#l00657">Phase::molarDensity()</a>, <a class="el" href="Kinetics_8h_source.html#l00258">Kinetics::surfacePhaseIndex()</a>, <a class="el" href="Kinetics_8h_source.html#l00283">Kinetics::thermo()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00409">solveSP::updateMFSolnSP()</a>.</p>
+<p>References <a class="el" href="Kinetics_8cpp_source.html#l00476">Kinetics::getNetProductionRates()</a>, <a class="el" href="Kinetics_8h_source.html#l00318">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00466">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00322">solveSP::m_objects</a>, <a class="el" href="Phase_8cpp_source.html#l00656">Phase::molarDensity()</a>, <a class="el" href="Kinetics_8h_source.html#l00255">Kinetics::surfacePhaseIndex()</a>, <a class="el" href="Kinetics_8h_source.html#l00280">Kinetics::thermo()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00395">solveSP::updateMFSolnSP()</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -835,11 +833,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00691">691</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00670">670</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="solveSP_8h_source.html#l00340">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00431">solveSP::m_bulkPhasePtrs</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00411">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00417">solveSP::m_numBulkSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00421">solveSP::m_bulkPhasePtrs</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00405">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00411">solveSP::m_numBulkSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -867,11 +865,11 @@ Private Attributes</h2></td></tr>
 
 <p>Update the surface states of the surface phases. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00400">400</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00386">386</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -905,11 +903,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00409">409</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00395">395</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00389">solveSP::m_eqnIndexStartSolnPhase</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00383">solveSP::m_eqnIndexStartSolnPhase</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00732">solveSP::calc_t()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00711">solveSP::calc_t()</a>.</p>
 
 </div>
 </div>
@@ -954,9 +952,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00417">417</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00403">403</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMoleFractions()</a>, <a class="el" href="Kinetics_8h_source.html#l00321">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_objects</a>, <a class="el" href="Kinetics_8h_source.html#l00223">Kinetics::nPhases()</a>, and <a class="el" href="Kinetics_8h_source.html#l00283">Kinetics::thermo()</a>.</p>
+<p>References <a class="el" href="Phase_8cpp_source.html#l00549">Phase::getMoleFractions()</a>, <a class="el" href="Kinetics_8h_source.html#l00318">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00322">solveSP::m_objects</a>, <a class="el" href="Kinetics_8h_source.html#l00220">Kinetics::nPhases()</a>, and <a class="el" href="Kinetics_8h_source.html#l00280">Kinetics::thermo()</a>.</p>
 
 </div>
 </div>
@@ -990,11 +988,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00428">428</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00414">414</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00457">solveSP::m_spSurfLarge</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00447">solveSP::m_spSurfLarge</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1060,11 +1058,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00445">445</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00431">431</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Kinetics_8cpp_source.html#l00498">Kinetics::getNetProductionRates()</a>, <a class="el" href="Kinetics_8h_source.html#l00321">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00340">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00431">solveSP::m_bulkPhasePtrs</a>, <a class="el" href="solveSP_8h_source.html#l00363">solveSP::m_indexKinObjSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00473">solveSP::m_netProductionRatesSave</a>, <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00411">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00476">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00355">solveSP::m_numTotSurfSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_objects</a>, <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00457">solveSP::m_spSurfLarge</a>, <a class="el" href="Kinetics_8h_source.html#l00258">Kinetics::surfacePhaseIndex()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00400">solveSP::updateState()</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="Kinetics_8cpp_source.html#l00476">Kinetics::getNetProductionRates()</a>, <a class="el" href="Kinetics_8h_source.html#l00318">Kinetics::kineticsSpeciesIndex()</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00421">solveSP::m_bulkPhasePtrs</a>, <a class="el" href="solveSP_8h_source.html#l00357">solveSP::m_indexKinObjSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00463">solveSP::m_netProductionRatesSave</a>, <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00405">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00466">solveSP::m_numEqn1</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, <a class="el" href="solveSP_8h_source.html#l00349">solveSP::m_numTotSurfSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00322">solveSP::m_objects</a>, <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00447">solveSP::m_spSurfLarge</a>, <a class="el" href="Kinetics_8h_source.html#l00255">Kinetics::surfacePhaseIndex()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00386">solveSP::updateState()</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1137,11 +1135,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00557">557</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8cpp_source.html#l00542">542</a> of file <a class="el" href="solveSP_8cpp_source.html">solveSP.cpp</a>.</p>
 
-<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8h_source.html#l00340">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00431">solveSP::m_bulkPhasePtrs</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00370">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00411">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00417">solveSP::m_numBulkSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00479">solveSP::m_numEqn2</a>, <a class="el" href="solveSP_8h_source.html#l00347">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00377">solveSP::m_ptrsSurfPhase</a>.</p>
+<p>References <a class="el" href="solveSP_8h_source.html#l00054">BULK_DEPOSITION</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8h_source.html#l00334">solveSP::m_bulkFunc</a>, <a class="el" href="solveSP_8h_source.html#l00421">solveSP::m_bulkPhasePtrs</a>, <a class="el" href="solveSP_8h_source.html#l00328">solveSP::m_neq</a>, <a class="el" href="solveSP_8h_source.html#l00364">solveSP::m_nSpeciesSurfPhase</a>, <a class="el" href="solveSP_8h_source.html#l00405">solveSP::m_numBulkPhasesSS</a>, <a class="el" href="solveSP_8h_source.html#l00411">solveSP::m_numBulkSpecies</a>, <a class="el" href="solveSP_8h_source.html#l00469">solveSP::m_numEqn2</a>, <a class="el" href="solveSP_8h_source.html#l00341">solveSP::m_numSurfPhases</a>, and <a class="el" href="solveSP_8h_source.html#l00371">solveSP::m_ptrsSurfPhase</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1165,7 @@ Private Attributes</h2></td></tr>
 <p>Pointer to the manager of the implicit surface chemistry problem. </p>
 <p>This object actually calls the current object. Thus, we are providing a loop-back functionality here. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00322">322</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00316">316</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
 </div>
 </div>
@@ -1192,9 +1190,9 @@ Private Attributes</h2></td></tr>
 <p>Vector of interface kinetics objects. </p>
 <p>Each of these is associated with one and only one surface phase. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00328">328</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00322">322</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00732">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00840">solveSP::printIteration()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00417">solveSP::updateMFKinSpecies()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00711">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00817">solveSP::printIteration()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00403">solveSP::updateMFKinSpecies()</a>.</p>
 
 </div>
 </div>
@@ -1219,9 +1217,9 @@ Private Attributes</h2></td></tr>
 <p>Total number of equations to solve in the implicit problem. </p>
 <p>Note, this can be zero, and frequently is </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00334">334</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00328">328</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1246,9 +1244,9 @@ Private Attributes</h2></td></tr>
 <p>This variable determines how the bulk phases are to be handled. </p>
 <p>Possible values are given in <a class="el" href="group__solvesp__bulkFunc.html">Surface Problem Bulk Phase Mode</a>. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00340">340</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00334">334</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00791">solveSP::print_header()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00768">solveSP::print_header()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>.</p>
 
 </div>
 </div>
@@ -1273,9 +1271,9 @@ Private Attributes</h2></td></tr>
 <p>Number of surface phases in the surface problem. </p>
 <p>This number is equal to the number of <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> objects in the problem. (until further noted) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00347">347</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00341">341</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00732">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00428">solveSP::evalSurfLarge()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>, <a class="el" href="solveSP_8cpp_source.html#l00409">solveSP::updateMFSolnSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00400">solveSP::updateState()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00711">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00414">solveSP::evalSurfLarge()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>, <a class="el" href="solveSP_8cpp_source.html#l00395">solveSP::updateMFSolnSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00386">solveSP::updateState()</a>.</p>
 
 </div>
 </div>
@@ -1300,9 +1298,9 @@ Private Attributes</h2></td></tr>
 <p>Total number of surface species in all surface phases. </p>
 <p>This is also the number of equations to solve for m_mode=0 system It's equal to the sum of the number of species in each of the m_numSurfPhases. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00355">355</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00349">349</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1327,9 +1325,9 @@ Private Attributes</h2></td></tr>
 <p>Mapping between the surface phases and the <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> objects. </p>
 <p>Currently this is defined to be a 1-1 mapping (and probably assumed in some places) m_surfKinObjID[i] = i </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00363">363</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00357">357</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1354,9 +1352,9 @@ Private Attributes</h2></td></tr>
 <p>Vector of length number of surface phases containing the number of surface species in each phase. </p>
 <p>Length is equal to the number of surface phases, m_numSurfPhases </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00370">370</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00364">364</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00732">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00428">solveSP::evalSurfLarge()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00400">solveSP::updateState()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00711">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00414">solveSP::evalSurfLarge()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00386">solveSP::updateState()</a>.</p>
 
 </div>
 </div>
@@ -1381,9 +1379,9 @@ Private Attributes</h2></td></tr>
 <p>Vector of surface phase pointers. </p>
 <p>This is created during the constructor Length is equal to the number of surface phases, m_numSurfPhases </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00377">377</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00371">371</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>, <a class="el" href="solveSP_8cpp_source.html#l00409">solveSP::updateMFSolnSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00400">solveSP::updateState()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>, <a class="el" href="solveSP_8cpp_source.html#l00395">solveSP::updateMFSolnSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00386">solveSP::updateState()</a>.</p>
 
 </div>
 </div>
@@ -1410,9 +1408,9 @@ Private Attributes</h2></td></tr>
 <p>isp is the phase id in the list of phases solved by the surface problem.</p>
 <p>i_eqn is the equation number of the first unknown in the solution vector corresponding to isp'th phase. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00389">389</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00383">383</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00409">solveSP::updateMFSolnSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00395">solveSP::updateMFSolnSP()</a>.</p>
 
 </div>
 </div>
@@ -1438,9 +1436,9 @@ Private Attributes</h2></td></tr>
 <p>For each surface phase, this lists the PhaseId of the surface phase in the corresponding <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> object</p>
 <p>Length is equal to m_numSurfPhases </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00398">398</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00392">392</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1466,9 +1464,9 @@ Private Attributes</h2></td></tr>
 <p>This is equal to or less than the total number of volumetric phases in all of the <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> objects. We usually do not include bulk phases. Bulk phases are only included in the calculation when their domain isn't included in the underlying continuum model conservation equation system.</p>
 <p>This is equal to 0, for the time being </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00411">411</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00405">405</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1493,9 +1491,9 @@ Private Attributes</h2></td></tr>
 <p>Vector of number of species in the m_numBulkPhases phases. </p>
 <p>Length is number of bulk phases </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00417">417</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00411">411</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>.</p>
 
 </div>
 </div>
@@ -1520,9 +1518,9 @@ Private Attributes</h2></td></tr>
 <p>Total number of species in all bulk phases. </p>
 <p>This is also the number of bulk equations to solve when bulk equation solving is turned on. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00428">428</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00418">418</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1546,9 +1544,9 @@ Private Attributes</h2></td></tr>
 
 <p>Vector of bulk phase pointers, length is equal to m_numBulkPhases. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00431">431</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00421">421</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00691">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00670">solveSP::calcWeights()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>.</p>
 
 </div>
 </div>
@@ -1574,9 +1572,9 @@ Private Attributes</h2></td></tr>
 <p>Length = m_neq.</p>
 <p>ksp = m_kinSpecIndex[ieq] ksp is the kinetic species index for the ieq'th equation. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00441">441</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00431">431</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00840">solveSP::printIteration()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00817">solveSP::printIteration()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1601,9 +1599,9 @@ Private Attributes</h2></td></tr>
 <p>Index between the equation index and the index of the <a class="el" href="classCantera_1_1InterfaceKinetics.html" title="A kinetics manager for heterogeneous reaction mechanisms. ">InterfaceKinetics</a> object. </p>
 <p>Length m_neq </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00448">448</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00438">438</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00840">solveSP::printIteration()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00817">solveSP::printIteration()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1628,9 +1626,9 @@ Private Attributes</h2></td></tr>
 <p>Vector containing the indices of the largest species in each surface phase. </p>
 <p><code>k = m_spSurfLarge[i]</code> where <code>k</code> is the local species index, i.e., it varies from 0 to (num species in phase - 1) and <code>i</code> is the surface phase index in the problem. Length is equal to <a class="el" href="classCantera_1_1solveSP.html#abef3802fe832886e7ccf82492d7d53c1" title="Number of surface phases in the surface problem. ">m_numSurfPhases</a>. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00457">457</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00447">447</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00428">solveSP::evalSurfLarge()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00414">solveSP::evalSurfLarge()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1654,7 +1652,7 @@ Private Attributes</h2></td></tr>
 
 <p>The absolute tolerance in real units. units are (kmol/m2) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00460">460</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00450">450</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
 </div>
 </div>
@@ -1678,7 +1676,7 @@ Private Attributes</h2></td></tr>
 
 <p>The relative error tolerance. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00463">463</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00453">453</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
 </div>
 </div>
@@ -1702,7 +1700,7 @@ Private Attributes</h2></td></tr>
 
 <p>maximum value of the time step. units = seconds </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00466">466</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00456">456</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
 </div>
 </div>
@@ -1726,9 +1724,9 @@ Private Attributes</h2></td></tr>
 
 <p>Maximum number of species in any single kinetics operator -&gt; also maxed wrt the total # of solution species. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00470">470</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00460">460</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1752,9 +1750,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length equal to max m_maxTotSpecies. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00473">473</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00463">463</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1778,9 +1776,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length equal to max m_maxTotSpecies. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00476">476</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00466">466</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00732">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00445">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00711">solveSP::calc_t()</a>, <a class="el" href="solveSP_8cpp_source.html#l00431">solveSP::fun_eval()</a>, <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1804,9 +1802,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length equal to max m_maxTotSpecies. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00479">479</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00469">469</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00557">solveSP::resjac_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00542">solveSP::resjac_eval()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1830,9 +1828,9 @@ Private Attributes</h2></td></tr>
 
 <p>Temporary vector with length equal to max m_maxTotSpecies. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00482">482</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00472">472</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>.</p>
 
 </div>
 </div>
@@ -1856,9 +1854,9 @@ Private Attributes</h2></td></tr>
 
 <p>Solution vector. length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00485">485</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00475">475</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1882,9 +1880,9 @@ Private Attributes</h2></td></tr>
 
 <p>Saved initial solution vector. length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00488">488</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00478">478</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1908,9 +1906,9 @@ Private Attributes</h2></td></tr>
 
 <p>Saved solution vector at the old time step. length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00491">491</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00481">481</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1934,9 +1932,9 @@ Private Attributes</h2></td></tr>
 
 <p>Weights for the residual norm calculation. length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00494">494</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00484">484</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1961,9 +1959,9 @@ Private Attributes</h2></td></tr>
 <p>Weights for the species concentrations norm calculation. </p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00500">500</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00490">490</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -1989,9 +1987,9 @@ Private Attributes</h2></td></tr>
 <p>The residual vector of length "dim" that, that has the value of "sdot" for surface species. The residuals for the bulk species are a function of the sdots for all species in the bulk phase. The last residual of each phase enforces {Sum(fractions) = 1}. After linear solve (dgetrf_ &amp; dgetrs_), resid holds the update vector.</p>
 <p>length MAX(1, m_neq) </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00513">513</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00503">503</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -2015,9 +2013,9 @@ Private Attributes</h2></td></tr>
 
 <p>Vector of mole fractions. length m_maxTotSpecies. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00516">516</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00506">506</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>
@@ -2042,9 +2040,9 @@ Private Attributes</h2></td></tr>
 <p>Jacobian. </p>
 <p>m_neq by m_neq computed Jacobian matrix for the local Newton's method. </p>
 
-<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00520">520</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
+<p>Definition at line <a class="el" href="solveSP_8h_source.html#l00510">510</a> of file <a class="el" href="solveSP_8h_source.html">solveSP.h</a>.</p>
 
-<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00032">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00131">solveSP::solveSurfProb()</a>.</p>
+<p>Referenced by <a class="el" href="solveSP_8cpp_source.html#l00030">solveSP::solveSP()</a>, and <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>.</p>
 
 </div>
 </div>

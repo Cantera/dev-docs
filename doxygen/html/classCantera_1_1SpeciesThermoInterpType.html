@@ -184,7 +184,7 @@ Protected Attributes</h2></td></tr>
 <p>One key feature is that the update routines use the same form as the update routines in the speciesThermo class. They update into a vector of cp_R, s_R, and H_R that spans all of the species in a phase. Therefore, this class must carry along a species index into that vector.</p>
 <p>These routine may be templated. A key requirement of the template is that there is a constructor with the following form:</p>
 <div class="fragment"><div class="line">SpeciesThermoInterpType(<span class="keywordtype">int</span> index, doublereal tlow, doublereal thigh,</div>
-<div class="line">                        doublereal pref,  <span class="keyword">const</span> doublereal* coeffs)</div>
+<div class="line">                        doublereal pref, <span class="keyword">const</span> doublereal* coeffs)</div>
 </div><!-- fragment --> 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00158">158</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -217,7 +217,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00298">SpeciesThermoInterpType::m_lowT</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00163">GeneralSpeciesThermo::minTemp()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00154">GeneralSpeciesThermo::minTemp()</a>.</p>
 
 </div>
 </div>
@@ -250,7 +250,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00300">SpeciesThermoInterpType::m_highT</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00174">GeneralSpeciesThermo::maxTemp()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00165">GeneralSpeciesThermo::maxTemp()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>.</p>
 
 </div>
 </div>
@@ -283,7 +283,7 @@ Protected Attributes</h2></td></tr>
 
 <p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00302">SpeciesThermoInterpType::m_Pref</a>.</p>
 
-<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00185">GeneralSpeciesThermo::refPressure()</a>.</p>
+<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, and <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00176">GeneralSpeciesThermo::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -342,7 +342,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#af4eaad774bdcf710d2f443406f19867a">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#ad2e9081083ae56939d1a0fca95e74068">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#ad2e9081083ae56939d1a0fca95e74068">Mu0Poly</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#af4eaad774bdcf710d2f443406f19867a">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#ad2e9081083ae56939d1a0fca95e74068">ShomatePoly</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#ad2e9081083ae56939d1a0fca95e74068">NasaPoly2</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#af4eaad774bdcf710d2f443406f19867a">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#ad2e9081083ae56939d1a0fca95e74068">NasaPoly1</a>, <a class="el" href="classCantera_1_1ConstCpPoly.html#ad2e9081083ae56939d1a0fca95e74068">ConstCpPoly</a>, and <a class="el" href="classCantera_1_1Adsorbate.html#ad2e9081083ae56939d1a0fca95e74068">Adsorbate</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00136">GeneralSpeciesThermo::reportType()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00131">GeneralSpeciesThermo::reportType()</a>.</p>
 
 </div>
 </div>
@@ -409,7 +409,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Given the temperature <em>T</em>, compute the terms of the temperature polynomial <em>T_poly</em>. </p>
 
-<p>Reimplemented in <a class="el" href="classCantera_1_1ShomatePoly2.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#acd011fbea1ef09eacb4dbc930e90a36d">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">ShomatePoly</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">NasaPoly2</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">NasaPoly1</a>, and <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#acd011fbea1ef09eacb4dbc930e90a36d">Nasa9PolyMultiTempRegion</a>.</p>
+<p>Reimplemented in <a class="el" href="classCantera_1_1ShomatePoly2.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#acd011fbea1ef09eacb4dbc930e90a36d">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">ShomatePoly</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">NasaPoly2</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#acd011fbea1ef09eacb4dbc930e90a36d">Nasa9PolyMultiTempRegion</a>, and <a class="el" href="classCantera_1_1NasaPoly1.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">NasaPoly1</a>.</p>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00201">201</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
@@ -534,9 +534,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#ac8d990ced0f91be75d3bacc676125bb9">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#a2f670e14cf5eb7e4fc195c90b003264f">ShomatePoly2</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a2f670e14cf5eb7e4fc195c90b003264f">ShomatePoly</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#ac8d990ced0f91be75d3bacc676125bb9">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#ac8d990ced0f91be75d3bacc676125bb9">Mu0Poly</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a2f670e14cf5eb7e4fc195c90b003264f">NasaPoly1</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac8d990ced0f91be75d3bacc676125bb9">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#ac8d990ced0f91be75d3bacc676125bb9">NasaPoly2</a>, <a class="el" href="classCantera_1_1ConstCpPoly.html#ac8d990ced0f91be75d3bacc676125bb9">ConstCpPoly</a>, and <a class="el" href="classCantera_1_1Adsorbate.html#ac8d990ced0f91be75d3bacc676125bb9">Adsorbate</a>.</p>
+<p>Implemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#ac8d990ced0f91be75d3bacc676125bb9">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#a2f670e14cf5eb7e4fc195c90b003264f">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#ac8d990ced0f91be75d3bacc676125bb9">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a2f670e14cf5eb7e4fc195c90b003264f">ShomatePoly</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#ac8d990ced0f91be75d3bacc676125bb9">Mu0Poly</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a2f670e14cf5eb7e4fc195c90b003264f">NasaPoly1</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac8d990ced0f91be75d3bacc676125bb9">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#ac8d990ced0f91be75d3bacc676125bb9">NasaPoly2</a>, <a class="el" href="classCantera_1_1ConstCpPoly.html#ac8d990ced0f91be75d3bacc676125bb9">ConstCpPoly</a>, and <a class="el" href="classCantera_1_1Adsorbate.html#ac8d990ced0f91be75d3bacc676125bb9">Adsorbate</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00111">GeneralSpeciesThermo::update_one()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00106">GeneralSpeciesThermo::update_one()</a>.</p>
 
 </div>
 </div>
@@ -610,9 +610,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#aa359b2381624daeddea4d063ced93047">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#a4a18e419e51ccfb3db736a66e26091d6">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#a6009bb2689c657d035feb3e7c3a95410">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a4a18e419e51ccfb3db736a66e26091d6">ShomatePoly</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6009bb2689c657d035feb3e7c3a95410">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a4a18e419e51ccfb3db736a66e26091d6">NasaPoly1</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#a6009bb2689c657d035feb3e7c3a95410">Mu0Poly</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#a6009bb2689c657d035feb3e7c3a95410">NasaPoly2</a>, <a class="el" href="classCantera_1_1ConstCpPoly.html#a6009bb2689c657d035feb3e7c3a95410">ConstCpPoly</a>, and <a class="el" href="classCantera_1_1Adsorbate.html#a6009bb2689c657d035feb3e7c3a95410">Adsorbate</a>.</p>
+<p>Implemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#aa359b2381624daeddea4d063ced93047">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#a4a18e419e51ccfb3db736a66e26091d6">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#a6009bb2689c657d035feb3e7c3a95410">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6009bb2689c657d035feb3e7c3a95410">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a4a18e419e51ccfb3db736a66e26091d6">ShomatePoly</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#a6009bb2689c657d035feb3e7c3a95410">Mu0Poly</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a4a18e419e51ccfb3db736a66e26091d6">NasaPoly1</a>, <a class="el" href="classCantera_1_1NasaPoly2.html#a6009bb2689c657d035feb3e7c3a95410">NasaPoly2</a>, <a class="el" href="classCantera_1_1ConstCpPoly.html#a6009bb2689c657d035feb3e7c3a95410">ConstCpPoly</a>, and <a class="el" href="classCantera_1_1Adsorbate.html#a6009bb2689c657d035feb3e7c3a95410">Adsorbate</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00145">GeneralSpeciesThermo::reportParams()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00140">GeneralSpeciesThermo::reportParams()</a>.</p>
 
 </div>
 </div>
@@ -646,7 +646,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#a51debe8d14b20f331ae059659fd1a5f9">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#a51debe8d14b20f331ae059659fd1a5f9">ShomatePoly2</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a51debe8d14b20f331ae059659fd1a5f9">ShomatePoly</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6b21f183f73a06486d7f75cfd71fe17b">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a51debe8d14b20f331ae059659fd1a5f9">NasaPoly1</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#a6b21f183f73a06486d7f75cfd71fe17b">Mu0Poly</a>, and <a class="el" href="classCantera_1_1ConstCpPoly.html#a6b21f183f73a06486d7f75cfd71fe17b">ConstCpPoly</a>.</p>
+<p>Reimplemented in <a class="el" href="classCantera_1_1STITbyPDSS.html#a51debe8d14b20f331ae059659fd1a5f9">STITbyPDSS</a>, <a class="el" href="classCantera_1_1ShomatePoly2.html#a51debe8d14b20f331ae059659fd1a5f9">ShomatePoly2</a>, <a class="el" href="classCantera_1_1Nasa9Poly1.html#a6b21f183f73a06486d7f75cfd71fe17b">Nasa9Poly1</a>, <a class="el" href="classCantera_1_1ShomatePoly.html#a51debe8d14b20f331ae059659fd1a5f9">ShomatePoly</a>, <a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a6b21f183f73a06486d7f75cfd71fe17b">Nasa9PolyMultiTempRegion</a>, <a class="el" href="classCantera_1_1NasaPoly1.html#a51debe8d14b20f331ae059659fd1a5f9">NasaPoly1</a>, <a class="el" href="classCantera_1_1Mu0Poly.html#a6b21f183f73a06486d7f75cfd71fe17b">Mu0Poly</a>, and <a class="el" href="classCantera_1_1ConstCpPoly.html#a6b21f183f73a06486d7f75cfd71fe17b">ConstCpPoly</a>.</p>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00266">266</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
@@ -688,7 +688,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00044">44</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00217">GeneralSpeciesThermo::reportOneHf298()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00207">GeneralSpeciesThermo::reportOneHf298()</a>.</p>
 
 </div>
 </div>
@@ -738,7 +738,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8cpp_source.html#l00050">50</a> of file <a class="el" href="SpeciesThermoInterpType_8cpp_source.html">SpeciesThermoInterpType.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00227">GeneralSpeciesThermo::modifyOneHf298()</a>.</p>
+<p>Referenced by <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00217">GeneralSpeciesThermo::modifyOneHf298()</a>.</p>
 
 </div>
 </div>
@@ -765,7 +765,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00298">298</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00174">SpeciesThermoInterpType::minTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00364">ShomatePoly2::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="AdsorbateThermo_8h_source.html#l00071">Adsorbate::reportParameters()</a>, <a class="el" href="ConstCpPoly_8cpp_source.html#l00064">ConstCpPoly::reportParameters()</a>, <a class="el" href="NasaPoly2_8h_source.html#l00132">NasaPoly2::reportParameters()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00063">Mu0Poly::reportParameters()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00137">NasaPoly1::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00154">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00161">ShomatePoly::reportParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00087">Nasa9Poly1::reportParameters()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00343">ShomatePoly2::reportParameters()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00174">SpeciesThermoInterpType::minTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00316">ShomatePoly2::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="AdsorbateThermo_8h_source.html#l00070">Adsorbate::reportParameters()</a>, <a class="el" href="ConstCpPoly_8cpp_source.html#l00064">ConstCpPoly::reportParameters()</a>, <a class="el" href="NasaPoly2_8h_source.html#l00132">NasaPoly2::reportParameters()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00134">NasaPoly1::reportParameters()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00062">Mu0Poly::reportParameters()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00147">ShomatePoly::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00146">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00086">Nasa9Poly1::reportParameters()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00295">ShomatePoly2::reportParameters()</a>.</p>
 
 </div>
 </div>
@@ -791,7 +791,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00300">300</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
-<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00180">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00364">ShomatePoly2::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="AdsorbateThermo_8h_source.html#l00071">Adsorbate::reportParameters()</a>, <a class="el" href="ConstCpPoly_8cpp_source.html#l00064">ConstCpPoly::reportParameters()</a>, <a class="el" href="NasaPoly2_8h_source.html#l00132">NasaPoly2::reportParameters()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00063">Mu0Poly::reportParameters()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00137">NasaPoly1::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00154">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00161">ShomatePoly::reportParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00087">Nasa9Poly1::reportParameters()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00343">ShomatePoly2::reportParameters()</a>.</p>
+<p>Referenced by <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00180">SpeciesThermoInterpType::maxTemp()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00316">ShomatePoly2::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="AdsorbateThermo_8h_source.html#l00070">Adsorbate::reportParameters()</a>, <a class="el" href="ConstCpPoly_8cpp_source.html#l00064">ConstCpPoly::reportParameters()</a>, <a class="el" href="NasaPoly2_8h_source.html#l00132">NasaPoly2::reportParameters()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00134">NasaPoly1::reportParameters()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00062">Mu0Poly::reportParameters()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00147">ShomatePoly::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00146">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00086">Nasa9Poly1::reportParameters()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00295">ShomatePoly2::reportParameters()</a>.</p>
 
 </div>
 </div>
@@ -817,7 +817,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00302">302</a> of file <a class="el" href="SpeciesThermoInterpType_8h_source.html">SpeciesThermoInterpType.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ShomatePoly_8h_source.html#l00364">ShomatePoly2::modifyParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00018">Nasa9Poly1::Nasa9Poly1()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00185">SpeciesThermoInterpType::refPressure()</a>, <a class="el" href="AdsorbateThermo_8h_source.html#l00071">Adsorbate::reportParameters()</a>, <a class="el" href="ConstCpPoly_8cpp_source.html#l00064">ConstCpPoly::reportParameters()</a>, <a class="el" href="NasaPoly2_8h_source.html#l00132">NasaPoly2::reportParameters()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00063">Mu0Poly::reportParameters()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00137">NasaPoly1::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00154">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00161">ShomatePoly::reportParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00087">Nasa9Poly1::reportParameters()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00343">ShomatePoly2::reportParameters()</a>.</p>
+<p>Referenced by <a class="el" href="ShomatePoly_8h_source.html#l00316">ShomatePoly2::modifyParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00018">Nasa9Poly1::Nasa9Poly1()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00185">SpeciesThermoInterpType::refPressure()</a>, <a class="el" href="AdsorbateThermo_8h_source.html#l00070">Adsorbate::reportParameters()</a>, <a class="el" href="ConstCpPoly_8cpp_source.html#l00064">ConstCpPoly::reportParameters()</a>, <a class="el" href="NasaPoly2_8h_source.html#l00132">NasaPoly2::reportParameters()</a>, <a class="el" href="NasaPoly1_8h_source.html#l00134">NasaPoly1::reportParameters()</a>, <a class="el" href="Mu0Poly_8cpp_source.html#l00062">Mu0Poly::reportParameters()</a>, <a class="el" href="ShomatePoly_8h_source.html#l00147">ShomatePoly::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00146">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9Poly1_8cpp_source.html#l00086">Nasa9Poly1::reportParameters()</a>, and <a class="el" href="ShomatePoly_8h_source.html#l00295">ShomatePoly2::reportParameters()</a>.</p>
 
 </div>
 </div>

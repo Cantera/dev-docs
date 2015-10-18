@@ -133,7 +133,6 @@
   <span class="n">flametype</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
 <span class="k">end</span>
 
-
 <span class="c">% create the container object</span>
 <span class="n">f</span> <span class="p">=</span> <span class="n">Stack</span><span class="p">([</span><span class="n">left</span> <span class="n">flow</span> <span class="n">right</span><span class="p">]);</span>
 
@@ -160,14 +159,13 @@
 <span class="n">zz</span> <span class="p">=</span> <span class="n">z</span><span class="p">(</span><span class="n">flow</span><span class="p">);</span>
 <span class="n">dz</span> <span class="p">=</span> <span class="n">zz</span><span class="p">(</span><span class="k">end</span><span class="p">)</span> <span class="o">-</span> <span class="n">zz</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;u&#39;</span><span class="p">,</span> <span class="s">&#39;V&#39;</span><span class="p">},</span> <span class="p">[</span><span class="mf">0.0</span>            <span class="mf">1.0</span>
-	 	              <span class="n">mdot0</span><span class="o">/</span><span class="n">rho0</span>     <span class="o">-</span><span class="n">mdot1</span><span class="o">/</span><span class="n">rho0</span>
-  		              <span class="mf">0.0</span>            <span class="mf">0.0</span><span class="p">]);</span>
+                              <span class="n">mdot0</span><span class="o">/</span><span class="n">rho0</span>     <span class="o">-</span><span class="n">mdot1</span><span class="o">/</span><span class="n">rho0</span>
+                              <span class="mf">0.0</span>            <span class="mf">0.0</span><span class="p">]);</span>
 <span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span> <span class="n">z1</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">t0</span> <span class="mf">2000.0</span> <span class="n">t1</span><span class="p">]);</span>
 
 <span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">nSpecies</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span>
   <span class="n">nm</span> <span class="p">=</span> <span class="n">speciesName</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-  <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;OH&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;O&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="c">...</span>
-  	<span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;HO2&#39;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;OH&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;O&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">nm</span><span class="p">,</span><span class="s">&#39;HO2&#39;</span><span class="p">)</span>
     <span class="n">yint</span> <span class="p">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
   <span class="k">else</span>
     <span class="n">yint</span> <span class="p">=</span> <span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -178,10 +176,10 @@
     <span class="n">y1</span> <span class="p">=</span> <span class="n">yeq</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
   <span class="k">end</span>
   <span class="n">setProfile</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span>  <span class="n">z1</span>   <span class="mi">1</span>
-		    <span class="n">massFraction</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>   <span class="n">yint</span>  <span class="n">y1</span><span class="p">]);</span>
+                        <span class="n">massFraction</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>   <span class="n">yint</span>  <span class="n">y1</span><span class="p">]);</span>
 <span class="k">end</span>
 
-<span class="c">% set minimal grid refinement criteria </span>
+<span class="c">% set minimal grid refinement criteria</span>
 <span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
 </pre></div>
 </div>

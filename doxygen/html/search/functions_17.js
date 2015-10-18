@@ -14,9 +14,10 @@ var searchData=
   ['write_5fint',['write_int',['../classCantera_1_1XML__Node.html#a50c306ce07b63e225acc2879adba92e8',1,'Cantera::XML_Node']]],
   ['writeendl',['writeendl',['../classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183',1,'Cantera::Logger']]],
   ['writeheader',['writeHeader',['../classCantera_1_1XML__Node.html#aa54cf7a53f40a8076a64838a1687b753',1,'Cantera::XML_Node']]],
-  ['writelog',['writelog',['../group__textlogs.html#ga304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::Messages::writelog()'],['../classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::writelog()'],['../namespaceCantera.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::writelog(const std::string &amp;msg)'],['../namespaceCantera.html#a2bcc948a5a9e6ee52d7e476e2db6a025',1,'Cantera::writelog(const std::string &amp;msg, int loglevel)']]],
+  ['writelog',['writelog',['../group__textlogs.html#ga304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::Messages::writelog()'],['../classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::writelog()'],['../namespaceCantera.html#a1c5f226b1bcbbe458e1f58c547a7415a',1,'Cantera::writelog()']]],
+  ['writelog_5fdirect',['writelog_direct',['../namespaceCantera.html#ac4371032ffdcf9faa7bbf310f49d53c8',1,'Cantera']]],
   ['writelogendl',['writelogendl',['../classCantera_1_1Application_1_1Messages.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::Application::Messages::writelogendl()'],['../classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::Application::writelogendl()'],['../namespaceCantera.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::writelogendl()']]],
-  ['writelogf',['writelogf',['../group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302',1,'Cantera']]],
+  ['writelogf',['writelogf',['../group__textlogs.html#ga493696117e7b8cfc9611685dd99589e3',1,'Cantera']]],
   ['writeplotfile',['writePlotFile',['../namespaceCantera.html#aa308afb5e8df7d10697a897b570873eb',1,'Cantera']]],
   ['writesolution',['writeSolution',['../classCantera_1_1ResidEval.html#a935074b07d6b2f3fa4471316c6fec0e4',1,'Cantera::ResidEval']]],
   ['writestats',['writeStats',['../classCantera_1_1OneDim.html#ac45c6df3820d1757e2402fb148dec8c9',1,'Cantera::OneDim']]]

@@ -130,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a39d06fc0c58f871da41e9633fcee6499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a39d06fc0c58f871da41e9633fcee6499">More...</a><br/></td></tr>
 <tr class="separator:a39d06fc0c58f871da41e9633fcee6499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77aba291a4c01c3f703f2447daf4b658"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1CVodesIntegrator.html#a77aba291a4c01c3f703f2447daf4b658">setTolerances</a> (double reltol, size_t n, double *abstol)</td></tr>
-<tr class="memdesc:a77aba291a4c01c3f703f2447daf4b658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or reset the number of equations.  <a href="#a77aba291a4c01c3f703f2447daf4b658">More...</a><br/></td></tr>
+<tr class="memdesc:a77aba291a4c01c3f703f2447daf4b658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set error tolerances.  <a href="#a77aba291a4c01c3f703f2447daf4b658">More...</a><br/></td></tr>
 <tr class="separator:a77aba291a4c01c3f703f2447daf4b658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5897d3a1468448349340589749a6ab9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1CVodesIntegrator.html#ae5897d3a1468448349340589749a6ab9">setTolerances</a> (double reltol, double abstol)</td></tr>
 <tr class="memdesc:ae5897d3a1468448349340589749a6ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set error tolerances.  <a href="#ae5897d3a1468448349340589749a6ab9">More...</a><br/></td></tr>
@@ -286,9 +286,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_maxsteps</b></td></t
 <tr class="memitem:a6e33b332df55a047dcfb27f7ad7efc7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e33b332df55a047dcfb27f7ad7efc7b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>m_maxErrTestFails</b></td></tr>
 <tr class="separator:a6e33b332df55a047dcfb27f7ad7efc7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9da5ed862611bda02a3dd01632f832b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9da5ed862611bda02a3dd01632f832b1"></a>
-FuncData *&#160;</td><td class="memItemRight" valign="bottom"><b>m_fdata</b></td></tr>
-<tr class="separator:a9da5ed862611bda02a3dd01632f832b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b6993df1778fc8bed1890d7e51a053"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23b6993df1778fc8bed1890d7e51a053"></a>
+std::unique_ptr&lt; FuncData &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_fdata</b></td></tr>
+<tr class="separator:a23b6993df1778fc8bed1890d7e51a053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceb7593205c2fd61c21b30adf9f7771c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aceb7593205c2fd61c21b30adf9f7771c"></a>
 N_Vector *&#160;</td><td class="memItemRight" valign="bottom"><b>m_yS</b></td></tr>
 <tr class="separator:aceb7593205c2fd61c21b30adf9f7771c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -327,7 +327,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 <p>Constructor. </p>
 <p>Default settings: dense Jacobian, no user-supplied Jacobian function, Newton iteration. </p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00099">99</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00097">97</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -370,8 +370,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set or reset the number of equations. </p>
-<p>Set error tolerances.</p>
+<p>Set error tolerances. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reltol</td><td>scalar relative tolerance </td></tr>
@@ -383,7 +382,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a595b3eb43aaceb3056d01ffe11e648c1">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00153">153</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00149">149</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -430,7 +429,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a0919eb17bc6992624bc5fe016ebc54e1">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00169">169</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00165">165</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -477,7 +476,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#aaff33ab3c2ee1bd5f93de96831648d70">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00176">176</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00172">172</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -513,7 +512,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a1ba4cb9c5d591080485121aaec78169b">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00182">182</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00178">178</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -561,9 +560,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a6c9fbc46d44fdb4d226363ec213f7b60">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00270">270</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00266">266</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
-<p>References <a class="el" href="CVodesIntegrator_8cpp_source.html#l00365">CVodesIntegrator::applyOptions()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00090">Cantera::cvodes_err()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00064">Cantera::cvodes_rhs()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="classCantera_1_1FuncEval.html#a7f92e182bc672a40c945633985d6d167">FuncEval::getInitialConditions()</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00097">CVodesIntegrator::m_time</a>, <a class="el" href="classCantera_1_1FuncEval.html#a986ca83cf379527a37c67639d4cc41c7">FuncEval::neq()</a>, and <a class="el" href="FuncEval_8h_source.html#l00048">FuncEval::nparams()</a>.</p>
+<p>References <a class="el" href="CVodesIntegrator_8cpp_source.html#l00358">CVodesIntegrator::applyOptions()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00088">Cantera::cvodes_err()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00062">Cantera::cvodes_rhs()</a>, <a class="el" href="classCantera_1_1FuncEval.html#a7f92e182bc672a40c945633985d6d167">FuncEval::getInitialConditions()</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00097">CVodesIntegrator::m_time</a>, <a class="el" href="classCantera_1_1FuncEval.html#a986ca83cf379527a37c67639d4cc41c7">FuncEval::neq()</a>, and <a class="el" href="FuncEval_8h_source.html#l00048">FuncEval::nparams()</a>.</p>
 
 </div>
 </div>
@@ -599,9 +598,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a901f1d5b83d2ea03bc661f06972a808c">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00408">408</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00401">401</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
-<p>References <a class="el" href="CVodesIntegrator_8cpp_source.html#l00460">CVodesIntegrator::getErrorInfo()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00084">CVodesIntegrator::m_error_message</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00118">CVodesIntegrator::m_sens_ok</a>, and <a class="el" href="CVodesIntegrator_8h_source.html#l00097">CVodesIntegrator::m_time</a>.</p>
+<p>References <a class="el" href="CVodesIntegrator_8cpp_source.html#l00453">CVodesIntegrator::getErrorInfo()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00084">CVodesIntegrator::m_error_message</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00118">CVodesIntegrator::m_sens_ok</a>, and <a class="el" href="CVodesIntegrator_8h_source.html#l00097">CVodesIntegrator::m_time</a>.</p>
 
 </div>
 </div>
@@ -637,9 +636,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a0024a91cbc94eba5c635597d9e0b28d7">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00418">418</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00411">411</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
-<p>References <a class="el" href="CVodesIntegrator_8cpp_source.html#l00460">CVodesIntegrator::getErrorInfo()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00084">CVodesIntegrator::m_error_message</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00118">CVodesIntegrator::m_sens_ok</a>, and <a class="el" href="CVodesIntegrator_8h_source.html#l00097">CVodesIntegrator::m_time</a>.</p>
+<p>References <a class="el" href="CVodesIntegrator_8cpp_source.html#l00453">CVodesIntegrator::getErrorInfo()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00084">CVodesIntegrator::m_error_message</a>, <a class="el" href="CVodesIntegrator_8h_source.html#l00118">CVodesIntegrator::m_sens_ok</a>, and <a class="el" href="CVodesIntegrator_8h_source.html#l00097">CVodesIntegrator::m_time</a>.</p>
 
 </div>
 </div>
@@ -669,7 +668,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#ac55c92f00cebf68d9fbad6ab61c703f1">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00143">143</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00139">139</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -698,7 +697,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a083b176d8d044206aabc3e71ab9b6be9">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00148">148</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00144">144</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -756,7 +755,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a76f8345b5b43952ab43f64d660330a39">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00430">430</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00423">423</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -816,7 +815,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#ad31dffd6e145e9e29c79e347d5e4e665">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00187">187</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00183">183</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 <p>References <a class="el" href="Integrator_8h_source.html#l00033">Cantera::Adams_Method</a>, and <a class="el" href="Integrator_8h_source.html#l00032">Cantera::BDF_Method</a>.</p>
 
@@ -848,7 +847,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#aa63261cd5c5f0bfae33bc5285cac3d2b">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00230">230</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00226">226</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 <p>References <a class="el" href="Integrator_8h_source.html#l00044">Cantera::Functional_Iter</a>, and <a class="el" href="Integrator_8h_source.html#l00042">Cantera::Newton_Iter</a>.</p>
 
@@ -880,7 +879,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a0c134025adafa2a281fde4f8c81cc509">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00198">198</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00194">194</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +909,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a830689d54a1310e1533a92559e6bef8f">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00206">206</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00202">202</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -940,7 +939,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1Integrator.html#a534004ab923afc471f65ac50a7d866b1">Integrator</a>.</p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00222">222</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00218">218</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
 </div>
 </div>
@@ -969,9 +968,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 <p>Returns a string listing the weighted error estimates associated with each solution component. </p>
 <p>This information can be used to identify which variables are responsible for integrator failures or unexpected small timesteps. </p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00460">460</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00453">453</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00408">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00418">CVodesIntegrator::step()</a>.</p>
+<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00401">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00411">CVodesIntegrator::step()</a>.</p>
 
 </div>
 </div>
@@ -999,9 +998,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 <p>Applies user-specified options to the underlying CVODES solver. </p>
 <p>Called during integrator initialization or reinitialization. </p>
 
-<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00365">365</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
+<p>Definition at line <a class="el" href="CVodesIntegrator_8cpp_source.html#l00358">358</a> of file <a class="el" href="CVodesIntegrator_8cpp_source.html">CVodesIntegrator.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00270">CVodesIntegrator::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00266">CVodesIntegrator::initialize()</a>.</p>
 
 </div>
 </div>
@@ -1020,7 +1019,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Definition at line <a class="el" href="CVodesIntegrator_8h_source.html#l00084">84</a> of file <a class="el" href="CVodesIntegrator_8h_source.html">CVodesIntegrator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00090">Cantera::cvodes_err()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00408">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00418">CVodesIntegrator::step()</a>.</p>
+<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00088">Cantera::cvodes_err()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00401">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00411">CVodesIntegrator::step()</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1045,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Definition at line <a class="el" href="CVodesIntegrator_8h_source.html#l00097">97</a> of file <a class="el" href="CVodesIntegrator_8h_source.html">CVodesIntegrator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00270">CVodesIntegrator::initialize()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00408">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00418">CVodesIntegrator::step()</a>.</p>
+<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00266">CVodesIntegrator::initialize()</a>, <a class="el" href="CVodesIntegrator_8cpp_source.html#l00401">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00411">CVodesIntegrator::step()</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1071,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_mlower</b></td></tr>
 
 <p>Definition at line <a class="el" href="CVodesIntegrator_8h_source.html#l00118">118</a> of file <a class="el" href="CVodesIntegrator_8h_source.html">CVodesIntegrator.h</a>.</p>
 
-<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00408">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00418">CVodesIntegrator::step()</a>.</p>
+<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00401">CVodesIntegrator::integrate()</a>, and <a class="el" href="CVodesIntegrator_8cpp_source.html#l00411">CVodesIntegrator::step()</a>.</p>
 
 </div>
 </div>

@@ -189,14 +189,14 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_skip</b></td></tr
 <tr class="memitem:a47c755536e8dc9fe2595be65e684ff89"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ChemEquil.html#a47c755536e8dc9fe2595be65e684ff89">m_nComponents</a></td></tr>
 <tr class="memdesc:a47c755536e8dc9fe2595be65e684ff89"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is equal to the rank of the stoichiometric coefficient matrix when it is computed.  <a href="#a47c755536e8dc9fe2595be65e684ff89">More...</a><br/></td></tr>
 <tr class="separator:a47c755536e8dc9fe2595be65e684ff89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e9a2d638e6aac2b581188e98138d201"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e9a2d638e6aac2b581188e98138d201"></a>
-std::auto_ptr<br class="typebreak"/>
+<tr class="memitem:a85fe7011c193d674f613f5ef1203c03b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85fe7011c193d674f613f5ef1203c03b"></a>
+std::unique_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classCantera_1_1PropertyCalculator.html">PropertyCalculator</a>&lt; <a class="el" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_p1</b></td></tr>
-<tr class="separator:a5e9a2d638e6aac2b581188e98138d201"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bb840c032b5456f470d40c189121fe5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bb840c032b5456f470d40c189121fe5"></a>
-std::auto_ptr<br class="typebreak"/>
+<tr class="separator:a85fe7011c193d674f613f5ef1203c03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a716fafdd78593e9984a159826f6d4714"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a716fafdd78593e9984a159826f6d4714"></a>
+std::unique_ptr<br class="typebreak"/>
 &lt; <a class="el" href="classCantera_1_1PropertyCalculator.html">PropertyCalculator</a>&lt; <a class="el" href="namespaceCantera.html#a8236f718220883b27d0dcb93d3b0f328">thermo_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_p2</b></td></tr>
-<tr class="separator:a5bb840c032b5456f470d40c189121fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a716fafdd78593e9984a159826f6d4714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f642c00284680c489eb8024604c0d42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1ChemEquil.html#a8f642c00284680c489eb8024604c0d42">m_molefractions</a></td></tr>
 <tr class="memdesc:a8f642c00284680c489eb8024604c0d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current value of the mole fractions in the single phase.  <a href="#a8f642c00284680c489eb8024604c0d42">More...</a><br/></td></tr>
 <tr class="separator:a8f642c00284680c489eb8024604c0d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,7 +265,7 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <div class="textblock"><p>Class <a class="el" href="classCantera_1_1ChemEquil.html" title="Class ChemEquil implements a chemical equilibrium solver for single-phase solutions. ">ChemEquil</a> implements a chemical equilibrium solver for single-phase solutions. </p>
 <p>It is a "non-stoichiometric" solver in the terminology of Smith and Missen, meaning that every intermediate state is a valid chemical equilibrium state, but does not necessarily satisfy the element constraints. In contrast, the solver implemented in class <a class="el" href="classCantera_1_1MultiPhaseEquil.html">MultiPhaseEquil</a> uses a "stoichiometric" algorithm, in which each intermediate state satisfies the element constraints but is not a state of chemical equilibrium. Non-stoichiometric methods are faster when they converge, but stoichiometric ones tend to be more robust and can be used also for problems with multiple condensed phases. As expected, the <a class="el" href="classCantera_1_1ChemEquil.html" title="Class ChemEquil implements a chemical equilibrium solver for single-phase solutions. ">ChemEquil</a> solver is faster than <a class="el" href="classCantera_1_1MultiPhaseEquil.html">MultiPhaseEquil</a> for many single-phase equilibrium problems (particularly if there are only a few elements but very many species), but can be less stable. Problem situations include low temperatures where only a few species have non-zero mole fractions, precisely stoichiometric compositions (e.g. 2 H2 + O2). In general, if speed is important, this solver should be tried first, and if it fails then use <a class="el" href="classCantera_1_1MultiPhaseEquil.html">MultiPhaseEquil</a>. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00092">92</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00089">89</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3d4d16a0a507473ae6823963759fa6ad"></a>
 <div class="memitem">
@@ -290,9 +290,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00053">53</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00052">52</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>.</p>
 
 </div>
 </div>
@@ -335,11 +335,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>Equilibrate a phase, holding the elemental composition fixed at the initial value found within the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object <em>s</em>.</p>
 <p>The value of 2 specified properties are obtained by querying the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object. The properties must be already contained within the current thermodynamic state of the system. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00336">336</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00326">326</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>, <a class="el" href="Phase_8cpp_source.html#l00163">Phase::nElements()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>, <a class="el" href="Phase_8cpp_source.html#l00162">Phase::nElements()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>.</p>
 
-<p>Referenced by <a class="el" href="ThermoPhase_8cpp_source.html#l00757">ThermoPhase::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ThermoPhase_8cpp_source.html#l00768">ThermoPhase::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -398,9 +398,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Successful returns are indicated by a return value of 0. Unsuccessful returns are indicated by a return value of -1 for lack of convergence or -3 for a singular Jacobian. </dd></dl>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00348">348</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00338">338</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00024">Cantera::_equilflag()</a>, <a class="el" href="ChemEquil_8h_source.html#l00036">EquilOpt::absElemTol</a>, <a class="el" href="global_8h_source.html#l00267">Cantera::clip()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00802">ChemEquil::dampStep()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="utilities_8h_source.html#l00115">Cantera::dot()</a>, <a class="el" href="Phase_8cpp_source.html#l00182">Phase::elementName()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00818">ThermoPhase::getElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, <a class="el" href="ChemEquil_8h_source.html#l00038">EquilOpt::iterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00336">ChemEquil::m_elemFracCutoff</a>, <a class="el" href="ChemEquil_8h_source.html#l00320">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00292">ChemEquil::m_lambda</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00279">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ThermoPhase_8h_source.html#l00207">ThermoPhase::maxTemp()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00166">ThermoPhase::minTemp()</a>, <a class="el" href="Phase_8cpp_source.html#l00559">Phase::moleFraction()</a>, <a class="el" href="Phase_8cpp_source.html#l00163">Phase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="Phase_8cpp_source.html#l00310">Phase::restoreState()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>, <a class="el" href="Phase_8cpp_source.html#l00298">Phase::saveState()</a>, <a class="el" href="utilities_8h_source.html#l00138">Cantera::scale()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00805">ThermoPhase::setElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>, <a class="el" href="Phase_8cpp_source.html#l00327">Phase::setMoleFractions()</a>, <a class="el" href="Phase_8h_source.html#l00625">Phase::setTemperature()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="Phase_8h_source.html#l00591">Phase::temperature()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8cpp_source.html#l00023">Cantera::_equilflag()</a>, <a class="el" href="ChemEquil_8h_source.html#l00034">EquilOpt::absElemTol</a>, <a class="el" href="global_8h_source.html#l00284">Cantera::clip()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00773">ChemEquil::dampStep()</a>, <a class="el" href="Array_8h_source.html#l00321">Array2D::data()</a>, <a class="el" href="utilities_8h_source.html#l00113">Cantera::dot()</a>, <a class="el" href="Phase_8cpp_source.html#l00181">Phase::elementName()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00234">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00828">ThermoPhase::getElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>, <a class="el" href="ChemEquil_8h_source.html#l00036">EquilOpt::iterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00331">ChemEquil::m_elemFracCutoff</a>, <a class="el" href="ChemEquil_8h_source.html#l00315">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00287">ChemEquil::m_lambda</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00274">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::maxIterations</a>, <a class="el" href="ThermoPhase_8h_source.html#l00208">ThermoPhase::maxTemp()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00167">ThermoPhase::minTemp()</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::moleFraction()</a>, <a class="el" href="Phase_8cpp_source.html#l00162">Phase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00164">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00264">Phase::nSpecies()</a>, <a class="el" href="ChemEquil_8h_source.html#l00144">ChemEquil::options</a>, <a class="el" href="ChemEquil_8h_source.html#l00033">EquilOpt::relTolerance</a>, <a class="el" href="Phase_8cpp_source.html#l00309">Phase::restoreState()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00834">ThermoPhase::RT()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>, <a class="el" href="Phase_8cpp_source.html#l00297">Phase::saveState()</a>, <a class="el" href="utilities_8h_source.html#l00136">Cantera::scale()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00815">ThermoPhase::setElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>, <a class="el" href="Phase_8cpp_source.html#l00326">Phase::setMoleFractions()</a>, <a class="el" href="Phase_8h_source.html#l00628">Phase::setTemperature()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00138">ChemEquil::setToEquilState()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="Phase_8h_source.html#l00592">Phase::temperature()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
 </div>
 </div>
@@ -438,11 +438,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>number of atoms of element m in species k. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00162">162</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00157">157</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>.</p>
+<p>References <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00934">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00903">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00234">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00138">ChemEquil::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>.</p>
 
 </div>
 </div>
@@ -475,11 +475,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00067">67</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00066">66</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8cpp_source.html#l00203">Phase::atomicWeight()</a>, <a class="el" href="Phase_8cpp_source.html#l00182">Phase::elementName()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="ChemEquil_8h_source.html#l00320">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00292">ChemEquil::m_lambda</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00287">ChemEquil::m_molefractions</a>, <a class="el" href="ChemEquil_8h_source.html#l00332">ChemEquil::m_muSS_RT</a>, <a class="el" href="ChemEquil_8h_source.html#l00279">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00159">ChemEquil::m_phase</a>, <a class="el" href="Phase_8cpp_source.html#l00239">Phase::nAtoms()</a>, <a class="el" href="Phase_8cpp_source.html#l00163">Phase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00150">ThermoPhase::refPressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00268">Phase::speciesName()</a>, and <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="Phase_8cpp_source.html#l00202">Phase::atomicWeight()</a>, <a class="el" href="Phase_8cpp_source.html#l00181">Phase::elementName()</a>, <a class="el" href="ChemEquil_8h_source.html#l00315">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00287">ChemEquil::m_lambda</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00282">ChemEquil::m_molefractions</a>, <a class="el" href="ChemEquil_8h_source.html#l00327">ChemEquil::m_muSS_RT</a>, <a class="el" href="ChemEquil_8h_source.html#l00274">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00154">ChemEquil::m_phase</a>, <a class="el" href="Phase_8cpp_source.html#l00238">Phase::nAtoms()</a>, <a class="el" href="Phase_8cpp_source.html#l00162">Phase::nElements()</a>, <a class="el" href="ct__defs_8h_source.html#l00164">Cantera::npos</a>, <a class="el" href="Phase_8h_source.html#l00264">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00151">ThermoPhase::refPressure()</a>, <a class="el" href="Phase_8cpp_source.html#l00267">Phase::speciesName()</a>, and <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00053">ChemEquil::ChemEquil()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00052">ChemEquil::ChemEquil()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00326">ChemEquil::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -533,11 +533,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00142">142</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00138">138</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00162">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8h_source.html#l00625">Phase::setTemperature()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01232">ThermoPhase::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00157">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8h_source.html#l00628">Phase::setTemperature()</a>, <a class="el" href="ThermoPhase_8h_source.html#l01191">ThermoPhase::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>.</p>
 
 </div>
 </div>
@@ -582,11 +582,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>Estimate the initial mole numbers. </p>
 <p>This version borrows from the <a class="el" href="classCantera_1_1MultiPhaseEquil.html">MultiPhaseEquil</a> solver. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00192">192</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00188">188</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="Phase_8cpp_source.html#l00182">Phase::elementName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00279">ChemEquil::m_nComponents</a>, <a class="el" href="Phase_8cpp_source.html#l00559">Phase::moleFraction()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00268">ThermoPhase::pressure()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>, <a class="el" href="Phase_8cpp_source.html#l00268">Phase::speciesName()</a>, <a class="el" href="Phase_8h_source.html#l00591">Phase::temperature()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="Phase_8cpp_source.html#l00181">Phase::elementName()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00274">ChemEquil::m_nComponents</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::moleFraction()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00269">ThermoPhase::pressure()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>, <a class="el" href="Phase_8cpp_source.html#l00267">Phase::speciesName()</a>, <a class="el" href="Phase_8h_source.html#l00592">Phase::temperature()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -636,11 +636,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>Generate a starting estimate for the element potentials. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00240">240</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00234">234</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00026">Cantera::BasisOptimize()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00182">Phase::elementName()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00422">Cantera::ElemRearrange()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8h_source.html#l00492">ThermoPhase::getChemPotentials()</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMoleFractions()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00279">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00162">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00268">ThermoPhase::pressure()</a>, <a class="el" href="utilities_8h_source.html#l00138">Cantera::scale()</a>, <a class="el" href="Phase_8cpp_source.html#l00327">Phase::setMoleFractions()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="Phase_8cpp_source.html#l00268">Phase::speciesName()</a>, <a class="el" href="Phase_8h_source.html#l00591">Phase::temperature()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="MultiPhase_8cpp_source.html#l00091">MultiPhase::addPhase()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00026">Cantera::BasisOptimize()</a>, <a class="el" href="Array_8h_source.html#l00321">Array2D::data()</a>, <a class="el" href="Phase_8cpp_source.html#l00181">Phase::elementName()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00411">Cantera::ElemRearrange()</a>, <a class="el" href="ct__defs_8h_source.html#l00063">Cantera::GasConstant</a>, <a class="el" href="ThermoPhase_8h_source.html#l00491">ThermoPhase::getChemPotentials()</a>, <a class="el" href="Phase_8cpp_source.html#l00549">Phase::getMoleFractions()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00160">MultiPhase::init()</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00274">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00157">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8h_source.html#l00264">Phase::nSpecies()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00269">ThermoPhase::pressure()</a>, <a class="el" href="utilities_8h_source.html#l00136">Cantera::scale()</a>, <a class="el" href="Phase_8cpp_source.html#l00326">Phase::setMoleFractions()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="Phase_8cpp_source.html#l00267">Phase::speciesName()</a>, <a class="el" href="Phase_8h_source.html#l00592">Phase::temperature()</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -696,11 +696,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 </ul>
 <p>NOTE: update for activity coefficients. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00972">972</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00941">941</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8h_source.html#l00036">EquilOpt::absElemTol</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00934">ChemEquil::calcEmoles()</a>, <a class="el" href="global_8h_source.html#l00267">Cantera::clip()</a>, <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Phase_8cpp_source.html#l00182">Phase::elementName()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00450">ThermoPhase::getActivityCoefficients()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00638">ThermoPhase::getGibbs_RT()</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMoleFractions()</a>, <a class="el" href="ChemEquil_8h_source.html#l00320">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00332">ChemEquil::m_muSS_RT</a>, <a class="el" href="ChemEquil_8h_source.html#l00279">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00037">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00162">ChemEquil::nAtoms()</a>, <a class="el" href="ct__defs_8h_source.html#l00165">Cantera::npos</a>, <a class="el" href="ChemEquil_8h_source.html#l00147">ChemEquil::options</a>, <a class="el" href="ThermoPhase_8h_source.html#l00268">ThermoPhase::pressure()</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::relTolerance</a>, <a class="el" href="Phase_8cpp_source.html#l00310">Phase::restoreState()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>, <a class="el" href="Phase_8cpp_source.html#l00298">Phase::saveState()</a>, <a class="el" href="Phase_8cpp_source.html#l00327">Phase::setMoleFractions()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00898">ThermoPhase::setPressure()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="Phase_8cpp_source.html#l00268">Phase::speciesName()</a>, <a class="el" href="Phase_8h_source.html#l00591">Phase::temperature()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8h_source.html#l00034">EquilOpt::absElemTol</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00903">ChemEquil::calcEmoles()</a>, <a class="el" href="global_8h_source.html#l00284">Cantera::clip()</a>, <a class="el" href="Array_8h_source.html#l00321">Array2D::data()</a>, <a class="el" href="global_8h_source.html#l00150">Cantera::debuglog()</a>, <a class="el" href="Phase_8cpp_source.html#l00181">Phase::elementName()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00450">ThermoPhase::getActivityCoefficients()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00613">ThermoPhase::getGibbs_RT()</a>, <a class="el" href="Phase_8cpp_source.html#l00549">Phase::getMoleFractions()</a>, <a class="el" href="ChemEquil_8h_source.html#l00315">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00327">ChemEquil::m_muSS_RT</a>, <a class="el" href="ChemEquil_8h_source.html#l00274">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8h_source.html#l00035">EquilOpt::maxIterations</a>, <a class="el" href="ChemEquil_8h_source.html#l00157">ChemEquil::nAtoms()</a>, <a class="el" href="ct__defs_8h_source.html#l00164">Cantera::npos</a>, <a class="el" href="ChemEquil_8h_source.html#l00144">ChemEquil::options</a>, <a class="el" href="ThermoPhase_8h_source.html#l00269">ThermoPhase::pressure()</a>, <a class="el" href="ChemEquil_8h_source.html#l00033">EquilOpt::relTolerance</a>, <a class="el" href="Phase_8cpp_source.html#l00309">Phase::restoreState()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>, <a class="el" href="Phase_8cpp_source.html#l00297">Phase::saveState()</a>, <a class="el" href="Phase_8cpp_source.html#l00326">Phase::setMoleFractions()</a>, <a class="el" href="ThermoPhase_8h_source.html#l00858">ThermoPhase::setPressure()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="Phase_8cpp_source.html#l00267">Phase::speciesName()</a>, <a class="el" href="Phase_8h_source.html#l00592">Phase::temperature()</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -788,11 +788,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>The original implementation employed a line search technique that enforced a reduction in the norm of the residual at every successful step. Unfortunately, this method created false convergence errors near the end of a significant number of steps, usually special conditions where there were stoichiometric constraints.</p>
 <p>This new method just does a delta damping approach, based on limiting the jump in the dimensionless element potentials. Mole fractions are limited to a factor of 2 jump in the values from this method. Near convergence, the delta damping gets out of the way. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00802">802</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00773">773</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8h_source.html#l00320">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8h_source.html#l00315">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -860,11 +860,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>Evaluates the residual vector F, of length <a class="el" href="classCantera_1_1ChemEquil.html#af0081be78d5328da569458b20cc984aa" title="number of elements in the phase ">m_mm</a>. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00846">846</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00817">817</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ChemEquil_8h_source.html#l00336">ChemEquil::m_elemFracCutoff</a>, <a class="el" href="ChemEquil_8h_source.html#l00320">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00279">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>, <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>, and <a class="el" href="global_8cpp_source.html#l00038">Cantera::writelogf()</a>.</p>
+<p>References <a class="el" href="ChemEquil_8h_source.html#l00331">ChemEquil::m_elemFracCutoff</a>, <a class="el" href="ChemEquil_8h_source.html#l00315">ChemEquil::m_eloc</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00274">ChemEquil::m_nComponents</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00138">ChemEquil::setToEquilState()</a>, <a class="el" href="global_8h_source.html#l00162">Cantera::writelog()</a>, and <a class="el" href="global_8h_source.html#l00182">Cantera::writelogf()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>.</p>
 
 </div>
 </div>
@@ -892,11 +892,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>Update internally stored state information. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00162">162</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00159">159</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="Phase_8h_source.html#l00597">Phase::density()</a>, <a class="el" href="stringUtils_8cpp_source.html#l00028">Cantera::fp2str()</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMoleFractions()</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00287">ChemEquil::m_molefractions</a>, <a class="el" href="ChemEquil_8h_source.html#l00162">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8cpp_source.html#l00268">Phase::speciesName()</a>, and <a class="el" href="Phase_8h_source.html#l00591">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="Phase_8h_source.html#l00598">Phase::density()</a>, <a class="el" href="Phase_8cpp_source.html#l00549">Phase::getMoleFractions()</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00282">ChemEquil::m_molefractions</a>, <a class="el" href="ChemEquil_8h_source.html#l00157">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8cpp_source.html#l00267">Phase::speciesName()</a>, and <a class="el" href="Phase_8h_source.html#l00592">Phase::temperature()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00336">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00326">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00138">ChemEquil::setToEquilState()</a>.</p>
 
 </div>
 </div>
@@ -970,11 +970,11 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00934">934</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8cpp_source.html#l00903">903</a> of file <a class="el" href="ChemEquil_8cpp_source.html">ChemEquil.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00036">DATA_PTR</a>, <a class="el" href="ThermoPhase_8h_source.html#l00450">ThermoPhase::getActivityCoefficients()</a>, <a class="el" href="ChemEquil_8h_source.html#l00272">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00271">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00332">ChemEquil::m_muSS_RT</a>, <a class="el" href="ChemEquil_8h_source.html#l00162">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8cpp_source.html#l00327">Phase::setMoleFractions()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00898">ThermoPhase::setPressure()</a>.</p>
+<p>References <a class="el" href="ThermoPhase_8h_source.html#l00450">ThermoPhase::getActivityCoefficients()</a>, <a class="el" href="ChemEquil_8h_source.html#l00267">ChemEquil::m_kk</a>, <a class="el" href="ChemEquil_8h_source.html#l00266">ChemEquil::m_mm</a>, <a class="el" href="ChemEquil_8h_source.html#l00327">ChemEquil::m_muSS_RT</a>, <a class="el" href="ChemEquil_8h_source.html#l00157">ChemEquil::nAtoms()</a>, <a class="el" href="Phase_8cpp_source.html#l00326">Phase::setMoleFractions()</a>, and <a class="el" href="ThermoPhase_8h_source.html#l00858">ThermoPhase::setPressure()</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>.</p>
 
 </div>
 </div>
@@ -992,9 +992,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>Options controlling how the calculation is carried out. </p>
 <dl class="section see"><dt>See Also</dt><dd>EquilOptions </dd></dl>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00147">147</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00144">144</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00757">ThermoPhase::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00768">ThermoPhase::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>.</p>
 
 </div>
 </div>
@@ -1019,9 +1019,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>Pointer to the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object used to initialize this object. </p>
 <p>This <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> object must be compatible with the <a class="el" href="classCantera_1_1ThermoPhase.html" title="Base class for a phase with thermodynamic properties. ">ThermoPhase</a> objects input from the equilibrate function. Currently, this means that the 2 ThermoPhases have to have consist of the same species and elements. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00159">159</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00154">154</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>.</p>
 
 </div>
 </div>
@@ -1045,9 +1045,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>number of elements in the phase </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00271">271</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00266">266</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00934">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00802">ChemEquil::dampStep()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>, <a class="el" href="ChemEquil_8h_source.html#l00162">ChemEquil::nAtoms()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00903">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00773">ChemEquil::dampStep()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00234">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>, <a class="el" href="ChemEquil_8h_source.html#l00157">ChemEquil::nAtoms()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00138">ChemEquil::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>.</p>
 
 </div>
 </div>
@@ -1071,9 +1071,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>number of species in the phase </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00272">272</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00267">267</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00934">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00142">ChemEquil::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00903">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00234">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00138">ChemEquil::setToEquilState()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>.</p>
 
 </div>
 </div>
@@ -1098,9 +1098,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>This is equal to the rank of the stoichiometric coefficient matrix when it is computed. </p>
 <p>It's initialized to <a class="el" href="classCantera_1_1ChemEquil.html#af0081be78d5328da569458b20cc984aa" title="number of elements in the phase ">m_mm</a>. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00279">279</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00274">274</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00234">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>.</p>
 
 </div>
 </div>
@@ -1125,9 +1125,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>Current value of the mole fractions in the single phase. </p>
 <p>-&gt; length = <a class="el" href="classCantera_1_1ChemEquil.html#a44776286c3ba788047554eef4620e6de" title="number of species in the phase ">m_kk</a>. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00287">287</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00282">282</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00162">ChemEquil::update()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00159">ChemEquil::update()</a>.</p>
 
 </div>
 </div>
@@ -1151,9 +1151,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>Current value of the dimensional element potentials -&gt; length = <a class="el" href="classCantera_1_1ChemEquil.html#af0081be78d5328da569458b20cc984aa" title="number of elements in the phase ">m_mm</a>. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00292">292</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00287">287</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>.</p>
 
 </div>
 </div>
@@ -1178,9 +1178,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <p>Index of the element id corresponding to the electric charge of each species. </p>
 <p>Equal to -1 if there is no such element id. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00320">320</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00315">315</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00802">ChemEquil::dampStep()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00773">ChemEquil::dampStep()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>.</p>
 
 </div>
 </div>
@@ -1204,9 +1204,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>Dimensionless values of the Gibbs free energy for the standard state of each species, at the temperature and pressure of the solution (the star standard state). </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00332">332</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00327">327</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00934">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00067">ChemEquil::initialize()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00903">ChemEquil::calcEmoles()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00066">ChemEquil::initialize()</a>.</p>
 
 </div>
 </div>
@@ -1230,9 +1230,9 @@ std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 
 <p>element fractional cutoff, below which the element will be zeroed. </p>
 
-<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00336">336</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
+<p>Definition at line <a class="el" href="ChemEquil_8h_source.html#l00331">331</a> of file <a class="el" href="ChemEquil_8h_source.html">ChemEquil.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>.</p>
+<p>Referenced by <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>.</p>
 
 </div>
 </div>

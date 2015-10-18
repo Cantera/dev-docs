@@ -286,7 +286,19 @@ temperature:</p>
 <p>The total rate of heat transfer through all walls is:</p>
 <div class="math">
 \[\dot{Q} = \sum_w f_w \dot{Q}_w\]</div>
-<p>where <span class="math">\(f_w = \pm 1\)</span> indicates the facing of the wall.</p>
+<p>where <span class="math">\(f_w = \pm 1\)</span> indicates the facing of the wall (+1 for the reactor on the
+left, -1 for the reactor on the right). The heat flux <span class="math">\(\dot{Q}_w\)</span> through a wall
+<span class="math">\(k\)</span> connecting reactors &#8220;left&#8221; and &#8220;right&#8221; is computed as:</p>
+<div class="math">
+\[\dot{Q}_w = U A (T_{\rm left} - T_{\rm right})
+          + \epsilon\sigma A (T_{\rm left}^4 - T_{\rm right}^4)
+          + A q_0(t)\]</div>
+<p>where <span class="math">\(U\)</span> is a user-specified heat transfer coefficient (W/m^2-K), <span class="math">\(A\)</span> is the
+wall area (m^2), <span class="math">\(\epsilon\)</span> is the user-specified emissivity, <span class="math">\(\sigma\)</span> is the
+Stefan-Boltzmann radiation constant, and <span class="math">\(q_0(t)\)</span> is a user-specified,
+time-dependent heat flux (W/m^2). This definition is such that positive <span class="math">\(q_0(t)\)</span>
+implies heat transfer from the &#8220;left&#8221; reactor to the &#8220;right&#8221; reactor. Each of
+the user-specified terms defaults to 0.</p>
 <p>In case of surface reactions, there is a net generation (or
 destruction) of homogeneous phase species at the wall. The molar rate of
 production for each species <span class="math">\(k\)</span> on wall <span class="math">\(w\)</span> is <span class="math">\(\dot{s}_{k,w}\)</span> (in kmol/s/m<sup>2</sup>). The total (mass) production rate for species <span class="math">\(k\)</span> on all walls is:</p>

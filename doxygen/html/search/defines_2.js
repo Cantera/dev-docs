@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_5fptr',['DATA_PTR',['../ct__defs_8h.html#aa437a1e93b3af491d2c7eeabf6e8e337',1,'ct_defs.h']]]
+  ['entropy298_5funknown',['ENTROPY298_UNKNOWN',['../Elements_8h.html#aec5d0ac3c2fb7a23fa8a18ad259d7d37',1,'Elements.h']]]
 ];

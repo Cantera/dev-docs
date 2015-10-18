@@ -119,9 +119,10 @@ Inheritance diagram for CanteraError:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3fd2854a175d90038e646c348af4c9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1CanteraError.html#ad3fd2854a175d90038e646c348af4c9a">CanteraError</a> (const std::string &amp;procedure, const std::string &amp;msg)</td></tr>
-<tr class="memdesc:ad3fd2854a175d90038e646c348af4c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normal Constructor for the <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a> base class.  <a href="#ad3fd2854a175d90038e646c348af4c9a">More...</a><br/></td></tr>
-<tr class="separator:ad3fd2854a175d90038e646c348af4c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5861b81874841578d4e8ef4e18682874"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a5861b81874841578d4e8ef4e18682874"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCantera_1_1CanteraError.html#a5861b81874841578d4e8ef4e18682874">CanteraError</a> (const std::string &amp;procedure, const std::string &amp;msg, const Args &amp;...args)</td></tr>
+<tr class="memdesc:a5861b81874841578d4e8ef4e18682874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normal Constructor for the <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a> base class.  <a href="#a5861b81874841578d4e8ef4e18682874">More...</a><br/></td></tr>
+<tr class="separator:a5861b81874841578d4e8ef4e18682874"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2cd8e4faf96a47789319675db78d46d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1CanteraError.html#ad2cd8e4faf96a47789319675db78d46d">~CanteraError</a> ()  throw ()</td></tr>
 <tr class="memdesc:ad2cd8e4faf96a47789319675db78d46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for base class does nothing.  <a href="#ad2cd8e4faf96a47789319675db78d46d">More...</a><br/></td></tr>
 <tr class="separator:ad2cd8e4faf96a47789319675db78d46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,11 +170,14 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p>Base class for exceptions thrown by <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> classes. </p>
 <p>This class is the base class for exceptions thrown by <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a>. It inherits from std::exception so that normal error handling operations from applications may automatically handle the errors in their own way. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00068">68</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00069">69</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad3fd2854a175d90038e646c348af4c9a"></a>
+<a class="anchor" id="a5861b81874841578d4e8ef4e18682874"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classCantera_1_1CanteraError.html">CanteraError</a> </td>
@@ -185,7 +189,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Args &amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -193,6 +203,11 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Normal Constructor for the <a class="el" href="classCantera_1_1CanteraError.html" title="Base class for exceptions thrown by Cantera classes. ">CanteraError</a> base class. </p>
@@ -205,9 +220,9 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00014">14</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00082">82</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00126">CanteraError::msg_</a>, and <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>.</p>
 
 </div>
 </div>
@@ -240,7 +255,7 @@ Private Attributes</h2></td></tr>
 
 <p>Destructor for base class does nothing. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00083">83</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00098">98</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +282,7 @@ Private Attributes</h2></td></tr>
 
 <p>Protected default constructor discourages throwing errors containing no information. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00101">101</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00116">116</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -295,9 +310,9 @@ Private Attributes</h2></td></tr>
 
 <p>Constructor used by derived classes that override <a class="el" href="classCantera_1_1CanteraError.html#abbc320c74691fffc0ac46e9f7f7995da" title="Method overridden by derived classes to format the error message. ">getMessage()</a> </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00023">23</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00014">14</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>.</p>
+<p>References <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>.</p>
 
 </div>
 </div>
@@ -323,11 +338,11 @@ Private Attributes</h2></td></tr>
 
 <p>Get a description of the error. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00039">39</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00030">30</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00108">CanteraError::formattedMessage_</a>, <a class="el" href="ctexceptions_8h_source.html#l00095">CanteraError::getClass()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00059">CanteraError::getMessage()</a>, and <a class="el" href="ctexceptions_8h_source.html#l00107">CanteraError::procedure_</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00123">CanteraError::formattedMessage_</a>, <a class="el" href="ctexceptions_8h_source.html#l00110">CanteraError::getClass()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00050">CanteraError::getMessage()</a>, and <a class="el" href="ctexceptions_8h_source.html#l00122">CanteraError::procedure_</a>.</p>
 
-<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00064">Cantera::cvodes_rhs()</a>, and <a class="el" href="TransportFactory_8cpp_source.html#l00505">TransportFactory::getLiquidInteractionsTransportData()</a>.</p>
+<p>Referenced by <a class="el" href="CVodesIntegrator_8cpp_source.html#l00062">Cantera::cvodes_rhs()</a>, and <a class="el" href="TransportFactory_8cpp_source.html#l00486">TransportFactory::getLiquidInteractionsTransportData()</a>.</p>
 
 </div>
 </div>
@@ -346,11 +361,11 @@ Private Attributes</h2></td></tr>
 
 <p>Function to put this error onto <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a>'s error stack. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00031">31</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00022">22</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
 
-<p>References <a class="el" href="application_8h_source.html#l00212">Application::addError()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00059">CanteraError::getMessage()</a>, <a class="el" href="application_8cpp_source.html#l00180">Application::Instance()</a>, <a class="el" href="ctexceptions_8h_source.html#l00107">CanteraError::procedure_</a>, and <a class="el" href="ctexceptions_8h_source.html#l00112">CanteraError::saved_</a>.</p>
+<p>References <a class="el" href="application_8h_source.html#l00207">Application::addError()</a>, <a class="el" href="ctexceptions_8cpp_source.html#l00050">CanteraError::getMessage()</a>, <a class="el" href="application_8cpp_source.html#l00143">Application::Instance()</a>, <a class="el" href="ctexceptions_8h_source.html#l00122">CanteraError::procedure_</a>, and <a class="el" href="ctexceptions_8h_source.html#l00127">CanteraError::saved_</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00014">CanteraError::CanteraError()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00561">MultiPhase::equilibrate_MultiPhaseEquil()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="TransportFactory_8cpp_source.html#l00365">TransportFactory::getLiquidSpeciesTransportData()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00406">MolarityIonicVPSSTP::report()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00351">PureFluidPhase::report()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00474">MolalityVPSSTP::report()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00908">ThermoPhase::report()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00014">CanteraError::CanteraError()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="MultiPhase_8cpp_source.html#l00558">MultiPhase::equilibrate_MultiPhaseEquil()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="TransportFactory_8cpp_source.html#l00351">TransportFactory::getLiquidSpeciesTransportData()</a>, <a class="el" href="MolarityIonicVPSSTP_8cpp_source.html#l00394">MolarityIonicVPSSTP::report()</a>, <a class="el" href="PureFluidPhase_8cpp_source.html#l00344">PureFluidPhase::report()</a>, <a class="el" href="MolalityVPSSTP_8cpp_source.html#l00462">MolalityVPSSTP::report()</a>, <a class="el" href="ThermoPhase_8cpp_source.html#l00918">ThermoPhase::report()</a>, and <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>.</p>
 
 </div>
 </div>
@@ -379,11 +394,11 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1IndexError.html#abbc320c74691fffc0ac46e9f7f7995da">IndexError</a>, <a class="el" href="classCantera_1_1ArraySizeError.html#abbc320c74691fffc0ac46e9f7f7995da">ArraySizeError</a>, and <a class="el" href="classCantera_1_1XML__Error.html#a47409497b515b95d926c4df825c061fa">XML_Error</a>.</p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00059">59</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8cpp_source.html#l00050">50</a> of file <a class="el" href="ctexceptions_8cpp_source.html">ctexceptions.cpp</a>.</p>
 
-<p>References <a class="el" href="ctexceptions_8h_source.html#l00111">CanteraError::msg_</a>.</p>
+<p>References <a class="el" href="ctexceptions_8h_source.html#l00126">CanteraError::msg_</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>, and <a class="el" href="ctexceptions_8cpp_source.html#l00039">CanteraError::what()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>, and <a class="el" href="ctexceptions_8cpp_source.html#l00030">CanteraError::what()</a>.</p>
 
 </div>
 </div>
@@ -412,9 +427,9 @@ Private Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classCantera_1_1NotImplementedError.html#ad1e70c6142bde21dc340c3d53a424166">NotImplementedError</a>, <a class="el" href="classCantera_1_1IndexError.html#ad1e70c6142bde21dc340c3d53a424166">IndexError</a>, <a class="el" href="classCantera_1_1ArraySizeError.html#ad1e70c6142bde21dc340c3d53a424166">ArraySizeError</a>, <a class="el" href="classCantera_1_1XML__NoChild.html#ad1e70c6142bde21dc340c3d53a424166">XML_NoChild</a>, and <a class="el" href="classCantera_1_1XML__TagMismatch.html#ad1e70c6142bde21dc340c3d53a424166">XML_TagMismatch</a>.</p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00095">95</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00110">110</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00039">CanteraError::what()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00030">CanteraError::what()</a>.</p>
 
 </div>
 </div>
@@ -439,9 +454,9 @@ Private Attributes</h2></td></tr>
 
 <p>The name of the procedure where the exception occurred. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00107">107</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00122">122</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>, and <a class="el" href="ctexceptions_8cpp_source.html#l00039">CanteraError::what()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>, and <a class="el" href="ctexceptions_8cpp_source.html#l00030">CanteraError::what()</a>.</p>
 
 </div>
 </div>
@@ -465,9 +480,9 @@ Private Attributes</h2></td></tr>
 
 <p>Formatted message returned by <a class="el" href="classCantera_1_1CanteraError.html#a61cc171fda3d2f63d82fa5b8bb947333" title="Get a description of the error. ">what()</a> </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00108">108</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00123">123</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00039">CanteraError::what()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00030">CanteraError::what()</a>.</p>
 
 </div>
 </div>
@@ -491,9 +506,9 @@ Private Attributes</h2></td></tr>
 
 <p>Message associated with the exception. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00111">111</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00126">126</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00059">CanteraError::getMessage()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8h_source.html#l00082">CanteraError::CanteraError()</a>, and <a class="el" href="ctexceptions_8cpp_source.html#l00050">CanteraError::getMessage()</a>.</p>
 
 </div>
 </div>
@@ -517,9 +532,9 @@ Private Attributes</h2></td></tr>
 
 <p>Exception has already been saved to <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a>'s error stack. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00112">112</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00127">127</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
-<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00031">CanteraError::save()</a>.</p>
+<p>Referenced by <a class="el" href="ctexceptions_8cpp_source.html#l00022">CanteraError::save()</a>.</p>
 
 </div>
 </div>

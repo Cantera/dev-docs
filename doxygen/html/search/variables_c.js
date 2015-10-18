@@ -4,7 +4,7 @@ var searchData=
   ['ne',['ne',['../classCantera_1_1VCS__PROB.html#a04d64b1db994026d8e9a17551da4c2da',1,'Cantera::VCS_PROB']]],
   ['ne0',['NE0',['../classCantera_1_1VCS__PROB.html#a45ab0c32117118f2800d78de1ddac3d3',1,'Cantera::VCS_PROB']]],
   ['neq_5f',['neq_',['../classCantera_1_1ResidJacEval.html#adda0c492f19d36947cd73f24338cf6b0',1,'Cantera::ResidJacEval']]],
-  ['neutralmolecmolefractions_5f',['NeutralMolecMoleFractions_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#aa0c1dc56e18216cc86d7423a9e045883',1,'Cantera::IonsFromNeutralVPSSTP']]],
+  ['neutralmolecmolefractions_5f',['NeutralMolecMoleFractions_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#a6e7942a83bf1325b341b200045319eb6',1,'Cantera::IonsFromNeutralVPSSTP']]],
   ['neutralmoleculephase_5f',['neutralMoleculePhase_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#a0a8bb2177b13896d5f661b472ef96aca',1,'Cantera::IonsFromNeutralVPSSTP::neutralMoleculePhase_()'],['../classCantera_1_1PDSS__IonsFromNeutral.html#acff69ca07031d1ef1d6ffee7edd01481',1,'Cantera::PDSS_IonsFromNeutral::neutralMoleculePhase_()']]],
   ['np_5f',['nP_',['../classCantera_1_1ChebyshevRate.html#a8ce9a37b2c99c351e5072740eaf51b8a',1,'Cantera::ChebyshevRate']]],
   ['np_5fdlnactcoeffdmolnumber',['np_dLnActCoeffdMolNumber',['../classCantera_1_1vcs__VolPhase.html#a408c13ffc9023d8e3668beadba5a6c1b',1,'Cantera::vcs_VolPhase']]],

@@ -127,8 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6f4215be43dee37222ce5381203c3b70"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f4215be43dee37222ce5381203c3b70"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>LTI_StefanMaxwell_PPN</b> (<a class="el" href="namespaceCantera.html#ae666ac4d7c9e4a438b38567fb2286d76">TransportPropertyType</a> tp_ind=TP_UNKNOWN)</td></tr>
 <tr class="separator:a6f4215be43dee37222ce5381203c3b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9f516d088cf6e659484271648512cf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1LTI__StefanMaxwell__PPN.html#af9f516d088cf6e659484271648512cf8">setParameters</a> (<a class="el" href="classCantera_1_1LiquidTransportParams.html">LiquidTransportParams</a> &amp;trParam)</td></tr>
-<tr class="memdesc:af9f516d088cf6e659484271648512cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#af9f516d088cf6e659484271648512cf8">More...</a><br/></td></tr>
+<tr class="memitem:af9f516d088cf6e659484271648512cf8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9f516d088cf6e659484271648512cf8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setParameters</b> (<a class="el" href="classCantera_1_1LiquidTransportParams.html">LiquidTransportParams</a> &amp;trParam)</td></tr>
 <tr class="separator:af9f516d088cf6e659484271648512cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e882dfa180ad1bde896a594727f5137"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1LTI__StefanMaxwell__PPN.html#a5e882dfa180ad1bde896a594727f5137">getMixTransProp</a> (doublereal *valueSpecies, doublereal *weightSpecies=0)</td></tr>
 <tr class="memdesc:a5e882dfa180ad1bde896a594727f5137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the mixture transport property value.  <a href="#a5e882dfa180ad1bde896a594727f5137">More...</a><br/></td></tr>
@@ -221,8 +221,7 @@ std::vector&lt; LTPvector &gt;&#160;</td><td class="memItemRight" valign="bottom
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stefan Maxwell Diffusion Coefficients can be solved for given ion conductivity, mobility ratios, and self diffusion coeffs. </p>
-<p>This class is only valid for a common anion mixture of two salts with cations of equal charge. Hence the name _PPN.</p>
-<p>This class requres you specify</p>
+<p>This class is only valid for a common anion mixture of two salts with cations of equal charge. Hence the name _PPN. This class requres you specify</p>
 <p>1 - ion conductivity</p>
 <p>2 - mobility ratio of the two cations (set all other ratios to zero)</p>
 <p>3 - Self diffusion coefficients of the cations (set others to zero) is used to calculate the "mutual diffusion coefficient". The approximation needed to do so requires the cations have equal charge.</p>
@@ -255,41 +254,8 @@ std::vector&lt; LTPvector &gt;&#160;</td><td class="memItemRight" valign="bottom
 *       &lt;/speciesDiffusivity&gt;
 *    &lt;/transport&gt;
 *  </pre> 
-<p>Definition at line <a class="el" href="LiquidTranInteraction_8h_source.html#l00486">486</a> of file <a class="el" href="LiquidTranInteraction_8h_source.html">LiquidTranInteraction.h</a>.</p>
+<p>Definition at line <a class="el" href="LiquidTranInteraction_8h_source.html#l00450">450</a> of file <a class="el" href="LiquidTranInteraction_8h_source.html">LiquidTranInteraction.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="af9f516d088cf6e659484271648512cf8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void setParameters </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCantera_1_1LiquidTransportParams.html">LiquidTransportParams</a> &amp;&#160;</td>
-          <td class="paramname"><em>trParam</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy constructor. </p>
-<p>Assignment operator </p>
-
-<p>Reimplemented from <a class="el" href="classCantera_1_1LiquidTranInteraction.html">LiquidTranInteraction</a>.</p>
-
-<p>Definition at line <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00515">515</a> of file <a class="el" href="LiquidTranInteraction_8cpp_source.html">LiquidTranInteraction.cpp</a>.</p>
-
-<p>References <a class="el" href="LiquidTransportParams_8h_source.html#l00035">LiquidTransportParams::ionConductivity</a>, <a class="el" href="LiquidTransportData_8h_source.html#l00057">LiquidTransportData::ionConductivity</a>, <a class="el" href="LiquidTransportParams_8h_source.html#l00029">LiquidTransportParams::LTData</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00152">LiquidTranInteraction::m_thermo</a>, <a class="el" href="LiquidTransportParams_8h_source.html#l00050">LiquidTransportParams::mobilityRatio</a>, <a class="el" href="LiquidTransportData_8h_source.html#l00063">LiquidTransportData::mobilityRatio</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00064">DenseMatrix::resize()</a>, <a class="el" href="LiquidTransportParams_8h_source.html#l00054">LiquidTransportParams::selfDiffusion</a>, and <a class="el" href="LiquidTransportData_8h_source.html#l00069">LiquidTransportData::selfDiffusion</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a5e882dfa180ad1bde896a594727f5137"></a>
 <div class="memitem">
 <div class="memproto">
@@ -327,9 +293,9 @@ std::vector&lt; LTPvector &gt;&#160;</td><td class="memItemRight" valign="bottom
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1LiquidTranInteraction.html#a078813b7b6ecb6c94dce00ec607ee1e3">LiquidTranInteraction</a>.</p>
 
-<p>Definition at line <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00551">551</a> of file <a class="el" href="LiquidTranInteraction_8cpp_source.html">LiquidTranInteraction.cpp</a>.</p>
+<p>Definition at line <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00525">525</a> of file <a class="el" href="LiquidTranInteraction_8cpp_source.html">LiquidTranInteraction.cpp</a>.</p>
 
-<p>References <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMoleFractions()</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00152">LiquidTranInteraction::m_thermo</a>, and <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>.</p>
+<p>References <a class="el" href="Phase_8cpp_source.html#l00549">Phase::getMoleFractions()</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00149">LiquidTranInteraction::m_thermo</a>, and <a class="el" href="Phase_8h_source.html#l00264">Phase::nSpecies()</a>.</p>
 
 </div>
 </div>
@@ -370,9 +336,9 @@ std::vector&lt; LTPvector &gt;&#160;</td><td class="memItemRight" valign="bottom
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1LiquidTranInteraction.html">LiquidTranInteraction</a>.</p>
 
-<p>Definition at line <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00577">577</a> of file <a class="el" href="LiquidTranInteraction_8cpp_source.html">LiquidTranInteraction.cpp</a>.</p>
+<p>Definition at line <a class="el" href="LiquidTranInteraction_8cpp_source.html#l00545">545</a> of file <a class="el" href="LiquidTranInteraction_8cpp_source.html">LiquidTranInteraction.cpp</a>.</p>
 
-<p>References <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00425">IonsFromNeutralVPSSTP::getAnionList()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00417">IonsFromNeutralVPSSTP::getCationList()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00298">IonsFromNeutralVPSSTP::getDissociationCoeffs()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00550">MargulesVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00130">LiquidTranInteraction::getMixTransProp()</a>, <a class="el" href="Phase_8cpp_source.html#l00554">Phase::getMoleFractions()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00390">IonsFromNeutralVPSSTP::getNeutralMolecMoleFractions()</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00152">LiquidTranInteraction::m_thermo</a>, <a class="el" href="Phase_8cpp_source.html#l00667">Phase::molarVolume()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00699">IonsFromNeutralVPSSTP::neutralMoleculePhase_</a>, <a class="el" href="Phase_8h_source.html#l00265">Phase::nSpecies()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00064">DenseMatrix::resize()</a>, and <a class="el" href="Phase_8h_source.html#l00591">Phase::temperature()</a>.</p>
+<p>References <a class="el" href="ct__defs_8h_source.html#l00063">Cantera::GasConstant</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00418">IonsFromNeutralVPSSTP::getAnionList()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00410">IonsFromNeutralVPSSTP::getCationList()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8cpp_source.html#l00282">IonsFromNeutralVPSSTP::getDissociationCoeffs()</a>, <a class="el" href="MargulesVPSSTP_8cpp_source.html#l00534">MargulesVPSSTP::getdlnActCoeffdlnN_diag()</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00128">LiquidTranInteraction::getMixTransProp()</a>, <a class="el" href="Phase_8cpp_source.html#l00549">Phase::getMoleFractions()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00383">IonsFromNeutralVPSSTP::getNeutralMolecMoleFractions()</a>, <a class="el" href="LiquidTranInteraction_8h_source.html#l00149">LiquidTranInteraction::m_thermo</a>, <a class="el" href="Phase_8cpp_source.html#l00666">Phase::molarVolume()</a>, <a class="el" href="IonsFromNeutralVPSSTP_8h_source.html#l00691">IonsFromNeutralVPSSTP::neutralMoleculePhase_</a>, <a class="el" href="Phase_8h_source.html#l00264">Phase::nSpecies()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00064">DenseMatrix::resize()</a>, and <a class="el" href="Phase_8h_source.html#l00592">Phase::temperature()</a>.</p>
 
 </div>
 </div>

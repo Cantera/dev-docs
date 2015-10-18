@@ -196,9 +196,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a3c0385c42806a944b6b3c64cc750215b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1df26e6420">vector_fp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a3c0385c42806a944b6b3c64cc750215b">m_lowerTempBounds</a></td></tr>
 <tr class="memdesc:a3c0385c42806a944b6b3c64cc750215b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower boundaries of each temperature regions.  <a href="#a3c0385c42806a944b6b3c64cc750215b">More...</a><br/></td></tr>
 <tr class="separator:a3c0385c42806a944b6b3c64cc750215b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b6d6e39f4c87a916693d8070a32738d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classCantera_1_1Nasa9Poly1.html">Nasa9Poly1</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#a8b6d6e39f4c87a916693d8070a32738d">m_regionPts</a></td></tr>
-<tr class="memdesc:a8b6d6e39f4c87a916693d8070a32738d"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointers to the objects  <a href="#a8b6d6e39f4c87a916693d8070a32738d">More...</a><br/></td></tr>
-<tr class="separator:a8b6d6e39f4c87a916693d8070a32738d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa86f4418f8a003f493bc4746898253e5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classCantera_1_1Nasa9Poly1.html">Nasa9Poly1</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#aa86f4418f8a003f493bc4746898253e5">m_regionPts</a></td></tr>
+<tr class="memdesc:aa86f4418f8a003f493bc4746898253e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Individual temperature region objects.  <a href="#aa86f4418f8a003f493bc4746898253e5">More...</a><br/></td></tr>
+<tr class="separator:aa86f4418f8a003f493bc4746898253e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ff5d4986ff558391a3a470514e4237"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1Nasa9PolyMultiTempRegion.html#ac4ff5d4986ff558391a3a470514e4237">m_currRegion</a></td></tr>
 <tr class="memdesc:ac4ff5d4986ff558391a3a470514e4237"><td class="mdescLeft">&#160;</td><td class="mdescRight">current region  <a href="#ac4ff5d4986ff558391a3a470514e4237">More...</a><br/></td></tr>
 <tr class="separator:ac4ff5d4986ff558391a3a470514e4237"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,7 +266,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">28</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00300">SpeciesThermoInterpType::m_highT</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00298">SpeciesThermoInterpType::m_lowT</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00302">SpeciesThermoInterpType::m_Pref</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00180">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00185">SpeciesThermoInterpType::refPressure()</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00300">SpeciesThermoInterpType::m_highT</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00298">SpeciesThermoInterpType::m_lowT</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00302">SpeciesThermoInterpType::m_Pref</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00180">SpeciesThermoInterpType::maxTemp()</a>, and <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00185">SpeciesThermoInterpType::refPressure()</a>.</p>
 
 </div>
 </div>
@@ -291,9 +292,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00059">59</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00060">60</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
+<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
 
 </div>
 </div>
@@ -320,9 +321,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Destructor. </p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00092">92</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
-
-<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00088">88</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +350,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">73</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00177">Nasa9PolyMultiTempRegion::m_currRegion</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
+<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00173">Nasa9PolyMultiTempRegion::m_currRegion</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
 
 </div>
 </div>
@@ -380,9 +379,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a4bca73e6f4ec11bb6e6d37a0d6f4e2f5">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00106">106</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00098">98</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="speciesThermoTypes_8h_source.html#l00059">NASA9MULTITEMP</a>.</p>
+<p>References <a class="el" href="speciesThermoTypes_8h_source.html#l00058">NASA9MULTITEMP</a>.</p>
 
 </div>
 </div>
@@ -451,7 +450,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a7b0e5e2c1c7e2d3a25a2d7c65072aad7">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00111">111</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00103">103</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
 </div>
 </div>
@@ -514,9 +513,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a9071758a7c3ccc108a9fe3e4b1fa691c">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00122">122</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00114">114</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00177">Nasa9PolyMultiTempRegion::m_currRegion</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
+<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00173">Nasa9PolyMultiTempRegion::m_currRegion</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
 
 </div>
 </div>
@@ -579,9 +578,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#ac1b6400d8596cd1077debf5d803a5d3d">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00138">138</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00130">130</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00177">Nasa9PolyMultiTempRegion::m_currRegion</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
+<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00173">Nasa9PolyMultiTempRegion::m_currRegion</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">Nasa9PolyMultiTempRegion::m_lowerTempBounds</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
 
 </div>
 </div>
@@ -657,9 +656,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a0dc5828c131b21abd4a4dab2d6e7ffeb">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00154">154</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00146">146</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00300">SpeciesThermoInterpType::m_highT</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00298">SpeciesThermoInterpType::m_lowT</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00302">SpeciesThermoInterpType::m_Pref</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00059">NASA9MULTITEMP</a>.</p>
+<p>References <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00300">SpeciesThermoInterpType::m_highT</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00298">SpeciesThermoInterpType::m_lowT</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, <a class="el" href="SpeciesThermoInterpType_8h_source.html#l00302">SpeciesThermoInterpType::m_Pref</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>, and <a class="el" href="speciesThermoTypes_8h_source.html#l00058">NASA9MULTITEMP</a>.</p>
 
 </div>
 </div>
@@ -695,9 +694,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1SpeciesThermoInterpType.html#a51debe8d14b20f331ae059659fd1a5f9">SpeciesThermoInterpType</a>.</p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00182">182</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00173">173</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html">Nasa9PolyMultiTempRegion.cpp</a>.</p>
 
-<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
+<p>References <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">Nasa9PolyMultiTempRegion::m_numTempRegions</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">Nasa9PolyMultiTempRegion::m_regionPts</a>.</p>
 
 </div>
 </div>
@@ -724,7 +723,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00164">164</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html">Nasa9PolyMultiTempRegion.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00182">Nasa9PolyMultiTempRegion::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00154">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00122">Nasa9PolyMultiTempRegion::updateProperties()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00138">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00092">Nasa9PolyMultiTempRegion::~Nasa9PolyMultiTempRegion()</a>.</p>
+<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00173">Nasa9PolyMultiTempRegion::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00146">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00114">Nasa9PolyMultiTempRegion::updateProperties()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00130">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>
@@ -750,11 +749,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00167">167</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html">Nasa9PolyMultiTempRegion.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00122">Nasa9PolyMultiTempRegion::updateProperties()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00138">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>.</p>
+<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00114">Nasa9PolyMultiTempRegion::updateProperties()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00130">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8b6d6e39f4c87a916693d8070a32738d"></a>
+<a class="anchor" id="aa86f4418f8a003f493bc4746898253e5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -762,7 +761,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classCantera_1_1Nasa9Poly1.html">Nasa9Poly1</a>*&gt; m_regionPts</td>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="classCantera_1_1Nasa9Poly1.html">Nasa9Poly1</a>&gt; &gt; m_regionPts</td>
         </tr>
       </table>
   </td>
@@ -772,12 +771,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>pointers to the objects </p>
-<p>This object will now own these pointers and delete them when the current object is deleted. </p>
+<p>Individual temperature region objects. </p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00174">174</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html">Nasa9PolyMultiTempRegion.h</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00170">170</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html">Nasa9PolyMultiTempRegion.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00182">Nasa9PolyMultiTempRegion::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00154">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00122">Nasa9PolyMultiTempRegion::updateProperties()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00138">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00092">Nasa9PolyMultiTempRegion::~Nasa9PolyMultiTempRegion()</a>.</p>
+<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00173">Nasa9PolyMultiTempRegion::modifyParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00028">Nasa9PolyMultiTempRegion::Nasa9PolyMultiTempRegion()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00146">Nasa9PolyMultiTempRegion::reportParameters()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00114">Nasa9PolyMultiTempRegion::updateProperties()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00130">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>
@@ -801,9 +799,9 @@ Protected Attributes</h2></td></tr>
 
 <p>current region </p>
 
-<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00177">177</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html">Nasa9PolyMultiTempRegion.h</a>.</p>
+<p>Definition at line <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html#l00173">173</a> of file <a class="el" href="Nasa9PolyMultiTempRegion_8h_source.html">Nasa9PolyMultiTempRegion.h</a>.</p>
 
-<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00122">Nasa9PolyMultiTempRegion::updateProperties()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00138">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>.</p>
+<p>Referenced by <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00073">Nasa9PolyMultiTempRegion::operator=()</a>, <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00114">Nasa9PolyMultiTempRegion::updateProperties()</a>, and <a class="el" href="Nasa9PolyMultiTempRegion_8cpp_source.html#l00130">Nasa9PolyMultiTempRegion::updatePropertiesTemp()</a>.</p>
 
 </div>
 </div>

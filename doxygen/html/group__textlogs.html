@@ -115,9 +115,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ga40134534f5b00a810ec7b6de60378b00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__textlogs.html#ga40134534f5b00a810ec7b6de60378b00">setLogger</a> (Logger *logwriter)</td></tr>
 <tr class="memdesc:ga40134534f5b00a810ec7b6de60378b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a logger.  <a href="#ga40134534f5b00a810ec7b6de60378b00">More...</a><br/></td></tr>
 <tr class="separator:ga40134534f5b00a810ec7b6de60378b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2f4b130b40a8340181fce4e1d9eee302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302">writelogf</a> (const char *fmt,...)</td></tr>
-<tr class="memdesc:ga2f4b130b40a8340181fce4e1d9eee302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a formatted message to the screen.  <a href="#ga2f4b130b40a8340181fce4e1d9eee302">More...</a><br/></td></tr>
-<tr class="separator:ga2f4b130b40a8340181fce4e1d9eee302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga493696117e7b8cfc9611685dd99589e3"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ga493696117e7b8cfc9611685dd99589e3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__textlogs.html#ga493696117e7b8cfc9611685dd99589e3">writelogf</a> (const char *fmt, const Args &amp;...args)</td></tr>
+<tr class="memdesc:ga493696117e7b8cfc9611685dd99589e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a formatted message to the screen.  <a href="#ga493696117e7b8cfc9611685dd99589e3">More...</a><br/></td></tr>
+<tr class="separator:ga493696117e7b8cfc9611685dd99589e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
@@ -144,9 +145,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00126">126</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00098">98</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00313">Application::writelog()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00308">Application::writelog()</a>.</p>
 
 </div>
 </div>
@@ -174,18 +175,18 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classCantera_1_1Logger.html" title="Base class for &#39;loggers&#39; that write text messages to log files. ">Logger</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="application_8cpp_source.html#l00114">114</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
+<p>Definition at line <a class="el" href="application_8cpp_source.html#l00093">93</a> of file <a class="el" href="application_8cpp_source.html">application.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="application_8h_source.html#l00335">Application::setLogger()</a>.</p>
+<p>Referenced by <a class="el" href="application_8h_source.html#l00330">Application::setLogger()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ga2f4b130b40a8340181fce4e1d9eee302"></a>
+<a class="anchor" id="ga493696117e7b8cfc9611685dd99589e3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void writelogf </td>
+          <td class="memname">void Cantera::writelogf </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>fmt</em>, </td>
@@ -193,8 +194,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
+          <td class="paramtype">const Args &amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -206,7 +207,7 @@ Functions</h2></td></tr>
 
 <p>Write a formatted message to the screen. </p>
 <p>Using the printf formatting of C, write a message to the screen with variable values.</p>
-<p>Here, we format an internal string with the correct values and then feed it into <a class="el" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449" title="Write a message to the screen. ">writelog()</a>.</p>
+<p>Here, we format an internal string with the correct values and then feed it into <a class="el" href="namespaceCantera.html#a1c5f226b1bcbbe458e1f58c547a7415a" title="Write a message to the screen. ">writelog()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fmt</td><td>c format string for the following arguments </td></tr>
@@ -214,11 +215,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="global_8cpp_source.html#l00038">38</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
+<p>Definition at line <a class="el" href="global_8h_source.html#l00182">182</a> of file <a class="el" href="global_8h_source.html">global.h</a>.</p>
 
-<p>References <a class="el" href="global_8cpp_source.html#l00033">Cantera::writelog()</a>.</p>
+<p>References <a class="el" href="global_8cpp_source.html#l00030">Cantera::writelog_direct()</a>.</p>
 
-<p>Referenced by <a class="el" href="BasisOptimize_8cpp_source.html#l00026">Cantera::BasisOptimize()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00802">ChemEquil::dampStep()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00422">Cantera::ElemRearrange()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00348">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00846">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00240">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00972">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00126">SquareMatrix::factor()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00152">SquareMatrix::factorQR()</a>, <a class="el" href="GasTransport_8cpp_source.html#l00569">GasTransport::fitProperties()</a>, <a class="el" href="MMCollisionInt_8cpp_source.html#l00216">MMCollisionInt::init()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00195">Cantera::invert()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00377">Cantera::print_stringTrunc()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00233">SquareMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00316">BandMatrix::rcond()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00266">SquareMatrix::rcondQR()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00192">ChemEquil::setInitialMoles()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00057">SquareMatrix::solve()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>, and <a class="el" href="SquareMatrix_8cpp_source.html#l00180">SquareMatrix::solveQR()</a>.</p>
+<p>Referenced by <a class="el" href="BasisOptimize_8cpp_source.html#l00026">Cantera::BasisOptimize()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04502">HMWSoln::calc_lambdas()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00773">ChemEquil::dampStep()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00411">Cantera::ElemRearrange()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00338">ChemEquil::equilibrate()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00817">ChemEquil::equilResidual()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00234">ChemEquil::estimateElementPotentials()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00941">ChemEquil::estimateEP_Brinkley()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00116">SquareMatrix::factor()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00142">SquareMatrix::factorQR()</a>, <a class="el" href="GasTransport_8cpp_source.html#l00562">GasTransport::fitProperties()</a>, <a class="el" href="MMCollisionInt_8cpp_source.html#l00216">MMCollisionInt::init()</a>, <a class="el" href="WaterPropsIAPWSphi_8cpp_source.html#l00378">WaterPropsIAPWSphi::intCheck()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00195">Cantera::invert()</a>, <a class="el" href="solveSP_8cpp_source.html#l00768">solveSP::print_header()</a>, <a class="el" href="BasisOptimize_8cpp_source.html#l00366">Cantera::print_stringTrunc()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l04699">HMWSoln::printCoeffs()</a>, <a class="el" href="solveSP_8cpp_source.html#l00817">solveSP::printIteration()</a>, <a class="el" href="RootFind_8cpp_source.html#l01108">RootFind::printTable()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00219">SquareMatrix::rcond()</a>, <a class="el" href="BandMatrix_8cpp_source.html#l00317">BandMatrix::rcond()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00251">SquareMatrix::rcondQR()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l03120">HMWSoln::s_updatePitzer_d2lnMolalityActCoeff_dT2()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l03821">HMWSoln::s_updatePitzer_dlnMolalityActCoeff_dP()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l02402">HMWSoln::s_updatePitzer_dlnMolalityActCoeff_dT()</a>, <a class="el" href="HMWSoln_8cpp_source.html#l01575">HMWSoln::s_updatePitzer_lnMolalityActCoeff()</a>, <a class="el" href="ChemEquil_8cpp_source.html#l00188">ChemEquil::setInitialMoles()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00056">SquareMatrix::solve()</a>, <a class="el" href="DenseMatrix_8cpp_source.html#l00127">Cantera::solve()</a>, <a class="el" href="RootFind_8cpp_source.html#l00171">RootFind::solve()</a>, <a class="el" href="SquareMatrix_8cpp_source.html#l00168">SquareMatrix::solveQR()</a>, <a class="el" href="solveSP_8cpp_source.html#l00125">solveSP::solveSurfProb()</a>, <a class="el" href="vcs__solve__TP_8cpp_source.html#l03489">VCS_SOLVE::vcs_printSpeciesChemPot()</a>, and <a class="el" href="ResidEval_8h_source.html#l00134">ResidEval::writeSolution()</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['writing_20messages_20to_20the_20screen',['Writing messages to the screen',['../group__textlogs.html',1,'']]],
-  ['w',['w',['../classCantera_1_1VCS__PROB.html#a69f7cab8c3a43c085c3334b92c578503',1,'Cantera::VCS_PROB']]],
+  ['w',['w',['../classCantera_1_1VCS__PROB.html#a2cb28f9325186f2581c2fc944e921442',1,'Cantera::VCS_PROB']]],
   ['wall',['Wall',['../classCantera_1_1Wall.html',1,'Cantera']]],
   ['wall',['wall',['../classCantera_1_1ReactorBase.html#aaaa4956162400cb5e4b29034968c3d7c',1,'Cantera::ReactorBase']]],
   ['wall_2ecpp',['Wall.cpp',['../Wall_8cpp.html',1,'']]],
@@ -41,12 +41,13 @@ var searchData=
   ['write_5fint',['write_int',['../classCantera_1_1XML__Node.html#a50c306ce07b63e225acc2879adba92e8',1,'Cantera::XML_Node']]],
   ['writeendl',['writeendl',['../classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183',1,'Cantera::Logger']]],
   ['writeheader',['writeHeader',['../classCantera_1_1XML__Node.html#aa54cf7a53f40a8076a64838a1687b753',1,'Cantera::XML_Node']]],
-  ['writelog',['writelog',['../group__textlogs.html#ga304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::Messages::writelog()'],['../classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::writelog()'],['../namespaceCantera.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::writelog(const std::string &amp;msg)'],['../namespaceCantera.html#a2bcc948a5a9e6ee52d7e476e2db6a025',1,'Cantera::writelog(const std::string &amp;msg, int loglevel)']]],
+  ['writelog',['writelog',['../group__textlogs.html#ga304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::Messages::writelog()'],['../classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::writelog()'],['../namespaceCantera.html#a1c5f226b1bcbbe458e1f58c547a7415a',1,'Cantera::writelog()']]],
+  ['writelog_5fdirect',['writelog_direct',['../namespaceCantera.html#ac4371032ffdcf9faa7bbf310f49d53c8',1,'Cantera']]],
   ['writelogallowed_5f',['writeLogAllowed_',['../group__solverGroup.html#ga3478581bf2fb33558b4ec37c39f724ed',1,'Cantera::RootFind']]],
   ['writelogendl',['writelogendl',['../classCantera_1_1Application_1_1Messages.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::Application::Messages::writelogendl()'],['../classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::Application::writelogendl()'],['../namespaceCantera.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::writelogendl()']]],
-  ['writelogf',['writelogf',['../group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302',1,'Cantera']]],
+  ['writelogf',['writelogf',['../group__textlogs.html#ga493696117e7b8cfc9611685dd99589e3',1,'Cantera']]],
   ['writeplotfile',['writePlotFile',['../namespaceCantera.html#aa308afb5e8df7d10697a897b570873eb',1,'Cantera']]],
   ['writesolution',['writeSolution',['../classCantera_1_1ResidEval.html#a935074b07d6b2f3fa4471316c6fec0e4',1,'Cantera::ResidEval']]],
   ['writestats',['writeStats',['../classCantera_1_1OneDim.html#ac45c6df3820d1757e2402fb148dec8c9',1,'Cantera::OneDim']]],
-  ['wtspecies',['WtSpecies',['../classCantera_1_1VCS__PROB.html#a77f8875a074044cfc4b6c3ccf7aa2a13',1,'Cantera::VCS_PROB']]]
+  ['wtspecies',['WtSpecies',['../classCantera_1_1VCS__PROB.html#a020bfc0028ab9ff9275b1dacf093ff96',1,'Cantera::VCS_PROB']]]
 ];

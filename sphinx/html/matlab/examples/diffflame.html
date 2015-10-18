@@ -96,14 +96,12 @@
 <div class="highlight-matlab"><div class="highlight"><pre><span class="c">% DIFFFLAME - A non-premixed opposed-jet flame.</span>
 <span class="c">%</span>
 <span class="c">%</span>
- 
+
 <span class="n">help</span> <span class="n">diffflame</span>
 <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;press any key to begin the simulation&#39;</span><span class="p">);</span>
 <span class="n">pause</span>
 
-
 <span class="n">t0</span> <span class="p">=</span> <span class="n">cputime</span><span class="p">;</span>  <span class="c">% record the starting time</span>
-
 
 <span class="c">% parameter values</span>
 <span class="n">p</span>          <span class="p">=</span>   <span class="n">oneatm</span><span class="p">;</span>              <span class="c">% pressure</span>
@@ -124,11 +122,10 @@
 
 <span class="n">loglevel</span>  <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                      <span class="c">% amount of diagnostic output (0</span>
                                     <span class="c">% to 5)</span>
-				    
-<span class="n">refine_grid</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                    <span class="c">% 1 to enable refinement, 0 to</span>
-                                    <span class="c">% disable 				   </span>
 
-				   
+<span class="n">refine_grid</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>                    <span class="c">% 1 to enable refinement, 0 to</span>
+                                    <span class="c">% disable</span>
+
 <span class="c">%%%%%%%%%%%%%%%% create the gas object %%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
 <span class="c">% This object will be used to evaluate all thermodynamic, kinetic,</span>
@@ -139,16 +136,12 @@
 <span class="c">% set its state to that of the  fuel (arbitrary)</span>
 <span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="n">tin</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="n">comp2</span><span class="p">);</span>
 
-
-
 <span class="c">%%%%%%%%%%%%%%%% create the flow object %%%%%%%%%%%%%%%%%%%%%%%</span>
 
 <span class="n">f</span> <span class="p">=</span> <span class="n">AxisymmetricFlow</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;flow&#39;</span><span class="p">);</span>
 
 <span class="n">set</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s">&#39;grid&#39;</span><span class="p">,</span> <span class="n">initial_grid</span><span class="p">);</span>
 <span class="n">set</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;tol&#39;</span><span class="p">,</span> <span class="n">tol_ss</span><span class="p">,</span> <span class="s">&#39;tol-time&#39;</span><span class="p">,</span> <span class="n">tol_ts</span><span class="p">);</span>
-
-
 
 <span class="c">%%%%%%%%%%%%%%% create the air inlet %%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
@@ -158,21 +151,18 @@
 <span class="n">inlet_o</span> <span class="p">=</span> <span class="n">Inlet</span><span class="p">(</span><span class="s">&#39;air_inlet&#39;</span><span class="p">);</span>
 <span class="n">set</span><span class="p">(</span><span class="n">inlet_o</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="n">tin</span><span class="p">,</span> <span class="s">&#39;MassFlux&#39;</span><span class="p">,</span> <span class="n">mdot_o</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="n">comp1</span><span class="p">);</span>
 
-
-
 <span class="c">%%%%%%%%%%%%%% create the fuel inlet %%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% </span>
+<span class="c">%</span>
 <span class="c">%</span>
 <span class="n">inlet_f</span> <span class="p">=</span> <span class="n">Inlet</span><span class="p">(</span><span class="s">&#39;fuel_inlet&#39;</span><span class="p">);</span>
 <span class="n">set</span><span class="p">(</span><span class="n">inlet_f</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">,</span> <span class="n">tin</span><span class="p">,</span> <span class="s">&#39;MassFlux&#39;</span><span class="p">,</span> <span class="n">mdot_f</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="n">comp2</span><span class="p">);</span>
 
-
 <span class="c">%%%%%%%%%%%%% create the flame object  %%%%%%%%%%%%</span>
 <span class="c">%</span>
 <span class="c">% Once the component parts have been created, they can be assembled</span>
-<span class="c">% to create the flame object. Function npflame_init (in Cantera/1D) </span>
+<span class="c">% to create the flame object. Function npflame_init (in Cantera/1D)</span>
 <span class="c">% sets up the initial guess for the solution using a Burke-Schumann</span>
-<span class="c">% flame. </span>
+<span class="c">% flame.</span>
 <span class="c">%</span>
 <span class="n">fl</span> <span class="p">=</span> <span class="n">npflame_init</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">inlet_f</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">inlet_o</span><span class="p">,</span> <span class="s">&#39;C2H6&#39;</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">);</span>
 
@@ -182,7 +172,6 @@
 
 <span class="c">% solve with fixed temperature profile first</span>
 <span class="n">solve</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c">%refine_grid);</span>
-
 
 <span class="c">%%%%%%%%%%%% enable the energy equation %%%%%%%%%%%%%%%%%%%%%</span>
 <span class="c">%</span>
@@ -194,16 +183,13 @@
 <span class="n">enableEnergy</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
 <span class="n">setRefineCriteria</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
 <span class="n">solve</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">);</span>
-<span class="n">saveSoln</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span><span class="s">&#39;c2h6.xml&#39;</span><span class="p">,</span><span class="s">&#39;energy&#39;</span><span class="p">,[</span><span class="s">&#39;solution with energy&#39;</span> <span class="c">...</span>
-		    <span class="s">&#39; equation&#39;</span><span class="p">]);</span>
-
+<span class="n">saveSoln</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span><span class="s">&#39;c2h6.xml&#39;</span><span class="p">,</span><span class="s">&#39;energy&#39;</span><span class="p">,[</span><span class="s">&#39;solution with energy equation&#39;</span><span class="p">]);</span>
 
 <span class="c">%%%%%%%%%% show statistics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 <span class="n">writeStats</span><span class="p">(</span><span class="n">fl</span><span class="p">);</span>
 <span class="n">elapsed</span> <span class="p">=</span> <span class="n">cputime</span> <span class="o">-</span> <span class="n">t0</span><span class="p">;</span>
 <span class="n">e</span> <span class="p">=</span> <span class="n">sprintf</span><span class="p">(</span><span class="s">&#39;Elapsed CPU time: %10.4g&#39;</span><span class="p">,</span><span class="n">elapsed</span><span class="p">);</span>
 <span class="nb">disp</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-
 
 <span class="c">%%%%%%%%%% make plots %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 

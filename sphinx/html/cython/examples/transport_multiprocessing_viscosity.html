@@ -95,7 +95,7 @@
 <span id="py-example-multiprocessing-viscosity-py"></span><h1>multiprocessing_viscosity.py<a class="headerlink" href="#multiprocessing-viscosity-py" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This example demonstrates how Cantera can be used with the &#39;multiprocessing&#39;</span>
-<span class="sd">module. </span>
+<span class="sd">module.</span>
 
 <span class="sd">Because Cantera Python objects are built on top of C++ objects which cannot be</span>
 <span class="sd">passed between Python processes, it is necessary to set up the computation so</span>
@@ -135,7 +135,7 @@
     <span class="n">mech</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">args</span>
     <span class="n">gas</span> <span class="o">=</span> <span class="n">gases</span><span class="p">[</span><span class="n">mech</span><span class="p">]</span>
     <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X</span>
-    <span class="k">return</span> <span class="n">gas</span><span class="o">.</span><span class="n">enthalpy_mass</span>
+    <span class="k">return</span> <span class="n">gas</span><span class="o">.</span><span class="n">viscosity</span>
 
 <span class="k">def</span> <span class="nf">parallel</span><span class="p">(</span><span class="n">mech</span><span class="p">,</span> <span class="n">predicate</span><span class="p">,</span> <span class="n">nProcs</span><span class="p">,</span> <span class="n">nTemps</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -144,11 +144,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">P</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>
     <span class="n">X</span> <span class="o">=</span> <span class="s">&#39;CH4:1.0, O2:1.0, N2:3.76&#39;</span>
-    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">nProcs</span><span class="p">,</span> 
-                                <span class="n">initializer</span><span class="o">=</span><span class="n">init_process</span><span class="p">,</span> 
+    <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">nProcs</span><span class="p">,</span>
+                                <span class="n">initializer</span><span class="o">=</span><span class="n">init_process</span><span class="p">,</span>
                                 <span class="n">initargs</span><span class="o">=</span><span class="p">(</span><span class="n">mech</span><span class="p">,))</span>
 
-    <span class="n">y</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span> 
+    <span class="n">y</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span>
                  <span class="nb">zip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">mech</span><span class="p">),</span>
                      <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="n">nTemps</span><span class="p">),</span>
                      <span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">P</span><span class="p">),</span>
@@ -159,24 +159,27 @@
     <span class="n">P</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>
     <span class="n">X</span> <span class="o">=</span> <span class="s">&#39;CH4:1.0, O2:1.0, N2:3.76&#39;</span>
     <span class="n">init_process</span><span class="p">(</span><span class="n">mech</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span> 
-            <span class="nb">zip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">mech</span><span class="p">),</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="n">nTemps</span><span class="p">),</span>
-                <span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">P</span><span class="p">),</span>
-                <span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">predicate</span><span class="p">,</span>
+                 <span class="nb">zip</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">mech</span><span class="p">),</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="n">nTemps</span><span class="p">),</span>
+                     <span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">P</span><span class="p">),</span>
+                     <span class="n">itertools</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">X</span><span class="p">))))</span>
     <span class="k">return</span> <span class="n">y</span>
-    
+
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">nPoints</span> <span class="o">=</span> <span class="mi">5000</span>
+    <span class="n">nProcs</span> <span class="o">=</span> <span class="mi">4</span>
+
     <span class="c"># For functions where the work done in each subprocess is substantial,</span>
     <span class="c"># significant speedup can be obtained using the multiprocessing module.</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Thermal conductivity&#39;</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-    <span class="n">parallel</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_thermal_conductivity</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">parallel</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_thermal_conductivity</span><span class="p">,</span> <span class="n">nProcs</span><span class="p">,</span> <span class="n">nPoints</span><span class="p">)</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Parallel: {0:.3f} seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
 
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-    <span class="n">serial</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_thermal_conductivity</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">serial</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_thermal_conductivity</span><span class="p">,</span> <span class="n">nPoints</span><span class="p">)</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Serial: {0:.3f} seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
 
@@ -184,12 +187,12 @@
     <span class="c"># small, there may be no advantage to using multiprocessing.</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">Viscosity&#39;</span><span class="p">)</span>
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-    <span class="n">parallel</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_viscosity</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">parallel</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_viscosity</span><span class="p">,</span> <span class="n">nProcs</span><span class="p">,</span> <span class="n">nPoints</span><span class="p">)</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Parallel: {0:.3f} seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
 
     <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-    <span class="n">serial</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_viscosity</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">serial</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">,</span> <span class="n">get_viscosity</span><span class="p">,</span> <span class="n">nPoints</span><span class="p">)</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
     <span class="k">print</span><span class="p">(</span><span class="s">&#39;Serial: {0:.3f} seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
 </pre></div>

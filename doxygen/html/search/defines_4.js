@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fluid_5funstable',['FLUID_UNSTABLE',['../MixtureFugacityTP_8h.html#a170cd613c4c037c8720f33adb38655d0',1,'MixtureFugacityTP.h']]]
+  ['mu0_5finterp',['MU0_INTERP',['../speciesThermoTypes_8h.html#a239b13c6ee8b8fa05f0f9b20787600dc',1,'speciesThermoTypes.h']]]
 ];

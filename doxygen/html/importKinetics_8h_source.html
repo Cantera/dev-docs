@@ -185,38 +185,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> * @param root pointer to the XML tree which will be searched to find the</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> *             XML phase element.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * @param id   Name of the phase to be searched for.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * @param nm   Name of the XML element. Should be &quot;phase&quot;</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> * @param th   Pointer to a bare ThermoPhase object, which will be initialized</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> *             by this operation.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> * @param kin  Pointer to a bare Kinetics object, which will be initialized</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> *             by this operation to a homogeneous kinetics manager</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> * @return</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> *    Returns true if all went well. If there are errors, it will return false.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> * @param id   Name of the phase to be searched for.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment"> * @param nm   Name of the XML element. Should be &quot;phase&quot;</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"> * @param th   Pointer to a bare ThermoPhase object, which will be initialized</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"> *             by this operation.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> * @param kin  Pointer to a bare Kinetics object, which will be initialized</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> *             by this operation to a homogeneous kinetics manager</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> * @return</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> *    Returns true if all went well. If there are errors, it will return false.</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> * For Example</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> * For Example</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"> * @code</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"> *        ThermoPhase *th   = new ThermoPhase();</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> *        Kinetics    *kin  = new Kinetics();</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> *        XML_Node *root = get_XML_File(&quot;gri30.xml&quot;);</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"> *        ok =  buildSolutionFromXML(root, &quot;gri30_mix&quot;, &quot;phase&quot;, th, kin)</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"> * @endcode</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"> * @ingroup inputfiles</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment"> * @see importKinetics()</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">buildSolutionFromXML</a>(XML_Node&amp; root, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                          <span class="keyword">const</span> std::string&amp; nm, ThermoPhase* th, Kinetics* kin);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> * @code</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> *        ThermoPhase *th   = new ThermoPhase();</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"> *        Kinetics    *kin  = new Kinetics();</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"> *        XML_Node *root = get_XML_File(&quot;gri30.xml&quot;);</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> *        ok =  buildSolutionFromXML(root, &quot;gri30_mix&quot;, &quot;phase&quot;, th, kin)</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> * @endcode</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"> * @ingroup inputfiles</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment"> * @see importKinetics()</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">buildSolutionFromXML</a>(XML_Node&amp; root, <span class="keyword">const</span> std::string&amp; <span class="keywordtype">id</span>,</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                          <span class="keyword">const</span> std::string&amp; nm, ThermoPhase* th, Kinetics* kin);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="group__kineticsmgr_html_gacf1d3ddca3956fd62ce6096af3edd6b6"><div class="ttname"><a href="group__kineticsmgr.html#gacf1d3ddca3956fd62ce6096af3edd6b6">Cantera::installReactionArrays</a></div><div class="ttdeci">bool installReactionArrays(const XML_Node &amp;p, Kinetics &amp;kin, std::string default_phase, bool check_for_duplicates)</div><div class="ttdoc">Install information about reactions into the kinetics object, kin. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l00027">importKinetics.cpp:27</a></div></div>
-<div class="ttc" id="group__kineticsmgr_html_ga222ca55d41ac03b0b6754e9f95d33c04"><div class="ttname"><a href="group__kineticsmgr.html#ga222ca55d41ac03b0b6754e9f95d33c04">Cantera::importKinetics</a></div><div class="ttdeci">bool importKinetics(const XML_Node &amp;phase, std::vector&lt; ThermoPhase * &gt; th, Kinetics *k)</div><div class="ttdoc">Import a reaction mechanism for a phase or an interface. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l00143">importKinetics.cpp:143</a></div></div>
+<div class="ttc" id="group__kineticsmgr_html_ga222ca55d41ac03b0b6754e9f95d33c04"><div class="ttname"><a href="group__kineticsmgr.html#ga222ca55d41ac03b0b6754e9f95d33c04">Cantera::importKinetics</a></div><div class="ttdeci">bool importKinetics(const XML_Node &amp;phase, std::vector&lt; ThermoPhase * &gt; th, Kinetics *k)</div><div class="ttdoc">Import a reaction mechanism for a phase or an interface. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l00142">importKinetics.cpp:142</a></div></div>
 <div class="ttc" id="Kinetics_8h_html"><div class="ttname"><a href="Kinetics_8h.html">Kinetics.h</a></div><div class="ttdoc">Base class for kinetics managers and also contains the kineticsmgr module documentation (see Kinetics...</div></div>
-<div class="ttc" id="group__inputfiles_html_ga4e74133eafef0f135fda21a954bcd588"><div class="ttname"><a href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">Cantera::buildSolutionFromXML</a></div><div class="ttdeci">bool buildSolutionFromXML(XML_Node &amp;root, const std::string &amp;id, const std::string &amp;nm, ThermoPhase *th, Kinetics *kin)</div><div class="ttdoc">Build a single-phase ThermoPhase object with associated kinetics mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l00219">importKinetics.cpp:219</a></div></div>
+<div class="ttc" id="group__inputfiles_html_ga4e74133eafef0f135fda21a954bcd588"><div class="ttname"><a href="group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588">Cantera::buildSolutionFromXML</a></div><div class="ttdeci">bool buildSolutionFromXML(XML_Node &amp;root, const std::string &amp;id, const std::string &amp;nm, ThermoPhase *th, Kinetics *kin)</div><div class="ttdoc">Build a single-phase ThermoPhase object with associated kinetics mechanism. </div><div class="ttdef"><b>Definition:</b> <a href="importKinetics_8cpp_source.html#l00212">importKinetics.cpp:212</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

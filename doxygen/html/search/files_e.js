@@ -20,6 +20,7 @@ var searchData=
   ['phasecombo_5finteraction_2eh',['PhaseCombo_Interaction.h',['../PhaseCombo__Interaction_8h.html',1,'']]],
   ['plots_2ecpp',['plots.cpp',['../plots_8cpp.html',1,'']]],
   ['plots_2eh',['plots.h',['../plots_8h.html',1,'']]],
+  ['polyfit_2ecpp',['polyfit.cpp',['../polyfit_8cpp.html',1,'']]],
   ['polyfit_2eh',['polyfit.h',['../polyfit_8h.html',1,'']]],
   ['propertycalculator_2eh',['PropertyCalculator.h',['../PropertyCalculator_8h.html',1,'']]],
   ['purefluid_2eh',['PureFluid.h',['../PureFluid_8h.html',1,'']]],

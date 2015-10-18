@@ -121,7 +121,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/// stream, but classes may be derived from Logger that implement</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/// other output options. This is important when Cantera is used</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/// in applications that do not display the standard output, such</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/// as MATLAB.  The Cantera MATLAB interface derives a class from</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/// as MATLAB. The Cantera MATLAB interface derives a class from</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/// Logger that implements these methods with MATLAB-specific</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/// procedures, insuring that the messages will be passed through</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/// to the user. It would also be possible to derive a class that</span></div>
@@ -137,64 +137,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">///</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html">   39</a></span>&#160;<span class="comment"></span><span class="keyword">class </span><a class="code" href="classCantera_1_1Logger.html">Logger</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    //! Constructor - empty</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a4fac0c9f6ee2dce6abd726264b9195f7">   44</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1Logger.html#a4fac0c9f6ee2dce6abd726264b9195f7">Logger</a>() {}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">    //! Destructor - empty</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a7a62719474beac5f447b376e0c9d5b44">   47</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1Logger.html#a7a62719474beac5f447b376e0c9d5b44">~Logger</a>() {}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    //! Write a log message.</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     *  The default behavior is to write to</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     *  the standard output. Note that no end-of-line character is</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     *  appended to the message, and so if one is desired it must</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     *  be included in the string.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     * @param msg      String message to be written to cout</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a579a62cf7b73d49eb80b2919606ca69e">   58</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Logger.html#a579a62cf7b73d49eb80b2919606ca69e">write</a>(<span class="keyword">const</span> std::string&amp; msg) {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::cout &lt;&lt; msg;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    //! Write an end of line character and flush output.</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     *  Some systems treat endl and \n differently. The endl</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     *  statement causes a flushing of stdout to the screen.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183">   67</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183">writeendl</a>() {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::cout &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    //! Write an error message and quit.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     *  The default behavior is</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     *  to write to the standard error stream, and then call</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     *  exit(). Note that no end-of-line character is appended to</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">     *  the message, and so if one is desired it must be included</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">     *  in the string. Note that this default behavior will</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">     *  terminate the application Cantera is invoked from (MATLAB,</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">     *  Excel, etc.) If this is not desired, then derive a class</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     *  and reimplement this method.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * @param msg    Error message to be written to cerr.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a7057a6c0572da1477dce06903d2728ec">   84</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Logger.html#a7057a6c0572da1477dce06903d2728ec">error</a>(<span class="keyword">const</span> std::string&amp; msg) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        std::cerr &lt;&lt; msg &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;};</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    //! Constructor - empty</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a4fac0c9f6ee2dce6abd726264b9195f7">   43</a></span>&#160;<span class="comment"></span>    <a class="code" href="classCantera_1_1Logger.html#a4fac0c9f6ee2dce6abd726264b9195f7">Logger</a>() {}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">    //! Destructor - empty</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a7a62719474beac5f447b376e0c9d5b44">   46</a></span>&#160;<span class="comment"></span>    <span class="keyword">virtual</span> <a class="code" href="classCantera_1_1Logger.html#a7a62719474beac5f447b376e0c9d5b44">~Logger</a>() {}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">    //! Write a log message.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">     *  The default behavior is to write to</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     *  the standard output. Note that no end-of-line character is</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     *  appended to the message, and so if one is desired it must</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     *  be included in the string.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     * @param msg      String message to be written to cout</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a579a62cf7b73d49eb80b2919606ca69e">   57</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Logger.html#a579a62cf7b73d49eb80b2919606ca69e">write</a>(<span class="keyword">const</span> std::string&amp; msg) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::cout &lt;&lt; msg;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    //! Write an end of line character and flush output.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     *  Some systems treat endl and \n differently. The endl</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     *  statement causes a flushing of stdout to the screen.</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183">   66</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183">writeendl</a>() {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    //! Write an error message and quit.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span><span class="comment">    /*!</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     *  The default behavior is</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     *  to write to the standard error stream, and then call</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">     *  exit(). Note that no end-of-line character is appended to</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">     *  the message, and so if one is desired it must be included</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">     *  in the string. Note that this default behavior will</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">     *  terminate the application Cantera is invoked from (MATLAB,</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">     *  Excel, etc.) If this is not desired, then derive a class</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">     *  and reimplement this method.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">     *</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">     * @param msg    Error message to be written to cerr.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classCantera_1_1Logger.html#a7057a6c0572da1477dce06903d2728ec">   83</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classCantera_1_1Logger.html#a7057a6c0572da1477dce06903d2728ec">error</a>(<span class="keyword">const</span> std::string&amp; msg) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::cerr &lt;&lt; msg &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="classCantera_1_1Logger_html"><div class="ttname"><a href="classCantera_1_1Logger.html">Cantera::Logger</a></div><div class="ttdoc">Base class for &#39;loggers&#39; that write text messages to log files. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00039">logger.h:39</a></div></div>
-<div class="ttc" id="classCantera_1_1Logger_html_a7a62719474beac5f447b376e0c9d5b44"><div class="ttname"><a href="classCantera_1_1Logger.html#a7a62719474beac5f447b376e0c9d5b44">Cantera::Logger::~Logger</a></div><div class="ttdeci">virtual ~Logger()</div><div class="ttdoc">Destructor - empty. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00047">logger.h:47</a></div></div>
-<div class="ttc" id="classCantera_1_1Logger_html_a579a62cf7b73d49eb80b2919606ca69e"><div class="ttname"><a href="classCantera_1_1Logger.html#a579a62cf7b73d49eb80b2919606ca69e">Cantera::Logger::write</a></div><div class="ttdeci">virtual void write(const std::string &amp;msg)</div><div class="ttdoc">Write a log message. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00058">logger.h:58</a></div></div>
+<div class="ttc" id="classCantera_1_1Logger_html_a7a62719474beac5f447b376e0c9d5b44"><div class="ttname"><a href="classCantera_1_1Logger.html#a7a62719474beac5f447b376e0c9d5b44">Cantera::Logger::~Logger</a></div><div class="ttdeci">virtual ~Logger()</div><div class="ttdoc">Destructor - empty. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00046">logger.h:46</a></div></div>
+<div class="ttc" id="classCantera_1_1Logger_html_a579a62cf7b73d49eb80b2919606ca69e"><div class="ttname"><a href="classCantera_1_1Logger.html#a579a62cf7b73d49eb80b2919606ca69e">Cantera::Logger::write</a></div><div class="ttdeci">virtual void write(const std::string &amp;msg)</div><div class="ttdoc">Write a log message. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00057">logger.h:57</a></div></div>
 <div class="ttc" id="ct__defs_8h_html"><div class="ttname"><a href="ct__defs_8h.html">ct_defs.h</a></div><div class="ttdoc">This file contains definitions of terms that are used in internal routines and are unlikely to need m...</div></div>
-<div class="ttc" id="classCantera_1_1Logger_html_a7057a6c0572da1477dce06903d2728ec"><div class="ttname"><a href="classCantera_1_1Logger.html#a7057a6c0572da1477dce06903d2728ec">Cantera::Logger::error</a></div><div class="ttdeci">virtual void error(const std::string &amp;msg)</div><div class="ttdoc">Write an error message and quit. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00084">logger.h:84</a></div></div>
-<div class="ttc" id="classCantera_1_1Logger_html_a4fac0c9f6ee2dce6abd726264b9195f7"><div class="ttname"><a href="classCantera_1_1Logger.html#a4fac0c9f6ee2dce6abd726264b9195f7">Cantera::Logger::Logger</a></div><div class="ttdeci">Logger()</div><div class="ttdoc">Constructor - empty. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00044">logger.h:44</a></div></div>
-<div class="ttc" id="classCantera_1_1Logger_html_a49b6e3eeaed7a8c3f4cd99f6c05dd183"><div class="ttname"><a href="classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183">Cantera::Logger::writeendl</a></div><div class="ttdeci">virtual void writeendl()</div><div class="ttdoc">Write an end of line character and flush output. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00067">logger.h:67</a></div></div>
+<div class="ttc" id="classCantera_1_1Logger_html_a7057a6c0572da1477dce06903d2728ec"><div class="ttname"><a href="classCantera_1_1Logger.html#a7057a6c0572da1477dce06903d2728ec">Cantera::Logger::error</a></div><div class="ttdeci">virtual void error(const std::string &amp;msg)</div><div class="ttdoc">Write an error message and quit. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00083">logger.h:83</a></div></div>
+<div class="ttc" id="classCantera_1_1Logger_html_a4fac0c9f6ee2dce6abd726264b9195f7"><div class="ttname"><a href="classCantera_1_1Logger.html#a4fac0c9f6ee2dce6abd726264b9195f7">Cantera::Logger::Logger</a></div><div class="ttdeci">Logger()</div><div class="ttdoc">Constructor - empty. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00043">logger.h:43</a></div></div>
+<div class="ttc" id="classCantera_1_1Logger_html_a49b6e3eeaed7a8c3f4cd99f6c05dd183"><div class="ttname"><a href="classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183">Cantera::Logger::writeendl</a></div><div class="ttdeci">virtual void writeendl()</div><div class="ttdoc">Write an end of line character and flush output. </div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00066">logger.h:66</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

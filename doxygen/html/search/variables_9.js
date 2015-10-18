@@ -28,5 +28,5 @@ var searchData=
   ['istate_5f',['iState_',['../classCantera_1_1MixtureFugacityTP.html#a04b90413b51a1b773b3843a9ba9ae263',1,'Cantera::MixtureFugacityTP']]],
   ['iterations',['iterations',['../classCantera_1_1EquilOpt.html#a1d10e252e778731e59f0f71afd7e727e',1,'Cantera::EquilOpt']]],
   ['its',['Its',['../classCantera_1_1VCS__COUNTERS.html#a1a7037b7b542d3d4572b7bab839c86b8',1,'Cantera::VCS_COUNTERS']]],
-  ['iwork_5f',['iwork_',['../classCantera_1_1BandMatrix.html#a78b120fa167d7b4e33b383c635d2e898',1,'Cantera::BandMatrix::iwork_()'],['../classCantera_1_1SquareMatrix.html#a46a33717ca9dfbf41eda97142aa22a11',1,'Cantera::SquareMatrix::iwork_()']]]
+  ['iwork_5f',['iwork_',['../classCantera_1_1BandMatrix.html#a78b120fa167d7b4e33b383c635d2e898',1,'Cantera::BandMatrix::iwork_()'],['../classCantera_1_1SquareMatrix.html#a78b120fa167d7b4e33b383c635d2e898',1,'Cantera::SquareMatrix::iwork_()']]]
 ];

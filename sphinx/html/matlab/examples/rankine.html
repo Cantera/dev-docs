@@ -93,75 +93,73 @@
             
   <div class="section" id="rankine-m">
 <span id="matlab-example-rankine-m"></span><h1>rankine.m<a class="headerlink" href="#rankine-m" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-matlab"><div class="highlight"><pre>function [work, efficiency] = rankine(t1, p2, eta_pump, ...
-				      eta_turbine)
-%
-% RANKINE
-%
-% This example computes the efficiency of a simple vapor power
-% cycle. 
-%
-help rankine
+<div class="highlight-matlab"><div class="highlight"><pre><span class="k">function</span><span class="w"> </span>[work, efficiency] <span class="p">=</span><span class="w"> </span><span class="nf">rankine</span><span class="p">(</span>t1, p2, eta_pump, eta_turbine<span class="p">)</span><span class="w"></span>
+<span class="c">%</span>
+<span class="c">% RANKINE</span>
+<span class="c">%</span>
+<span class="c">% This example computes the efficiency of a simple vapor power</span>
+<span class="c">% cycle.</span>
+<span class="c">%</span>
+<span class="n">help</span> <span class="n">rankine</span>
 
-% create an object representing water
-w = Water;
+<span class="c">% create an object representing water</span>
+<span class="n">w</span> <span class="p">=</span> <span class="n">Water</span><span class="p">;</span>
 
-% start with saturated liquid water at t1
-set(w,&#39;T&#39;,t1,&#39;Liquid&#39;,1.0);
-h1 = enthalpy_mass(w);
-s1 = entropy_mass(w);
-p1 = pressure(w);
+<span class="c">% start with saturated liquid water at t1</span>
+<span class="n">set</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="s">&#39;Liquid&#39;</span><span class="p">,</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="n">h1</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="n">s1</span> <span class="p">=</span> <span class="n">entropy_mass</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="n">p1</span> <span class="p">=</span> <span class="n">pressure</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
 
-% pump it to p2
-pump_work = pump(w, p2, eta_pump);
-h2 = enthalpy_mass(w);
-p2 = pressure(w);
+<span class="c">% pump it to p2</span>
+<span class="n">pump_work</span> <span class="p">=</span> <span class="n">pump</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">eta_pump</span><span class="p">);</span>
+<span class="n">h2</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="n">p2</span> <span class="p">=</span> <span class="n">pressure</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
 
-% heat to saturated vapor
-set(w,&#39;P&#39;,p2,&#39;Vapor&#39;,1.0);
-h3 = enthalpy_mass(w);
-s3 = entropy_mass(w);
+<span class="c">% heat to saturated vapor</span>
+<span class="n">set</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="s">&#39;Vapor&#39;</span><span class="p">,</span><span class="mf">1.0</span><span class="p">);</span>
+<span class="n">h3</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="n">s3</span> <span class="p">=</span> <span class="n">entropy_mass</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
 
-heat_added = h3 - h2;
+<span class="n">heat_added</span> <span class="p">=</span> <span class="n">h3</span> <span class="o">-</span> <span class="n">h2</span><span class="p">;</span>
 
-% expand adiabatically back to the initial pressure
-work = expand(w, p1, eta_turbine)
-h4 = enthalpy_mass(w);
-x4 = vaporFraction(w);
+<span class="c">% expand adiabatically back to the initial pressure</span>
+<span class="n">work</span> <span class="p">=</span> <span class="n">expand</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p1</span><span class="p">,</span> <span class="n">eta_turbine</span><span class="p">)</span>
+<span class="n">h4</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+<span class="n">x4</span> <span class="p">=</span> <span class="n">vaporFraction</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
 
-% compute the efficiency
-efficiency = (work - pump_work)/heat_added
-
+<span class="c">% compute the efficiency</span>
+<span class="n">efficiency</span> <span class="p">=</span> <span class="p">(</span><span class="n">work</span> <span class="o">-</span> <span class="n">pump_work</span><span class="p">)</span><span class="o">/</span><span class="n">heat_added</span>
 
 
-function w = pump(fluid, pfinal, eta)
-% PUMP - Adiabatically pump a fluid to pressure pfinal, using a pump
-% with isentropic efficiency eta.
-% 
-h0 = enthalpy_mass(fluid);
-s0 = entropy_mass(fluid);
-set(fluid, &#39;S&#39;, s0, &#39;P&#39;, pfinal);
-h1s = enthalpy_mass(fluid);
-isentropic_work = h1s - h0;
-actual_work = isentropic_work / eta;
-h1 = h0 + actual_work;
-set(fluid, &#39;H&#39;,h1, &#39;P&#39;,pfinal);
-w = actual_work;
+<span class="k">function</span><span class="w"> </span>w <span class="p">=</span><span class="w"> </span><span class="nf">pump</span><span class="p">(</span>fluid, pfinal, eta<span class="p">)</span><span class="w"></span>
+<span class="c">% PUMP - Adiabatically pump a fluid to pressure pfinal, using a pump</span>
+<span class="c">% with isentropic efficiency eta.</span>
+<span class="c">%</span>
+<span class="n">h0</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">fluid</span><span class="p">);</span>
+<span class="n">s0</span> <span class="p">=</span> <span class="n">entropy_mass</span><span class="p">(</span><span class="n">fluid</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">pfinal</span><span class="p">);</span>
+<span class="n">h1s</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">fluid</span><span class="p">);</span>
+<span class="n">isentropic_work</span> <span class="p">=</span> <span class="n">h1s</span> <span class="o">-</span> <span class="n">h0</span><span class="p">;</span>
+<span class="n">actual_work</span> <span class="p">=</span> <span class="n">isentropic_work</span> <span class="o">/</span> <span class="n">eta</span><span class="p">;</span>
+<span class="n">h1</span> <span class="p">=</span> <span class="n">h0</span> <span class="o">+</span> <span class="n">actual_work</span><span class="p">;</span>
+<span class="n">set</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="s">&#39;H&#39;</span><span class="p">,</span><span class="n">h1</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">pfinal</span><span class="p">);</span>
+<span class="n">w</span> <span class="p">=</span> <span class="n">actual_work</span><span class="p">;</span>
 
 
-function w = expand(fluid, pfinal, eta)
-% EXPAND - Adiabatically expand a fluid to pressure pfinal, using a
-% turbine with isentropic efficiency eta.
-%
-h0 = enthalpy_mass(fluid);
-s0 = entropy_mass(fluid);
-set(fluid, &#39;S&#39;, s0, &#39;P&#39;, pfinal);
-h1s = enthalpy_mass(fluid);
-isentropic_work = h0 - h1s;
-actual_work = isentropic_work * eta;
-h1 = h0 - actual_work;
-set(fluid, &#39;H&#39;,h1, &#39;P&#39;,pfinal);
-w = actual_work;
+<span class="k">function</span><span class="w"> </span>w <span class="p">=</span><span class="w"> </span><span class="nf">expand</span><span class="p">(</span>fluid, pfinal, eta<span class="p">)</span><span class="w"></span>
+<span class="c">% EXPAND - Adiabatically expand a fluid to pressure pfinal, using a</span>
+<span class="c">% turbine with isentropic efficiency eta.</span>
+<span class="c">%</span>
+<span class="n">h0</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">fluid</span><span class="p">);</span>
+<span class="n">s0</span> <span class="p">=</span> <span class="n">entropy_mass</span><span class="p">(</span><span class="n">fluid</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">,</span> <span class="n">s0</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span> <span class="n">pfinal</span><span class="p">);</span>
+<span class="n">h1s</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">fluid</span><span class="p">);</span>
+<span class="n">isentropic_work</span> <span class="p">=</span> <span class="n">h0</span> <span class="o">-</span> <span class="n">h1s</span><span class="p">;</span>
+<span class="n">actual_work</span> <span class="p">=</span> <span class="n">isentropic_work</span> <span class="o">*</span> <span class="n">eta</span><span class="p">;</span>
+<span class="n">h1</span> <span class="p">=</span> <span class="n">h0</span> <span class="o">-</span> <span class="n">actual_work</span><span class="p">;</span>
+<span class="n">set</span><span class="p">(</span><span class="n">fluid</span><span class="p">,</span> <span class="s">&#39;H&#39;</span><span class="p">,</span><span class="n">h1</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">pfinal</span><span class="p">);</span>
+<span class="n">w</span> <span class="p">=</span> <span class="n">actual_work</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>

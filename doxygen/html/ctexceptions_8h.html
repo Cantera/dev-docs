@@ -106,16 +106,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;exception&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
+<code>#include &quot;cantera/ext/format.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ctexceptions.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__incl.svg" width="166" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__incl.svg" width="327" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__dep__incl.svg" width="5492" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="ctexceptions_8h__dep__incl.svg" width="5564" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -150,7 +151,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ae72cb0d0639b561e2abaefe3a60ab2b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ctexceptions_8h.html#ae72cb0d0639b561e2abaefe3a60ab2b9">STR_TRACE_LINE</a>(s)&#160;&#160;&#160;#s</td></tr>
 <tr class="memdesc:ae72cb0d0639b561e2abaefe3a60ab2b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a line number.  <a href="#ae72cb0d0639b561e2abaefe3a60ab2b9">More...</a><br/></td></tr>
 <tr class="separator:ae72cb0d0639b561e2abaefe3a60ab2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c45625d7e03776310c7795e4ce42947"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>&#160;&#160;&#160;(std::string(__FILE__) +  &quot;:&quot; + <a class="el" href="ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354">XSTR_TRACE_LINE</a>(__LINE__))</td></tr>
+<tr class="memitem:a1c45625d7e03776310c7795e4ce42947"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>&#160;&#160;&#160;(std::string(__FILE__) + &quot;:&quot; + <a class="el" href="ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354">XSTR_TRACE_LINE</a>(__LINE__))</td></tr>
 <tr class="memdesc:a1c45625d7e03776310c7795e4ce42947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a std::string variable containing the file and line number.  <a href="#a1c45625d7e03776310c7795e4ce42947">More...</a><br/></td></tr>
 <tr class="separator:a1c45625d7e03776310c7795e4ce42947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d9d847a6c88e2b3e4df673d100e4594"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga8d9d847a6c88e2b3e4df673d100e4594">AssertTrace</a>(expr)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(<a class="el" href="ctexceptions_8h.html#a1c45625d7e03776310c7795e4ce42947">STR_TRACE</a>, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
@@ -159,12 +160,12 @@ Macros</h2></td></tr>
 <tr class="memitem:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">AssertThrow</a>(expr, procedure)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure, std::string(&quot;failed assert: &quot;) + #expr))</td></tr>
 <tr class="memdesc:ga41a50aa300b18c3bf4c4417332207bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="group__errorhandling.html#ga41a50aa300b18c3bf4c4417332207bb6">More...</a><br/></td></tr>
 <tr class="separator:ga41a50aa300b18c3bf4c4417332207bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr, procedure, message)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;: at failed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), message))</td></tr>
-<tr class="memdesc:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">More...</a><br/></td></tr>
-<tr class="separator:ga53d47e483cf6bbd6ffcb7b042111a4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91f31c6197f94cd5bc1e7009f8b7be8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ctexceptions_8h.html#a91f31c6197f94cd5bc1e7009f8b7be8e">AssertFinite</a>(expr, procedure, message)&#160;&#160;&#160;<a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, message)</td></tr>
-<tr class="memdesc:a91f31c6197f94cd5bc1e7009f8b7be8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throw an exception if the specified exception is not a finite number.  <a href="#a91f31c6197f94cd5bc1e7009f8b7be8e">More...</a><br/></td></tr>
-<tr class="separator:a91f31c6197f94cd5bc1e7009f8b7be8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac25777fefb20a8d33b073aa7cb7a5811"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811">AssertThrowMsg</a>(expr, procedure,...)&#160;&#160;&#160;((expr) ? (void) 0 : throw CanteraError(procedure + std::string(&quot;:\nfailed assert: \&quot;&quot;) + std::string(#expr) + std::string(&quot;\&quot;&quot;), __VA_ARGS__))</td></tr>
+<tr class="memdesc:gac25777fefb20a8d33b073aa7cb7a5811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assertion must be true or an error is thrown.  <a href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811">More...</a><br/></td></tr>
+<tr class="separator:gac25777fefb20a8d33b073aa7cb7a5811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac68b53216dc85e9a7925cfed1b01d908"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ctexceptions_8h.html#ac68b53216dc85e9a7925cfed1b01d908">AssertFinite</a>(expr, procedure,...)&#160;&#160;&#160;<a class="el" href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811">AssertThrowMsg</a>(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, __VA_ARGS__)</td></tr>
+<tr class="memdesc:ac68b53216dc85e9a7925cfed1b01d908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throw an exception if the specified exception is not a finite number.  <a href="#ac68b53216dc85e9a7925cfed1b01d908">More...</a><br/></td></tr>
+<tr class="separator:ac68b53216dc85e9a7925cfed1b01d908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitions for the classes that are thrown when Cantera experiences an error condition (also contains errorhandling module text - see <a class="el" href="group__errorhandling.html">Error Handling</a>). </p>
@@ -187,7 +188,7 @@ Macros</h2></td></tr>
 
 <p>Provides a line number. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00194">194</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00209">209</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +208,7 @@ Macros</h2></td></tr>
 
 <p>Provides a line number. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00197">197</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00212">212</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +217,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define STR_TRACE&#160;&#160;&#160;(std::string(__FILE__) +  &quot;:&quot; + <a class="el" href="ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354">XSTR_TRACE_LINE</a>(__LINE__))</td>
+          <td class="memname">#define STR_TRACE&#160;&#160;&#160;(std::string(__FILE__) + &quot;:&quot; + <a class="el" href="ctexceptions_8h.html#aefb747ce1e3d520ee4338e1ad00e9354">XSTR_TRACE_LINE</a>(__LINE__))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -224,11 +225,11 @@ Macros</h2></td></tr>
 <p>Provides a std::string variable containing the file and line number. </p>
 <p>This is a std:string containing the file name and the line number </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00203">203</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00218">218</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a91f31c6197f94cd5bc1e7009f8b7be8e"></a>
+<a class="anchor" id="ac68b53216dc85e9a7925cfed1b01d908"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -248,21 +249,19 @@ Macros</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">message&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__errorhandling.html#ga53d47e483cf6bbd6ffcb7b042111a4fe">AssertThrowMsg</a>(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, message)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__errorhandling.html#gac25777fefb20a8d33b073aa7cb7a5811">AssertThrowMsg</a>(expr &lt; BigNumber &amp;&amp; expr &gt; -BigNumber, procedure, __VA_ARGS__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Throw an exception if the specified exception is not a finite number. </p>
 
-<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00266">266</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
-
-<p>Referenced by <a class="el" href="IdealGasReactor_8cpp_source.html#l00080">IdealGasReactor::evalEqs()</a>, <a class="el" href="Reactor_8cpp_source.html#l00206">Reactor::evalEqs()</a>, <a class="el" href="IdealGasReactor_8cpp_source.html#l00057">IdealGasReactor::updateState()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00128">Reactor::updateState()</a>.</p>
+<p>Definition at line <a class="el" href="ctexceptions_8h_source.html#l00281">281</a> of file <a class="el" href="ctexceptions_8h_source.html">ctexceptions.h</a>.</p>
 
 </div>
 </div>

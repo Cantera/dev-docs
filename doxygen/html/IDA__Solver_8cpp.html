@@ -114,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for IDA_Solver.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="IDA__Solver_8cpp__incl.svg" width="1490" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="IDA__Solver_8cpp__incl.svg" width="1332" height="502"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -202,9 +202,9 @@ Functions</h2></td></tr>
 <p>IDA allows passing in a void* pointer to access external data. Instead of requiring the user to provide a residual function directly to IDA (which would require using the sundials data types N_Vector, etc.), we define this function as the single function that IDA always calls. The real evaluation of the residual is done by an instance of a subclass of ResidEval, passed in to this function as a pointer in the parameters.</p>
 <p>FROM IDA WRITEUP -&gt; What the IDA solver expects as a return flag from its residual routines ---&mdash; A IDAResFn res should return a value of 0 if successful, a positive value if a recoverable error occured (e.g. yy has an illegal value), or a negative value if a nonrecoverable error occured. In the latter case, the program halts. If a recoverable error occured, the integrator will attempt to correct and retry. </p>
 
-<p>Definition at line <a class="el" href="IDA__Solver_8cpp_source.html#l00068">68</a> of file <a class="el" href="IDA__Solver_8cpp_source.html">IDA_Solver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IDA__Solver_8cpp_source.html#l00066">66</a> of file <a class="el" href="IDA__Solver_8cpp_source.html">IDA_Solver.cpp</a>.</p>
 
-<p>References <a class="el" href="ResidJacEval_8cpp_source.html#l00152">ResidJacEval::evalResidNJ()</a>.</p>
+<p>References <a class="el" href="ResidJacEval_8cpp_source.html#l00150">ResidJacEval::evalResidNJ()</a>.</p>
 
 </div>
 </div>
@@ -298,9 +298,9 @@ Functions</h2></td></tr>
 <p>typedef int (*IDADlsDenseJacFn)(sd_size_t N, realtype t, realtype c_j, N_Vector y, N_Vector yp, N_Vector r, DlsMat Jac, void *user_data, N_Vector tmp1, N_Vector tmp2, N_Vector tmp3);</p>
 <p>A IDADlsDenseJacFn should return 0 if successful, a positive int if a recoverable error occurred, or a negative int if a nonrecoverable error occurred. In the case of a recoverable error return, the integrator will attempt to recover by reducing the stepsize (which changes cj). </p>
 
-<p>Definition at line <a class="el" href="IDA__Solver_8cpp_source.html#l00101">101</a> of file <a class="el" href="IDA__Solver_8cpp_source.html">IDA_Solver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="IDA__Solver_8cpp_source.html#l00099">99</a> of file <a class="el" href="IDA__Solver_8cpp_source.html">IDA_Solver.cpp</a>.</p>
 
-<p>References <a class="el" href="ResidJacEval_8cpp_source.html#l00178">ResidJacEval::evalJacobianDP()</a>.</p>
+<p>References <a class="el" href="ResidJacEval_8cpp_source.html#l00176">ResidJacEval::evalJacobianDP()</a>.</p>
 
 </div>
 </div>

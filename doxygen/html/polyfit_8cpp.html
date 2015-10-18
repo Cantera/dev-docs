@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Cantera: smart_ptr.h Source File</title>
+<title>Cantera: polyfit.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,53 +89,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_3bd4dc569dc9c0f82f11105aad661bb2.html">include</a></li><li class="navelem"><a class="el" href="dir_fe02f723f01e1fa49d96821d57a77d5e.html">cantera</a></li><li class="navelem"><a class="el" href="dir_9ccdb09aee2004fd5c64d752b4e45d2b.html">base</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_0382829f5e0f0bbd8667506e17eecd40.html">src</a></li><li class="navelem"><a class="el" href="dir_d22a77b4f4476c0806f48f6be3d155cd.html">numerics</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">smart_ptr.h</div>  </div>
+<div class="title">polyfit.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CT_SMART_PTR</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CT_SMART_PTR</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;config.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#if defined CT_USE_STD_SHARED_PTR</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>Cantera</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">using</span> std::shared_ptr;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#elif defined CT_USE_TR1_SHARED_PTR</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;tr1/memory&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>Cantera</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">using</span> std::tr1::shared_ptr;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#elif defined CT_USE_MSFT_SHARED_PTR</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>Cantera</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">using</span> std::tr1::shared_ptr;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#elif defined CT_USE_BOOST_SHARED_PTR</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>Cantera</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">using</span> boost::shared_ptr;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#error &quot;No shared_ptr implementation available&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="textblock"><code>#include &quot;<a class="el" href="polyfit_8h_source.html">cantera/numerics/polyfit.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="ctexceptions_8h_source.html">cantera/base/ctexceptions.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="stringUtils_8h_source.html">cantera/base/stringUtils.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for polyfit.cpp:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="polyfit_8cpp__incl.svg" width="787" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div>
+<p><a href="polyfit_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceCantera"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html">Cantera</a></td></tr>
+<tr class="memdesc:namespaceCantera"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for the <a class="el" href="namespaceCantera.html" title="Namespace for the Cantera kernel. ">Cantera</a> kernel. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a32dbb52ebfbdd485576952f5e0606e63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32dbb52ebfbdd485576952f5e0606e63"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>_DPOLFT_</b>&#160;&#160;&#160;dpolft</td></tr>
+<tr class="separator:a32dbb52ebfbdd485576952f5e0606e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d9d54d8bbd8359f76ff219b788a497"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0d9d54d8bbd8359f76ff219b788a497"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>_DPCOEF_</b>&#160;&#160;&#160;dpcoef</td></tr>
+<tr class="separator:ab0d9d54d8bbd8359f76ff219b788a497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aaed9fbb256fc47891c04a5373cadb215"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaed9fbb256fc47891c04a5373cadb215"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_DPOLFT_</b> (integer *n, doublereal *x, doublereal *y, doublereal *w, integer *maxdeg, integer *ndeg, doublereal *eps, doublereal *r, integer *ierr, doublereal *a)</td></tr>
+<tr class="separator:aaed9fbb256fc47891c04a5373cadb215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a539e1df2397b8ac50f1c41594230f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af5a539e1df2397b8ac50f1c41594230f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_DPCOEF_</b> (integer *l, doublereal *c, doublereal *tc, doublereal *a)</td></tr>
+<tr class="separator:af5a539e1df2397b8ac50f1c41594230f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7430ae4c3f5ea8feb27f23bc191155dc"><td class="memItemLeft" align="right" valign="top">doublereal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a7430ae4c3f5ea8feb27f23bc191155dc">polyfit</a> (int n, doublereal *x, doublereal *y, doublereal *w, int maxdeg, int &amp;ndeg, doublereal eps, doublereal *r)</td></tr>
+<tr class="memdesc:a7430ae4c3f5ea8feb27f23bc191155dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fits a polynomial function to a set of data points.  <a href="#a7430ae4c3f5ea8feb27f23bc191155dc">More...</a><br/></td></tr>
+<tr class="separator:a7430ae4c3f5ea8feb27f23bc191155dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

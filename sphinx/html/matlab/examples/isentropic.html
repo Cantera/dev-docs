@@ -123,17 +123,17 @@
 <span class="c">% compute values for a range of pressure ratios</span>
 <span class="k">for</span> <span class="n">r</span> <span class="p">=</span> <span class="mf">0.005</span><span class="p">:</span><span class="mf">0.0025</span><span class="p">:</span><span class="mf">0.995</span>
    <span class="n">p</span> <span class="p">=</span> <span class="n">p0</span><span class="o">*</span><span class="n">r</span><span class="p">;</span>
-   
+
    <span class="c">% set the state using (p,s0)</span>
    <span class="n">set</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span><span class="s">&#39;P&#39;</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="s">&#39;S&#39;</span><span class="p">,</span><span class="n">s0</span><span class="p">);</span>
-   
+
    <span class="n">h</span> <span class="p">=</span> <span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
    <span class="n">rho</span> <span class="p">=</span> <span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
-   
+
    <span class="n">v2</span> <span class="p">=</span> <span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">h0</span> <span class="o">-</span> <span class="n">h</span><span class="p">);</span>      <span class="c">%   h + V^2/2 = h0</span>
-   <span class="n">v</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>             
+   <span class="n">v</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
    <span class="n">a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">mdot</span><span class="o">/</span><span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">v</span><span class="p">);</span>    <span class="c">%   rho*v*A = constant</span>
-   
+
    <span class="k">if</span> <span class="n">a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">amin</span>
       <span class="n">amin</span> <span class="p">=</span> <span class="n">a</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
    <span class="k">end</span>

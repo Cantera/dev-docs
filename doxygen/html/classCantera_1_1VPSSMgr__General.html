@@ -223,6 +223,9 @@ virtual const <a class="el" href="namespaceCantera.html#a8a71f536c7e45bda27ec0f1
 <tr class="memitem:acbd8d9f6e3bcaf6f2115a657e7ce12cf inherit pub_methods_classCantera_1_1VPSSMgr"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgr.html#acbd8d9f6e3bcaf6f2115a657e7ce12cf">initLengths</a> ()</td></tr>
 <tr class="memdesc:acbd8d9f6e3bcaf6f2115a657e7ce12cf inherit pub_methods_classCantera_1_1VPSSMgr"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the lengths within the object.  <a href="#acbd8d9f6e3bcaf6f2115a657e7ce12cf">More...</a><br/></td></tr>
 <tr class="separator:acbd8d9f6e3bcaf6f2115a657e7ce12cf inherit pub_methods_classCantera_1_1VPSSMgr"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42dab55c3f7b95e3fc87507816541e87 inherit pub_methods_classCantera_1_1VPSSMgr"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgr.html#a42dab55c3f7b95e3fc87507816541e87">initThermoXML</a> (<a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> &amp;phaseNode, const std::string &amp;id)</td></tr>
+<tr class="memdesc:a42dab55c3f7b95e3fc87507816541e87 inherit pub_methods_classCantera_1_1VPSSMgr"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the thermo after all species have been entered.  <a href="#a42dab55c3f7b95e3fc87507816541e87">More...</a><br/></td></tr>
+<tr class="separator:a42dab55c3f7b95e3fc87507816541e87 inherit pub_methods_classCantera_1_1VPSSMgr"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64f704c4e0720145cd1a9d9a7e6500aa inherit pub_methods_classCantera_1_1VPSSMgr"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgr.html#a64f704c4e0720145cd1a9d9a7e6500aa">installSTSpecies</a> (size_t k, const <a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> &amp;speciesNode, const <a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> *phaseNode_ptr)</td></tr>
 <tr class="memdesc:a64f704c4e0720145cd1a9d9a7e6500aa inherit pub_methods_classCantera_1_1VPSSMgr"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install specific content for species k in the reference-state thermodynamic SpeciesManager object.  <a href="#a64f704c4e0720145cd1a9d9a7e6500aa">More...</a><br/></td></tr>
 <tr class="separator:a64f704c4e0720145cd1a9d9a7e6500aa inherit pub_methods_classCantera_1_1VPSSMgr"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -272,9 +275,6 @@ Protected Member Functions</h2></td></tr>
 </div></td></tr>
 <tr class="memitem:a8a12209d08a5c4876d9894d619368a79"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgr__General.html#a8a12209d08a5c4876d9894d619368a79">initThermo</a> ()</td></tr>
 <tr class="separator:a8a12209d08a5c4876d9894d619368a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42dab55c3f7b95e3fc87507816541e87"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgr__General.html#a42dab55c3f7b95e3fc87507816541e87">initThermoXML</a> (<a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> &amp;phaseNode, const std::string &amp;id)</td></tr>
-<tr class="memdesc:a42dab55c3f7b95e3fc87507816541e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the thermo after all species have been entered.  <a href="#a42dab55c3f7b95e3fc87507816541e87">More...</a><br/></td></tr>
-<tr class="separator:a42dab55c3f7b95e3fc87507816541e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCantera_1_1VPSSMgr"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCantera_1_1VPSSMgr')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCantera_1_1VPSSMgr.html">VPSSMgr</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -420,7 +420,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00032">32</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8h_source.html#l00746">VPSSMgr::m_useTmpRefStateStorage</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00779">VPSSMgr::m_useTmpStandardStateStorage</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8h_source.html#l00744">VPSSMgr::m_useTmpRefStateStorage</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00777">VPSSMgr::m_useTmpStandardStateStorage</a>.</p>
 
 <p>Referenced by <a class="el" href="VPSSMgr__General_8cpp_source.html#l00070">VPSSMgr_General::duplMyselfAsVPSSMgr()</a>.</p>
 
@@ -444,7 +444,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00043">43</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8h_source.html#l00746">VPSSMgr::m_useTmpRefStateStorage</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00779">VPSSMgr::m_useTmpStandardStateStorage</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8h_source.html#l00744">VPSSMgr::m_useTmpRefStateStorage</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00777">VPSSMgr::m_useTmpStandardStateStorage</a>.</p>
 
 </div>
 </div>
@@ -467,7 +467,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00051">51</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8h_source.html#l00711">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00714">VPSSMgr::m_vptp_ptr</a>, and <a class="el" href="VPSSMgr_8cpp_source.html#l00061">VPSSMgr::operator=()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8h_source.html#l00709">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00712">VPSSMgr::m_vptp_ptr</a>, and <a class="el" href="VPSSMgr_8cpp_source.html#l00060">VPSSMgr::operator=()</a>.</p>
 
 </div>
 </div>
@@ -542,7 +542,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00103">103</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00247">PDSS::cp_R()</a>, <a class="el" href="PDSS_8cpp_source.html#l00212">PDSS::enthalpy_RT()</a>, <a class="el" href="PDSS_8cpp_source.html#l00227">PDSS::entropy_R()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00791">VPSSMgr::m_cpss_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00797">VPSSMgr::m_gss_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00785">VPSSMgr::m_hss_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00711">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00728">VPSSMgr::m_plast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00803">VPSSMgr::m_sss_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00724">VPSSMgr::m_tlast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00809">VPSSMgr::m_Vss</a>, <a class="el" href="PDSS_8cpp_source.html#l00252">PDSS::molarVolume()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00362">PDSS::setState_TP()</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00247">PDSS::cp_R()</a>, <a class="el" href="PDSS_8cpp_source.html#l00212">PDSS::enthalpy_RT()</a>, <a class="el" href="PDSS_8cpp_source.html#l00227">PDSS::entropy_R()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00789">VPSSMgr::m_cpss_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00795">VPSSMgr::m_gss_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00783">VPSSMgr::m_hss_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00709">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00726">VPSSMgr::m_plast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00801">VPSSMgr::m_sss_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00722">VPSSMgr::m_tlast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00807">VPSSMgr::m_Vss</a>, <a class="el" href="PDSS_8cpp_source.html#l00252">PDSS::molarVolume()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00361">PDSS::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -574,7 +574,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00088">88</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00282">PDSS::cp_R_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00272">PDSS::enthalpy_RT_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00277">PDSS::entropy_R_ref()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00758">VPSSMgr::m_cp0_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00764">VPSSMgr::m_g0_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00752">VPSSMgr::m_h0_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00711">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00728">VPSSMgr::m_plast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00770">VPSSMgr::m_s0_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00724">VPSSMgr::m_tlast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00746">VPSSMgr::m_useTmpRefStateStorage</a>, <a class="el" href="VPSSMgr_8h_source.html#l00773">VPSSMgr::m_V0</a>, <a class="el" href="PDSS_8cpp_source.html#l00287">PDSS::molarVolume_ref()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00362">PDSS::setState_TP()</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00282">PDSS::cp_R_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00272">PDSS::enthalpy_RT_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00277">PDSS::entropy_R_ref()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00756">VPSSMgr::m_cp0_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00762">VPSSMgr::m_g0_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00750">VPSSMgr::m_h0_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00709">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00726">VPSSMgr::m_plast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00768">VPSSMgr::m_s0_R</a>, <a class="el" href="VPSSMgr_8h_source.html#l00722">VPSSMgr::m_tlast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00744">VPSSMgr::m_useTmpRefStateStorage</a>, <a class="el" href="VPSSMgr_8h_source.html#l00771">VPSSMgr::m_V0</a>, <a class="el" href="PDSS_8cpp_source.html#l00287">PDSS::molarVolume_ref()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00361">PDSS::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -611,7 +611,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00121">121</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="PDSS_8cpp_source.html#l00272">PDSS::enthalpy_RT_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00277">PDSS::entropy_R_ref()</a>, <a class="el" href="ct__defs_8h_source.html#l00064">Cantera::GasConstant</a>, <a class="el" href="VPSSMgr_8h_source.html#l00764">VPSSMgr::m_g0_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00711">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00728">VPSSMgr::m_plast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00724">VPSSMgr::m_tlast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00746">VPSSMgr::m_useTmpRefStateStorage</a>, <a class="el" href="utilities_8h_source.html#l00138">Cantera::scale()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00362">PDSS::setState_TP()</a>.</p>
+<p>References <a class="el" href="PDSS_8cpp_source.html#l00272">PDSS::enthalpy_RT_ref()</a>, <a class="el" href="PDSS_8cpp_source.html#l00277">PDSS::entropy_R_ref()</a>, <a class="el" href="ct__defs_8h_source.html#l00063">Cantera::GasConstant</a>, <a class="el" href="VPSSMgr_8h_source.html#l00762">VPSSMgr::m_g0_RT</a>, <a class="el" href="VPSSMgr_8h_source.html#l00709">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="VPSSMgr_8h_source.html#l00726">VPSSMgr::m_plast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00722">VPSSMgr::m_tlast</a>, <a class="el" href="VPSSMgr_8h_source.html#l00744">VPSSMgr::m_useTmpRefStateStorage</a>, <a class="el" href="utilities_8h_source.html#l00136">Cantera::scale()</a>, and <a class="el" href="PDSS_8cpp_source.html#l00361">PDSS::setState_TP()</a>.</p>
 
 </div>
 </div>
@@ -642,58 +642,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00116">116</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00356">VPSSMgr::initLengths()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a42dab55c3f7b95e3fc87507816541e87"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initThermoXML </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classCantera_1_1XML__Node.html">XML_Node</a> &amp;&#160;</td>
-          <td class="paramname"><em>phaseNode</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Finalize the thermo after all species have been entered. </p>
-<p>This function is the LAST initialization routine to be called. It's called after <a class="el" href="classCantera_1_1VPSSMgr__General.html#af359e2b47e540fee558ffd241bfe10c7" title="Factory routine for the creation of PDSS objects that are then internally registered with this VPSSMg...">createInstallPDSS()</a> has been called for each species in the phase, and after <a class="el" href="classCantera_1_1VPSSMgr__General.html#a8a12209d08a5c4876d9894d619368a79">initThermo()</a> has been called. It's called via an inner-to-outer onion shell like manner.</p>
-<p>In this routine, we currently calculate the reference pressure, the minimum and maximum temperature for the applicability of the thermo formulation.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">phaseNode</td><td>Reference to the phaseNode XML node. </td></tr>
-    <tr><td class="paramname">id</td><td>ID of the phase. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Reimplemented from <a class="el" href="classCantera_1_1VPSSMgr.html#a42dab55c3f7b95e3fc87507816541e87">VPSSMgr</a>.</p>
-
-<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00138">138</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
-
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00383">VPSSMgr::initThermoXML()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00334">VPSSMgr::initLengths()</a>.</p>
 
 </div>
 </div>
@@ -754,11 +703,11 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the pointer to a malloced <a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a> object </dd></dl>
 
-<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00144">144</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00137">137</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00520">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00735">XML_Node::findByName()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00104">GeneralSpeciesThermo::installPDSShandler()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00394">VPSSMgr::installSTSpecies()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00720">VPSSMgr::m_spthermo</a>, <a class="el" href="VPSSMgr_8h_source.html#l00746">VPSSMgr::m_useTmpRefStateStorage</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00714">VPSSMgr::m_vptp_ptr</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00509">XML_Node::attrib()</a>, <a class="el" href="xml_8cpp_source.html#l00709">XML_Node::findByName()</a>, <a class="el" href="GeneralSpeciesThermo_8cpp_source.html#l00099">GeneralSpeciesThermo::installPDSShandler()</a>, <a class="el" href="VPSSMgr_8cpp_source.html#l00372">VPSSMgr::installSTSpecies()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00718">VPSSMgr::m_spthermo</a>, <a class="el" href="VPSSMgr_8h_source.html#l00744">VPSSMgr::m_useTmpRefStateStorage</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00712">VPSSMgr::m_vptp_ptr</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgr__General_8cpp_source.html#l00209">VPSSMgr_General::createInstallPDSS()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgr__General_8cpp_source.html#l00198">VPSSMgr_General::createInstallPDSS()</a>.</p>
 
 </div>
 </div>
@@ -815,9 +764,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPSSMgr.html#af359e2b47e540fee558ffd241bfe10c7">VPSSMgr</a>.</p>
 
-<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00209">209</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00198">198</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8h_source.html#l00711">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr_8h_source.html#l00740">VPSSMgr::m_maxTemp</a>, <a class="el" href="VPSSMgr_8h_source.html#l00737">VPSSMgr::m_minTemp</a>, <a class="el" href="VPSSMgr_8h_source.html#l00734">VPSSMgr::m_p0</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="PDSS_8h_source.html#l00365">PDSS::maxTemp()</a>, <a class="el" href="PDSS_8h_source.html#l00360">PDSS::minTemp()</a>, <a class="el" href="PDSS_8h_source.html#l00355">PDSS::refPressure()</a>, and <a class="el" href="VPSSMgr__General_8cpp_source.html#l00144">VPSSMgr_General::returnPDSS_ptr()</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8h_source.html#l00709">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr_8h_source.html#l00738">VPSSMgr::m_maxTemp</a>, <a class="el" href="VPSSMgr_8h_source.html#l00735">VPSSMgr::m_minTemp</a>, <a class="el" href="VPSSMgr_8h_source.html#l00732">VPSSMgr::m_p0</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>, <a class="el" href="PDSS_8h_source.html#l00365">PDSS::maxTemp()</a>, <a class="el" href="PDSS_8h_source.html#l00360">PDSS::minTemp()</a>, <a class="el" href="PDSS_8h_source.html#l00355">PDSS::refPressure()</a>, and <a class="el" href="VPSSMgr__General_8cpp_source.html#l00137">VPSSMgr_General::returnPDSS_ptr()</a>.</p>
 
 </div>
 </div>
@@ -854,9 +803,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPSSMgr.html#a78687e4abdaf5898f79a3ebc85b97f01">VPSSMgr</a>.</p>
 
-<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00229">229</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00217">217</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>.</p>
+<p>References <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>.</p>
 
 </div>
 </div>
@@ -886,9 +835,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classCantera_1_1VPSSMgr.html#a6dc40f86eb0cd781374e4a0cc151bb3b">VPSSMgr</a>.</p>
 
-<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00234">234</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00222">222</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="mix__defs_8h_source.html#l00151">Cantera::cVPSSMGR_GENERAL</a>.</p>
+<p>References <a class="el" href="mix__defs_8h_source.html#l00150">Cantera::cVPSSMGR_GENERAL</a>.</p>
 
 </div>
 </div>
@@ -938,7 +887,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Definition at line <a class="el" href="VPSSMgr__General_8cpp_source.html#l00075">75</a> of file <a class="el" href="VPSSMgr__General_8cpp_source.html">VPSSMgr_General.cpp</a>.</p>
 
-<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00119">VPSSMgr::initAllPtrs()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00711">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00140">VPSSMgr_General::m_PDSS_ptrs</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00714">VPSSMgr::m_vptp_ptr</a>.</p>
+<p>References <a class="el" href="VPSSMgr_8cpp_source.html#l00117">VPSSMgr::initAllPtrs()</a>, <a class="el" href="VPSSMgr_8h_source.html#l00709">VPSSMgr::m_kk</a>, <a class="el" href="VPSSMgr__General_8h_source.html#l00138">VPSSMgr_General::m_PDSS_ptrs</a>, and <a class="el" href="VPSSMgr_8h_source.html#l00712">VPSSMgr::m_vptp_ptr</a>.</p>
 
 </div>
 </div>
@@ -964,9 +913,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Shallow pointers containing the <a class="el" href="classCantera_1_1PDSS.html" title="Virtual base class for a species with a pressure dependent standard state. ">PDSS</a> objects for the species in this phase. </p>
 <p>This object doesn't own these pointers. </p>
 
-<p>Definition at line <a class="el" href="VPSSMgr__General_8h_source.html#l00140">140</a> of file <a class="el" href="VPSSMgr__General_8h_source.html">VPSSMgr_General.h</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgr__General_8h_source.html#l00138">138</a> of file <a class="el" href="VPSSMgr__General_8h_source.html">VPSSMgr_General.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgr__General_8cpp_source.html#l00088">VPSSMgr_General::_updateRefStateThermo()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00103">VPSSMgr_General::_updateStandardStateThermo()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00209">VPSSMgr_General::createInstallPDSS()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00121">VPSSMgr_General::getGibbs_ref()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00075">VPSSMgr_General::initAllPtrs()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00051">VPSSMgr_General::operator=()</a>, and <a class="el" href="VPSSMgr__General_8cpp_source.html#l00229">VPSSMgr_General::reportPDSSType()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgr__General_8cpp_source.html#l00088">VPSSMgr_General::_updateRefStateThermo()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00103">VPSSMgr_General::_updateStandardStateThermo()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00198">VPSSMgr_General::createInstallPDSS()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00121">VPSSMgr_General::getGibbs_ref()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00075">VPSSMgr_General::initAllPtrs()</a>, <a class="el" href="VPSSMgr__General_8cpp_source.html#l00051">VPSSMgr_General::operator=()</a>, and <a class="el" href="VPSSMgr__General_8cpp_source.html#l00217">VPSSMgr_General::reportPDSSType()</a>.</p>
 
 </div>
 </div>

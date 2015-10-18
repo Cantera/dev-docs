@@ -94,7 +94,7 @@
   <div class="section" id="tut1-m">
 <span id="matlab-example-tut1-m"></span><h1>tut1.m<a class="headerlink" href="#tut1-m" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="c">% Tutorial 1:  Getting started</span>
-<span class="c">%   </span>
+<span class="c">%</span>
 <span class="c">%  Topics:</span>
 <span class="c">%    - creating a gas mixture</span>
 <span class="c">%    - setting the state</span>
@@ -112,7 +112,7 @@
 <span class="c">%            pressure          101325  Pa</span>
 <span class="c">%             density        0.081889  kg/m^3</span>
 <span class="c">%    mean mol. weight         2.01588  amu</span>
-<span class="c">%   </span>
+<span class="c">%</span>
 <span class="c">%                            1 kg            1 kmol</span>
 <span class="c">%                         -----------      ------------</span>
 <span class="c">%            enthalpy         26470.1        5.336e+04     J</span>
@@ -121,8 +121,8 @@
 <span class="c">%      Gibbs function    -1.94477e+07        -3.92e+07     J</span>
 <span class="c">%   heat capacity c_p         14311.8        2.885e+04     J/K</span>
 <span class="c">%   heat capacity c_v         10187.3        2.054e+04     J/K</span>
-<span class="c">%   </span>
-<span class="c">%                             X                 Y          Chem. Pot. / RT    </span>
+<span class="c">%</span>
+<span class="c">%                             X                 Y          Chem. Pot. / RT</span>
 <span class="c">%                       -------------     ------------     ------------</span>
 <span class="c">%                  H2              1                1         -15.7173</span>
 <span class="c">%       [  +52 minor]              0                0</span>
@@ -161,7 +161,7 @@
 <span class="c">% Notice in the summary of properties that MATLAB prints after this</span>
 <span class="c">% command is executed that the temperature has been changed as</span>
 <span class="c">% requested, but the pressure has changed too. The density and</span>
-<span class="c">% composition have not. </span>
+<span class="c">% composition have not.</span>
 <span class="c">%</span>
 <span class="c">% When setting properties individually, some convention needs to be</span>
 <span class="c">% adopted to specify which other properties are held constant. This is</span>
@@ -178,7 +178,7 @@
 
 <span class="c">% b) Setting the pressure is done holding temperature and</span>
 <span class="c">%    composition fixed. (The density changes.)</span>
-<span class="c">% </span>
+<span class="c">%</span>
 <span class="c">% c) Setting the composition is done holding temperature</span>
 <span class="c">%    and density fixed. (The pressure changes).</span>
 <span class="c">%</span>
@@ -199,7 +199,7 @@
 <span class="c">% call to &#39;set&#39;. For example, the following sets the mole fractions</span>
 <span class="c">% too:</span>
 <span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Temperature&#39;</span><span class="p">,</span> <span class="mf">900.0</span><span class="p">,</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> <span class="mf">1.e5</span><span class="p">,</span> <span class="s">&#39;MoleFractions&#39;</span><span class="p">,</span> <span class="c">...</span>
-	  <span class="s">&#39;CH4:1,O2:2,N2:7.52&#39;</span><span class="p">);</span>
+          <span class="s">&#39;CH4:1,O2:2,N2:7.52&#39;</span><span class="p">);</span>
 
 <span class="c">% The &#39;set&#39; method also accepts abbreviated property names:</span>
 
@@ -211,7 +211,7 @@
 <span class="c">%            pressure          100000  Pa</span>
 <span class="c">%             density        0.369279  kg/m^3</span>
 <span class="c">%    mean mol. weight         27.6332  amu</span>
-<span class="c">%   </span>
+<span class="c">%</span>
 <span class="c">%                            1 kg            1 kmol</span>
 <span class="c">%                         -----------      ------------</span>
 <span class="c">%            enthalpy          455660        1.259e+07     J</span>
@@ -220,8 +220,8 @@
 <span class="c">%      Gibbs function    -7.22072e+06       -1.995e+08     J</span>
 <span class="c">%   heat capacity c_p          1304.4        3.604e+04     J/K</span>
 <span class="c">%   heat capacity c_v         1003.52        2.773e+04     J/K</span>
-<span class="c">%   </span>
-<span class="c">%                             X                 Y          Chem. Pot. / RT    </span>
+<span class="c">%</span>
+<span class="c">%                             X                 Y          Chem. Pot. / RT</span>
 <span class="c">%                       -------------     ------------     ------------</span>
 <span class="c">%                  O2       0.190114         0.220149         -27.9596</span>
 <span class="c">%                 CH4       0.095057        0.0551863         -37.0813</span>
@@ -232,11 +232,10 @@
 <span class="c">% can&#39;t be set individually. The following property pairs may be</span>
 <span class="c">% set: (Enthalpy, Pressure), (IntEnergy, Volume), (Entropy,</span>
 <span class="c">% Volume), (Entropy, Pressure). In each case, the values of the</span>
-<span class="c">% extensive properties must be entered *per unit mass*. </span>
+<span class="c">% extensive properties must be entered *per unit mass*.</span>
 
 <span class="c">% Setting the enthalpy and pressure:</span>
 <span class="n">set</span><span class="p">(</span><span class="n">gas1</span><span class="p">,</span> <span class="s">&#39;Enthalpy&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">enthalpy_mass</span><span class="p">(</span><span class="n">gas1</span><span class="p">),</span> <span class="s">&#39;Pressure&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">oneatm</span><span class="p">);</span>
-
 
 <span class="c">% The composition above was specified using a string. The format is a</span>
 <span class="c">% comma-separated list of &lt;species name&gt;:&lt;relative mole numbers&gt;</span>

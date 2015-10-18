@@ -95,7 +95,7 @@
 <span id="matlab-example-ignite-m"></span><h1>ignite.m<a class="headerlink" href="#ignite-m" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-matlab"><div class="highlight"><pre><span class="k">function</span><span class="w"> </span>plotdata <span class="p">=</span><span class="w"> </span><span class="nf">ignite</span><span class="p">(</span>g<span class="p">)</span><span class="w"></span>
 <span class="c">% IGNITE Zero-dimensional kinetics: adiabatic, constant pressure.</span>
-<span class="c">% </span>
+<span class="c">%</span>
 <span class="c">%    This example solves the same problem as &#39;reactor1,&#39; but does</span>
 <span class="c">%    it using on of MATLAB&#39;s ODE integrators, rather than using the</span>
 <span class="c">%    Cantera Reactor class.</span>
@@ -133,9 +133,8 @@
 <span class="c">% boundary conditions - the rate of change of volume, the heat</span>
 <span class="c">% flux, and the area.</span>
 
-
 <span class="c">% Rate of change of volume. Any arbirtrary function may be implemented.</span>
-<span class="c">% Input arguments: </span>
+<span class="c">% Input arguments:</span>
 <span class="c">%   t      time</span>
 <span class="c">%   vol    volume</span>
 <span class="c">%   gas    ideal gas object</span>
@@ -145,10 +144,9 @@
 <span class="n">v</span> <span class="p">=</span> <span class="mf">1.e11</span> <span class="o">*</span> <span class="p">(</span><span class="n">pressure</span><span class="p">(</span><span class="n">gas</span><span class="p">)</span> <span class="o">-</span> <span class="mf">101325.0</span><span class="p">);</span>   <span class="c">% holds pressure very</span>
                                           <span class="c">% close to 1 atm</span>
 
-<span class="c">% heat flux (W/m^2). </span>
+<span class="c">% heat flux (W/m^2).</span>
 <span class="k">function</span><span class="w"> </span>q <span class="p">=</span><span class="w"> </span><span class="nf">heatflux</span><span class="p">(</span>t, gas<span class="p">)</span><span class="w"></span>
 <span class="n">q</span> <span class="p">=</span> <span class="mf">0.0</span><span class="p">;</span>                                  <span class="c">% adiabatic</span>
-
 
 <span class="c">% surface area (m^2). Used only to compute heat transfer.</span>
 <span class="k">function</span><span class="w"> </span>a <span class="p">=</span><span class="w"> </span><span class="nf">area</span><span class="p">(</span>t,vol<span class="p">)</span><span class="w"></span>
@@ -159,7 +157,7 @@
 <span class="c">% Since the solution variables used by the &#39;reactor&#39; function are</span>
 <span class="c">% not necessarily those desired for output, this function is called</span>
 <span class="c">% after the integration is complete to generate the desired</span>
-<span class="c">% outputs. </span>
+<span class="c">% outputs.</span>
 
 <span class="k">function</span><span class="w"> </span>pv <span class="p">=</span><span class="w"> </span><span class="nf">output</span><span class="p">(</span>s, gas<span class="p">)</span><span class="w"></span>
 <span class="n">times</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
@@ -177,7 +175,7 @@
   <span class="n">v_mass</span> <span class="p">=</span> <span class="n">ss</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">mass</span><span class="p">;</span>
   <span class="n">setMassFractions</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
   <span class="n">setState_UV</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="p">[</span><span class="n">u_mass</span> <span class="n">v_mass</span><span class="p">]);</span>
-  
+
   <span class="n">pv</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">times</span><span class="p">(</span><span class="nb">j</span><span class="p">);</span>
   <span class="n">pv</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">temperature</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>
   <span class="n">pv</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span> <span class="p">=</span> <span class="n">density</span><span class="p">(</span><span class="n">gas</span><span class="p">);</span>

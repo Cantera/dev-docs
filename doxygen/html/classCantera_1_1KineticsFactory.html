@@ -153,9 +153,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:acf0f6eac791caa8a0e42f0ad6db21a54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf0f6eac791caa8a0e42f0ad6db21a54"></a>
 static <a class="el" href="classCantera_1_1KineticsFactory.html">KineticsFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>s_factory</b> = 0</td></tr>
 <tr class="separator:acf0f6eac791caa8a0e42f0ad6db21a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af620496f4a461810df8e9cef80b814f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af620496f4a461810df8e9cef80b814f2"></a>
-static mutex_t&#160;</td><td class="memItemRight" valign="bottom"><b>kinetics_mutex</b></td></tr>
-<tr class="separator:af620496f4a461810df8e9cef80b814f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad7e9f3a2a3e204a929910afa1b80895"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad7e9f3a2a3e204a929910afa1b80895"></a>
+static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>kinetics_mutex</b></td></tr>
+<tr class="separator:aad7e9f3a2a3e204a929910afa1b80895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -167,7 +167,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Factory for kinetics managers. </p>
 
-<p>Definition at line <a class="el" href="KineticsFactory_8h_source.html#l00029">29</a> of file <a class="el" href="KineticsFactory_8h_source.html">KineticsFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="KineticsFactory_8h_source.html#l00028">28</a> of file <a class="el" href="KineticsFactory_8h_source.html">KineticsFactory.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ad6285cea657558e041f040555a4d1c2e"></a>
 <div class="memitem">
@@ -195,7 +195,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1FactoryBase.html#a15663fcccb836c3ab790211d63aa2917">FactoryBase</a>.</p>
 
-<p>Definition at line <a class="el" href="KineticsFactory_8h_source.html#l00040">40</a> of file <a class="el" href="KineticsFactory_8h_source.html">KineticsFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="KineticsFactory_8h_source.html#l00039">39</a> of file <a class="el" href="KineticsFactory_8h_source.html">KineticsFactory.h</a>.</p>
 
 </div>
 </div>
@@ -236,15 +236,15 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">phase</td><td>An <a class="el" href="classCantera_1_1XML__Node.html" title="Class XML_Node is a tree-based representation of the contents of an XML file. ">XML_Node</a> that contains the XML data describing the phase. Of particular note to this routine is the child XML element called "kinetics". The element has one attribute called "model", with a string value. The value of this string is used to decide which kinetics manager is used to calculate the reaction mechanism. </td></tr>
-    <tr><td class="paramname">th</td><td>Vector of phases. The first phase is the phase in which the reactions occur, and the subsequent phases (if any) are e.g. bulk phases adjacent to a reacting surface.</td></tr>
+    <tr><td class="paramname">th</td><td>Vector of phases. The first phase is the phase in which the reactions occur, and the subsequent phases (if any) are e.g. bulk phases adjacent to a reacting surface. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the new kinetics manager. </dd></dl>
 
-<p>Definition at line <a class="el" href="KineticsFactory_8cpp_source.html#l00023">23</a> of file <a class="el" href="KineticsFactory_8cpp_source.html">KineticsFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="KineticsFactory_8cpp_source.html#l00022">22</a> of file <a class="el" href="KineticsFactory_8cpp_source.html">KineticsFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, and <a class="el" href="importKinetics_8cpp_source.html#l00143">Cantera::importKinetics()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00555">XML_Node::child()</a>, and <a class="el" href="importKinetics_8cpp_source.html#l00142">Cantera::importKinetics()</a>.</p>
 
 </div>
 </div>
@@ -272,9 +272,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Return a new, empty kinetics manager. </p>
 
-<p>Definition at line <a class="el" href="KineticsFactory_8cpp_source.html#l00043">43</a> of file <a class="el" href="KineticsFactory_8cpp_source.html">KineticsFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="KineticsFactory_8cpp_source.html#l00042">42</a> of file <a class="el" href="KineticsFactory_8cpp_source.html">KineticsFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>.</p>
+<p>References <a class="el" href="stringUtils_8cpp_source.html#l00074">Cantera::lowercase()</a>.</p>
 
 </div>
 </div>

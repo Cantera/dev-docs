@@ -104,16 +104,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This file contains definitions for utility functions and text for modules, inputfiles, logs, textlogs, (see <a class="el" href="group__inputfiles.html">Input File Handling</a>, <a class="el" href="group__logs.html">Diagnostic Output</a>, and <a class="el" href="group__textlogs.html">Writing messages to the screen</a>).  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="ct__defs_8h_source.html">ct_defs.h</a>&quot;</code><br/>
+<code>#include &quot;cantera/ext/format.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for global.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="global_8h__incl.svg" width="572" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="global_8h__incl.svg" width="664" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="global_8h__dep__incl.svg" width="4118" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="global_8h__dep__incl.svg" width="4230" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -160,15 +161,20 @@ Functions</h2></td></tr>
 <tr class="memitem:gac2afc73862050157954586c8e4936f8e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__inputfiles.html#gac2afc73862050157954586c8e4936f8e">canteraRoot</a> ()</td></tr>
 <tr class="memdesc:gac2afc73862050157954586c8e4936f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns root directory where Cantera is installed.  <a href="group__inputfiles.html#gac2afc73862050157954586c8e4936f8e">More...</a><br/></td></tr>
 <tr class="separator:gac2afc73862050157954586c8e4936f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a304c529581146b5b5eeb034aed77d449"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a304c529581146b5b5eeb034aed77d449">writelog</a> (const std::string &amp;msg)</td></tr>
-<tr class="memdesc:a304c529581146b5b5eeb034aed77d449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a message to the screen.  <a href="#a304c529581146b5b5eeb034aed77d449">More...</a><br/></td></tr>
-<tr class="separator:a304c529581146b5b5eeb034aed77d449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bcc948a5a9e6ee52d7e476e2db6a025"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a2bcc948a5a9e6ee52d7e476e2db6a025">writelog</a> (const std::string &amp;msg, int loglevel)</td></tr>
-<tr class="memdesc:a2bcc948a5a9e6ee52d7e476e2db6a025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a message to the log only if loglevel &gt; 0.  <a href="#a2bcc948a5a9e6ee52d7e476e2db6a025">More...</a><br/></td></tr>
-<tr class="separator:a2bcc948a5a9e6ee52d7e476e2db6a025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2f4b130b40a8340181fce4e1d9eee302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302">writelogf</a> (const char *fmt,...)</td></tr>
-<tr class="memdesc:ga2f4b130b40a8340181fce4e1d9eee302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a formatted message to the screen.  <a href="group__textlogs.html#ga2f4b130b40a8340181fce4e1d9eee302">More...</a><br/></td></tr>
-<tr class="separator:ga2f4b130b40a8340181fce4e1d9eee302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4371032ffdcf9faa7bbf310f49d53c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#ac4371032ffdcf9faa7bbf310f49d53c8">writelog_direct</a> (const std::string &amp;msg)</td></tr>
+<tr class="memdesc:ac4371032ffdcf9faa7bbf310f49d53c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a message to the screen.  <a href="#ac4371032ffdcf9faa7bbf310f49d53c8">More...</a><br/></td></tr>
+<tr class="separator:ac4371032ffdcf9faa7bbf310f49d53c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69717d95d14092b85ced84527e6a9c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a69717d95d14092b85ced84527e6a9c9f">debuglog</a> (const std::string &amp;msg, int loglevel)</td></tr>
+<tr class="memdesc:a69717d95d14092b85ced84527e6a9c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a message to the log only if loglevel &gt; 0.  <a href="#a69717d95d14092b85ced84527e6a9c9f">More...</a><br/></td></tr>
+<tr class="separator:a69717d95d14092b85ced84527e6a9c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c5f226b1bcbbe458e1f58c547a7415a"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a1c5f226b1bcbbe458e1f58c547a7415a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#a1c5f226b1bcbbe458e1f58c547a7415a">writelog</a> (const std::string &amp;fmt, const Args &amp;...args)</td></tr>
+<tr class="memdesc:a1c5f226b1bcbbe458e1f58c547a7415a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a message to the screen.  <a href="#a1c5f226b1bcbbe458e1f58c547a7415a">More...</a><br/></td></tr>
+<tr class="separator:a1c5f226b1bcbbe458e1f58c547a7415a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga493696117e7b8cfc9611685dd99589e3"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ga493696117e7b8cfc9611685dd99589e3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__textlogs.html#ga493696117e7b8cfc9611685dd99589e3">writelogf</a> (const char *fmt, const Args &amp;...args)</td></tr>
+<tr class="memdesc:ga493696117e7b8cfc9611685dd99589e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a formatted message to the screen.  <a href="group__textlogs.html#ga493696117e7b8cfc9611685dd99589e3">More...</a><br/></td></tr>
+<tr class="separator:ga493696117e7b8cfc9611685dd99589e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed3c4e18a21f764dc088d5957bcef148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCantera.html#aed3c4e18a21f764dc088d5957bcef148">writelogendl</a> ()</td></tr>
 <tr class="memdesc:aed3c4e18a21f764dc088d5957bcef148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an end of line character to the screen and flush output.  <a href="#aed3c4e18a21f764dc088d5957bcef148">More...</a><br/></td></tr>
 <tr class="separator:aed3c4e18a21f764dc088d5957bcef148"><td class="memSeparator" colspan="2">&#160;</td></tr>

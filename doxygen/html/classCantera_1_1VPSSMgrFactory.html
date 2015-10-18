@@ -163,9 +163,9 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a724368306cf711ccf324ee49772bfeec"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCantera_1_1VPSSMgrFactory.html">VPSSMgrFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgrFactory.html#a724368306cf711ccf324ee49772bfeec">s_factory</a> = 0</td></tr>
 <tr class="memdesc:a724368306cf711ccf324ee49772bfeec"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the sole instance of this class  <a href="#a724368306cf711ccf324ee49772bfeec">More...</a><br/></td></tr>
 <tr class="separator:a724368306cf711ccf324ee49772bfeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25d6889f6225bf74e2e297ec8253a08"><td class="memItemLeft" align="right" valign="top">static mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgrFactory.html#ad25d6889f6225bf74e2e297ec8253a08">vpss_species_thermo_mutex</a></td></tr>
-<tr class="memdesc:ad25d6889f6225bf74e2e297ec8253a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decl of the static mutex variable that locks the <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> factory singleton.  <a href="#ad25d6889f6225bf74e2e297ec8253a08">More...</a><br/></td></tr>
-<tr class="separator:ad25d6889f6225bf74e2e297ec8253a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8544ee9f8736b96f3c0edeeb140ce4b0"><td class="memItemLeft" align="right" valign="top">static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCantera_1_1VPSSMgrFactory.html#a8544ee9f8736b96f3c0edeeb140ce4b0">vpss_species_thermo_mutex</a></td></tr>
+<tr class="memdesc:a8544ee9f8736b96f3c0edeeb140ce4b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decl of the static mutex variable that locks the <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> factory singleton.  <a href="#a8544ee9f8736b96f3c0edeeb140ce4b0">More...</a><br/></td></tr>
+<tr class="separator:a8544ee9f8736b96f3c0edeeb140ce4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -180,7 +180,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Making the choice of <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> types is the only thing this class does.</p>
 <p>This class is implemented as a singleton &ndash; one in which only one instance is needed. The recommended way to access the factory is to call this static method, which instantiates the class if it is the first call, but otherwise simply returns the pointer to the existing instance. </p>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00068">68</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00067">67</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a715e46c94af872b75812f8113328278b"></a>
 <div class="memitem">
@@ -206,9 +206,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Constructor. </p>
 <p>This is made private, so that only the static method <a class="el" href="classCantera_1_1VPSSMgrFactory.html#a3a2566dfec0c40e9665e40a167e05d6d" title="Static method to return an instance of this class. ">factory()</a> can instantiate the class. </p>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00146">146</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00143">143</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgrFactory_8h_source.html#l00082">VPSSMgrFactory::factory()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgrFactory_8h_source.html#l00079">VPSSMgrFactory::factory()</a>.</p>
 
 </div>
 </div>
@@ -237,9 +237,9 @@ Additional Inherited Members</h2></td></tr>
 <p>Static method to return an instance of this class. </p>
 <p>This class is implemented as a singleton &ndash; one in which only one instance is needed. The recommended way to access the factory is to call this static method, which instantiates the class if it is the first call, but otherwise simply returns the pointer to the existing instance. </p>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00082">82</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00079">79</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
 
-<p>References <a class="el" href="VPSSMgrFactory_8h_source.html#l00138">VPSSMgrFactory::s_factory</a>, <a class="el" href="VPSSMgrFactory_8h_source.html#l00142">VPSSMgrFactory::vpss_species_thermo_mutex</a>, and <a class="el" href="VPSSMgrFactory_8h_source.html#l00146">VPSSMgrFactory::VPSSMgrFactory()</a>.</p>
+<p>References <a class="el" href="VPSSMgrFactory_8h_source.html#l00135">VPSSMgrFactory::s_factory</a>, <a class="el" href="VPSSMgrFactory_8h_source.html#l00139">VPSSMgrFactory::vpss_species_thermo_mutex</a>, and <a class="el" href="VPSSMgrFactory_8h_source.html#l00143">VPSSMgrFactory::VPSSMgrFactory()</a>.</p>
 
 </div>
 </div>
@@ -269,7 +269,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classCantera_1_1FactoryBase.html#a15663fcccb836c3ab790211d63aa2917">FactoryBase</a>.</p>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00173">173</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00172">172</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
 
 </div>
 </div>
@@ -304,9 +304,9 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00181">181</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00180">180</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="mix__defs_8h_source.html#l00141">Cantera::cVPSSMGR_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00151">Cantera::cVPSSMGR_GENERAL</a>, <a class="el" href="mix__defs_8h_source.html#l00138">Cantera::cVPSSMGR_IDEALGAS</a>, <a class="el" href="mix__defs_8h_source.html#l00145">Cantera::cVPSSMGR_WATER_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00148">Cantera::cVPSSMGR_WATER_HKFT</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00073">Cantera::lowercase()</a>.</p>
+<p>References <a class="el" href="mix__defs_8h_source.html#l00140">Cantera::cVPSSMGR_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00150">Cantera::cVPSSMGR_GENERAL</a>, <a class="el" href="mix__defs_8h_source.html#l00137">Cantera::cVPSSMGR_IDEALGAS</a>, <a class="el" href="mix__defs_8h_source.html#l00144">Cantera::cVPSSMGR_WATER_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00147">Cantera::cVPSSMGR_WATER_HKFT</a>, and <a class="el" href="stringUtils_8cpp_source.html#l00074">Cantera::lowercase()</a>.</p>
 
 </div>
 </div>
@@ -351,11 +351,11 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00289">289</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00280">280</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="mix__defs_8h_source.html#l00141">Cantera::cVPSSMGR_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00151">Cantera::cVPSSMGR_GENERAL</a>, <a class="el" href="mix__defs_8h_source.html#l00138">Cantera::cVPSSMGR_IDEALGAS</a>, <a class="el" href="mix__defs_8h_source.html#l00145">Cantera::cVPSSMGR_WATER_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00148">Cantera::cVPSSMGR_WATER_HKFT</a>, <a class="el" href="stringUtils_8cpp_source.html#l00039">Cantera::int2str()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00637">ThermoPhase::speciesThermo()</a>.</p>
+<p>References <a class="el" href="mix__defs_8h_source.html#l00140">Cantera::cVPSSMGR_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00150">Cantera::cVPSSMGR_GENERAL</a>, <a class="el" href="mix__defs_8h_source.html#l00137">Cantera::cVPSSMGR_IDEALGAS</a>, <a class="el" href="mix__defs_8h_source.html#l00144">Cantera::cVPSSMGR_WATER_CONSTVOL</a>, <a class="el" href="mix__defs_8h_source.html#l00147">Cantera::cVPSSMGR_WATER_HKFT</a>, <a class="el" href="stringUtils_8cpp_source.html#l00040">Cantera::int2str()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00643">ThermoPhase::speciesThermo()</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00314">Cantera::newVPSSMgr()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00306">Cantera::newVPSSMgr()</a>.</p>
 
 </div>
 </div>
@@ -409,9 +409,9 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a pointer to a newly malloced species property manager object. </dd></dl>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00204">204</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00202">202</a> of file <a class="el" href="VPSSMgrFactory_8cpp_source.html">VPSSMgrFactory.cpp</a>.</p>
 
-<p>References <a class="el" href="xml_8cpp_source.html#l00566">XML_Node::child()</a>, <a class="el" href="mix__defs_8h_source.html#l00096">Cantera::cVPSS_IdealGas</a>, <a class="el" href="ThermoPhase_8h_source.html#l00142">ThermoPhase::eosType()</a>, <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00056">Cantera::getVPSSMgrTypes()</a>, <a class="el" href="xml_8cpp_source.html#l00556">XML_Node::hasChild()</a>, <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00324">Cantera::newVPSSMgr()</a>, <a class="el" href="global_8cpp_source.html#l00120">Cantera::popError()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00622">ThermoPhase::setSpeciesThermo()</a>.</p>
+<p>References <a class="el" href="xml_8cpp_source.html#l00555">XML_Node::child()</a>, <a class="el" href="mix__defs_8h_source.html#l00095">Cantera::cVPSS_IdealGas</a>, <a class="el" href="ThermoPhase_8h_source.html#l00143">ThermoPhase::eosType()</a>, <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00056">Cantera::getVPSSMgrTypes()</a>, <a class="el" href="xml_8cpp_source.html#l00545">XML_Node::hasChild()</a>, <a class="el" href="VPSSMgrFactory_8cpp_source.html#l00315">Cantera::newVPSSMgr()</a>, <a class="el" href="global_8cpp_source.html#l00099">Cantera::popError()</a>, and <a class="el" href="ThermoPhase_8cpp_source.html#l00630">ThermoPhase::setSpeciesThermo()</a>.</p>
 
 </div>
 </div>
@@ -436,13 +436,13 @@ Additional Inherited Members</h2></td></tr>
 
 <p>pointer to the sole instance of this class </p>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00138">138</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00135">135</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgrFactory_8h_source.html#l00082">VPSSMgrFactory::factory()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgrFactory_8h_source.html#l00079">VPSSMgrFactory::factory()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad25d6889f6225bf74e2e297ec8253a08"></a>
+<a class="anchor" id="a8544ee9f8736b96f3c0edeeb140ce4b0"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -450,7 +450,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">mutex_t vpss_species_thermo_mutex</td>
+          <td class="memname">std::mutex vpss_species_thermo_mutex</td>
         </tr>
       </table>
   </td>
@@ -462,9 +462,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Decl of the static mutex variable that locks the <a class="el" href="classCantera_1_1VPSSMgr.html" title="Virtual base class for the classes that manage the calculation of standard state properties for all t...">VPSSMgr</a> factory singleton. </p>
 
-<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00142">142</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="VPSSMgrFactory_8h_source.html#l00139">139</a> of file <a class="el" href="VPSSMgrFactory_8h_source.html">VPSSMgrFactory.h</a>.</p>
 
-<p>Referenced by <a class="el" href="VPSSMgrFactory_8h_source.html#l00082">VPSSMgrFactory::factory()</a>.</p>
+<p>Referenced by <a class="el" href="VPSSMgrFactory_8h_source.html#l00079">VPSSMgrFactory::factory()</a>.</p>
 
 </div>
 </div>

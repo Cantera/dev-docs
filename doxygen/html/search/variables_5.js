@@ -3,7 +3,7 @@ var searchData=
   ['e',['E',['../structCantera_1_1CoverageDependency.html#a1eb62b8cb1f5e5f571d51179718e7d4c',1,'Cantera::CoverageDependency']]],
   ['edge_5frxn',['EDGE_RXN',['../namespaceCantera.html#a69ea2e7380ff5d0bf95eb20490154c87',1,'Cantera']]],
   ['efficiencies',['efficiencies',['../classCantera_1_1ThirdBody.html#a80a264cd6db5db7daf9ace16f437663c',1,'Cantera::ThirdBody']]],
-  ['elactive',['ElActive',['../classCantera_1_1VCS__PROB.html#a1b7eebd74e30ab6f5f7d1cf87b0b0bd9',1,'Cantera::VCS_PROB']]],
+  ['elactive',['ElActive',['../classCantera_1_1VCS__PROB.html#a0b926100696a6a429641ba57a0b8db1e',1,'Cantera::VCS_PROB']]],
   ['elambda',['elambda',['../classCantera_1_1HMWSoln.html#ae4b9cd86c3fb40cf00970b3d9eb677d7',1,'Cantera::HMWSoln']]],
   ['elambda1',['elambda1',['../classCantera_1_1HMWSoln.html#aa3b9da1eecb57f9106aae5f74315b793',1,'Cantera::HMWSoln']]],
   ['electcond',['electCond',['../classCantera_1_1LiquidTransportData.html#a16a5fed971cc945fa5598e7b7f2281ba',1,'Cantera::LiquidTransportData::electCond()'],['../classCantera_1_1LiquidTransportParams.html#a9a3d44f0d0603bd9ebb21bc464418492',1,'Cantera::LiquidTransportParams::electCond()']]],

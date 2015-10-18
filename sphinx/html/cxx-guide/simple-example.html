@@ -113,9 +113,8 @@ of the gas mixture, and prints out a summary of its properties.</p>
 <span class="c1">// can be called from the main program.</span>
 <span class="kt">void</span> <span class="nf">simple_demo</span><span class="p">()</span>
 <span class="p">{</span>
-
     <span class="c1">// Create a new phase</span>
-    <span class="n">ThermoPhase</span><span class="o">*</span> <span class="n">gas</span> <span class="o">=</span> <span class="n">newPhase</span><span class="p">(</span><span class="s">&quot;h2o2.cti&quot;</span><span class="p">,</span><span class="s">&quot;ohmech&quot;</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ThermoPhase</span><span class="o">&gt;</span> <span class="n">gas</span><span class="p">(</span><span class="n">newPhase</span><span class="p">(</span><span class="s">&quot;h2o2.cti&quot;</span><span class="p">,</span><span class="s">&quot;ohmech&quot;</span><span class="p">));</span>
 
     <span class="c1">// Set its state by specifying T (500 K) P (2 atm) and the mole</span>
     <span class="c1">// fractions. Note that the mole fractions do not need to sum to</span>
@@ -125,9 +124,6 @@ of the gas mixture, and prints out a summary of its properties.</p>
 
     <span class="c1">// Print a summary report of the state of the gas</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">gas</span><span class="o">-&gt;</span><span class="n">report</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="c1">//  Clean up</span>
-    <span class="k">delete</span> <span class="n">gas</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// the main program just calls function simple_demo within</span>
@@ -135,7 +131,6 @@ of the gas mixture, and prints out a summary of its properties.</p>
 <span class="c1">// might be thrown</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-
     <span class="n">try</span> <span class="p">{</span>
         <span class="n">simple_demo</span><span class="p">();</span>
     <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">CanteraError</span><span class="o">&amp;</span> <span class="n">err</span><span class="p">)</span> <span class="p">{</span>
