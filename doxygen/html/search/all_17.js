@@ -12,10 +12,10 @@ var searchData=
   ['water_2ecpp',['Water.cpp',['../Water_8cpp.html',1,'']]],
   ['water_2eh',['Water.h',['../Water_8h.html',1,'']]],
   ['waterprops',['WaterProps',['../classCantera_1_1WaterProps.html',1,'Cantera']]],
-  ['waterprops',['WaterProps',['../classCantera_1_1WaterProps.html#aabdb21f3802a883e426d8a23f96e6b20',1,'Cantera::WaterProps::WaterProps()'],['../classCantera_1_1WaterProps.html#ac80962e34596ba42f015f55370a45a62',1,'Cantera::WaterProps::WaterProps(WaterPropsIAPWS *wptr)'],['../classCantera_1_1WaterProps.html#ac5b015708db05741ee5e5661f94e5d75',1,'Cantera::WaterProps::WaterProps(PDSS_Water *wptr)'],['../classCantera_1_1WaterProps.html#aeaaddd43972b6564c4258066da1d40fd',1,'Cantera::WaterProps::WaterProps(const WaterProps &amp;b)']]],
+  ['waterprops',['WaterProps',['../classCantera_1_1WaterProps.html#aabdb21f3802a883e426d8a23f96e6b20',1,'Cantera::WaterProps::WaterProps()'],['../classCantera_1_1WaterProps.html#ac80962e34596ba42f015f55370a45a62',1,'Cantera::WaterProps::WaterProps(WaterPropsIAPWS *wptr)'],['../classCantera_1_1WaterProps.html#ac5b015708db05741ee5e5661f94e5d75',1,'Cantera::WaterProps::WaterProps(PDSS_Water *wptr)']]],
   ['waterprops_2ecpp',['WaterProps.cpp',['../WaterProps_8cpp.html',1,'']]],
   ['waterprops_2eh',['WaterProps.h',['../WaterProps_8h.html',1,'']]],
-  ['waterpropsiapws',['WaterPropsIAPWS',['../classCantera_1_1WaterPropsIAPWS.html#a7725acb402b0edf608a6a2b178bbb01c',1,'Cantera::WaterPropsIAPWS::WaterPropsIAPWS()'],['../classCantera_1_1WaterPropsIAPWS.html#a781aa1dfb356fdbc7591229bfffe930d',1,'Cantera::WaterPropsIAPWS::WaterPropsIAPWS(const WaterPropsIAPWS &amp;right)']]],
+  ['waterpropsiapws',['WaterPropsIAPWS',['../classCantera_1_1WaterPropsIAPWS.html#a7725acb402b0edf608a6a2b178bbb01c',1,'Cantera::WaterPropsIAPWS']]],
   ['waterpropsiapws',['WaterPropsIAPWS',['../classCantera_1_1WaterPropsIAPWS.html',1,'Cantera']]],
   ['waterpropsiapws_2ecpp',['WaterPropsIAPWS.cpp',['../WaterPropsIAPWS_8cpp.html',1,'']]],
   ['waterpropsiapws_2eh',['WaterPropsIAPWS.h',['../WaterPropsIAPWS_8h.html',1,'']]],
@@ -24,7 +24,7 @@ var searchData=
   ['waterpropsiapwsphi_2ecpp',['WaterPropsIAPWSphi.cpp',['../WaterPropsIAPWSphi_8cpp.html',1,'']]],
   ['waterpropsiapwsphi_2eh',['WaterPropsIAPWSphi.h',['../WaterPropsIAPWSphi_8h.html',1,'']]],
   ['watersstp',['WaterSSTP',['../classCantera_1_1WaterSSTP.html',1,'Cantera']]],
-  ['watersstp',['WaterSSTP',['../classCantera_1_1WaterSSTP.html#a15224711f84e4f6b3509d8e61e0c479c',1,'Cantera::WaterSSTP::WaterSSTP()'],['../classCantera_1_1WaterSSTP.html#af564b6914cead421b3c12cc1a72c2976',1,'Cantera::WaterSSTP::WaterSSTP(const WaterSSTP &amp;)'],['../classCantera_1_1WaterSSTP.html#af5295d0968e24370d62c2d3c4904669b',1,'Cantera::WaterSSTP::WaterSSTP(const std::string &amp;inputFile, const std::string &amp;id=&quot;&quot;)'],['../classCantera_1_1WaterSSTP.html#a208de0cd653edd4866a2da65298201e9',1,'Cantera::WaterSSTP::WaterSSTP(XML_Node &amp;phaseRef, const std::string &amp;id=&quot;&quot;)']]],
+  ['watersstp',['WaterSSTP',['../classCantera_1_1WaterSSTP.html#a15224711f84e4f6b3509d8e61e0c479c',1,'Cantera::WaterSSTP::WaterSSTP()'],['../classCantera_1_1WaterSSTP.html#af5295d0968e24370d62c2d3c4904669b',1,'Cantera::WaterSSTP::WaterSSTP(const std::string &amp;inputFile, const std::string &amp;id=&quot;&quot;)'],['../classCantera_1_1WaterSSTP.html#a208de0cd653edd4866a2da65298201e9',1,'Cantera::WaterSSTP::WaterSSTP(XML_Node &amp;phaseRef, const std::string &amp;id=&quot;&quot;)']]],
   ['watersstp_2ecpp',['WaterSSTP.cpp',['../WaterSSTP_8cpp.html',1,'']]],
   ['watersstp_2eh',['WaterSSTP.h',['../WaterSSTP_8h.html',1,'']]],
   ['watertransport',['WaterTransport',['../classCantera_1_1WaterTransport.html',1,'Cantera']]],
@@ -49,5 +49,5 @@ var searchData=
   ['writeplotfile',['writePlotFile',['../namespaceCantera.html#aa308afb5e8df7d10697a897b570873eb',1,'Cantera']]],
   ['writesolution',['writeSolution',['../classCantera_1_1ResidEval.html#a935074b07d6b2f3fa4471316c6fec0e4',1,'Cantera::ResidEval']]],
   ['writestats',['writeStats',['../classCantera_1_1OneDim.html#ac45c6df3820d1757e2402fb148dec8c9',1,'Cantera::OneDim']]],
-  ['wtspecies',['WtSpecies',['../classCantera_1_1VCS__PROB.html#a020bfc0028ab9ff9275b1dacf093ff96',1,'Cantera::VCS_PROB']]]
+  ['wtspecies',['WtSpecies',['../classCantera_1_1VCS__PROB.html#a020bfc0028ab9ff9275b1dacf093ff96',1,'Cantera::VCS_PROB::WtSpecies()'],['../classCantera_1_1vcs__SpeciesProperties.html#a9a39c5a8614625ef2813e7cb4cbd6e92',1,'Cantera::vcs_SpeciesProperties::WtSpecies()']]]
 ];

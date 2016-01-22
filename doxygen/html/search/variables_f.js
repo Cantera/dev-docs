@@ -4,6 +4,7 @@ var searchData=
   ['rdeltap_5f',['rDeltaP_',['../classCantera_1_1Plog.html#a813594a9fb531a78f1a22511790b7265',1,'Cantera::Plog']]],
   ['reactants',['reactants',['../classCantera_1_1Reaction.html#ad52a8bceda6b7c2911cae98f603751fc',1,'Cantera::Reaction']]],
   ['reaction_5ftype',['reaction_type',['../classCantera_1_1Reaction.html#aed586962f458fa55dc9557e990d6ec98',1,'Cantera::Reaction']]],
+  ['referencemolefraction',['ReferenceMoleFraction',['../classCantera_1_1vcs__SpeciesProperties.html#a33ee5cfe60ae33dac5ad791cd86c281b',1,'Cantera::vcs_SpeciesProperties']]],
   ['relativeconductivites_5f',['relativeConductivites_',['../classCantera_1_1TortuosityMaxwell.html#ae73437e33a787372bdb54d859582f75f',1,'Cantera::TortuosityMaxwell']]],
   ['reltolerance',['relTolerance',['../classCantera_1_1EquilOpt.html#a75c9c267339526b2c1eede3cdcc68ed9',1,'Cantera::EquilOpt']]],
   ['reversible',['reversible',['../classCantera_1_1Reaction.html#a8f8edb8b3012f77dc8172037826df5d9',1,'Cantera::Reaction']]],

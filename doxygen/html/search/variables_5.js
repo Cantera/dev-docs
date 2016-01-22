@@ -12,7 +12,6 @@ var searchData=
   ['elname',['ElName',['../classCantera_1_1VCS__PROB.html#a27412918733484481dfdb0d0e56621ff',1,'Cantera::VCS_PROB']]],
   ['epsilon_5f0',['epsilon_0',['../group__physConstants.html#ga620b239773cfc5db63210835e09daaea',1,'Cantera']]],
   ['errormessage',['errorMessage',['../classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57',1,'Cantera::Application::Messages']]],
-  ['errorroutine',['errorRoutine',['../classCantera_1_1Application_1_1Messages.html#a845f9353ed7f96ad7c5e37cabed26d2e',1,'Cantera::Application::Messages']]],
   ['ew_5foffset',['EW_Offset',['../classCantera_1_1PDSS__Water.html#a54c5137de9919fcfb8e65f4eb841154c',1,'Cantera::PDSS_Water::EW_Offset()'],['../classCantera_1_1WaterSSTP.html#a54c5137de9919fcfb8e65f4eb841154c',1,'Cantera::WaterSSTP::EW_Offset()']]],
   ['expbrug_5f',['expBrug_',['../classCantera_1_1Tortuosity.html#a1526364824e3d4595e278a867256df83',1,'Cantera::Tortuosity']]]
 ];

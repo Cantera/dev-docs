@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Tutorial &mdash; Cantera 2.2.0 documentation</title>
+    <title>Tutorial &mdash; Cantera 2.3.0a1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.2.0',
+        VERSION:     '2.3.0a1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,18 +25,18 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.3.0a1 documentation" href="../index.html" />
     <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Creating Phase Objects" href="importing.html" />
     <link rel="prev" title="Migrating from the Old Python Module" href="migrating.html" /> 
   </head>
-  <body>
+  <body role="document">
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -51,12 +51,12 @@
         <li class="right" >
           <a href="migrating.html" title="Migrating from the Old Python Module"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Cantera</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">Python Module Documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python Module Documentation</a> &raquo;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -82,12 +82,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="importing.html"
                         title="next chapter">Creating Phase Objects</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/cython/tutorial.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/cython/tutorial.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -106,7 +108,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
@@ -121,7 +123,7 @@ some phase of matter. Here, we&#8217;ll create a gas mixture:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To view the state of the mixture, <em>call</em> the <tt class="xref py py-obj docutils literal"><span class="pre">gas1</span></tt> object as if it were a
+<p>To view the state of the mixture, <em>call</em> the <code class="xref py py-obj docutils literal"><span class="pre">gas1</span></code> object as if it were a
 function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span><span class="p">()</span>
 </pre></div>
@@ -149,17 +151,17 @@ heat capacity c_v         10187.3        2.054e+04     J/K
     [  +52 minor]              0                0
 </pre></div>
 </div>
-<p>What you have just done is to create an object, <tt class="xref py py-obj docutils literal"><span class="pre">gas1</span></tt> that implements GRI-
+<p>What you have just done is to create an object, <code class="xref py py-obj docutils literal"><span class="pre">gas1</span></code> that implements GRI-
 Mech 3.0, the 53-species, 325-reaction natural gas combustion mechanism
 developed by Gregory P. Smith, David M. Golden, Michael Frenklach, Nigel W.
 Moriarty, Boris Eiteneer, Mikhail Goldenberg, C. Thomas Bowman, Ronald K.
 Hanson, Soonho Song, William C. Gardiner, Jr., Vitali V. Lissianski, and
 Zhiwei Qin. See <a class="reference external" href="http://www.me.berkeley.edu/gri_mech/">http://www.me.berkeley.edu/gri_mech/</a> for more information.</p>
-<p>The <tt class="xref py py-obj docutils literal"><span class="pre">gas1</span></tt> object has properties you would expect for a gas mixture - it has a
+<p>The <code class="xref py py-obj docutils literal"><span class="pre">gas1</span></code> object has properties you would expect for a gas mixture - it has a
 temperature, a pressure, species mole and mass fractions, etc. As we&#8217;ll soon
 see, it has many more properties.</p>
-<p>The summary of the state of <tt class="xref py py-obj docutils literal"><span class="pre">gas1</span></tt> printed above shows that new objects
-created from the <tt class="xref py py-obj docutils literal"><span class="pre">gri30.xml</span></tt> input file start out with a temperature of 300 K,
+<p>The summary of the state of <code class="xref py py-obj docutils literal"><span class="pre">gas1</span></code> printed above shows that new objects
+created from the <code class="xref py py-obj docutils literal"><span class="pre">gri30.xml</span></code> input file start out with a temperature of 300 K,
 a pressure of 1 atm, and have a composition that consists of only one species,
 in this case hydrogen. There is nothing special about H2 - it just happens to
 be the first species listed in the input file defining GRI-Mech 3.0. In
@@ -172,7 +174,7 @@ of 1.0, and all of the others will be zero.</p>
 </pre></div>
 </div>
 <p>sets the temperature to 1200 K and the pressure to 101325 Pa (Cantera always
-uses SI units). After this statement, calling <tt class="docutils literal"><span class="pre">gas1()</span></tt> results in:</p>
+uses SI units). After this statement, calling <code class="docutils literal"><span class="pre">gas1()</span></code> results in:</p>
 <div class="highlight-python"><div class="highlight"><pre> gri30:
 
       temperature            1200  K
@@ -220,8 +222,8 @@ mass</em>.</p>
 <span class="go">(8346188.494954427, 48.8465747765848)</span>
 </pre></div>
 </div>
-<p>The composition can be set in terms of either mole fractions (<tt class="docutils literal"><span class="pre">X</span></tt>) or mass
-fractions (<tt class="docutils literal"><span class="pre">Y</span></tt>):</p>
+<p>The composition can be set in terms of either mole fractions (<code class="docutils literal"><span class="pre">X</span></code>) or mass
+fractions (<code class="docutils literal"><span class="pre">Y</span></code>):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="s">&#39;CH4:1, O2:2, N2:7.52&#39;</span>
 </pre></div>
 </div>
@@ -259,10 +261,10 @@ heat capacity c_v         1096.38         3.03e+04     J/K
 </pre></div>
 </div>
 <p>The composition above was specified using a string. The format is a comma-
-separated list of <tt class="docutils literal"><span class="pre">&lt;species</span> <span class="pre">name&gt;:&lt;relative</span> <span class="pre">mole</span> <span class="pre">numbers&gt;</span></tt> pairs. The mole
+separated list of <code class="docutils literal"><span class="pre">&lt;species</span> <span class="pre">name&gt;:&lt;relative</span> <span class="pre">mole</span> <span class="pre">numbers&gt;</span></code> pairs. The mole
 numbers will be normalized to produce the mole fractions, and therefore they
 are &#8220;relative&#8221; mole numbers. Mass fractions can be set in this way too by
-changing <tt class="docutils literal"><span class="pre">X</span></tt> to <tt class="docutils literal"><span class="pre">Y</span></tt> in the above statements.</p>
+changing <code class="docutils literal"><span class="pre">X</span></code> to <code class="docutils literal"><span class="pre">Y</span></code> in the above statements.</p>
 <p>The composition can also be set using an array, which must have the same size
 as the number of species. For example, to set all 53 mole fractions to the
 same value, do this:</p>
@@ -274,7 +276,7 @@ same value, do this:</p>
 </pre></div>
 </div>
 <p>When setting the state, you can control what properties are held constant by
-passing the special value <tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt> to the property setter. For example, to
+passing the special value <code class="xref py py-obj docutils literal"><span class="pre">None</span></code> to the property setter. For example, to
 change the specific volume to 2.1 m^3/kg while holding entropy constant:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas1</span><span class="o">.</span><span class="n">SV</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="mf">2.1</span>
 </pre></div>
@@ -288,22 +290,22 @@ change the specific volume to 2.1 m^3/kg while holding entropy constant:</p>
 <div class="section" id="working-with-mechanism-files">
 <h2>Working With Mechanism Files<a class="headerlink" href="#working-with-mechanism-files" title="Permalink to this headline">¶</a></h2>
 <p>In previous example, we created an object that models an ideal gas mixture
-with the species and reactions of GRI-Mech 3.0, using the <tt class="docutils literal"><span class="pre">gri30.xml</span></tt> input
+with the species and reactions of GRI-Mech 3.0, using the <code class="docutils literal"><span class="pre">gri30.xml</span></code> input
 file included with Cantera. This is a &#8220;pre-processed&#8221; XML input file written
 in a format that is easy for Cantera to parse. Cantera also supports an input
 file format that is easier to write, called <em>CTI</em>. Several reaction mechanism
 files in this format are included with Cantera, including ones that model
 high- temperature air, a hydrogen/oxygen reaction mechanism, and a few surface
-reaction mechanisms. These files are usually located in the <tt class="docutils literal"><span class="pre">data</span></tt>
-subdirectory of the Cantera installation directory, e.g. <tt class="docutils literal"><span class="pre">C:\\Program</span>
-<span class="pre">Files\\Cantera\\data</span></tt> on Windows or <tt class="docutils literal"><span class="pre">/usr/local/cantera/data/</span></tt> on
+reaction mechanisms. These files are usually located in the <code class="docutils literal"><span class="pre">data</span></code>
+subdirectory of the Cantera installation directory, e.g. <code class="docutils literal"><span class="pre">C:\\Program</span>
+<span class="pre">Files\\Cantera\\data</span></code> on Windows or <code class="docutils literal"><span class="pre">/usr/local/cantera/data/</span></code> on
 Unix/Linux/Mac OS X machines, depending on how you installed Cantera and the
 options you specified.</p>
 <p>If for some reason Cantera has difficulty finding where these files are on your
-system, set environment variable <tt class="docutils literal"><span class="pre">CANTERA_DATA</span></tt> to the directory or
-directories (separated using <tt class="docutils literal"><span class="pre">;</span></tt> on Windows or <tt class="docutils literal"><span class="pre">:</span></tt> on other operating
+system, set environment variable <code class="docutils literal"><span class="pre">CANTERA_DATA</span></code> to the directory or
+directories (separated using <code class="docutils literal"><span class="pre">;</span></code> on Windows or <code class="docutils literal"><span class="pre">:</span></code> on other operating
 systems) where they are located. Alternatively, you can call function
-<a class="reference internal" href="importing.html#cantera.add_directory" title="cantera.add_directory"><tt class="xref py py-obj docutils literal"><span class="pre">add_directory</span></tt></a> to add a directory to the Cantera search path:</p>
+<a class="reference internal" href="importing.html#cantera.add_directory" title="cantera.add_directory"><code class="xref py py-obj docutils literal"><span class="pre">add_directory</span></code></a> to add a directory to the Cantera search path:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ct</span><span class="o">.</span><span class="n">add_directory</span><span class="p">(</span><span class="s">&#39;/usr/local/cantera/my_data_files&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -311,7 +313,7 @@ systems) where they are located. Alternatively, you can call function
 editor. See the document <a class="reference internal" href="../cti/index.html#sec-defining-phases"><em>Defining Phases</em></a> for more information.</p>
 <p>A Cantera input file may contain more than one phase specification, or may
 contain specifications of interfaces (surfaces). Here we import definitions of
-two bulk phases and the interface between them from file <tt class="docutils literal"><span class="pre">diamond.cti</span></tt>:</p>
+two bulk phases and the interface between them from file <code class="docutils literal"><span class="pre">diamond.cti</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas2</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;gas&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;diamond&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">diamond_surf</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span> <span class="p">,</span> <span class="s">&#39;diamond_100&#39;</span><span class="p">,</span>
@@ -319,21 +321,10 @@ two bulk phases and the interface between them from file <tt class="docutils lit
 </pre></div>
 </div>
 <p>Note that the bulk (i.e., 3D or homogeneous) phases that participate in the
-surface reactions must also be passed as arguments to <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><tt class="xref py py-obj docutils literal"><span class="pre">Interface</span></tt></a>.</p>
+surface reactions must also be passed as arguments to <a class="reference internal" href="importing.html#cantera.Interface" title="cantera.Interface"><code class="xref py py-obj docutils literal"><span class="pre">Interface</span></code></a>.</p>
 <div class="section" id="converting-ck-format-files">
 <h3>Converting CK-format files<a class="headerlink" href="#converting-ck-format-files" title="Permalink to this headline">¶</a></h3>
-<p>Many existing reaction mechanism files are in &#8220;CK format,&#8221; by which we mean
-the input file format developed for use with the Chemkin-II software package.
-[See R. J. Kee, F. M. Rupley, and J. A. Miller, Sandia National Laboratories
-Report SAND89-8009 (1989).]</p>
-<p>Cantera comes with a converter utility program <tt class="docutils literal"><span class="pre">ck2cti</span></tt> (or <tt class="docutils literal"><span class="pre">ck2cti.py</span></tt>)
-that converts CK format into Cantera format. This program should be run from
-the command line first to convert any CK files you plan to use into Cantera
-format. Here&#8217;s an example of how to use it. The command:</p>
-<div class="highlight-python"><div class="highlight"><pre>$python ck2cti.py --input=mech.inp --thermo=therm.dat --transport=tran.dat
-</pre></div>
-</div>
-<p>will produce the file <tt class="docutils literal"><span class="pre">mech.cti</span></tt> in the current directory.</p>
+<p>See <a class="reference internal" href="../cti/input-files.html#sec-ck-format-conversion"><em>Converting CK-format files</em></a> in the <a class="reference internal" href="../cti/input-files.html#sec-input-files"><em>Working with Input Files</em></a> documentation.</p>
 </div>
 </div>
 <div class="section" id="getting-help">
@@ -354,7 +345,7 @@ available for it, and get help on using the methods:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To get help on a specific method, e.g. the <tt class="docutils literal"><span class="pre">species_index</span></tt> method:</p>
+<p>To get help on a specific method, e.g. the <code class="docutils literal"><span class="pre">species_index</span></code> method:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">species_index</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -363,12 +354,12 @@ method will give you the help for the <em>result</em>, e.g.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>will provide help on Python&#8217;s <tt class="docutils literal"><span class="pre">float</span></tt> class. To get the help for the
+<p>will provide help on Python&#8217;s <code class="docutils literal"><span class="pre">float</span></code> class. To get the help for the
 temperature property, ask for the attribute of the class object itself:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you are using the IPython shell, help can also be obtained using the <tt class="xref py py-obj docutils literal"><span class="pre">?</span></tt>
+<p>If you are using the IPython shell, help can also be obtained using the <code class="xref py py-obj docutils literal"><span class="pre">?</span></code>
 syntax:</p>
 <div class="highlight-python"><div class="highlight"><pre>In[1]: g.species_index?
 </pre></div>
@@ -384,7 +375,7 @@ method:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&#39;TP&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The above statement sets the state of object <tt class="docutils literal"><span class="pre">g</span></tt> to the state of chemical
+<p>The above statement sets the state of object <code class="docutils literal"><span class="pre">g</span></code> to the state of chemical
 equilibrium holding temperature and pressure fixed. Alternatively, the
 specific enthalpy and pressure can be held fixed:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mf">300.0</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span><span class="p">,</span> <span class="s">&#39;CH4:0.95,O2:2,N2:7.52&#39;</span>
@@ -399,7 +390,7 @@ specific enthalpy and pressure can be held fixed:</p>
 <li>&#8216;SP&#8217;   fixed specific entropy and pressure</li>
 </ul>
 </div></blockquote>
-<p>How can you tell if <tt class="docutils literal"><span class="pre">equilibrate</span></tt> has correctly found the chemical equilibrium
+<p>How can you tell if <code class="docutils literal"><span class="pre">equilibrate</span></code> has correctly found the chemical equilibrium
 state? One way is verify that the net rates of progress of all reversible
 reactions are zero. Here is the code to do this:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mf">300.0</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span><span class="p">,</span> <span class="s">&#39;CH4:0.95,O2:2,N2:7.52&#39;</span>
@@ -416,8 +407,8 @@ reactions are zero. Here is the code to do this:</p>
 <p>If the magnitudes of the numbers in this list are all very small, then each
 reversible reaction is very nearly equilibrated, which only occurs if the gas
 is in chemical equilibrium.</p>
-<p>You might be wondering how <tt class="docutils literal"><span class="pre">equilibrate</span></tt> works. (Then again, you might not).
-Method <tt class="docutils literal"><span class="pre">equilibrate</span></tt> invokes Cantera&#8217;s chemical equilibrium solver, which uses
+<p>You might be wondering how <code class="docutils literal"><span class="pre">equilibrate</span></code> works. (Then again, you might not).
+Method <code class="docutils literal"><span class="pre">equilibrate</span></code> invokes Cantera&#8217;s chemical equilibrium solver, which uses
 an element potential method. The element potential method is one of a class of
 equivalent <em>nonstoichiometric</em> methods that all have the characteristic that
 the problem reduces to solving a set of M nonlinear algebraic equations, where
@@ -433,15 +424,15 @@ line documented source code of Cantera C++ class &#8216;ChemEquil.h&#8217;.</p>
 </div>
 <div class="section" id="chemical-kinetics">
 <h2>Chemical Kinetics<a class="headerlink" href="#chemical-kinetics" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><tt class="xref py py-obj docutils literal"><span class="pre">Solution</span></tt></a> objects are also <a class="reference internal" href="kinetics.html#cantera.Kinetics" title="cantera.Kinetics"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt></a> objects, and provide all of the methods
+<p><a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> objects are also <a class="reference internal" href="kinetics.html#cantera.Kinetics" title="cantera.Kinetics"><code class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></code></a> objects, and provide all of the methods
 necessary to compute the thermodynamic quantities associated with each reaction,
 reaction rates, and species creation and destruction rates. They also provide
 methods to inspect the quantities that define each reaction such as the rate
 constants and the stoichiometric coefficients. The rate calculation functions
 are used extensively within Cantera&#8217;s <a class="reference internal" href="zerodim.html#sec-cython-zerodim"><em>reactor network model</em></a> and <a class="reference internal" href="onedim.html#sec-cython-onedim"><em>1D flame model</em></a>.</p>
 <p>Information about individual reactions that is independent of the thermodynamic
-state can be obtained by accessing <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Reaction</span></tt></a> objects with the
-<a class="reference internal" href="kinetics.html#cantera.Kinetics.reaction" title="cantera.Kinetics.reaction"><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics.reaction</span></tt></a> method:</p>
+state can be obtained by accessing <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><code class="xref py py-obj docutils literal"><span class="pre">Reaction</span></code></a> objects with the
+<a class="reference internal" href="kinetics.html#cantera.Kinetics.reaction" title="cantera.Kinetics.reaction"><code class="xref py py-obj docutils literal"><span class="pre">Kinetics.reaction</span></code></a> method:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">reaction</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># get a Reaction object</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
@@ -458,7 +449,7 @@ state can be obtained by accessing <a class="reference internal" href="kinetics.
 <p>If we are interested in only certain types of reactions, we can use this
 information to filter the full list of reactions to find the just the ones of
 interest. For example, here we find the indices of just those reactions which
-convert <tt class="xref py py-obj docutils literal"><span class="pre">CO</span></tt> into <tt class="xref py py-obj docutils literal"><span class="pre">CO2</span></tt>:</p>
+convert <code class="xref py py-obj docutils literal"><span class="pre">CO</span></code> into <code class="xref py py-obj docutils literal"><span class="pre">CO2</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">II</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">reactions</span><span class="p">())</span>
 <span class="go">          if &#39;CO&#39; in r.reactants and &#39;CO2&#39; in r.products]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">II</span><span class="p">:</span>
@@ -470,7 +461,7 @@ convert <tt class="xref py py-obj docutils literal"><span class="pre">CO</span><
 </pre></div>
 </div>
 <p>(Actually, we should also include reactions where the reaction is written such
-that <tt class="docutils literal"><span class="pre">CO2</span></tt> is a reactant and <tt class="docutils literal"><span class="pre">CO</span></tt> is a product, but for this example, we&#8217;ll
+that <code class="docutils literal"><span class="pre">CO2</span></code> is a reactant and <code class="docutils literal"><span class="pre">CO</span></code> is a product, but for this example, we&#8217;ll
 just stick to this smaller set of reactions.) Now, let&#8217;s set the composition to
 an interesting equilibrium state:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;CH4&#39;</span><span class="p">:</span><span class="mf">0.6</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;N2&#39;</span><span class="p">:</span><span class="mf">3.76</span><span class="p">}</span>
@@ -489,8 +480,8 @@ rates are essentially zero:</p>
 <span class="go">array([  3.18645e-05,   5.00490e-08,   1.05965e-01,   2.89503e-06])</span>
 </pre></div>
 </div>
-<p>All of the reaction rates are positive, favoring the formation of <tt class="docutils literal"><span class="pre">CO2</span></tt> from
-<tt class="docutils literal"><span class="pre">CO</span></tt>, with the third reaction, <tt class="docutils literal"><span class="pre">CO</span> <span class="pre">+</span> <span class="pre">OH</span> <span class="pre">&lt;=&gt;</span> <span class="pre">CO2</span> <span class="pre">+</span> <span class="pre">H</span></tt> proceeding the fastest.
+<p>All of the reaction rates are positive, favoring the formation of <code class="docutils literal"><span class="pre">CO2</span></code> from
+<code class="docutils literal"><span class="pre">CO</span></code>, with the third reaction, <code class="docutils literal"><span class="pre">CO</span> <span class="pre">+</span> <span class="pre">OH</span> <span class="pre">&lt;=&gt;</span> <span class="pre">CO2</span> <span class="pre">+</span> <span class="pre">H</span></code> proceeding the fastest.
 If we look at the enthalpy change associated with each of these reactions:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">delta_enthalpy</span><span class="p">[</span><span class="n">II</span><span class="p">]</span>
 <span class="go">array([ -5.33035e+08,  -2.23249e+07,  -8.76650e+07,  -2.49170e+08])</span>
@@ -523,7 +514,7 @@ reaction rates:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -538,13 +529,13 @@ reaction rates:</p>
         <li class="right" >
           <a href="migrating.html" title="Migrating from the Old Python Module"
              >previous</a> |</li>
-        <li><a href="../index.html">Cantera</a> &raquo;</li>
-          <li><a href="index.html" >Python Module Documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Python Module Documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
     </div>
   </body>
 </html>

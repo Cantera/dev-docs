@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Elements and Species &mdash; Cantera 2.2.0 documentation</title>
+    <title>Elements and Species &mdash; Cantera 2.3.0a1 documentation</title>
     
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.2.0',
+        VERSION:     '2.3.0a1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,18 +25,18 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.3.0a1 documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Reactions" href="reactions.html" />
     <link rel="prev" title="Phases and their Interfaces" href="phases.html" /> 
   </head>
-  <body>
+  <body role="document">
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -51,12 +51,12 @@
         <li class="right" >
           <a href="phases.html" title="Phases and their Interfaces"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Cantera</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">Defining Phases</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Defining Phases</a> &raquo;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -86,12 +86,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="reactions.html"
                         title="next chapter">Reactions</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/cti/species.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/cti/species.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -110,17 +112,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="elements-and-species">
 <span id="sec-species"></span><h1>Elements and Species<a class="headerlink" href="#elements-and-species" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="elements">
 <span id="sec-elements"></span><h2>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.element" title="cantera.ctml_writer.element"><tt class="xref py py-class docutils literal"><span class="pre">element</span></tt></a> entry defines an element or an isotope of an element. Note that
-these entries are not often needed, since the the database file <tt class="docutils literal"><span class="pre">elements.xml</span></tt>
+<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.element" title="cantera.ctml_writer.element"><code class="xref py py-class docutils literal"><span class="pre">element</span></code></a> entry defines an element or an isotope of an element. Note that
+these entries are not often needed, since the the database file <code class="docutils literal"><span class="pre">elements.xml</span></code>
 is searched for element definitions when importing phase and interface
 definitions.  An explicit element entry is needed only if an isotope not in
-<tt class="docutils literal"><span class="pre">elements.xml</span></tt> is required:</p>
+<code class="docutils literal"><span class="pre">elements.xml</span></code> is required:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">element</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s">&#39;C-13&#39;</span><span class="p">,</span>
         <span class="n">atomic_mass</span><span class="o">=</span><span class="mf">13.003354826</span><span class="p">)</span>
 <span class="n">element</span><span class="p">(</span><span class="s">&quot;O-!8&quot;</span><span class="p">,</span> <span class="mf">17.9991603</span><span class="p">)</span>
@@ -129,12 +131,12 @@ definitions.  An explicit element entry is needed only if an isotope not in
 </div>
 <div class="section" id="species">
 <h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
-<p>For each species, a <a class="reference internal" href="classes.html#cantera.ctml_writer.species" title="cantera.ctml_writer.species"><tt class="xref py py-class docutils literal"><span class="pre">species</span></tt></a> entry is required. Species are defined at
+<p>For each species, a <a class="reference internal" href="classes.html#cantera.ctml_writer.species" title="cantera.ctml_writer.species"><code class="xref py py-class docutils literal"><span class="pre">species</span></code></a> entry is required. Species are defined at
 the top-level of the input file&#8212;their definitions are not embedded in a phase
 or interface entry.</p>
 <div class="section" id="species-name">
 <h3>Species Name<a class="headerlink" href="#species-name" title="Permalink to this headline">¶</a></h3>
-<p>The name field may contain embedded parentheses, <tt class="docutils literal"><span class="pre">+</span></tt> or <tt class="docutils literal"><span class="pre">-</span></tt> signs to
+<p>The name field may contain embedded parentheses, <code class="docutils literal"><span class="pre">+</span></code> or <code class="docutils literal"><span class="pre">-</span></code> signs to
 indicate the charge, or just about anything else that is printable and not a
 reserved character in XML.  Some example name specifications:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;CH4&#39;</span>
@@ -159,7 +161,7 @@ species represent distinct molecules. For species in solid or liquid solutions,
 or on surfaces, there may be several possible ways of defining the species. For
 example, an aqueous species might be defined with or without including the water
 molecules in the solvation cage surrounding it.</p>
-<p>For surface species, it is possible to omit the <tt class="docutils literal"><span class="pre">atoms</span></tt> field entirely, in
+<p>For surface species, it is possible to omit the <code class="docutils literal"><span class="pre">atoms</span></code> field entirely, in
 which case it is composed of nothing, and represents an empty surface site. This
 can also be done to represent vacancies in solids. A charged vacancy can be
 defined to be composed solely of electrons:</p>
@@ -172,11 +174,11 @@ defined to be composed solely of electrons:</p>
 <p>Note that an atom number of zero may be given if desired, but is completely
 equivalent to omitting that element.</p>
 <p>The number of atoms of an element must be non-negative, except for the special
-&#8220;element&#8221; <tt class="docutils literal"><span class="pre">E</span></tt> that represents an electron.</p>
+&#8220;element&#8221; <code class="docutils literal"><span class="pre">E</span></code> that represents an electron.</p>
 </div>
 <div class="section" id="thermodynamic-properties">
 <h3>Thermodynamic Properties<a class="headerlink" href="#thermodynamic-properties" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><tt class="xref py py-class docutils literal"><span class="pre">phase</span></tt></a> and <a class="reference internal" href="classes.html#cantera.ctml_writer.ideal_interface" title="cantera.ctml_writer.ideal_interface"><tt class="xref py py-class docutils literal"><span class="pre">ideal_interface</span></tt></a> entries discussed in the last
+<p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.phase" title="cantera.ctml_writer.phase"><code class="xref py py-class docutils literal"><span class="pre">phase</span></code></a> and <a class="reference internal" href="classes.html#cantera.ctml_writer.ideal_interface" title="cantera.ctml_writer.ideal_interface"><code class="xref py py-class docutils literal"><span class="pre">ideal_interface</span></code></a> entries discussed in the last
 chapter implement specific models for the thermodynamic properties appropriate
 for the type of phase or interface they represent. Although each one may use
 different expressions to compute the properties, they all require thermodynamic
@@ -195,14 +197,14 @@ temperature <span class="math">\(T_0\)</span>;</li>
 <span id="sec-species-transport-models"></span><h3>Species Transport Coefficients<a class="headerlink" href="#species-transport-coefficients" title="Permalink to this headline">¶</a></h3>
 <p>Transport property models in general require coefficients that express the
 effect of each species on the transport properties of the phase. The
-<tt class="docutils literal"><span class="pre">transport</span></tt> field may be assigned an embedded entry that provides
+<code class="docutils literal"><span class="pre">transport</span></code> field may be assigned an embedded entry that provides
 species-specific coefficients.</p>
-<p>Currently, the only entry type is <a class="reference internal" href="classes.html#cantera.ctml_writer.gas_transport" title="cantera.ctml_writer.gas_transport"><tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt></a>, which supplies
+<p>Currently, the only entry type is <a class="reference internal" href="classes.html#cantera.ctml_writer.gas_transport" title="cantera.ctml_writer.gas_transport"><code class="xref py py-class docutils literal"><span class="pre">gas_transport</span></code></a>, which supplies
 parameters needed by the ideal-gas transport property models. The field values
-and their units of the <a class="reference internal" href="classes.html#cantera.ctml_writer.gas_transport" title="cantera.ctml_writer.gas_transport"><tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt></a> entry are compatible with the
+and their units of the <a class="reference internal" href="classes.html#cantera.ctml_writer.gas_transport" title="cantera.ctml_writer.gas_transport"><code class="xref py py-class docutils literal"><span class="pre">gas_transport</span></code></a> entry are compatible with the
 transport database parameters described by Kee et al. <a class="footnote-reference" href="#kee1986" id="id1">[1]</a>. Entries in
 transport databases in the format described in their report can be used directly
-in the fields of the <a class="reference internal" href="classes.html#cantera.ctml_writer.gas_transport" title="cantera.ctml_writer.gas_transport"><tt class="xref py py-class docutils literal"><span class="pre">gas_transport</span></tt></a> entry, without requiring any unit
+in the fields of the <a class="reference internal" href="classes.html#cantera.ctml_writer.gas_transport" title="cantera.ctml_writer.gas_transport"><code class="xref py py-class docutils literal"><span class="pre">gas_transport</span></code></a> entry, without requiring any unit
 conversion. The numeric field values should all be entered as pure numbers, with
 no attached units string.</p>
 </div>
@@ -210,7 +212,7 @@ no attached units string.</p>
 <div class="section" id="thermodynamic-property-models">
 <span id="sec-thermo-models"></span><h2>Thermodynamic Property Models<a class="headerlink" href="#thermodynamic-property-models" title="Permalink to this headline">¶</a></h2>
 <p>The entry types described in this section can be used to provide data for the
-<tt class="docutils literal"><span class="pre">thermo</span></tt> field of a <a class="reference internal" href="classes.html#cantera.ctml_writer.species" title="cantera.ctml_writer.species"><tt class="xref py py-class docutils literal"><span class="pre">species</span></tt></a>. Each implements a different
+<code class="docutils literal"><span class="pre">thermo</span></code> field of a <a class="reference internal" href="classes.html#cantera.ctml_writer.species" title="cantera.ctml_writer.species"><code class="xref py py-class docutils literal"><span class="pre">species</span></code></a>. Each implements a different
 <em>parameterization</em> (functional form) for the heat capacity. Note that there is
 no requirement that all species in a phase use the same parameterization; each
 species can use the one most appropriate to represent how the heat capacity
@@ -234,10 +236,10 @@ equilibrium program and in Chemkin, which uses 7 coefficients in each of two
 temperature regions. It is not compatible with the form used in the most recent
 version of the NASA equilibrium program, which uses 9 coefficients for each
 temperature region.</p>
-<p>A NASA parameterization is defined by an embedded <a class="reference internal" href="classes.html#cantera.ctml_writer.NASA" title="cantera.ctml_writer.NASA"><tt class="xref py py-class docutils literal"><span class="pre">NASA</span></tt></a> entry. Very
+<p>A NASA parameterization is defined by an embedded <a class="reference internal" href="classes.html#cantera.ctml_writer.NASA" title="cantera.ctml_writer.NASA"><code class="xref py py-class docutils literal"><span class="pre">NASA</span></code></a> entry. Very
 often, two NASA parameterizations are used for two contiguous temperature
-ranges. This can be specified by assigning the <tt class="docutils literal"><span class="pre">thermo</span></tt> field of the
-<tt class="docutils literal"><span class="pre">species</span></tt> entry a sequence of two <a class="reference internal" href="classes.html#cantera.ctml_writer.NASA" title="cantera.ctml_writer.NASA"><tt class="xref py py-class docutils literal"><span class="pre">NASA</span></tt></a> entries:</p>
+ranges. This can be specified by assigning the <code class="docutils literal"><span class="pre">thermo</span></code> field of the
+<code class="docutils literal"><span class="pre">species</span></code> entry a sequence of two <a class="reference internal" href="classes.html#cantera.ctml_writer.NASA" title="cantera.ctml_writer.NASA"><code class="xref py py-class docutils literal"><span class="pre">NASA</span></code></a> entries:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># use one NASA parameterization for T &lt; 1000 K, and another for T &gt; 1000 K.</span>
 <span class="n">species</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;O2&quot;</span><span class="p">,</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="s">&quot; O:2 &quot;</span><span class="p">,</span>
@@ -287,7 +289,7 @@ parameterization in three different temperature regions:</p>
 <p>Thermodynamic data for a range of species can be obtained from the <a class="reference external" href="http://cearun.grc.nasa.gov/cea/index_ds.html">NASA
 ThermoBuild</a> tool. Using the web
 interface, an input file can be obtained for a set of species. This input file
-should then be modified so that the first line reads &#8220;<tt class="xref py py-obj docutils literal"><span class="pre">thermo</span> <span class="pre">nasa9</span></tt>&#8221;, as in the
+should then be modified so that the first line reads &#8220;<code class="xref py py-obj docutils literal"><span class="pre">thermo</span> <span class="pre">nasa9</span></code>&#8221;, as in the
 following example:</p>
 <div class="highlight-python"><div class="highlight"><pre>thermo nasa9
    200.000  1000.000  6000.000 20000.000   9/09/04
@@ -317,13 +319,13 @@ END PRODUCTS
 END REACTANTS
 </pre></div>
 </div>
-<p>This file (saved for example as <tt class="xref py py-obj docutils literal"><span class="pre">nasathermo.dat</span></tt>) can then be converted to the
-CTI format using the <tt class="xref py py-obj docutils literal"><span class="pre">ck2cti</span></tt> script:</p>
+<p>This file (saved for example as <code class="xref py py-obj docutils literal"><span class="pre">nasathermo.dat</span></code>) can then be converted to the
+CTI format using the <code class="xref py py-obj docutils literal"><span class="pre">ck2cti</span></code> script:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ck2cti</span> <span class="o">--</span><span class="n">thermo</span><span class="o">=</span><span class="n">nasathermo</span><span class="o">.</span><span class="n">dat</span>
 </pre></div>
 </div>
 <p>To generate a full phase definition, create an input file defining the phase as
-well, saved for example as <tt class="xref py py-obj docutils literal"><span class="pre">nasa.inp</span></tt>:</p>
+well, saved for example as <code class="xref py py-obj docutils literal"><span class="pre">nasa.inp</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>elements
 C O
 end
@@ -350,7 +352,7 @@ G. This parameterization is used to represent reference-state properties in the
 <a class="reference external" href="http://webbook.nist.gov/chemistry">NIST Chemistry WebBook</a>. The values of the
 coefficients A through G should be entered precisely as shown there, with no
 units attached. Unit conversions to SI will be handled internally.</p>
-<p>Example usage of the <a class="reference internal" href="classes.html#cantera.ctml_writer.Shomate" title="cantera.ctml_writer.Shomate"><tt class="xref py py-class docutils literal"><span class="pre">Shomate</span></tt></a> directive:</p>
+<p>Example usage of the <a class="reference internal" href="classes.html#cantera.ctml_writer.Shomate" title="cantera.ctml_writer.Shomate"><code class="xref py py-class docutils literal"><span class="pre">Shomate</span></code></a> directive:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># use a single Shomate parameterization.</span>
 <span class="n">species</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;O2&quot;</span><span class="p">,</span>
         <span class="n">atoms</span> <span class="o">=</span> <span class="s">&quot; O:2 &quot;</span><span class="p">,</span>
@@ -365,7 +367,7 @@ units attached. Unit conversions to SI will be handled internally.</p>
 <p>In some cases, species properties may only be required at a single temperature
 or over a narrow temperature range. In such cases, the heat capacity can be
 approximated as constant, and simpler expressions can be used for the thermodynamic
-properties. The <a class="reference internal" href="classes.html#cantera.ctml_writer.const_cp" title="cantera.ctml_writer.const_cp"><tt class="xref py py-class docutils literal"><span class="pre">const_cp</span></tt></a> parameterization computes the properties as
+properties. The <a class="reference internal" href="classes.html#cantera.ctml_writer.const_cp" title="cantera.ctml_writer.const_cp"><code class="xref py py-class docutils literal"><span class="pre">const_cp</span></code></a> parameterization computes the properties as
 follows:</p>
 <div class="math">
 \[\hat{c}_p^0(T) = \hat{c}_p^0(T_0)\]\[\hat{h}^0(T) = \hat{h}^0(T_0) + \hat{c}_p^0\cdot(T-T_0)\]\[\hat{s}^0(T) = \hat{s}^0(T_0) + \hat{c}_p^0 \ln (T/T_0)\]</div>
@@ -378,7 +380,7 @@ default value for the other parameters is 0.0.</p>
                   <span class="n">cp0</span><span class="o">=</span><span class="p">(</span><span class="mf">37.12</span><span class="p">,</span> <span class="s">&#39;J/mol/K&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Assuming that the <a class="reference internal" href="classes.html#cantera.ctml_writer.units" title="cantera.ctml_writer.units"><tt class="xref py py-func docutils literal"><span class="pre">units()</span></tt></a> function has been used to set the default energy
+<p>Assuming that the <a class="reference internal" href="classes.html#cantera.ctml_writer.units" title="cantera.ctml_writer.units"><code class="xref py py-func docutils literal"><span class="pre">units()</span></code></a> function has been used to set the default energy
 units to Joules and the default quantity unit to kmol, this may be equivalently
 written as:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">thermo</span> <span class="o">=</span> <span class="n">const_cp</span><span class="p">(</span><span class="n">h0</span><span class="o">=-</span><span class="mf">3.9351e8</span><span class="p">,</span> <span class="n">s0</span><span class="o">=</span><span class="mf">2.13785e5</span><span class="p">,</span> <span class="n">cp0</span><span class="o">=</span><span class="mf">3.712e4</span><span class="p">)</span>
@@ -411,7 +413,7 @@ NASA/TP-2002-211556, Sept. 2002.</td></tr>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -426,13 +428,13 @@ NASA/TP-2002-211556, Sept. 2002.</td></tr>
         <li class="right" >
           <a href="phases.html" title="Phases and their Interfaces"
              >previous</a> |</li>
-        <li><a href="../index.html">Cantera</a> &raquo;</li>
-          <li><a href="index.html" >Defining Phases</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Defining Phases</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
     </div>
   </body>
 </html>

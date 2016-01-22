@@ -831,13 +831,18 @@ ThermoPhase
 
     .. mat:function:: setState_Psat(tp, px)
 
-        Set the fluid to a saturated state at a given pressure.
+        Set the fluid state using the given pressure and quality.
 
+        The fluid state will be set to a saturated liquid-vapor state using the
+        input pressure and vapor fraction (quality) as the independent,
+        intensive variables.
+        
         :param tp:
             Instance of class :mat:func:`ThermoPhase` (or another
             class derived from ThermoPhase)
         :param px:
-            Pressure. Units: Pa
+            Vector of length 2 containing the desired values for the pressure (Pa)
+            and the vapor fraction
         
 
     .. mat:function:: setState_RP(tp, rp)
@@ -882,13 +887,18 @@ ThermoPhase
 
     .. mat:function:: setState_Tsat(tp, tx)
 
-        Set the fluid to a saturated state at a given temperature.
+        Set the fluid state using the given temperature and quality.
 
+        The fluid state will be set to a saturated liquid-vapor state using the
+        input temperature and vapor fraction (quality) as the independent,
+        intensive variables.
+        
         :param tp:
             Instance of class :mat:func:`ThermoPhase` (or another
             class derived from ThermoPhase)
         :param tx:
-            Temperature. Units: K
+            Vector of length 2 containing the desired values for the temperature (K)
+            and the vapor fraction (quality)
         
 
     .. mat:function:: setState_UV(tp, uv)

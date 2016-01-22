@@ -19,7 +19,6 @@ var searchData=
   ['stflow',['StFlow',['../classCantera_1_1StFlow.html',1,'Cantera']]],
   ['stitbypdss',['STITbyPDSS',['../classCantera_1_1STITbyPDSS.html',1,'Cantera']]],
   ['stoichsubstance',['StoichSubstance',['../classCantera_1_1StoichSubstance.html',1,'Cantera']]],
-  ['stoichsubstancesstp',['StoichSubstanceSSTP',['../classCantera_1_1StoichSubstanceSSTP.html',1,'Cantera']]],
   ['substance',['Substance',['../classtpx_1_1Substance.html',1,'tpx']]],
   ['sum1',['Sum1',['../classCantera_1_1Sum1.html',1,'Cantera']]],
   ['surf1d',['Surf1D',['../classCantera_1_1Surf1D.html',1,'Cantera']]],

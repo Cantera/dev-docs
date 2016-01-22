@@ -16,7 +16,7 @@ var searchData=
   ['specialspecies_5f',['specialSpecies_',['../classCantera_1_1PDSS__IonsFromNeutral.html#aa54c9d5d86b3ec6e2e8a42db7307e911',1,'Cantera::PDSS_IonsFromNeutral']]],
   ['speciesdiffusivity',['speciesDiffusivity',['../classCantera_1_1LiquidTransportData.html#ae26b69b31cea0b6b0db88a5b2f177dac',1,'Cantera::LiquidTransportData::speciesDiffusivity()'],['../classCantera_1_1LiquidTransportParams.html#ad391130bea13453fceef741eb661335c',1,'Cantera::LiquidTransportParams::speciesDiffusivity()']]],
   ['speciesname',['speciesName',['../classCantera_1_1LiquidTransportData.html#a3e9adc165c89c8fb94220c3df3706e39',1,'Cantera::LiquidTransportData::speciesName()'],['../classCantera_1_1SolidTransportData.html#a3e9adc165c89c8fb94220c3df3706e39',1,'Cantera::SolidTransportData::speciesName()']]],
-  ['speciesthermo',['SpeciesThermo',['../classCantera_1_1VCS__PROB.html#aba17947813f19df367ab7e54bc2a938c',1,'Cantera::VCS_PROB']]],
+  ['speciesthermo',['SpeciesThermo',['../classCantera_1_1VCS__PROB.html#aba17947813f19df367ab7e54bc2a938c',1,'Cantera::VCS_PROB::SpeciesThermo()'],['../classCantera_1_1vcs__SpeciesProperties.html#ab75ab2e91e2203d6acfa5a6a21663121',1,'Cantera::vcs_SpeciesProperties::SpeciesThermo()']]],
   ['speciesunknowntype',['SpeciesUnknownType',['../classCantera_1_1VCS__PROB.html#a93e7e407d8916f77f0d3c67466ebe88f',1,'Cantera::VCS_PROB']]],
   ['specifieddeltaxmax_5f',['specifiedDeltaXMax_',['../group__solverGroup.html#ga454b738c86f834874c5c780455d59e4b',1,'Cantera::RootFind']]],
   ['specifieddeltaxnorm_5f',['specifiedDeltaXnorm_',['../group__solverGroup.html#gafcc0836c94c935542f82d2e0cf115645',1,'Cantera::RootFind']]],
@@ -43,5 +43,6 @@ var searchData=
   ['sticking_5fspecies',['sticking_species',['../classCantera_1_1InterfaceReaction.html#a91428ee0317a3a95c45cbf2ccb1a4f6b',1,'Cantera::InterfaceReaction']]],
   ['surface_5frxn',['SURFACE_RXN',['../namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82',1,'Cantera']]],
   ['surfaceaffinity_5frxn',['SURFACEAFFINITY_RXN',['../namespaceCantera.html#aa57e828a72df53d5e15c386eb59636cd',1,'Cantera']]],
+  ['surfacespecies',['SurfaceSpecies',['../classCantera_1_1vcs__SpeciesProperties.html#a41fb492ff1a0429754ff357e24e640fb',1,'Cantera::vcs_SpeciesProperties']]],
   ['sw_5foffset',['SW_Offset',['../classCantera_1_1PDSS__Water.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::PDSS_Water::SW_Offset()'],['../classCantera_1_1WaterSSTP.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::WaterSSTP::SW_Offset()']]]
 ];

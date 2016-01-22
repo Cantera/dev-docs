@@ -94,7 +94,7 @@ Interface
             Instance of class :mat:func:`Interface`
         
 
-    .. mat:function:: setCoverages(s, cov)
+    .. mat:function:: setCoverages(s, cov, norm)
 
         Set surface coverages of the species on an interface.
 
@@ -104,6 +104,13 @@ Interface
              Coverage of the species. ``cov`` can be either a vector of
              length ``n_surf_species``, or a string in the format
              ``'Species:Coverage, Species:Coverage'``
+        :param norm:
+             Optional flag that denotes whether or not to normalize the species
+             coverages. ``norm`` is either of the two strings ``'nonorm'``` or
+             ``'norm'``. If left unset, the default is `norm`. This only works if
+             ``s`` is a vector, not a string. Since unnormalized coverages can lead to
+             unphysical results, ``'nonorm'`` should be used only in rare cases, such
+             as computing partial derivatives with respect to a species coverage.
         
 
 

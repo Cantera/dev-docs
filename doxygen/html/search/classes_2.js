@@ -20,8 +20,6 @@ var searchData=
   ['constpressurereactor',['ConstPressureReactor',['../classCantera_1_1ConstPressureReactor.html',1,'Cantera']]],
   ['cos1',['Cos1',['../classCantera_1_1Cos1.html',1,'Cantera']]],
   ['coveragedependency',['CoverageDependency',['../structCantera_1_1CoverageDependency.html',1,'Cantera']]],
-  ['cvodeerr',['CVodeErr',['../classCantera_1_1CVodeErr.html',1,'Cantera']]],
-  ['cvodeint',['CVodeInt',['../classCantera_1_1CVodeInt.html',1,'Cantera']]],
   ['cvodeserr',['CVodesErr',['../classCantera_1_1CVodesErr.html',1,'Cantera']]],
   ['cvodesintegrator',['CVodesIntegrator',['../classCantera_1_1CVodesIntegrator.html',1,'Cantera']]]
 ];

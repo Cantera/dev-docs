@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing Cantera &mdash; Cantera 2.2.0 documentation</title>
+    <title>Installing Cantera &mdash; Cantera 2.3.0a1 documentation</title>
     
     <link rel="stylesheet" href="_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.2.0',
+        VERSION:     '2.3.0a1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,17 +25,17 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.2.0 documentation" href="index.html" />
+    <link rel="top" title="Cantera 2.3.0a1 documentation" href="index.html" />
     <link rel="next" title="Cantera Compilation Guide" href="compiling.html" />
     <link rel="prev" title="Frequently Asked Questions" href="faq.html" /> 
   </head>
-  <body>
+  <body role="document">
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="index.html">
 <img src="_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,11 +50,11 @@
         <li class="right" >
           <a href="faq.html" title="Frequently Asked Questions"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Cantera</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cantera</a> &raquo;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -76,12 +76,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="compiling.html"
                         title="next chapter">Cantera Compilation Guide</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/install.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/install.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -100,23 +102,23 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installing-cantera">
 <span id="sec-install"></span><h1>Installing Cantera<a class="headerlink" href="#installing-cantera" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#windows" id="id2">Windows</a></li>
-<li><a class="reference internal" href="#mac-os-x" id="id3">Mac OS X</a><ul>
-<li><a class="reference internal" href="#homebrew" id="id4">Homebrew</a></li>
-<li><a class="reference internal" href="#macports" id="id5">MacPorts</a></li>
+<li><a class="reference internal" href="#windows" id="id3">Windows</a></li>
+<li><a class="reference internal" href="#mac-os-x" id="id4">Mac OS X</a><ul>
+<li><a class="reference internal" href="#homebrew" id="id5">Homebrew</a></li>
+<li><a class="reference internal" href="#macports" id="id6">MacPorts</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ubuntu" id="id6">Ubuntu</a></li>
+<li><a class="reference internal" href="#ubuntu" id="id7">Ubuntu</a></li>
 </ul>
 </div>
 <div class="section" id="windows">
-<span id="sec-install-win"></span><h2><a class="toc-backref" href="#id2">Windows</a><a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<span id="sec-install-win"></span><h2><a class="toc-backref" href="#id3">Windows</a><a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
 <p>Windows installers are provided for stable versions of Cantera. These
 installation instructions are for Cantera 2.2.0.</p>
 <ol class="arabic">
@@ -146,7 +148,7 @@ Python <em>X.Y</em>.</li>
 </ul>
 </li>
 <li>Run the installer. The default installation options should be fine.</li>
-<li>Python is required in order to work with <tt class="xref py py-obj docutils literal"><span class="pre">cti</span></tt> input files even if you are
+<li>Python is required in order to work with <code class="xref py py-obj docutils literal"><span class="pre">cti</span></code> input files even if you are
 not using the Python interface to Cantera.</li>
 <li>Cantera can also be used with alternative Python distributions such as
 <a class="reference external" href="https://store.continuum.io/cshop/anaconda/">Anaconda</a> or the Enthought
@@ -159,10 +161,10 @@ users.</li>
 <li><p class="first"><strong>Install pip</strong></p>
 <ul>
 <li><p class="first">Go to the <a class="reference external" href="https://pip.pypa.io/en/latest/installing.html#install-pip">pip installation instructions</a> and download
-<tt class="xref py py-obj docutils literal"><span class="pre">get-pip.py</span></tt> (You may need to right click the link and select <em>Save target
+<code class="xref py py-obj docutils literal"><span class="pre">get-pip.py</span></code> (You may need to right click the link and select <em>Save target
 as...</em>).</p>
 </li>
-<li><p class="first">From a administrative command prompt, run <tt class="xref py py-obj docutils literal"><span class="pre">get-pip.py</span></tt> with the copy of
+<li><p class="first">From a administrative command prompt, run <code class="xref py py-obj docutils literal"><span class="pre">get-pip.py</span></code> with the copy of
 Python you plan on use with Cantera, e.g.:</p>
 <div class="highlight-python"><div class="highlight"><pre>c:\python34\python.exe &quot;%USERPROFILE%\Downloads\get-pip.py&quot;
 </pre></div>
@@ -170,7 +172,7 @@ Python you plan on use with Cantera, e.g.:</p>
 </li>
 </ul>
 </li>
-<li><p class="first"><strong>Install Numpy</strong></p>
+<li><p class="first"><strong>Install Numpy and optional Python packages</strong></p>
 <ul>
 <li><p class="first">Go to the <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy">Unofficial Windows Binaries for Python Extension Packages page</a>.</p>
 </li>
@@ -178,7 +180,7 @@ Python you plan on use with Cantera, e.g.:</p>
 1.x series for Python <em>X.Y</em> that matches your Python architecture. The
 binaries for Cantera 2.2.0 require Numpy 1.8.0 or newer, e.g. In the
 filename, the digits after &#8220;cp&#8221; indicate the Python version, e.g.
-<tt class="docutils literal"><span class="pre">numpy‑1.8.2+mkl‑cp34‑none‑win_amd64.whl</span></tt> is the installer for 64-bit
+<code class="docutils literal"><span class="pre">numpy‑1.8.2+mkl‑cp34‑none‑win_amd64.whl</span></code> is the installer for 64-bit
 Python 3.4.</p>
 </li>
 <li><p class="first">From an administrative command prompt, install the downloaded wheel using
@@ -186,6 +188,12 @@ pip, e.g.:</p>
 <div class="highlight-python"><div class="highlight"><pre>c:\python34\scripts\pip.exe install &quot;%USERPROFILE%\Downloads\numpy‑1.8.2+mkl‑cp34‑none‑win_amd64.whl&quot;
 </pre></div>
 </div>
+</li>
+<li><p class="first">If you plan on using Cantera from Python, you may also want to install
+IPython (an advanced interactive Python interpreter) and Matplotlib (a
+plotting library), which are also available from the above link (note that
+you may also need to download additional dependencies for each of these
+packages). Matplotlib is required to run some of the Python examples.</p>
 </li>
 </ul>
 </li>
@@ -213,21 +221,21 @@ install the base package.</li>
 </li>
 <li><p class="first"><strong>Configure Matlab</strong> (optional)</p>
 <ul class="simple">
-<li>Set the environment variable <tt class="docutils literal"><span class="pre">PYTHON_CMD</span></tt><ul>
+<li>Set the environment variable <code class="docutils literal"><span class="pre">PYTHON_CMD</span></code><ul>
 <li>From the <em>Start</em> menu (Windows 7) or the <em>Start</em> screen (Windows 8) type
 &#8220;edit environment&#8221; and select &#8220;Edit environment variables for your
 account&#8221;.</li>
-<li>Add a <em>New</em> variable with <tt class="docutils literal"><span class="pre">PYTHON_CMD</span></tt> as the <em>name</em> and the full path
-to the Python executable (e.g. <tt class="docutils literal"><span class="pre">C:\python27\python.exe</span></tt>) as the
+<li>Add a <em>New</em> variable with <code class="docutils literal"><span class="pre">PYTHON_CMD</span></code> as the <em>name</em> and the full path
+to the Python executable (e.g. <code class="docutils literal"><span class="pre">C:\python27\python.exe</span></code>) as the
 <em>value</em>.</li>
-<li>Setting <tt class="docutils literal"><span class="pre">PYTHON_CMD</span></tt> is not necessary if the path to <tt class="docutils literal"><span class="pre">python.exe</span></tt> is
-in your <tt class="docutils literal"><span class="pre">PATH</span></tt> (which can be set from the same configuration dialog).</li>
+<li>Setting <code class="docutils literal"><span class="pre">PYTHON_CMD</span></code> is not necessary if the path to <code class="docutils literal"><span class="pre">python.exe</span></code> is
+in your <code class="docutils literal"><span class="pre">PATH</span></code> (which can be set from the same configuration dialog).</li>
 </ul>
 </li>
 <li>Launch Matlab</li>
 <li>Go to <em>File-&gt;Set Path...</em></li>
 <li>Select <em>Add with Subfolders</em></li>
-<li>Browse to the folder <tt class="docutils literal"><span class="pre">C:\Program</span> <span class="pre">Files\Cantera\matlab\toolbox</span></tt></li>
+<li>Browse to the folder <code class="docutils literal"><span class="pre">C:\Program</span> <span class="pre">Files\Cantera\matlab\toolbox</span></code></li>
 <li>Select <em>Save</em>, then <em>Close</em>.</li>
 </ul>
 </li>
@@ -251,14 +259,14 @@ in your <tt class="docutils literal"><span class="pre">PATH</span></tt> (which c
 </ol>
 </div>
 <div class="section" id="mac-os-x">
-<span id="sec-install-osx"></span><h2><a class="toc-backref" href="#id3">Mac OS X</a><a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h2>
+<span id="sec-install-osx"></span><h2><a class="toc-backref" href="#id4">Mac OS X</a><a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h2>
 <p>Cantera can be installed on OS X using either Homebrew or MacPorts. With
 Homebrew, the current stable, maintenance, or development versions of Cantera
 can be installed, and both the Python 2.7 and Python 3.x modules are available,
 as well as the Matlab toolbox. The MacPorts portfile supports the current stable
 version of Cantera and builds the Python 2.7 module.</p>
 <div class="section" id="homebrew">
-<h3><a class="toc-backref" href="#id4">Homebrew</a><a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Homebrew</a><a class="headerlink" href="#homebrew" title="Permalink to this headline">¶</a></h3>
 <p>These instructions have been tested on Mac OS X 10.9 (Mavericks) with Xcode 5.1
 and Mac OS X 10.10 (Yosemite) with Xcode 6.1. If you&#8217;ve used Homebrew before,
 you can skip any steps which have already been completed.</p>
@@ -287,7 +295,7 @@ Terminal:</p>
 <li><p class="first">Run the following commands:</p>
 <div class="highlight-python"><div class="highlight"><pre>brew tap homebrew/science
 brew update
-brew install python scons sundials
+brew install python scons
 </pre></div>
 </div>
 </li>
@@ -296,9 +304,9 @@ running:</p>
 <div class="highlight-python"><div class="highlight"><pre>which python
 </pre></div>
 </div>
-<p>If this command does not print <tt class="docutils literal"><span class="pre">/usr/local/bin/python</span></tt>, add the following
-to <tt class="docutils literal"><span class="pre">~/.bash_profile</span></tt> (creating this file if it doesn&#8217;t already exist; you
-can use the command line editor <tt class="docutils literal"><span class="pre">nano</span></tt> to edit this file):</p>
+<p>If this command does not print <code class="docutils literal"><span class="pre">/usr/local/bin/python</span></code>, add the following
+to <code class="docutils literal"><span class="pre">~/.bash_profile</span></code> (creating this file if it doesn&#8217;t already exist; you
+can use the command line editor <code class="docutils literal"><span class="pre">nano</span></code> to edit this file):</p>
 <div class="highlight-python"><div class="highlight"><pre>export PATH=/usr/local/bin:$PATH
 </pre></div>
 </div>
@@ -314,9 +322,21 @@ can use the command line editor <tt class="docutils literal"><span class="pre">n
 <p>Note that these packages are required even if you do not plan on using the
 Cantera Python 2 module.</p>
 </li>
+<li><p class="first">If you plan on using Cantera from Python, you may also want to install
+IPython (an advanced interactive Python interpreter) and Matplotlib (a
+plotting library). Matplotlib is required to run some of the Python
+examples:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install ipython matplotlib
+</pre></div>
+</div>
+</li>
 <li><p class="first">If you want to build the Cantera Python 3 module, run:</p>
 <div class="highlight-python"><div class="highlight"><pre>brew install python3
 pip3 install numpy cython
+</pre></div>
+</div>
+<p>and, optionally:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip3 install ipython matplotlib
 </pre></div>
 </div>
 </li>
@@ -331,29 +351,47 @@ pip3 install numpy cython
 </li>
 <li><p class="first">The following options are supported:</p>
 <dl class="docutils">
-<dt><tt class="docutils literal"><span class="pre">--HEAD</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--HEAD</span></code></dt>
 <dd><p class="first last">Installs the current development version of Cantera.</p>
 </dd>
-<dt><tt class="docutils literal"><span class="pre">--with-matlab=/Applications/MATLAB_R2014a.app/</span></tt></dt>
+<dt><code class="docutils literal"><span class="pre">--with-python3</span></code></dt>
+<dd><p class="first last">Install the Python 3 module.</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">--with-matlab=/Applications/MATLAB_R2014a.app/</span></code></dt>
 <dd><p class="first last">Installs the Matlab toolbox (with the path modified to match your
 installed Matlab version)</p>
 </dd>
+<dt><code class="docutils literal"><span class="pre">--without-sundials</span></code></dt>
+<dd><p class="first last">Do not use an external SUNDIALS version to build Cantera. Users
+choosing this option will not be able to run sensitivity analysis
+of Reactor Networks, but it may prevent errors when installing
+the Matlab toolbox.</p>
+</dd>
+<dt><code class="docutils literal"><span class="pre">--without-check</span></code></dt>
+<dd><p class="first last">NOT RECOMMENDED! Disable automatic testing of Cantera during the
+installation process.</p>
+</dd>
 </dl>
 </li>
-<li><p class="first">These options are specified as additional arguments to the <tt class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span></tt>
+<li><p class="first">These options are specified as additional arguments to the <code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span></code>
 command, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>brew install cantera --HEAD --with-matlab=/Applications/MATLAB_R2014a.app/
+<div class="highlight-python"><div class="highlight"><pre>brew install cantera --HEAD --with-python3
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you are installing the Matlab toolbox, the recommended command is:</p>
+<div class="highlight-python"><div class="highlight"><pre>brew install cantera --with-matlab=/Applications/MATLAB_R2014a.app/ --without-sundials
 </pre></div>
 </div>
 </li>
 <li><p class="first">If something goes wrong with the Homebrew install, re-run the command with
-the <tt class="docutils literal"><span class="pre">-v</span></tt> flag to get more verbose output that may help identify the
+the <code class="docutils literal"><span class="pre">-v</span></code> flag to get more verbose output that may help identify the
 source of the problem:</p>
 <div class="highlight-python"><div class="highlight"><pre>brew install -v cantera
 </pre></div>
 </div>
 </li>
-<li><p class="first">If Homebrew claims that it can&#8217;t find a formula named <tt class="docutils literal"><span class="pre">cantera</span></tt>, you may
+<li><p class="first">If Homebrew claims that it can&#8217;t find a formula named <code class="docutils literal"><span class="pre">cantera</span></code>, you may
 be able to fix it by running the commands:</p>
 <div class="highlight-python"><div class="highlight"><pre>brew doctor
 brew tap --repair
@@ -368,7 +406,7 @@ brew tap --repair
 <div class="highlight-python"><div class="highlight"><pre>/usr/local/lib/pythonX.Y/site-packages/cantera/examples/
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">X.Y</span></tt> is your Python version, e.g. <tt class="docutils literal"><span class="pre">2.7</span></tt>.</p>
+<p>where <code class="docutils literal"><span class="pre">X.Y</span></code> is your Python version, e.g. <code class="docutils literal"><span class="pre">2.7</span></code>.</p>
 </li>
 <li><p class="first">You may find it convenient to copy the examples to your Desktop:</p>
 <div class="highlight-python"><div class="highlight"><pre>cp -r /usr/local/lib/python2.7/site-packages/cantera/examples ~/Desktop/cantera_examples
@@ -391,8 +429,8 @@ python reactor1.py
 </div>
 </li>
 <li><p class="first">To use the Cantera Matlab toolbox, run the following commands in Matlab
-(each time you start Matlab), or add them to a <tt class="docutils literal"><span class="pre">startup.m</span></tt> file located
-in <tt class="docutils literal"><span class="pre">/Users/$USER/Documents/MATLAB</span></tt>, where <tt class="docutils literal"><span class="pre">$USER</span></tt> is your username:</p>
+(each time you start Matlab), or add them to a <code class="docutils literal"><span class="pre">startup.m</span></code> file located
+in <code class="docutils literal"><span class="pre">/Users/$USER/Documents/MATLAB</span></code>, where <code class="docutils literal"><span class="pre">$USER</span></code> is your username:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">addpath</span><span class="p">(</span><span class="n">genpath</span><span class="p">(</span><span class="s">&#39;/usr/local/lib/cantera/matlab&#39;</span><span class="p">))</span>
 <span class="n">setenv</span><span class="p">(</span><span class="s">&#39;PYTHON_CMD&#39;</span><span class="p">,</span> <span class="s">&#39;/usr/local/bin/python&#39;</span><span class="p">)</span>
 </pre></div>
@@ -413,7 +451,7 @@ in <tt class="docutils literal"><span class="pre">/Users/$USER/Documents/MATLAB<
 </ol>
 </div>
 <div class="section" id="macports">
-<h3><a class="toc-backref" href="#id5">MacPorts</a><a class="headerlink" href="#macports" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">MacPorts</a><a class="headerlink" href="#macports" title="Permalink to this headline">¶</a></h3>
 <p>If you have MacPorts installed (see <a class="reference external" href="https://www.macports.org/install.php">https://www.macports.org/install.php</a>), you
 can install Cantera by executing:</p>
 <div class="highlight-python"><div class="highlight"><pre>sudo port install cantera
@@ -428,7 +466,7 @@ checking:</p>
 </div>
 </div>
 <div class="section" id="ubuntu">
-<span id="sec-install-ubuntu"></span><h2><a class="toc-backref" href="#id6">Ubuntu</a><a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
+<span id="sec-install-ubuntu"></span><h2><a class="toc-backref" href="#id7">Ubuntu</a><a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
 <p>Ubuntu packages are provided for recent versions of Ubuntu using a Personal
 Package Archive (PPA). As of Cantera 2.2.0, packages are available for Ubuntu
 Ubuntu 14.04 LTS (Trusty Tahr), Ubuntu 14.10 (Utopic Unicorn), and Ubuntu 15.04
@@ -436,9 +474,9 @@ Ubuntu 14.04 LTS (Trusty Tahr), Ubuntu 14.10 (Utopic Unicorn), and Ubuntu 15.04
 available, visit <a class="reference external" href="https://launchpad.net/~speth/+archive/ubuntu/cantera">https://launchpad.net/~speth/+archive/ubuntu/cantera</a></p>
 <p>The available packages are:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">cantera-python</span></tt> - The Cantera Python module for Python 2.</li>
-<li><tt class="docutils literal"><span class="pre">cantera-python3</span></tt> - The Cantera Python module for Python 3.</li>
-<li><tt class="docutils literal"><span class="pre">cantera-dev</span></tt> - Libraries and header files for compiling your own C++ and
+<li><code class="docutils literal"><span class="pre">cantera-python</span></code> - The Cantera Python module for Python 2.</li>
+<li><code class="docutils literal"><span class="pre">cantera-python3</span></code> - The Cantera Python module for Python 3.</li>
+<li><code class="docutils literal"><span class="pre">cantera-dev</span></code> - Libraries and header files for compiling your own C++ and
 Fortran 90 programs that use Cantera.</li>
 </ul>
 <p>To add the Cantera PPA:</p>
@@ -452,6 +490,32 @@ sudo aptitude update
 </pre></div>
 </div>
 <p>or install whichever subset you need by adjusting the above command.</p>
+<p>If you plan on using Cantera from Python, you may also want to install IPython
+(an advanced interactive Python interpreter) and Matplotlib (a plotting
+library), which are also available from the above link. Matplotlib is required
+to run some of the Python examples. For Python 2, these packages can be
+installed with:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip2 install ipython matplotlib
+</pre></div>
+</div>
+<p>And for Python 3, these packages can be installed with:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip3 install ipython matplotlib
+</pre></div>
+</div>
+<p>You may need to install <code class="docutils literal"><span class="pre">pip</span></code> first; instructions can be found on the
+<a class="reference external" href="https://pip.pypa.io/en/latest/installing.html#install-pip">pip installation instructions.</a>
+You may need to have superuser access to install packages into the system
+directories. Alternatively, you can add <code class="docutils literal"><span class="pre">--user</span></code> after <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> but
+before the package names to install into your local user directory. An
+alternative method is to use the Ubuntu repositories, but these tend to
+be very out of date. For Python 2, the command is:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo aptitude install ipython python-matplotlib
+</pre></div>
+</div>
+<p>And for Python 3, these packages can be installed with:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo aptitude install ipython3 python3-matplotlib
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -461,7 +525,7 @@ sudo aptitude update
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -476,12 +540,12 @@ sudo aptitude update
         <li class="right" >
           <a href="faq.html" title="Frequently Asked Questions"
              >previous</a> |</li>
-        <li><a href="index.html">Cantera</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cantera</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
     </div>
   </body>
 </html>

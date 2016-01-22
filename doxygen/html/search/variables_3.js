@@ -8,7 +8,7 @@ var searchData=
   ['cedge',['cEdge',['../namespaceCantera.html#ad9b9fe17c99bda6bbe69d4fe37be5991',1,'Cantera']]],
   ['cest_5fsolvent',['cEST_solvent',['../namespaceCantera.html#aecd6bfd9eb163aabaac0e004f2f5670c',1,'Cantera']]],
   ['cfixedchempot',['cFixedChemPot',['../namespaceCantera.html#ab8fc16143f422247afd359d21fe1e186',1,'Cantera']]],
-  ['charge',['charge',['../classCantera_1_1Species.html#ab3eb30b2f3f9c5ff812ea037220be570',1,'Cantera::Species::charge()'],['../classCantera_1_1VCS__PROB.html#afd07fd56f782fc8e7be18d10595ece7b',1,'Cantera::VCS_PROB::Charge()']]],
+  ['charge',['charge',['../classCantera_1_1Species.html#ab3eb30b2f3f9c5ff812ea037220be570',1,'Cantera::Species::charge()'],['../classCantera_1_1VCS__PROB.html#afd07fd56f782fc8e7be18d10595ece7b',1,'Cantera::VCS_PROB::Charge()'],['../classCantera_1_1vcs__SpeciesProperties.html#afa4699bd482426e10c8b21d0651151ce',1,'Cantera::vcs_SpeciesProperties::Charge()']]],
   ['chargeneutralityelement',['ChargeNeutralityElement',['../classCantera_1_1vcs__VolPhase.html#a3c537af36e5334a1c2759f0f8d753c36',1,'Cantera::vcs_VolPhase']]],
   ['chebcoeffs_5f',['chebCoeffs_',['../classCantera_1_1ChebyshevRate.html#ac1e4e7a630d5a5bf534c61d053d3fe3a',1,'Cantera::ChebyshevRate']]],
   ['chebyshev_5frxn',['CHEBYSHEV_RXN',['../namespaceCantera.html#a15deb3717c54dfbe02eddfbaecf9c2bb',1,'Cantera']]],

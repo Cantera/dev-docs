@@ -20,8 +20,6 @@ var searchData=
   ['ctlapack_2eh',['ctlapack.h',['../ctlapack_8h.html',1,'']]],
   ['ctml_2ecpp',['ctml.cpp',['../ctml_8cpp.html',1,'']]],
   ['ctml_2eh',['ctml.h',['../ctml_8h.html',1,'']]],
-  ['cvodeint_2ecpp',['CVodeInt.cpp',['../CVodeInt_8cpp.html',1,'']]],
-  ['cvodeint_2eh',['CVodeInt.h',['../CVodeInt_8h.html',1,'']]],
   ['cvodesintegrator_2ecpp',['CVodesIntegrator.cpp',['../CVodesIntegrator_8cpp.html',1,'']]],
   ['cvodesintegrator_2eh',['CVodesIntegrator.h',['../CVodesIntegrator_8h.html',1,'']]]
 ];
