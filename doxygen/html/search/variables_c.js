@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name',['name',['../structCantera_1_1awData.html#a592125fc2c2dc257d568a5d2977baa8b',1,'Cantera::awData::name()'],['../classCantera_1_1SpeciesNode.html#a9b45b3e13bd9167aab02e17e08916231',1,'Cantera::SpeciesNode::name()'],['../classCantera_1_1Species.html#a9b45b3e13bd9167aab02e17e08916231',1,'Cantera::Species::name()']]],
+  ['name',['name',['../classCantera_1_1SpeciesNode.html#a9b45b3e13bd9167aab02e17e08916231',1,'Cantera::SpeciesNode::name()'],['../classCantera_1_1Species.html#a9b45b3e13bd9167aab02e17e08916231',1,'Cantera::Species::name()']]],
   ['ne',['ne',['../classCantera_1_1VCS__PROB.html#a04d64b1db994026d8e9a17551da4c2da',1,'Cantera::VCS_PROB']]],
   ['ne0',['NE0',['../classCantera_1_1VCS__PROB.html#a45ab0c32117118f2800d78de1ddac3d3',1,'Cantera::VCS_PROB']]],
   ['neq_5f',['neq_',['../classCantera_1_1ResidJacEval.html#adda0c492f19d36947cd73f24338cf6b0',1,'Cantera::ResidJacEval']]],

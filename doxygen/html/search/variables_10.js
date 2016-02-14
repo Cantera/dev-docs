@@ -44,5 +44,6 @@ var searchData=
   ['surface_5frxn',['SURFACE_RXN',['../namespaceCantera.html#a36d9f1e25c18562e8ced89a5b0234d82',1,'Cantera']]],
   ['surfaceaffinity_5frxn',['SURFACEAFFINITY_RXN',['../namespaceCantera.html#aa57e828a72df53d5e15c386eb59636cd',1,'Cantera']]],
   ['surfacespecies',['SurfaceSpecies',['../classCantera_1_1vcs__SpeciesProperties.html#a41fb492ff1a0429754ff357e24e640fb',1,'Cantera::vcs_SpeciesProperties']]],
-  ['sw_5foffset',['SW_Offset',['../classCantera_1_1PDSS__Water.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::PDSS_Water::SW_Offset()'],['../classCantera_1_1WaterSSTP.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::WaterSSTP::SW_Offset()']]]
+  ['sw_5foffset',['SW_Offset',['../classCantera_1_1PDSS__Water.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::PDSS_Water::SW_Offset()'],['../classCantera_1_1WaterSSTP.html#ad00cc543f584a3b6e280334b2bcb1682',1,'Cantera::WaterSSTP::SW_Offset()']]],
+  ['symbol',['symbol',['../structCantera_1_1atomicWeightData.html#aa0183fad0a4c5c8a30c8fdc7b81a1279',1,'Cantera::atomicWeightData::symbol()'],['../structCantera_1_1isotopeWeightData.html#aa0183fad0a4c5c8a30c8fdc7b81a1279',1,'Cantera::isotopeWeightData::symbol()']]]
 ];

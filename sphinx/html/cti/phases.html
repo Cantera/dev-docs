@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Phases and their Interfaces &mdash; Cantera 2.3.0a1 documentation</title>
+    <title>Phases and their Interfaces &mdash; Cantera 2.3.0a2 documentation</title>
     
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0a1',
+        VERSION:     '2.3.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.3.0a1 documentation" href="../index.html" />
+    <link rel="top" title="Cantera 2.3.0a2 documentation" href="../index.html" />
     <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Elements and Species" href="species.html" />
     <link rel="prev" title="Working with Input Files" href="input-files.html" /> 
@@ -192,15 +192,15 @@ an uppercase first letter, and a lowercase second letter (e.g. <code class="docu
 <p>It should be noted that the order of the element symbols in the string
 determines the order in which they are stored internally by Cantera. For
 example, if a phase definition specifies the elements as:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;gasmix&quot;</span><span class="p">,</span>
-          <span class="n">elements</span> <span class="o">=</span> <span class="s">&quot;H C O N Ar&quot;</span><span class="p">,</span>
-          <span class="c"># ...</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;gasmix&quot;</span><span class="p">,</span>
+          <span class="n">elements</span> <span class="o">=</span> <span class="s2">&quot;H C O N Ar&quot;</span><span class="p">,</span>
+          <span class="c1"># ...</span>
           <span class="p">)</span>
 </pre></div>
 </div>
 <p>then when this definition is imported by an application, element-specific
 properties will be ordered in the same way:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span> <span class="o">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s">&#39;example.cti&#39;</span><span class="p">,</span> <span class="s">&#39;gasmix&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span> <span class="o">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s1">&#39;example.cti&#39;</span><span class="p">,</span> <span class="s1">&#39;gasmix&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gas</span><span class="o">.</span><span class="n">nElements</span><span class="p">()):</span>
 <span class="gp">... </span>    <span class="k">print</span> <span class="n">n</span><span class="p">,</span> <span class="n">gas</span><span class="o">.</span><span class="n">elementSymbol</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="go">0 H</span>
@@ -224,30 +224,30 @@ species may be defined locally using species entries elsewhere in the file.</p>
 are locally defined. For each one, a corresponding species entry must be present
 somewhere in the file, either preceding or following the phase entry.  Note that
 the string may extend over multiple lines by delimiting it with triple quotes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># commas are optional</span>
-<span class="n">species</span> <span class="o">=</span> <span class="s">&#39;AR SI Si2 SiH SiH2 SiH3 SiH4&#39;</span>
-<span class="n">species</span> <span class="o">=</span> <span class="s">&#39;H, O, OH, H2O, HO2, H2O2, H2, O2&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># commas are optional</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;AR SI Si2 SiH SiH2 SiH3 SiH4&#39;</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;H, O, OH, H2O, HO2, H2O2, H2, O2&#39;</span>
 
-<span class="c"># include all species defined in this file</span>
-<span class="n">species</span> <span class="o">=</span> <span class="s">&#39;all&#39;</span>
+<span class="c1"># include all species defined in this file</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>
 
-<span class="c"># a multi-line species declaration</span>
-<span class="n">species</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot; H2 H O O2 OH H2O HO2 H2O2 C CH</span>
-<span class="s">              CH2 CH2(S) CH3 CH4 CO CO2 HCO CH2O CH2OH CH3O</span>
-<span class="s">              CH3OH C2H C2H2 C2H3 C2H4 C2H5 C2H6 HCCO CH2CO HCCOH</span>
-<span class="s">              N NH NH2 NH3 NNH NO NO2 N2O HNO CN</span>
-<span class="s">              HCN H2CN HCNN HCNO HOCN HNCO NCO N2 AR C3H7</span>
-<span class="s">              C3H8 CH2CHO CH3CHO &quot;&quot;&quot;</span>
+<span class="c1"># a multi-line species declaration</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; H2 H O O2 OH H2O HO2 H2O2 C CH</span>
+<span class="s2">              CH2 CH2(S) CH3 CH4 CO CO2 HCO CH2O CH2OH CH3O</span>
+<span class="s2">              CH3OH C2H C2H2 C2H3 C2H4 C2H5 C2H6 HCCO CH2CO HCCOH</span>
+<span class="s2">              N NH NH2 NH3 NNH NO NO2 N2O HNO CN</span>
+<span class="s2">              HCN H2CN HCNN HCNO HOCN HNCO NCO N2 AR C3H7</span>
+<span class="s2">              C3H8 CH2CHO CH3CHO &quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>If the species are imported from another file, instead of being defined locally,
 then the string should begin with the file name (without extension), followed by
 a colon:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># import selected species from silicon.xml</span>
-<span class="n">species</span> <span class="o">=</span> <span class="s">&quot;silicon: SI SI2 SIH SIH2 SIH3 SIH4 SI2H6&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># import selected species from silicon.xml</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;silicon: SI SI2 SIH SIH2 SIH3 SIH4 SI2H6&quot;</span>
 
-<span class="c"># import all species from silicon.xml</span>
-<span class="n">species</span> <span class="o">=</span> <span class="s">&quot;silicon: all&quot;</span>
+<span class="c1"># import all species from silicon.xml</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;silicon: all&quot;</span>
 </pre></div>
 </div>
 <p>In this case, the species definitions will be taken from file <code class="docutils literal"><span class="pre">silicon.xml</span></code>,
@@ -255,9 +255,9 @@ which must exist either in the local directory or somewhere on the Cantera
 search path.</p>
 <p>It is also possible to import species from several sources, or mix local
 definitions with imported ones, by specifying a sequence of strings:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">species</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;CL2 CL F F2 HF HCL&quot;</span><span class="p">,</span> <span class="c"># defined in this file</span>
-           <span class="s">&quot;air: O2 N2 NO&quot;</span><span class="p">,</span> <span class="c"># imported from &#39;air.xml&#39;</span>
-           <span class="s">&quot;ions: CL- F-&quot;</span><span class="p">]</span> <span class="c"># imported from &#39;ions.xml&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">species</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CL2 CL F F2 HF HCL&quot;</span><span class="p">,</span> <span class="c1"># defined in this file</span>
+           <span class="s2">&quot;air: O2 N2 NO&quot;</span><span class="p">,</span> <span class="c1"># imported from &#39;air.xml&#39;</span>
+           <span class="s2">&quot;ions: CL- F-&quot;</span><span class="p">]</span> <span class="c1"># imported from &#39;ions.xml&#39;</span>
 </pre></div>
 </div>
 <p>Note that the strings must be separated by commas, and enclosed in square
@@ -276,12 +276,12 @@ beginning with <code class="docutils literal"><span class="pre">'0001'</span></c
 by one for each new reaction.</p>
 <p>If all reactions defined locally in the input file are to be included in the
 phase definition, then assign the <code class="docutils literal"><span class="pre">reactions</span></code> field the string <code class="docutils literal"><span class="pre">'all'</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">reactions</span> <span class="o">=</span> <span class="s">&#39;all&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reactions</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span>
 </pre></div>
 </div>
 <p>If, on the other hand, only some of the reactions defined in the file are to be
 included, then a range can be specified using the reaction <code class="docutils literal"><span class="pre">ID</span></code> fields:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">reactions</span> <span class="o">=</span> <span class="s">&#39;nox-12 to nox-24&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">reactions</span> <span class="o">=</span> <span class="s1">&#39;nox-12 to nox-24&#39;</span>
 </pre></div>
 </div>
 <p>In determining which reactions to include, a lexical comparison of id strings is
@@ -290,19 +290,19 @@ performed. This means, for example, that <code class="docutils literal"><span cl
 less than <code class="docutils literal"><span class="pre">'nox-24'</span></code>.)</p>
 <p>Just as described above for species, reactions can be imported from another
 file, and reactions may be imported from several sources. Examples:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># import all reactions defined in this file</span>
-<span class="n">reactions</span> <span class="o">=</span> <span class="s">&quot;all&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1"># import all reactions defined in this file</span>
+<span class="n">reactions</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
 
-<span class="c"># import all reactions defined in rxns.xml</span>
-<span class="n">reactions</span> <span class="o">=</span> <span class="s">&quot;rxns: all&quot;</span>
+<span class="c1"># import all reactions defined in rxns.xml</span>
+<span class="n">reactions</span> <span class="o">=</span> <span class="s2">&quot;rxns: all&quot;</span>
 
-<span class="c"># import reactions 1-14 in rxns.xml</span>
-<span class="n">reactions</span> <span class="o">=</span> <span class="s">&quot;rxns: 0001 to 0014&quot;</span>
+<span class="c1"># import reactions 1-14 in rxns.xml</span>
+<span class="n">reactions</span> <span class="o">=</span> <span class="s2">&quot;rxns: 0001 to 0014&quot;</span>
 
-<span class="c"># import reactions from several sources</span>
-<span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;all&quot;</span><span class="p">,</span>              <span class="c"># all local reactions</span>
-             <span class="s">&quot;gas: all&quot;</span><span class="p">,</span>         <span class="c"># all reactions in gas.xml</span>
-             <span class="s">&quot;nox: n005 to n008&quot;</span><span class="p">]</span> <span class="c"># reactions 5 to 8 in nox.xml</span>
+<span class="c1"># import reactions from several sources</span>
+<span class="n">reactions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>              <span class="c1"># all local reactions</span>
+             <span class="s2">&quot;gas: all&quot;</span><span class="p">,</span>         <span class="c1"># all reactions in gas.xml</span>
+             <span class="s2">&quot;nox: n005 to n008&quot;</span><span class="p">]</span> <span class="c1"># reactions 5 to 8 in nox.xml</span>
 </pre></div>
 </div>
 </div>
@@ -377,13 +377,13 @@ midpoint temperature.</td>
 </table>
 <p>Using the <code class="docutils literal"><span class="pre">options</span></code> field, it is possible to extract a sub-mechanism from a large
 reaction mechanism, as follows:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;hydrogen_mech&#39;</span><span class="p">,</span>
-          <span class="n">elements</span> <span class="o">=</span> <span class="s">&#39;H O&#39;</span><span class="p">,</span>
-          <span class="n">species</span> <span class="o">=</span> <span class="s">&#39;gri30:all&#39;</span><span class="p">,</span>
-          <span class="n">reactions</span> <span class="o">=</span> <span class="s">&#39;gri30:all&#39;</span><span class="p">,</span>
-          <span class="n">options</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;skip_undeclared_elements&#39;</span><span class="p">,</span>
-                     <span class="s">&#39;skip_undeclared_species&#39;</span><span class="p">,</span>
-                     <span class="s">&#39;skip_undeclared_third_bodies&#39;</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;hydrogen_mech&#39;</span><span class="p">,</span>
+          <span class="n">elements</span> <span class="o">=</span> <span class="s1">&#39;H O&#39;</span><span class="p">,</span>
+          <span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;gri30:all&#39;</span><span class="p">,</span>
+          <span class="n">reactions</span> <span class="o">=</span> <span class="s1">&#39;gri30:all&#39;</span><span class="p">,</span>
+          <span class="n">options</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;skip_undeclared_elements&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;skip_undeclared_species&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;skip_undeclared_third_bodies&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>If we import this into Matlab, for example, we get a gas mixture containing the
@@ -457,14 +457,14 @@ them. It supports all of the options in the widely-used model described by Kee
 et al. <a class="footnote-reference" href="#kee1989" id="id1">[1]</a>, plus some additional options for species thermodynamic
 properties and reaction rate expressions.</p>
 <p>An example of an <code class="docutils literal"><span class="pre">ideal_gas</span></code> entry is shown below:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;air8&#39;</span><span class="p">,</span>
-          <span class="n">elements</span><span class="o">=</span><span class="s">&#39;N O Ar&#39;</span><span class="p">,</span>
-          <span class="n">species</span><span class="o">=</span><span class="s">&#39;gri30: N2 O2 N O NO NO2 N2O AR&#39;</span><span class="p">,</span>
-          <span class="n">reactions</span><span class="o">=</span><span class="s">&#39;all&#39;</span><span class="p">,</span>
-          <span class="n">transport</span><span class="o">=</span><span class="s">&#39;Mix&#39;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;air8&#39;</span><span class="p">,</span>
+          <span class="n">elements</span><span class="o">=</span><span class="s1">&#39;N O Ar&#39;</span><span class="p">,</span>
+          <span class="n">species</span><span class="o">=</span><span class="s1">&#39;gri30: N2 O2 N O NO NO2 N2O AR&#39;</span><span class="p">,</span>
+          <span class="n">reactions</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
+          <span class="n">transport</span><span class="o">=</span><span class="s1">&#39;Mix&#39;</span><span class="p">,</span>
           <span class="n">initial_state</span><span class="o">=</span><span class="n">state</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mf">500.0</span><span class="p">,</span>
-                              <span class="n">pressure</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;atm&#39;</span><span class="p">),</span>
-                              <span class="n">mole_fractions</span><span class="o">=</span><span class="s">&#39;N2:0.78, O2:0.21, AR:0.01&#39;</span><span class="p">))</span>
+                              <span class="n">pressure</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;atm&#39;</span><span class="p">),</span>
+                              <span class="n">mole_fractions</span><span class="o">=</span><span class="s1">&#39;N2:0.78, O2:0.21, AR:0.01&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>This entry defines an ideal gas mixture that contains 8 species, the definitions
@@ -480,16 +480,16 @@ Dixon-Lewis <a class="footnote-reference" href="#dl68" id="id2">[2]</a> (see als
 mixture rules. To select the multicomponent model, set the transport field to
 the string <code class="docutils literal"><span class="pre">'Multi'</span></code>, and to select the mixture-averaged model, set it to the
 string <code class="docutils literal"><span class="pre">'Mix'</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;gas1&quot;</span><span class="p">,</span>
-          <span class="c"># ...</span>
-          <span class="n">transport</span><span class="o">=</span><span class="s">&quot;Multi&quot;</span><span class="p">,</span> <span class="c"># use multicomponent formulation</span>
-          <span class="c"># ...</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;gas1&quot;</span><span class="p">,</span>
+          <span class="c1"># ...</span>
+          <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;Multi&quot;</span><span class="p">,</span> <span class="c1"># use multicomponent formulation</span>
+          <span class="c1"># ...</span>
           <span class="p">)</span>
 
-<span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;gas2&quot;</span><span class="p">,</span>
-          <span class="c"># ...</span>
-          <span class="n">transport</span><span class="o">=</span><span class="s">&quot;Mix&quot;</span><span class="p">,</span> <span class="c"># use mixture-averaged formulation</span>
-          <span class="c"># ...</span>
+<span class="n">ideal_gas</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;gas2&quot;</span><span class="p">,</span>
+          <span class="c1"># ...</span>
+          <span class="n">transport</span><span class="o">=</span><span class="s2">&quot;Mix&quot;</span><span class="p">,</span> <span class="c1"># use mixture-averaged formulation</span>
+          <span class="c1"># ...</span>
           <span class="p">)</span>
 </pre></div>
 </div>
@@ -502,12 +502,12 @@ fixed composition, given by the composition of the one species present. A
 stoichiometric solid can be used to define a condensed phase that can
 participate in heterogeneous reactions. (Of course, there cannot be homogeneous
 reactions, since the composition is fixed.)</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">stoichiometric_solid</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;graphite&#39;</span><span class="p">,</span>
-                     <span class="n">elements</span><span class="o">=</span><span class="s">&#39;C&#39;</span><span class="p">,</span>
-                     <span class="n">species</span><span class="o">=</span><span class="s">&#39;C(gr)&#39;</span><span class="p">,</span>
-                     <span class="n">density</span><span class="o">=</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="s">&#39;g/cm3&#39;</span><span class="p">),</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">stoichiometric_solid</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;graphite&#39;</span><span class="p">,</span>
+                     <span class="n">elements</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">,</span>
+                     <span class="n">species</span><span class="o">=</span><span class="s1">&#39;C(gr)&#39;</span><span class="p">,</span>
+                     <span class="n">density</span><span class="o">=</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="s1">&#39;g/cm3&#39;</span><span class="p">),</span>
                      <span class="n">initial_state</span><span class="o">=</span><span class="n">state</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mf">300.0</span><span class="p">,</span>
-                                         <span class="n">pressure</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;atm&#39;</span><span class="p">)))</span>
+                                         <span class="n">pressure</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;atm&#39;</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>In the example above, the definition of the species <code class="docutils literal"><span class="pre">'C(gr)'</span></code> must appear
@@ -551,14 +551,14 @@ near the triple-phase boundary where a gas, an electrolyte, and a metal all meet
 <code class="docutils literal"><span class="pre">initial_state</span></code> field. When specifying the initial state of an interface, the
 <a class="reference internal" href="classes.html#cantera.ctml_writer.state" title="cantera.ctml_writer.state"><code class="xref py py-class docutils literal"><span class="pre">state</span></code></a> entry has a field <em>coverages</em>, which can be assigned a string
 specifying the initial surface species coverages:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_interface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;silicon_surface&#39;</span><span class="p">,</span>
-                <span class="n">elements</span><span class="o">=</span><span class="s">&#39;Si H&#39;</span><span class="p">,</span>
-                <span class="n">species</span><span class="o">=</span><span class="s">&#39;s* s-SiH3 s-H&#39;</span><span class="p">,</span>
-                <span class="n">reactions</span><span class="o">=</span><span class="s">&#39;all&#39;</span><span class="p">,</span>
-                <span class="n">phases</span><span class="o">=</span><span class="s">&#39;gas bulk-Si&#39;</span><span class="p">,</span>
-                <span class="n">site_density</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0e15</span><span class="p">,</span> <span class="s">&#39;molec/cm2&#39;</span><span class="p">),</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ideal_interface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;silicon_surface&#39;</span><span class="p">,</span>
+                <span class="n">elements</span><span class="o">=</span><span class="s1">&#39;Si H&#39;</span><span class="p">,</span>
+                <span class="n">species</span><span class="o">=</span><span class="s1">&#39;s* s-SiH3 s-H&#39;</span><span class="p">,</span>
+                <span class="n">reactions</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span>
+                <span class="n">phases</span><span class="o">=</span><span class="s1">&#39;gas bulk-Si&#39;</span><span class="p">,</span>
+                <span class="n">site_density</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0e15</span><span class="p">,</span> <span class="s1">&#39;molec/cm2&#39;</span><span class="p">),</span>
                 <span class="n">initial_state</span><span class="o">=</span><span class="n">state</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mf">1200.0</span><span class="p">,</span>
-                                    <span class="n">coverages</span><span class="o">=</span><span class="s">&#39;s-H:1&#39;</span><span class="p">))</span>
+                                    <span class="n">coverages</span><span class="o">=</span><span class="s1">&#39;s-H:1&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -620,8 +620,8 @@ Flow: Theory and Practice</em>. John Wiley and Sons, 2003.</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        &copy; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

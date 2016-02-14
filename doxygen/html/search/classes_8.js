@@ -16,5 +16,6 @@ var searchData=
   ['interface',['Interface',['../classCantera_1_1Interface.html',1,'Cantera']]],
   ['interfacekinetics',['InterfaceKinetics',['../classCantera_1_1InterfaceKinetics.html',1,'Cantera']]],
   ['interfacereaction',['InterfaceReaction',['../classCantera_1_1InterfaceReaction.html',1,'Cantera']]],
-  ['ionsfromneutralvpsstp',['IonsFromNeutralVPSSTP',['../classCantera_1_1IonsFromNeutralVPSSTP.html',1,'Cantera']]]
+  ['ionsfromneutralvpsstp',['IonsFromNeutralVPSSTP',['../classCantera_1_1IonsFromNeutralVPSSTP.html',1,'Cantera']]],
+  ['isotopeweightdata',['isotopeWeightData',['../structCantera_1_1isotopeWeightData.html',1,'Cantera']]]
 ];

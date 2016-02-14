@@ -68,6 +68,8 @@ var searchData=
   ['ntotalspecies',['nTotalSpecies',['../classCantera_1_1Kinetics.html#a010b0013d9e3dcfb7b1adeb18a105466',1,'Cantera::Kinetics']]],
   ['numcomponents',['numComponents',['../classCantera_1_1vcs__MultiPhaseEquil.html#abe2d9d6ca7970bf27bb967989960e085',1,'Cantera::vcs_MultiPhaseEquil']]],
   ['numelemconstraints',['numElemConstraints',['../classCantera_1_1vcs__MultiPhaseEquil.html#a94917325fa0c70b5e0f4110ef0e05782',1,'Cantera::vcs_MultiPhaseEquil']]],
+  ['numelementsdefined',['numElementsDefined',['../namespaceCantera.html#aca69df92609d428b3db52ada4de47ba2',1,'Cantera']]],
+  ['numisotopesdefined',['numIsotopesDefined',['../namespaceCantera.html#a3d5d662ae54a03e98f050d3ba4e0c401',1,'Cantera']]],
   ['nvars',['nVars',['../classCantera_1_1OneDim.html#a9f2a2be62fcca65d2578c1743405e7e8',1,'Cantera::OneDim']]],
   ['nwalls',['nWalls',['../classCantera_1_1ReactorBase.html#a1b70a5fac843c666cc9e075a72e56eb0',1,'Cantera::ReactorBase']]]
 ];

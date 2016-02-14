@@ -80,6 +80,7 @@ var searchData=
   ['fpvaluecheck',['fpValueCheck',['../namespaceCantera.html#ac365a4fc99d3bcfa1281c6e58c74efec',1,'Cantera']]],
   ['freeflame',['FreeFlame',['../classCantera_1_1FreeFlame.html',1,'Cantera']]],
   ['frot',['Frot',['../namespaceCantera.html#a9f4cb57d21086c594afdb74f35821555',1,'Cantera']]],
+  ['fullname',['fullName',['../structCantera_1_1atomicWeightData.html#a20dc5283470d1946c94e06c741e38f6d',1,'Cantera::atomicWeightData::fullName()'],['../structCantera_1_1isotopeWeightData.html#a20dc5283470d1946c94e06c741e38f6d',1,'Cantera::isotopeWeightData::fullName()']]],
   ['fun_5feval',['fun_eval',['../classCantera_1_1solveSP.html#a022954dfdbb30c038805560727ff5747',1,'Cantera::solveSP']]],
   ['func',['func',['../group__solverGroup.html#gad77a48eaf6d070dab2f78d2e37664564',1,'Cantera::RootFind']]],
   ['func1',['Func1',['../classCantera_1_1Func1.html',1,'Cantera']]],

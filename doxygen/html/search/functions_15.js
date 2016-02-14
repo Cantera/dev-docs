@@ -56,7 +56,7 @@ var searchData=
   ['updatetransport',['updateTransport',['../classCantera_1_1StFlow.html#ab873c7b346a2910778de6dc0c390d298',1,'Cantera::StFlow']]],
   ['updatetransport_5fc',['updateTransport_C',['../classCantera_1_1DustyGasTransport.html#a7654c61d2baf5dfa446fdc25a9f7d2cc',1,'Cantera::DustyGasTransport']]],
   ['updatetransport_5ft',['updateTransport_T',['../classCantera_1_1DustyGasTransport.html#a4f4d1fb025cd29bde9b41bdbecd40de1',1,'Cantera::DustyGasTransport']]],
-  ['updateviscosities_5fc',['updateViscosities_C',['../classCantera_1_1LiquidTransport.html#a96285bc8e05b6462d32a31d50f14c694',1,'Cantera::LiquidTransport::updateViscosities_C()'],['../classCantera_1_1SimpleTransport.html#a96285bc8e05b6462d32a31d50f14c694',1,'Cantera::SimpleTransport::updateViscosities_C()']]],
+  ['updateviscosities_5fc',['updateViscosities_C',['../classCantera_1_1LiquidTransport.html#a96285bc8e05b6462d32a31d50f14c694',1,'Cantera::LiquidTransport']]],
   ['updateviscosity_5ft',['updateViscosity_T',['../classCantera_1_1GasTransport.html#a63ac7f8d6ccfecb0a7aac8580e1640e1',1,'Cantera::GasTransport::updateViscosity_T()'],['../classCantera_1_1LiquidTransport.html#a63ac7f8d6ccfecb0a7aac8580e1640e1',1,'Cantera::LiquidTransport::updateViscosity_T()'],['../classCantera_1_1SimpleTransport.html#a63ac7f8d6ccfecb0a7aac8580e1640e1',1,'Cantera::SimpleTransport::updateViscosity_T()']]],
   ['uploadmolefractionsfromphases',['uploadMoleFractionsFromPhases',['../classCantera_1_1MultiPhase.html#abfb23dea4d983a9894a67b186509131d',1,'Cantera::MultiPhase']]],
   ['upperbound',['upperBound',['../classCantera_1_1Domain1D.html#abb792fa6bc512feab663738da5e665a0',1,'Cantera::Domain1D']]],

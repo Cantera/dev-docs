@@ -11,7 +11,8 @@ var searchData=
   ['anionlist_5f',['anionList_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#afe243cd7d5d3792ff09349811c9067d1',1,'Cantera::IonsFromNeutralVPSSTP']]],
   ['app_5fmutex',['app_mutex',['../namespaceCantera.html#a615116df3fcccb3db99bb1f3356c3431',1,'Cantera']]],
   ['astar_5ftable',['astar_table',['../classCantera_1_1MMCollisionInt.html#a7250feb76a1a9dd16e315892a824e40b',1,'Cantera::MMCollisionInt']]],
-  ['atomicweight',['atomicWeight',['../structCantera_1_1awData.html#ac1b6080dd8f080f305ca80c61702d08f',1,'Cantera::awData']]],
-  ['avogadro',['Avogadro',['../group__physConstants.html#ga13c1ec6c47259bed7355fc720a29a0b6',1,'Cantera']]],
-  ['awtable',['aWTable',['../namespaceCantera.html#acbf4bf77d43f092e511f5a961d92b4c3',1,'Cantera']]]
+  ['atomicnumber',['atomicNumber',['../structCantera_1_1isotopeWeightData.html#a14f488916bef2ea8792b8ad4b4a28843',1,'Cantera::isotopeWeightData']]],
+  ['atomicweight',['atomicWeight',['../structCantera_1_1atomicWeightData.html#ac1b6080dd8f080f305ca80c61702d08f',1,'Cantera::atomicWeightData::atomicWeight()'],['../structCantera_1_1isotopeWeightData.html#ac1b6080dd8f080f305ca80c61702d08f',1,'Cantera::isotopeWeightData::atomicWeight()']]],
+  ['atomicweighttable',['atomicWeightTable',['../namespaceCantera.html#a0aeb2128c6956148ee590a8fb20d4e9b',1,'Cantera']]],
+  ['avogadro',['Avogadro',['../group__physConstants.html#ga13c1ec6c47259bed7355fc720a29a0b6',1,'Cantera']]]
 ];

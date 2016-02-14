@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>sound_speed.py &mdash; Cantera 2.3.0a1 documentation</title>
+    <title>sound_speed.py &mdash; Cantera 2.3.0a2 documentation</title>
     
     <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.3.0a1',
+        VERSION:     '2.3.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.3.0a1 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.3.0a2 documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="extract_submechanism.py" href="kinetics_extract_submechanism.html" />
     <link rel="prev" title="rankine.py" href="thermo_rankine.html" /> 
@@ -107,31 +107,31 @@
 <span class="sd">    otherwise the equilibrium sound speed is not defined.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c"># set the gas to equilibrium at its current T and P</span>
-    <span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&#39;TP&#39;</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">maxiter</span><span class="p">)</span>
+    <span class="c1"># set the gas to equilibrium at its current T and P</span>
+    <span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;TP&#39;</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">maxiter</span><span class="p">)</span>
 
-    <span class="c"># save properties</span>
+    <span class="c1"># save properties</span>
     <span class="n">s0</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">s</span>
     <span class="n">p0</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">P</span>
     <span class="n">r0</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">density</span>
 
-    <span class="c"># perturb the pressure</span>
+    <span class="c1"># perturb the pressure</span>
     <span class="n">p1</span> <span class="o">=</span> <span class="n">p0</span><span class="o">*</span><span class="mf">1.0001</span>
 
-    <span class="c"># set the gas to a state with the same entropy and composition but</span>
-    <span class="c"># the perturbed pressure</span>
+    <span class="c1"># set the gas to a state with the same entropy and composition but</span>
+    <span class="c1"># the perturbed pressure</span>
     <span class="n">gas</span><span class="o">.</span><span class="n">SP</span> <span class="o">=</span> <span class="n">s0</span><span class="p">,</span> <span class="n">p1</span>
 
-    <span class="c"># frozen sound speed</span>
+    <span class="c1"># frozen sound speed</span>
     <span class="n">afrozen</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">gas</span><span class="o">.</span><span class="n">density</span> <span class="o">-</span> <span class="n">r0</span><span class="p">))</span>
 
-    <span class="c"># now equilibrate the gas holding S and P constant</span>
-    <span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&#39;SP&#39;</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">maxiter</span><span class="p">)</span>
+    <span class="c1"># now equilibrate the gas holding S and P constant</span>
+    <span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">maxiter</span><span class="p">)</span>
 
-    <span class="c"># equilibrium sound speed</span>
+    <span class="c1"># equilibrium sound speed</span>
     <span class="n">aequil</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">gas</span><span class="o">.</span><span class="n">density</span> <span class="o">-</span> <span class="n">r0</span><span class="p">))</span>
 
-    <span class="c"># compute the frozen sound speed using the ideal gas expression as a check</span>
+    <span class="c1"># compute the frozen sound speed using the ideal gas expression as a check</span>
     <span class="n">gamma</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">cp</span><span class="o">/</span><span class="n">gas</span><span class="o">.</span><span class="n">cv</span>
     <span class="n">afrozen2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">gas_constant</span> <span class="o">*</span> <span class="n">gas</span><span class="o">.</span><span class="n">T</span> <span class="o">/</span>
                          <span class="n">gas</span><span class="o">.</span><span class="n">mean_molecular_weight</span><span class="p">)</span>
@@ -139,10 +139,10 @@
     <span class="k">return</span> <span class="n">aequil</span><span class="p">,</span> <span class="n">afrozen</span><span class="p">,</span> <span class="n">afrozen2</span>
 
 
-<span class="c"># test program</span>
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">)</span>
-    <span class="n">gas</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="s">&#39;CH4:1.00, O2:2.0, N2:7.52&#39;</span>
+<span class="c1"># test program</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;gri30.xml&#39;</span><span class="p">)</span>
+    <span class="n">gas</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="s1">&#39;CH4:1.00, O2:2.0, N2:7.52&#39;</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">27</span><span class="p">):</span>
         <span class="n">T</span> <span class="o">=</span> <span class="mf">300.0</span> <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="n">n</span>
         <span class="n">gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>
@@ -178,8 +178,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        &copy; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>adiabatic.py &mdash; Cantera 2.3.0a1 documentation</title>
+    <title>adiabatic.py &mdash; Cantera 2.3.0a2 documentation</title>
     
     <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.3.0a1',
+        VERSION:     '2.3.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.3.0a1 documentation" href="../../index.html" />
+    <link rel="top" title="Cantera 2.3.0a2 documentation" href="../../index.html" />
     <link rel="up" title="Index of Examples" href="../examples.html" />
     <link rel="next" title="plasma_equilibrium.py" href="multiphase_plasma_equilibrium.html" />
     <link rel="prev" title="stagnation_flame.py" href="onedim_stagnation_flame.html" /> 
@@ -105,71 +105,71 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 
-<span class="c">##############################################################################</span>
-<span class="c"># Edit these parameters to change the initial temperature, the pressure, and</span>
-<span class="c"># the phases in the mixture.</span>
+<span class="c1">##############################################################################</span>
+<span class="c1"># Edit these parameters to change the initial temperature, the pressure, and</span>
+<span class="c1"># the phases in the mixture.</span>
 
 <span class="n">T</span> <span class="o">=</span> <span class="mf">300.0</span>
 <span class="n">P</span> <span class="o">=</span> <span class="mf">101325.0</span>
 
-<span class="c"># phases</span>
-<span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.xml&#39;</span><span class="p">)</span>
-<span class="n">carbon</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s">&#39;graphite.xml&#39;</span><span class="p">)</span>
+<span class="c1"># phases</span>
+<span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;gri30.xml&#39;</span><span class="p">)</span>
+<span class="n">carbon</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;graphite.xml&#39;</span><span class="p">)</span>
 
-<span class="c"># the phases that will be included in the calculation, and their initial moles</span>
+<span class="c1"># the phases that will be included in the calculation, and their initial moles</span>
 <span class="n">mix_phases</span> <span class="o">=</span> <span class="p">[(</span><span class="n">gas</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="n">carbon</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)]</span>
 
-<span class="c"># gaseous fuel species</span>
-<span class="n">fuel_species</span> <span class="o">=</span> <span class="s">&#39;CH4&#39;</span>
+<span class="c1"># gaseous fuel species</span>
+<span class="n">fuel_species</span> <span class="o">=</span> <span class="s1">&#39;CH4&#39;</span>
 
-<span class="c"># equivalence ratio range</span>
+<span class="c1"># equivalence ratio range</span>
 <span class="n">npoints</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
 
-<span class="c">##############################################################################</span>
+<span class="c1">##############################################################################</span>
 
 <span class="n">mix</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Mixture</span><span class="p">(</span><span class="n">mix_phases</span><span class="p">)</span>
 
-<span class="c"># create some arrays to hold the data</span>
+<span class="c1"># create some arrays to hold the data</span>
 <span class="n">tad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
 <span class="n">xeq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">mix</span><span class="o">.</span><span class="n">n_species</span><span class="p">,</span><span class="n">npoints</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;O&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;N&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="s">&quot;Error: only hydrocarbon fuels are supported.&quot;</span>
+<span class="k">if</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="s2">&quot;Error: only hydrocarbon fuels are supported.&quot;</span>
 
-<span class="n">stoich_O2</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;C&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="n">stoich_O2</span> <span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">gas</span><span class="o">.</span><span class="n">n_atoms</span><span class="p">(</span><span class="n">fuel_species</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npoints</span><span class="p">):</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">fuel_species</span><span class="p">:</span> <span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">stoich_O2</span><span class="p">,</span> <span class="s">&#39;O2&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;N2&#39;</span><span class="p">:</span> <span class="mf">3.76</span><span class="p">}</span>
-    <span class="c"># set the gas state</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">{</span><span class="n">fuel_species</span><span class="p">:</span> <span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">stoich_O2</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span><span class="p">:</span> <span class="mf">3.76</span><span class="p">}</span>
+    <span class="c1"># set the gas state</span>
     <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">X</span>
 
-    <span class="c"># create a mixture of 1 mole of gas, and 0 moles of solid carbon.</span>
+    <span class="c1"># create a mixture of 1 mole of gas, and 0 moles of solid carbon.</span>
     <span class="n">mix</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Mixture</span><span class="p">(</span><span class="n">mix_phases</span><span class="p">)</span>
     <span class="n">mix</span><span class="o">.</span><span class="n">T</span> <span class="o">=</span> <span class="n">T</span>
     <span class="n">mix</span><span class="o">.</span><span class="n">P</span> <span class="o">=</span> <span class="n">P</span>
 
-    <span class="c"># equilibrate the mixture adiabatically at constant P</span>
-    <span class="n">mix</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&#39;HP&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s">&#39;gibbs&#39;</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="c1"># equilibrate the mixture adiabatically at constant P</span>
+    <span class="n">mix</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;HP&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;gibbs&#39;</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
     <span class="n">tad</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mix</span><span class="o">.</span><span class="n">T</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&#39;At phi = {0:12.4g}, Tad = {1:12.4g}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tad</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;At phi = {0:12.4g}, Tad = {1:12.4g}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tad</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
     <span class="n">xeq</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mix</span><span class="o">.</span><span class="n">species_moles</span>
 
-<span class="c"># write output CSV file for importing into Excel</span>
-<span class="n">csv_file</span> <span class="o">=</span> <span class="s">&#39;adiabatic.csv&#39;</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+<span class="c1"># write output CSV file for importing into Excel</span>
+<span class="n">csv_file</span> <span class="o">=</span> <span class="s1">&#39;adiabatic.csv&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
     <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
-    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s">&#39;phi&#39;</span><span class="p">,</span><span class="s">&#39;T (K)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">mix</span><span class="o">.</span><span class="n">species_names</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span><span class="s1">&#39;T (K)&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">mix</span><span class="o">.</span><span class="n">species_names</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npoints</span><span class="p">):</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">phi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tad</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">xeq</span><span class="p">[:,</span><span class="n">i</span><span class="p">]))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;Output written to {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csv_file</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Output written to {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csv_file</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="s">&#39;--plot&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+<span class="k">if</span> <span class="s1">&#39;--plot&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">tad</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Equivalence ratio&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Adiabatic flame temperature [K]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Equivalence ratio&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Adiabatic flame temperature [K]&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -202,8 +202,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2012, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+        &copy; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
     </div>
   </body>
 </html>

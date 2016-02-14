@@ -24,6 +24,7 @@ var searchData=
   ['ionsolntype_5f',['ionSolnType_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#aedce3cd6117b28fc3f6931ac2d254745',1,'Cantera::IonsFromNeutralVPSSTP']]],
   ['iownnthermophase_5f',['IOwnNThermoPhase_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#ac75ec4ebad16f1f408886befd64d5e3f',1,'Cantera::IonsFromNeutralVPSSTP']]],
   ['is_5fsticking_5fcoefficient',['is_sticking_coefficient',['../classCantera_1_1InterfaceReaction.html#a1790205ccc8d405e8abb98e486c2af7e',1,'Cantera::InterfaceReaction']]],
+  ['isotopeweighttable',['isotopeWeightTable',['../namespaceCantera.html#afde788ec5a1775564d903a51bfd411b5',1,'Cantera']]],
   ['istate',['iState',['../classCantera_1_1WaterPropsIAPWS.html#accac90b002c5117047ee11476503db98',1,'Cantera::WaterPropsIAPWS']]],
   ['istate_5f',['iState_',['../classCantera_1_1MixtureFugacityTP.html#a04b90413b51a1b773b3843a9ba9ae263',1,'Cantera::MixtureFugacityTP']]],
   ['iterations',['iterations',['../classCantera_1_1EquilOpt.html#a1d10e252e778731e59f0f71afd7e727e',1,'Cantera::EquilOpt']]],
