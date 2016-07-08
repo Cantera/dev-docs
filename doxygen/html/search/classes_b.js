@@ -20,5 +20,6 @@ var searchData=
   ['multinewton',['MultiNewton',['../classCantera_1_1MultiNewton.html',1,'Cantera']]],
   ['multiphase',['MultiPhase',['../classCantera_1_1MultiPhase.html',1,'Cantera']]],
   ['multiphaseequil',['MultiPhaseEquil',['../classCantera_1_1MultiPhaseEquil.html',1,'Cantera']]],
+  ['multispeciesthermo',['MultiSpeciesThermo',['../classCantera_1_1MultiSpeciesThermo.html',1,'Cantera']]],
   ['multitransport',['MultiTransport',['../classCantera_1_1MultiTransport.html',1,'Cantera']]]
 ];

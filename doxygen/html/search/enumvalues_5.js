@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['newton_5fiter',['Newton_Iter',['../namespaceCantera.html#af607f22e4873b3369e942d9ebb3e72b1aeff5fa7914600993f92bb2f1720a1474',1,'Cantera']]]
+  ['jacbase_5fresideval',['JacBase_ResidEval',['../namespaceCantera.html#a929b71317e0aa7f81336a73311423c14ab3ac1217d93227a4ccf060ae8f412e7f',1,'Cantera']]],
+  ['jacdelta_5fresideval',['JacDelta_ResidEval',['../namespaceCantera.html#a929b71317e0aa7f81336a73311423c14a0e79d1d952655ddf7eaab9917d81ff1d',1,'Cantera']]]
 ];

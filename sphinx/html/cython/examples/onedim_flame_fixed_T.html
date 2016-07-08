@@ -30,13 +30,13 @@
     <link rel="next" title="flamespeed_sensitivity.py" href="onedim_flamespeed_sensitivity.html" />
     <link rel="prev" title="diffusion_flame_extinction.py" href="onedim_diffusion_flame_extinction.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../../index.html">
 <img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -51,13 +51,13 @@
         <li class="right" >
           <a href="onedim_diffusion_flame_extinction.html" title="diffusion_flame_extinction.py"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../examples.html" accesskey="U">Index of Examples</a> &raquo;</li> 
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
+          <li><a href="../examples.html" accesskey="U">Index of Examples</a> &raquo;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="onedim_diffusion_flame_extinction.html"
@@ -65,14 +65,12 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="onedim_flamespeed_sensitivity.html"
                         title="next chapter">flamespeed_sensitivity.py</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/cython/examples/onedim_flame_fixed_T.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/cython/examples/onedim_flame_fixed_T.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" />
@@ -91,11 +89,11 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="flame-fixed-t-py">
 <span id="py-example-flame-fixed-t-py"></span><h1>flame_fixed_T.py<a class="headerlink" href="#flame-fixed-t-py" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">FIXED_T_FLAME - A burner-stabilized, premixed methane/air flat flame with</span>
 <span class="sd">multicomponent transport properties and a specified temperature profile.</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -111,10 +109,8 @@
 <span class="n">comp</span> <span class="o">=</span> <span class="s1">&#39;CH4:0.65, O2:1, N2:3.76&#39;</span>  <span class="c1"># premixed gas composition</span>
 
 <span class="c1"># The solution domain is chosen to be 1 cm</span>
-<span class="n">initial_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># m</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># m</span>
 
-<span class="n">tol_ss</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0e-5</span><span class="p">,</span> <span class="mf">1.0e-9</span><span class="p">]</span>  <span class="c1"># [rtol atol] for steady-state problem</span>
-<span class="n">tol_ts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0e-5</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">]</span>  <span class="c1"># [rtol atol] for time stepping</span>
 <span class="n">loglevel</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># amount of diagnostic output (0 to 5)</span>
 <span class="n">refine_grid</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c1"># &#39;True&#39; to enable refinement</span>
 
@@ -130,7 +126,7 @@
 <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">tburner</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">comp</span>
 
 <span class="c1"># create the BurnerFlame object.</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">BurnerFlame</span><span class="p">(</span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">initial_grid</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">BurnerFlame</span><span class="p">(</span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
 
 <span class="c1"># set the mass flow rate at the burner</span>
 <span class="n">f</span><span class="o">.</span><span class="n">burner</span><span class="o">.</span><span class="n">mdot</span> <span class="o">=</span> <span class="n">mdot</span>
@@ -143,9 +139,6 @@
 <span class="c1"># set the temperature profile to the values read in</span>
 <span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_fixed_temp_profile</span><span class="p">(</span><span class="n">zloc</span><span class="p">,</span> <span class="n">tvalues</span><span class="p">)</span>
 
-<span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_steady_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">tol_ss</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_transient_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="n">tol_ts</span><span class="p">)</span>
-
 <span class="c1"># show the initial estimate for the solution</span>
 <span class="n">f</span><span class="o">.</span><span class="n">show_solution</span><span class="p">()</span>
 
@@ -155,8 +148,6 @@
 <span class="c1"># first solve the flame with mixture-averaged transport properties</span>
 <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
 <span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">set_max_jac_age</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">set_time_step</span><span class="p">(</span><span class="mf">1.0e-5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;ch4_flame_fixed_T.xml&#39;</span><span class="p">,</span><span class="s1">&#39;mixav&#39;</span><span class="p">,</span>
@@ -183,7 +174,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -198,14 +189,14 @@
         <li class="right" >
           <a href="onedim_diffusion_flame_extinction.html" title="diffusion_flame_extinction.py"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../examples.html" >Index of Examples</a> &raquo;</li> 
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
+          <li><a href="../examples.html" >Index of Examples</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

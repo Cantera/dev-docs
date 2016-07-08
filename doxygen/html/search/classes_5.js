@@ -1,5 +1,12 @@
 var searchData=
 [
+  ['factory',['Factory',['../classCantera_1_1Factory.html',1,'Cantera']]],
+  ['factory_3c_20falloff_20_3e',['Factory&lt; Falloff &gt;',['../classCantera_1_1Factory.html',1,'Cantera']]],
+  ['factory_3c_20kinetics_20_3e',['Factory&lt; Kinetics &gt;',['../classCantera_1_1Factory.html',1,'Cantera']]],
+  ['factory_3c_20reactorbase_20_3e',['Factory&lt; ReactorBase &gt;',['../classCantera_1_1Factory.html',1,'Cantera']]],
+  ['factory_3c_20thermophase_20_3e',['Factory&lt; ThermoPhase &gt;',['../classCantera_1_1Factory.html',1,'Cantera']]],
+  ['factory_3c_20transport_20_3e',['Factory&lt; Transport &gt;',['../classCantera_1_1Factory.html',1,'Cantera']]],
+  ['factory_3c_20vpssmgr_2c_20vpstandardstatetp_20_2a_2c_20multispeciesthermo_20_2a_20_3e',['Factory&lt; VPSSMgr, VPStandardStateTP *, MultiSpeciesThermo * &gt;',['../classCantera_1_1Factory.html',1,'Cantera']]],
   ['factorybase',['FactoryBase',['../classCantera_1_1FactoryBase.html',1,'Cantera']]],
   ['falloff',['Falloff',['../classCantera_1_1Falloff.html',1,'Cantera']]],
   ['fallofffactory',['FalloffFactory',['../classCantera_1_1FalloffFactory.html',1,'Cantera']]],

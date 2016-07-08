@@ -25,7 +25,7 @@ var searchData=
   ['hmwsoln_2eh',['HMWSoln.h',['../HMWSoln_8h.html',1,'']]],
   ['hmwsoln_5finput_2ecpp',['HMWSoln_input.cpp',['../HMWSoln__input_8cpp.html',1,'']]],
   ['hp',['hp',['../classtpx_1_1Substance.html#a0f52c6ebb68ff9b77d7128b327f5e260',1,'tpx::Substance']]],
-  ['hresid',['hresid',['../classCantera_1_1MixtureFugacityTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c',1,'Cantera::MixtureFugacityTP::hresid()'],['../classCantera_1_1RedlichKwongMFTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c',1,'Cantera::RedlichKwongMFTP::hresid()']]],
+  ['hresid',['hresid',['../classCantera_1_1MixtureFugacityTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c',1,'Cantera::MixtureFugacityTP']]],
   ['hydrogen',['hydrogen',['../classtpx_1_1hydrogen.html',1,'tpx']]],
   ['hydrogen_2ecpp',['Hydrogen.cpp',['../Hydrogen_8cpp.html',1,'']]],
   ['hydrogen_2eh',['Hydrogen.h',['../Hydrogen_8h.html',1,'']]],

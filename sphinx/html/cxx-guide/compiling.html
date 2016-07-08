@@ -30,13 +30,13 @@
     <link rel="next" title="C++ Header Files" href="headers.html" />
     <link rel="prev" title="C++ Interface User’s Guide" href="index.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -51,12 +51,12 @@
         <li class="right" >
           <a href="index.html" title="C++ Interface User’s Guide"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">C++ Interface User&#8217;s Guide</a> &raquo;</li> 
+        <li><a href="../index.html">Cantera</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">C++ Interface User&#8217;s Guide</a> &raquo;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -74,14 +74,12 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="headers.html"
                         title="next chapter">C++ Header Files</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/cxx-guide/compiling.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cxx-guide/compiling.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -100,7 +98,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="compiling-cantera-c-programs">
 <h1>Compiling Cantera C++ Programs<a class="headerlink" href="#compiling-cantera-c-programs" title="Permalink to this headline">¶</a></h1>
@@ -110,36 +108,36 @@ libraries when linking. It is also necessary to specify the paths for libraries
 used by Cantera, e.g. Sundials, BLAS, and LAPACK.</p>
 <div class="section" id="pkg-config">
 <h2>pkg-config<a class="headerlink" href="#pkg-config" title="Permalink to this headline">¶</a></h2>
-<p>On systems where the <code class="docutils literal"><span class="pre">pkg-config</span></code> program is installed, it can be used to
+<p>On systems where the <tt class="docutils literal"><span class="pre">pkg-config</span></tt> program is installed, it can be used to
 determine the correct compiler and linker flags for use with Cantera. For
 example:</p>
-<div class="highlight-bash"><div class="highlight"><pre>g++ myProgram.cpp -o myProgram <span class="k">$(</span>pkg-config --cflags --libs cantera<span class="k">)</span>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>g++ myProgram.cpp -o myProgram <span class="k">$(</span>pkg-config --cflags --libs cantera<span class="k">)</span>
 </pre></div>
 </div>
 <p>It can also be used to populate variables in a Makefile:</p>
-<div class="highlight-make"><div class="highlight"><pre><span class="nv">CFLAGS</span> <span class="o">+=</span> <span class="k">$(</span>shell pkg-config --cflags cantera<span class="k">)</span>
+<div class="highlight-make"><div class="highlight"><pre><span></span><span class="nv">CFLAGS</span> <span class="o">+=</span> <span class="k">$(</span>shell pkg-config --cflags cantera<span class="k">)</span>
 <span class="nv">LIBS</span> <span class="o">+=</span> <span class="k">$(</span>shell pkg-config --libs cantera<span class="k">)</span>
 </pre></div>
 </div>
 <p>Or in an SConstruct file:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">env</span><span class="o">.</span><span class="n">ParseConfig</span><span class="p">(</span><span class="s2">&quot;pkg-config --cflags --libs cantera&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">env</span><span class="o">.</span><span class="n">ParseConfig</span><span class="p">(</span><span class="s2">&quot;pkg-config --cflags --libs cantera&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that <code class="docutils literal"><span class="pre">pkg-config</span></code> will work only if it can find the <code class="docutils literal"><span class="pre">cantera.pc</span></code>
+<p>Note that <tt class="docutils literal"><span class="pre">pkg-config</span></tt> will work only if it can find the <tt class="docutils literal"><span class="pre">cantera.pc</span></tt>
 file. If Cantera&#8217;s libraries are not installed in a standard location such as
-<code class="docutils literal"><span class="pre">/usr/lib</span></code> or <code class="docutils literal"><span class="pre">/usr/local/lib</span></code>, you may need to set the <code class="docutils literal"><span class="pre">PKG_CONFIG_PATH</span></code>
-environment variable appropriately before using <code class="docutils literal"><span class="pre">pkg-config</span></code>.</p>
+<tt class="docutils literal"><span class="pre">/usr/lib</span></tt> or <tt class="docutils literal"><span class="pre">/usr/local/lib</span></tt>, you may need to set the <tt class="docutils literal"><span class="pre">PKG_CONFIG_PATH</span></tt>
+environment variable appropriately before using <tt class="docutils literal"><span class="pre">pkg-config</span></tt>.</p>
 </div>
 <div class="section" id="scons">
 <h2>SCons<a class="headerlink" href="#scons" title="Permalink to this headline">¶</a></h2>
 <p>SCons is a multi-platform, Python-based build system. It is the build system
 used to compile Cantera. The description of how to build a project is contained
-in a file named <code class="docutils literal"><span class="pre">SConstruct</span></code>. The <code class="docutils literal"><span class="pre">SConstruct</span></code> file is actually a Python
+in a file named <tt class="docutils literal"><span class="pre">SConstruct</span></tt>. The <tt class="docutils literal"><span class="pre">SConstruct</span></tt> file is actually a Python
 script, which makes it very straightforward to add functionality to a
 SCons-based build system.</p>
-<p>A typical <code class="docutils literal"><span class="pre">SConstruct</span></code> file for compiling a program that uses Cantera might
+<p>A typical <tt class="docutils literal"><span class="pre">SConstruct</span></tt> file for compiling a program that uses Cantera might
 look like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">()</span>
 
 <span class="n">env</span><span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">CCFLAGS</span><span class="o">=</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span>
            <span class="n">CPPPATH</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/usr/local/cantera/include&#39;</span><span class="p">,</span>
@@ -155,30 +153,30 @@ look like this:</p>
 </pre></div>
 </div>
 <p>This script establishes what SCons refers to as a &#8220;construction environment&#8221;
-named <code class="docutils literal"><span class="pre">env</span></code>, and sets the header (<code class="docutils literal"><span class="pre">CPPPATH</span></code>) and library (<code class="docutils literal"><span class="pre">LIBPATH</span></code>) paths
+named <tt class="docutils literal"><span class="pre">env</span></tt>, and sets the header (<tt class="docutils literal"><span class="pre">CPPPATH</span></tt>) and library (<tt class="docutils literal"><span class="pre">LIBPATH</span></tt>) paths
 to include the directories containing the Cantera headers and libraries, as well
 as libraries that Cantera depends on, such as Sundials, BLAS, and LAPACK. Then,
-a program named <code class="docutils literal"><span class="pre">sample</span></code> is compiled using the single source file
-<code class="docutils literal"><span class="pre">sample.cpp</span></code>.</p>
-<p>Several other example <code class="docutils literal"><span class="pre">SConstruct</span></code> files are included with the C++ examples
-contained in the <code class="docutils literal"><span class="pre">samples</span></code> subdirectory of the Cantera installation directory.</p>
+a program named <tt class="docutils literal"><span class="pre">sample</span></tt> is compiled using the single source file
+<tt class="docutils literal"><span class="pre">sample.cpp</span></tt>.</p>
+<p>Several other example <tt class="docutils literal"><span class="pre">SConstruct</span></tt> files are included with the C++ examples
+contained in the <tt class="docutils literal"><span class="pre">samples</span></tt> subdirectory of the Cantera installation directory.</p>
 <p>For more information on SCons, see the <a class="reference external" href="http://scons.org/wiki/">SCons Wiki</a>
 and the <a class="reference external" href="http://www.scons.org">SCons homepage</a>.</p>
 </div>
 <div class="section" id="make">
 <h2>Make<a class="headerlink" href="#make" title="Permalink to this headline">¶</a></h2>
 <p>Cantera is distributed with an &#8220;include Makefile&#8221; that can be used with
-Make-based build systems. This file <code class="docutils literal"><span class="pre">Cantera.mak</span></code> is located in the
-<code class="docutils literal"><span class="pre">samples</span></code> subdirectory of the Cantera installation directory. To use it, add a
+Make-based build systems. This file <tt class="docutils literal"><span class="pre">Cantera.mak</span></tt> is located in the
+<tt class="docutils literal"><span class="pre">samples</span></tt> subdirectory of the Cantera installation directory. To use it, add a
 line referencing this file to the top of your Makefile:</p>
-<div class="highlight-python"><div class="highlight"><pre>include path/to/Cantera.mak
+<div class="highlight-python"><div class="highlight"><pre><span></span>include path/to/Cantera.mak
 </pre></div>
 </div>
-<p>The path specified should be the relative path from the <code class="docutils literal"><span class="pre">Makefile</span></code> to
-<code class="docutils literal"><span class="pre">Cantera.mak</span></code>. This file defines several variables which can be used in your
-Makefile. The following is an example <code class="docutils literal"><span class="pre">Makefile</span></code> that uses the definitions
-contained in <code class="docutils literal"><span class="pre">Cantera.mak</span></code>:</p>
-<div class="highlight-makefile"><div class="highlight"><pre><span class="cp">include ../../Cantera.mak</span>
+<p>The path specified should be the relative path from the <tt class="docutils literal"><span class="pre">Makefile</span></tt> to
+<tt class="docutils literal"><span class="pre">Cantera.mak</span></tt>. This file defines several variables which can be used in your
+Makefile. The following is an example <tt class="docutils literal"><span class="pre">Makefile</span></tt> that uses the definitions
+contained in <tt class="docutils literal"><span class="pre">Cantera.mak</span></tt>:</p>
+<div class="highlight-makefile"><div class="highlight"><pre><span></span><span class="cp">include ../../Cantera.mak</span>
 
 <span class="nv">CC</span><span class="o">=</span>gcc
 <span class="nv">CXX</span><span class="o">=</span>g++
@@ -212,7 +210,7 @@ contained in <code class="docutils literal"><span class="pre">Cantera.mak</span>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -227,13 +225,13 @@ contained in <code class="docutils literal"><span class="pre">Cantera.mak</span>
         <li class="right" >
           <a href="index.html" title="C++ Interface User’s Guide"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >C++ Interface User&#8217;s Guide</a> &raquo;</li> 
+        <li><a href="../index.html">Cantera</a> &raquo;</li>
+          <li><a href="index.html" >C++ Interface User&#8217;s Guide</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

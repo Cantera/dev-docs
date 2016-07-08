@@ -41,7 +41,7 @@ var searchData=
   ['write_5fint',['write_int',['../classCantera_1_1XML__Node.html#a50c306ce07b63e225acc2879adba92e8',1,'Cantera::XML_Node']]],
   ['writeendl',['writeendl',['../classCantera_1_1Logger.html#a49b6e3eeaed7a8c3f4cd99f6c05dd183',1,'Cantera::Logger']]],
   ['writeheader',['writeHeader',['../classCantera_1_1XML__Node.html#aa54cf7a53f40a8076a64838a1687b753',1,'Cantera::XML_Node']]],
-  ['writelog',['writelog',['../group__textlogs.html#ga304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::Messages::writelog()'],['../classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::writelog()'],['../namespaceCantera.html#a1c5f226b1bcbbe458e1f58c547a7415a',1,'Cantera::writelog()']]],
+  ['writelog',['writelog',['../group__textlogs.html#ga304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::Messages::writelog()'],['../classCantera_1_1Application.html#a304c529581146b5b5eeb034aed77d449',1,'Cantera::Application::writelog()'],['../group__textlogs.html#ga1c5f226b1bcbbe458e1f58c547a7415a',1,'Cantera::writelog()']]],
   ['writelog_5fdirect',['writelog_direct',['../namespaceCantera.html#ac4371032ffdcf9faa7bbf310f49d53c8',1,'Cantera']]],
   ['writelogallowed_5f',['writeLogAllowed_',['../group__solverGroup.html#ga3478581bf2fb33558b4ec37c39f724ed',1,'Cantera::RootFind']]],
   ['writelogendl',['writelogendl',['../classCantera_1_1Application_1_1Messages.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::Application::Messages::writelogendl()'],['../classCantera_1_1Application.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::Application::writelogendl()'],['../namespaceCantera.html#aed3c4e18a21f764dc088d5957bcef148',1,'Cantera::writelogendl()']]],

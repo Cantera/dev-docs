@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ssvolume_5fmodel_5fenumtype',['SSVolume_Model_enumType',['../namespaceCantera.html#a21bff31cea12e3566170ad431929d4e2',1,'Cantera']]]
+  ['ssvolume_5fmodel',['SSVolume_Model',['../classCantera_1_1PDSS__SSVol.html#aad7de90123125002bfe54fb511437f0f',1,'Cantera::PDSS_SSVol']]]
 ];

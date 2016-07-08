@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['cssvolume_5fconstant',['cSSVOLUME_CONSTANT',['../namespaceCantera.html#a21bff31cea12e3566170ad431929d4e2ad1153b0cfb2eafdd04da8cfc78f16f32',1,'Cantera']]],
-  ['cssvolume_5fdensity_5ftpoly',['cSSVOLUME_DENSITY_TPOLY',['../namespaceCantera.html#a21bff31cea12e3566170ad431929d4e2a9aa5514715048689f8da26d0cedae7aa',1,'Cantera']]],
-  ['cssvolume_5ftpoly',['cSSVOLUME_TPOLY',['../namespaceCantera.html#a21bff31cea12e3566170ad431929d4e2a85a9244dc43a05348516a035ee942c5a',1,'Cantera']]],
+  ['constant',['constant',['../classCantera_1_1PDSS__SSVol.html#aad7de90123125002bfe54fb511437f0fa617ac08757d38a5a7ed91c224f0e90a0',1,'Cantera::PDSS_SSVol']]],
   ['cvpssmgr_5fconstvol',['cVPSSMGR_CONSTVOL',['../namespaceCantera.html#a101a9261bb4a86cb2073ebf5912c1e3da44aa8ccb933cdaa9031ab5d2df647640',1,'Cantera']]],
   ['cvpssmgr_5fgeneral',['cVPSSMGR_GENERAL',['../namespaceCantera.html#a101a9261bb4a86cb2073ebf5912c1e3dafa1428c6f1cadd4051d8152294166922',1,'Cantera']]],
   ['cvpssmgr_5fidealgas',['cVPSSMGR_IDEALGAS',['../namespaceCantera.html#a101a9261bb4a86cb2073ebf5912c1e3da93c3833318250627b7966e32d637cdf1',1,'Cantera']]],

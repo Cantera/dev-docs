@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Creating ThermoPhase, Kinetics, and Transport objects &mdash; Cantera 2.3.0a2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.3.0a2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Cantera 2.3.0a2 documentation" href="../index.html" />
+    <link rel="up" title="C++ Interface User’s Guide" href="index.html" />
+    <link rel="next" title="Glossary" href="../glossary.html" />
+    <link rel="prev" title="Chemical Equilibrium Example Program" href="equil-example.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../index.html">
+<img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../glossary.html" title="Glossary"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="equil-example.html" title="Chemical Equilibrium Example Program"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Cantera</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">C++ Interface User&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="equil-example.html"
+                        title="previous chapter">Chemical Equilibrium Example Program</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../glossary.html"
+                        title="next chapter">Glossary</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/cxx-guide/factories.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="creating-thermophase-kinetics-and-transport-objects">
+<h1>Creating ThermoPhase, Kinetics, and Transport objects<a class="headerlink" href="#creating-thermophase-kinetics-and-transport-objects" title="Permalink to this headline">¶</a></h1>
+<p>The following program demonstrates the general method for creating the following
+object types:</p>
+<ul class="simple">
+<li><tt class="xref py py-obj docutils literal"><span class="pre">ThermoPhase</span></tt> - represents the thermodynamic properties of mixtures containing
+one or more species)</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></tt> - represents a kinetic mechanism involving one or more phases)</li>
+<li><tt class="xref py py-obj docutils literal"><span class="pre">Transport</span></tt> - computes transport properties for a <tt class="xref py py-obj docutils literal"><span class="pre">ThermoPhase</span></tt></li>
+</ul>
+<p>This program uses &#8220;factory&#8221; functions to create derived objects objects of the
+appropriate type which are specified in the input file <tt class="xref py py-obj docutils literal"><span class="pre">gri30.cti</span></tt>.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;cantera/thermo.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;cantera/kinetics.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;cantera/transport.h&quot;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">Cantera</span><span class="p">;</span>
+
+<span class="c1">// The actual code is put into a function that can be called from the main</span>
+<span class="c1">// program.</span>
+<span class="kt">void</span> <span class="nf">simple_demo2</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Create a new phase</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ThermoPhase</span><span class="o">&gt;</span> <span class="n">gas</span><span class="p">(</span><span class="n">newPhase</span><span class="p">(</span><span class="s">&quot;gri30.cti&quot;</span><span class="p">,</span> <span class="s">&quot;gri30_mix&quot;</span><span class="p">));</span>
+
+    <span class="c1">// List of phases participating in reactions (just one for homogeneous</span>
+    <span class="c1">// kinetics)</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">ThermoPhase</span><span class="o">*&gt;</span> <span class="n">phases</span><span class="p">{</span><span class="n">gas</span><span class="p">.</span><span class="n">get</span><span class="p">()};</span>
+
+    <span class="c1">// Create the Kinetics object. Based on the phase definition used, this will</span>
+    <span class="c1">// be a GasKinetics object.</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Kinetics</span><span class="o">&gt;</span> <span class="n">kin</span><span class="p">(</span><span class="n">newKineticsMgr</span><span class="p">(</span><span class="n">gas</span><span class="o">-&gt;</span><span class="n">xml</span><span class="p">(),</span> <span class="n">phases</span><span class="p">));</span>
+
+    <span class="c1">// Set an &quot;interesting&quot; mixture state where we will observe non-zero reacton</span>
+    <span class="c1">// rates.</span>
+    <span class="n">gas</span><span class="o">-&gt;</span><span class="n">setState_TPX</span><span class="p">(</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">OneAtm</span><span class="p">,</span> <span class="s">&quot;CH4:1.0, O2:1.0, N2:3.76&quot;</span><span class="p">);</span>
+    <span class="n">gas</span><span class="o">-&gt;</span><span class="n">equilibrate</span><span class="p">(</span><span class="s">&quot;HP&quot;</span><span class="p">);</span>
+    <span class="n">gas</span><span class="o">-&gt;</span><span class="n">setState_TP</span><span class="p">(</span><span class="n">gas</span><span class="o">-&gt;</span><span class="n">temperature</span><span class="p">()</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">gas</span><span class="o">-&gt;</span><span class="n">pressure</span><span class="p">());</span>
+
+    <span class="c1">// Get the net reaction rates</span>
+    <span class="n">vector_fp</span> <span class="n">wdot</span><span class="p">(</span><span class="n">kin</span><span class="o">-&gt;</span><span class="n">nReactions</span><span class="p">());</span>
+    <span class="n">kin</span><span class="o">-&gt;</span><span class="n">getNetRatesOfProgress</span><span class="p">(</span><span class="n">wdot</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>
+
+    <span class="n">writelog</span><span class="p">(</span><span class="s">&quot;Net reaction rates for reactions involving CO2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="kt">size_t</span> <span class="n">kCO2</span> <span class="o">=</span> <span class="n">gas</span><span class="o">-&gt;</span><span class="n">speciesIndex</span><span class="p">(</span><span class="s">&quot;CO2&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">kin</span><span class="o">-&gt;</span><span class="n">nReactions</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">kin</span><span class="o">-&gt;</span><span class="n">reactantStoichCoeff</span><span class="p">(</span><span class="n">kCO2</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="o">||</span> <span class="n">kin</span><span class="o">-&gt;</span><span class="n">productStoichCoeff</span><span class="p">(</span><span class="n">kCO2</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">writelog</span><span class="p">(</span><span class="s">&quot;{:3d}  {:30s}  {: .8e}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+                <span class="n">i</span><span class="p">,</span> <span class="n">kin</span><span class="o">-&gt;</span><span class="n">reactionString</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">wdot</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">writelog</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Create a Transport object. Based on the transport model specified in the</span>
+    <span class="c1">// &quot;gri30_mix&quot; phase, this will be a MixGasTransport object.</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Transport</span><span class="o">&gt;</span> <span class="n">trans</span><span class="p">(</span><span class="n">newDefaultTransportMgr</span><span class="p">(</span><span class="n">gas</span><span class="p">.</span><span class="n">get</span><span class="p">()));</span>
+    <span class="n">writelog</span><span class="p">(</span><span class="s">&quot;T        viscosity     thermal conductivity</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">writelog</span><span class="p">(</span><span class="s">&quot;------   -----------   --------------------</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">size_t</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">gas</span><span class="o">-&gt;</span><span class="n">setState_TP</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">gas</span><span class="o">-&gt;</span><span class="n">pressure</span><span class="p">());</span>
+        <span class="n">writelog</span><span class="p">(</span><span class="s">&quot;{:.1f}    {:.4e}    {:.4e}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+            <span class="n">T</span><span class="p">,</span> <span class="n">trans</span><span class="o">-&gt;</span><span class="n">viscosity</span><span class="p">(),</span> <span class="n">trans</span><span class="o">-&gt;</span><span class="n">thermalConductivity</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// the main program just calls function simple_demo2 within a &#39;try&#39; block, and</span>
+<span class="c1">// catches exceptions that might be thrown</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">simple_demo2</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">err</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This program produces the output below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>Net reaction rates for reactions involving CO2
+ 11  CO + O (+M) &lt;=&gt; CO2 (+M)         3.54150724e-08
+ 13  HCO + O &lt;=&gt; CO2 + H              1.95680014e-11
+ 29  CH2CO + O &lt;=&gt; CH2 + CO2          3.45366988e-17
+ 30  CO + O2 &lt;=&gt; CO2 + O              2.70102522e-13
+ 41  CO2 + 2 H &lt;=&gt; CO2 + H2           3.45305359e-08
+ 98  CO + OH &lt;=&gt; CO2 + H              6.46935907e-03
+119  CO + HO2 &lt;=&gt; CO2 + OH            1.86807529e-10
+131  CH + CO2 &lt;=&gt; CO + HCO            9.41365695e-14
+151  CH2(S) + CO2 &lt;=&gt; CH2 + CO2       3.11161382e-12
+152  CH2(S) + CO2 &lt;=&gt; CH2O + CO       2.85339329e-11
+225  NCO + O2 &lt;=&gt; CO2 + NO            3.74127282e-19
+228  NCO + NO &lt;=&gt; CO2 + N2            6.25672779e-14
+261  HNCO + O &lt;=&gt; CO2 + NH            6.84524890e-13
+267  HNCO + OH &lt;=&gt; CO2 + NH2          7.78871264e-10
+279  CO2 + NH &lt;=&gt; CO + HNO           -3.30333658e-09
+281  NCO + NO2 &lt;=&gt; CO2 + N2O          2.14286686e-20
+282  CO2 + N &lt;=&gt; CO + NO              6.42658283e-10
+289  CH2 + O2 =&gt; CO2 + 2 H            1.51032319e-18
+304  CH2CHO + O =&gt; CH2 + CO2 + H      1.00331734e-19
+
+T        viscosity     thermal conductivity
+------   -----------   --------------------
+300.0    1.6658e-05    4.2089e-02
+400.0    2.0861e-05    5.2537e-02
+500.0    2.4681e-05    6.2451e-02
+600.0    2.8218e-05    7.2157e-02
+700.0    3.1534e-05    8.1754e-02
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../glossary.html" title="Glossary"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="equil-example.html" title="Chemical Equilibrium Example Program"
+             >previous</a> |</li>
+        <li><a href="../index.html">Cantera</a> &raquo;</li>
+          <li><a href="index.html" >C++ Interface User&#8217;s Guide</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

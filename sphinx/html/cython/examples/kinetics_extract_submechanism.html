@@ -30,13 +30,13 @@
     <link rel="next" title="mechanism_reduction.py" href="kinetics_mechanism_reduction.html" />
     <link rel="prev" title="sound_speed.py" href="thermo_sound_speed.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../../index.html">
 <img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -51,13 +51,13 @@
         <li class="right" >
           <a href="thermo_sound_speed.html" title="sound_speed.py"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../examples.html" accesskey="U">Index of Examples</a> &raquo;</li> 
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
+          <li><a href="../examples.html" accesskey="U">Index of Examples</a> &raquo;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="thermo_sound_speed.html"
@@ -65,14 +65,12 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="kinetics_mechanism_reduction.html"
                         title="next chapter">mechanism_reduction.py</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/cython/examples/kinetics_extract_submechanism.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/cython/examples/kinetics_extract_submechanism.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
       <input type="text" name="q" />
@@ -91,11 +89,11 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="extract-submechanism-py">
 <span id="py-example-extract-submechanism-py"></span><h1>extract_submechanism.py<a class="headerlink" href="#extract-submechanism-py" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">An example demonstrating how to use Species and Reaction objects to</span>
 <span class="sd">programmatically extract a reaction submechanism. In this example, the CO/H2</span>
 <span class="sd">oxidation reactions are extracted from the GRI 3.0 mechanism.</span>
@@ -155,20 +153,13 @@
     <span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">373</span><span class="p">,</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span><span class="p">,</span> <span class="s1">&#39;H2:0.4, CO:0.6, O2:1, N2:3.76&#39;</span>
 
     <span class="c1"># Create the flame simulation object</span>
-    <span class="n">sim</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">CounterflowPremixedFlame</span><span class="p">(</span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">CounterflowPremixedFlame</span><span class="p">(</span><span class="n">gas</span><span class="o">=</span><span class="n">gas</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
     <span class="n">sim</span><span class="o">.</span><span class="n">reactants</span><span class="o">.</span><span class="n">mdot</span> <span class="o">=</span> <span class="mf">0.12</span> <span class="c1"># kg/m^2/s</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">products</span><span class="o">.</span><span class="n">mdot</span> <span class="o">=</span> <span class="mf">0.06</span> <span class="c1"># kg/m^2/s</span>
 
-    <span class="n">sim</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_steady_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="mf">1.0e-13</span><span class="p">])</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">flame</span><span class="o">.</span><span class="n">set_transient_tolerances</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0e-7</span><span class="p">,</span> <span class="mf">1.0e-11</span><span class="p">])</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">set_initial_guess</span><span class="p">()</span>
-
-    <span class="n">sim</span><span class="o">.</span><span class="n">energy_enabled</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">refine_grid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
     <span class="n">sim</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">energy_enabled</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">refine_grid</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">sim</span>
 
 <span class="n">t1</span> <span class="o">=</span> <span class="n">default_timer</span><span class="p">()</span>
@@ -200,7 +191,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
+    <div class="related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -215,14 +206,14 @@
         <li class="right" >
           <a href="thermo_sound_speed.html" title="sound_speed.py"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../examples.html" >Index of Examples</a> &raquo;</li> 
+        <li><a href="../../index.html">Cantera</a> &raquo;</li>
+          <li><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
+          <li><a href="../examples.html" >Index of Examples</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>
