@@ -11,6 +11,8 @@ var searchData=
   ['massfractions',['massFractions',['../classCantera_1_1Phase.html#abfacb6a1fbbb1915c74c171a05daba07',1,'Cantera::Phase::massFractions()'],['../classCantera_1_1ReactorBase.html#abfacb6a1fbbb1915c74c171a05daba07',1,'Cantera::ReactorBase::massFractions()']]],
   ['matrixconditioning',['matrixConditioning',['../classCantera_1_1ResidJacEval.html#a1eb0811ff5571ee2b5cb0648c2028063',1,'Cantera::ResidJacEval']]],
   ['maxflow',['maxFlow',['../classCantera_1_1ReactionPathDiagram.html#a0db420d68eaf688f2e17a7af4fb5263e',1,'Cantera::ReactionPathDiagram']]],
+  ['maxgridpoints',['maxGridPoints',['../classCantera_1_1Sim1D.html#abe621164fd44a6b1b9d2221f01f710c1',1,'Cantera::Sim1D']]],
+  ['maxpoints',['maxPoints',['../classCantera_1_1Refiner.html#a9c707dc861cfdc653edc94a90fcc18c7',1,'Cantera::Refiner']]],
   ['maxtemp',['maxTemp',['../classCantera_1_1MultiPhase.html#a2418b7ed6ccddf530b2f8ddfb93c7933',1,'Cantera::MultiPhase::maxTemp()'],['../classCantera_1_1LatticeSolidPhase.html#a9b737407965ecb32db623a6cdebeee12',1,'Cantera::LatticeSolidPhase::maxTemp()'],['../classCantera_1_1MultiSpeciesThermo.html#a9b737407965ecb32db623a6cdebeee12',1,'Cantera::MultiSpeciesThermo::maxTemp()'],['../classCantera_1_1PDSS.html#a2418b7ed6ccddf530b2f8ddfb93c7933',1,'Cantera::PDSS::maxTemp()'],['../classCantera_1_1SpeciesThermoInterpType.html#a31df276c832830fc063dfe5506e13d88',1,'Cantera::SpeciesThermoInterpType::maxTemp()'],['../classCantera_1_1STITbyPDSS.html#a2418b7ed6ccddf530b2f8ddfb93c7933',1,'Cantera::STITbyPDSS::maxTemp()'],['../classCantera_1_1ThermoPhase.html#a9627826e38c2a4cc965f557ac35898c8',1,'Cantera::ThermoPhase::maxTemp()'],['../classCantera_1_1VPSSMgr.html#a9b737407965ecb32db623a6cdebeee12',1,'Cantera::VPSSMgr::maxTemp()']]],
   ['maxtimestepcount',['maxTimeStepCount',['../classCantera_1_1OneDim.html#a58954b6f4fdf262bba85eadb96c7998d',1,'Cantera::OneDim']]],
   ['mcmillan',['McMillan',['../classCantera_1_1Tortuosity.html#a290c6c80873a3b7c5209f8f39e3755d5',1,'Cantera::Tortuosity::McMillan()'],['../classCantera_1_1TortuosityPercolation.html#adc3074613686ac9a5c4c6ee4eb195b83',1,'Cantera::TortuosityPercolation::McMillan()'],['../classCantera_1_1TortuosityMaxwell.html#adc3074613686ac9a5c4c6ee4eb195b83',1,'Cantera::TortuosityMaxwell::McMillan()']]],
@@ -51,6 +53,6 @@ var searchData=
   ['multiplier',['multiplier',['../classCantera_1_1Kinetics.html#a99513425f112b14e86d8cfac3e3320c1',1,'Cantera::Kinetics']]],
   ['multiply',['multiply',['../namespaceCantera.html#a392cc9ef6cbcaddaad995e07b493dba5',1,'Cantera']]],
   ['multiply_5feach',['multiply_each',['../namespaceCantera.html#a5c292cbe14b78329ec021bb1627946fb',1,'Cantera']]],
-  ['multispeciesthermo',['MultiSpeciesThermo',['../classCantera_1_1MultiSpeciesThermo.html#a0e8ad62fc1b56d0cda663ae6b768a9e9',1,'Cantera::MultiSpeciesThermo']]],
+  ['multispeciesthermo',['MultiSpeciesThermo',['../classCantera_1_1MultiSpeciesThermo.html#a0e8ad62fc1b56d0cda663ae6b768a9e9',1,'Cantera::MultiSpeciesThermo::MultiSpeciesThermo()'],['../classCantera_1_1MultiSpeciesThermo.html#a86be33cda62ef9be4b9077e6e9443a81',1,'Cantera::MultiSpeciesThermo::MultiSpeciesThermo(const MultiSpeciesThermo &amp;b)']]],
   ['multitransport',['MultiTransport',['../classCantera_1_1MultiTransport.html#afa70f07dfb04bfe1249972a24dc5cb58',1,'Cantera::MultiTransport']]]
 ];

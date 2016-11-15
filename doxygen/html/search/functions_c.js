@@ -1,7 +1,6 @@
 var searchData=
 [
   ['l2normdg',['l2normdg',['../classCantera_1_1VCS__SOLVE.html#a47ca0b0a4d5869c17eaa7d902d90319e',1,'Cantera::VCS_SOLVE']]],
-  ['lastchar',['lastChar',['../namespaceCantera.html#a77e7197baf64099fdd6ffc3da72b9dd5',1,'Cantera']]],
   ['lasterrormessage',['lastErrorMessage',['../group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::Application::Messages::lastErrorMessage()'],['../classCantera_1_1Application.html#a7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::Application::lastErrorMessage()'],['../namespaceCantera.html#a7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::lastErrorMessage()']]],
   ['lastpoint',['lastPoint',['../classCantera_1_1Domain1D.html#a2d7f9b446c82b61d8e79981217685396',1,'Cantera::Domain1D']]],
   ['latticephase',['LatticePhase',['../classCantera_1_1LatticePhase.html#a6ec1266b31c7bc52dc78ac0ba2923caf',1,'Cantera::LatticePhase::LatticePhase()'],['../classCantera_1_1LatticePhase.html#a0001b247838eb4988f2b837086295a1d',1,'Cantera::LatticePhase::LatticePhase(const std::string &amp;inputFile, const std::string &amp;id=&quot;&quot;)'],['../classCantera_1_1LatticePhase.html#a66e156d513c3249c0a2ae86a08d8fd7e',1,'Cantera::LatticePhase::LatticePhase(XML_Node &amp;phaseRef, const std::string &amp;id=&quot;&quot;)']]],
@@ -18,7 +17,7 @@ var searchData=
   ['linkright',['linkRight',['../classCantera_1_1Domain1D.html#adbc68d144eb1ed063afd613737c164a1',1,'Cantera::Domain1D']]],
   ['liquidtraninteraction',['LiquidTranInteraction',['../classCantera_1_1LiquidTranInteraction.html#a358650bc3554ab930a323aa5005f2004',1,'Cantera::LiquidTranInteraction']]],
   ['liquidtransport',['LiquidTransport',['../classCantera_1_1LiquidTransport.html#a468d57e231a42acd5e3f89ce154a85ba',1,'Cantera::LiquidTransport']]],
-  ['liquidvolest',['liquidVolEst',['../classCantera_1_1MixtureFugacityTP.html#ad9907bac64d82302c4f1086f898f91d0',1,'Cantera::MixtureFugacityTP']]],
+  ['liquidvolest',['liquidVolEst',['../classCantera_1_1MixtureFugacityTP.html#ad9907bac64d82302c4f1086f898f91d0',1,'Cantera::MixtureFugacityTP::liquidVolEst()'],['../classCantera_1_1RedlichKwongMFTP.html#ad9907bac64d82302c4f1086f898f91d0',1,'Cantera::RedlichKwongMFTP::liquidVolEst()']]],
   ['loc',['loc',['../classCantera_1_1Domain1D.html#a8d1cf6af94a7e2286336ed9a522ead4a',1,'Cantera::Domain1D::loc()'],['../classCantera_1_1OneDim.html#a2ecde4fe72aa426331777eeb8bc36f15',1,'Cantera::OneDim::loc()']]],
   ['locate',['locate',['../classCantera_1_1Domain1D.html#af2f4ae87f03750cb9cca117d0cfcf2fb',1,'Cantera::Domain1D']]],
   ['lock',['lock',['../classCantera_1_1XML__Node.html#aa81aed607133209dade63a226818224d',1,'Cantera::XML_Node']]],

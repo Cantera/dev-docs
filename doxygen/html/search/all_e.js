@@ -68,6 +68,7 @@ var searchData=
   ['newtransportmgr',['newTransportMgr',['../group__tranprops.html#ga76212271c2f0bfd7beefe57989019c8b',1,'Cantera']]],
   ['newvpssmgr',['newVPSSMgr',['../classCantera_1_1VPSSMgrFactory.html#a70e2bbdc85fe0ea46e889d38a51097b1',1,'Cantera::VPSSMgrFactory::newVPSSMgr(VPSSMgr_enumType type, VPStandardStateTP *vp_ptr)'],['../classCantera_1_1VPSSMgrFactory.html#a58e541a4ed43d2e2ea41fa6a303571e4',1,'Cantera::VPSSMgrFactory::newVPSSMgr(VPStandardStateTP *vp_ptr, XML_Node *phaseNode_ptr, std::vector&lt; XML_Node * &gt; &amp;spDataNodeList)'],['../namespaceCantera.html#a05c7982ace4793e9a26dc6c43e5d0f09',1,'Cantera::newVPSSMgr(VPSSMgr_enumType type, VPStandardStateTP *vp_ptr, VPSSMgrFactory *f=0)'],['../namespaceCantera.html#abe02645f0e981c4fc0b1c74b82502d5d',1,'Cantera::newVPSSMgr(VPStandardStateTP *vp_ptr, XML_Node *phaseNode_ptr, std::vector&lt; XML_Node * &gt; &amp;spDataNodeList, VPSSMgrFactory *f=0)']]],
   ['nfree',['nFree',['../classCantera_1_1MultiPhaseEquil.html#a12e24f087d10995c488ea36ddd13f708',1,'Cantera::MultiPhaseEquil']]],
+  ['nicholssolve',['NicholsSolve',['../classCantera_1_1RedlichKwongMFTP.html#af72604fa34927af2454b72ee6768e56a',1,'Cantera::RedlichKwongMFTP']]],
   ['ninlets',['nInlets',['../classCantera_1_1ReactorBase.html#ad38d2221bb575706ae577107be17fc31',1,'Cantera::ReactorBase']]],
   ['nitrogen',['nitrogen',['../classtpx_1_1nitrogen.html',1,'tpx']]],
   ['nitrogen_2ecpp',['Nitrogen.cpp',['../Nitrogen_8cpp.html',1,'']]],

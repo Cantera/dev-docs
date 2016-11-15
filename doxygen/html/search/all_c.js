@@ -2,7 +2,6 @@ var searchData=
 [
   ['l2normdg',['l2normdg',['../classCantera_1_1VCS__SOLVE.html#a47ca0b0a4d5869c17eaa7d902d90319e',1,'Cantera::VCS_SOLVE']]],
   ['last_5fnum_5fticks',['last_num_ticks',['../classCantera_1_1clockWC.html#a07813a7335d8f10310d572188ef3a635',1,'Cantera::clockWC']]],
-  ['lastchar',['lastChar',['../namespaceCantera.html#a77e7197baf64099fdd6ffc3da72b9dd5',1,'Cantera']]],
   ['lasterrormessage',['lastErrorMessage',['../group__errorhandling.html#ga7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::Application::Messages::lastErrorMessage()'],['../classCantera_1_1Application.html#a7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::Application::lastErrorMessage()'],['../namespaceCantera.html#a7785653a63fcc18c8c472b6e411eeca8',1,'Cantera::lastErrorMessage()']]],
   ['lastpoint',['lastPoint',['../classCantera_1_1Domain1D.html#a2d7f9b446c82b61d8e79981217685396',1,'Cantera::Domain1D']]],
   ['latticephase',['LatticePhase',['../classCantera_1_1LatticePhase.html',1,'Cantera']]],
@@ -40,7 +39,7 @@ var searchData=
   ['liquidtransportparams',['LiquidTransportParams',['../classCantera_1_1LiquidTransportParams.html',1,'Cantera']]],
   ['liquidtransportparams_2ecpp',['LiquidTransportParams.cpp',['../LiquidTransportParams_8cpp.html',1,'']]],
   ['liquidtransportparams_2eh',['LiquidTransportParams.h',['../LiquidTransportParams_8h.html',1,'']]],
-  ['liquidvolest',['liquidVolEst',['../classCantera_1_1MixtureFugacityTP.html#ad9907bac64d82302c4f1086f898f91d0',1,'Cantera::MixtureFugacityTP']]],
+  ['liquidvolest',['liquidVolEst',['../classCantera_1_1MixtureFugacityTP.html#ad9907bac64d82302c4f1086f898f91d0',1,'Cantera::MixtureFugacityTP::liquidVolEst()'],['../classCantera_1_1RedlichKwongMFTP.html#ad9907bac64d82302c4f1086f898f91d0',1,'Cantera::RedlichKwongMFTP::liquidVolEst()']]],
   ['listspeciesptr',['ListSpeciesPtr',['../classCantera_1_1vcs__VolPhase.html#a768d1c59994094b5657bdcf10c4c7039',1,'Cantera::vcs_VolPhase']]],
   ['lk_2ecpp',['lk.cpp',['../lk_8cpp.html',1,'']]],
   ['lk_2eh',['lk.h',['../lk_8h.html',1,'']]],

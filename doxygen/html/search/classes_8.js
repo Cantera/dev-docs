@@ -1,6 +1,7 @@
 var searchData=
 [
   ['ida_5ferr',['IDA_Err',['../classCantera_1_1IDA__Err.html',1,'Cantera']]],
+  ['ida_5fsolver',['IDA_Solver',['../classCantera_1_1IDA__Solver.html',1,'Cantera']]],
   ['idealgasconstpressurereactor',['IdealGasConstPressureReactor',['../classCantera_1_1IdealGasConstPressureReactor.html',1,'Cantera']]],
   ['idealgasmix',['IdealGasMix',['../classCantera_1_1IdealGasMix.html',1,'Cantera']]],
   ['idealgasphase',['IdealGasPhase',['../classCantera_1_1IdealGasPhase.html',1,'Cantera']]],

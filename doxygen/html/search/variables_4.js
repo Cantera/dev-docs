@@ -29,6 +29,9 @@ var searchData=
   ['dlnactcoeffdt_5fscaled_5f',['dlnActCoeffdT_Scaled_',['../classCantera_1_1GibbsExcessVPSSTP.html#af824dee1cb7462a4ae19f05219858849',1,'Cantera::GibbsExcessVPSSTP']]],
   ['domigration_5f',['doMigration_',['../classCantera_1_1SimpleTransport.html#af06c9b1e54e1a0ae901117a17471cca7',1,'Cantera::SimpleTransport']]],
   ['dotprod_5f',['dotProd_',['../classCantera_1_1ChebyshevRate.html#aad9332e9f56e1998a955f3c9753b22c5',1,'Cantera::ChebyshevRate']]],
+  ['dpdni_5f',['dpdni_',['../classCantera_1_1RedlichKwongMFTP.html#af4672b18aa84ee89fbdfd2bb0f8bd00b',1,'Cantera::RedlichKwongMFTP']]],
+  ['dpdt_5f',['dpdT_',['../classCantera_1_1RedlichKwongMFTP.html#a30e90cf292e30859d43bd10b9f2a6a70',1,'Cantera::RedlichKwongMFTP']]],
+  ['dpdv_5f',['dpdV_',['../classCantera_1_1RedlichKwongMFTP.html#ade50f7a831acb615f5a3b16205e6e515',1,'Cantera::RedlichKwongMFTP']]],
   ['duplicate',['duplicate',['../classCantera_1_1Reaction.html#ae972378e1b2498cd13d14cbf9a7360a6',1,'Cantera::Reaction']]],
   ['dvdt_5f',['dVdT_',['../classCantera_1_1PDSS__SSVol.html#a7c303687d12a71ab1e7f5b965fc212ed',1,'Cantera::PDSS_SSVol']]]
 ];

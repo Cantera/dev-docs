@@ -14,6 +14,7 @@ var searchData=
   ['reactornet',['ReactorNet',['../classCantera_1_1ReactorNet.html',1,'Cantera']]],
   ['redlichkistervpsstp',['RedlichKisterVPSSTP',['../classCantera_1_1RedlichKisterVPSSTP.html',1,'Cantera']]],
   ['redlichkwong',['RedlichKwong',['../classtpx_1_1RedlichKwong.html',1,'tpx']]],
+  ['redlichkwongmftp',['RedlichKwongMFTP',['../classCantera_1_1RedlichKwongMFTP.html',1,'Cantera']]],
   ['refiner',['Refiner',['../classCantera_1_1Refiner.html',1,'Cantera']]],
   ['residdata',['ResidData',['../classCantera_1_1ResidData.html',1,'Cantera']]],
   ['resideval',['ResidEval',['../classCantera_1_1ResidEval.html',1,'Cantera']]],

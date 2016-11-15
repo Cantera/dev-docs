@@ -9,6 +9,6 @@ var searchData=
   ['boundstep',['boundStep',['../classCantera_1_1MultiNewton.html#a257e945ff14fea0ef55348772ac9c481',1,'Cantera::MultiNewton']]],
   ['build',['build',['../classCantera_1_1XML__Node.html#a3907c249d8b1be86ebf921bc1c0e1036',1,'Cantera::XML_Node::build(const std::string &amp;filename)'],['../classCantera_1_1XML__Node.html#adfa31b91d0b67d708968afbfab71b173',1,'Cantera::XML_Node::build(std::istream &amp;f, const std::string &amp;filename=&quot;[unknown]&quot;)']]],
   ['buildsolutionfromxml',['buildSolutionFromXML',['../group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588',1,'Cantera']]],
-  ['buildsurfacearrhenius',['buildSurfaceArrhenius',['../classCantera_1_1InterfaceKinetics.html#a37734c49a5ce10c7b8b5a843483d48ad',1,'Cantera::InterfaceKinetics']]],
+  ['buildsurfacearrhenius',['buildSurfaceArrhenius',['../classCantera_1_1InterfaceKinetics.html#a931b479e8bdf7979006296d515556e62',1,'Cantera::InterfaceKinetics']]],
   ['bulkviscosity',['bulkViscosity',['../classCantera_1_1Transport.html#a4607c91cbc5c32bea10a68c5d46011fd',1,'Cantera::Transport::bulkViscosity()'],['../classCantera_1_1WaterTransport.html#a4607c91cbc5c32bea10a68c5d46011fd',1,'Cantera::WaterTransport::bulkViscosity()']]]
 ];

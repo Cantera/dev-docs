@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Cantera Compilation Guide &mdash; Cantera 2.3.0a2 documentation</title>
+    <title>Cantera Compilation Guide &#8212; Cantera 2.3.0a3 documentation</title>
     
     <link rel="stylesheet" href="_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.3.0a2',
+        VERSION:     '2.3.0a3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,17 +25,19 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.3.0a2 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Cantera 2.3.0a3 documentation" href="index.html" />
     <link rel="next" title="Configuring Cantera" href="configuring.html" />
     <link rel="prev" title="Installing Cantera" href="install.html" /> 
   </head>
-  <body>
+  <body role="document">
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="index.html">
 <img src="_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -50,11 +52,11 @@
         <li class="right" >
           <a href="install.html" title="Installing Cantera"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Cantera</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cantera</a> &#187;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -104,22 +106,21 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="configuring.html"
                         title="next chapter">Configuring Cantera</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/compiling.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/compiling.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -128,7 +129,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="cantera-compilation-guide">
 <span id="sec-compiling"></span><h1>Cantera Compilation Guide<a class="headerlink" href="#cantera-compilation-guide" title="Permalink to this headline">¶</a></h1>
@@ -156,40 +157,40 @@ additional configuration may be required.</p>
 <ul>
 <li><p class="first">For Ubuntu or Debian users, the following packages should be installed using
 your choice of package manager:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>g++ python scons libsundials-serial-dev
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">++</span> <span class="n">python</span> <span class="n">scons</span> <span class="n">libsundials</span><span class="o">-</span><span class="n">serial</span><span class="o">-</span><span class="n">dev</span> <span class="n">libboost</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Building the python module also requires:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>cython python-dev python-numpy python-numpy-dev python-setuptools
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cython</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Building the python3 module requires the following libraries:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>python3 python3-setuptools cython3 python3-numpy
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">setuptools</span> <span class="n">cython3</span> <span class="n">python3</span><span class="o">-</span><span class="n">numpy</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">For Fedora (version 22 or higher) users, the following packages should
 be installed via the package manager:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>gcc-c++ python scons sundials-devel blas-devel lapack-devel
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">python</span> <span class="n">scons</span> <span class="n">sundials</span><span class="o">-</span><span class="n">devel</span> <span class="n">blas</span><span class="o">-</span><span class="n">devel</span> <span class="n">lapack</span><span class="o">-</span><span class="n">devel</span> <span class="n">boost</span><span class="o">-</span><span class="n">devel</span>
 </pre></div>
 </div>
-<p>If your Fedora version is lower than 22, the <tt class="xref py py-obj docutils literal"><span class="pre">sundials-devel</span></tt> package is not
+<p>If your Fedora version is lower than 22, the <code class="xref py py-obj docutils literal"><span class="pre">sundials-devel</span></code> package is not
 available, and you should build Sundials from source.</p>
 <p>Python module required packages are:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>python-setuptools python-devel Cython numpy
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span><span class="o">-</span><span class="n">setuptools</span> <span class="n">python</span><span class="o">-</span><span class="n">devel</span> <span class="n">Cython</span> <span class="n">numpy</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Checking out the source code from version control requires Git (install
-<tt class="docutils literal"><span class="pre">git</span></tt>).</p>
+<code class="docutils literal"><span class="pre">git</span></code>).</p>
 </li>
-<li><p class="first">The minimum compatible Cython version is 0.19. If your distribution does not
+<li><p class="first">The minimum compatible Cython version is 0.23. If your distribution does not
 contain a suitable version, you may be able to install a more recent version
-using <tt class="xref py py-obj docutils literal"><span class="pre">pip</span></tt>.</p>
+using <code class="xref py py-obj docutils literal"><span class="pre">pip</span></code>.</p>
 </li>
-<li><p class="first">Building the Fortran interface also requires <tt class="xref py py-obj docutils literal"><span class="pre">gfortran</span></tt> or another supported
+<li><p class="first">Building the Fortran interface also requires <code class="xref py py-obj docutils literal"><span class="pre">gfortran</span></code> or another supported
 Fortran compiler.</p>
 </li>
 <li><p class="first">Users of other distributions should install the equivalent packages, which
@@ -217,13 +218,13 @@ automatically.</p>
 </li>
 <li><p class="first">It is generally helpful to have SCons and Python in your PATH. This can
 usually be accomplished by adding the top-level Python directory
-(e.g. <tt class="docutils literal"><span class="pre">C:\Python27</span></tt>) to your PATH. This is accessible from:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>Control Panel &gt; System and Security &gt; System &gt; Advanced System Settings &gt; Environment Variables
+(e.g. <code class="docutils literal"><span class="pre">C:\Python27</span></code>) to your PATH. This is accessible from:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Control</span> <span class="n">Panel</span> <span class="o">&gt;</span> <span class="n">System</span> <span class="ow">and</span> <span class="n">Security</span> <span class="o">&gt;</span> <span class="n">System</span> <span class="o">&gt;</span> <span class="n">Advanced</span> <span class="n">System</span> <span class="n">Settings</span> <span class="o">&gt;</span> <span class="n">Environment</span> <span class="n">Variables</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">In order to use SCons to install Cantera to a system folder (e.g. <tt class="docutils literal"><span class="pre">C:\Program</span>
-<span class="pre">Files\Cantera</span></tt>) you must run the <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">install</span></tt> command in a command
+<li><p class="first">In order to use SCons to install Cantera to a system folder (e.g. <code class="docutils literal"><span class="pre">C:\Program</span>
+<span class="pre">Files\Cantera</span></code>) you must run the <code class="docutils literal"><span class="pre">scons</span> <span class="pre">install</span></code> command in a command
 prompt that has been launched by selecting the <em>run as administrator</em> option.</p>
 </li>
 </ul>
@@ -234,27 +235,27 @@ prompt that has been launched by selecting the <em>run as administrator</em> opt
 <li><p class="first">Download and install Xcode from the App Store</p>
 </li>
 <li><p class="first">From a Terminal, run:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>sudo xcode-select --install
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span>
 </pre></div>
 </div>
 <p>and agree to the Xcode license agreement</p>
 </li>
 <li><p class="first">If you don&#8217;t have numpy version &gt;= 1.4, you can install a recent version with:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>sudo pip install --upgrade numpy
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">numpy</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">If you want to build Cantera with Fortran 90 support, download gfortran from:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>http://gcc.gnu.org/wiki/GFortranBinaries#MacOS
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">gcc</span><span class="o">.</span><span class="n">gnu</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">GFortranBinaries</span><span class="c1">#MacOS</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Download scons-2.x.y.tar.gz from scons.org and extract the contents. Install with either:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>sudo python setup.py install
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
 <p>to install for all users, or:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>python setup.py install --user
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
 </pre></div>
 </div>
 <p>to install to a location in your home directory.</p>
@@ -268,16 +269,16 @@ prompt that has been launched by selecting the <em>run as administrator</em> opt
 <h3>Stable Release<a class="headerlink" href="#stable-release" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><strong>Option 1</strong>: Check out the code using Git:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/Cantera/cantera.git
-cd cantera
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Cantera</span><span class="o">/</span><span class="n">cantera</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">cantera</span>
 </pre></div>
 </div>
 <p>Then, check out the tag of the most recent stable version:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git checkout tags/v2.2.0
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">tags</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mf">2.0</span>
 </pre></div>
 </div>
 <p>A list of all the tags can be shown by:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git tag --list
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="o">--</span><span class="nb">list</span>
 </pre></div>
 </div>
 </li>
@@ -290,26 +291,26 @@ contents.</p>
 <h3>Beta Release<a class="headerlink" href="#beta-release" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Check out the code using Git:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/Cantera/cantera.git
-cd cantera
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Cantera</span><span class="o">/</span><span class="n">cantera</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">cantera</span>
 </pre></div>
 </div>
 <p>Then pick either <strong>Option 1</strong> or <strong>Option 2</strong> below.</p>
 </li>
 <li><p class="first"><strong>Option 1</strong>: Check out the tag with the most recent beta release:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git checkout tags/v2.2.0b1
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">tags</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mf">2.0</span><span class="n">b1</span>
 </pre></div>
 </div>
 <p>Note that the most recent beta version might be older than the most recent
 stable release. A list of all the tags, including stable and beta versions can
 be shown by:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git tag --list
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="o">--</span><span class="nb">list</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><strong>Option 2</strong>: Check out the branch with all the bug fixes leading to the
 next minor release of the stable version:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git checkout 2.2
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="mf">2.2</span>
 </pre></div>
 </div>
 <p>This branch has all the work on the 2.2.x version of the software.</p>
@@ -320,20 +321,20 @@ next minor release of the stable version:</p>
 <h3>Development Version<a class="headerlink" href="#development-version" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Check out the code using Git:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>git clone --recursive https://github.com/Cantera/cantera.git
-cd cantera
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Cantera</span><span class="o">/</span><span class="n">cantera</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">cantera</span>
 </pre></div>
 </div>
-<p>Note that by default, the <tt class="docutils literal"><span class="pre">master</span></tt> branch is checked out, containing all of
+<p>Note that by default, the <code class="docutils literal"><span class="pre">master</span></code> branch is checked out, containing all of
 the feature updates and bug fixes to the code since the previous stable
 release. The master branch is usually an &#8220;alpha&#8221; release, corresponding to the
-<tt class="docutils literal"><span class="pre">a</span></tt> in the version number, and does not usually get a tag.</p>
+<code class="docutils literal"><span class="pre">a</span></code> in the version number, and does not usually get a tag.</p>
 </li>
 <li><p class="first">Update an existing clone of the Git repo:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>cd /path/to/cantera
-git fetch
-git rebase origin/master
-git submodule update --init --recursive
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">cantera</span>
+<span class="n">git</span> <span class="n">fetch</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">update</span> <span class="o">--</span><span class="n">init</span> <span class="o">--</span><span class="n">recursive</span>
 </pre></div>
 </div>
 </li>
@@ -345,12 +346,12 @@ git submodule update --init --recursive
 <div class="section" id="general">
 <h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p class="first">run <tt class="docutils literal"><span class="pre">scons</span> <span class="pre">help</span></tt> to see a list all configuration options for Cantera, or
+<li><p class="first">run <code class="docutils literal"><span class="pre">scons</span> <span class="pre">help</span></code> to see a list all configuration options for Cantera, or
 see <a class="reference internal" href="configuring.html#scons-config"><em>Configuring Cantera</em></a>.</p>
 </li>
-<li><p class="first">Configuration options are specified as additional arguments to the <tt class="docutils literal"><span class="pre">scons</span></tt>
+<li><p class="first">Configuration options are specified as additional arguments to the <code class="docutils literal"><span class="pre">scons</span></code>
 command, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons build -j4 blas_lapack_libs=lapack,blas
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="n">build</span> <span class="o">-</span><span class="n">j4</span> <span class="n">blas_lapack_libs</span><span class="o">=</span><span class="n">lapack</span><span class="p">,</span><span class="n">blas</span>
 </pre></div>
 </div>
 </li>
@@ -359,16 +360,16 @@ should work.</p>
 </li>
 <li><p class="first">If you installed Sundials to a non-standard location (e.g. the libraries
 aren&#8217;t in /usr/lib), you will need to specify the options:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>sundials_include=/path/to/sundials/include
-sundials_libdir=/path/to/sundials/lib
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sundials_include</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sundials</span><span class="o">/</span><span class="n">include</span>
+<span class="n">sundials_libdir</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sundials</span><span class="o">/</span><span class="n">lib</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">If you want to build the Matlab toolbox, you will need to specify the path
 to the Matlab installation, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>matlab_path=/opt/MATLAB/R2011a
-matlab_path=&quot;C:\Program Files\MATLAB\R2011a&quot;
-matlab_path=/Applications/MATLAB_R2011a.app
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">matlab_path</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">MATLAB</span><span class="o">/</span><span class="n">R2011a</span>
+<span class="n">matlab_path</span><span class="o">=</span><span class="s2">&quot;C:\Program Files\MATLAB\R2011a&quot;</span>
+<span class="n">matlab_path</span><span class="o">=/</span><span class="n">Applications</span><span class="o">/</span><span class="n">MATLAB_R2011a</span><span class="o">.</span><span class="n">app</span>
 </pre></div>
 </div>
 <p>The above paths are typical defaults on Linux, Windows, and OS X,
@@ -379,14 +380,14 @@ respectively.</p>
 not necessary to respecify configuration options when rebuilding Cantera. To
 unset a previously set configuration option, either remove the corresponding
 line from cantera.conf or use the syntax:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>option_name=
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">option_name</span><span class="o">=</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Sometimes, changes in your environment can cause SCons&#8217;s configuration tests
 (e.g. checking for libraries or compiler capabilities) to unexpectedly fail.
 To force SCons to re-run these tests rather than trusting the cached results,
-run scons with the option <tt class="docutils literal"><span class="pre">--config=force</span></tt>.</p>
+run scons with the option <code class="docutils literal"><span class="pre">--config=force</span></code>.</p>
 </li>
 </ul>
 </div>
@@ -395,7 +396,7 @@ run scons with the option <tt class="docutils literal"><span class="pre">--confi
 <p>The Cantera Python module is implemented using Cython, and as such building the
 Cantera Python module requires the Cython package for Python.</p>
 <p>The Python module is compatible with the following Python versions: 2.6, 2.7,
-and 3.2 - 3.5. Support for Python 2.6 requires the <tt class="docutils literal"><span class="pre">scipy</span></tt> and <tt class="docutils literal"><span class="pre">unittest2</span></tt>
+and 3.2 - 3.5. Support for Python 2.6 requires the <code class="docutils literal"><span class="pre">scipy</span></code> and <code class="docutils literal"><span class="pre">unittest2</span></code>
 packages to be installed as well (see <a class="reference internal" href="#sec-dependencies"><em>Software used by Cantera</em></a>) to provide
 certain features that are included in the standard library in more recent
 versions.</p>
@@ -407,13 +408,13 @@ Python 2, if both Numpy and Cython are installed.</p>
 <div class="section" id="building-for-python-3">
 <h4>Building for Python 3<a class="headerlink" href="#building-for-python-3" title="Permalink to this headline">¶</a></h4>
 <p>If SCons detects a Python 3 interpreter installed in a default location
-(i.e. <tt class="docutils literal"><span class="pre">python3</span></tt> is on the path), it will try to build the Python module
+(i.e. <code class="docutils literal"><span class="pre">python3</span></code> is on the path), it will try to build the Python module
 for Python 3. The following SCons options control how the Python 3 module is
 built:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>python3_package=[y|n]
-python3_cmd=/path/to/python3/interpreter
-python3_array_home=/path/to/numpy
-python3_prefix=/path/to/cantera/module
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python3_package</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="o">|</span><span class="n">n</span><span class="p">]</span>
+<span class="n">python3_cmd</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">python3</span><span class="o">/</span><span class="n">interpreter</span>
+<span class="n">python3_array_home</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">numpy</span>
+<span class="n">python3_prefix</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">cantera</span><span class="o">/</span><span class="n">module</span>
 </pre></div>
 </div>
 <p>Note that even when building the Python 3 Cantera module, you should still use
@@ -430,13 +431,13 @@ that Cantera depends on, so you will need to specify these paths explicitly.</li
 <li>By default, SCons attempts to use the same architecture as the copy of Python
 that is running SCons, and the most recent installed version of the Visual
 Studio compiler. If you aren&#8217;t building the Python module, you can override
-this with the configuration options <tt class="docutils literal"><span class="pre">target_arch</span></tt> and <tt class="docutils literal"><span class="pre">msvc_version</span></tt>.</li>
+this with the configuration options <code class="docutils literal"><span class="pre">target_arch</span></code> and <code class="docutils literal"><span class="pre">msvc_version</span></code>.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The <tt class="docutils literal"><span class="pre">cantera.conf</span></tt> file uses the backslash character <tt class="docutils literal"><span class="pre">\</span></tt> as an escape
+<p class="last">The <code class="docutils literal"><span class="pre">cantera.conf</span></code> file uses the backslash character <code class="docutils literal"><span class="pre">\</span></code> as an escape
 character. When modifying this file, backslashes in paths need to be escaped
-like this: <tt class="docutils literal"><span class="pre">boost_inc_dir</span> <span class="pre">=</span> <span class="pre">'C:\\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\\boost\\include'</span></tt>
+like this: <code class="docutils literal"><span class="pre">boost_inc_dir</span> <span class="pre">=</span> <span class="pre">'C:\\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\\boost\\include'</span></code>
 This does not apply to paths specified on the command line. Alternatively,
 you can use forward slashes in paths.</p>
 </div>
@@ -445,7 +446,7 @@ you can use forward slashes in paths.</p>
 <h3>Windows (MinGW)<a class="headerlink" href="#windows-mingw" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">To compile with MinGW, use the SCons command line option:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">toolchain</span><span class="o">=</span><span class="n">mingw</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">toolchain</span><span class="o">=</span><span class="n">mingw</span>
 </pre></div>
 </div>
 </li>
@@ -459,7 +460,7 @@ a 64-bit compiler are available from <a class="reference external" href="http://
 <h3>OS X<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The Accelerate framework is automatically used to provide optimized versions
-of BLAS and LAPACK, so the <tt class="docutils literal"><span class="pre">blas_lapack_libs</span></tt> option should generally be
+of BLAS and LAPACK, so the <code class="docutils literal"><span class="pre">blas_lapack_libs</span></code> option should generally be
 left unspecified.</li>
 </ul>
 </div>
@@ -468,35 +469,35 @@ left unspecified.</li>
 <ul>
 <li><p class="first">Before compiling Cantera, you may need to set up the appropriate environment
 variables for the Intel compiler suite, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>source /opt/intel/bin/compilervars.sh intel64
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">intel</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">compilervars</span><span class="o">.</span><span class="n">sh</span> <span class="n">intel64</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">For the Intel compiler to work with SCons, these environment variables need
 to be passed through SCons by using the command line option:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">env_vars</span><span class="o">=</span><span class="nb">all</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">env_vars</span><span class="o">=</span><span class="nb">all</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">If you want to use the Intel MKL versions of BLAS and LAPACK, you will need
 to provide additional options. The following are typically correct on
 64-bit Linux systems:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64
+<div class="highlight-default"><div class="highlight"><pre><span></span>blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64
 </pre></div>
 </div>
 <p>Your final SCons call might then look something like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons build env_vars=all CC=icc CXX=icpc FORTRAN=ifort blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64
+<div class="highlight-default"><div class="highlight"><pre><span></span>scons build env_vars=all CC=icc CXX=icpc FORTRAN=ifort blas_lapack_libs=mkl_rt blas_lapack_dir=$(MKLROOT)/lib/intel64
 </pre></div>
 </div>
 <p>When installing Cantera after building with the Intel compiler, the normal
-method of using <tt class="docutils literal"><span class="pre">sudo</span></tt> to install Cantera will not work because <tt class="docutils literal"><span class="pre">sudo</span></tt>
+method of using <code class="docutils literal"><span class="pre">sudo</span></code> to install Cantera will not work because <code class="docutils literal"><span class="pre">sudo</span></code>
 does not pass the environment variables needed by the Intel compiler.
 Instead, you will need to do something like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons build ...
-sudo -s
-source /path/to/compilervars.sh intel64
-scons install
-exit
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="n">build</span> <span class="o">...</span>
+<span class="n">sudo</span> <span class="o">-</span><span class="n">s</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">compilervars</span><span class="o">.</span><span class="n">sh</span> <span class="n">intel64</span>
+<span class="n">scons</span> <span class="n">install</span>
+<span class="n">exit</span>
 </pre></div>
 </div>
 </li>
@@ -507,17 +508,17 @@ exit
 <h2>Compile Cantera &amp; Test<a class="headerlink" href="#compile-cantera-test" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p class="first">Run scons with the list of desired configuration options, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons build optimize=n blas_lapack_libs=blas,lapack prefix=/opt/cantera
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="n">build</span> <span class="n">optimize</span><span class="o">=</span><span class="n">n</span> <span class="n">blas_lapack_libs</span><span class="o">=</span><span class="n">blas</span><span class="p">,</span><span class="n">lapack</span> <span class="n">prefix</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">cantera</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">If Cantera compiles successfully, you should see a message that looks like:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>*******************************************************
-Compilation completed successfully.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*******************************************************</span>
+<span class="n">Compilation</span> <span class="n">completed</span> <span class="n">successfully</span><span class="o">.</span>
 
-- To run the test suite, type &#39;scons test&#39;.
-- To install, type &#39;[sudo] scons install&#39;.
-*******************************************************
+<span class="o">-</span> <span class="n">To</span> <span class="n">run</span> <span class="n">the</span> <span class="n">test</span> <span class="n">suite</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;scons test&#39;</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">To</span> <span class="n">install</span><span class="p">,</span> <span class="nb">type</span> <span class="s1">&#39;[sudo] scons install&#39;</span><span class="o">.</span>
+<span class="o">*******************************************************</span>
 </pre></div>
 </div>
 </li>
@@ -525,7 +526,7 @@ Compilation completed successfully.
 wrong.</p>
 </li>
 <li><p class="first">Cantera has a series of tests that can be run with the command:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons test
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="n">test</span>
 </pre></div>
 </div>
 </li>
@@ -546,13 +547,13 @@ source of the error:</p>
 <h3>Building Documentation<a class="headerlink" href="#building-documentation" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">To build the Cantera HTML documentation, run the commands:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons doxygen
-scons sphinx
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="n">doxygen</span>
+<span class="n">scons</span> <span class="n">sphinx</span>
 </pre></div>
 </div>
-<p>or append the options <tt class="xref py py-obj docutils literal"><span class="pre">sphinx_docs=y</span></tt> and <tt class="xref py py-obj docutils literal"><span class="pre">doxygen_docs=y</span></tt> to the build
+<p>or append the options <code class="xref py py-obj docutils literal"><span class="pre">sphinx_docs=y</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">doxygen_docs=y</span></code> to the build
 command, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>scons build doxygen_docs=y sphinx_docs=y
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scons</span> <span class="n">build</span> <span class="n">doxygen_docs</span><span class="o">=</span><span class="n">y</span> <span class="n">sphinx_docs</span><span class="o">=</span><span class="n">y</span>
 </pre></div>
 </div>
 </li>
@@ -673,16 +674,16 @@ and the necessary portions will be compiled and installed with Cantera.</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://computation.llnl.gov/casc/sundials/download/download.html">https://computation.llnl.gov/casc/sundials/download/download.html</a></p>
 </li>
-<li><p class="first">Known to work with versions 2.4, 2.5 and 2.6.</p>
+<li><p class="first">Known to work with versions 2.4, 2.5, 2.6, and 2.7.</p>
 </li>
 <li><p class="first">To use Sundials with Cantera on a Linux/Unix system, it must be compiled
-with the <tt class="docutils literal"><span class="pre">-fPIC</span></tt> flag. You can specify this flag when configuring
+with the <code class="docutils literal"><span class="pre">-fPIC</span></code> flag. You can specify this flag when configuring
 Sundials (2.4 or 2.5):</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>configure --with-cflags=-fPIC
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">configure</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">cflags</span><span class="o">=-</span><span class="n">fPIC</span>
 </pre></div>
 </div>
-<p>or Sundials 2.6:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>cmake -DCMAKE_C_FLAGS=-fPIC &lt;other command-line options&gt;
+<p>or Sundials 2.6 or 2.7:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">DCMAKE_C_FLAGS</span><span class="o">=-</span><span class="n">fPIC</span> <span class="o">&lt;</span><span class="n">other</span> <span class="n">command</span><span class="o">-</span><span class="n">line</span> <span class="n">options</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -690,14 +691,14 @@ Sundials (2.4 or 2.5):</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>If you are compiling Sundials 2.5.0 on Windows using CMake, you need
-to edit the <tt class="docutils literal"><span class="pre">CMakeLists.txt</span></tt> file first and change the lines:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>SET(PACKAGE_STRING &quot;SUNDIALS 2.4.0&quot;)
-SET(PACKAGE_VERSION &quot;2.4.0&quot;)
+to edit the <code class="docutils literal"><span class="pre">CMakeLists.txt</span></code> file first and change the lines:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">SET</span><span class="p">(</span><span class="n">PACKAGE_STRING</span> <span class="s2">&quot;SUNDIALS 2.4.0&quot;</span><span class="p">)</span>
+<span class="n">SET</span><span class="p">(</span><span class="n">PACKAGE_VERSION</span> <span class="s2">&quot;2.4.0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>to read:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>SET(PACKAGE_STRING &quot;SUNDIALS 2.5.0&quot;)
-SET(PACKAGE_VERSION &quot;2.5.0&quot;)
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">SET</span><span class="p">(</span><span class="n">PACKAGE_STRING</span> <span class="s2">&quot;SUNDIALS 2.5.0&quot;</span><span class="p">)</span>
+<span class="n">SET</span><span class="p">(</span><span class="n">PACKAGE_VERSION</span> <span class="s2">&quot;2.5.0&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="last">instead, so that Cantera can correctly identify the version of
@@ -712,17 +713,17 @@ Sundials.</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://pip.pypa.io/en/stable/installing">Pip</a> (Python)</p>
 <ul class="simple">
-<li>Provides the <tt class="docutils literal"><span class="pre">pip</span></tt> command which can be used to install most of
+<li>Provides the <code class="docutils literal"><span class="pre">pip</span></code> command which can be used to install most of
 the other Python modules.</li>
 </ul>
 </li>
 <li><p class="first">Packages required for building Sphinx documentation</p>
 <ul class="simple">
-<li><a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> (install with <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">sphinx</span></tt>)</li>
-<li><a class="reference external" href="http://pygments.org/">Pygments</a> (install with <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pygments</span></tt>)</li>
-<li><a class="reference external" href="http://sourceforge.net/projects/pyparsing/">pyparsing</a> (install with <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pyparsing</span></tt>)</li>
-<li><a class="reference external" href="http://pypi.python.org/pypi/sphinxcontrib-doxylink/">doxylink</a> (install with <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">sphinxcontrib-doxylink</span></tt>)</li>
-<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-matlabdomain">matlabdomain</a> (install with <tt class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinxcontrib-matlabdomain</span></tt>)</li>
+<li><a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">sphinx</span></code>)</li>
+<li><a class="reference external" href="http://pygments.org/">Pygments</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pygments</span></code>)</li>
+<li><a class="reference external" href="http://sourceforge.net/projects/pyparsing/">pyparsing</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pyparsing</span></code>)</li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/sphinxcontrib-doxylink/">doxylink</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">sphinxcontrib-doxylink</span></code>)</li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-matlabdomain">matlabdomain</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinxcontrib-matlabdomain</span></code>)</li>
 </ul>
 </li>
 <li><p class="first"><a class="reference external" href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a></p>
@@ -742,7 +743,7 @@ the other Python modules.</li>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -757,12 +758,12 @@ the other Python modules.</li>
         <li class="right" >
           <a href="install.html" title="Installing Cantera"
              >previous</a> |</li>
-        <li><a href="index.html">Cantera</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Cantera</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Chemical Equilibrium Example Program &mdash; Cantera 2.3.0a2 documentation</title>
+    <title>Chemical Equilibrium Example Program &#8212; Cantera 2.3.0a3 documentation</title>
     
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0a2',
+        VERSION:     '2.3.0a3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,18 +25,20 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.3.0a2 documentation" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="Cantera 2.3.0a3 documentation" href="../index.html" />
     <link rel="up" title="C++ Interface User’s Guide" href="index.html" />
     <link rel="next" title="Creating ThermoPhase, Kinetics, and Transport objects" href="factories.html" />
     <link rel="prev" title="A Very Simple C++ Program" href="simple-example.html" /> 
   </head>
-  <body>
+  <body role="document">
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -51,12 +53,12 @@
         <li class="right" >
           <a href="simple-example.html" title="A Very Simple C++ Program"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">Cantera</a> &raquo;</li>
-          <li><a href="index.html" accesskey="U">C++ Interface User&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">C++ Interface User&#8217;s Guide</a> &#187;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="simple-example.html"
@@ -64,22 +66,21 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="factories.html"
                         title="next chapter">Creating ThermoPhase, Kinetics, and Transport objects</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/cxx-guide/equil-example.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/cxx-guide/equil-example.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -88,11 +89,11 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="chemical-equilibrium-example-program">
 <h1>Chemical Equilibrium Example Program<a class="headerlink" href="#chemical-equilibrium-example-program" title="Permalink to this headline">¶</a></h1>
-<p>In the program below, the <tt class="xref py py-obj docutils literal"><span class="pre">equilibrate</span></tt> method is called to set the gas to a
+<p>In the program below, the <code class="xref py py-obj docutils literal"><span class="pre">equilibrate</span></code> method is called to set the gas to a
 state of chemical equilibrium, holding the temperature and pressure fixed.</p>
 <div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;cantera/thermo.h&quot;</span><span class="cp"></span>
 
@@ -117,31 +118,31 @@ state of chemical equilibrium, holding the temperature and pressure fixed.</p>
 </pre></div>
 </div>
 <p>The program output is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>      temperature            1500  K
-         pressure          202650  Pa
-          density        0.316828  kg/m^3
- mean mol. weight         19.4985  amu
+<div class="highlight-default"><div class="highlight"><pre><span></span>      <span class="n">temperature</span>            <span class="mi">1500</span>  <span class="n">K</span>
+         <span class="n">pressure</span>          <span class="mi">202650</span>  <span class="n">Pa</span>
+          <span class="n">density</span>        <span class="mf">0.316828</span>  <span class="n">kg</span><span class="o">/</span><span class="n">m</span><span class="o">^</span><span class="mi">3</span>
+ <span class="n">mean</span> <span class="n">mol</span><span class="o">.</span> <span class="n">weight</span>         <span class="mf">19.4985</span>  <span class="n">amu</span>
 
-                         1 kg            1 kmol
-                      -----------      ------------
-         enthalpy    -4.17903e+06       -8.149e+07     J
-  internal energy    -4.81866e+06       -9.396e+07     J
-          entropy         11283.3          2.2e+05     J/K
-   Gibbs function     -2.1104e+07       -4.115e+08     J
-heat capacity c_p         1893.06        3.691e+04     J/K
-heat capacity c_v         1466.65         2.86e+04     J/K
+                         <span class="mi">1</span> <span class="n">kg</span>            <span class="mi">1</span> <span class="n">kmol</span>
+                      <span class="o">-----------</span>      <span class="o">------------</span>
+         <span class="n">enthalpy</span>    <span class="o">-</span><span class="mf">4.17903e+06</span>       <span class="o">-</span><span class="mf">8.149e+07</span>     <span class="n">J</span>
+  <span class="n">internal</span> <span class="n">energy</span>    <span class="o">-</span><span class="mf">4.81866e+06</span>       <span class="o">-</span><span class="mf">9.396e+07</span>     <span class="n">J</span>
+          <span class="n">entropy</span>         <span class="mf">11283.3</span>          <span class="mf">2.2e+05</span>     <span class="n">J</span><span class="o">/</span><span class="n">K</span>
+   <span class="n">Gibbs</span> <span class="n">function</span>     <span class="o">-</span><span class="mf">2.1104e+07</span>       <span class="o">-</span><span class="mf">4.115e+08</span>     <span class="n">J</span>
+<span class="n">heat</span> <span class="n">capacity</span> <span class="n">c_p</span>         <span class="mf">1893.06</span>        <span class="mf">3.691e+04</span>     <span class="n">J</span><span class="o">/</span><span class="n">K</span>
+<span class="n">heat</span> <span class="n">capacity</span> <span class="n">c_v</span>         <span class="mf">1466.65</span>         <span class="mf">2.86e+04</span>     <span class="n">J</span><span class="o">/</span><span class="n">K</span>
 
-                          X                 Y          Chem. Pot. / RT
-                    -------------     ------------     ------------
-               H2       0.249996        0.0258462         -19.2954
-                H    6.22521e-06        3.218e-07         -9.64768
-                O    7.66933e-12      6.29302e-12         -26.3767
-               O2     7.1586e-12      1.17479e-11         -52.7533
-               OH    3.55353e-07      3.09952e-07         -36.0243
-              H2O       0.499998         0.461963          -45.672
-              HO2    7.30338e-15       1.2363e-14          -62.401
-             H2O2    3.95781e-13      6.90429e-13         -72.0487
-               AR       0.249999          0.51219         -21.3391
+                          <span class="n">X</span>                 <span class="n">Y</span>          <span class="n">Chem</span><span class="o">.</span> <span class="n">Pot</span><span class="o">.</span> <span class="o">/</span> <span class="n">RT</span>
+                    <span class="o">-------------</span>     <span class="o">------------</span>     <span class="o">------------</span>
+               <span class="n">H2</span>       <span class="mf">0.249996</span>        <span class="mf">0.0258462</span>         <span class="o">-</span><span class="mf">19.2954</span>
+                <span class="n">H</span>    <span class="mf">6.22521e-06</span>        <span class="mf">3.218e-07</span>         <span class="o">-</span><span class="mf">9.64768</span>
+                <span class="n">O</span>    <span class="mf">7.66933e-12</span>      <span class="mf">6.29302e-12</span>         <span class="o">-</span><span class="mf">26.3767</span>
+               <span class="n">O2</span>     <span class="mf">7.1586e-12</span>      <span class="mf">1.17479e-11</span>         <span class="o">-</span><span class="mf">52.7533</span>
+               <span class="n">OH</span>    <span class="mf">3.55353e-07</span>      <span class="mf">3.09952e-07</span>         <span class="o">-</span><span class="mf">36.0243</span>
+              <span class="n">H2O</span>       <span class="mf">0.499998</span>         <span class="mf">0.461963</span>          <span class="o">-</span><span class="mf">45.672</span>
+              <span class="n">HO2</span>    <span class="mf">7.30338e-15</span>       <span class="mf">1.2363e-14</span>          <span class="o">-</span><span class="mf">62.401</span>
+             <span class="n">H2O2</span>    <span class="mf">3.95781e-13</span>      <span class="mf">6.90429e-13</span>         <span class="o">-</span><span class="mf">72.0487</span>
+               <span class="n">AR</span>       <span class="mf">0.249999</span>          <span class="mf">0.51219</span>         <span class="o">-</span><span class="mf">21.3391</span>
 </pre></div>
 </div>
 <p>How can we tell that this is really a state of chemical equilibrium? Well, by
@@ -157,7 +158,7 @@ equilibrium state is a linear sum of contributions from each atom. We see that
 this is true in the output above&#8212;the chemical potential of H2 is exactly
 twice that of H, the chemical potential for OH is the sum of the values for H
 and O, the value for H2O2 is twice as large as the value for OH, and so on.</p>
-<p>We&#8217;ll see later how the <span>equilibrate</span>
+<p>We&#8217;ll see later how the <a class="reference external" href="../../../doxygen/html/group__equilfunctions.html#gaf658f6d2afb439d254b43166f270861e">equilibrate()</a>
 function really works.</p>
 </div>
 
@@ -167,7 +168,7 @@ function really works.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -182,13 +183,13 @@ function really works.</p>
         <li class="right" >
           <a href="simple-example.html" title="A Very Simple C++ Program"
              >previous</a> |</li>
-        <li><a href="../index.html">Cantera</a> &raquo;</li>
-          <li><a href="index.html" >C++ Interface User&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Cantera</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >C++ Interface User&#8217;s Guide</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
     </div>
   </body>
 </html>

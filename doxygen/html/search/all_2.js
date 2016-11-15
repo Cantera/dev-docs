@@ -25,7 +25,7 @@ var searchData=
   ['bstar_5ftable',['bstar_table',['../classCantera_1_1MMCollisionInt.html#ae287370155758494d6ea14ceaacfd896',1,'Cantera::MMCollisionInt']]],
   ['build',['build',['../classCantera_1_1XML__Node.html#a3907c249d8b1be86ebf921bc1c0e1036',1,'Cantera::XML_Node::build(const std::string &amp;filename)'],['../classCantera_1_1XML__Node.html#adfa31b91d0b67d708968afbfab71b173',1,'Cantera::XML_Node::build(std::istream &amp;f, const std::string &amp;filename=&quot;[unknown]&quot;)']]],
   ['buildsolutionfromxml',['buildSolutionFromXML',['../group__inputfiles.html#ga4e74133eafef0f135fda21a954bcd588',1,'Cantera']]],
-  ['buildsurfacearrhenius',['buildSurfaceArrhenius',['../classCantera_1_1InterfaceKinetics.html#a37734c49a5ce10c7b8b5a843483d48ad',1,'Cantera::InterfaceKinetics']]],
+  ['buildsurfacearrhenius',['buildSurfaceArrhenius',['../classCantera_1_1InterfaceKinetics.html#a931b479e8bdf7979006296d515556e62',1,'Cantera::InterfaceKinetics']]],
   ['bulk_5fdeposition',['BULK_DEPOSITION',['../group__solvesp__bulkFunc.html#gaa7b207ea4b9b00fe897eb275ace8afbb',1,'solveSP.h']]],
   ['bulk_5fetch',['BULK_ETCH',['../group__solvesp__bulkFunc.html#ga92b5e73562d02f6ccb5ae3d6182938b8',1,'solveSP.h']]],
   ['bulkkinetics',['BulkKinetics',['../classCantera_1_1BulkKinetics.html',1,'Cantera']]],

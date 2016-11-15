@@ -1,7 +1,7 @@
 var searchData=
 [
   ['kinetics',['Kinetics',['../classCantera_1_1Kinetics.html',1,'Cantera']]],
-  ['kinetics',['Kinetics',['../classCantera_1_1Kinetics.html#ae710a0c3e7bc970063f4cd30b0a6a5d9',1,'Cantera::Kinetics::Kinetics()'],['../classCantera_1_1Wall.html#a1b7cb4f0479f25e5e5efff940a571796',1,'Cantera::Wall::kinetics()']]],
+  ['kinetics',['Kinetics',['../classCantera_1_1Kinetics.html#ae710a0c3e7bc970063f4cd30b0a6a5d9',1,'Cantera::Kinetics::Kinetics()'],['../classCantera_1_1Kinetics.html#ad130fad166b32309ba5123f93a5aece0',1,'Cantera::Kinetics::Kinetics(const Kinetics &amp;)'],['../classCantera_1_1Wall.html#a1b7cb4f0479f25e5e5efff940a571796',1,'Cantera::Wall::kinetics()']]],
   ['kinetics_2ecpp',['Kinetics.cpp',['../Kinetics_8cpp.html',1,'']]],
   ['kinetics_2eh',['kinetics.h',['../kinetics_8h.html',1,'(Global Namespace)'],['../Kinetics_8h.html',1,'(Global Namespace)']]],
   ['kineticsfactory',['KineticsFactory',['../classCantera_1_1KineticsFactory.html',1,'Cantera']]],

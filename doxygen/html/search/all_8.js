@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['h',['h',['../classtpx_1_1Substance.html#a39d6d8ad0a51a776083a8d10d4dba5e5',1,'tpx::Substance::h()'],['../classtpx_1_1CarbonDioxide.html#ac4d9e8cde43646415e3b6cef79d54437',1,'tpx::CarbonDioxide::H()'],['../classtpx_1_1Heptane.html#ac4d9e8cde43646415e3b6cef79d54437',1,'tpx::Heptane::H()']]],
+  ['h',['H',['../classtpx_1_1CarbonDioxide.html#ac4d9e8cde43646415e3b6cef79d54437',1,'tpx::CarbonDioxide::H()'],['../classtpx_1_1Heptane.html#ac4d9e8cde43646415e3b6cef79d54437',1,'tpx::Heptane::H()'],['../classtpx_1_1Substance.html#a39d6d8ad0a51a776083a8d10d4dba5e5',1,'tpx::Substance::h()']]],
   ['h_5fmixing',['h_mixing',['../classCantera_1_1MaskellSolidSolnPhase.html#a159bae19d2beda2a6e62eb518f4d8778',1,'Cantera::MaskellSolidSolnPhase']]],
   ['hasattrib',['hasAttrib',['../classCantera_1_1XML__Node.html#a812e694afa41bef6f1dc85134f6acce9',1,'Cantera::XML_Node']]],
   ['haschargedspecies',['hasChargedSpecies',['../namespaceCantera.html#a70c91230cd190d46397c55a29d946471',1,'Cantera']]],
@@ -10,7 +10,7 @@ var searchData=
   ['heptane',['Heptane',['../classtpx_1_1Heptane.html',1,'tpx']]],
   ['heptane_2ecpp',['Heptane.cpp',['../Heptane_8cpp.html',1,'']]],
   ['heptane_2eh',['Heptane.h',['../Heptane_8h.html',1,'']]],
-  ['hf298ss',['Hf298SS',['../classCantera_1_1ThermoPhase.html#ab8d0f0b01d784e6caec2d1eda7a0dd3f',1,'Cantera::ThermoPhase']]],
+  ['hf298ss',['Hf298SS',['../classCantera_1_1ThermoPhase.html#a5f645fb92f80c8c50699ca2afb3780c9',1,'Cantera::ThermoPhase']]],
   ['hfc134a',['HFC134a',['../classtpx_1_1HFC134a.html',1,'tpx']]],
   ['hfc134a_2ecpp',['HFC134a.cpp',['../HFC134a_8cpp.html',1,'']]],
   ['hfc134a_2eh',['HFC134a.h',['../HFC134a_8h.html',1,'']]],
@@ -25,7 +25,7 @@ var searchData=
   ['hmwsoln_2eh',['HMWSoln.h',['../HMWSoln_8h.html',1,'']]],
   ['hmwsoln_5finput_2ecpp',['HMWSoln_input.cpp',['../HMWSoln__input_8cpp.html',1,'']]],
   ['hp',['hp',['../classtpx_1_1Substance.html#a0f52c6ebb68ff9b77d7128b327f5e260',1,'tpx::Substance']]],
-  ['hresid',['hresid',['../classCantera_1_1MixtureFugacityTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c',1,'Cantera::MixtureFugacityTP']]],
+  ['hresid',['hresid',['../classCantera_1_1MixtureFugacityTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c',1,'Cantera::MixtureFugacityTP::hresid()'],['../classCantera_1_1RedlichKwongMFTP.html#a39e84fa8ba6b6c1e8923c5a1f7b2a48c',1,'Cantera::RedlichKwongMFTP::hresid()']]],
   ['hydrogen',['hydrogen',['../classtpx_1_1hydrogen.html',1,'tpx']]],
   ['hydrogen_2ecpp',['Hydrogen.cpp',['../Hydrogen_8cpp.html',1,'']]],
   ['hydrogen_2eh',['Hydrogen.h',['../Hydrogen_8h.html',1,'']]],

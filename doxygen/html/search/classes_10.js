@@ -17,6 +17,7 @@ var searchData=
   ['squarematrix',['SquareMatrix',['../classCantera_1_1SquareMatrix.html',1,'Cantera']]],
   ['sri',['SRI',['../classCantera_1_1SRI.html',1,'Cantera']]],
   ['stflow',['StFlow',['../classCantera_1_1StFlow.html',1,'Cantera']]],
+  ['stickdata',['StickData',['../structCantera_1_1InterfaceKinetics_1_1StickData.html',1,'Cantera::InterfaceKinetics']]],
   ['stitbypdss',['STITbyPDSS',['../classCantera_1_1STITbyPDSS.html',1,'Cantera']]],
   ['stoichsubstance',['StoichSubstance',['../classCantera_1_1StoichSubstance.html',1,'Cantera']]],
   ['substance',['Substance',['../classtpx_1_1Substance.html',1,'tpx']]],

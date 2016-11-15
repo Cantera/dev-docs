@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>diffusion_flame.py &mdash; Cantera 2.3.0a2 documentation</title>
+    <title>diffusion_flame.py &#8212; Cantera 2.3.0a3 documentation</title>
     
     <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.3.0a2',
+        VERSION:     '2.3.0a3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,18 +25,17 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Cantera 2.3.0a2 documentation" href="../../index.html" />
-    <link rel="up" title="Index of Examples" href="../examples.html" />
-    <link rel="next" title="diffusion_flame_batch.py" href="onedim_diffusion_flame_batch.html" />
-    <link rel="prev" title="burner_flame.py" href="onedim_burner_flame.html" /> 
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Cantera 2.3.0a3 documentation" href="../../index.html" /> 
   </head>
-  <body>
+  <body role="document">
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../../index.html">
 <img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
 </div>
 
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,42 +44,27 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="onedim_diffusion_flame_batch.html" title="diffusion_flame_batch.py"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="onedim_burner_flame.html" title="burner_flame.py"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../../index.html">Cantera</a> &raquo;</li>
-          <li><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
-          <li><a href="../examples.html" accesskey="U">Index of Examples</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &#187;</li> 
       </ul>
     </div>
 
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="onedim_burner_flame.html"
-                        title="previous chapter">burner_flame.py</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="onedim_diffusion_flame_batch.html"
-                        title="next chapter">diffusion_flame_batch.py</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../../_sources/cython/examples/onedim_diffusion_flame.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/cython/examples/onedim_diffusion_flame.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -89,17 +73,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="diffusion-flame-py">
 <span id="py-example-diffusion-flame-py"></span><h1>diffusion_flame.py<a class="headerlink" href="#diffusion-flame-py" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">An opposed-flow ethane/air diffusion flame</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">cantera</span> <span class="kn">as</span> <span class="nn">ct</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cantera</span> <span class="k">as</span> <span class="nn">ct</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Input parameters</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>  <span class="c1"># pressure</span>
@@ -137,17 +121,17 @@
 <span class="c1"># Set the boundary emissivities</span>
 <span class="n">f</span><span class="o">.</span><span class="n">set_boundary_emissivities</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 <span class="c1"># Turn radiation off</span>
-<span class="n">f</span><span class="o">.</span><span class="n">radiation_enabled</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">f</span><span class="o">.</span><span class="n">radiation_enabled</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
 
 <span class="c1"># Solve the problem</span>
-<span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">show_solution</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;c2h6_diffusion.xml&#39;</span><span class="p">)</span>
 
 <span class="c1"># write the velocity, temperature, and mole fractions to a CSV file</span>
-<span class="n">f</span><span class="o">.</span><span class="n">write_csv</span><span class="p">(</span><span class="s1">&#39;c2h6_diffusion.csv&#39;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write_csv</span><span class="p">(</span><span class="s1">&#39;c2h6_diffusion.csv&#39;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">show_stats</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
@@ -159,8 +143,8 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.000</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">)</span>
 
 <span class="c1"># Turn on radiation and solve again</span>
-<span class="n">f</span><span class="o">.</span><span class="n">radiation_enabled</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">refine_grid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">radiation_enabled</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">refine_grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">show_solution</span><span class="p">()</span>
 
 <span class="c1"># Plot Temperature with radiation</span>
@@ -178,7 +162,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -187,20 +171,12 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="onedim_diffusion_flame_batch.html" title="diffusion_flame_batch.py"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="onedim_burner_flame.html" title="burner_flame.py"
-             >previous</a> |</li>
-        <li><a href="../../index.html">Cantera</a> &raquo;</li>
-          <li><a href="../index.html" >Python Module Documentation</a> &raquo;</li>
-          <li><a href="../examples.html" >Index of Examples</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &#187;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
     </div>
   </body>
 </html>
