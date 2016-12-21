@@ -107,10 +107,10 @@
 <div class="section" id="cti-files">
 <h2>CTI files<a class="headerlink" href="#cti-files" title="Permalink to this headline">¶</a></h2>
 <p>This is the typical way to create a Cantera &#8220;phase&#8221; object in Matlab:</p>
-<div class="highlight-matlab"><div class="highlight"><pre><span></span><span class="n">gas1</span> <span class="p">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">,</span> <span class="s">&#39;gri30&#39;</span><span class="p">);</span>
+<div class="highlight-matlab"><div class="highlight"><pre><span></span><span class="n">gas1</span> <span class="p">=</span> <span class="n">Solution</span><span class="p">(</span><span class="s">&#39;gri30.cti&#39;</span><span class="p">,</span> <span class="s">&#39;gri30&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Function <code class="docutils literal"><span class="pre">importPhase</span></code> constructs an object representing a phase of matter by
+<p>This statement constructs a <code class="docutils literal"><span class="pre">Solution</span></code> object representing a phase of matter by
 reading in attributes of the phase from a file, which in this case is
 <code class="docutils literal"><span class="pre">gri30.cti</span></code>. This file contains several phase specifications; the one we want
 here is <code class="docutils literal"><span class="pre">gri30</span></code>, which is specified by the second argument. This file contains
@@ -142,8 +142,8 @@ editor. See <a class="reference internal" href="../cti/index.html#sec-defining-p
 <p>A Cantera input file may contain more than one phase specification, or may
 contain specifications of interfaces (surfaces). Here we import definitions of
 two bulk phases and the interface between them from file <code class="docutils literal"><span class="pre">diamond.cti</span></code>:</p>
-<div class="highlight-matlab"><div class="highlight"><pre><span></span><span class="n">gas2</span> <span class="p">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;gas&#39;</span><span class="p">);</span>                   <span class="c">% a gas</span>
-<span class="n">diamond</span> <span class="p">=</span> <span class="n">importPhase</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;diamond&#39;</span><span class="p">);</span>             <span class="c">% bulk diamond</span>
+<div class="highlight-matlab"><div class="highlight"><pre><span></span><span class="n">gas2</span> <span class="p">=</span> <span class="n">Solution</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;gas&#39;</span><span class="p">);</span>                   <span class="c">% a gas</span>
+<span class="n">diamond</span> <span class="p">=</span> <span class="n">Solution</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;diamond&#39;</span><span class="p">);</span>             <span class="c">% bulk diamond</span>
 <span class="n">diamond_surf</span> <span class="p">=</span> <span class="n">importInterface</span><span class="p">(</span><span class="s">&#39;diamond.cti&#39;</span><span class="p">,</span> <span class="s">&#39;diamond_100&#39;</span><span class="p">,</span> <span class="c">...</span>
                                <span class="n">gas2</span><span class="p">,</span> <span class="n">diamond</span><span class="p">);</span>
 </pre></div>

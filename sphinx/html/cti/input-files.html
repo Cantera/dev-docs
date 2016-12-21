@@ -86,10 +86,10 @@
 <li><a class="reference internal" href="#error-handling">Error Handling</a><ul>
 <li><a class="reference internal" href="#syntax-errors">Syntax Errors</a></li>
 <li><a class="reference internal" href="#cantera-errors">Cantera Errors</a></li>
-<li><a class="reference internal" href="#converting-ck-format-files">Converting CK-format files</a><ul>
-<li><a class="reference internal" href="#debugging-common-errors-in-ck-files">Debugging common errors in CK files</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#converting-ck-format-files">Converting CK-format files</a><ul>
+<li><a class="reference internal" href="#debugging-common-errors-in-ck-files">Debugging common errors in CK files</a></li>
 </ul>
 </li>
 </ul>
@@ -402,7 +402,7 @@ activation energies:</p>
 imports a phase definition reads the input file, and uses the information there
 to construct the object representing the phase or interface in the
 application. While this is the net effect, it is actually a two-step
-process. When a function like importPhase is called to import a phase definition
+process. When a constructor like <code class="docutils literal"><span class="pre">Solution</span></code> is called to import a phase definition
 from a file, a preprocessor runs automatically to read the input file and create
 a string that contains the same information but in an XML-based format called
 CTML. After the preprocessor finishes, Cantera imports the phase definition from
@@ -597,8 +597,9 @@ as errors. You can also specify that reactions containing undeclared species
 (also usually an error) should be skipped. This allows you to very easily
 extract a portion of a large reaction mechanism, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</p>
 </div>
+</div>
 <div class="section" id="converting-ck-format-files">
-<span id="sec-ck-format-conversion"></span><h3>Converting CK-format files<a class="headerlink" href="#converting-ck-format-files" title="Permalink to this headline">¶</a></h3>
+<span id="sec-ck-format-conversion"></span><h2>Converting CK-format files<a class="headerlink" href="#converting-ck-format-files" title="Permalink to this headline">¶</a></h2>
 <p>Many existing reaction mechanism files are in &#8220;CK format,&#8221; by which we mean
 the input file format developed for use with the Chemkin-II software package
 as specified in the report describing the Chemkin software <a class="reference internal" href="#sand89" id="id1">[SAND89]</a>.</p>
@@ -646,7 +647,7 @@ processed. Some of these errors may be avoided by specifying the
 (e.g. duplicate transport or thermodynamic data) to be ignored. Other errors
 may be caused by incorrect formatting of lines in one or more of the input files.</p>
 <div class="section" id="debugging-common-errors-in-ck-files">
-<h4>Debugging common errors in CK files<a class="headerlink" href="#debugging-common-errors-in-ck-files" title="Permalink to this headline">¶</a></h4>
+<h3>Debugging common errors in CK files<a class="headerlink" href="#debugging-common-errors-in-ck-files" title="Permalink to this headline">¶</a></h3>
 <p>When <code class="docutils literal"><span class="pre">ck2cti</span></code> encounters an error, it attempts to print the surrounding
 information to help you to locate the error. Many of the most common errors
 are due to an inconsistency of the input files from their standard, as defined
@@ -874,7 +875,6 @@ Laboratories Report SAND89-8009 (1989).
 H. K. Moffat, Sandia National Laboratories Report SAND86-8246B (1998).</td></tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 </div>
