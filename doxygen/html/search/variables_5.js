@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['e',['E',['../structCantera_1_1CoverageDependency.html#a1eb62b8cb1f5e5f571d51179718e7d4c',1,'Cantera::CoverageDependency']]],
-  ['edge_5frxn',['EDGE_RXN',['../namespaceCantera.html#a69ea2e7380ff5d0bf95eb20490154c87',1,'Cantera']]],
-  ['efficiencies',['efficiencies',['../classCantera_1_1ThirdBody.html#a80a264cd6db5db7daf9ace16f437663c',1,'Cantera::ThirdBody']]],
-  ['elactive',['ElActive',['../classCantera_1_1VCS__PROB.html#a0b926100696a6a429641ba57a0b8db1e',1,'Cantera::VCS_PROB']]],
-  ['elambda',['elambda',['../classCantera_1_1HMWSoln.html#ae4b9cd86c3fb40cf00970b3d9eb677d7',1,'Cantera::HMWSoln']]],
-  ['elambda1',['elambda1',['../classCantera_1_1HMWSoln.html#aa3b9da1eecb57f9106aae5f74315b793',1,'Cantera::HMWSoln']]],
-  ['electcond',['electCond',['../classCantera_1_1LiquidTransportData.html#a16a5fed971cc945fa5598e7b7f2281ba',1,'Cantera::LiquidTransportData::electCond()'],['../classCantera_1_1LiquidTransportParams.html#a9a3d44f0d0603bd9ebb21bc464418492',1,'Cantera::LiquidTransportParams::electCond()']]],
-  ['electconductivity',['electConductivity',['../classCantera_1_1SolidTransportData.html#af6912ba49da7cb583f21854502694a23',1,'Cantera::SolidTransportData']]],
-  ['elementary_5frxn',['ELEMENTARY_RXN',['../namespaceCantera.html#a8df81c7ff3d9f97bc34701d3960e10e6',1,'Cantera']]],
-  ['elname',['ElName',['../classCantera_1_1VCS__PROB.html#a27412918733484481dfdb0d0e56621ff',1,'Cantera::VCS_PROB']]],
-  ['epsilon_5f0',['epsilon_0',['../group__physConstants.html#ga620b239773cfc5db63210835e09daaea',1,'Cantera']]],
-  ['errormessage',['errorMessage',['../classCantera_1_1Application_1_1Messages.html#a3dbe866f0eecc198d7e22e6f53dd5b57',1,'Cantera::Application::Messages']]],
-  ['ew_5foffset',['EW_Offset',['../classCantera_1_1PDSS__Water.html#a54c5137de9919fcfb8e65f4eb841154c',1,'Cantera::PDSS_Water::EW_Offset()'],['../classCantera_1_1WaterSSTP.html#a54c5137de9919fcfb8e65f4eb841154c',1,'Cantera::WaterSSTP::EW_Offset()']]],
-  ['expbrug_5f',['expBrug_',['../classCantera_1_1Tortuosity.html#a1526364824e3d4595e278a867256df83',1,'Cantera::Tortuosity']]]
+  ['factorvec',['factorVec',['../classCantera_1_1PDSS__IonsFromNeutral.html#a3fed159c0563a5c6c628fc4339065ecb',1,'Cantera::PDSS_IonsFromNeutral']]],
+  ['falloff',['falloff',['../classCantera_1_1FalloffReaction.html#af77f9d9a9c6d67915334e96f7ff2e030',1,'Cantera::FalloffReaction']]],
+  ['falloff_5fmutex',['falloff_mutex',['../classCantera_1_1FalloffFactory.html#a9c7013a35c24999e44da2955e6a947da',1,'Cantera::FalloffFactory']]],
+  ['falloff_5frxn',['FALLOFF_RXN',['../namespaceCantera.html#acc8d11c98a6b8576d7804b739e16cdcb',1,'Cantera']]],
+  ['film_5fresistivity',['film_resistivity',['../classCantera_1_1ElectrochemicalReaction.html#a525c65154f3e4559689ba2007df10225',1,'Cantera::ElectrochemicalReaction']]],
+  ['fm_5finvert_5fionforneutral',['fm_invert_ionForNeutral',['../classCantera_1_1IonsFromNeutralVPSSTP.html#ab2e29b46294b05fcc4c4239bdfba70e1',1,'Cantera::IonsFromNeutralVPSSTP']]],
+  ['fm_5fneutralmolec_5fions_5f',['fm_neutralMolec_ions_',['../classCantera_1_1IonsFromNeutralVPSSTP.html#a6fde02cc6801be376fd80557223bb715',1,'Cantera::IonsFromNeutralVPSSTP']]],
+  ['forcedstate_5f',['forcedState_',['../classCantera_1_1MixtureFugacityTP.html#ac65b87dd74775c3d9c70749887aa51be',1,'Cantera::MixtureFugacityTP']]],
+  ['formattedmessage_5f',['formattedMessage_',['../classCantera_1_1CanteraError.html#aada371d44ad1e6e946c9b95f31da5e12',1,'Cantera::CanteraError']]],
+  ['formmargules_5f',['formMargules_',['../classCantera_1_1MargulesVPSSTP.html#a9791be40ec7af06fe61e7f5c5e368e95',1,'Cantera::MargulesVPSSTP::formMargules_()'],['../classCantera_1_1MixedSolventElectrolyte.html#a9791be40ec7af06fe61e7f5c5e368e95',1,'Cantera::MixedSolventElectrolyte::formMargules_()'],['../classCantera_1_1PhaseCombo__Interaction.html#a9791be40ec7af06fe61e7f5c5e368e95',1,'Cantera::PhaseCombo_Interaction::formMargules_()']]],
+  ['formredlichkister_5f',['formRedlichKister_',['../classCantera_1_1RedlichKisterVPSSTP.html#a2ed9a07aa8564ad6e71a2025940a607a',1,'Cantera::RedlichKisterVPSSTP']]],
+  ['formtempmodel_5f',['formTempModel_',['../classCantera_1_1MargulesVPSSTP.html#a31d1c8b9a4ccfcda99571e009d4b614c',1,'Cantera::MargulesVPSSTP::formTempModel_()'],['../classCantera_1_1MixedSolventElectrolyte.html#a31d1c8b9a4ccfcda99571e009d4b614c',1,'Cantera::MixedSolventElectrolyte::formTempModel_()'],['../classCantera_1_1PhaseCombo__Interaction.html#a31d1c8b9a4ccfcda99571e009d4b614c',1,'Cantera::PhaseCombo_Interaction::formTempModel_()'],['../classCantera_1_1RedlichKisterVPSSTP.html#a31d1c8b9a4ccfcda99571e009d4b614c',1,'Cantera::RedlichKisterVPSSTP::formTempModel_()']]],
+  ['formulamatrixcol',['FormulaMatrixCol',['../classCantera_1_1vcs__SpeciesProperties.html#a3ad36af0877df70e982dd9fc489943a2',1,'Cantera::vcs_SpeciesProperties']]],
+  ['fullname',['fullName',['../structCantera_1_1atomicWeightData.html#a20dc5283470d1946c94e06c741e38f6d',1,'Cantera::atomicWeightData::fullName()'],['../structCantera_1_1isotopeWeightData.html#a20dc5283470d1946c94e06c741e38f6d',1,'Cantera::isotopeWeightData::fullName()']]]
 ];

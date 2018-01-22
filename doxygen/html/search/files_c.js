@@ -7,6 +7,5 @@ var searchData=
   ['nasapoly1_2eh',['NasaPoly1.h',['../NasaPoly1_8h.html',1,'']]],
   ['nasapoly2_2eh',['NasaPoly2.h',['../NasaPoly2_8h.html',1,'']]],
   ['nitrogen_2ecpp',['Nitrogen.cpp',['../Nitrogen_8cpp.html',1,'']]],
-  ['nitrogen_2eh',['Nitrogen.h',['../Nitrogen_8h.html',1,'']]],
-  ['numerics_2eh',['numerics.h',['../numerics_8h.html',1,'']]]
+  ['nitrogen_2eh',['Nitrogen.h',['../Nitrogen_8h.html',1,'']]]
 ];

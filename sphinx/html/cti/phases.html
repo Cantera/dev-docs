@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Phases and their Interfaces &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Phases and their Interfaces &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Elements and Species" href="species.html" />
     <link rel="prev" title="Working with Input Files" href="input-files.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -98,7 +94,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cti/phases.txt"
+      <li><a href="../_sources/cti/phases.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -123,7 +119,7 @@
   <div class="section" id="phases-and-their-interfaces">
 <span id="sec-phases"></span><h1>Phases and their Interfaces<a class="headerlink" href="#phases-and-their-interfaces" title="Permalink to this headline">¶</a></h1>
 <p>Now that we have covered how to write syntactically-correct input files, we can
-turn our attention to the content of the file. We&#8217;ll start by describing the
+turn our attention to the content of the file. We’ll start by describing the
 entries for phases of various types, and the look at how to define interfaces
 between phases.</p>
 <div class="section" id="phases">
@@ -135,7 +131,7 @@ below.  The problem involves three solid phases (A nickel anode, a
 platinum cathode, and an oxygen-conducting yttrium-stabilized zirconia
 electrolyte), and two different gas phases (a fuel mixture on the anode side,
 and air on the cathode side). The problem also involves a number of interfaces
-at which heterogeneous chemistry may occur&#8212;two gas-metal interfaces, two
+at which heterogeneous chemistry may occur—two gas-metal interfaces, two
 gas-electrolyte interfaces, and two metal-electrolyte interfaces.</p>
 <div class="figure align-center" id="id4">
 <img alt="../_images/sofc-phases.png" src="../_images/sofc-phases.png" />
@@ -182,10 +178,10 @@ or when defining an interface between phases.</p>
 field. This must be a string of element symbols separated by spaces. Each symbol
 must either match one listed in the database file <code class="docutils literal"><span class="pre">elements.xml</span></code>, or else
 match the symbol of an element entry defined elsewhere in the input file (See
-<a class="reference internal" href="species.html#sec-elements"><em>Elements</em></a>).</p>
+<a class="reference internal" href="species.html#sec-elements"><span class="std std-ref">Elements</span></a>).</p>
 <p>The <code class="docutils literal"><span class="pre">elements.xml</span></code> database contains most elements of the periodic table, with
 their natural-abundance atomic masses. It also contains a few isotopes (D, Tr),
-and an &#8220;element&#8221; for an electron (E). This pseudo-element can be used to specify
+and an “element” for an electron (E). This pseudo-element can be used to specify
 the composition of charged species. Note that two-character symbols should have
 an uppercase first letter, and a lowercase second letter (e.g. <code class="docutils literal"><span class="pre">Cu</span></code>, not <code class="docutils literal"><span class="pre">CU</span></code>).</p>
 <p>It should be noted that the order of the element symbols in the string
@@ -321,18 +317,18 @@ model. For now, the <code class="docutils literal"><span class="pre">kinetics</s
 <p>A <em>transport model</em> is a set of equations used to compute transport
 properties. For <a class="reference internal" href="classes.html#cantera.ctml_writer.ideal_gas" title="cantera.ctml_writer.ideal_gas"><code class="xref py py-class docutils literal"><span class="pre">ideal_gas</span></code></a> phases, multiple transport models are
 available; the one desired can be selected by assigning a string to this
-field. See <a class="reference internal" href="#sec-gas-transport-models"><em>Transport Models</em></a> for more details.</p>
+field. See <a class="reference internal" href="#sec-gas-transport-models"><span class="std std-ref">Transport Models</span></a> for more details.</p>
 </div>
 <div class="section" id="the-initial-state">
 <h4>The Initial State<a class="headerlink" href="#the-initial-state" title="Permalink to this headline">¶</a></h4>
 <p>The phase may be assigned an initial state to which it will be set when the
 definition is imported into an application and an object created. This is done
 by assigning field <code class="docutils literal"><span class="pre">initial_state</span></code> an embedded entry of type <a class="reference internal" href="classes.html#cantera.ctml_writer.state" title="cantera.ctml_writer.state"><code class="xref py py-class docutils literal"><span class="pre">state</span></code></a>,
-described in <a class="reference internal" href="#sec-state-entry"><em>The state entry</em></a>.</p>
-<p>Most of the attributes defined here are &#8220;immutable,&#8221; meaning that once the
+described in <a class="reference internal" href="#sec-state-entry"><span class="std std-ref">The state entry</span></a>.</p>
+<p>Most of the attributes defined here are “immutable,” meaning that once the
 definition has been imported into an application, they cannot be changed by the
 application. For example, it is not possible to change the elements or the
-species. The temperature, pressure, and composition, however, are &#8220;mutable&#8221;&#8212;
+species. The temperature, pressure, and composition, however, are “mutable”—
 they can be changed. This is why the field defining the state is called the
 <code class="docutils literal"><span class="pre">initial_state</span></code>; the object in the application will be initially set to this
 state, but it may be changed at any time.</p>
@@ -579,7 +575,7 @@ kinetics. Technical Report SAND89-8009, Sandia National Laboratories, 1989.</td>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>G. Dixon-Lewis. Flame structure and flame reaction kinetics,
 II: Transport phenomena in multicomponent systems. <em>Proc. Roy. Soc. A</em>,
-307:111&#8211;135, 1968.</td></tr>
+307:111–135, 1968.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="kee2003" rules="none">
@@ -618,8 +614,8 @@ Flow: Theory and Practice</em>. John Wiley and Sons, 2003.</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

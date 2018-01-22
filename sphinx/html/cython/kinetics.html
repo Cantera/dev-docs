@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Chemical Kinetics &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Chemical Kinetics &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Transport Properties" href="transport.html" />
     <link rel="prev" title="Thermodynamic Properties" href="thermo.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -103,7 +99,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cython/kinetics.txt"
+      <li><a href="../_sources/cython/kinetics.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -494,8 +490,8 @@ that it can be added to a <a class="reference internal" href="#cantera.Kinetics"
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>reactants</strong> &#8211; Value used to set <a class="reference internal" href="#cantera.Reaction.reactants" title="cantera.Reaction.reactants"><code class="xref py py-obj docutils literal"><span class="pre">reactants</span></code></a></li>
-<li><strong>products</strong> &#8211; Value used to set <a class="reference internal" href="#cantera.Reaction.products" title="cantera.Reaction.products"><code class="xref py py-obj docutils literal"><span class="pre">products</span></code></a></li>
+<li><strong>reactants</strong> – Value used to set <a class="reference internal" href="#cantera.Reaction.reactants" title="cantera.Reaction.reactants"><code class="xref py py-obj docutils literal"><span class="pre">reactants</span></code></a></li>
+<li><strong>products</strong> – Value used to set <a class="reference internal" href="#cantera.Reaction.products" title="cantera.Reaction.products"><code class="xref py py-obj docutils literal"><span class="pre">products</span></code></a></li>
 </ul>
 </td>
 </tr>
@@ -581,7 +577,7 @@ string.</p>
 <em class="property">static </em><code class="descname">listFromFile</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Reaction.listFromFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a list of Reaction objects from all of the reactions defined in a
 CTI or XML file.</p>
-<p>Directories on Cantera&#8217;s input file path will be searched for the
+<p>Directories on Cantera’s input file path will be searched for the
 specified file.</p>
 <p>In the case of an XML file, the <code class="docutils literal"><span class="pre">&lt;reactions&gt;</span></code> nodes are assumed to be
 children of the <code class="docutils literal"><span class="pre">&lt;reactionsData&gt;</span></code> node in a document with a <code class="docutils literal"><span class="pre">&lt;ctml&gt;</span></code>
@@ -679,7 +675,7 @@ pre-exponential factor.</p>
 <dt id="cantera.ThreeBodyReaction">
 <em class="property">class </em><code class="descclassname">cantera.</code><code class="descname">ThreeBodyReaction</code><span class="sig-paren">(</span><em>reactants=''</em>, <em>products=''</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ThreeBodyReaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ElementaryReaction</span></code></p>
-<p>A reaction with a non-reacting third body &#8220;M&#8221; that acts to add or remove
+<p>A reaction with a non-reacting third body “M” that acts to add or remove
 energy from the reacting species.</p>
 <dl class="attribute">
 <dt id="cantera.ThreeBodyReaction.default_efficiency">
@@ -949,8 +945,8 @@ classes.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>params</strong> &#8211; Not used for the &#8220;simple&#8221; falloff parameterization.</li>
-<li><strong>init</strong> &#8211; Used internally when wrapping <span>Falloff</span> objects returned from C++.</li>
+<li><strong>params</strong> – Not used for the “simple” falloff parameterization.</li>
+<li><strong>init</strong> – Used internally when wrapping <span>Falloff</span> objects returned from C++.</li>
 </ul>
 </td>
 </tr>
@@ -982,7 +978,7 @@ classes.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; An array of 3 or 4 parameters: <span class="math">\([a, T^{***}, T^*, T^{**}]\)</span> where
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> – An array of 3 or 4 parameters: <span class="math">\([a, T^{***}, T^*, T^{**}]\)</span> where
 the final parameter is optional (with a default value of 0).</td>
 </tr>
 </tbody>
@@ -1001,7 +997,7 @@ the final parameter is optional (with a default value of 0).</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; An array of 3 or 5 parameters: <span class="math">\([a, b, c, d, e]\)</span> where the last
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> – An array of 3 or 5 parameters: <span class="math">\([a, b, c, d, e]\)</span> where the last
 two parameters are optional (with default values of 1 and 0,
 respectively).</td>
 </tr>
@@ -1068,13 +1064,13 @@ return representations of the diagram, e.g. write_dot().</p>
 <dl class="attribute">
 <dt id="cantera.ReactionPathDiagram.dot_options">
 <code class="descname">dot_options</code><a class="headerlink" href="#cantera.ReactionPathDiagram.dot_options" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get/Set options for the &#8216;dot&#8217; program</p>
+<dd><p>Get/Set options for the ‘dot’ program</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.ReactionPathDiagram.flow_type">
 <code class="descname">flow_type</code><a class="headerlink" href="#cantera.ReactionPathDiagram.flow_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get/Set the way flows are drawn. Either &#8216;NetFlow&#8217; or &#8216;OneWayFlow&#8217;</p>
+<dd><p>Get/Set the way flows are drawn. Either ‘NetFlow’ or ‘OneWayFlow’</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1094,7 +1090,7 @@ diagram.</p>
 <dt id="cantera.ReactionPathDiagram.get_dot">
 <code class="descname">get_dot</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ReactionPathDiagram.get_dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a string containing the reaction path diagram formatted for use
-by Graphviz&#8217;s &#8216;dot&#8217; program.</p>
+by Graphviz’s ‘dot’ program.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1151,7 +1147,7 @@ plotted.</p>
 <dl class="method">
 <dt id="cantera.ReactionPathDiagram.write_dot">
 <code class="descname">write_dot</code><span class="sig-paren">(</span><em>self</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ReactionPathDiagram.write_dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the reaction path diagram formatted for use by Graphviz&#8217;s &#8216;dot&#8217;
+<dd><p>Write the reaction path diagram formatted for use by Graphviz’s ‘dot’
 program to the file named <em>filename</em>.</p>
 </dd></dl>
 
@@ -1187,8 +1183,8 @@ program to the file named <em>filename</em>.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

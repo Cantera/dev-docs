@@ -12,8 +12,6 @@ var searchData=
   ['liquidtransportdata_2eh',['LiquidTransportData.h',['../LiquidTransportData_8h.html',1,'']]],
   ['liquidtransportparams_2ecpp',['LiquidTransportParams.cpp',['../LiquidTransportParams_8cpp.html',1,'']]],
   ['liquidtransportparams_2eh',['LiquidTransportParams.h',['../LiquidTransportParams_8h.html',1,'']]],
-  ['lk_2ecpp',['lk.cpp',['../lk_8cpp.html',1,'']]],
-  ['lk_2eh',['lk.h',['../lk_8h.html',1,'']]],
   ['logger_2eh',['logger.h',['../logger_8h.html',1,'']]],
   ['ltpspecies_2ecpp',['LTPspecies.cpp',['../LTPspecies_8cpp.html',1,'']]],
   ['ltpspecies_2eh',['LTPspecies.h',['../LTPspecies_8h.html',1,'']]]

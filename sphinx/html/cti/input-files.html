@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Working with Input Files &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Working with Input Files &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Phases and their Interfaces" href="phases.html" />
     <link rel="prev" title="Introduction" href="intro.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -105,7 +101,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cti/input-files.txt"
+      <li><a href="../_sources/cti/input-files.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -135,13 +131,13 @@ mechanics of writing and processing input files.</p>
 <div class="section" id="input-file-syntax">
 <h2>Input File Syntax<a class="headerlink" href="#input-file-syntax" title="Permalink to this headline">¶</a></h2>
 <p>An input file consists of <em>entries</em> and <em>directives</em>, both of which have a
-syntax much like functions. An entry defines an object&#8212;for example, a
+syntax much like functions. An entry defines an object—for example, a
 reaction, or a species, or a phase. A directive sets options that affect how the
 entry parameters are interpreted, such as the default unit system, or how
 certain errors should be handled.</p>
-<p>Cantera&#8217;s input files follow the syntax rules for Python, so if you&#8217;re familiar
+<p>Cantera’s input files follow the syntax rules for Python, so if you’re familiar
 with Python syntax you already understand many of the details and can probably
-skip ahead to <a class="reference internal" href="#sec-dimensions"><em>Dimensional Values</em></a>.</p>
+skip ahead to <a class="reference internal" href="#sec-dimensions"><span class="std std-ref">Dimensional Values</span></a>.</p>
 <p>Entries have fields that can be assigned values. A species entry is shown below
 that has fields <em>name</em> and <em>atoms</em> (plus several others):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">species</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;C60&#39;</span><span class="p">,</span> <span class="n">atoms</span><span class="o">=</span><span class="s1">&#39;C:60&#39;</span><span class="p">)</span>
@@ -224,7 +220,7 @@ of species:</p>
 <h3>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h3>
 <p>A sequence of multiple items is specified by separating the items by commas and
 enclosing them in square brackets or parentheses. The individual items can have
-any type&#8212;strings, integers, floating-point numbers (or even entries or other
+any type—strings, integers, floating-point numbers (or even entries or other
 lists). Square brackets are often preferred, since parentheses are also used for
 other purposes in the input file, but either can be used:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="s1">&#39;J/mol/K&#39;</span><span class="p">)</span> <span class="c1"># these are</span>
@@ -288,10 +284,10 @@ the following to the CTI file:</p>
 </div>
 <div class="section" id="dimensional-values">
 <span id="sec-dimensions"></span><h2>Dimensional Values<a class="headerlink" href="#dimensional-values" title="Permalink to this headline">¶</a></h2>
-<p>Many fields have numerical values that represent dimensional quantities&#8212;a
+<p>Many fields have numerical values that represent dimensional quantities—a
 pressure, or a density, for example. If these are entered without specifying the
 units, the default units (set by the <a class="reference internal" href="classes.html#cantera.ctml_writer.units" title="cantera.ctml_writer.units"><code class="xref py py-class docutils literal"><span class="pre">units</span></code></a> directive described in
-<a class="reference internal" href="#sec-default-units"><em>Setting the Default Units</em></a>) will be used. However, it is also possible to specify
+<a class="reference internal" href="#sec-default-units"><span class="std std-ref">Setting the Default Units</span></a>) will be used. However, it is also possible to specify
 the units for each individual dimensional quantity (unless stated
 otherwise). All that is required is to group the value in parentheses or square
 brackets with a string specifying the units:</p>
@@ -306,7 +302,7 @@ brackets with a string specifying the units:</p>
 <li>Units in the denominator follow <code class="docutils literal"><span class="pre">/</span></code>.</li>
 <li>Units in the numerator follow <code class="docutils literal"><span class="pre">-</span></code>, except for the first one.</li>
 <li>Numerical exponents follow the unit string without a <code class="docutils literal"><span class="pre">^</span></code> character, and must
-be in the range 2&#8211;6. Negative values are not allowed.</li>
+be in the range 2–6. Negative values are not allowed.</li>
 </ol>
 <p>Examples of compound units:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0e20</span><span class="p">,</span> <span class="s1">&#39;cm6/mol2/s&#39;</span><span class="p">)</span> <span class="c1"># OK</span>
@@ -414,7 +410,7 @@ this CTML data.</p>
 for data files, and it is designed to be relatively easy to parse. This makes it
 possible for other applications to use Cantera CTML data files, without
 requiring the substantial chemical knowledge that would be required to use .cti
-files. For example, &#8220;web services&#8221; (small applications that run remotely over a
+files. For example, “web services” (small applications that run remotely over a
 network) are often designed to accept XML input data over the network, perform a
 calculation, and send the output in XML back across the network. Supporting an
 XML-based data file format facilitates using Cantera in web services or other
@@ -430,17 +426,17 @@ irreversibility are determined from the reaction equation. For example:</p>
 HCCO to produce one hydrogen atom and two carbon monoxide molecules. If <code class="docutils literal"><span class="pre">&lt;=&gt;</span></code>
 were replaced with <code class="docutils literal"><span class="pre">=&gt;</span></code>, then it would specify that the reaction should be
 treated as irreversible.</p>
-<p>Of course, this convention is not spelled out in the input file&#8212;the parser
-simply has to know it, and has to also know that a &#8220;reactant&#8221; appears on the
-left side of the equation, a &#8220;product&#8221; on the right, that the optional number in
+<p>Of course, this convention is not spelled out in the input file—the parser
+simply has to know it, and has to also know that a “reactant” appears on the
+left side of the equation, a “product” on the right, that the optional number in
 front of a species name is its stoichiometric coefficient (but if missing the
 value is one), etc. The preprocessor does know all this, but we cannot expect
 the same level of knowledge of chemical conventions by a generic XML parser.</p>
 <p>Therefore, in the CTML file, reactions are explicitly specified to be reversible
 or irreversible, and the reactants and products are explicitly listed with their
-stoichiometric coefficients. The XML file is, in a sense, a &#8220;dumbed-down&#8221;
+stoichiometric coefficients. The XML file is, in a sense, a “dumbed-down”
 version of the input file, spelling out explicitly things that are only implied
-in the input file syntax, so that &#8220;dumb&#8221; (i.e., easy to write) parsers can be
+in the input file syntax, so that “dumb” (i.e., easy to write) parsers can be
 used to read the data with minimal risk of misinterpretation.</p>
 <p>The reaction definition:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">reaction</span><span class="p">(</span> <span class="s2">&quot;O + HCCO &lt;=&gt; H + 2 CO&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.00000E+14</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -463,7 +459,7 @@ used to read the data with minimal risk of misinterpretation.</p>
 </div>
 <p>The CTML version is much more verbose, and would be much more tedious to write
 by hand, but is much easier to parse, particularly since it is not necessary to
-write a custom parser&#8212;virtually any standard XML parser, of which there are
+write a custom parser—virtually any standard XML parser, of which there are
 many, can be used to read the CTML data.</p>
 <p>So in general files that are easy for knowledgeable users (you) to write are more
 difficult for machines to parse, because they make use of high-level
@@ -506,14 +502,14 @@ concerned with CTML files at all.</p>
 <h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
 <p>During processing of an input file, errors may be encountered. These could be
 syntax errors, or could be ones that are flagged as errors by Cantera due to
-some apparent inconsistency in the data&#8212;an unphysical value, a species that
+some apparent inconsistency in the data—an unphysical value, a species that
 contains an undeclared element, a reaction that contains an undeclared species,
 missing species or element definitions, multiple definitions of elements,
 species, or reactions, and so on.</p>
 <div class="section" id="syntax-errors">
 <h3>Syntax Errors<a class="headerlink" href="#syntax-errors" title="Permalink to this headline">¶</a></h3>
 <p>Syntax errors are caught by the Python preprocessor, not by Cantera, and must be
-corrected before proceeding further.  Python prints a &#8220;traceback&#8221; that allows
+corrected before proceeding further.  Python prints a “traceback” that allows
 you to find the line that contains the error. For example, consider the
 following input file, which is intended to create a gas with the species and
 reactions of GRI-Mech 3.0, but has a misspelled the field name <code class="docutils literal"><span class="pre">reactions</span></code>:</p>
@@ -562,7 +558,7 @@ __init__() got an unexpected keyword argument &#39;reactionss&#39;
 <p>The top part of the error message shows the chain of functions that were called
 before the error was encountered. For the most part, these are internal Cantera
 functions not of direct concern here. The relevant part of this error message is
-the part starting with the &#8220;Cantera Error&#8221; heading, and specifically the
+the part starting with the “Cantera Error” heading, and specifically the
 contents of the <em>converter log</em> section. This message says that that on line 4
 of <code class="docutils literal"><span class="pre">gas.cti</span></code>, the the keyword argument <code class="docutils literal"><span class="pre">reactionss</span></code> was not
 recognized. Seeing this message, it is clear that the problem is that
@@ -570,7 +566,7 @@ recognized. Seeing this message, it is clear that the problem is that
 </div>
 <div class="section" id="cantera-errors">
 <h3>Cantera Errors<a class="headerlink" href="#cantera-errors" title="Permalink to this headline">¶</a></h3>
-<p>Now let&#8217;s consider the other class of errors&#8212;ones that Cantera, not Python,
+<p>Now let’s consider the other class of errors—ones that Cantera, not Python,
 detects. Continuing the example above, suppose that the misspelling is
 corrected, and the input file processed again. Again an error message results,
 but this time it is from Cantera:</p>
@@ -595,12 +591,12 @@ want to handle them. You can, for example, instruct Cantera to quietly skip
 importing any species that contain undeclared elements, instead of flagging them
 as errors. You can also specify that reactions containing undeclared species
 (also usually an error) should be skipped. This allows you to very easily
-extract a portion of a large reaction mechanism, as described in <a class="reference internal" href="phases.html#sec-phase-options"><em>Special Processing Options</em></a>.</p>
+extract a portion of a large reaction mechanism, as described in <a class="reference internal" href="phases.html#sec-phase-options"><span class="std std-ref">Special Processing Options</span></a>.</p>
 </div>
 </div>
 <div class="section" id="converting-ck-format-files">
 <span id="sec-ck-format-conversion"></span><h2>Converting CK-format files<a class="headerlink" href="#converting-ck-format-files" title="Permalink to this headline">¶</a></h2>
-<p>Many existing reaction mechanism files are in &#8220;CK format,&#8221; by which we mean
+<p>Many existing reaction mechanism files are in “CK format,” by which we mean
 the input file format developed for use with the Chemkin-II software package
 as specified in the report describing the Chemkin software <a class="reference internal" href="#sand89" id="id1">[SAND89]</a>.</p>
 <p>Cantera comes with a converter utility program <code class="docutils literal"><span class="pre">ck2cti</span></code> (or <code class="docutils literal"><span class="pre">ck2cti.py</span></code>)
@@ -637,7 +633,12 @@ specified as <code class="docutils literal"><span class="pre">--input</span></co
 </pre></div>
 </div>
 <p>If the output file name is not given, an output file with the same name as the
-input file, with the extension changed to &#8216;.cti&#8217;.</p>
+input file, with the extension changed to ‘.cti’.</p>
+<p>If the ck2cti script is not on your path but the Cantera Python module is,
+ck2cti can also be used by running:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">cantera</span><span class="o">.</span><span class="n">ck2cti</span> <span class="o">--</span><span class="nb">input</span><span class="o">=</span><span class="n">chem</span><span class="o">.</span><span class="n">inp</span> <span class="o">--</span><span class="n">thermo</span><span class="o">=</span><span class="n">therm</span><span class="o">.</span><span class="n">dat</span> <span class="o">--</span><span class="n">transport</span><span class="o">=</span><span class="n">tran</span><span class="o">.</span><span class="n">dat</span>
+</pre></div>
+</div>
 <p>An input file containing only species definitions (which can be referenced from
 phase definitions in other input files) can be created by specifying only a
 thermo file.</p>
@@ -694,15 +695,15 @@ filled with spaces.</p>
 <tbody valign="top">
 <tr class="row-even"><td>1</td>
 <td>Species Name</td>
-<td>1&#8211;18</td>
+<td>1–18</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>Date (Optional)</td>
-<td>19&#8211;24</td>
+<td>19–24</td>
 </tr>
 <tr class="row-even"><td>1</td>
 <td>Atomic Symbols and formula</td>
-<td>25&#8211;44</td>
+<td>25–44</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>Phase of species (S, L, G)</td>
@@ -710,19 +711,19 @@ filled with spaces.</p>
 </tr>
 <tr class="row-even"><td>1</td>
 <td>Low temperature</td>
-<td>46&#8211;55</td>
+<td>46–55</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>High temperature</td>
-<td>56&#8211;65</td>
+<td>56–65</td>
 </tr>
 <tr class="row-even"><td>1</td>
 <td>Common temperature</td>
-<td>66&#8211;73</td>
+<td>66–73</td>
 </tr>
 <tr class="row-odd"><td>1</td>
 <td>Additional Atomic Symbols</td>
-<td>74&#8211;78</td>
+<td>74–78</td>
 </tr>
 <tr class="row-even"><td>1</td>
 <td>The integer <code class="docutils literal"><span class="pre">1</span></code></td>
@@ -732,7 +733,7 @@ filled with spaces.</p>
 <td>Coefficients <span class="math">\(a_1\)</span>
 to <span class="math">\(a_5\)</span> for the upper
 temperature interval</td>
-<td>1&#8211;75</td>
+<td>1–75</td>
 </tr>
 <tr class="row-even"><td>2</td>
 <td>The integer <code class="docutils literal"><span class="pre">2</span></code></td>
@@ -743,7 +744,7 @@ temperature interval</td>
 for the upper temperature interval,
 and <span class="math">\(a_1,\ a_2,\ a_3\)</span> for
 the lower temperature interval</td>
-<td>1&#8211;75</td>
+<td>1–75</td>
 </tr>
 <tr class="row-even"><td>3</td>
 <td>The integer <code class="docutils literal"><span class="pre">3</span></code></td>
@@ -753,7 +754,7 @@ the lower temperature interval</td>
 <td>Coefficients <span class="math">\(a_4\)</span> through
 <span class="math">\(a_7\)</span> for the lower
 temperature interval</td>
-<td>1&#8211;60</td>
+<td>1–60</td>
 </tr>
 <tr class="row-even"><td>4</td>
 <td>The integer <code class="docutils literal"><span class="pre">4</span></code></td>
@@ -765,23 +766,23 @@ temperature interval</td>
 to the species in the thermodynamic data must be the same as the species
 name defined in the <code class="docutils literal"><span class="pre">SPECIES</span></code> section. If the species name is shorter
 than 18 characters, the rest of the characters should be filled by spaces.
-The next six columns (columns 19&#8211;24) are typically used to write a date;
-they are not used further. The next 20 columns (25&#8211;44) are used to
+The next six columns (columns 19–24) are typically used to write a date;
+they are not used further. The next 20 columns (25–44) are used to
 specify the elemental composition of the species. In column 45, the phase
 of the species (<code class="docutils literal"><span class="pre">S</span></code>, <code class="docutils literal"><span class="pre">L</span></code>, or <code class="docutils literal"><span class="pre">G</span></code> for solid, liquid, or gas
 respectively) should be specified. The next 28 columns are reserved for
 the temperatures that delimit the ranges of the polynomials specified on
 the next several lines. The first two temperatures have a width of 10
-columns each (46&#8211;55 and 56&#8211;65), and represent the lowest temperature and
+columns each (46–55 and 56–65), and represent the lowest temperature and
 highest temperature for which the polynomials are valid. The last
-temperature has a width of 8 columns (66&#8211;73) and is the &#8220;common&#8221;
+temperature has a width of 8 columns (66–73) and is the “common”
 temperature, where the switch from low to high occurs. The next 5 columns
-(74&#8211;78) are reserved for atomic symbols and are usually left blank for
+(74–78) are reserved for atomic symbols and are usually left blank for
 the default behavior. Column 79 is blank and finally, the row is ended in
 column 80 with the integer <code class="docutils literal"><span class="pre">1</span></code>.</p>
 <p>The next three lines of the thermodynamic entry have a similar format.
 They contain the coefficients of the polynomial described in
-<a class="reference internal" href="species.html#sec-thermo-models"><em>Thermodynamic Property Models</em></a> for the NASA 7-coefficient polynomial formulation.
+<a class="reference internal" href="species.html#sec-thermo-models"><span class="std std-ref">Thermodynamic Property Models</span></a> for the NASA 7-coefficient polynomial formulation.
 The second row of the thermo entry (the first after the information row)
 contains the first five coefficients that apply the the temperature range
 between the midpoint and the upper limit. 15 columns are alloted for each
@@ -789,13 +790,13 @@ coefficient (for a total of 75 columns), with no spaces between them.
 Although the entry above shows spaces between positive coefficients, it is
 to be noted that this is done only for formatting consistency with other
 lines that contain negative numbers. After the coefficients, four spaces
-in columns 76&#8211;79 are followed by the integer <code class="docutils literal"><span class="pre">2</span></code> in column 80. On the
+in columns 76–79 are followed by the integer <code class="docutils literal"><span class="pre">2</span></code> in column 80. On the
 next line, the last two coefficients for the upper temperature range and
 the first three coefficients for the lower temperature range are
-specified. Once again, this takes up the first 75 columns, columns 76&#8211;79
+specified. Once again, this takes up the first 75 columns, columns 76–79
 are blank, and the integer <code class="docutils literal"><span class="pre">3</span></code> is in column 80. Finally, on the last
 line of a particular entry, the last four coefficients of the lower
-temperature range are specified in columns 1&#8211;60, 19 blank spaces are
+temperature range are specified in columns 1–60, 19 blank spaces are
 present, and the integer <code class="docutils literal"><span class="pre">4</span></code> is in column 80. The 19 blank spaces in the
 last line are part of the standard. However, since the original Chemkin
 interpreter ignored those spaces, researchers began using that space to
@@ -905,8 +906,8 @@ H. K. Moffat, Sandia National Laboratories Report SAND86-8246B (1998).</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

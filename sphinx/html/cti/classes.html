@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>CTI Class Reference &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>CTI Class Reference &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Example: Hydrogen Combustion" href="example-combustion.html" />
     <link rel="prev" title="Reactions" href="reactions.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -85,7 +81,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cti/classes.txt"
+      <li><a href="../_sources/cti/classes.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -120,13 +116,13 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>length</strong> &#8211; The default units for length. Default: <code class="docutils literal"><span class="pre">'m'</span></code></li>
-<li><strong>mass</strong> &#8211; The default units for mass. Default: <code class="docutils literal"><span class="pre">'kg'</span></code></li>
-<li><strong>quantity</strong> &#8211; The default units to specify number of molecules. Default: <code class="docutils literal"><span class="pre">'kmol'</span></code></li>
-<li><strong>time</strong> &#8211; The default units for time. Default: <code class="docutils literal"><span class="pre">'s'</span></code></li>
-<li><strong>energy</strong> &#8211; The default units for energies. Default: <code class="docutils literal"><span class="pre">'J'</span></code></li>
-<li><strong>act_energy</strong> &#8211; The default units for activation energies. Default: <code class="docutils literal"><span class="pre">'K'</span></code></li>
-<li><strong>pressure</strong> &#8211; The default units for pressure. Default: <code class="docutils literal"><span class="pre">'Pa'</span></code></li>
+<li><strong>length</strong> – The default units for length. Default: <code class="docutils literal"><span class="pre">'m'</span></code></li>
+<li><strong>mass</strong> – The default units for mass. Default: <code class="docutils literal"><span class="pre">'kg'</span></code></li>
+<li><strong>quantity</strong> – The default units to specify number of molecules. Default: <code class="docutils literal"><span class="pre">'kmol'</span></code></li>
+<li><strong>time</strong> – The default units for time. Default: <code class="docutils literal"><span class="pre">'s'</span></code></li>
+<li><strong>energy</strong> – The default units for energies. Default: <code class="docutils literal"><span class="pre">'J'</span></code></li>
+<li><strong>act_energy</strong> – The default units for activation energies. Default: <code class="docutils literal"><span class="pre">'K'</span></code></li>
+<li><strong>pressure</strong> – The default units for pressure. Default: <code class="docutils literal"><span class="pre">'Pa'</span></code></li>
 </ul>
 </td>
 </tr>
@@ -143,8 +139,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>species</strong> &#8211; Set to <code class="docutils literal"><span class="pre">'yes'</span></code> (default) or <code class="docutils literal"><span class="pre">'no'</span></code>.</li>
-<li><strong>reactions</strong> &#8211; Set to <code class="docutils literal"><span class="pre">'yes'</span></code> (default) or <code class="docutils literal"><span class="pre">'no'</span></code>. This controls duplicate reaction checks
+<li><strong>species</strong> – Set to <code class="docutils literal"><span class="pre">'yes'</span></code> (default) or <code class="docutils literal"><span class="pre">'no'</span></code>.</li>
+<li><strong>reactions</strong> – Set to <code class="docutils literal"><span class="pre">'yes'</span></code> (default) or <code class="docutils literal"><span class="pre">'no'</span></code>. This controls duplicate reaction checks
 and validation of rate expressions for some reaction types.</li>
 </ul>
 </td>
@@ -164,14 +160,14 @@ or interface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>temperature</strong> &#8211; The temperature.</li>
-<li><strong>pressure</strong> &#8211; The pressure.</li>
-<li><strong>density</strong> &#8211; The density. Cannot be specified if the phase is incompressible.</li>
-<li><strong>mole_fractions</strong> &#8211; A string specifying the species mole fractions. Unspecified species
+<li><strong>temperature</strong> – The temperature.</li>
+<li><strong>pressure</strong> – The pressure.</li>
+<li><strong>density</strong> – The density. Cannot be specified if the phase is incompressible.</li>
+<li><strong>mole_fractions</strong> – A string specifying the species mole fractions. Unspecified species
 are set to zero.</li>
-<li><strong>mass_fractions</strong> &#8211; A string specifying the species mass fractions. Unspecified species
+<li><strong>mass_fractions</strong> – A string specifying the species mass fractions. Unspecified species
 are set to zero.</li>
-<li><strong>coverages</strong> &#8211; A string specifying the species coverages. Unspecified species are
+<li><strong>coverages</strong> – A string specifying the species coverages. Unspecified species are
 set to zero. Can only be specified for interfaces.</li>
 </ul>
 </td>
@@ -193,22 +189,22 @@ set to zero. Can only be specified for interfaces.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; A string to identify the phase. Must be unique among the phase
+<li><strong>name</strong> – A string to identify the phase. Must be unique among the phase
 names within the file.</li>
-<li><strong>elements</strong> &#8211; The elements. A string of element symbols.</li>
-<li><strong>species</strong> &#8211; The species. A string or sequence of strings in the format
-described in <a class="reference internal" href="phases.html#sec-defining-species"><em>Defining the Species</em></a>.</li>
-<li><strong>note</strong> &#8211; A user-defined comment. Not evaluated by Cantera itself.</li>
-<li><strong>reactions</strong> &#8211; The homogeneous reactions. If omitted, no reactions will be
+<li><strong>elements</strong> – The elements. A string of element symbols.</li>
+<li><strong>species</strong> – The species. A string or sequence of strings in the format
+described in <a class="reference internal" href="phases.html#sec-defining-species"><span class="std std-ref">Defining the Species</span></a>.</li>
+<li><strong>note</strong> – A user-defined comment. Not evaluated by Cantera itself.</li>
+<li><strong>reactions</strong> – The homogeneous reactions. If omitted, no reactions will be
 included. A string or sequence of strings in the format described
-in <a class="reference internal" href="phases.html#sec-declaring-reactions"><em>Declaring the Reactions</em></a>. This field is not allowed for
+in <a class="reference internal" href="phases.html#sec-declaring-reactions"><span class="std std-ref">Declaring the Reactions</span></a>. This field is not allowed for
 stoichiometric_solid and stoichiometric_liquid entries.</li>
-<li><strong>kinetics</strong> &#8211; The kinetics model. Optional; if omitted, the default model for the
+<li><strong>kinetics</strong> – The kinetics model. Optional; if omitted, the default model for the
 phase type will be used.</li>
-<li><strong>transport</strong> &#8211; The transport property model. Optional. If omitted, transport
+<li><strong>transport</strong> – The transport property model. Optional. If omitted, transport
 property calculation will be disabled.</li>
-<li><strong>initial_state</strong> &#8211; Initial thermodynamic state, specified with an embedded state entry.</li>
-<li><strong>options</strong> &#8211; Special processing options. Optional.</li>
+<li><strong>initial_state</strong> – Initial thermodynamic state, specified with an embedded state entry.</li>
+<li><strong>options</strong> – Special processing options. Optional.</li>
 </ul>
 </td>
 </tr>
@@ -228,10 +224,10 @@ following modifications:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>kinetics</strong> &#8211; The kinetics model. Usually this field is omitted, in which case
+<li><strong>kinetics</strong> – The kinetics model. Usually this field is omitted, in which case
 kinetics model GasKinetics, appropriate for reactions in ideal gas
 mixtures, is used.</li>
-<li><strong>transport</strong> &#8211; The transport property model. One of the strings <code class="docutils literal"><span class="pre">'none'</span></code>,
+<li><strong>transport</strong> – The transport property model. One of the strings <code class="docutils literal"><span class="pre">'none'</span></code>,
 <code class="docutils literal"><span class="pre">'multi'</span></code>, or <code class="docutils literal"><span class="pre">'mix'</span></code>. Default: <code class="docutils literal"><span class="pre">'none'</span></code>.</li>
 </ul>
 </td>
@@ -318,11 +314,11 @@ following modifications:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>reactions</strong> &#8211; The heterogeneous reactions at this interface. If omitted, no
+<li><strong>reactions</strong> – The heterogeneous reactions at this interface. If omitted, no
 reactions will be included. A string or sequence of strings in the
-format described in <a class="reference internal" href="phases.html#sec-declaring-reactions"><em>Declaring the Reactions</em></a>.</li>
-<li><strong>site_density</strong> &#8211; The number of adsorption sites per unit area.</li>
-<li><strong>phases</strong> &#8211; A string listing the bulk phases that participate in reactions
+format described in <a class="reference internal" href="phases.html#sec-declaring-reactions"><span class="std std-ref">Declaring the Reactions</span></a>.</li>
+<li><strong>site_density</strong> – The number of adsorption sites per unit area.</li>
+<li><strong>phases</strong> – A string listing the bulk phases that participate in reactions
 at this interface.</li>
 </ul>
 </td>
@@ -351,8 +347,8 @@ at this interface.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>symbol</strong> &#8211; The symbol for the element or isotope.</li>
-<li><strong>atomic_mass</strong> &#8211; The atomic mass in amu.</li>
+<li><strong>symbol</strong> – The symbol for the element or isotope.</li>
+<li><strong>atomic_mass</strong> – The atomic mass in amu.</li>
 </ul>
 </td>
 </tr>
@@ -370,28 +366,28 @@ at this interface.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; The species name (or formula). The name may be arbitrarily long,
+<li><strong>name</strong> – The species name (or formula). The name may be arbitrarily long,
 although usually a relatively short, abbreviated name is most
 convenient. Required parameter.</li>
-<li><strong>atoms</strong> &#8211; The atomic composition, specified by a string containing
+<li><strong>atoms</strong> – The atomic composition, specified by a string containing
 space-delimited &lt;element&gt;:&lt;atoms&gt; pairs. The number of atoms may be
 either an integer or a floating-point number.</li>
-<li><strong>note</strong> &#8211; A user-defined comment. Not evaluated by Cantera itself.</li>
-<li><strong>thermo</strong> &#8211; The parameterization to use to compute the reference-state
+<li><strong>note</strong> – A user-defined comment. Not evaluated by Cantera itself.</li>
+<li><strong>thermo</strong> – The parameterization to use to compute the reference-state
 thermodynamic properties. This must be one of the entry types
-described in <a class="reference internal" href="species.html#sec-thermo-models"><em>Thermodynamic Property Models</em></a>. To specify multiple
+described in <a class="reference internal" href="species.html#sec-thermo-models"><span class="std std-ref">Thermodynamic Property Models</span></a>. To specify multiple
 parameterizations, each for a different temperature range,
 group them in parentheses.</li>
-<li><strong>transport</strong> &#8211; An entry specifying parameters to compute this species&#8217;
+<li><strong>transport</strong> – An entry specifying parameters to compute this species’
 contribution to the transport properties. This must be one of the
-entry types described in <a class="reference internal" href="species.html#sec-species-transport-models"><em>Species Transport Coefficients</em></a>, and
+entry types described in <a class="reference internal" href="species.html#sec-species-transport-models"><span class="std std-ref">Species Transport Coefficients</span></a>, and
 must be consistent with the transport model of the phase into which
 the species is imported. To specify parameters for multiple
 transport models, group the entries in parentheses.</li>
-<li><strong>size</strong> &#8211; The species &#8220;size&#8221;. Currently used only for surface species,
+<li><strong>size</strong> – The species “size”. Currently used only for surface species,
 where it represents the number of sites occupied.</li>
-<li><strong>charge</strong> &#8211; The charge, in multiples of <span class="math">\(|e|\)</span>. If not specified, the
-charge will be calculated from the number of &#8220;atoms&#8221; of element
+<li><strong>charge</strong> – The charge, in multiples of <span class="math">\(|e|\)</span>. If not specified, the
+charge will be calculated from the number of “atoms” of element
 <code class="docutils literal"><span class="pre">E</span></code>, which represents an electron.</li>
 </ul>
 </td>
@@ -421,11 +417,11 @@ chemical potentials vs. T.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Trange</strong> &#8211; The temperature range over which the parameterization is valid.
+<li><strong>Trange</strong> – The temperature range over which the parameterization is valid.
 This must be entered as a sequence of two temperature values.
 Required.</li>
-<li><strong>coeffs</strong> &#8211; List of seven coefficients <span class="math">\((a_0, \ldots , a_6)\)</span></li>
-<li><strong>p0</strong> &#8211; The reference-state pressure, usually 1 atm or 1 bar. If omitted,
+<li><strong>coeffs</strong> – List of seven coefficients <span class="math">\((a_0, \ldots , a_6)\)</span></li>
+<li><strong>p0</strong> – The reference-state pressure, usually 1 atm or 1 bar. If omitted,
 the default value is used, which is set by the <code class="docutils literal"><span class="pre">standard_pressure</span></code>
 directive.</li>
 </ul>
@@ -445,11 +441,11 @@ directive.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Trange</strong> &#8211; The temperature range over which the parameterization is valid.
+<li><strong>Trange</strong> – The temperature range over which the parameterization is valid.
 This must be entered as a sequence of two temperature values.
 Required.</li>
-<li><strong>coeffs</strong> &#8211; List of nine coefficients <span class="math">\((a_0, \ldots , a_8)\)</span></li>
-<li><strong>p0</strong> &#8211; The reference-state pressure, usually 1 atm or 1 bar. If omitted,
+<li><strong>coeffs</strong> – List of nine coefficients <span class="math">\((a_0, \ldots , a_8)\)</span></li>
+<li><strong>p0</strong> – The reference-state pressure, usually 1 atm or 1 bar. If omitted,
 the default value is used, which is set by the <code class="docutils literal"><span class="pre">standard_pressure</span></code>
 directive.</li>
 </ul>
@@ -469,11 +465,11 @@ directive.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Trange</strong> &#8211; The temperature range over which the parameterization is valid.
+<li><strong>Trange</strong> – The temperature range over which the parameterization is valid.
 This must be entered as a sequence of two temperature values.
 Required input.</li>
-<li><strong>coeffs</strong> &#8211; Sequence of seven coefficients <span class="math">\((A, \ldots ,G)\)</span></li>
-<li><strong>p0</strong> &#8211; The reference-state pressure, usually 1 atm or 1 bar. If omitted,
+<li><strong>coeffs</strong> – Sequence of seven coefficients <span class="math">\((A, \ldots ,G)\)</span></li>
+<li><strong>p0</strong> – The reference-state pressure, usually 1 atm or 1 bar. If omitted,
 the default value set by the <code class="docutils literal"><span class="pre">standard_pressure</span></code> directive is used.</li>
 </ul>
 </td>
@@ -500,10 +496,10 @@ vibrational frequencies.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>t0</strong> &#8211; Temperature parameter T0. Default: 298.15 K.</li>
-<li><strong>cp0</strong> &#8211; Reference-state molar heat capacity (constant). Default: 0.0.</li>
-<li><strong>h0</strong> &#8211; Reference-state molar enthalpy at temperature T0. Default: 0.0.</li>
-<li><strong>s0</strong> &#8211; Reference-state molar entropy at temperature T0. Default: 0.0.</li>
+<li><strong>t0</strong> – Temperature parameter T0. Default: 298.15 K.</li>
+<li><strong>cp0</strong> – Reference-state molar heat capacity (constant). Default: 0.0.</li>
+<li><strong>h0</strong> – Reference-state molar enthalpy at temperature T0. Default: 0.0.</li>
+<li><strong>s0</strong> – Reference-state molar entropy at temperature T0. Default: 0.0.</li>
 </ul>
 </td>
 </tr>
@@ -524,15 +520,15 @@ vibrational frequencies.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>geom</strong> &#8211; A string specifying the molecular geometry. One of <code class="docutils literal"><span class="pre">atom</span></code>,
+<li><strong>geom</strong> – A string specifying the molecular geometry. One of <code class="docutils literal"><span class="pre">atom</span></code>,
 <code class="docutils literal"><span class="pre">linear</span></code>, or <code class="docutils literal"><span class="pre">nonlinear</span></code>. Required.</li>
-<li><strong>diam</strong> &#8211; The Lennard-Jones collision diameter in Angstroms. Required.</li>
-<li><strong>well_depth</strong> &#8211; The Lennard-Jones well depth in Kelvin. Required.</li>
-<li><strong>dipole</strong> &#8211; The permanent dipole moment in Debye. Default: 0.0</li>
-<li><strong>polar</strong> &#8211; The polarizability in A^3. Default: 0.0</li>
-<li><strong>rot_relax</strong> &#8211; The rotational relaxation collision number at 298 K. Dimensionless.
+<li><strong>diam</strong> – The Lennard-Jones collision diameter in Angstroms. Required.</li>
+<li><strong>well_depth</strong> – The Lennard-Jones well depth in Kelvin. Required.</li>
+<li><strong>dipole</strong> – The permanent dipole moment in Debye. Default: 0.0</li>
+<li><strong>polar</strong> – The polarizability in A^3. Default: 0.0</li>
+<li><strong>rot_relax</strong> – The rotational relaxation collision number at 298 K. Dimensionless.
 Default: 0.0</li>
-<li><strong>w_ac</strong> &#8211; Pitzer&#8217;s acentric factor.  Dimensionless.
+<li><strong>w_ac</strong> – Pitzer’s acentric factor.  Dimensionless.
 Default: 0.0</li>
 </ul>
 </td>
@@ -555,20 +551,20 @@ and mass-action kinetics.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
-<li><strong>kf</strong> &#8211; The rate coefficient for the forward direction. If a sequence of
+<li><strong>equation</strong> – A string specifying the chemical equation.</li>
+<li><strong>kf</strong> – The rate coefficient for the forward direction. If a sequence of
 three numbers is given, these will be interpreted as [A, b, E] in
 the modified Arrhenius function <span class="math">\(A T^b exp(-E/\hat{R}T)\)</span>.</li>
-<li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
+<li><strong>id</strong> – An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>order</strong> &#8211; Override the default reaction orders implied by the reactant
+<li><strong>order</strong> – Override the default reaction orders implied by the reactant
 stoichiometric coefficients. Given as a string of key:value pairs,
 e.g. <code class="docutils literal"><span class="pre">&quot;CH4:0.25</span> <span class="pre">O2:1.5&quot;</span></code>.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in
-<a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>. May be one or more (as a list) of the
-following: &#8216;skip&#8217;, &#8216;duplicate&#8217;, &#8216;negative_A&#8217;, &#8216;negative_orders&#8217;,
-&#8216;nonreactant_orders&#8217;.</li>
+<li><strong>options</strong> – Processing options, as described in
+<a class="reference internal" href="reactions.html#sec-reaction-options"><span class="std std-ref">Options</span></a>. May be one or more (as a list) of the
+following: ‘skip’, ‘duplicate’, ‘negative_A’, ‘negative_orders’,
+‘nonreactant_orders’.</li>
 </ul>
 </td>
 </tr>
@@ -592,13 +588,13 @@ used internally by Cantera, taking into account the reaction order.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>A</strong> &#8211; The pre-exponential coefficient. Required input. If entered without
+<li><strong>A</strong> – The pre-exponential coefficient. Required input. If entered without
 units, the units will be computed considering all factors that
 affect the units. The resulting units string is written to the CTML
 file individually for each reaction pre-exponential coefficient.</li>
-<li><strong>b</strong> &#8211; The temperature exponent. Dimensionless. Default: 0.0.</li>
-<li><strong>E</strong> &#8211; Activation energy. Default: 0.0.</li>
-<li><strong>coverage</strong> &#8211; For a single coverage dependency, a list with four
+<li><strong>b</strong> – The temperature exponent. Dimensionless. Default: 0.0.</li>
+<li><strong>E</strong> – Activation energy. Default: 0.0.</li>
+<li><strong>coverage</strong> – For a single coverage dependency, a list with four
 elements: the species name followed by the three coverage
 parameters. For multiple coverage dependencies, a list of lists
 containing the individual sets of coverage parameters. Only used for
@@ -620,19 +616,19 @@ surface and edge reactions.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation. The reaction can be
+<li><strong>equation</strong> – A string specifying the chemical equation. The reaction can be
 written in either the association or dissociation directions, and
 may be reversible or irreversible.</li>
-<li><strong>kf</strong> &#8211; The rate coefficient for the forward direction. If a sequence of
+<li><strong>kf</strong> – The rate coefficient for the forward direction. If a sequence of
 three numbers is given, these will be interpreted as [A, b, E] in
 the modified Arrhenius function.</li>
-<li><strong>efficiencies</strong> &#8211; A string specifying the third-body collision efficiencies.
+<li><strong>efficiencies</strong> – A string specifying the third-body collision efficiencies.
 The efficiencies for unspecified species are set to 1.0.</li>
-<li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
+<li><strong>id</strong> – An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in
-<a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
+<li><strong>options</strong> – Processing options, as described in
+<a class="reference internal" href="reactions.html#sec-reaction-options"><span class="std std-ref">Options</span></a>.</li>
 </ul>
 </td>
 </tr>
@@ -650,21 +646,21 @@ reaction in the file.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
-<li><strong>kf</strong> &#8211; The rate coefficient for the forward direction in the high-pressure
+<li><strong>equation</strong> – A string specifying the chemical equation.</li>
+<li><strong>kf</strong> – The rate coefficient for the forward direction in the high-pressure
 limit. If a sequence of three numbers is given, these will be
 interpreted as [A, b, E] in the modified Arrhenius function.</li>
-<li><strong>kf0</strong> &#8211; The rate coefficient for the forward direction in the low-pressure
+<li><strong>kf0</strong> – The rate coefficient for the forward direction in the low-pressure
 limit. If a sequence of three numbers is given, these will be
 interpreted as [A, b, E] in the modified Arrhenius function.</li>
-<li><strong>efficiencies</strong> &#8211; A string specifying the third-body collision efficiencies. The
+<li><strong>efficiencies</strong> – A string specifying the third-body collision efficiencies. The
 efficiency for unspecified species is set to 1.0.</li>
-<li><strong>falloff</strong> &#8211; An embedded entry specifying a falloff function. If omitted, a
+<li><strong>falloff</strong> – An embedded entry specifying a falloff function. If omitted, a
 unity falloff function (Lindemann form) will be used.</li>
-<li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
+<li><strong>id</strong> – An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
+<li><strong>options</strong> – Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><span class="std std-ref">Options</span></a>.</li>
 </ul>
 </td>
 </tr>
@@ -682,21 +678,21 @@ reaction in the file.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
-<li><strong>kLow</strong> &#8211; The rate coefficient for the forward direction in the low-pressure
+<li><strong>equation</strong> – A string specifying the chemical equation.</li>
+<li><strong>kLow</strong> – The rate coefficient for the forward direction in the low-pressure
 limit. If a sequence of three numbers is given, these will be
 interpreted as [A, b, E] in the modified Arrhenius function.</li>
-<li><strong>kHigh</strong> &#8211; The rate coefficient for the forward direction in the high-pressure
+<li><strong>kHigh</strong> – The rate coefficient for the forward direction in the high-pressure
 limit. If a sequence of three numbers is given, these will be
 interpreted as [A, b, E] in the modified Arrhenius function.</li>
-<li><strong>efficiencies</strong> &#8211; A string specifying the third-body collision efficiencies. The
+<li><strong>efficiencies</strong> – A string specifying the third-body collision efficiencies. The
 efficiency for unspecified species is set to 1.0.</li>
-<li><strong>falloff</strong> &#8211; An embedded entry specifying a falloff function. If omitted, a
+<li><strong>falloff</strong> – An embedded entry specifying a falloff function. If omitted, a
 unity falloff function (Lindemann form) will be used.</li>
-<li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
+<li><strong>id</strong> – An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
+<li><strong>options</strong> – Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><span class="std std-ref">Options</span></a>.</li>
 </ul>
 </td>
 </tr>
@@ -715,8 +711,8 @@ expressions at different pressures.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
-<li><strong>args</strong> &#8211; Each additional argument is a sequence of four elements specifying the
+<li><strong>equation</strong> – A string specifying the chemical equation.</li>
+<li><strong>args</strong> – Each additional argument is a sequence of four elements specifying the
 pressure and the Arrhenius parameters at that pressure.</li>
 </ul>
 </td>
@@ -736,12 +732,12 @@ polynomial.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
-<li><strong>Tmin</strong> &#8211; The minimum temperature at which the rate expression is defined</li>
-<li><strong>Tmax</strong> &#8211; the maximum temperature at which the rate expression is defined</li>
-<li><strong>Pmin</strong> &#8211; The minimum pressure at which the rate expression is defined</li>
-<li><strong>Pmax</strong> &#8211; The maximum pressure at which the rate expression is defined</li>
-<li><strong>coeffs</strong> &#8211; A 2D array of the coefficients defining the rate expression. For a
+<li><strong>equation</strong> – A string specifying the chemical equation.</li>
+<li><strong>Tmin</strong> – The minimum temperature at which the rate expression is defined</li>
+<li><strong>Tmax</strong> – the maximum temperature at which the rate expression is defined</li>
+<li><strong>Pmin</strong> – The minimum pressure at which the rate expression is defined</li>
+<li><strong>Pmax</strong> – The maximum pressure at which the rate expression is defined</li>
+<li><strong>coeffs</strong> – A 2D array of the coefficients defining the rate expression. For a
 polynomial with M points in temperature and N points in pressure, this
 should be a list of M lists each with N elements.</li>
 </ul>
@@ -762,19 +758,19 @@ coefficient and mass-action kinetics.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>equation</strong> &#8211; A string specifying the chemical equation.</li>
-<li><strong>kf</strong> &#8211; The rate coefficient for the forward direction. If a sequence of
+<li><strong>equation</strong> – A string specifying the chemical equation.</li>
+<li><strong>kf</strong> – The rate coefficient for the forward direction. If a sequence of
 three numbers is given, these will be interpreted as [A, b, E] in
 the modified Arrhenius function.</li>
-<li><strong>sticking_prob</strong> &#8211; The reactive sticking probability for the forward direction. This
+<li><strong>sticking_prob</strong> – The reactive sticking probability for the forward direction. This
 can only be specified if there is only one bulk-phase reactant and
 it belongs to an ideal gas phase. If a sequence of three numbers is
 given, these will be interpreted as [A, b, E] in the modified
 Arrhenius function.</li>
-<li><strong>id</strong> &#8211; An optional identification string. If omitted, it defaults to a
+<li><strong>id</strong> – An optional identification string. If omitted, it defaults to a
 four-digit numeric string beginning with 0001 for the first
 reaction in the file.</li>
-<li><strong>options</strong> &#8211; Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><em>Options</em></a>.</li>
+<li><strong>options</strong> – Processing options, as described in <a class="reference internal" href="reactions.html#sec-reaction-options"><span class="std std-ref">Options</span></a>.</li>
 </ul>
 </td>
 </tr>
@@ -846,8 +842,8 @@ pure numbers without attached dimensions.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

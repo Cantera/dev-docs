@@ -18,8 +18,6 @@ var searchData=
   ['reactorsurface_2eh',['ReactorSurface.h',['../ReactorSurface_8h.html',1,'']]],
   ['redlichkistervpsstp_2ecpp',['RedlichKisterVPSSTP.cpp',['../RedlichKisterVPSSTP_8cpp.html',1,'']]],
   ['redlichkistervpsstp_2eh',['RedlichKisterVPSSTP.h',['../RedlichKisterVPSSTP_8h.html',1,'']]],
-  ['redlichkwong_2ecpp',['RedlichKwong.cpp',['../RedlichKwong_8cpp.html',1,'']]],
-  ['redlichkwong_2eh',['RedlichKwong.h',['../RedlichKwong_8h.html',1,'']]],
   ['redlichkwongmftp_2ecpp',['RedlichKwongMFTP.cpp',['../RedlichKwongMFTP_8cpp.html',1,'']]],
   ['redlichkwongmftp_2eh',['RedlichKwongMFTP.h',['../RedlichKwongMFTP_8h.html',1,'']]],
   ['refine_2ecpp',['refine.cpp',['../refine_8cpp.html',1,'']]],
@@ -27,8 +25,6 @@ var searchData=
   ['resideval_2eh',['ResidEval.h',['../ResidEval_8h.html',1,'']]],
   ['residjaceval_2ecpp',['ResidJacEval.cpp',['../ResidJacEval_8cpp.html',1,'']]],
   ['residjaceval_2eh',['ResidJacEval.h',['../ResidJacEval_8h.html',1,'']]],
-  ['rootfind_2ecpp',['RootFind.cpp',['../RootFind_8cpp.html',1,'']]],
-  ['rootfind_2eh',['RootFind.h',['../RootFind_8h.html',1,'']]],
   ['rxnrates_2ecpp',['RxnRates.cpp',['../RxnRates_8cpp.html',1,'']]],
   ['rxnrates_2eh',['RxnRates.h',['../RxnRates_8h.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newton_5fiter',['Newton_Iter',['../namespaceCantera.html#af607f22e4873b3369e942d9ebb3e72b1aeff5fa7914600993f92bb2f1720a1474',1,'Cantera']]]
+  ['tpoly',['tpoly',['../classCantera_1_1PDSS__SSVol.html#aad7de90123125002bfe54fb511437f0fa1f3c6d4f51c85d4590fa7d7e79c12fcd',1,'Cantera::PDSS_SSVol']]]
 ];

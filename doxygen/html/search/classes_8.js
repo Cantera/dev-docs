@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ida_5ferr',['IDA_Err',['../classCantera_1_1IDA__Err.html',1,'Cantera']]],
   ['ida_5fsolver',['IDA_Solver',['../classCantera_1_1IDA__Solver.html',1,'Cantera']]],
   ['idealgasconstpressurereactor',['IdealGasConstPressureReactor',['../classCantera_1_1IdealGasConstPressureReactor.html',1,'Cantera']]],
   ['idealgasmix',['IdealGasMix',['../classCantera_1_1IdealGasMix.html',1,'Cantera']]],
@@ -17,6 +16,7 @@ var searchData=
   ['interface',['Interface',['../classCantera_1_1Interface.html',1,'Cantera']]],
   ['interfacekinetics',['InterfaceKinetics',['../classCantera_1_1InterfaceKinetics.html',1,'Cantera']]],
   ['interfacereaction',['InterfaceReaction',['../classCantera_1_1InterfaceReaction.html',1,'Cantera']]],
+  ['ionflow',['IonFlow',['../classCantera_1_1IonFlow.html',1,'Cantera']]],
   ['ionsfromneutralvpsstp',['IonsFromNeutralVPSSTP',['../classCantera_1_1IonsFromNeutralVPSSTP.html',1,'Cantera']]],
   ['isotopeweightdata',['isotopeWeightData',['../structCantera_1_1isotopeWeightData.html',1,'Cantera']]]
 ];

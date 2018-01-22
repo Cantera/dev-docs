@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pdss_5fenumtype',['PDSS_enumType',['../namespaceCantera.html#aec223ce2aa86727b9b90c94e9ff69448',1,'Cantera']]]
+  ['resideval_5ftype_5fenum',['ResidEval_Type_Enum',['../namespaceCantera.html#a929b71317e0aa7f81336a73311423c14',1,'Cantera']]]
 ];

@@ -1,0 +1,394 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NonIdealShockTube.py &#8212; Cantera 2.4.0a2 documentation</title>
+    <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.4.0a2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<a href="../../index.html">
+<img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &#187;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/cython/examples/reactors_NonIdealShockTube.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nonidealshocktube-py">
+<span id="py-example-nonidealshocktube-py"></span><h1>NonIdealShockTube.py<a class="headerlink" href="#nonidealshocktube-py" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># coding: utf-8</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Non-Ideal Shock Tube Example</span>
+
+<span class="sd">Ignition delay time computations in a high-pressure reflected shock tube</span>
+<span class="sd">reactor</span>
+
+<span class="sd">In this example we illustrate how to setup and use a constant volume,</span>
+<span class="sd">adiabatic reactor to simulate reflected shock tube experiments. This reactor</span>
+<span class="sd">will then be used to compute the ignition delay of a gas at a specified</span>
+<span class="sd">initial temperature and pressure. The example is written in a general way,</span>
+<span class="sd">i.e., no particular EoS is presumed and ideal and real gas EoS can be used</span>
+<span class="sd">equally easily.</span>
+
+<span class="sd">The reactor (system) is simply an &#39;insulated box,&#39; and can technically be used</span>
+<span class="sd">for any number of equations of state and constant-volume, adiabatic reactors.</span>
+
+<span class="sd">Other than the typical Cantera dependencies, plotting functions require that</span>
+<span class="sd">you have matplotlib (https://matplotlib.org/) installed.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="c1"># Dependencies: numpy, and matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">cantera</span> <span class="k">as</span> <span class="nn">ct</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running Cantera version: &#39;</span> <span class="o">+</span> <span class="n">ct</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Define the ignition delay time (IDT). This function computes the ignition</span>
+<span class="c1"># delay from the occurrence of the peak concentration for the specified</span>
+<span class="c1"># species.</span>
+<span class="k">def</span> <span class="nf">ignitionDelay</span><span class="p">(</span><span class="n">states</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+    <span class="n">i_ign</span> <span class="o">=</span> <span class="n">states</span><span class="p">(</span><span class="n">species</span><span class="p">)</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">states</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">i_ign</span><span class="p">]</span>
+
+
+<span class="c1"># Define the reactor temperature and pressure:</span>
+<span class="n">reactorTemperature</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># Kelvin</span>
+<span class="n">reactorPressure</span> <span class="o">=</span> <span class="mf">40.0</span><span class="o">*</span><span class="mf">101325.0</span> <span class="c1"># Pascals</span>
+
+<span class="c1"># Define the gas: In this example we will choose a stoichiometric mixture of</span>
+<span class="c1"># n-dodecane and air as the gas. For a representative kinetic model, we use:</span>
+<span class="c1">#</span>
+<span class="c1"># H.Wang, Y.Ra,  M.Jia, R.Reitz, Development of a reduced n-dodecane-PAH</span>
+<span class="c1"># mechanism. and its application for n-dodecane soot predictions., Fuel 136</span>
+<span class="c1"># (2014) 25–36. doi:10.1016/j.fuel.2014.07.028</span>
+
+<span class="c1"># R-K constants are calculated according to their critical temperature (Tc) and</span>
+<span class="c1"># pressure (Pc):</span>
+<span class="c1">#</span>
+<span class="c1">#     a = 0.4275*(R^2)*(Tc^2.5)/(Pc)</span>
+<span class="c1">#</span>
+<span class="c1"># and</span>
+<span class="c1">#</span>
+<span class="c1">#     b = 0.08664*R*Tc/Pc</span>
+<span class="c1">#</span>
+<span class="c1"># where R is the gas constant.</span>
+<span class="c1">#</span>
+<span class="c1"># For stable species, the critical properties are readily available. For</span>
+<span class="c1"># radicals and other short-lived intermediates, the Joback method is used to</span>
+<span class="c1"># estimate critical properties. For details of the method, see: Joback and Reid,</span>
+<span class="c1"># &quot;Estimation of pure- component properties from group-contributions,&quot; Chem.</span>
+<span class="c1"># Eng. Comm. 57 (1987) 233-243, doi: 10.1080/00986448708960487</span>
+
+<span class="c1"># There is a slight discontinuity in the thermo for three species at the mid-</span>
+<span class="c1"># point temperature. We are aware and okay, so we will suppress the warning</span>
+<span class="c1"># statement (note: use this feature at your own risk in other codes!)</span>
+<span class="n">ct</span><span class="o">.</span><span class="n">suppress_thermo_warnings</span><span class="p">()</span>
+
+
+<span class="c1"># Real gas IDT calculation</span>
+
+<span class="c1"># Load the real gas mechanism:</span>
+<span class="n">real_gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;nDodecane_Reitz.cti&#39;</span><span class="p">,</span><span class="s1">&#39;nDodecane_RK&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the state of the gas object:</span>
+<span class="n">real_gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">reactorTemperature</span><span class="p">,</span> <span class="n">reactorPressure</span>
+
+<span class="c1"># Define the fuel, oxidizer and set the stoichiometry:</span>
+<span class="n">real_gas</span><span class="o">.</span><span class="n">set_equivalence_ratio</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fuel</span><span class="o">=</span><span class="s1">&#39;c12h26&#39;</span><span class="p">,</span>
+                               <span class="n">oxidizer</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;o2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span><span class="mf">3.76</span><span class="p">})</span>
+
+<span class="c1"># Create a reactor object and add it to a reactor network</span>
+<span class="c1"># In this example, this will be the only reactor in the network</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reactor</span><span class="p">(</span><span class="n">contents</span><span class="o">=</span><span class="n">real_gas</span><span class="p">)</span>
+<span class="n">reactorNetwork</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+<span class="n">timeHistory_RG</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">real_gas</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+<span class="c1"># Tic</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># This is a starting estimate. If you do not get an ignition within this time,</span>
+<span class="c1"># increase it</span>
+<span class="n">estimatedIgnitionDelayTime</span> <span class="o">=</span> <span class="mf">0.005</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">estimatedIgnitionDelayTime</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">reactorNetwork</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="o">%</span><span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># We will save only every 20th value. Otherwise, this takes too long</span>
+        <span class="c1"># Note that the species concentrations are mass fractions</span>
+        <span class="n">timeHistory_RG</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">counter</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="c1"># We will use the &#39;oh&#39; species to compute the ignition delay</span>
+<span class="n">tau_RG</span> <span class="o">=</span> <span class="n">ignitionDelay</span><span class="p">(</span><span class="n">timeHistory_RG</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">)</span>
+
+<span class="c1"># Toc</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Real Gas Ignition Delay: </span><span class="si">{:.3e}</span><span class="s1"> seconds. Took </span><span class="si">{:3.2f}</span><span class="s1">s to compute&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tau_RG</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span>
+
+
+<span class="c1"># Ideal gas IDT calculation</span>
+<span class="c1"># Create the ideal gas object:</span>
+<span class="n">ideal_gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;nDodecane_Reitz.cti&#39;</span><span class="p">,</span><span class="s1">&#39;nDodecane_IG&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the state of the gas object:</span>
+<span class="n">ideal_gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">reactorTemperature</span><span class="p">,</span> <span class="n">reactorPressure</span>
+
+<span class="c1"># Define the fuel, oxidizer and set the stoichiometry:</span>
+<span class="n">ideal_gas</span><span class="o">.</span><span class="n">set_equivalence_ratio</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fuel</span><span class="o">=</span><span class="s1">&#39;c12h26&#39;</span><span class="p">,</span>
+                                <span class="n">oxidizer</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;o2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span><span class="mf">3.76</span><span class="p">})</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reactor</span><span class="p">(</span><span class="n">contents</span><span class="o">=</span><span class="n">ideal_gas</span><span class="p">)</span>
+<span class="n">reactorNetwork</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+<span class="n">timeHistory_IG</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">ideal_gas</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+
+<span class="c1"># Tic</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">estimatedIgnitionDelayTime</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">reactorNetwork</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">counter</span><span class="o">%</span><span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># We will save only every 20th value. Otherwise, this takes too long</span>
+        <span class="c1"># Note that the species concentrations are mass fractions</span>
+        <span class="n">timeHistory_IG</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">counter</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="c1"># We will use the &#39;oh&#39; species to compute the ignition delay</span>
+<span class="n">tau_IG</span> <span class="o">=</span> <span class="n">ignitionDelay</span><span class="p">(</span><span class="n">timeHistory_IG</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">)</span>
+
+<span class="c1"># Toc</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Ideal Gas Ignition Delay: </span><span class="si">{:.3e}</span><span class="s1"> seconds. Took </span><span class="si">{:3.2f}</span><span class="s1">s to compute&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tau_IG</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ideal gas error: </span><span class="si">{:2.2f}</span><span class="s1"> %&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">tau_IG</span><span class="o">-</span><span class="n">tau_RG</span><span class="p">)</span><span class="o">/</span><span class="n">tau_RG</span><span class="p">))</span>
+
+<span class="c1"># Plot the result</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.autolayout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;serif&#39;</span>
+
+<span class="c1"># Figure illustrating the definition of ignition delay time (IDT).</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeHistory_RG</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">timeHistory_RG</span><span class="p">(</span><span class="s1">&#39;oh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeHistory_IG</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">timeHistory_IG</span><span class="p">(</span><span class="s1">&#39;oh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;OH mass fraction, $\mathdefault{Y_</span><span class="si">{OH}</span><span class="s1">}$&#39;</span><span class="p">)</span>
+
+<span class="c1"># Figure formatting:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.00055</span><span class="p">])</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">tau_RG</span><span class="p">,</span><span class="mf">0.005</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.005</span><span class="p">),</span>
+            <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;&lt;|-|&gt;&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">),</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Ignition Delay Time (IDT)&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.00008</span><span class="p">,</span> <span class="mf">0.00525</span><span class="p">),</span>
+             <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Real Gas&#39;</span><span class="p">,</span><span class="s1">&#39;Ideal Gas&#39;</span><span class="p">],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># If you want to save the plot, uncomment this line (and edit as you see fit):</span>
+<span class="c1">#plt.savefig(&#39;IDT_nDodecane_1000K_40atm.pdf&#39;,dpi=350,format=&#39;pdf&#39;)</span>
+
+
+<span class="c1"># Demonstration of NTC behavior</span>
+<span class="c1"># Let us use the reactor model to demonstrate the impacts of non-ideal behavior on IDTs in the</span>
+<span class="c1">#   Negative Temperature Coefficient (NTC) region, where observed IDTs, counter to intuition, increase</span>
+<span class="c1">#   with increasing temperature.</span>
+
+<span class="c1"># Make a list of all the temperatures at which we would like to run simulations:</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1250</span><span class="p">,</span> <span class="mi">1225</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1150</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="mi">1075</span><span class="p">,</span> <span class="mi">1050</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mf">1012.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">987.5</span><span class="p">,</span>
+              <span class="mi">975</span><span class="p">,</span> <span class="mf">962.5</span><span class="p">,</span> <span class="mi">950</span><span class="p">,</span> <span class="mf">937.5</span><span class="p">,</span> <span class="mi">925</span><span class="p">,</span> <span class="mf">912.5</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">875</span><span class="p">,</span> <span class="mi">850</span><span class="p">,</span> <span class="mi">825</span><span class="p">,</span> <span class="mi">800</span><span class="p">])</span>
+
+<span class="c1"># If we desire, we can define different IDT starting guesses for each temperature:</span>
+<span class="n">estimatedIgnitionDelayTimes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="c1"># But we won&#39;t, at least in this example :)</span>
+<span class="n">estimatedIgnitionDelayTimes</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">0.005</span>
+
+<span class="c1"># Now, we simply run the code above for each temperature.</span>
+<span class="c1"># Real Gas</span>
+<span class="n">ignitionDelays_RG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="c1"># Setup the gas and reactor</span>
+    <span class="n">reactorTemperature</span> <span class="o">=</span> <span class="n">temperature</span>
+    <span class="n">real_gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">reactorTemperature</span><span class="p">,</span> <span class="n">reactorPressure</span>
+    <span class="n">real_gas</span><span class="o">.</span><span class="n">set_equivalence_ratio</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fuel</span><span class="o">=</span><span class="s1">&#39;c12h26&#39;</span><span class="p">,</span>
+                                   <span class="n">oxidizer</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;o2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span><span class="mf">3.76</span><span class="p">})</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reactor</span><span class="p">(</span><span class="n">contents</span><span class="o">=</span><span class="n">real_gas</span><span class="p">)</span>
+    <span class="n">reactorNetwork</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+
+    <span class="c1"># create an array of solution states</span>
+    <span class="n">timeHistory</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">real_gas</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">estimatedIgnitionDelayTimes</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">reactorNetwork</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="n">timeHistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">tau</span> <span class="o">=</span> <span class="n">ignitionDelay</span><span class="p">(</span><span class="n">timeHistory</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Real Gas Ignition Delay: </span><span class="si">{:.3e}</span><span class="s1"> seconds for T=</span><span class="si">{}</span><span class="s1">K. Took </span><span class="si">{:3.2f}</span><span class="s1">s to compute&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span>
+
+    <span class="n">ignitionDelays_RG</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tau</span>
+
+
+<span class="c1"># Repeat for Ideal Gas</span>
+<span class="n">ignitionDelays_IG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">temperature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="c1"># Setup the gas and reactor</span>
+    <span class="n">reactorTemperature</span> <span class="o">=</span> <span class="n">temperature</span>
+    <span class="n">ideal_gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">reactorTemperature</span><span class="p">,</span> <span class="n">reactorPressure</span>
+    <span class="n">ideal_gas</span><span class="o">.</span><span class="n">set_equivalence_ratio</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fuel</span><span class="o">=</span><span class="s1">&#39;c12h26&#39;</span><span class="p">,</span>
+                                    <span class="n">oxidizer</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;o2&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;n2&#39;</span><span class="p">:</span><span class="mf">3.76</span><span class="p">})</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Reactor</span><span class="p">(</span><span class="n">contents</span><span class="o">=</span><span class="n">ideal_gas</span><span class="p">)</span>
+    <span class="n">reactorNetwork</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">ReactorNet</span><span class="p">([</span><span class="n">r</span><span class="p">])</span>
+
+    <span class="c1"># create an array of solution states</span>
+    <span class="n">timeHistory</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">ideal_gas</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">estimatedIgnitionDelayTimes</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">reactorNetwork</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">20</span><span class="p">:</span>
+            <span class="n">timeHistory</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">tau</span> <span class="o">=</span> <span class="n">ignitionDelay</span><span class="p">(</span><span class="n">timeHistory</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computed Ideal Gas Ignition Delay: </span><span class="si">{:.3e}</span><span class="s1"> seconds for T=</span><span class="si">{}</span><span class="s1">K. Took </span><span class="si">{:3.2f}</span><span class="s1">s to compute&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">))</span>
+
+    <span class="n">ignitionDelays_IG</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tau</span>
+
+
+<span class="c1"># Figure: ignition delay (tau) vs. the inverse of temperature (1000/T).</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="n">T</span><span class="p">,</span> <span class="mf">1e6</span><span class="o">*</span><span class="n">ignitionDelays_RG</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1000</span><span class="o">/</span><span class="n">T</span><span class="p">,</span> <span class="mf">1e6</span><span class="o">*</span><span class="n">ignitionDelays_IG</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Ignition Delay ($\mathdefault{\mu s}$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;1000/T (K$^\mathdefault{-1}$)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span>
+
+<span class="c1"># Add a second axis on top to plot the temperature for better readability</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="mi">1000</span><span class="o">/</span><span class="n">ticks</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">())</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Real Gas&#39;</span><span class="p">,</span><span class="s1">&#39;Ideal Gas&#39;</span><span class="p">],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># If you want to save the plot, uncomment this line (and edit as you see fit):</span>
+<span class="c1">#plt.savefig(&#39;NTC_nDodecane_40atm.pdf&#39;,dpi=350,format=&#39;pdf&#39;)</span>
+
+<span class="c1"># Show the plots.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>

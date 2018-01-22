@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Reactions &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Reactions &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="CTI Class Reference" href="classes.html" />
     <link rel="prev" title="Elements and Species" href="species.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -100,7 +96,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cti/reactions.txt"
+      <li><a href="../_sources/cti/reactions.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -148,7 +144,7 @@ spaces:</p>
 <span class="mi">2</span> <span class="n">CH2</span> <span class="o">&lt;=&gt;</span> <span class="n">CH</span><span class="o">+</span><span class="n">CH3</span>        <span class="c1"># error</span>
 </pre></div>
 </div>
-<p>The incorrect versions here would generate &#8220;undeclared species&#8221; errors and would
+<p>The incorrect versions here would generate “undeclared species” errors and would
 halt processing of the input file. In the first case, the error would be that
 the species <code class="docutils literal"><span class="pre">2CH2</span></code> is undeclared, and in the second case it would be species
 <code class="docutils literal"><span class="pre">CH+CH3</span></code>.</p>
@@ -207,7 +203,7 @@ the phase or interface that imports it, just as if the reaction entry were
 commented out. The advantage of using skip instead of commenting it out is
 that a warning message is printed each time a phase or interface definition
 tries to import it. This serves as a reminder that this reaction is not
-included, which can easily be forgotten when a reaction is &#8220;temporarily&#8221;
+included, which can easily be forgotten when a reaction is “temporarily”
 commented out of an input file.</dd>
 <dt><code class="docutils literal"><span class="pre">duplicate</span></code></dt>
 <dd><p class="first">Normally, when a reaction is imported into a phase, it is checked to see
@@ -346,7 +342,7 @@ supports the extended 5-parameter form, given by:</p>
 <div class="math">
 \[F(T, P_r) = d \bigl[a \exp(-b/T) + \exp(-T/c)\bigr]^{1/(1+\log_{10}^2 P_r )} T^e\]</div>
 <p>In keeping with the nomenclature of Kee et al. <a class="footnote-reference" href="#kee1989" id="id6">[5]</a>, we will refer to this as
-the &#8220;SRI&#8221; falloff function. It is implemented by the <a class="reference internal" href="classes.html#cantera.ctml_writer.SRI" title="cantera.ctml_writer.SRI"><code class="xref py py-class docutils literal"><span class="pre">SRI</span></code></a> directive.</p>
+the “SRI” falloff function. It is implemented by the <a class="reference internal" href="classes.html#cantera.ctml_writer.SRI" title="cantera.ctml_writer.SRI"><code class="xref py py-class docutils literal"><span class="pre">SRI</span></code></a> directive.</p>
 </div>
 </div>
 <div class="section" id="chemically-activated-reactions">
@@ -359,7 +355,7 @@ collisional stabilization of a reaction intermediate. Example:</p>
 <div class="math">
 \[\mathrm{Si + SiH_4 (+M) \leftrightarrow Si_2H_4 (+M)}\]</div>
 <p>Like falloff reactions, chemically-activated reactions are described by
-blending between a &#8220;low pressure&#8221; and a &#8220;high pressure&#8221; rate expression. The
+blending between a “low pressure” and a “high pressure” rate expression. The
 difference is that the forward rate constant is written as being proportional
 to the <em>low pressure</em> rate constant:</p>
 <div class="math">
@@ -579,7 +575,7 @@ kinetics. Technical Report SAND89-8009, Sandia National Laboratories, 1989.</td>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td>C. K. Westbrook and F. L. Dryer. Simplified reaction
 mechanisms for the oxidation of hydrocarbon fuels in flames. <em>Combustion
-Science and Technology</em> <strong>27</strong>, pp. 31&#8211;43. 1981.</td></tr>
+Science and Technology</em> <strong>27</strong>, pp. 31–43. 1981.</td></tr>
 </tbody>
 </table>
 </div>
@@ -612,8 +608,8 @@ Science and Technology</em> <strong>27</strong>, pp. 31&#8211;43. 1981.</td></tr
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

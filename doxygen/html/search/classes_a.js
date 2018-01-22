@@ -2,7 +2,6 @@ var searchData=
 [
   ['latticephase',['LatticePhase',['../classCantera_1_1LatticePhase.html',1,'Cantera']]],
   ['latticesolidphase',['LatticeSolidPhase',['../classCantera_1_1LatticeSolidPhase.html',1,'Cantera']]],
-  ['leekesler',['leekesler',['../classtpx_1_1leekesler.html',1,'tpx']]],
   ['liquidtraninteraction',['LiquidTranInteraction',['../classCantera_1_1LiquidTranInteraction.html',1,'Cantera']]],
   ['liquidtransport',['LiquidTransport',['../classCantera_1_1LiquidTransport.html',1,'Cantera']]],
   ['liquidtransportdata',['LiquidTransportData',['../classCantera_1_1LiquidTransportData.html',1,'Cantera']]],

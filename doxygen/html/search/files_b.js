@@ -12,7 +12,6 @@ var searchData=
   ['methane_2eh',['Methane.h',['../Methane_8h.html',1,'']]],
   ['mineraleq3_2ecpp',['MineralEQ3.cpp',['../MineralEQ3_8cpp.html',1,'']]],
   ['mineraleq3_2eh',['MineralEQ3.h',['../MineralEQ3_8h.html',1,'']]],
-  ['mix_5fdefs_2eh',['mix_defs.h',['../mix__defs_8h.html',1,'']]],
   ['mixedsolventelectrolyte_2ecpp',['MixedSolventElectrolyte.cpp',['../MixedSolventElectrolyte_8cpp.html',1,'']]],
   ['mixedsolventelectrolyte_2eh',['MixedSolventElectrolyte.h',['../MixedSolventElectrolyte_8h.html',1,'']]],
   ['mixtransport_2ecpp',['MixTransport.cpp',['../MixTransport_8cpp.html',1,'']]],

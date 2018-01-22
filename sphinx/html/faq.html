@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Frequently Asked Questions &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Frequently Asked Questions &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -27,11 +25,10 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="index.html" />
     <link rel="next" title="Installing Cantera" href="install.html" />
     <link rel="prev" title="Welcome" href="index.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="index.html">
 <img src="_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -77,7 +74,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/faq.txt"
+      <li><a href="_sources/faq.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -106,33 +103,33 @@
 <p><strong>How do I install Cantera on Windows?</strong></p>
 <blockquote>
 <div>Download the MSI installer for Cantera and the corresponding Python module
-from <a class="reference external" href="https://sourceforge.net/projects/cantera/files/cantera/">SourceForge</a>.
+from <a class="reference external" href="https://github.com/Cantera/cantera/releases">GitHub</a>.
 Choose between x86 and x64 based on the versions of Python and/or Matlab
-you want to work with. See <a class="reference internal" href="install.html#sec-install-win"><em>Windows Installation</em></a>
+you want to work with. See <a class="reference internal" href="install.html#sec-install-win"><span class="std std-ref">Windows Installation</span></a>
 for details.</div></blockquote>
 <p><strong>How do I install Cantera on Linux?</strong></p>
 <blockquote>
 <div><p>For Ubuntu, packages for the current stable version of Cantera are available
-in a PPA. See <a class="reference internal" href="install.html#sec-install-ubuntu"><em>Ubuntu Installation</em></a> for details.</p>
+in a PPA. See <a class="reference internal" href="install.html#sec-install-ubuntu"><span class="std std-ref">Ubuntu Installation</span></a> for details.</p>
 <p>For other Linux distributions, download the source code (e.g.
-<code class="docutils literal"><span class="pre">cantera-2.1.1.tar.gz</span></code>) from <a class="reference external" href="https://sourceforge.net/projects/cantera/files/cantera/">SourceForge</a> and follow the
-instructions in the <a class="reference internal" href="compiling.html#sec-compiling"><em>Cantera Compilation Guide</em></a>.</p>
+<code class="docutils literal"><span class="pre">cantera-2.3.0.tar.gz</span></code>) from <a class="reference external" href="https://github.com/Cantera/cantera/releases">GitHub</a>
+and follow the instructions in the <a class="reference internal" href="compiling/index.html#sec-compiling"><span class="std std-ref">Cantera Compilation Guide</span></a>.</p>
 </div></blockquote>
 <p><strong>How do I install Cantera on Mac OS X?</strong></p>
 <blockquote>
-<div>Cantera can be installed using Homebrew. See <a class="reference internal" href="install.html#sec-install-osx"><em>Mac OS X Installation</em></a> for details.</div></blockquote>
+<div>Cantera can be installed using Homebrew. See <a class="reference internal" href="install.html#sec-install-osx"><span class="std std-ref">Mac OS X Installation</span></a> for details.</div></blockquote>
 <p><strong>What do I do if compiling Cantera fails?</strong></p>
 <blockquote>
 <div><ul class="simple">
 <li>Examine the output of the <code class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span></code> command, especially anything
-identified as a       <code class="docutils literal"><span class="pre">WARNING</span></code> or <code class="docutils literal"><span class="pre">ERROR</span></code>. Check for discrepancies
+identified as a <code class="docutils literal"><span class="pre">WARNING</span></code> or <code class="docutils literal"><span class="pre">ERROR</span></code>. Check for discrepancies
 with your expected configuration (e.g. not finding SUNDIALS even though
 you have it installed).</li>
 <li>Check the contents of <code class="docutils literal"><span class="pre">cantera.conf</span></code> to make sure they are correct.</li>
 <li>If any of the configuration tests (<code class="docutils literal"><span class="pre">Checking</span> <span class="pre">for...</span></code>) fail unexpectedly,
 look at the contents of <code class="docutils literal"><span class="pre">config.log</span></code> to determine the reason.</li>
 <li>If none of these help identify the cause of the failure, consider asking
-for help on the Cantera Users&#8217; Group. If you decide to make a post, please
+for help on the Cantera Users’ Group. If you decide to make a post, please
 include the following information:<ul>
 <li>The contents of <code class="docutils literal"><span class="pre">cantera.conf</span></code> and <code class="docutils literal"><span class="pre">config.log</span></code></li>
 <li>The output of the <code class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span></code> and <code class="docutils literal"><span class="pre">scons</span> <span class="pre">build</span> <span class="pre">dump</span></code> commands
@@ -167,7 +164,7 @@ that in this case, the <code class="docutils literal"><span class="pre">build</s
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <p><strong>Which Cantera interface should I use?</strong></p>
 <blockquote>
-<div>If you&#8217;re new to Cantera, the best interface to get started with is
+<div>If you’re new to Cantera, the best interface to get started with is
 probably the Python interface. It offers most of the features of the
 C++ core in a much more flexible environment. Since all of the
 calculations are still done in C++, there is very little performance
@@ -190,16 +187,16 @@ source directory.</p>
 <div><p>The recommended citation for Cantera is as follows:</p>
 <p>David G. Goodwin, Harry K. Moffat, and Raymond L. Speth. <em>Cantera: An object-
 oriented software toolkit for chemical kinetics, thermodynamics, and
-transport processes</em>. <a class="reference external" href="http://www.cantera.org">http://www.cantera.org</a>, 2016. Version 2.3.0.
+transport processes</em>. <a class="reference external" href="http://www.cantera.org">http://www.cantera.org</a>, 2017. Version 2.3.0.
 doi:10.5281/zenodo.170284</p>
 <p>The following BibTeX entry may also be used:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@Misc</span><span class="p">{</span><span class="n">Cantera</span><span class="p">,</span>
    <span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;David G. Goodwin and Harry K. Moffat and Raymond L. Speth&quot;</span><span class="p">,</span>
    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Cantera: An Object-oriented Software Toolkit for Chemical</span>
             <span class="n">Kinetics</span><span class="p">,</span> <span class="n">Thermodynamics</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Transport</span> <span class="n">Processes</span><span class="s2">&quot;,</span>
-   <span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span>
+   <span class="n">year</span> <span class="o">=</span> <span class="mi">2017</span><span class="p">,</span>
    <span class="n">note</span> <span class="o">=</span> <span class="s2">&quot;Version 2.3.0&quot;</span><span class="p">,</span>
-   <span class="n">howpublished</span> <span class="o">=</span> <span class="s2">&quot;\url{http://www.cantera.org}&quot;</span>
+   <span class="n">howpublished</span> <span class="o">=</span> <span class="s2">&quot;\url{http://www.cantera.org}&quot;</span><span class="p">,</span>
    <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.5281</span><span class="o">/</span><span class="n">zenodo</span><span class="o">.</span><span class="mi">170284</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -210,10 +207,10 @@ doi:10.5281/zenodo.170284</p>
 </div>
 <div class="section" id="support-and-bug-reporting">
 <h2>Support and Bug Reporting<a class="headerlink" href="#support-and-bug-reporting" title="Permalink to this headline">¶</a></h2>
-<p><strong>What should I do if I think I&#8217;ve found a bug in Cantera?</strong></p>
+<p><strong>What should I do if I think I’ve found a bug in Cantera?</strong></p>
 <blockquote>
 <div><ul class="simple">
-<li>Check to see if you&#8217;re using the most recent version of Cantera, and
+<li>Check to see if you’re using the most recent version of Cantera, and
 upgrade if not.</li>
 <li>Check the <a class="reference external" href="https://github.com/Cantera/cantera/issues">Issue Tracker</a> to see if the issue
 has already been reported.</li>
@@ -237,7 +234,7 @@ options you specified</li>
 </div></blockquote>
 <p><strong>What should I do if I need help using Cantera?</strong></p>
 <blockquote>
-<div>You can join the <a class="reference external" href="https://groups.google.com/forum/#!forum/cantera-users">Cantera Users&#8217; Group</a> on Google
+<div>You can join the <a class="reference external" href="https://groups.google.com/forum/#!forum/cantera-users">Cantera Users’ Group</a> on Google
 Groups and ask a question there. Please use the search feature before
 posting to see if your question has been answered before. This group is
 moderated, so it may take some time for your posts to appear if you are a
@@ -270,8 +267,8 @@ new member.</div></blockquote>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

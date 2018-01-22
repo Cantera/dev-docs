@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Utility Functions &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Utility Functions &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../../index.html" />
-    <link rel="up" title="Matlab Interface User’s Guide" href="../index.html" />
     <link rel="next" title="Index of Examples" href="../examples.html" />
     <link rel="prev" title="Built-In Thermochemical Data" href="data.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../../index.html">
 <img src="../../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -54,7 +50,7 @@
           <a href="data.html" title="Built-In Thermochemical Data"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Matlab Interface User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Matlab Interface User’s Guide</a> &#187;</li> 
       </ul>
     </div>
 
@@ -78,7 +74,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/matlab/code-docs/utilities.txt"
+      <li><a href="../../_sources/matlab/code-docs/utilities.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -115,7 +111,7 @@ input and data files.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> &#8211; Path to add to the MATLAB search path.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Path to add to the MATLAB search path.</td>
 </tr>
 </tbody>
 </table>
@@ -131,10 +127,10 @@ input and data files.</p>
 <span class="n">f</span> <span class="o">=</span> <span class="n">ck2cti</span><span class="p">(</span><span class="s1">&#39;chem.inp&#39;</span><span class="p">,</span> <span class="s1">&#39;therm.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;tran.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>These 3 statements all create a Cantera input file &#8216;chem.cti.&#8217; In
+<p>These 3 statements all create a Cantera input file ‘chem.cti.’ In
 the first case, the CK-format file contains all required species
 thermo data, while in the second case some or all thermo data is
-read from file &#8216;therm.dat.&#8217; In the third form, the input file
+read from file ‘therm.dat.’ In the third form, the input file
 created will also contain transport property parameters. The
 function return value is a string containing the output file
 name.</p>
@@ -143,10 +139,10 @@ name.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>infile</strong> &#8211; Chemistry input file in CHEMKIN format. Required.</li>
-<li><strong>thermo</strong> &#8211; Thermodynamic input file in CHEMKIN format. Optional if
+<li><strong>infile</strong> – Chemistry input file in CHEMKIN format. Required.</li>
+<li><strong>thermo</strong> – Thermodynamic input file in CHEMKIN format. Optional if
 thermodynamic data is specified in the chemistry input file.</li>
-<li><strong>transport</strong> &#8211; Transport input file in CHEMKIN format. Optional.</li>
+<li><strong>transport</strong> – Transport input file in CHEMKIN format. Optional.</li>
 </ul>
 </td>
 </tr>
@@ -198,6 +194,20 @@ thermodynamic data is specified in the chemistry input file.</li>
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="canteraGitCommit">
+<code class="descname">canteraGitCommit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#canteraGitCommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Cantera Git commit hash</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A string containing the Git commit hash for the current version of Cantera</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div></blockquote>
 </div>
 <div class="section" id="xml-node">
@@ -211,10 +221,10 @@ thermodynamic data is specified in the chemistry input file.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>name</strong> &#8211; String name of the XML_Node that should be created.</li>
-<li><strong>src</strong> &#8211; String XML file name from which an instance of XML_Node
+<li><strong>name</strong> – String name of the XML_Node that should be created.</li>
+<li><strong>src</strong> – String XML file name from which an instance of XML_Node
 should be created. Reads the XML tree from the input file.</li>
-<li><strong>wrap</strong> &#8211; Specify the ID of the XML_Node.</li>
+<li><strong>wrap</strong> – Specify the ID of the XML_Node.</li>
 </ul>
 </td>
 </tr>
@@ -232,9 +242,9 @@ should be created. Reads the XML tree from the input file.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>root</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>name</strong> &#8211; String ID of the child to be added.</li>
-<li><strong>val</strong> &#8211; String value to be added to the child.</li>
+<li><strong>root</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>name</strong> – String ID of the child to be added.</li>
+<li><strong>val</strong> – String value to be added to the child.</li>
 </ul>
 </td>
 </tr>
@@ -254,8 +264,8 @@ should be created. Reads the XML tree from the input file.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>key</strong> &#8211; String key to look up.</li>
+<li><strong>x</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>key</strong> – String key to look up.</li>
 </ul>
 </td>
 </tr>
@@ -275,9 +285,9 @@ should be created. Reads the XML tree from the input file.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>file</strong> &#8211; String input file name.</li>
-<li><strong>pre</strong> &#8211; Determine the method of building. If not specified or
+<li><strong>x</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>file</strong> – String input file name.</li>
+<li><strong>pre</strong> – Determine the method of building. If not specified or
 less than zero, use XML_Node::build. Otherwise, use
 XML_Node::get_XML_File.</li>
 </ul>
@@ -299,8 +309,8 @@ XML_Node::get_XML_File.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>loc</strong> &#8211; String loc to search for.</li>
+<li><strong>x</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>loc</strong> – String loc to search for.</li>
 </ul>
 </td>
 </tr>
@@ -320,8 +330,8 @@ XML_Node::get_XML_File.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>root</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>id</strong> &#8211; String ID of the element to search for.</li>
+<li><strong>root</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>id</strong> – String ID of the element to search for.</li>
 </ul>
 </td>
 </tr>
@@ -341,8 +351,8 @@ XML_Node::get_XML_File.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>root</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>name</strong> &#8211; String name of the element to search for.</li>
+<li><strong>root</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>name</strong> – String name of the element to search for.</li>
 </ul>
 </td>
 </tr>
@@ -361,7 +371,7 @@ XML_Node::get_XML_File.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>root</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Integer number of children of the input XML_Node</td>
 </tr>
@@ -380,8 +390,8 @@ value(x, loc) is shorthand for value(child(x,loc))</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>loc</strong> &#8211; </li>
+<li><strong>x</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>loc</strong> – </li>
 </ul>
 </td>
 </tr>
@@ -401,8 +411,8 @@ value(x, loc) is shorthand for value(child(x,loc))</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
-<li><strong>file</strong> &#8211; Name of the output file to be written.</li>
+<li><strong>x</strong> – Instance of class <a class="reference internal" href="#XML_Node" title="XML_Node"><code class="xref mat mat-func docutils literal"><span class="pre">XML_Node()</span></code></a></li>
+<li><strong>file</strong> – Name of the output file to be written.</li>
 </ul>
 </td>
 </tr>
@@ -440,12 +450,12 @@ value(x, loc) is shorthand for value(child(x,loc))</p>
           <a href="data.html" title="Built-In Thermochemical Data"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">Cantera</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" >Matlab Interface User&#8217;s Guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Matlab Interface User’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Objects Representing Phases &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Objects Representing Phases &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Thermodynamic Properties" href="thermo.html" />
     <link rel="prev" title="Tutorial" href="tutorial.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -81,7 +77,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cython/importing.txt"
+      <li><a href="../_sources/cython/importing.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -123,7 +119,7 @@ thermodynamic, chemical kinetic, and (optionally) transport properties.</p>
 <em class="property">class </em><code class="descclassname">cantera.</code><code class="descname">Solution</code><span class="sig-paren">(</span><em>infile=''</em>, <em>phaseid=''</em>, <em>source=None</em>, <em>thermo=None</em>, <em>species=()</em>, <em>kinetics=None</em>, <em>reactions=()</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Solution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">cantera._cantera.ThermoPhase</span></code>, <code class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Kinetics</span></code>, <code class="xref py py-class docutils literal"><span class="pre">cantera._cantera.Transport</span></code></p>
 <p>A class for chemically-reacting solutions. Instances can be created to
-represent any type of solution &#8211; a mixture of gases, a liquid solution, or
+represent any type of solution – a mixture of gases, a liquid solution, or
 a solid solution, for example.</p>
 <p>Class <a class="reference internal" href="#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> derives from classes <a class="reference internal" href="thermo.html#cantera.ThermoPhase" title="cantera.ThermoPhase"><code class="xref py py-obj docutils literal"><span class="pre">ThermoPhase</span></code></a>, <a class="reference internal" href="kinetics.html#cantera.Kinetics" title="cantera.Kinetics"><code class="xref py py-obj docutils literal"><span class="pre">Kinetics</span></code></a>, and
 <a class="reference internal" href="transport.html#cantera.Transport" title="cantera.Transport"><code class="xref py py-obj docutils literal"><span class="pre">Transport</span></code></a>.  It defines no methods of its own, and is provided so that a
@@ -156,8 +152,8 @@ specifying the thermodynamic and kinetics model, respectively, and
 <code class="docutils literal"><span class="pre">species</span></code> and <code class="docutils literal"><span class="pre">reactions</span></code> keyword arguments are lists of <a class="reference internal" href="thermo.html#cantera.Species" title="cantera.Species"><code class="xref py py-obj docutils literal"><span class="pre">Species</span></code></a> and
 <a class="reference internal" href="kinetics.html#cantera.Reaction" title="cantera.Reaction"><code class="xref py py-obj docutils literal"><span class="pre">Reaction</span></code></a> objects, respectively.</p>
 <p>For non-trivial uses cases of this functionality, see the examples
-<a class="reference internal" href="examples/kinetics_extract_submechanism.html#py-example-extract-submechanism-py"><em>extract_submechanism.py</em></a> and
-<a class="reference internal" href="examples/kinetics_mechanism_reduction.html#py-example-mechanism-reduction-py"><em>mechanism_reduction.py</em></a>.</p>
+<a class="reference internal" href="examples/kinetics_extract_submechanism.html#py-example-extract-submechanism-py"><span class="std std-ref">extract_submechanism.py</span></a> and
+<a class="reference internal" href="examples/kinetics_mechanism_reduction.html#py-example-mechanism-reduction-py"><span class="std std-ref">mechanism_reduction.py</span></a>.</p>
 <p>In addition, <a class="reference internal" href="#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> objects can be constructed by passing the text of
 the CTI or XML phase definition in directly, using the <code class="docutils literal"><span class="pre">source</span></code> keyword
 argument:</p>
@@ -264,7 +260,7 @@ properties which can be computed for class <a class="reference internal" href="#
 provides several additional capabilities. A <a class="reference internal" href="#cantera.Quantity" title="cantera.Quantity"><code class="xref py py-obj docutils literal"><span class="pre">Quantity</span></code></a> object is created
 from a <a class="reference internal" href="#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> with either the mass or number of moles specified:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;gri30.xml&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">5</span><span class="n">e5</span><span class="p">,</span> <span class="s1">&#39;O2:1.0, N2:3.76&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">,</span> <span class="s1">&#39;O2:1.0, N2:3.76&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">q1</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Quantity</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">mass</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5 kg of air</span>
 </pre></div>
 </div>
@@ -785,7 +781,7 @@ the mass fraction of species <span class="math">\(k\)</span>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> – Base element, may be specified by name or by index.</td>
 </tr>
 </tbody>
 </table>
@@ -811,7 +807,7 @@ species <span class="math">\(k\)</span>, <span class="math">\(\sum_j\)</span> be
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> – Base element, may be specified by name or by index.</td>
 </tr>
 </tbody>
 </table>
@@ -1306,9 +1302,9 @@ N2):</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>phi</strong> &#8211; Equivalence ratio</li>
-<li><strong>fuel</strong> &#8211; Fuel species name or molar composition as string, array, or dict.</li>
-<li><strong>oxidizer</strong> &#8211; Oxidizer species name or molar composition as a string, array, or
+<li><strong>phi</strong> – Equivalence ratio</li>
+<li><strong>fuel</strong> – Fuel species name or molar composition as string, array, or dict.</li>
+<li><strong>oxidizer</strong> – Oxidizer species name or molar composition as a string, array, or
 dict.</li>
 </ul>
 </td>
@@ -1491,7 +1487,7 @@ can be set in a single call.</p>
 </pre></div>
 </div>
 <p>Similar to Numpy arrays, input with fewer non-singleton dimensions than the
-SolutionArray is &#8216;broadcast&#8217; to generate input of the appropriate shape. In
+SolutionArray is ‘broadcast’ to generate input of the appropriate shape. In
 the above example, the single value for the mole fraction input is applied
 to each input, while each row has a constant temperature and each column has
 a constant pressure.</p>
@@ -1516,7 +1512,7 @@ scalar output (e.g. per-species or per-reaction properties):</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">states</span><span class="o">.</span><span class="n">T</span> <span class="c1"># -&gt; adiabatic flame temperature at various equivalence ratios</span>
 </pre></div>
 </div>
-<p>SolutionArray objects can also be &#8216;sliced&#8217; like Numpy arrays, which can be
+<p>SolutionArray objects can also be ‘sliced’ like Numpy arrays, which can be
 used both for accessing and setting properties:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">states</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="kc">None</span> <span class="c1"># set the temperature of the first row to 400 K</span>
@@ -1557,12 +1553,12 @@ using the <a class="reference internal" href="#cantera.SolutionArray.write_csv" 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>phase</strong> &#8211; The <a class="reference internal" href="#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> object used to compute the thermodynamic,
+<li><strong>phase</strong> – The <a class="reference internal" href="#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> object used to compute the thermodynamic,
 kinetic, and transport properties</li>
-<li><strong>shape</strong> &#8211; A tuple or integer indicating the dimensions of the
+<li><strong>shape</strong> – A tuple or integer indicating the dimensions of the
 SolutionArray. If the shape is 1D, the array may be extended using the
 <a class="reference internal" href="#cantera.SolutionArray.append" title="cantera.SolutionArray.append"><code class="xref py py-obj docutils literal"><span class="pre">append</span></code></a> method. Otherwise, the shape is fixed.</li>
-<li><strong>states</strong> &#8211; The initial array of states. Used internally to provide
+<li><strong>states</strong> – The initial array of states. Used internally to provide
 slicing support.</li>
 </ul>
 </td>
@@ -1893,19 +1889,19 @@ with a list of column labels.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cols</strong> &#8211; A list of any properties of the solution that are scalars
+<li><strong>cols</strong> – A list of any properties of the solution that are scalars
 or which have a value for each species or reaction. If species names
 are specified, then either the mass or mole fraction of that species
 will be taken, depending on the value of <em>species</em>. <em>cols</em> may also
-include any arrays which were specified as &#8216;extra&#8217; variables when
-defining the SolutionArray object. The special value &#8216;extra&#8217; can be
-used to include all &#8216;extra&#8217; variables.</li>
-<li><strong>threshold</strong> &#8211; Relative tolerance for including a particular column.
+include any arrays which were specified as ‘extra’ variables when
+defining the SolutionArray object. The special value ‘extra’ can be
+used to include all ‘extra’ variables.</li>
+<li><strong>threshold</strong> – Relative tolerance for including a particular column.
 The tolerance is applied by comparing the maximum absolute value for
 a particular column to the maximum absolute value in all columns for
 the same variable (e.g. mass fraction).</li>
-<li><strong>species</strong> &#8211; Specifies whether to use mass (&#8216;Y&#8217;) or mole (&#8216;X&#8217;)
-fractions for individual species specified in &#8216;cols&#8217;</li>
+<li><strong>species</strong> – Specifies whether to use mass (‘Y’) or mole (‘X’)
+fractions for individual species specified in ‘cols’</li>
 </ul>
 </td>
 </tr>
@@ -2677,8 +2673,8 @@ only with 1D SolutionArray objects.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

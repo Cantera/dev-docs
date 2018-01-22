@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>One-dimensional Reacting Flows &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>One-dimensional Reacting Flows &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Python Module Documentation" href="index.html" />
     <link rel="next" title="Physical Constants" href="constants.html" />
     <link rel="prev" title="Zero-Dimensional Reactor Networks" href="zerodim.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -105,7 +101,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cython/onedim.txt"
+      <li><a href="../_sources/cython/onedim.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -171,7 +167,7 @@
 <em class="property">class </em><code class="descclassname">cantera.</code><code class="descname">FreeFlame</code><span class="sig-paren">(</span><em>gas</em>, <em>grid=None</em>, <em>width=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FreeFlame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">cantera.onedim.FlameBase</span></code></p>
 <p>A freely-propagating flat flame.</p>
-<p>A domain of type FreeFlow named &#8216;flame&#8217; will be created to represent
+<p>A domain of type FreeFlow named ‘flame’ will be created to represent
 the flame. The three domains comprising the stack are stored as
 <code class="docutils literal"><span class="pre">self.inlet</span></code>, <code class="docutils literal"><span class="pre">self.flame</span></code>, and <code class="docutils literal"><span class="pre">self.outlet</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -179,10 +175,10 @@ the flame. The three domains comprising the stack are stored as
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>grid</strong> &#8211; A list of points to be used as the initial grid. Not recommended
+<li><strong>grid</strong> – A list of points to be used as the initial grid. Not recommended
 unless solving only on a fixed grid; Use the <code class="xref py py-obj docutils literal"><span class="pre">width</span></code> parameter
 instead.</li>
-<li><strong>width</strong> &#8211; Defines a grid on the interval [0, width] with internal points
+<li><strong>width</strong> – Defines a grid on the interval [0, width] with internal points
 determined automatically by the solver.</li>
 </ul>
 </td>
@@ -238,12 +234,12 @@ similarly.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gas</strong> &#8211; <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
+<li><strong>gas</strong> – <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
 evaluate all gas properties and reaction rates.</li>
-<li><strong>grid</strong> &#8211; A list of points to be used as the initial grid. Not recommended
+<li><strong>grid</strong> – A list of points to be used as the initial grid. Not recommended
 unless solving only on a fixed grid; Use the <code class="xref py py-obj docutils literal"><span class="pre">width</span></code> parameter
 instead.</li>
-<li><strong>width</strong> &#8211; Defines a grid on the interval [0, width] with internal points
+<li><strong>width</strong> – Defines a grid on the interval [0, width] with internal points
 determined automatically by the solver.</li>
 </ul>
 </td>
@@ -294,12 +290,12 @@ set similarly.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gas</strong> &#8211; <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
+<li><strong>gas</strong> – <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
 evaluate all gas properties and reaction rates.</li>
-<li><strong>grid</strong> &#8211; A list of points to be used as the initial grid. Not recommended
+<li><strong>grid</strong> – A list of points to be used as the initial grid. Not recommended
 unless solving only on a fixed grid; Use the <code class="xref py py-obj docutils literal"><span class="pre">width</span></code> parameter
 instead.</li>
-<li><strong>width</strong> &#8211; Defines a grid on the interval [0, width] with internal points
+<li><strong>width</strong> – Defines a grid on the interval [0, width] with internal points
 determined automatically by the solver.</li>
 </ul>
 </td>
@@ -341,7 +337,7 @@ inlets:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; The element based on which the mixture fraction is computed,
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> – The element based on which the mixture fraction is computed,
 may be specified by name or by index</td>
 </tr>
 </tbody>
@@ -372,10 +368,10 @@ by assuming infinitely-fast chemistry.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loglevel</strong> &#8211; integer flag controlling the amount of diagnostic output. Zero
+<li><strong>loglevel</strong> – integer flag controlling the amount of diagnostic output. Zero
 suppresses all output, and 5 produces very verbose output.</li>
-<li><strong>refine_grid</strong> &#8211; if True, enable grid refinement.</li>
-<li><strong>auto</strong> &#8211; if True, sequentially execute the different solution stages
+<li><strong>refine_grid</strong> – if True, enable grid refinement.</li>
+<li><strong>auto</strong> – if True, sequentially execute the different solution stages
 and attempt to automatically recover from errors. Attempts to first
 solve on the initial grid with energy enabled. If that does not
 succeed, a fixed-temperature solution will be tried followed by
@@ -399,14 +395,14 @@ will be calculated.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>definition</strong> &#8211; The definition of the strain rate to be calculated. Options are:
+<li><strong>definition</strong> – The definition of the strain rate to be calculated. Options are:
 <code class="docutils literal"><span class="pre">mean</span></code>, <code class="docutils literal"><span class="pre">max</span></code>, <code class="docutils literal"><span class="pre">stoichiometric</span></code>, <code class="docutils literal"><span class="pre">potential_flow_fuel</span></code>, and
 <code class="docutils literal"><span class="pre">potential_flow_oxidizer</span></code>.</li>
-<li><strong>fuel</strong> &#8211; The fuel species. Used only if <em>definition</em> is
+<li><strong>fuel</strong> – The fuel species. Used only if <em>definition</em> is
 <code class="docutils literal"><span class="pre">stoichiometric</span></code>.</li>
-<li><strong>oxidizer</strong> &#8211; The oxidizer species, default <code class="docutils literal"><span class="pre">O2</span></code>. Used only if
+<li><strong>oxidizer</strong> – The oxidizer species, default <code class="docutils literal"><span class="pre">O2</span></code>. Used only if
 <em>definition</em> is <code class="docutils literal"><span class="pre">stoichiometric</span></code>.</li>
-<li><strong>stoich</strong> &#8211; The molar stoichiometric oxidizer-to-fuel ratio.
+<li><strong>stoich</strong> – The molar stoichiometric oxidizer-to-fuel ratio.
 Can be omitted if the oxidizer is <code class="docutils literal"><span class="pre">O2</span></code>. Used only if <em>definition</em>
 is <code class="docutils literal"><span class="pre">stoichiometric</span></code>.</li>
 </ul>
@@ -470,11 +466,11 @@ condition at the oxidizer inlet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gas</strong> &#8211; <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
+<li><strong>gas</strong> – <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
 evaluate all gas properties and reaction rates.</li>
-<li><strong>grid</strong> &#8211; Array of initial grid points. Not recommended unless solving only on
+<li><strong>grid</strong> – Array of initial grid points. Not recommended unless solving only on
 a fixed grid; Use the <code class="xref py py-obj docutils literal"><span class="pre">width</span></code> parameter instead.</li>
-<li><strong>width</strong> &#8211; Defines a grid on the interval [0, width] with internal points
+<li><strong>width</strong> – Defines a grid on the interval [0, width] with internal points
 determined automatically by the solver.</li>
 </ul>
 </td>
@@ -523,14 +519,14 @@ will be set to the equilibrium state of the reactants mixture.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gas</strong> &#8211; <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
+<li><strong>gas</strong> – <a class="reference internal" href="importing.html#cantera.Solution" title="cantera.Solution"><code class="xref py py-obj docutils literal"><span class="pre">Solution</span></code></a> (using the IdealGas thermodynamic model) used to
 evaluate all gas properties and reaction rates.</li>
-<li><strong>grid</strong> &#8211; A list of points to be used as the initial grid. Not recommended
+<li><strong>grid</strong> – A list of points to be used as the initial grid. Not recommended
 unless solving only on the initial grid; Use the <code class="xref py py-obj docutils literal"><span class="pre">width</span></code> parameter
 instead.</li>
-<li><strong>width</strong> &#8211; Defines a grid on the interval [0, width] with internal points
+<li><strong>width</strong> – Defines a grid on the interval [0, width] with internal points
 determined automatically by the solver.</li>
-<li><strong>surface</strong> &#8211; A Kinetics object used to compute any surface reactions.</li>
+<li><strong>surface</strong> – A Kinetics object used to compute any surface reactions.</li>
 </ul>
 </td>
 </tr>
@@ -552,7 +548,7 @@ are stored as <code class="docutils literal"><span class="pre">self.inlet</span>
 <dl class="method">
 <dt id="cantera.ImpingingJet.set_initial_guess">
 <code class="descname">set_initial_guess</code><span class="sig-paren">(</span><em>products='inlet'</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ImpingingJet.set_initial_guess" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the initial guess for the solution. If products = &#8216;equil&#8217;, then
+<dd><p>Set the initial guess for the solution. If products = ‘equil’, then
 the equilibrium composition at the adiabatic flame temperature will be
 used to form the initial guess. Otherwise the inlet composition will
 be used.</p>
@@ -594,7 +590,7 @@ be used.</p>
 <dl class="method">
 <dt id="cantera.FreeFlow.component_index">
 <code class="descname">component_index</code><span class="sig-paren">(</span><em>self</em>, <em>str name</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FreeFlow.component_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Index of the component with name &#8216;name&#8217;</p>
+<dd><p>Index of the component with name ‘name’</p>
 </dd></dl>
 
 <dl class="method">
@@ -693,8 +689,8 @@ whenever the energy equation is disabled.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pos</strong> &#8211; arrray of relative positions from 0 to 1</li>
-<li><strong>temp</strong> &#8211; array of temperature values</li>
+<li><strong>pos</strong> – arrray of relative positions from 0 to 1</li>
+<li><strong>temp</strong> – array of temperature values</li>
 </ul>
 </td>
 </tr>
@@ -837,7 +833,7 @@ well as arbitrary variation of the transport properties.</p>
 <dl class="method">
 <dt id="cantera.AxisymmetricStagnationFlow.component_index">
 <code class="descname">component_index</code><span class="sig-paren">(</span><em>self</em>, <em>str name</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.component_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Index of the component with name &#8216;name&#8217;</p>
+<dd><p>Index of the component with name ‘name’</p>
 </dd></dl>
 
 <dl class="method">
@@ -936,8 +932,8 @@ whenever the energy equation is disabled.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pos</strong> &#8211; arrray of relative positions from 0 to 1</li>
-<li><strong>temp</strong> &#8211; array of temperature values</li>
+<li><strong>pos</strong> – arrray of relative positions from 0 to 1</li>
+<li><strong>temp</strong> – array of temperature values</li>
 </ul>
 </td>
 </tr>
@@ -1137,7 +1133,7 @@ condition on the flow.</p>
 <dl class="method">
 <dt id="cantera.Domain1D.component_index">
 <code class="descname">component_index</code><span class="sig-paren">(</span><em>self</em>, <em>str name</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Domain1D.component_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Index of the component with name &#8216;name&#8217;</p>
+<dd><p>Index of the component with name ‘name’</p>
 </dd></dl>
 
 <dl class="method">
@@ -1288,7 +1284,7 @@ specified solution component, or all components if none is specified.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phase</strong> &#8211; The (gas) phase corresponding to the adjacent flow domain</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phase</strong> – The (gas) phase corresponding to the adjacent flow domain</td>
 </tr>
 </tbody>
 </table>
@@ -1368,7 +1364,7 @@ to solve()</p>
 <dt id="cantera.Sim1D.extinct">
 <code class="descname">extinct</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.extinct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method overloaded for some flame types to indicate if the flame has been
-extinguished. Base class method always returns &#8216;False&#8217;</p>
+extinguished. Base class method always returns ‘False’</p>
 </dd></dl>
 
 <dl class="method">
@@ -1411,8 +1407,8 @@ steady-state solution</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; Domain1D object, name, or index</li>
-<li><strong>component</strong> &#8211; component name or index</li>
+<li><strong>domain</strong> – Domain1D object, name, or index</li>
+<li><strong>component</strong> – component name or index</li>
 </ul>
 </td>
 </tr>
@@ -1439,9 +1435,9 @@ resolved.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> &#8211; solution file</li>
-<li><strong>name</strong> &#8211; solution name within the file</li>
-<li><strong>loglevel</strong> &#8211; Amount of logging information to display while restoring,
+<li><strong>filename</strong> – solution file</li>
+<li><strong>name</strong> – solution name within the file</li>
+<li><strong>loglevel</strong> – Amount of logging information to display while restoring,
 from 0 (disabled) to 2 (most verbose).</li>
 </ul>
 </td>
@@ -1478,9 +1474,9 @@ integration.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> &#8211; solution file</li>
-<li><strong>name</strong> &#8211; solution name within the file</li>
-<li><strong>description</strong> &#8211; custom description text</li>
+<li><strong>filename</strong> – solution file</li>
+<li><strong>name</strong> – solution name within the file</li>
+<li><strong>description</strong> – custom description text</li>
 </ul>
 </td>
 </tr>
@@ -1508,9 +1504,9 @@ propagating flame.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; Domain1D object, name, or index</li>
-<li><strong>component</strong> &#8211; component name or index</li>
-<li><strong>v</strong> &#8211; value</li>
+<li><strong>domain</strong> – Domain1D object, name, or index</li>
+<li><strong>component</strong> – component name or index</li>
+<li><strong>v</strong> – value</li>
 </ul>
 </td>
 </tr>
@@ -1561,8 +1557,8 @@ must be re-evaluated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ss_age</strong> &#8211; age criterion during steady-state mode</li>
-<li><strong>ts_age</strong> &#8211; age criterion during time-stepping mode</li>
+<li><strong>ss_age</strong> – age criterion during steady-state mode</li>
+<li><strong>ts_age</strong> – age criterion during time-stepping mode</li>
 </ul>
 </td>
 </tr>
@@ -1591,10 +1587,10 @@ must be re-evaluated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; Domain1D object, name, or index</li>
-<li><strong>component</strong> &#8211; component name or index</li>
-<li><strong>positions</strong> &#8211; sequence of relative positions, from 0 on the left to 1 on the right</li>
-<li><strong>values</strong> &#8211; sequence of values at the relative positions specified in <em>positions</em></li>
+<li><strong>domain</strong> – Domain1D object, name, or index</li>
+<li><strong>component</strong> – component name or index</li>
+<li><strong>positions</strong> – sequence of relative positions, from 0 on the left to 1 on the right</li>
+<li><strong>values</strong> – sequence of values at the relative positions specified in <em>positions</em></li>
 </ul>
 </td>
 </tr>
@@ -1614,18 +1610,18 @@ must be re-evaluated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; domain object, index, or name</li>
-<li><strong>ratio</strong> &#8211; additional points will be added if the ratio of the spacing on
+<li><strong>domain</strong> – domain object, index, or name</li>
+<li><strong>ratio</strong> – additional points will be added if the ratio of the spacing on
 either side of a grid point exceeds this value</li>
-<li><strong>slope</strong> &#8211; maximum difference in value between two adjacent points, scaled by
+<li><strong>slope</strong> – maximum difference in value between two adjacent points, scaled by
 the maximum difference in the profile (0.0 &lt; slope &lt; 1.0). Adds
 points in regions of high slope.</li>
-<li><strong>curve</strong> &#8211; maximum difference in slope between two adjacent intervals, scaled
+<li><strong>curve</strong> – maximum difference in slope between two adjacent intervals, scaled
 by the maximum difference in the profile (0.0 &lt; curve &lt; 1.0). Adds
 points in regions of high curvature.</li>
-<li><strong>prune</strong> &#8211; if the slope or curve criteria are satisfied to the level of
-&#8216;prune&#8217;, the grid point is assumed not to be needed and is removed.
-Set prune significantly smaller than &#8216;slope&#8217; and &#8216;curve&#8217;. Set to
+<li><strong>prune</strong> – if the slope or curve criteria are satisfied to the level of
+‘prune’, the grid point is assumed not to be needed and is removed.
+Set prune significantly smaller than ‘slope’ and ‘curve’. Set to
 zero to disable pruning the grid.</li>
 </ul>
 </td>
@@ -1642,7 +1638,7 @@ zero to disable pruning the grid.</li>
 <code class="descname">set_steady_callback</code><span class="sig-paren">(</span><em>self</em>, <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.set_steady_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a callback function to be called after each successful steady-state
 solve, before regridding. The signature of <em>f</em> is <code class="xref py py-obj docutils literal"><span class="pre">float</span> <span class="pre">f(float)</span></code>. The
-argument passed to <em>f</em> is &#8220;0&#8221; and the output is ignored.</p>
+argument passed to <em>f</em> is “0” and the output is ignored.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1654,8 +1650,8 @@ argument passed to <em>f</em> is &#8220;0&#8221; and the output is ignored.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>stepsize</strong> &#8211; initial time step size [s]</li>
-<li><strong>n_steps</strong> &#8211; sequence of integer step numbers</li>
+<li><strong>stepsize</strong> – initial time step size [s]</li>
+<li><strong>n_steps</strong> – sequence of integer step numbers</li>
 </ul>
 </td>
 </tr>
@@ -1684,16 +1680,16 @@ successful step, or decreased after an unsuccessful one.</p>
 <dl class="method">
 <dt id="cantera.Sim1D.set_value">
 <code class="descname">set_value</code><span class="sig-paren">(</span><em>self</em>, <em>domain</em>, <em>component</em>, <em>point</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.set_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the value of one component in one domain at one point to &#8216;value&#8217;.</p>
+<dd><p>Set the value of one component in one domain at one point to ‘value’.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; Domain1D object, name, or index</li>
-<li><strong>component</strong> &#8211; component name or index</li>
-<li><strong>point</strong> &#8211; grid point number within <em>domain</em> starting with 0 on the left</li>
-<li><strong>value</strong> &#8211; numerical value</li>
+<li><strong>domain</strong> – Domain1D object, name, or index</li>
+<li><strong>component</strong> – component name or index</li>
+<li><strong>point</strong> – grid point number within <em>domain</em> starting with 0 on the left</li>
+<li><strong>value</strong> – numerical value</li>
 </ul>
 </td>
 </tr>
@@ -1729,10 +1725,10 @@ statistics will be printed. Otherwise, the timing will not be printed.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loglevel</strong> &#8211; integer flag controlling the amount of diagnostic output. Zero
+<li><strong>loglevel</strong> – integer flag controlling the amount of diagnostic output. Zero
 suppresses all output, and 5 produces very verbose output.</li>
-<li><strong>refine_grid</strong> &#8211; if True, enable grid refinement.</li>
-<li><strong>auto</strong> &#8211; if True, sequentially execute the different solution stages
+<li><strong>refine_grid</strong> – if True, enable grid refinement.</li>
+<li><strong>auto</strong> – if True, sequentially execute the different solution stages
 and attempt to automatically recover from errors. Attempts to first
 solve on the initial grid with energy enabled. If that does not
 succeed, a fixed-temperature solution will be tried followed by
@@ -1760,7 +1756,7 @@ the system of equations has already been solved to find <span class="math">\(x\)
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>perturb</strong> &#8211; <p>A function with the signature <code class="docutils literal"><span class="pre">perturb(sim,</span> <span class="pre">i,</span> <span class="pre">dp)</span></code> which
+<li><strong>perturb</strong> – <p>A function with the signature <code class="docutils literal"><span class="pre">perturb(sim,</span> <span class="pre">i,</span> <span class="pre">dp)</span></code> which
 perturbs parameter <code class="docutils literal"><span class="pre">i</span></code> by a relative factor of <code class="docutils literal"><span class="pre">dp</span></code>. To
 perturb a reaction rate constant, this function could be defined
 as:</p>
@@ -1771,15 +1767,15 @@ as:</p>
 <p>Calling <code class="docutils literal"><span class="pre">perturb(sim,</span> <span class="pre">i,</span> <span class="pre">0)</span></code> should restore that parameter to its
 default value.</p>
 </li>
-<li><strong>n_params</strong> &#8211; The length of the vector of sensitivity parameters</li>
-<li><strong>dgdx</strong> &#8211; The vector of partial derivatives of the function <span class="math">\(g(x, p)\)</span>
+<li><strong>n_params</strong> – The length of the vector of sensitivity parameters</li>
+<li><strong>dgdx</strong> – The vector of partial derivatives of the function <span class="math">\(g(x, p)\)</span>
 with respect to the system state <span class="math">\(x\)</span>.</li>
-<li><strong>g</strong> &#8211; A function with the signature <code class="docutils literal"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">g(sim)</span></code> which computes the
+<li><strong>g</strong> – A function with the signature <code class="docutils literal"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">g(sim)</span></code> which computes the
 value of <span class="math">\(g(x,p)\)</span> at the current system state. This is used to
 compute <span class="math">\(\partial g/\partial p\)</span>. If this is identically zero
 (i.e. <span class="math">\(g\)</span> is independent of <span class="math">\(p\)</span>) then this argument may
 be omitted.</li>
-<li><strong>dp</strong> &#8211; A relative value by which to perturb each parameter</li>
+<li><strong>dp</strong> – A relative value by which to perturb each parameter</li>
 </ul>
 </td>
 </tr>
@@ -1802,9 +1798,9 @@ be omitted.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; Domain1D object, name, or index</li>
-<li><strong>component</strong> &#8211; component name or index</li>
-<li><strong>point</strong> &#8211; grid point number within <em>domain</em> starting with 0 on the left</li>
+<li><strong>domain</strong> – Domain1D object, name, or index</li>
+<li><strong>component</strong> – component name or index</li>
+<li><strong>point</strong> – grid point number within <em>domain</em> starting with 0 on the left</li>
 </ul>
 </td>
 </tr>
@@ -1825,9 +1821,9 @@ contains the values of the residual function.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>domain</strong> &#8211; Domain1D object, name, or index</li>
-<li><strong>component</strong> &#8211; component name or index</li>
-<li><strong>point</strong> &#8211; grid point number in the domain, starting with zero at the left</li>
+<li><strong>domain</strong> – Domain1D object, name, or index</li>
+<li><strong>component</strong> – component name or index</li>
+<li><strong>point</strong> – grid point number in the domain, starting with zero at the left</li>
 </ul>
 </td>
 </tr>
@@ -1853,8 +1849,8 @@ contains the values of the residual function.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gas</strong> &#8211; object to use to evaluate all gas properties and reaction rates</li>
-<li><strong>grid</strong> &#8211; array of initial grid points</li>
+<li><strong>gas</strong> – object to use to evaluate all gas properties and reaction rates</li>
+<li><strong>grid</strong> – array of initial grid points</li>
 </ul>
 </td>
 </tr>
@@ -1864,7 +1860,7 @@ contains the values of the residual function.</p>
 <dt id="cantera.FlameBase.L">
 <code class="descname">L</code><a class="headerlink" href="#cantera.FlameBase.L" title="Permalink to this definition">¶</a></dt>
 <dd><p>Array containing the radial pressure gradient (1/r)(dP/dr) [N/m^4] at
-each point. Note: This value is named &#8216;lambda&#8217; in the C++ code.</p>
+each point. Note: This value is named ‘lambda’ in the C++ code.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2077,7 +2073,7 @@ the mass fraction of species <span class="math">\(k\)</span>.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> – Base element, may be specified by name or by index.</td>
 </tr>
 </tbody>
 </table>
@@ -2101,7 +2097,7 @@ species <span class="math">\(k\)</span> and <span class="math">\(X_k\)</span> th
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> &#8211; Base element, may be specified by name or by index.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> – Base element, may be specified by name or by index.</td>
 </tr>
 </tbody>
 </table>
@@ -2388,9 +2384,9 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>component</strong> &#8211; component name or index</li>
-<li><strong>positions</strong> &#8211; sequence of relative positions, from 0 on the left to 1 on the right</li>
-<li><strong>values</strong> &#8211; sequence of values at the relative positions specified in <em>positions</em></li>
+<li><strong>component</strong> – component name or index</li>
+<li><strong>positions</strong> – sequence of relative positions, from 0 on the left to 1 on the right</li>
+<li><strong>values</strong> – sequence of values at the relative positions specified in <em>positions</em></li>
 </ul>
 </td>
 </tr>
@@ -2410,17 +2406,17 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ratio</strong> &#8211; additional points will be added if the ratio of the spacing on
+<li><strong>ratio</strong> – additional points will be added if the ratio of the spacing on
 either side of a grid point exceeds this value</li>
-<li><strong>slope</strong> &#8211; maximum difference in value between two adjacent points, scaled by
+<li><strong>slope</strong> – maximum difference in value between two adjacent points, scaled by
 the maximum difference in the profile (0.0 &lt; slope &lt; 1.0). Adds
 points in regions of high slope.</li>
-<li><strong>curve</strong> &#8211; maximum difference in slope between two adjacent intervals, scaled
+<li><strong>curve</strong> – maximum difference in slope between two adjacent intervals, scaled
 by the maximum difference in the profile (0.0 &lt; curve &lt; 1.0). Adds
 points in regions of high curvature.</li>
-<li><strong>prune</strong> &#8211; if the slope or curve criteria are satisfied to the level of
-&#8216;prune&#8217;, the grid point is assumed not to be needed and is removed.
-Set prune significantly smaller than &#8216;slope&#8217; and &#8216;curve&#8217;. Set to
+<li><strong>prune</strong> – if the slope or curve criteria are satisfied to the level of
+‘prune’, the grid point is assumed not to be needed and is removed.
+Set prune significantly smaller than ‘slope’ and ‘curve’. Set to
 zero to disable pruning the grid.</li>
 </ul>
 </td>
@@ -2561,8 +2557,8 @@ to a CSV file.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filename</strong> &#8211; Output file name</li>
-<li><strong>species</strong> &#8211; Attribute to use obtaining species profiles, e.g. <code class="docutils literal"><span class="pre">X</span></code> for
+<li><strong>filename</strong> – Output file name</li>
+<li><strong>species</strong> – Attribute to use obtaining species profiles, e.g. <code class="docutils literal"><span class="pre">X</span></code> for
 mole fractions or <code class="docutils literal"><span class="pre">Y</span></code> for mass fractions.</li>
 </ul>
 </td>
@@ -2603,8 +2599,8 @@ mole fractions or <code class="docutils literal"><span class="pre">Y</span></cod
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

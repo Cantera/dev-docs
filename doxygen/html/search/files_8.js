@@ -20,10 +20,11 @@ var searchData=
   ['incompressiblesolid_2eh',['IncompressibleSolid.h',['../IncompressibleSolid_8h.html',1,'']]],
   ['inlet1d_2eh',['Inlet1D.h',['../Inlet1D_8h.html',1,'']]],
   ['integrator_2eh',['Integrator.h',['../Integrator_8h.html',1,'']]],
-  ['integrators_2eh',['integrators.h',['../integrators_8h.html',1,'']]],
   ['interface_2eh',['Interface.h',['../Interface_8h.html',1,'']]],
   ['interfacekinetics_2ecpp',['InterfaceKinetics.cpp',['../InterfaceKinetics_8cpp.html',1,'']]],
   ['interfacekinetics_2eh',['InterfaceKinetics.h',['../InterfaceKinetics_8h.html',1,'']]],
+  ['ionflow_2ecpp',['IonFlow.cpp',['../IonFlow_8cpp.html',1,'']]],
+  ['ionflow_2eh',['IonFlow.h',['../IonFlow_8h.html',1,'']]],
   ['ionsfromneutralvpsstp_2ecpp',['IonsFromNeutralVPSSTP.cpp',['../IonsFromNeutralVPSSTP_8cpp.html',1,'']]],
   ['ionsfromneutralvpsstp_2eh',['IonsFromNeutralVPSSTP.h',['../IonsFromNeutralVPSSTP_8h.html',1,'']]]
 ];

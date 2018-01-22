@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Elements and Species &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Elements and Species &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="../_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -27,12 +25,10 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="../index.html" />
-    <link rel="up" title="Defining Phases" href="index.html" />
     <link rel="next" title="Reactions" href="reactions.html" />
     <link rel="prev" title="Phases and their Interfaces" href="phases.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="../index.html">
 <img src="../_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -91,7 +87,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/cti/species.txt"
+      <li><a href="../_sources/cti/species.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -131,7 +127,7 @@ definitions.  An explicit element entry is needed only if an isotope not in
 <div class="section" id="species">
 <h2>Species<a class="headerlink" href="#species" title="Permalink to this headline">¶</a></h2>
 <p>For each species, a <a class="reference internal" href="classes.html#cantera.ctml_writer.species" title="cantera.ctml_writer.species"><code class="xref py py-class docutils literal"><span class="pre">species</span></code></a> entry is required. Species are defined at
-the top-level of the input file&#8212;their definitions are not embedded in a phase
+the top-level of the input file—their definitions are not embedded in a phase
 or interface entry.</p>
 <div class="section" id="species-name">
 <h3>Species Name<a class="headerlink" href="#species-name" title="Permalink to this headline">¶</a></h3>
@@ -173,7 +169,7 @@ defined to be composed solely of electrons:</p>
 <p>Note that an atom number of zero may be given if desired, but is completely
 equivalent to omitting that element.</p>
 <p>The number of atoms of an element must be non-negative, except for the special
-&#8220;element&#8221; <code class="docutils literal"><span class="pre">E</span></code> that represents an electron.</p>
+“element” <code class="docutils literal"><span class="pre">E</span></code> that represents an electron.</p>
 </div>
 <div class="section" id="thermodynamic-properties">
 <h3>Thermodynamic Properties<a class="headerlink" href="#thermodynamic-properties" title="Permalink to this headline">¶</a></h3>
@@ -190,7 +186,7 @@ range of temperatures and a reference pressure <span class="math">\(P_0\)</span>
 temperature <span class="math">\(T_0\)</span>;</li>
 <li>the absolute molar entropy <span class="math">\(\hat{s}(T_0, P_0)\)</span> at <span class="math">\((T_0, P_0)\)</span>.</li>
 </ol>
-<p>See: <a class="reference internal" href="#sec-thermo-models"><em>Thermodynamic Property Models</em></a></p>
+<p>See: <a class="reference internal" href="#sec-thermo-models"><span class="std std-ref">Thermodynamic Property Models</span></a></p>
 </div>
 <div class="section" id="species-transport-coefficients">
 <span id="sec-species-transport-models"></span><h3>Species Transport Coefficients<a class="headerlink" href="#species-transport-coefficients" title="Permalink to this headline">¶</a></h3>
@@ -230,7 +226,7 @@ polynomial:</p>
 \[\frac{c_p^0(T)}{R} = a_0 + a_1 T + a_2 T^2 + a_3 T^3 + a_4 T^4\]\[\frac{h^0(T)}{RT} = a_0 + \frac{a1}{2}T + \frac{a_2}{3} T^2 +
                     \frac{a_3}{4} T^3 + \frac{a_4}{5} T^4 + \frac{a_5}{T}\]\[\frac{s^0(T)}{R} = a_0 \ln T + a_1 T + \frac{a_2}{2} T^2 + \frac{a_3}{3} T^3 +
                    \frac{a_4}{4} T^4 + a_6\]</div>
-<p>Note that this is the &#8220;old&#8221; NASA polynomial form, used in the original NASA
+<p>Note that this is the “old” NASA polynomial form, used in the original NASA
 equilibrium program and in Chemkin, which uses 7 coefficients in each of two
 temperature regions. It is not compatible with the form used in the most recent
 version of the NASA equilibrium program, which uses 9 coefficients for each
@@ -254,7 +250,7 @@ ranges. This can be specified by assigning the <code class="docutils literal"><s
 </div>
 <div class="section" id="the-nasa-9-coefficient-polynomial-parameterization">
 <h3>The NASA 9-Coefficient Polynomial Parameterization<a class="headerlink" href="#the-nasa-9-coefficient-polynomial-parameterization" title="Permalink to this headline">¶</a></h3>
-<p>The NASA 9-coefficient polynomial parameterization <a class="footnote-reference" href="#mcbride2002" id="id2">[2]</a> (&#8220;NASA9&#8221; for
+<p>The NASA 9-coefficient polynomial parameterization <a class="footnote-reference" href="#mcbride2002" id="id2">[2]</a> (“NASA9” for
 short) is an extension of the NASA 7-coefficient polynomial parameterization
 which includes two additional terms in each temperature region, as well as
 supporting an arbitrary number of temperature regions.</p>
@@ -268,7 +264,7 @@ the following equations:</p>
    + a_3 T + \frac{a_4}{2} T^2 + \frac{a_5}{3} T^3  + \frac{a_6}{4} T^4 + a_8\]</div>
 <p>The following is an example of a species defined using the NASA9
 parameterization in three different temperature regions:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">species</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">u&#39;CO2&#39;</span><span class="p">,</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">species</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;CO2&#39;</span><span class="p">,</span>
         <span class="n">atoms</span><span class="o">=</span><span class="s1">&#39;C:1 O:2&#39;</span><span class="p">,</span>
         <span class="n">thermo</span><span class="o">=</span><span class="p">(</span><span class="n">NASA9</span><span class="p">([</span><span class="mf">200.00</span><span class="p">,</span> <span class="mf">1000.00</span><span class="p">],</span>
                       <span class="p">[</span> <span class="mf">4.943650540E+04</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.264116010E+02</span><span class="p">,</span>  <span class="mf">5.301725240E+00</span><span class="p">,</span>
@@ -288,7 +284,7 @@ parameterization in three different temperature regions:</p>
 <p>Thermodynamic data for a range of species can be obtained from the <a class="reference external" href="http://cearun.grc.nasa.gov/cea/index_ds.html">NASA
 ThermoBuild</a> tool. Using the web
 interface, an input file can be obtained for a set of species. This input file
-should then be modified so that the first line reads &#8220;<code class="xref py py-obj docutils literal"><span class="pre">thermo</span> <span class="pre">nasa9</span></code>&#8221;, as in the
+should then be modified so that the first line reads “<code class="xref py py-obj docutils literal"><span class="pre">thermo</span> <span class="pre">nasa9</span></code>”, as in the
 following example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">thermo</span> <span class="n">nasa9</span>
    <span class="mf">200.000</span>  <span class="mf">1000.000</span>  <span class="mf">6000.000</span> <span class="mf">20000.000</span>   <span class="mi">9</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">04</span>
@@ -397,8 +393,8 @@ Transport Properties. Technical Report SAND86-8246, Sandia National Laboratories
 <table class="docutils footnote" frame="void" id="mcbride2002" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>B. J. McBride, M. J. Zehe, S. Gordon. &#8220;NASA Glenn Coefficients
-for Calculating Thermodynamic Properties of Individual Species,&#8221;
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>B. J. McBride, M. J. Zehe, S. Gordon. “NASA Glenn Coefficients
+for Calculating Thermodynamic Properties of Individual Species,”
 NASA/TP-2002-211556, Sept. 2002.</td></tr>
 </tbody>
 </table>
@@ -432,8 +428,8 @@ NASA/TP-2002-211556, Sept. 2002.</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>

@@ -7,7 +7,6 @@ var searchData=
   ['cachedvalue',['CachedValue',['../structCantera_1_1CachedValue.html',1,'Cantera']]],
   ['canteraerror',['CanteraError',['../classCantera_1_1CanteraError.html',1,'Cantera']]],
   ['carbondioxide',['CarbonDioxide',['../classtpx_1_1CarbonDioxide.html',1,'tpx']]],
-  ['celapackerror',['CELapackError',['../classCantera_1_1CELapackError.html',1,'Cantera']]],
   ['chebyshevrate',['ChebyshevRate',['../classCantera_1_1ChebyshevRate.html',1,'Cantera']]],
   ['chebyshevreaction',['ChebyshevReaction',['../classCantera_1_1ChebyshevReaction.html',1,'Cantera']]],
   ['chemequil',['ChemEquil',['../classCantera_1_1ChemEquil.html',1,'Cantera']]],
@@ -20,6 +19,5 @@ var searchData=
   ['constpressurereactor',['ConstPressureReactor',['../classCantera_1_1ConstPressureReactor.html',1,'Cantera']]],
   ['cos1',['Cos1',['../classCantera_1_1Cos1.html',1,'Cantera']]],
   ['coveragedependency',['CoverageDependency',['../structCantera_1_1CoverageDependency.html',1,'Cantera']]],
-  ['cvodeserr',['CVodesErr',['../classCantera_1_1CVodesErr.html',1,'Cantera']]],
   ['cvodesintegrator',['CVodesIntegrator',['../classCantera_1_1CVodesIntegrator.html',1,'Cantera']]]
 ];

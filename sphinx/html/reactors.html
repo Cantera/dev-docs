@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Reactors and Reactor Networks &#8212; Cantera 2.3.0b1 documentation</title>
-    
+    <title>Reactors and Reactor Networks &#8212; Cantera 2.4.0a2 documentation</title>
     <link rel="stylesheet" href="_static/cantera.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.3.0b1',
+        VERSION:     '2.4.0a2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -27,11 +25,10 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Cantera 2.3.0b1 documentation" href="index.html" />
     <link rel="next" title="One-Dimensional Flames" href="flames.html" />
     <link rel="prev" title="Example: Hydrogen Combustion" href="cti/example-combustion.html" /> 
   </head>
-  <body role="document">
+  <body>
 <div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
 <a href="index.html">
 <img src="_static/cantera-logo.png" border="0" alt="Cantera"/></a>
@@ -105,7 +102,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/reactors.txt"
+      <li><a href="_sources/reactors.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -162,9 +159,9 @@ the contents of one reactor flow into another. Reactors may also be in contact
 with one another or the environment via walls which move or conduct heat.</p>
 <div class="section" id="governing-equations-for-single-reactors">
 <h2>Governing Equations for Single Reactors<a class="headerlink" href="#governing-equations-for-single-reactors" title="Permalink to this headline">¶</a></h2>
-<p>The state variables for Cantera&#8217;s general reactor model are</p>
+<p>The state variables for Cantera’s general reactor model are</p>
 <ul class="simple">
-<li><span class="math">\(m\)</span>, the mass of the reactor&#8217;s contents (in kg)</li>
+<li><span class="math">\(m\)</span>, the mass of the reactor’s contents (in kg)</li>
 <li><span class="math">\(V\)</span>, the reactor volume (in m<sup>3</sup>) (not a state variable for
 <em>Constant Pressure Reactor</em> and <em>Ideal Gas Constant Pressure Reactor</em>)</li>
 <li>A state variable describing the energy of the system, depending on the
@@ -181,8 +178,8 @@ temperature (in K)</li>
 </ul>
 <div class="section" id="mass-conservation">
 <h3>Mass Conservation<a class="headerlink" href="#mass-conservation" title="Permalink to this headline">¶</a></h3>
-<p>The total mass of the reactor&#8217;s contents changes as a result of flow through
-the reactor&#8217;s inlets and outlets, and production of homogeneous phase species
+<p>The total mass of the reactor’s contents changes as a result of flow through
+the reactor’s inlets and outlets, and production of homogeneous phase species
 on the reactor walls:</p>
 <div class="math">
 \[\frac{dm}{dt} = \sum_{in} \dot{m}_{in} - \sum_{out} \dot{m}_{out} +
@@ -289,7 +286,7 @@ temperature:</p>
 \[\dot{Q} = \sum_w f_w \dot{Q}_w\]</div>
 <p>where <span class="math">\(f_w = \pm 1\)</span> indicates the facing of the wall (+1 for the reactor on the
 left, -1 for the reactor on the right). The heat flux <span class="math">\(\dot{Q}_w\)</span> through a wall
-<span class="math">\(k\)</span> connecting reactors &#8220;left&#8221; and &#8220;right&#8221; is computed as:</p>
+<span class="math">\(k\)</span> connecting reactors “left” and “right” is computed as:</p>
 <div class="math">
 \[\dot{Q}_w = U A (T_{\rm left} - T_{\rm right})
           + \epsilon\sigma A (T_{\rm left}^4 - T_{\rm right}^4)
@@ -298,7 +295,7 @@ left, -1 for the reactor on the right). The heat flux <span class="math">\(\dot{
 wall area (m^2), <span class="math">\(\epsilon\)</span> is the user-specified emissivity, <span class="math">\(\sigma\)</span> is the
 Stefan-Boltzmann radiation constant, and <span class="math">\(q_0(t)\)</span> is a user-specified,
 time-dependent heat flux (W/m^2). This definition is such that positive <span class="math">\(q_0(t)\)</span>
-implies heat transfer from the &#8220;left&#8221; reactor to the &#8220;right&#8221; reactor. Each of
+implies heat transfer from the “left” reactor to the “right” reactor. Each of
 the user-specified terms defaults to 0.</p>
 <p>In case of surface reactions, there can be a net generation (or destruction) of
 homogeneous (gas) phase species at the wall. The molar rate of production for
@@ -317,7 +314,7 @@ each wall. The net mass flux from all walls is then:</p>
 \[\frac{d\theta_{i,w}}{dt} = \frac{\dot{s}_{i,w} n_i}{\Gamma_w}\]</div>
 <p>where <span class="math">\(\Gamma_w\)</span> is the total surface site density on wall <span class="math">\(w\)</span> and <span class="math">\(n_i\)</span> is the
 number of surface sites occupied by a molecule of species <span class="math">\(i\)</span> (sometimes
-referred to within Cantera as the molecule&#8217;s &#8220;size&#8221;).</p>
+referred to within Cantera as the molecule’s “size”).</p>
 </div>
 </div>
 <div class="section" id="reactor-networks-and-devices">
@@ -400,7 +397,7 @@ capability should be used with caution, since no account is taken of the work
 required to do this.</p>
 </li>
 <li><p class="first"><strong>Pressure Controller</strong>: A pressure controller is designed to be used in
-conjunction with another &#8216;master&#8217; flow controller, typically a
+conjunction with another ‘master’ flow controller, typically a
 MassFlowController. The master flow controller is installed on the inlet of
 the reactor, and the corresponding PressureController is installed on on
 outlet of the reactor. The PressureController mass flow rate is equal to the
@@ -450,7 +447,7 @@ this problem, three parameters can be tuned: The absolute time stepping
 tolerances, the relative time stepping tolerances, and the maximum time step. A
 reduction of the latter value is particularly useful when dealing with abrupt
 changes in the boundary conditions (e.g. opening/closing valves, see also
-example <a class="reference internal" href="cython/examples/reactors_ic_engine.html#py-example-ic-engine-py"><em>ic_engine.py</em></a>).</p>
+example <a class="reference internal" href="cython/examples/reactors_ic_engine.html#py-example-ic-engine-py"><span class="std std-ref">ic_engine.py</span></a>).</p>
 </div>
 </div>
 <div class="section" id="general-usage-in-cantera">
@@ -473,10 +470,10 @@ observe the transient states, you manually have to keep track of them.</li>
 </ol>
 <p>Note that Cantera always solves a transient problem. If you are interested in
 steady-state conditions, you can run your simulation for a long time until the
-states are converged (see e.g. example <a class="reference internal" href="cython/examples/reactors_surf_pfr.html#py-example-surf-pfr-py"><em>surf_pfr.py</em></a>,
-<a class="reference internal" href="cython/examples/reactors_combustor.html#py-example-combustor-py"><em>combustor.py</em></a>).</p>
+states are converged (see e.g. example <a class="reference internal" href="cython/examples/reactors_surf_pfr.html#py-example-surf-pfr-py"><span class="std std-ref">surf_pfr.py</span></a>,
+<a class="reference internal" href="cython/examples/reactors_combustor.html#py-example-combustor-py"><span class="std std-ref">combustor.py</span></a>).</p>
 <p>Cantera comes with a broad variety of well-commented example scrips for reactor
-networks. Please refer to them for further information (<a class="reference internal" href="cython/examples.html#sec-cython-examples"><em>Python</em></a>, <a class="reference internal" href="matlab/examples.html#sec-matlab-examples"><em>Matlab</em></a>).</p>
+networks. Please refer to them for further information (<a class="reference internal" href="cython/examples.html#sec-cython-examples"><span class="std std-ref">Python</span></a>, <a class="reference internal" href="matlab/examples.html#sec-matlab-examples"><span class="std std-ref">Matlab</span></a>).</p>
 </div>
 <div class="section" id="common-reactor-types-and-their-implementation-in-cantera">
 <h2>Common Reactor Types and their Implementation in Cantera<a class="headerlink" href="#common-reactor-types-and-their-implementation-in-cantera" title="Permalink to this headline">¶</a></h2>
@@ -494,7 +491,7 @@ Pressure Reactor can be created, depending on if a constant volume or constant
 pressure batch reactor should be considered, respectively. The behavior of the
 solution in time can be simulated as a very simple Reactor Network containing
 only the formerly created reactor.</p>
-<p>An example for such a Batch Reactor is <a class="reference internal" href="cython/examples/reactors_reactor1.html#py-example-reactor1-py"><em>reactor1.py</em></a>.</p>
+<p>An example for such a Batch Reactor is <a class="reference internal" href="cython/examples/reactors_reactor1.html#py-example-reactor1-py"><span class="std std-ref">reactor1.py</span></a>.</p>
 </div>
 <div class="section" id="continuously-stirred-tank-reactor">
 <h3>Continuously Stirred Tank Reactor<a class="headerlink" href="#continuously-stirred-tank-reactor" title="Permalink to this headline">¶</a></h3>
@@ -518,13 +515,13 @@ are simulated by considering a time-dependent constant volume reactor with
 specified in- and outflow conditions. Starting off at an initial solution, the
 reactor network containing this reactor is advanced in time until the state of
 the solution is converged. An example for this procedure is
-<a class="reference internal" href="cython/examples/reactors_combustor.html#py-example-combustor-py"><em>combustor.py</em></a>.</p>
+<a class="reference internal" href="cython/examples/reactors_combustor.html#py-example-combustor-py"><span class="std std-ref">combustor.py</span></a>.</p>
 <p>A problem can be the ignition of a CSTR: If the reactants are not reactive
 enough, the simulation can result in the trivial solution that inflow and
 outflow states are identical. To solve this problem, the reactor can be
 initialized with a high temperature and/or radical concentration. A good
 approach is to use the equilibrium composition of the reactants (which can be
-computed using Cantera&#8217;s <code class="docutils literal"><span class="pre">equilibrate</span></code> function) as an initial guess.</p>
+computed using Cantera’s <code class="docutils literal"><span class="pre">equilibrate</span></code> function) as an initial guess.</p>
 </div>
 <div class="section" id="plug-flow-reactor">
 <h3>Plug-Flow Reactor<a class="headerlink" href="#plug-flow-reactor" title="Permalink to this headline">¶</a></h3>
@@ -589,7 +586,7 @@ change of the fluid particle can be computed by a forward (upwind) integration
 in time. Using the continuity equation, the speed of the particle can be
 derived. By integrating the velocity in time, the temporal information can be
 translated into the spatial resolution of the PFR.</p>
-<p>An example for this procedure can be found in <a class="reference internal" href="cython/examples/reactors_pfr.html#py-example-pfr-py"><em>pfr.py</em></a>.</p>
+<p>An example for this procedure can be found in <a class="reference internal" href="cython/examples/reactors_pfr.html#py-example-pfr-py"><span class="std std-ref">pfr.py</span></a>.</p>
 </div>
 <div class="section" id="pfr-modeling-as-a-series-of-cstrs">
 <h4>PFR Modeling as a Series of CSTRs<a class="headerlink" href="#pfr-modeling-as-a-series-of-cstrs" title="Permalink to this headline">¶</a></h4>
@@ -606,17 +603,17 @@ of the PFR. By performing a time integration as described in <a class="reference
 Stirred Tank Reactor</a> until the state of the reactor is converged, the
 steady-state CSTR solution is computed. The state of the CSTR is the inlet
 boundary condition for the next CSTR downstream.</p>
-<p>An example for this procedure can be found in <a class="reference internal" href="cython/examples/reactors_pfr.html#py-example-pfr-py"><em>pfr.py</em></a> and
-<a class="reference internal" href="cython/examples/reactors_surf_pfr.html#py-example-surf-pfr-py"><em>surf_pfr.py</em></a>.</p>
+<p>An example for this procedure can be found in <a class="reference internal" href="cython/examples/reactors_pfr.html#py-example-pfr-py"><span class="std std-ref">pfr.py</span></a> and
+<a class="reference internal" href="cython/examples/reactors_surf_pfr.html#py-example-surf-pfr-py"><span class="std std-ref">surf_pfr.py</span></a>.</p>
 </div>
 </div>
 </div>
 <div class="section" id="advanced-concepts">
 <h2>Advanced Concepts<a class="headerlink" href="#advanced-concepts" title="Permalink to this headline">¶</a></h2>
-<p>In some cases, Cantera&#8217;s solver is insufficient to describe a certain
+<p>In some cases, Cantera’s solver is insufficient to describe a certain
 configuration. In this situation, Cantera can still be used to provide chemical
 and thermodynamic computations, but external ODE solvers can be applied. See
-example <a class="reference internal" href="cython/examples/reactors_custom.html#py-example-custom-py"><em>custom.py</em></a>.</p>
+example <a class="reference internal" href="cython/examples/reactors_custom.html#py-example-custom-py"><span class="std std-ref">custom.py</span></a>.</p>
 </div>
 <div class="section" id="literature">
 <h2>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h2>
@@ -663,8 +660,8 @@ McGraw Hill, 2000</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016, Cantera Developers.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+        &#169; Copyright 2001-2017, Cantera Developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
 </html>
