@@ -21,8 +21,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Physical Constants" href="constants.html" />
@@ -114,7 +115,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="../_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -193,10 +198,14 @@ determined automatically by the solver.</li>
 <dl class="method">
 <dt id="cantera.FreeFlame.get_flame_speed_reaction_sensitivities">
 <code class="descname">get_flame_speed_reaction_sensitivities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FreeFlame.get_flame_speed_reaction_sensitivities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the normalized sensitivities of the laminar flame speed
+<dd><blockquote>
+<div><p>Compute the normalized sensitivities of the laminar flame speed
 <span class="math">\(S_u\)</span> with respect to the reaction rate constants <span class="math">\(k_i\)</span>:</p>
 <div class="math">
-\[s_i = \frac{k_i}{S_u} \frac{dS_u}{dk_i}\]</div>
+\[s_i = \]</div>
+</div></blockquote>
+<p>rac{k_i}{S_u} 
+rac{dS_u}{dk_i}</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -211,12 +220,47 @@ determined automatically by the solver.</li>
 
 <dl class="method">
 <dt id="cantera.FreeFlame.set_initial_guess">
-<code class="descname">set_initial_guess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FreeFlame.set_initial_guess" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_initial_guess</code><span class="sig-paren">(</span><em>locs=[0.0, 0.3, 0.5, 1.0]</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FreeFlame.set_initial_guess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the initial guess for the solution. The adiabatic flame
 temperature and equilibrium composition are computed for the inlet gas
-composition. The temperature profile rises linearly over 20% of the
-domain width to Tad, then is flat. The mass fraction profiles are set
-similarly.</p>
+composition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>locs</strong> – A list of four locations to define the temperature and mass fraction profiles.
+Profiles rise linearly between the second and third location.
+Locations are given as a fraction of the entire domain</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.FreeFlame.solve">
+<code class="descname">solve</code><span class="sig-paren">(</span><em>loglevel=1</em>, <em>refine_grid=True</em>, <em>auto=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FreeFlame.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve the problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loglevel</strong> – integer flag controlling the amount of diagnostic output. Zero
+suppresses all output, and 5 produces very verbose output.</li>
+<li><strong>refine_grid</strong> – if True, enable grid refinement.</li>
+<li><strong>auto</strong> – if True, sequentially execute the different solution stages
+and attempt to automatically recover from errors. Attempts to first
+solve on the initial grid with energy enabled. If that does not
+succeed, a fixed-temperature solution will be tried followed by
+enabling the energy equation, and then with grid refinement enabled.
+If non-default tolerances have been specified or multicomponent
+transport is enabled, an additional solution using these options
+will be calculated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -273,6 +317,33 @@ temperature and equilibrium composition are computed for the burner
 gas composition. The temperature profile rises linearly in the first
 20% of the flame to Tad, then is flat. The mass fraction profiles are
 set similarly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.BurnerFlame.solve">
+<code class="descname">solve</code><span class="sig-paren">(</span><em>loglevel=1</em>, <em>refine_grid=True</em>, <em>auto=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.BurnerFlame.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve the problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loglevel</strong> – integer flag controlling the amount of diagnostic output. Zero
+suppresses all output, and 5 produces very verbose output.</li>
+<li><strong>refine_grid</strong> – if True, enable grid refinement.</li>
+<li><strong>auto</strong> – if True, sequentially execute the different solution stages
+and attempt to automatically recover from errors. Attempts to first
+solve on the initial grid with energy enabled. If that does not
+succeed, a fixed-temperature solution will be tried followed by
+enabling the energy equation, and then with grid refinement enabled.
+If non-default tolerances have been specified or multicomponent
+transport is enabled, an additional solution using these options
+will be calculated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -354,7 +425,7 @@ may be specified by name or by index</td>
 
 <dl class="method">
 <dt id="cantera.CounterflowDiffusionFlame.set_initial_guess">
-<code class="descname">set_initial_guess</code><span class="sig-paren">(</span><em>fuel=None</em>, <em>oxidizer=None</em>, <em>stoich=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.CounterflowDiffusionFlame.set_initial_guess" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_initial_guess</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cantera.CounterflowDiffusionFlame.set_initial_guess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the initial guess for the solution. The initial guess is generated
 by assuming infinitely-fast chemistry.</p>
 </dd></dl>
@@ -606,12 +677,6 @@ be used.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.FreeFlow.description">
-<code class="descname">description</code><a class="headerlink" href="#cantera.FreeFlow.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of this domain</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="cantera.FreeFlow.energy_enabled">
 <code class="descname">energy_enabled</code><a class="headerlink" href="#cantera.FreeFlow.energy_enabled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines whether or not to solve the energy equation.</p>
@@ -846,12 +911,6 @@ well as arbitrary variation of the transport properties.</p>
 <dt id="cantera.AxisymmetricStagnationFlow.component_names">
 <code class="descname">component_names</code><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.component_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of the names of all components of this domain.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cantera.AxisymmetricStagnationFlow.description">
-<code class="descname">description</code><a class="headerlink" href="#cantera.AxisymmetricStagnationFlow.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of this domain</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1149,12 +1208,6 @@ condition on the flow.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cantera.Domain1D.description">
-<code class="descname">description</code><a class="headerlink" href="#cantera.Domain1D.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>A description of this domain</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="cantera.Domain1D.grid">
 <code class="descname">grid</code><a class="headerlink" href="#cantera.Domain1D.grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>The grid for this domain</p>
@@ -1346,6 +1399,22 @@ object.</p>
 <code class="descname">domains</code><a class="headerlink" href="#cantera.Sim1D.domains" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="cantera.Sim1D.eval">
+<code class="descname">eval</code><span class="sig-paren">(</span><em>self</em>, <em>rdt=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.eval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the governing equations using the current solution estimate,
+storing the residual in the array which is accessible with the
+<a class="reference internal" href="#cantera.Sim1D.work_value" title="cantera.Sim1D.work_value"><code class="xref py py-obj docutils literal"><span class="pre">work_value</span></code></a> function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rdt</strong> – Reciprocal of the time-step</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cantera.Sim1D.eval_count_stats">
 <code class="descname">eval_count_stats</code><a class="headerlink" href="#cantera.Sim1D.eval_count_stats" title="Permalink to this definition">¶</a></dt>
@@ -1371,6 +1440,27 @@ extinguished. Base class method always returns ‘False’</p>
 <dt id="cantera.Sim1D.get_max_grid_points">
 <code class="descname">get_max_grid_points</code><span class="sig-paren">(</span><em>self</em>, <em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.get_max_grid_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the maximum number of grid points in the specified domain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cantera.Sim1D.get_refine_criteria">
+<code class="descname">get_refine_criteria</code><span class="sig-paren">(</span><em>self</em>, <em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.get_refine_criteria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a dictionary of the criteria used to refine one domain. The items in
+the dictionary are the <code class="docutils literal"><span class="pre">ratio</span></code>, <code class="docutils literal"><span class="pre">slope</span></code>, <code class="docutils literal"><span class="pre">curve</span></code>, and <code class="docutils literal"><span class="pre">prune</span></code>,
+as defined in <a class="reference internal" href="#cantera.Sim1D.set_refine_criteria" title="cantera.Sim1D.set_refine_criteria"><code class="xref py py-obj docutils literal"><span class="pre">set_refine_criteria</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>domain</strong> – domain object, index, or name</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">get_refine_criteria</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="go">{&#39;ratio&#39;: 5.0, &#39;slope&#39;: 0.2, &#39;curve&#39;: 0.3, &#39;prune&#39;: 0.03}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -1745,7 +1835,7 @@ will be calculated.</li>
 
 <dl class="method">
 <dt id="cantera.Sim1D.solve_adjoint">
-<code class="descname">solve_adjoint</code><span class="sig-paren">(</span><em>self</em>, <em>perturb</em>, <em>n_params</em>, <em>dgdx</em>, <em>g=None</em>, <em>dp=1e-05</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.solve_adjoint" title="Permalink to this definition">¶</a></dt>
+<code class="descname">solve_adjoint</code><span class="sig-paren">(</span><em>self</em>, <em>perturb</em>, <em>n_params</em>, <em>dgdx</em>, <em>g=None</em>, <em>dp=1e-5</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.solve_adjoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the sensitivities of an objective function using an adjoint method.</p>
 <p>For an objective function <span class="math">\(g(x, p)\)</span> where <span class="math">\(x\)</span> is the state
 vector of the system and <span class="math">\(p\)</span> is a vector of parameters, this
@@ -1814,7 +1904,7 @@ be omitted.</li>
 <dl class="method">
 <dt id="cantera.Sim1D.work_value">
 <code class="descname">work_value</code><span class="sig-paren">(</span><em>self</em>, <em>domain</em>, <em>component</em>, <em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Sim1D.work_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Internal work array value at one point. After calling eval, this array
+<dd><p>Internal work array value at one point. After calling <a class="reference internal" href="#cantera.Sim1D.eval" title="cantera.Sim1D.eval"><code class="xref py py-obj docutils literal"><span class="pre">eval</span></code></a>, this array
 contains the values of the residual function.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2151,8 +2241,10 @@ species <span class="math">\(k\)</span> and <span class="math">\(X_k\)</span> th
 <dl class="attribute">
 <dt id="cantera.FlameBase.forward_rate_constants">
 <code class="descname">forward_rate_constants</code><a class="headerlink" href="#cantera.FlameBase.forward_rate_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Forward rate constants for all reactions. Units are a combination of
-kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+<dd><p>Forward rate constants for all reactions. The computed values include
+all temperature-dependent, pressure-dependent, and third body
+contributions. Units are a combination of kmol, m^3 and s, that depend
+on the rate expression for the reaction.</p>
 <p>Returns an array of size <code class="xref py py-obj docutils literal"><span class="pre">n_reactions</span></code> x <code class="xref py py-obj docutils literal"><span class="pre">n_points</span></code>.</p>
 </dd></dl>
 
@@ -2175,6 +2267,19 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <dt id="cantera.FlameBase.gas">
 <code class="descname">gas</code><a class="headerlink" href="#cantera.FlameBase.gas" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="cantera.FlameBase.get_refine_criteria">
+<code class="descname">get_refine_criteria</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cantera.FlameBase.get_refine_criteria" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a dictionary of the criteria used for grid refinement. The items in
+the dictionary are the <code class="docutils literal"><span class="pre">ratio</span></code>, <code class="docutils literal"><span class="pre">slope</span></code>, <code class="docutils literal"><span class="pre">curve</span></code>, and <code class="docutils literal"><span class="pre">prune</span></code>,
+as defined in <a class="reference internal" href="#cantera.FlameBase.set_refine_criteria" title="cantera.FlameBase.set_refine_criteria"><code class="xref py py-obj docutils literal"><span class="pre">set_refine_criteria</span></code></a>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">prune</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">get_refine_criteria</span><span class="p">()</span>
+<span class="go">{&#39;ratio&#39;: 3.0, &#39;slope&#39;: 0.1, &#39;curve&#39;: 0.2, &#39;prune&#39;: 0.0}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="cantera.FlameBase.gibbs_mass">
@@ -2342,8 +2447,10 @@ pressure [J/kmol/K].</p>
 <dl class="attribute">
 <dt id="cantera.FlameBase.reverse_rate_constants">
 <code class="descname">reverse_rate_constants</code><a class="headerlink" href="#cantera.FlameBase.reverse_rate_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reverse rate constants for all reactions. Units are a combination of
-kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+<dd><p>Reverse rate constants for all reactions. The computed values include
+all temperature-dependent, pressure-dependent, and third body
+contributions. Units are a combination of kmol, m^3 and s, that depend
+on the rate expression for the reaction.</p>
 <p>Returns an array of size <code class="xref py py-obj docutils literal"><span class="pre">n_reactions</span></code> x <code class="xref py py-obj docutils literal"><span class="pre">n_points</span></code>.</p>
 </dd></dl>
 
@@ -2599,7 +2706,7 @@ mole fractions or <code class="docutils literal"><span class="pre">Y</span></cod
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

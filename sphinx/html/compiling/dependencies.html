@@ -21,8 +21,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Special Compiling Cases" href="special-cases.html" />
@@ -88,7 +89,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="../_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -149,9 +154,7 @@ thread support.</li>
 <ul class="simple">
 <li><a class="reference external" href="http://python.org/download/">http://python.org/download/</a></li>
 <li>Known to work with 2.7 and 3.5. Expected to work with versions &gt;= 3.3.</li>
-<li>The Cython module supports Python 2.7 and 3.x. However, SCons requires
-Python 2, so compilation of the Python 3 module requires two Python
-installations.</li>
+<li>The Cython module supports Python 2.7 and 3.x.</li>
 </ul>
 </li>
 <li><p class="first">Boost</p>
@@ -233,13 +236,13 @@ necessary portions will be compiled as part of the Cantera build process.</li>
 <li><a class="reference external" href="http://www.numpy.org/">Numpy</a><ul>
 <li>Required to build the Cantera Python module, and to run significant portions
 of the test suite.</li>
-<li>Known to work with versions 1.8.1-1.13. Expected to work with
+<li>Known to work with versions 1.8.1-1.14.0. Expected to work with
 versions &gt;= 1.8.1.</li>
 </ul>
 </li>
 <li><a class="reference external" href="http://cython.org/">Cython</a><ul>
-<li>Required version &gt;=0.23 installed for Python 2.7 to build the Python module
-for both Python 2.7 and Python 3.x.</li>
+<li>Required version &gt;=0.23 to build the Python module. Must be installed for
+the same Python where SCons is installed.</li>
 </ul>
 </li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/3to2">3to2</a><ul>
@@ -263,16 +266,21 @@ the other Python modules.</li>
 </ul>
 </li>
 <li>Packages required for building Sphinx documentation<ul>
-<li><a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">sphinx</span></code>)</li>
-<li><a class="reference external" href="http://pygments.org/">Pygments</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pygments</span></code>)</li>
-<li><a class="reference external" href="http://sourceforge.net/projects/pyparsing/">pyparsing</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pyparsing</span></code>)</li>
-<li><a class="reference external" href="http://pypi.python.org/pypi/sphinxcontrib-doxylink/">doxylink</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">sphinxcontrib-doxylink</span></code>)</li>
-<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-matlabdomain">matlabdomain</a> (install with <code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinxcontrib-matlabdomain</span></code>)</li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/en/stable/">Sphinx</a></li>
+<li><a class="reference external" href="http://pygments.org/">Pygments</a></li>
+<li><a class="reference external" href="http://sourceforge.net/projects/pyparsing/">pyparsing</a></li>
+<li><a class="reference external" href="https://pythonhosted.org/sphinxcontrib-doxylink/">doxylink</a></li>
+<li><a class="reference external" href="https://pypi.python.org/pypi/sphinxcontrib-matlabdomain">matlabdomain</a></li>
 </ul>
 </li>
 <li><a class="reference external" href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a><ul>
 <li>Required for building the C++ API Documentation</li>
 <li>Version 1.8 or newer is recommended.</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://www.graphviz.org/">Graphviz</a><ul>
+<li>Required to build the dependency graph images in the C++ API Documentation</li>
+<li>Known to work with version 2.40.1, expected to work with versions &gt;=2.40.1</li>
 </ul>
 </li>
 </ul>
@@ -305,7 +313,7 @@ the other Python modules.</li>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

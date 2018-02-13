@@ -21,8 +21,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="One-Dimensional Flames" href="flames.html" />
@@ -115,7 +116,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -237,7 +242,7 @@ state variable, but instead takes on whatever value is consistent with holding
 the pressure constant. The total enthalpy replaces the total internal energy
 as a state variable. Using the definition of the total enthalpy:</p>
 <div class="math">
-\[H = U + pV\]\[\frac{d H}{d t} = \frac{d U}{d t} + p \frac{dV}{dt} + V \frac{dp}{dt}\]</div>
+\[ \begin{align}\begin{aligned}H = U + pV\\\frac{d H}{d t} = \frac{d U}{d t} + p \frac{dV}{dt} + V \frac{dp}{dt}\end{aligned}\end{align} \]</div>
 <p>Noting that <span class="math">\(dp/dt = 0\)</span> and substituting into the energy equation yields:</p>
 <div class="math">
 \[\frac{dH}{dt} = - \dot{Q} + \sum_{in} \dot{m}_{in} h_{in}
@@ -250,9 +255,9 @@ instead of the total internal energy <span class="math">\(U\)</span> as a state 
 we can rewrite the total internal energy in terms of the mass fractions and
 temperature:</p>
 <div class="math">
-\[U = m \sum_k Y_k u_k(T)\]\[\frac{dU}{dt} = u \frac{dm}{dt}
+\[ \begin{align}\begin{aligned}U = m \sum_k Y_k u_k(T)\\\frac{dU}{dt} = u \frac{dm}{dt}
                 + m c_v \frac{dT}{dt}
-                + m \sum_k u_k \frac{dY_k}{dt}\]</div>
+                + m \sum_k u_k \frac{dY_k}{dt}\end{aligned}\end{align} \]</div>
 <p>Substituting the corresponding derivatives yields an equation for the
 temperature:</p>
 <div class="math">
@@ -270,8 +275,8 @@ of constant internal energy.</p>
 variable with the temperature by writing the total enthalpy in terms of the
 mass fractions and temperature:</p>
 <div class="math">
-\[H = m \sum_k Y_k h_k(T)\]\[\frac{dH}{dt} = h \frac{dm}{dt} + m c_p \frac{dT}{dt}
-                + m \sum_k h_k \frac{dY_k}{dt}\]</div>
+\[ \begin{align}\begin{aligned}H = m \sum_k Y_k h_k(T)\\\frac{dH}{dt} = h \frac{dm}{dt} + m c_p \frac{dT}{dt}
+                + m \sum_k h_k \frac{dY_k}{dt}\end{aligned}\end{align} \]</div>
 <p>Substituting the corresponding derivatives yields an equation for the
 temperature:</p>
 <div class="math">
@@ -362,7 +367,7 @@ must be constructed so that it is properly linked to the object representing
 the fluid in the reactor the surface in question faces. The surface
 temperature on each side is taken to be equal to the temperature of the
 reactor it faces.</p>
-<p>Source: <a class="reference external" href="cython/zerodim.html#wall">Python</a> | <span>C++</span></p>
+<p>Source: <a class="reference external" href="cython/zerodim.html#wall">Python</a> | <a class="reference external" href="./../../doxygen/html/classCantera_1_1Wall.html">C++</a></p>
 </li>
 <li><p class="first"><strong>Valve</strong>: A valve is a flow devices with mass flow rate that is a function of
 the pressure drop across it. The default behavior is linear:</p>
@@ -660,7 +665,7 @@ McGraw Hill, 2000</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

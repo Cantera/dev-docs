@@ -21,8 +21,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Reactions" href="reactions.html" />
@@ -100,7 +101,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="../_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -223,9 +228,9 @@ species reference-state thermodynamic properties <span class="math">\(\hat{c}^0_
 <p>The NASA parameterization represents <span class="math">\(\hat{c}^0_p(T)\)</span> with a fourth-order
 polynomial:</p>
 <div class="math">
-\[\frac{c_p^0(T)}{R} = a_0 + a_1 T + a_2 T^2 + a_3 T^3 + a_4 T^4\]\[\frac{h^0(T)}{RT} = a_0 + \frac{a1}{2}T + \frac{a_2}{3} T^2 +
-                    \frac{a_3}{4} T^3 + \frac{a_4}{5} T^4 + \frac{a_5}{T}\]\[\frac{s^0(T)}{R} = a_0 \ln T + a_1 T + \frac{a_2}{2} T^2 + \frac{a_3}{3} T^3 +
-                   \frac{a_4}{4} T^4 + a_6\]</div>
+\[ \begin{align}\begin{aligned}\frac{c_p^0(T)}{R} = a_0 + a_1 T + a_2 T^2 + a_3 T^3 + a_4 T^4\\\frac{h^0(T)}{RT} = a_0 + \frac{a1}{2}T + \frac{a_2}{3} T^2 +
+                    \frac{a_3}{4} T^3 + \frac{a_4}{5} T^4 + \frac{a_5}{T}\\\frac{s^0(T)}{R} = a_0 \ln T + a_1 T + \frac{a_2}{2} T^2 + \frac{a_3}{3} T^3 +
+                   \frac{a_4}{4} T^4 + a_6\end{aligned}\end{align} \]</div>
 <p>Note that this is the “old” NASA polynomial form, used in the original NASA
 equilibrium program and in Chemkin, which uses 7 coefficients in each of two
 temperature regions. It is not compatible with the form used in the most recent
@@ -257,11 +262,11 @@ supporting an arbitrary number of temperature regions.</p>
 <p>The NASA9 parameterization represents the species thermodynamic properties with
 the following equations:</p>
 <div class="math">
-\[\frac{C_p^0(T)}{R} = a_0 T^{-2} + a_1 T^{-1} + a_2 + a_3 T
-                 + a_4 T^2 + a_5 T^3 + a_6 T^4\]\[\frac{H^0(T)}{RT} = - a_0 T^{-2} + a_1 \frac{\ln T}{T} + a_2
+\[ \begin{align}\begin{aligned}\frac{C_p^0(T)}{R} = a_0 T^{-2} + a_1 T^{-1} + a_2 + a_3 T
+                 + a_4 T^2 + a_5 T^3 + a_6 T^4\\\frac{H^0(T)}{RT} = - a_0 T^{-2} + a_1 \frac{\ln T}{T} + a_2
     + \frac{a_3}{2} T + \frac{a_4}{3} T^2  + \frac{a_5}{4} T^3 +
-    \frac{a_6}{5} T^4 + \frac{a_7}{T}\]\[\frac{s^0(T)}{R} = - \frac{a_0}{2} T^{-2} - a_1 T^{-1} + a_2 \ln T
-   + a_3 T + \frac{a_4}{2} T^2 + \frac{a_5}{3} T^3  + \frac{a_6}{4} T^4 + a_8\]</div>
+    \frac{a_6}{5} T^4 + \frac{a_7}{T}\\\frac{s^0(T)}{R} = - \frac{a_0}{2} T^{-2} - a_1 T^{-1} + a_2 \ln T
+   + a_3 T + \frac{a_4}{2} T^2 + \frac{a_5}{3} T^3  + \frac{a_6}{4} T^4 + a_8\end{aligned}\end{align} \]</div>
 <p>The following is an example of a species defined using the NASA9
 parameterization in three different temperature regions:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">species</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">u</span><span class="s1">&#39;CO2&#39;</span><span class="p">,</span>
@@ -339,9 +344,9 @@ well, saved for example as <code class="xref py py-obj docutils literal"><span c
 <h3>The Shomate Parameterization<a class="headerlink" href="#the-shomate-parameterization" title="Permalink to this headline">¶</a></h3>
 <p>The Shomate parameterization is:</p>
 <div class="math">
-\[\hat{c}_p^0(T) = A + Bt + Ct^2 + Dt^3 + \frac{E}{t^2}\]\[\hat{h}^0(T) = At + \frac{Bt^2}{2} + \frac{Ct^3}{3} + \frac{Dt^4}{4} -
-               \frac{E}{t} + F\]\[\hat{s}^0(T) = A \ln t + B t + \frac{Ct^2}{2} + \frac{Dt^3}{3} -
-               \frac{E}{2t^2} + G\]</div>
+\[ \begin{align}\begin{aligned}\hat{c}_p^0(T) = A + Bt + Ct^2 + Dt^3 + \frac{E}{t^2}\\\hat{h}^0(T) = At + \frac{Bt^2}{2} + \frac{Ct^3}{3} + \frac{Dt^4}{4} -
+               \frac{E}{t} + F\\\hat{s}^0(T) = A \ln t + B t + \frac{Ct^2}{2} + \frac{Dt^3}{3} -
+               \frac{E}{2t^2} + G\end{aligned}\end{align} \]</div>
 <p>where <span class="math">\(t = T / 1000 K\)</span>. It requires 7 coefficients A, B, C, D, E, F, and
 G. This parameterization is used to represent reference-state properties in the
 <a class="reference external" href="http://webbook.nist.gov/chemistry">NIST Chemistry WebBook</a>. The values of the
@@ -365,7 +370,7 @@ approximated as constant, and simpler expressions can be used for the thermodyna
 properties. The <a class="reference internal" href="classes.html#cantera.ctml_writer.const_cp" title="cantera.ctml_writer.const_cp"><code class="xref py py-class docutils literal"><span class="pre">const_cp</span></code></a> parameterization computes the properties as
 follows:</p>
 <div class="math">
-\[\hat{c}_p^0(T) = \hat{c}_p^0(T_0)\]\[\hat{h}^0(T) = \hat{h}^0(T_0) + \hat{c}_p^0\cdot(T-T_0)\]\[\hat{s}^0(T) = \hat{s}^0(T_0) + \hat{c}_p^0 \ln (T/T_0)\]</div>
+\[ \begin{align}\begin{aligned}\hat{c}_p^0(T) = \hat{c}_p^0(T_0)\\\hat{h}^0(T) = \hat{h}^0(T_0) + \hat{c}_p^0\cdot(T-T_0)\\\hat{s}^0(T) = \hat{s}^0(T_0) + \hat{c}_p^0 \ln (T/T_0)\end{aligned}\end{align} \]</div>
 <p>The parameterization uses four constants: <span class="math">\(T_0, \hat{c}_p^0(T_0),
 \hat{h}^0(T_0), \hat{s}^0(T)\)</span>. The default value of <span class="math">\(T_0\)</span> is 298.15 K; the
 default value for the other parameters is 0.0.</p>
@@ -428,7 +433,7 @@ NASA/TP-2002-211556, Sept. 2002.</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

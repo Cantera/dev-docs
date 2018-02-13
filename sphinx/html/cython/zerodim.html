@@ -21,8 +21,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="One-dimensional Reacting Flows" href="onedim.html" />
@@ -116,7 +117,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="../_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -354,7 +359,7 @@ time to time <em>t</em> [s], taking as many integrator timesteps as necessary.</
 
 <dl class="method">
 <dt id="cantera.ReactorNet.advance_to_steady_state">
-<code class="descname">advance_to_steady_state</code><span class="sig-paren">(</span><em>self</em>, <em>int max_steps=10000</em>, <em>double residual_threshold=0.0</em>, <em>double atol=0.0</em>, <em>bool return_residuals=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ReactorNet.advance_to_steady_state" title="Permalink to this definition">¶</a></dt>
+<code class="descname">advance_to_steady_state</code><span class="sig-paren">(</span><em>self</em>, <em>int max_steps=10000</em>, <em>double residual_threshold=0.</em>, <em>double atol=0.</em>, <em>bool return_residuals=False</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ReactorNet.advance_to_steady_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Advance the reactor network in time until steady state is reached.</p>
 <p>The steady state is defined by requiring that the state of the system
 only changes below a certain threshold. The residual is computed using
@@ -527,13 +532,9 @@ to use.</p>
 
 <dl class="method">
 <dt id="cantera.ReactorNet.step">
-<code class="descname">step</code><span class="sig-paren">(</span><em>self</em>, <em>double t=-999</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ReactorNet.step" title="Permalink to this definition">¶</a></dt>
+<code class="descname">step</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.ReactorNet.step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take a single internal time step. The time after taking the step is
 returned.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 2.2: </span>The argument <em>t</em> is deprecated and will be removed after
-Cantera 2.3.</p>
-</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -958,7 +959,7 @@ shown below.</p>
 <dt id="cantera.Wall">
 <em class="property">class </em><code class="descclassname">cantera.</code><code class="descname">Wall</code><span class="sig-paren">(</span><em>left</em>, <em>right</em>, <em>*</em>, <em>name=None</em>, <em>A=None</em>, <em>K=None</em>, <em>U=None</em>, <em>Q=None</em>, <em>velocity=None</em>, <em>kinetics=(None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Wall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Wall(left, right, name=None, <a href="#id9"><span class="problematic" id="id10">*</span></a>, A=None, K=None, U=None, Q=None, velocity=None, kinetics=(None, None))</p>
+<p>Wall(left, right, name=None, <a href="#id9"><span class="problematic" id="id10">*</span></a>, A=None, K=None, U=None, Q=None, velocity=None)</p>
 <p>A Wall separates two reactors, or a reactor and a reservoir. A wall has a
 finite area, may conduct or radiate heat between the two reactors on either
 side, and may move like a piston.</p>
@@ -996,12 +997,6 @@ is an integer assigned in the order walls are created.</li>
 <span class="math">\(q_0(t) = 0.0\)</span>.</li>
 <li><strong>velocity</strong> – Wall velocity function <span class="math">\(v_0(t)\)</span> [m/s].
 Default: <span class="math">\(v_0(t) = 0.0\)</span>.</li>
-<li><strong>kinetics</strong> – Surface reaction mechanisms for the left-facing and right-facing
-surface, respectively. These must be instances of class Kinetics,
-or of a class derived from Kinetics, such as Interface. If
-chemistry occurs on only one side, enter <code class="docutils literal"><span class="pre">None</span></code> for the
-non-reactive side. <em>Deprecated. To be removed after
-Cantera 2.3.</em></li>
 </ul>
 </td>
 </tr>
@@ -1083,29 +1078,6 @@ volume increasing, and the right-hand reactor volume decreasing.</p>
 <dt id="cantera.WallSurface">
 <em class="property">class </em><code class="descclassname">cantera.</code><code class="descname">WallSurface</code><span class="sig-paren">(</span><em>wall</em>, <em>side</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.WallSurface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Represents a wall surface in contact with the contents of a reactor.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 2.2: </span>Use class ReactorSurface to implement reactor surface chemistry. To be
-removed after Cantera 2.3.</p>
-</div>
-<dl class="method">
-<dt id="cantera.WallSurface.add_sensitivity_reaction">
-<code class="descname">add_sensitivity_reaction</code><span class="sig-paren">(</span><em>self</em>, <em>int m</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.WallSurface.add_sensitivity_reaction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cantera.WallSurface.coverages">
-<code class="descname">coverages</code><a class="headerlink" href="#cantera.WallSurface.coverages" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fraction of sites covered by each surface species.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cantera.WallSurface.kinetics">
-<code class="descname">kinetics</code><a class="headerlink" href="#cantera.WallSurface.kinetics" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <a class="reference internal" href="kinetics.html#cantera.InterfaceKinetics" title="cantera.InterfaceKinetics"><code class="xref py py-obj docutils literal"><span class="pre">InterfaceKinetics</span></code></a> object used for calculating reaction
-rates on this wall surface.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -1214,18 +1186,22 @@ a constant or an arbitrary function of time. See <a class="reference internal" h
 <em class="property">class </em><code class="descclassname">cantera.</code><code class="descname">Valve</code><span class="sig-paren">(</span><em>upstream</em>, <em>downstream</em>, <em>*</em>, <em>name=None</em>, <em>K=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.Valve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">cantera._cantera.FlowDevice</span></code></p>
 <p>Valve(upstream, downstream, name=None, <a href="#id15"><span class="problematic" id="id16">*</span></a>, K=None)</p>
-<p>In Cantera, a <a class="reference internal" href="#cantera.Valve" title="cantera.Valve"><code class="xref py py-obj docutils literal"><span class="pre">Valve</span></code></a> is a flow devices with mass flow rate that is a
+<p>In Cantera, a <a class="reference internal" href="#cantera.Valve" title="cantera.Valve"><code class="xref py py-obj docutils literal"><span class="pre">Valve</span></code></a> is a flow device with mass flow rate that is a
 function of the pressure drop across it. The default behavior is linear:</p>
 <div class="math">
-\[\dot m = K_v (P_1 - P_2)\]</div>
-<p>if <span class="math">\(P_1 &gt; P_2.\)</span> Otherwise, <span class="math">\(\dot m = 0\)</span>.
-However, an arbitrary function can also be specified, such that</p>
+\[\dot m = K_v*(P_1 - P_2)\]</div>
+<p>where <span class="math">\(K_v\)</span> is a constant set by the <a class="reference internal" href="#cantera.Valve.set_valve_coeff" title="cantera.Valve.set_valve_coeff"><code class="xref py py-obj docutils literal"><span class="pre">set_valve_coeff</span></code></a> method.
+Note that <span class="math">\(P_1\)</span> must be greater than <span class="math">\(P_2\)</span>; otherwise,
+<span class="math">\(\dot m = 0\)</span>. However, an arbitrary function can also be specified,
+such that</p>
 <div class="math">
-\[\dot m = F(P_1 - P_2)\]</div>
-<p>if <span class="math">\(P_1 &gt; P_2\)</span>, or <span class="math">\(\dot m = 0\)</span> otherwise.
-It is never possible for the flow to reverse and go from the downstream
-to the upstream reactor/reservoir through a line containing a Valve object.</p>
-<p><a class="reference internal" href="#cantera.Valve" title="cantera.Valve"><code class="xref py py-class docutils literal"><span class="pre">Valve</span></code></a> objects are often used between an upstream reactor and a
+\[\dot m = f(P_1 - P_2)\]</div>
+<p>where <span class="math">\(f\)</span> is the arbitrary function that returns the mass flow rate given
+a single argument, the pressure differential. See the documentation for the
+<a class="reference internal" href="#cantera.Valve.set_valve_coeff" title="cantera.Valve.set_valve_coeff"><code class="xref py py-obj docutils literal"><span class="pre">set_valve_coeff</span></code></a> method for an example. Note that it is never possible for
+the flow to reverse and go from the downstream to the upstream
+reactor/reservoir through a line containing a <a class="reference internal" href="#cantera.Valve" title="cantera.Valve"><code class="xref py py-obj docutils literal"><span class="pre">Valve</span></code></a> object.</p>
+<p><a class="reference internal" href="#cantera.Valve" title="cantera.Valve"><code class="xref py py-obj docutils literal"><span class="pre">Valve</span></code></a> objects are often used between an upstream reactor and a
 downstream reactor or reservoir to maintain them both at nearly the same
 pressure. By setting the constant <span class="math">\(K_v\)</span> to a sufficiently large
 value, very small pressure differences will result in flow between the
@@ -1238,8 +1214,8 @@ the valve. If a number is given, it is the proportionality constant
 [kg/s/Pa]. If a function is given, it should compute the mass flow
 rate [kg/s] given the pressure drop [Pa].</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">V</span> <span class="o">=</span> <span class="n">Valve</span><span class="p">(</span><span class="n">res1</span><span class="p">,</span> <span class="n">reactor1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">set_valve_coeff</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">set_valve_coeff</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dP</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span> <span class="o">*</span> <span class="n">dP</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">set_valve_coeff</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span>  <span class="c1"># Set the value of K to a constant</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V</span><span class="o">.</span><span class="n">set_valve_coeff</span><span class="p">(</span><span class="k">lambda</span> <span class="n">dP</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span> <span class="o">*</span> <span class="n">dP</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Set the value of K to a function</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1273,7 +1249,7 @@ rate.</p>
 <dl class="method">
 <dt id="cantera.PressureController.set_pressure_coeff">
 <code class="descname">set_pressure_coeff</code><span class="sig-paren">(</span><em>self</em>, <em>double k</em><span class="sig-paren">)</span><a class="headerlink" href="#cantera.PressureController.set_pressure_coeff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the proportionality constant <em>k</em> [kg/s/Pa] between the pressure
+<dd><p>Set the proportionality constant <span class="math">\(K_v\)</span> [kg/s/Pa] between the pressure
 drop and the mass flow rate.</p>
 </dd></dl>
 
@@ -1309,7 +1285,7 @@ drop and the mass flow rate.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

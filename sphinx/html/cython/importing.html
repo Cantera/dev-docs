@@ -21,8 +21,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Thermodynamic Properties" href="thermo.html" />
@@ -90,7 +91,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="../_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -540,6 +545,19 @@ or as a string. Always returns an array:</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="cantera.Quantity.activities">
+<code class="descname">activities</code><a class="headerlink" href="#cantera.Quantity.activities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional activities. Returns either molar or molal
+activities depending on the convention of the thermodynamic model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cantera.Quantity.activity_coefficients">
+<code class="descname">activity_coefficients</code><a class="headerlink" href="#cantera.Quantity.activity_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of nondimensional, molar activity coefficients.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="cantera.Quantity.add_reaction">
 <code class="descname">add_reaction</code><a class="headerlink" href="#cantera.Quantity.add_reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new reaction to this phase.</p>
@@ -869,8 +887,10 @@ species <span class="math">\(k\)</span>, <span class="math">\(\sum_j\)</span> be
 <dl class="attribute">
 <dt id="cantera.Quantity.forward_rate_constants">
 <code class="descname">forward_rate_constants</code><a class="headerlink" href="#cantera.Quantity.forward_rate_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Forward rate constants for all reactions. Units are a combination of
-kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+<dd><p>Forward rate constants for all reactions. The computed values include
+all temperature-dependent, pressure-dependent, and third body
+contributions. Units are a combination of kmol, m^3 and s, that depend
+on the rate expression for the reaction.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1258,8 +1278,10 @@ following two statements are equivalent:</p>
 <dl class="attribute">
 <dt id="cantera.Quantity.reverse_rate_constants">
 <code class="descname">reverse_rate_constants</code><a class="headerlink" href="#cantera.Quantity.reverse_rate_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reverse rate constants for all reactions. Units are a combination of
-kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+<dd><p>Reverse rate constants for all reactions. The computed values include
+all temperature-dependent, pressure-dependent, and third body
+contributions. Units are a combination of kmol, m^3 and s, that depend
+on the rate expression for the reaction.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1285,8 +1307,8 @@ phases or [kmol/m^2/s] for surface phases.</p>
 <code class="descname">set_equivalence_ratio</code><a class="headerlink" href="#cantera.Quantity.set_equivalence_ratio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the composition to a mixture of <em>fuel</em> and <em>oxidizer</em> at the
 specified equivalence ratio <em>phi</em>, holding temperature and pressure
-constant. Considers the oxidation of C and H to CO2 and H2O. Other
-elements are assumed not to participate in oxidation (i.e. N ends up as
+constant. Considers the oxidation of C to CO2, H to H2O and S to SO2.
+Other elements are assumed not to participate in oxidation (i.e. N ends up as
 N2):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">set_equivalence_ratio</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;O2:1.0, N2:3.76&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gas</span><span class="o">.</span><span class="n">mole_fraction_dict</span><span class="p">()</span>
@@ -2135,8 +2157,10 @@ returned. If no such element is present, an exception is thrown.</p>
 <dl class="attribute">
 <dt id="cantera.SolutionArray.forward_rate_constants">
 <code class="descname">forward_rate_constants</code><a class="headerlink" href="#cantera.SolutionArray.forward_rate_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Forward rate constants for all reactions. Units are a combination of
-kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+<dd><p>Forward rate constants for all reactions. The computed values include
+all temperature-dependent, pressure-dependent, and third body
+contributions. Units are a combination of kmol, m^3 and s, that depend
+on the rate expression for the reaction.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2466,8 +2490,10 @@ reaction in the sequence <em>indices</em>. For example:</p>
 <dl class="attribute">
 <dt id="cantera.SolutionArray.reverse_rate_constants">
 <code class="descname">reverse_rate_constants</code><a class="headerlink" href="#cantera.SolutionArray.reverse_rate_constants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reverse rate constants for all reactions. Units are a combination of
-kmol, m^3 and s, that depend on the rate expression for the reaction.</p>
+<dd><p>Reverse rate constants for all reactions. The computed values include
+all temperature-dependent, pressure-dependent, and third body
+contributions. Units are a combination of kmol, m^3 and s, that depend
+on the rate expression for the reaction.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2673,7 +2699,7 @@ only with 1D SolutionArray objects.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

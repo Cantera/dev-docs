@@ -21,8 +21,9 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="CTI Class Reference" href="classes.html" />
@@ -109,7 +110,11 @@
       <input type="hidden" name="area" value="default" />
     </form>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script type="text/javascript">$('#searchbox').show(0);</script><div id="numfocus">
+<h3>Donate to Cantera</h3>
+<a href="https://www.flipcause.com/secure/cause_pdetails/Mjk3MjU=">
+<img src="../_static/powered_by_NumFOCUS.png" border="0" alt="NumFOCUS"/></a>
+</div>
         </div>
       </div>
 
@@ -328,7 +333,7 @@ specified by assigning an embedded entry to the <code class="docutils literal"><
 <p>A widely-used falloff function is the one proposed by Gilbert et
 al. <a class="footnote-reference" href="#gilbert1983" id="id3">[1]</a>:</p>
 <div class="math">
-\[\log_{10} F(T, P_r) = \frac{\log_{10} F_{cent}(T)}{1 + f_1^2}\]\[F_{cent}(T) = (1-A) \exp(-T/T_3) + A \exp (-T/T_1) + \exp(-T_2/T)\]\[f_1 = (\log_{10} P_r + C) / (N - 0.14 (\log_{10} P_r + C))\]\[C = -0.4 - 0.67\; \log_{10} F_{cent}\]\[N = 0.75 - 1.27\; \log_{10} F_{cent}\]</div>
+\[ \begin{align}\begin{aligned}\log_{10} F(T, P_r) = \frac{\log_{10} F_{cent}(T)}{1 + f_1^2}\\F_{cent}(T) = (1-A) \exp(-T/T_3) + A \exp (-T/T_1) + \exp(-T_2/T)\\f_1 = (\log_{10} P_r + C) / (N - 0.14 (\log_{10} P_r + C))\\C = -0.4 - 0.67\; \log_{10} F_{cent}\\N = 0.75 - 1.27\; \log_{10} F_{cent}\end{aligned}\end{align} \]</div>
 <p>The <a class="reference internal" href="classes.html#cantera.ctml_writer.Troe" title="cantera.ctml_writer.Troe"><code class="xref py py-class docutils literal"><span class="pre">Troe</span></code></a> directive requires specifying the first three parameters
 <span class="math">\((A, T_3, T_1)\)</span>. The fourth parameter, <span class="math">\(T_2\)</span>, is optional, defaulting to 0.0.</p>
 </div>
@@ -380,7 +385,7 @@ units of <span class="math">\(k_\infty\)</span> (<code class="xref py py-obj doc
 by logarithmically interpolating between Arrhenius rate expressions at various
 pressures. Given two rate expressions at two specific pressures:</p>
 <div class="math">
-\[P_1: k_1(T) = A_1 T^{b_1} e^{E_1 / RT}\]\[P_2: k_2(T) = A_2 T^{b_2} e^{E_2 / RT}\]</div>
+\[ \begin{align}\begin{aligned}P_1: k_1(T) = A_1 T^{b_1} e^{E_1 / RT}\\P_2: k_2(T) = A_2 T^{b_2} e^{E_2 / RT}\end{aligned}\end{align} \]</div>
 <p>The rate at an intermediate pressure <span class="math">\(P_1 &lt; P &lt; P_2\)</span> is computed as</p>
 <div class="math">
 \[\log k(T,P) = \log k_1(T) + \bigl(\log k_2(T) - \log k_1(T)\bigr)
@@ -415,9 +420,9 @@ can be written as:</p>
 is the Chebyshev polynomial of the first kind of degree <span class="math">\(n\)</span> evaluated at
 <span class="math">\(x\)</span>, and</p>
 <div class="math">
-\[\tilde{T} \equiv \frac{2T^{-1} - T_\mathrm{min}^{-1} - T_\mathrm{max}^{-1}}
-                      {T_\mathrm{max}^{-1} - T_\mathrm{min}^{-1}}\]\[\tilde{P} \equiv \frac{2 \log P - \log P_\mathrm{min} - \log P_\mathrm{max}}
-                      {\log P_\mathrm{max} - \log P_\mathrm{min}}\]</div>
+\[ \begin{align}\begin{aligned}\tilde{T} \equiv \frac{2T^{-1} - T_\mathrm{min}^{-1} - T_\mathrm{max}^{-1}}
+                      {T_\mathrm{max}^{-1} - T_\mathrm{min}^{-1}}\\\tilde{P} \equiv \frac{2 \log P - \log P_\mathrm{min} - \log P_\mathrm{max}}
+                      {\log P_\mathrm{max} - \log P_\mathrm{min}}\end{aligned}\end{align} \]</div>
 <p>are reduced temperature and reduced pressures which map the ranges
 <span class="math">\((T_\mathrm{min}, T_\mathrm{max})\)</span> and <span class="math">\((P_\mathrm{min},
 P_\mathrm{max})\)</span> to <span class="math">\((-1, 1)\)</span>.</p>
@@ -608,7 +613,7 @@ Science and Technology</em> <strong>27</strong>, pp. 31–43. 1981.</td></tr>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2001-2017, Cantera Developers.
+        &#169; Copyright 2001-2018, Cantera Developers.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
